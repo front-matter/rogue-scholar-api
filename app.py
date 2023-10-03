@@ -1,17 +1,31 @@
-from quart import Quart, render_template, websocket
+import os
+from dotenv import load_dotenv
+from supabase import create_client, Client
+from quart import Quart
 
 app = Quart(__name__)
+load_dotenv()
+url: str = os.environ.get("SUPABASE_URL")
+key: str = os.environ.get("SUPABASE_ANON_KEY")
+supabase: Client = create_client(supabase_url=url, supabase_key=key)
+blogsSelect = "slug, title, description, language, favicon, feed_url, feed_format, home_page_url, generator, category"
 
-@app.route("/api")
-async def json():
-    return {"hello": "world"}
+
+@app.route("/")
+def default():
+    return "Hello World"
 
 
-@app.websocket("/ws")
-async def ws():
-    while True:
-        await websocket.send("hello")
-        await websocket.send_json({"hello": "world"})
+@app.route("/blogs")
+async def blogs():
+    response = (
+        supabase.table("blogs")
+        .select(blogsSelect)
+        .eq("status", "active")
+        .order("title")
+        .execute()
+    )
+    return response.data
 
 
 if __name__ == "__main__":
