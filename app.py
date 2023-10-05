@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+from uuid import UUID
 from supabase import create_client, Client as SupabaseClient
 from quart import Quart, request
 import typesense as ts
@@ -16,6 +17,7 @@ blogsSelect = "slug, title, description, language, favicon, feed_url, feed_forma
 blogWithPostsSelect = "slug, title, description, language, favicon, feed_url, current_feed_url, archive_prefix, feed_format, home_page_url, use_mastodon, created_at, modified_at, license, generator, category, backlog, prefix, status, plan, funding, items: posts (id, doi, url, archive_url, title, summary, published_at, updated_at, indexed_at, authors, image, tags, language, reference)"
 postsSelect = "id, doi, url, archive_url, title, summary, published_at, updated_at, indexed_at, authors, image, tags, language, reference, relationships, blog_name, blog_slug"
 postsWithBlogSelect = "id, doi, url, archive_url, title, summary, published_at, updated_at, indexed_at, authors, image, tags, language, reference, relationships, blog_name, blog_slug, blog: blogs!inner(*)"
+postsWithContentSelect = "id, doi, url, archive_url, title, summary, content_html, published_at, updated_at, indexed_at, authors, image, tags, language, reference, relationships, blog_name, blog_slug, blog: blogs!inner(*)"
 typesense = ts.Client(
     {
         "api_key": os.environ.get("TYPESENSE_API_KEY"),
@@ -70,15 +72,6 @@ async def posts():
     # format = request.args.get('format') or "json"
     # locale = request.args.get('locale') or "en-US"
     # style = request.args.get('locale') or "apa"
-    # prefixes = [
-    #     "10.34732",
-    #     "10.53731",
-    #     "10.54900",
-    #     "10.57689",
-    #     "10.59348",
-    #     "10.59349",
-    #     "10.59350",
-    # ]
     # formats = ["bibtex", "ris", "csl", "citation"]
     search_parameters = {
         "q": query,
@@ -94,7 +87,17 @@ async def posts():
 
 
 @app.route("/posts/<slug>")
-async def post(slug):
+@app.route("/posts/<slug>/<suffix>")
+async def post(slug, suffix=None):
+    prefixes = [
+        "10.34732",
+        "10.53731",
+        "10.54900",
+        "10.57689",
+        "10.59348",
+        "10.59349",
+        "10.59350",
+    ]
     if slug == "unregistered":
         response = (
             supabase.table("posts")
@@ -118,15 +121,30 @@ async def post(slug):
             .execute()
         )
         return response.data
-    else:
+    elif slug in prefixes and suffix:
+        doi = f"https://doi.org/{slug}/{suffix}"
         response = (
             supabase.table("posts")
-            .select(postsSelect)
-            .eq("id", slug)
-            .maybe_single()
+            .select(postsWithContentSelect)
+            .eq("doi", doi)
+            .single()
             .execute()
         )
         return response.data
+    else:
+        # Check if slug is a valid UUID
+        try:
+            UUID(slug, version=4)
+            response = (
+                supabase.table("posts")
+                .select(postsSelect)
+                .eq("id", slug)
+                .maybe_single()
+                .execute()
+            )
+            return response.data
+        except ValueError:
+            return {"error": "Not a valid uuid."}, 400
 
 
 if __name__ == "__main__":
