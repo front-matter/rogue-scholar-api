@@ -28,5 +28,15 @@ async def blogs():
     return response.data
 
 
+@app.route('/blogs/<slug>')
+async def page(slug):
+    response = (
+        supabase.table("blogs")
+        .select(blogsSelect)
+        .eq("slug", slug)
+        .execute()
+    )
+    return response.data
+
 if __name__ == "__main__":
     app.run()
