@@ -137,7 +137,7 @@ async def post(slug, suffix=None):
             UUID(slug, version=4)
             response = (
                 supabase.table("posts")
-                .select(postsSelect)
+                .select(postsWithBlogSelect)
                 .eq("id", slug)
                 .maybe_single()
                 .execute()
