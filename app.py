@@ -3,7 +3,8 @@ from dotenv import load_dotenv
 from supabase import create_client, Client as SupabaseClient
 from quart import Quart, request
 import typesense as ts
-from typesense.exceptions import TypesenseClientError
+
+# from typesense.exceptions import TypesenseClientError
 
 
 app = Quart(__name__)
@@ -14,6 +15,7 @@ supabase: SupabaseClient = create_client(supabase_url=url, supabase_key=key)
 blogsSelect = "slug, title, description, language, favicon, feed_url, feed_format, home_page_url, generator, category"
 blogWithPostsSelect = "slug, title, description, language, favicon, feed_url, current_feed_url, archive_prefix, feed_format, home_page_url, use_mastodon, created_at, modified_at, license, generator, category, backlog, prefix, status, plan, funding, items: posts (id, doi, url, archive_url, title, summary, published_at, updated_at, indexed_at, authors, image, tags, language, reference)"
 postsSelect = "id, doi, url, archive_url, title, summary, published_at, updated_at, indexed_at, authors, image, tags, language, reference, relationships, blog_name, blog_slug"
+postsWithBlogSelect = "id, doi, url, archive_url, title, summary, published_at, updated_at, indexed_at, authors, image, tags, language, reference, relationships, blog_name, blog_slug, blog: blogs!inner(*)"
 typesense = ts.Client(
     {
         "api_key": os.environ.get("TYPESENSE_API_KEY"),
@@ -63,7 +65,6 @@ async def blog(slug):
 
 @app.route("/posts")
 async def posts():
-    slug = request.args.get("slug")
     query = request.args.get("query") or ""
     page = int(request.args.get("page") or "1")
     # format = request.args.get('format') or "json"
@@ -94,14 +95,38 @@ async def posts():
 
 @app.route("/posts/<slug>")
 async def post(slug):
-    response = (
-        supabase.table("posts")
-        .select(postsSelect)
-        .eq("id", slug)
-        .maybe_single()
-        .execute()
-    )
-    return response.data
+    if slug == "unregistered":
+        response = (
+            supabase.table("posts")
+            .select(postsWithBlogSelect)
+            .not_.is_("blogs.prefix", "null")
+            .is_("doi", "null")
+            .order("published_at", desc=True)
+            .limit(15)
+            .execute()
+        )
+        return response.data
+    elif slug == "not_indexed":
+        response = (
+            supabase.table("posts")
+            .select(postsWithBlogSelect)
+            .not_.is_("blogs.prefix", "null")
+            .eq("not_indexed", True)
+            .not_.is_("doi", "null")
+            .order("published_at", desc=True)
+            .limit(15)
+            .execute()
+        )
+        return response.data
+    else:
+        response = (
+            supabase.table("posts")
+            .select(postsSelect)
+            .eq("id", slug)
+            .maybe_single()
+            .execute()
+        )
+        return response.data
 
 
 if __name__ == "__main__":
