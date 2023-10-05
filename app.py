@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from uuid import UUID
 from supabase import create_client, Client as SupabaseClient
-from quart import Quart, request
+from quart import Quart, request, jsonify
 import typesense as ts
 
 # from typesense.exceptions import TypesenseClientError
@@ -50,7 +50,7 @@ async def blogs():
         .range(start_page, end_page)
         .execute()
     )
-    return response.data
+    return jsonify(response.data)
 
 
 @app.route("/blogs/<slug>")
@@ -62,7 +62,7 @@ async def blog(slug):
         .maybe_single()
         .execute()
     )
-    return response.data
+    return jsonify(response.data)
 
 
 @app.route("/posts")
@@ -83,7 +83,7 @@ async def posts():
         "page": page if page and page > 0 else 1,
     }
     response = typesense.collections["posts"].documents.search(search_parameters)
-    return response
+    return jsonify(response)
 
 
 @app.route("/posts/<slug>")
@@ -108,7 +108,7 @@ async def post(slug, suffix=None):
             .limit(15)
             .execute()
         )
-        return response.data
+        return jsonify(response.data)
     elif slug == "not_indexed":
         response = (
             supabase.table("posts")
@@ -120,7 +120,7 @@ async def post(slug, suffix=None):
             .limit(15)
             .execute()
         )
-        return response.data
+        return jsonify(response.data)
     elif slug in prefixes and suffix:
         doi = f"https://doi.org/{slug}/{suffix}"
         response = (
@@ -130,7 +130,7 @@ async def post(slug, suffix=None):
             .single()
             .execute()
         )
-        return response.data
+        return jsonify(response.data)
     else:
         # Check if slug is a valid UUID
         try:
@@ -142,7 +142,7 @@ async def post(slug, suffix=None):
                 .maybe_single()
                 .execute()
             )
-            return response.data
+            return jsonify(response.data)
         except ValueError:
             return {"error": "Not a valid uuid."}, 400
 
