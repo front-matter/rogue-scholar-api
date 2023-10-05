@@ -1,2 +1,2 @@
 # TODO: Modify this Procfile to fit your needs
-web: hypercorn app:app
+web: hypercorn -b 0.0.0.0:$PORT app:app
