@@ -17,6 +17,13 @@ quart-schema = "^0.17.1"
 typesense = "^0.17.0"
 
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.2"
+pytest-cov = "^4.1.0"
+pytest-recording = "^0.13.0"
+ruff = "^0.0.292"
+black = "^23.9.1"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

@@ -5,6 +5,8 @@ from supabase import create_client, Client as SupabaseClient
 from quart import Quart, request, jsonify
 import typesense as ts
 
+from utils import get_doi_metadata
+
 # from typesense.exceptions import TypesenseClientError
 
 
@@ -69,10 +71,6 @@ async def blog(slug):
 async def posts():
     query = request.args.get("query") or ""
     page = int(request.args.get("page") or "1")
-    # format = request.args.get('format') or "json"
-    # locale = request.args.get('locale') or "en-US"
-    # style = request.args.get('locale') or "apa"
-    # formats = ["bibtex", "ris", "csl", "citation"]
     search_parameters = {
         "q": query,
         "query_by": "tags,title,doi,authors.name,authors.url,summary,content_html,reference",
@@ -98,6 +96,10 @@ async def post(slug, suffix=None):
         "10.59349",
         "10.59350",
     ]
+    format = request.args.get('format') or "json"
+    locale = request.args.get('locale') or "en-US"
+    style = request.args.get('locale') or "apa"
+    formats = ["bibtex", "ris", "csl", "citation"]
     if slug == "unregistered":
         response = (
             supabase.table("posts")
@@ -123,14 +125,27 @@ async def post(slug, suffix=None):
         return jsonify(response.data)
     elif slug in prefixes and suffix:
         doi = f"https://doi.org/{slug}/{suffix}"
-        response = (
-            supabase.table("posts")
-            .select(postsWithContentSelect)
-            .eq("doi", doi)
-            .single()
-            .execute()
-        )
-        return jsonify(response.data)
+        if (format in formats):
+            content_types = {
+                "bibtex": "application/x-bibtex",
+                "ris": "application/x-research-info-systems",
+                "csl": "application/vnd.citationstyles.csl+json",
+                "citation": f"text/x-bibliography; style={style}; locale={locale}",
+            }
+            content_type = content_types.get(format)
+            metadata = get_doi_metadata(doi, headers={"Accept": content_type})
+            if (metadata):
+                return metadata
+            return {"error": "Metadata not found."}, 404
+        else:
+            response = (
+                supabase.table("posts")
+                .select(postsWithContentSelect)
+                .eq("doi", doi)
+                .single()
+                .execute()
+            )
+            return jsonify(response.data)
     else:
         # Check if slug is a valid UUID
         try:
