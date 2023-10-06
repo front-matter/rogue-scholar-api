@@ -96,9 +96,9 @@ async def post(slug, suffix=None):
         "10.59349",
         "10.59350",
     ]
-    format = request.args.get('format') or "json"
-    locale = request.args.get('locale') or "en-US"
-    style = request.args.get('locale') or "apa"
+    format_ = request.args.get("format") or "json"
+    locale = request.args.get("locale") or "en-US"
+    style = request.args.get("style") or "apa"
     formats = ["bibtex", "ris", "csl", "citation"]
     if slug == "unregistered":
         response = (
@@ -125,18 +125,30 @@ async def post(slug, suffix=None):
         return jsonify(response.data)
     elif slug in prefixes and suffix:
         doi = f"https://doi.org/{slug}/{suffix}"
-        if (format in formats):
+        if format_ in formats:
             content_types = {
                 "bibtex": "application/x-bibtex",
                 "ris": "application/x-research-info-systems",
                 "csl": "application/vnd.citationstyles.csl+json",
                 "citation": f"text/x-bibliography; style={style}; locale={locale}",
             }
-            content_type = content_types.get(format)
-            metadata = get_doi_metadata(doi, headers={"Accept": content_type})
-            if (metadata):
-                return metadata
-            return {"error": "Metadata not found."}, 404
+            content_type = content_types.get(format_)
+            response = get_doi_metadata(doi, headers={"Accept": content_type})
+            if not response:
+                return {"error": "Metadata not found."}, 404
+            filename = (
+                f"{slug}-{suffix}.{format_}"
+                if format_ != "citation"
+                else f"{slug}-{suffix}.txt"
+            )
+            return (
+                response,
+                200,
+                {
+                    "Content-Type": content_type,
+                    "Content-Disposition": f"attachment; filename={filename}",
+                },
+            )
         else:
             response = (
                 supabase.table("posts")
