@@ -5,7 +5,7 @@ from supabase import create_client, Client as SupabaseClient
 from quart import Quart, request, jsonify
 import typesense as ts
 
-from utils import get_doi_metadata
+from utils import get_doi_metadata_from_ra
 
 # from typesense.exceptions import TypesenseClientError
 
@@ -126,6 +126,13 @@ async def post(slug, suffix=None):
         return jsonify(response.data)
     elif slug in prefixes and suffix:
         doi = f"https://doi.org/{slug}/{suffix}"
+        response = (
+            supabase.table("posts")
+            .select(postsWithContentSelect)
+            .eq("doi", doi)
+            .single()
+            .execute()
+        )
         if format_ in formats:
             content_types = {
                 "bibtex": "application/x-bibtex",
@@ -134,16 +141,17 @@ async def post(slug, suffix=None):
                 "citation": f"text/x-bibliography; style={style}; locale={locale}",
             }
             content_type = content_types.get(format_)
-            response = get_doi_metadata(doi, headers={"Accept": content_type})
-            if not response:
+            metadata = get_doi_metadata_from_ra(doi, headers={"Accept": content_type})
+            if not metadata:
                 return {"error": "Metadata not found."}, 404
+
             filename = (
                 f"{slug}-{suffix}.{format_}"
                 if format_ != "citation"
                 else f"{slug}-{suffix}.txt"
             )
             return (
-                response,
+                metadata,
                 200,
                 {
                     "Content-Type": content_type,
@@ -151,13 +159,6 @@ async def post(slug, suffix=None):
                 },
             )
         else:
-            response = (
-                supabase.table("posts")
-                .select(postsWithContentSelect)
-                .eq("doi", doi)
-                .single()
-                .execute()
-            )
             return jsonify(response.data)
     else:
         # Check if slug is a valid UUID
