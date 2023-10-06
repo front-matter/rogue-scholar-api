@@ -1,12 +1,4 @@
 import requests
-from commonmeta import Metadata
-from commonmeta.readers import read_json_feed_item
-from commonmeta.writers import (
-    write_bibtex,
-    write_ris,
-    write_csl,
-    write_citation,
-)
 
 
 def get_doi_metadata_from_ra(doi: str, headers) -> str:
@@ -17,16 +9,16 @@ def get_doi_metadata_from_ra(doi: str, headers) -> str:
     return response.text.strip()
 
 
-def format_metadata(meta: dict, to: str = "bibtex"):
-    """use commonmeta-py library to format metadata into various formats"""
-    print(meta)
-    subject = Metadata(meta)
+# def format_metadata(meta: dict, to: str = "bibtex"):
+#     """use commonmeta-py library to format metadata into various formats"""
+#     print(meta)
+#     subject = Metadata(meta)
 
-    if to == "bibtex":
-        return write_bibtex(subject)
-    elif to == "ris":
-        return write_ris(subject)
-    elif to == "csl":
-        return write_csl(subject)
-    elif to == "citation":
-        return write_citation(subject)
+#     if to == "bibtex":
+#         return write_bibtex(subject)
+#     elif to == "ris":
+#         return write_ris(subject)
+#     elif to == "csl":
+#         return write_csl(subject)
+#     elif to == "citation":
+#         return write_citation(subject)
