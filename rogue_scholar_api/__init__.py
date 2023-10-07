@@ -1,16 +1,15 @@
 import os
-from dotenv import load_dotenv
 from uuid import UUID
+from dotenv import load_dotenv
 from supabase import create_client, Client as SupabaseClient
 from quart import Quart, request, jsonify
 import typesense as ts
 
 from rogue_scholar_api.utils import get_doi_metadata_from_ra
 
-# from typesense.exceptions import TypesenseClientError
-
 
 app = Quart(__name__)
+
 load_dotenv()
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_ANON_KEY")
@@ -33,6 +32,10 @@ typesense = ts.Client(
         ],
     }
 )
+
+
+def run() -> None:
+    app.run()
 
 
 @app.route("/")
@@ -174,7 +177,3 @@ async def post(slug, suffix=None):
             return jsonify(response.data)
         except ValueError:
             return {"error": "Not a valid uuid."}, 400
-
-
-if __name__ == "__main__":
-    app.run()

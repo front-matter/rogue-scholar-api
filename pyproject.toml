@@ -8,7 +8,7 @@ readme = "README.md"
 packages = [{include = "rogue_scholar_api"}]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.11"
 Quart = "^0.19.2"
 tox = "^4.11.3"
 hypercorn = "^0.14.4"
@@ -21,11 +21,12 @@ commonmeta-py = "^0.8.4"
 
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.4.2"
+coverage = "*"
+pytest = "^7.2.0"
 pytest-cov = "^4.1.0"
-pytest-recording = "^0.13.0"
 ruff = "^0.0.292"
 black = "^23.9.1"
+pytest-asyncio = "^0.21.1"
 
 [build-system]
 requires = ["poetry-core"]
@@ -51,9 +52,15 @@ legacy_tox_ini = """
     deps = 
         pytest
         pytest-cov
-    commands = pytest --cov=commonmeta --cov-report=xml
+    commands = pytest --cov=rogue_scholar_api --cov-report=xml
 
     [coverage:run]
     relative_files = True
     branch = True
 """
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[tool.poetry.scripts]
+start = "rogue_scholar_api:run"
