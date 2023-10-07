@@ -5,7 +5,7 @@ from supabase import create_client, Client as SupabaseClient
 from quart import Quart, request, jsonify
 import typesense as ts
 
-from utils import get_doi_metadata_from_ra
+from rogue_scholar.utils import get_doi_metadata_from_ra
 
 # from typesense.exceptions import TypesenseClientError
 

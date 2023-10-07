@@ -2,7 +2,7 @@
 [![PyPI version](https://img.shields.io/pypi/v/rogue-scholar-api.svg)](https://pypi.org/project/rogue-scholar-api/)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=front-matter_rogue-scholar-api&metric=coverage)](https://sonarcloud.io/summary/new_code?id=front-matter_rogue-scholar-api)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=front-matter_rogue-scholar-api&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=front-matter_rogue-scholar-api)
-[![docs](https://img.shields.io/badge/docs-passing-blue)](https://rogue-scholar-api.docs.front-matter.io/)
+[![docs](https://img.shields.io/badge/docs-passing-blue)](https://docs.rogue-scholar.org)
 ![GitHub](https://img.shields.io/github/license/front-matter/rogue-scholar-api?logo=MIT)
 
 # rogue-scholar-api

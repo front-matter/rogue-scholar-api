@@ -1,10 +1,11 @@
 [tool.poetry]
 name = "rogue-scholar-api"
-version = "0.1.0"
+version = "0.8.0"
 description = "API for the Rogue Scholar science blogging platform."
 authors = ["Martin Fenner <martin@front-matter.io>"]
 license = "MIT"
 readme = "README.md"
+packages = [{include = "rogue_scholar"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
