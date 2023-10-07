@@ -14,7 +14,9 @@ app = Quart(__name__)
 load_dotenv()
 supabase_url: str = os.environ.get("SUPABASE_URL")
 supabase_key: str = os.environ.get("SUPABASE_ANON_KEY")
-supabase: SupabaseClient = create_client(supabase_url=supabase_url, supabase_key=supabase_key)
+supabase: SupabaseClient = create_client(
+    supabase_url=supabase_url, supabase_key=supabase_key
+)
 blogsSelect = "slug, title, description, language, favicon, feed_url, feed_format, home_page_url, generator, category"
 blogWithPostsSelect = "slug, title, description, language, favicon, feed_url, current_feed_url, archive_prefix, feed_format, home_page_url, use_mastodon, created_at, modified_at, license, generator, category, backlog, prefix, status, plan, funding, items: posts (id, doi, url, archive_url, title, summary, published_at, updated_at, indexed_at, authors, image, tags, language, reference)"
 postsSelect = "id, doi, url, archive_url, title, summary, published_at, updated_at, indexed_at, authors, image, tags, language, reference, relationships, blog_name, blog_slug"
@@ -130,13 +132,6 @@ async def post(slug, suffix=None):
         return jsonify(response.data)
     elif slug in prefixes and suffix:
         doi = f"https://doi.org/{slug}/{suffix}"
-        response = (
-            supabase.table("posts")
-            .select(postsWithContentSelect)
-            .eq("doi", doi)
-            .single()
-            .execute()
-        )
         if format_ in formats:
             content_types = {
                 "bibtex": "application/x-bibtex",
@@ -167,6 +162,17 @@ async def post(slug, suffix=None):
                 },
             )
         else:
+            try:
+                response = (
+                    supabase.table("posts")
+                    .select(postsWithContentSelect)
+                    .eq("doi", doi)
+                    .single()
+                    .execute()
+                )
+            except Exception as e:
+                print(e)
+                return {"error": "Post not found"}, 404
             return jsonify(response.data)
     else:
         # Check if slug is a valid UUID

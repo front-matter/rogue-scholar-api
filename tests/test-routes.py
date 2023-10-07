@@ -140,6 +140,7 @@ async def test_post_as_citation():
         == "Fernández, N. (2023). ¿Qué libros científicos publicamos? https://doi.org/10.59350/sfzv4-xdb68"
     )
 
+
 @pytest.mark.vcr
 async def test_post_as_citation_with_style():
     test_client = app.test_client()
@@ -166,3 +167,12 @@ async def test_post_as_citation_with_locale():
         result
         == "1. Fernández N. ¿Qué libros científicos publicamos? 6 de octubre de 2023; Disponible en: http://dx.doi.org/10.59350/sfzv4-xdb68"
     )
+
+
+@pytest.mark.vcr
+async def test_post_not_found():
+    test_client = app.test_client()
+    response = await test_client.get("/posts/10.59350/sfzv4-xdb69")
+    assert response.status_code == 404
+    result = await response.get_json()
+    assert result == {"error": "Post not found"}
