@@ -9,6 +9,13 @@ jobs:
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+      TYPESENSE_API_KEY: ${{ secrets.TYPESENSE_API_KEY }}
+      TYPESENSE_HOST: ${{ secrets.TYPESENSE_HOST }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -24,10 +31,3 @@ jobs:
         run: sed -i 's@'$GITHUB_WORKSPACE'@/github/workspace/@g' coverage.xml
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
-          TYPESENSE_API_KEY: ${{ secrets.TYPESENSE_API_KEY }}
-          TYPESENSE_HOST: ${{ secrets.TYPESENSE_HOST }}
