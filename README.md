@@ -7,11 +7,15 @@
 
 # rogue-scholar-api
 
-The Python backend for the [Rogue Scholar](https://rogue-scholar.org) science blog archive.
+The backend server for the [Rogue Scholar](https://rogue-scholar.org) science blog archive. The Rogue Scholar API is a [Quart](https://pgjones.gitlab.io/quart/) application that provides a RESTful API for the Rogue Scholar service.
 
 ## Installation
 
-Coming soon.
+Requires Python 3.8 or higher. Uses [Poetry](https://python-poetry.org/) for dependency management. Depends on credentials for the Rogue Scholar Postgres database (hosted by Supabase) and Rogue Scholar search index (hosted by Typesense).
+
+```
+quart --app rogue_scholar run
+```
 
 ## Development
 
