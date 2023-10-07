@@ -48,6 +48,7 @@ legacy_tox_ini = """
         py311
 
     [testenv]
+    passenv = *
     deps = 
         pytest
         pytest-cov

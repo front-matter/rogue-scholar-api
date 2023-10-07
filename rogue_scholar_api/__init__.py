@@ -11,7 +11,7 @@ from rogue_scholar_api.utils import get_doi_metadata_from_ra
 app = Quart(__name__)
 
 load_dotenv()
-supabase_url: str = os.environ.get("SUPABASE_URL") or "https://db.rogue-scholar.org"
+supabase_url: str = os.environ.get("SUPABASE_URL")
 supabase_key: str = os.environ.get("SUPABASE_ANON_KEY")
 supabase: SupabaseClient = create_client(supabase_url=supabase_url, supabase_key=supabase_key)
 blogsSelect = "slug, title, description, language, favicon, feed_url, feed_format, home_page_url, generator, category"
