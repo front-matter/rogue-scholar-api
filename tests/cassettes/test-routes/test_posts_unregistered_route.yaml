@@ -1,0 +1,231 @@
+interactions:
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      user-agent:
+      - python-httpx/0.24.1
+      x-client-info:
+      - supabase-py/1.2.0
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20modified_at%29&blogs.prefix=not.is.null&doi=is.null&order=published_at.desc&limit=15
+  response:
+    content: "[{\"id\":\"7ed56e9b-8e01-4a69-8583-75302b61715d\",\"doi\":null,\"url\":\"https://irights.info/2015/01/29/transmediale-2015-leben-arbeiten-und-spielen-in-den-zeiten-des-full-take/24806\",\"archive_url\":null,\"title\":\"Transmediale-Festival
+      untersucht den \u201EFull Take\u201C unserer Daten\",\"summary\":\"Geheimdienste,
+      Firmen, Staaten, Individuen \u2013 alle sammeln sie Daten. \u201EQuantified
+      Self\u201C, \u201Ealgorithmic society\u201C und \u201Efull take\u201C sind Begriffe,
+      mit denen das Medienfestival Transmediale die Entwicklung beschreibt. Es untersucht,
+      wie K\xFCnstler, Theoretiker und Aktivisten damit umgehen. Zum 28. Mal findet
+      es derzeit in Berlin statt.\",\"published_at\":1422535019,\"updated_at\":1422539760,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"name\":
+      null}],\"image\":null,\"tags\":[\"Fotos Grafiken\",\"Gesellschaft Kunst\",\"Netzkulturen\",\"Transmediale\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
+      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"2023-09-25T10:21:48+00:00\"}},
+      \n {\"id\":\"a371d301-fe0f-4bfc-90b1-4d8aa7d08b51\",\"doi\":null,\"url\":\"https://rossmounce.co.uk/2015/01/27/open-research-london-launch-event\",\"archive_url\":null,\"title\":\"Open
+      Research London launch event\",\"summary\":\"Last week, on Monday 19th January,
+      I co-organised the first ever Open Research London event at Imperial College
+      London, with the help of local organisers;\_Jon Tennant &amp; Torsten Reimer.\",\"published_at\":1422359360,\"updated_at\":1422364982,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"\", \"name\": \"Ross Mounce\"}],\"image\":\"http://rossmounce.co.uk/wp-content/uploads/2015/01/OpenResearch-300x300.png\",\"tags\":[\"Open
+      Access\",\"Open Science\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"A
+      blog by Ross Mounce\",\"blog_slug\":\"rossmounce\",\"blog\":{\"slug\":\"rossmounce\",\"title\":\"A
+      blog by Ross Mounce\",\"description\":null,\"feed_url\":\"https://rossmounce.co.uk/wp-json/wp/v2/posts\",\"home_page_url\":\"https://rossmounce.co.uk\",\"language\":\"en\",\"category\":\"naturalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"2021-11-19T15:57:46+00:00\"}},
+      \n {\"id\":\"d8de5e7e-a51f-4680-9a03-db84ae2404eb\",\"doi\":null,\"url\":\"https://svpow.com/2015/01/23/sideshow-apatosaurus-sans-background\",\"archive_url\":null,\"title\":\"Sideshow
+      <i>Apatosaurus</i> sans background\",\"summary\":\"I made these for my own use
+      in talks, and then thought, why be selfish? Like everything else on this blog,
+      these images are now released to the world under the CC-BY license. Have fun
+      with them. You can read my review of the Sideshow Apatosaurus here; the TL;DR
+      is that it\u2019s awesome.\",\"published_at\":1421996871,\"updated_at\":1421996871,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"http://10minuteastronomy.wordpress.com/\", \"name\": \"Matt Wedel\"}],\"image\":\"https://svpow.files.wordpress.com/2015/01/apatosaurus-maquette-whole-lateral-cropped-angle-2.png\",\"tags\":[\"Apatosaurus\",\"Diplodocids\",\"Gratuitously
+      Awesome Images\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Sauropod
+      Vertebra Picture of the Week\",\"blog_slug\":\"svpow\",\"blog\":{\"slug\":\"svpow\",\"title\":\"Sauropod
+      Vertebra Picture of the Week\",\"description\":\"SV-POW!  ...  All sauropod
+      vertebrae, except when we're talking about Open Access\",\"feed_url\":\"https://svpow.com/feed/atom/\",\"home_page_url\":\"https://svpow.com\",\"language\":\"en\",\"category\":\"earthAndRelatedEnvironmentalSciences\",\"status\":\"active\",\"generator\":\"WordPress.com\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"2023-09-22T14:44:45+00:00\"}},
+      \n {\"id\":\"e7df0a42-201f-4ac6-965d-ee4f1573078d\",\"doi\":null,\"url\":\"https://www.ch.imperial.ac.uk/rzepa/blog?p=13252\",\"archive_url\":null,\"title\":\"Fine-tuning
+      a (hydrogen) bond into symmetry.\",\"summary\":\"Sometimes you come across a
+      bond in chemistry that just shouts at you. This happened to me in 1989[1] with
+      the molecule shown below. Here is its story and, 26 years later, how I responded.
+      \     To start at the beginning, there was a problem with the measured\_<sup>1</sup>H
+      NMR spectrum; specifically (Y=H, Z=O) there are supposedly 16 protons, but only
+      15 could be located. What had happened to the 16th?\",\"published_at\":1421996137,\"updated_at\":1694877563,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-8635-8390\", \"name\": \"Henry Rzepa\"}],\"image\":\"http://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2015/01/JAZCOC.svg\",\"tags\":[],\"language\":\"en\",\"reference\":[{\"doi\":
+      \"http://doi.org/10.1039/C39890001722\", \"key\": \"ref1\"}, {\"doi\": \"http://doi.org/10.14469/ch/189475\",
+      \"key\": \"ref2\"}, {\"doi\": \"http://doi.org/10.14469/ch/189477\", \"key\":
+      \"ref3\"}, {\"doi\": \"http://doi.org/10.14469/ch/189478\", \"key\": \"ref4\"},
+      {\"doi\": \"http://doi.org/10.14469/ch/189480\", \"key\": \"ref5\"}, {\"doi\":
+      \"http://doi.org/10.14469/ch/189476\", \"key\": \"ref6\"}, {\"doi\": \"http://doi.org/10.14469/ch/189492\",
+      \"key\": \"ref7\"}, {\"doi\": \"http://doi.org/10.14469/ch/189479\", \"key\":
+      \"ref8\"}, {\"doi\": \"http://doi.org/10.14469/ch/189481\", \"key\": \"ref9\"},
+      {\"doi\": \"http://doi.org/10.14469/ch/193726\", \"key\": \"ref10\"}, {\"doi\":
+      \"http://doi.org/10.14469/ch/189489\", \"key\": \"ref11\"}, {\"doi\": \"http://doi.org/10.14469/ch/193727\",
+      \"key\": \"ref12\"}, {\"doi\": \"http://doi.org/10.14469/ch/189488\", \"key\":
+      \"ref13\"}],\"relationships\":[{\"url\": \"https://doi.org/10.15200/winn.142433.30598\",
+      \"type\": \"IsIdenticalTo\"}],\"blog_name\":\"Henry Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"blog\":{\"slug\":\"rzepa\",\"title\":\"Henry
+      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"language\":\"en\",\"category\":\"chemicalSciences\",\"status\":\"active\",\"generator\":\"WordPress
+      6.3.1\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"2023-09-25T16:46:13+00:00\"}},
+      \n {\"id\":\"f805dd46-feae-4083-98ec-793f8771b2f7\",\"doi\":null,\"url\":\"https://eve.gd/2015/01/22/the-hefce-report-on-open-access-monographs-some-reflections\",\"archive_url\":null,\"title\":\"The
+      HEFCE report on Open Access Monographs: some reflections\",\"summary\":\"The
+      environment surrounding open access to monographs was significantly advanced
+      today by the release of a report commissioned by the UK's Higher Education Funding
+      Council for England (HEFCE), a quango (quasi-autonomous non-governmental organisation)
+      that translates the government's higher education budget allocation into usable
+      funds.\",\"published_at\":1421942158,\"updated_at\":1421942158,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
+      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
+      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
+      \n {\"id\":\"7e67dbe0-ea8c-4cc7-8473-ee6c7caaff53\",\"doi\":null,\"url\":\"https://eve.gd/2015/01/20/a-web-of-rights-roundtable-and-conversation-at-the-british-library-feb-19th-2015-bldigital\",\"archive_url\":null,\"title\":\"\\\"A
+      Web of Rights\\\": Roundtable and Conversation at the British Library (Feb 19th,
+      2015) #bldigital\",\"summary\":\"This event will debate how and in what ways
+      the web has complicated, enhanced, and changed the rights of citizens for better
+      or for worse.  The ongoing fallout from the Snowden revelations has both sharpened
+      awareness of how our rights are changing and highlighted a culture of indifference
+      towards once cherished rights and freedoms.\",\"published_at\":1421769358,\"updated_at\":1421769358,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
+      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
+      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
+      \n {\"id\":\"3009b101-aaac-4d93-a4ce-03fab1aeacc4\",\"doi\":null,\"url\":\"https://eve.gd/2015/01/20/being-called-to-account-tax-considerations-for-uk-based-collectively-funded-open-access-publishers\",\"archive_url\":null,\"title\":\"Being
+      called to account: tax considerations for UK-based collectively-funded open
+      access publishers\",\"summary\":\"That's a pretty specific title, I suspect,
+      but as I am learning with the Open Library of Humanities, we're in uncharted
+      territory, a place where the specifics matter.\",\"published_at\":1421769358,\"updated_at\":1421769358,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
+      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
+      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
+      \n {\"id\":\"6da66f4a-0ec0-441e-ba70-dfb44cc741bf\",\"doi\":null,\"url\":\"https://eve.gd/2015/01/19/foucauldian-methodologies-for-considering-emerging-archives\",\"archive_url\":null,\"title\":\"Foucauldian
+      methodologies for considering emerging archives?\",\"summary\":\"Some notes
+      and early (very abstract) draft thoughts on whether Foucauldian genealogies,
+      as redefined by Colin Koopman, can help us to address the problems of the archive
+      in contemporary fiction studies.  In <i>Pynchon and Philosophy</i>, I needed
+      to give a succinct outline of the usual approach towards Foucault's broad body
+      of history/philosophy.\",\"published_at\":1421682958,\"updated_at\":1421682958,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
+      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
+      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
+      \n {\"id\":\"89790fa4-a1d7-4818-a959-455a39983f95\",\"doi\":null,\"url\":\"https://eve.gd/2015/01/18/stephen-curry-stephen_curry-reviews-open-access-and-the-humanities\",\"archive_url\":null,\"title\":\"Stephen
+      Curry (@Stephen_Curry) reviews Open Access and the Humanities\",\"summary\":\"At
+      the end of 2013 and 2014 I wrote blog posts on Occam\u2019s Corner (over at
+      the Guardian) to list and briefly review the books I read in each of those years.
+      I am trying to develop this practice into a good habit because it spurs me to
+      read; and I hope it might also serve to flag up titles of interest to others.\",\"published_at\":1421596558,\"updated_at\":1421596558,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
+      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
+      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
+      \n {\"id\":\"08601d2a-24cc-495d-bac8-a35b01d0a903\",\"doi\":null,\"url\":\"https://svpow.com/2015/01/16/what-have-you-done-with-aquilops\",\"archive_url\":null,\"title\":\"What
+      have you done with <i>Aquilops</i>!?\",\"summary\":\"Awesome things, that\u2019s
+      what. In a previous post I asked people to make cool things with Aquilops. And
+      you have. In spades. Here\u2019s a compilation of the best things so far. First,
+      a blast from the past.\",\"published_at\":1421379637,\"updated_at\":1421380014,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"http://10minuteastronomy.wordpress.com/\", \"name\": \"Matt Wedel\"}],\"image\":\"https://svpow.files.wordpress.com/2015/01/aquilops-sketch-by-mike-keesey.jpg\",\"tags\":[\"Aquilops\",\"Art\",\"Brian
+      Engh\",\"DIY\",\"DIY Dinosaurs\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Sauropod
+      Vertebra Picture of the Week\",\"blog_slug\":\"svpow\",\"blog\":{\"slug\":\"svpow\",\"title\":\"Sauropod
+      Vertebra Picture of the Week\",\"description\":\"SV-POW!  ...  All sauropod
+      vertebrae, except when we're talking about Open Access\",\"feed_url\":\"https://svpow.com/feed/atom/\",\"home_page_url\":\"https://svpow.com\",\"language\":\"en\",\"category\":\"earthAndRelatedEnvironmentalSciences\",\"status\":\"active\",\"generator\":\"WordPress.com\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"2023-09-22T14:44:45+00:00\"}},
+      \n {\"id\":\"98a5d69e-7276-4615-a7f9-38c60b8e35e0\",\"doi\":null,\"url\":\"https://eve.gd/2015/01/15/metrics-in-the-humanities\",\"archive_url\":null,\"title\":\"Metrics
+      in the Arts and Humanities\",\"summary\":\"Tomorrow I will be speaking at the
+      HEFCE Metrics and the assessment of research quality and impact in the Arts
+      and Humanities workshop, commissioned by the independent review panel. Here
+      are some notes on what I am planning to say. These are just brief notes for
+      a ten-minute talk. They're not particularly nuanced but I thought they were
+      worth sharing.\",\"published_at\":1421337358,\"updated_at\":1421337358,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
+      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
+      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
+      \n {\"id\":\"c930c02a-b9cf-4179-900c-54979c7719f7\",\"doi\":null,\"url\":\"https://www.ch.imperial.ac.uk/rzepa/blog?p=13248\",\"archive_url\":null,\"title\":\"A
+      convincing example of the need for data repositories. FAIR Data.\",\"summary\":\"Derek
+      Lowe in his In the Pipeline blog is famed for spotting unusual claims in the
+      literature and subjecting them to analysis. This one is entitled\_Odd Structures,
+      Subjected to Powerful Computations. He looks at this image below, and finds
+      the structures represented there might be a mistake, based on his considerable
+      experience of these kinds of molecules. I expect he had a gut feeling within
+      seconds of seeing the diagram.\",\"published_at\":1421327119,\"updated_at\":1694882899,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-8635-8390\", \"name\": \"Henry Rzepa\"}],\"image\":\"http://pipeline.corante.com/Exacycle%20plot.jpg\",\"tags\":[],\"language\":\"en\",\"reference\":[{\"doi\":
+      \"http://doi.org/10.1038/nchem.1821\", \"key\": \"ref1\"}],\"relationships\":[{\"url\":
+      \"https://doi.org/10.15200/winn.142313.30279\", \"type\": \"IsIdenticalTo\"}],\"blog_name\":\"Henry
+      Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"blog\":{\"slug\":\"rzepa\",\"title\":\"Henry
+      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"language\":\"en\",\"category\":\"chemicalSciences\",\"status\":\"active\",\"generator\":\"WordPress
+      6.3.1\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"2023-09-25T16:46:13+00:00\"}},
+      \n {\"id\":\"002caee6-8e83-43ce-98a0-f5a47d1e4206\",\"doi\":null,\"url\":\"https://rossmounce.co.uk/2015/01/12/author-manuscripts-versus-the-publisher-version-of-record\",\"archive_url\":null,\"title\":\"Author
+      manuscripts versus the publisher version of record\",\"summary\":\"<em>[Update:
+      I\u2019ve submitted this idea as a FORCE11\_\xA31K Challenge research proposal
+      2015-01-13. I may be unemployed from April 2015 onwards (unsolicited job offers
+      welcome!), so I certainly might find myself with plenty of time on my hands
+      to properly get this done\u2026!]</em>  Inspired by something I heard Stephen
+      Curry say recently, and with a little bit of help from Jo McIntyre I\u2019ve
+      started a project to compare EuropePMC author manuscripts with th\",\"published_at\":1421074942,\"updated_at\":1421144403,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"\", \"name\": \"Ross Mounce\"}],\"image\":\"\",\"tags\":[\"Content Mining\",\"Open
+      Access\",\"Open Science\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"A
+      blog by Ross Mounce\",\"blog_slug\":\"rossmounce\",\"blog\":{\"slug\":\"rossmounce\",\"title\":\"A
+      blog by Ross Mounce\",\"description\":null,\"feed_url\":\"https://rossmounce.co.uk/wp-json/wp/v2/posts\",\"home_page_url\":\"https://rossmounce.co.uk\",\"language\":\"en\",\"category\":\"naturalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"2021-11-19T15:57:46+00:00\"}},
+      \n {\"id\":\"0db7a8ed-ebfe-4e8f-97b8-67191a2fdf44\",\"doi\":null,\"url\":\"https://rossmounce.co.uk/2015/01/11/elsevier-wants-our-feedback-heres-mine\",\"archive_url\":null,\"title\":\"Elsevier
+      wants our feedback. Here&#8217;s mine\",\"summary\":\"So, apparently Elsevier
+      are launching a new open access mega-journal some time this year, joining the
+      bandwagon of similar efforts from almost every other major publisher. A lovely
+      acknowledgement of the roaring success of PLOS ONE, who did it first a long
+      time ago.  They\u2019re only ~8 years behind, but they\u2019re learning. I for
+      one am pleased they are asking the research community what they want from this
+      new journal.\",\"published_at\":1421014103,\"updated_at\":1424209412,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"\", \"name\": \"Ross Mounce\"}],\"image\":\"http://rossmounce.co.uk/wp-content/uploads/2014/12/B4v_G9iCIAAvfTr-300x298.png\",\"tags\":[\"Generation
+      Open\",\"Open Access\",\"Open Science\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"A
+      blog by Ross Mounce\",\"blog_slug\":\"rossmounce\",\"blog\":{\"slug\":\"rossmounce\",\"title\":\"A
+      blog by Ross Mounce\",\"description\":null,\"feed_url\":\"https://rossmounce.co.uk/wp-json/wp/v2/posts\",\"home_page_url\":\"https://rossmounce.co.uk\",\"language\":\"en\",\"category\":\"naturalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"2021-11-19T15:57:46+00:00\"}},
+      \n {\"id\":\"34943af4-b0a3-4708-b480-db3c7bbc8c0a\",\"doi\":null,\"url\":\"https://svpow.com/2015/01/09/our-thoughts-on-elseviers-newly-announced-as-yet-untitled-plos-one-clone\",\"archive_url\":null,\"title\":\"Our
+      thoughts on Elsevier\u2019s newly announced, as-yet-untitled, PLOS ONE clone\",\"summary\":\"*yawn*\",\"published_at\":1420801334,\"updated_at\":1420801334,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"http://www.miketaylor.org.uk/dino/pubs/\", \"name\": \"Mike Taylor\"}],\"image\":null,\"tags\":[\"Open
+      Access\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Sauropod
+      Vertebra Picture of the Week\",\"blog_slug\":\"svpow\",\"blog\":{\"slug\":\"svpow\",\"title\":\"Sauropod
+      Vertebra Picture of the Week\",\"description\":\"SV-POW!  ...  All sauropod
+      vertebrae, except when we're talking about Open Access\",\"feed_url\":\"https://svpow.com/feed/atom/\",\"home_page_url\":\"https://svpow.com\",\"language\":\"en\",\"category\":\"earthAndRelatedEnvironmentalSciences\",\"status\":\"active\",\"generator\":\"WordPress.com\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"2023-09-22T14:44:45+00:00\"}}]"
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 8128160b1e99cadd-DUS
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Location:
+      - /posts?blogs.prefix=not.is.null&doi=is.null&limit=15&order=published_at.desc&select=id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20modified_at%29
+      Content-Profile:
+      - public
+      Content-Range:
+      - 0-14/*
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 07 Oct 2023 18:07:51 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/2.8.1
+      X-Kong-Proxy-Latency:
+      - '0'
+      X-Kong-Upstream-Latency:
+      - '21'
+      alt-svc:
+      - h3=":443"; ma=86400
+      sb-gateway-version:
+      - '1'
+    http_version: HTTP/1.1
+    status_code: 200
+version: 1

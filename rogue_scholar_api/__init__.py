@@ -2,8 +2,9 @@ import os
 from uuid import UUID
 from dotenv import load_dotenv
 from supabase import create_client, Client as SupabaseClient
-from quart import Quart, request, jsonify
+from quart import Quart, request, jsonify, render_template
 import typesense as ts
+import chardet
 
 from rogue_scholar_api.utils import get_doi_metadata_from_ra
 
@@ -145,6 +146,10 @@ async def post(slug, suffix=None):
             }
             content_type = content_types.get(format_)
             metadata = get_doi_metadata_from_ra(doi, headers={"Accept": content_type})
+            try:
+                print(metadata)
+            except Exception:
+                pass
             if not metadata:
                 return {"error": "Metadata not found."}, 404
 

@@ -4,6 +4,7 @@ import requests
 def get_doi_metadata_from_ra(doi: str, headers) -> str:
     """use DOI content negotiation to get metadata in various formats"""
     response = requests.get(doi, headers=headers)
+    response.encoding = 'UTF-8'
     if response.status_code >= 400:
         return "Metadata not found"
     return response.text.strip()

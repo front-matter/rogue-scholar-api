@@ -1,0 +1,883 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=retraction-watch&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Ccontent_html%2Creference&sort_by=_text_match%3Adesc&per_page=10&page=2
+  response:
+    body:
+      string: "{\"facet_counts\":[],\"found\":18,\"hits\":[{\"document\":{\"authors\":[{\"name\":\"Bj\xF6rn
+        Brembs\",\"url\":null}],\"blog_id\":\"8q8xh52\",\"blog_name\":\"bjoern.brembs.blog\",\"blog_slug\":\"brembs\",\"content_html\":\"<p>In
+        the <a href=\\\"https://www.theguardian.com/science/audio/2015/jun/12/scientific-retractions-fraud-explored\\\">last</a>
+        \u201CScience Weekly\u201D podcast from the Guardian, the topic was retractions.\_
+        At about 20:29 into the episode, <a href=\\\"https://www.theguardian.com/profile/hannah-devlin\\\">Hannah
+        Devlin</a> asked, whether the reason \u2018top\u2019 journals retract more
+        articles may be because of increased scrutiny there.</p>\\n<p>The underlying
+        assumption is very reasonable, as many more eyes see each paper in such journals
+        and the motivation to shoot down such high-profile papers might also be higher.
+        However, the question has actually been addressed in the scientific literature
+        and the data don\u2019t seem to support this assumption. For one, <a href=\\\"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3479492/figure/fig03/?report=objectonly\\\"
+        target=\\\"_blank\\\">this figure</a> shows that there are a lot of retractions
+        from lower ranking journals, but the journals who retract a lot are few and
+        far between. In fact, there are many more retractions in low-ranking journals
+        than in high-ranking ones. Of the high-ranking journals, a much larger proportion
+        also retracts many papers. However, this analysis only shows that there are
+        many more retractions in lower journals than in higher journals on an absolute
+        level. Hence, these data are not conclusive, but suggestive that scrutiny
+        is not really all that much higher for the \u2018top\u2019 journals than anywhere
+        else.</p>\\n<p>Another reason why scrutiny might be assumed to be higher in
+        \u2018top\u2019 journals is that readership is higher, leading to more potential
+        for error detection. However, the same reasoning can be applied to citations,
+        and not only retractions. Moreover, citing a \u2018top\u2019 paper is not
+        only easier than forcing a retraction, it also benefits your own research
+        by elevating the perceived importance of your field. Thus, if readership had
+        any such influence, one would expect journal rank to correlate better with
+        citations than with retractions. The opposite is the case: The coefficient
+        of determination for citations with journal rank currently lies around 0.2,
+        while that coefficient comes to lie at just under 0.8 for retractions and
+        journal rank (Fig. 3 and Fig. 1D, respectively, <a href=\\\"https://journal.frontiersin.org/article/10.3389/fnhum.2013.00291/full\\\">here</a>).
+        So while there may be a small effect of scrutiny/motivation, the evidence
+        seems to suggest that it is a relatively minor effect, if there is one at
+        all.</p>\\n<p>Conversely, there is quite solid evidence that the methodology
+        in \u2018top\u2019 journals is not any better than in other journals, when
+        analyzing non-retracted articles. In fact, there are studies showing that
+        the methodology is actually <em>worse</em> in \u2018top\u2019 journals, while
+        we have not found a single study suggesting the methodology gets better with
+        journal rank. Our <a href=\\\"https://journal.frontiersin.org/article/10.3389/fnhum.2013.00291/full\\\">article</a>
+        reviews these studies. Importantly, these studies all concern non-retracted
+        papers, i.e., the other 99.95% of the literature.</p>\\n<p>In conclusion,
+        the evidence suggests scrutiny is likely a negligible factor in the correlation
+        of journal rank and retractions, while increased incidence of fraud and lower
+        methodological standards can be shown.</p>\\n<p>I know <a href=\\\"https://retractionwatch.com/meet-the-retraction-watch-staff/about/\\\">Ivan
+        Oransky</a>, who was a guest on the show, is aware of these data, so it may
+        have been a bit unfortunate that Phillip Campbell (editor-in-chief at Nature
+        Magazine) got to answer this question before Ivan had a chance to lay these
+        data out. In fact, Nature is also aware of these data and has twice refused
+        publishing them. The first time when we submitted our manuscript, with the
+        statement, that Nature had already published articles that stated that <a
+        href=\\\"https://bjoern.brembs.net/2013/06/everybody-already-knows-journal-rank-is-bunk\\\">Nature
+        publishes the worst science</a>. The second time was when Cori Lok interviewed
+        Jon Tennant and he told her about the data, but Cori <a href=\\\"https://bjoern.brembs.net/2014/09/how-nature-magazine-consistently-prefers-anecdote-over-data\\\">failed
+        to include this part</a> of the interview. There is thus a record of Nature,
+        very understandably, avoiding to admit their failure to select for solid science.
+        Phillip Campbell\u2019s answer to the question in the podcast may have been
+        at least the third time.</p>\\n<p>While Phillip Campbell did admit they don\u2019t
+        do enough fraud-detection (it is too rare), the issue of reliability in science
+        goes far beyond fraud, so successfully derailing the question towards this
+        direction served his company quite well. Clearly, he\u2019s a clever guy and
+        did not come unprepared.</p>\\n<p>Finally, one may ask: why do the \u2018top\u2019
+        journals publish unreliable science?</p>\\n<p>Probably the most important
+        factor is that they attract \u201Ctoo good to be true\u201D results, but only
+        apply \u201Cpeer-review light\u201D: rejection rates drop dramatically from
+        92% to a mere 60% once your manuscript makes it past the editors, that\u2019s
+        a 5-fold increase in your publication chances (Noah Gray and Henry Gee, pers.
+        comm.). Why is that so? First, the reviewers know the editor wants to publish
+        this paper. Second, they have an automatic conflict of interest, as a Nature
+        paper in their field increases the visibility of their field, they may even
+        be cited in the paper \u2013 or plan to cite it in their upcoming grant application.</p>\\n<p>On
+        average, this entire model is just a recipe for disaster and more policing
+        won\u2019t fix it. By using it, we have been setting us up for the exponential
+        rise in retractions to be seen in <a href=\\\"https://www.frontiersin.org/files/Articles/45406/fnhum-07-00291-r2/image_m/fnhum-07-00291-g001.jpg\\\">Fig.
+        1a of our paper</a>.</p>\\n<p>So, in the probably not too unlikely case that
+        the topic of unreliable science should come up again, anyone can now cite
+        the actual, peer-reviewed data we have at hand, such that editors-in-chief
+        may have a harder time derailing the discussion and obfuscating the issues
+        in the future.</p>\\n<p><strong>tl;dr:</strong> The data suggest a combination
+        of three factors leading to more retractions in \u2018top\u2019 journals:
+        1. Worse methodological quality; 2. Higher incidence of fraud 3. Peer-review
+        light. One would intuitively expect increased readership/scrutiny to play
+        some role, but there is currently no evidence for it and some circumstantial
+        evidence against it.</p>\\n\",\"content_text\":\"content_html\",\"doi\":\"https://doi.org/10.59350/jgggm-t5x67\",\"id\":\"722eccad-af31-4650-93ef-105c5df6da92\",\"language\":\"en\",\"published_at\":1434631090,\"reference\":[],\"relationships\":[],\"summary\":\"In
+        the last \u201CScience Weekly\u201D podcast from the Guardian, the topic was
+        retractions.\_ At about 20:29 into the episode, Hannah Devlin asked, whether
+        the reason \u2018top\u2019 journals retract more articles may be because of
+        increased scrutiny there.  The underlying assumption is very reasonable, as
+        many more eyes see each paper in such journals and the motivation to shoot
+        down such high-profile papers might also be higher.\",\"tags\":[\"Science
+        Politics\",\"Fraud\",\"Impact Factor\",\"Journal Rank\",\"Methodology\"],\"title\":\"Are
+        more retractions due to more scrutiny?\",\"updated_at\":1443089629,\"url\":\"https://bjoern.brembs.net/2015/06/are-more-retractions-due-to-more-scrutiny\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"retraction\",\"watch\"],\"snippet\":\"retractionwatch.com/meet-the-<mark>retraction</mark>-<mark>watch</mark>-staff/about/\\\">Ivan
+        Oransky<\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"retraction\",\"watch\"],\"snippet\":\"retractionwatch.com/meet-the-<mark>retraction</mark>-<mark>watch</mark>-staff/about/\\\">Ivan
+        Oransky<\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Martin
+        Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_id\":\"f0m0e38\",\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"content_html\":\"<p>The first post
+        on this blog was published on August 3, 2007 (<a href=\\\"https://doi.org/10.53731/r294649-6f79289-8cw1q\\\">Open
+        access may become mandatory for NIH-funded research</a>). This is post number
+        465, and in the past 15 years the blog has seen changes in technology and
+        hosting location \u2013 but I wrote all posts (with the exception of a few
+        guest posts). The overall theme remained unchanged: technology used in scholarly
+        communication. </p><p>Instead of a detailed analysis of recurring themes,
+        or how scholarly communication has changed in the last 15 years, I want to
+        pick one topic that continues to worry me, and has been the subject of multiple
+        posts on this blog and elsewhere: the over-reliance on PDF as publishing format
+        for scholarly articles.</p><p>This week I read two interesting articles related
+        to climate change. One of them (<a href=\\\"https://doi.org/10.1038/s41558-022-01426-1\\\">Over
+        half of known human pathogenic diseases can be aggravated by climate change</a>)
+        did an impressive systematic review of the literature on the impacts of ten
+        climatic hazards sensitive to greenhouse gas emissions on each known human
+        pathogenic disease (in short: very scary). The second paper (<a href=\\\"https://doi.org/10.1073/pnas.2120584119\\\">Estimating
+        the environmental impacts of 57,000 food products</a>) tried to estimate the
+        environmental impact of more than 50K food products in the United Kingdom
+        and Ireland (no big surprises, but again stressing that meat, fish, and cheese
+        have a significant environmental impact).</p><p>Both articles are available
+        online as full-text, but they come in PDF format. Fine for printing and then
+        reading them (which I did), but in 2022 I expect to read papers on a tablet
+        (which I use for almost all my reading) where the PDF letter or A4 size doesn't
+        quite fit on the 10-inch screen. There are other problems with PDF (e.g. access
+        to metadata such as references and using PDF as submission format, e.g. with
+        preprints). These problems are not new and there are workarounds, but in the
+        15 years of writing this blog \u2013 despite a lot of progress \u2013 scholarly
+        communication continues to have an uneasy relationship with technology and
+        is often stuck in the past. In contrast to many (but of course not all) other
+        sectors.</p><p>This means there are many reasons to continue writing this
+        blog. And since 2012, when I gave up my job as a medical doctor in a university
+        hospital, I am working full-time on scholarly infrastructure, after recovering
+        from the health issues I described in the last post (<a href=\\\"https://blog.front-matter.io/posts/i-spent-the-last-five-months-in-the-hospital\\\">I
+        spent the last five months in the hospital</a>) with a focus on research data
+        management.</p><p>Incidentally, August 3 saw another anniversary as Retraction
+        Watch, the wonderful service tracking paper retractions turned 12 (<a href=\\\"https://retractionwatch.com/2022/08/03/happy-12th-birthday-retraction-watch-and-what-a-year-it-was/\\\">years
+        old</a>). Congratulations Ivan and team!</p>\",\"content_text\":\"content_html\",\"doi\":\"https://doi.org/10.53731/bs60jms-sqaehsk\",\"id\":\"d2098d02-4a1f-4d66-9369-492489e1778b\",\"image\":\"https://images.unsplash.com/photo-1555607124-8531c7c702d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDQzfHxiaXJ0aGRheXxlbnwwfHx8fDE2NjAyMjQwOTA&ixlib=rb-1.2.1&q=80&w=2000\",\"language\":\"en\",\"published_at\":1660227188,\"reference\":[],\"relationships\":[],\"summary\":\"The
+        first post on this blog was published on August 3, 2007 (Open access may become
+        mandatory for NIH-funded research). This is post number 465, and in the past
+        15 years the blog has seen changes in technology and hosting location \u2013
+        but I wrote all posts (with the exception of a few guest posts). The overall
+        theme remained unchanged: technology used in scholarly communication.\",\"tags\":[\"Feature\"],\"title\":\"This
+        blog turned 15 (years old) this month\",\"updated_at\":1660486165,\"url\":\"https://blog.front-matter.io/posts/this-blog-turned-15-this-month\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"saw
+        another anniversary as <mark>Retraction</mark> <mark>Watch</mark>, the wonderful
+        service tracking\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"saw
+        another anniversary as <mark>Retraction</mark> <mark>Watch</mark>, the wonderful
+        service tracking\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Adam
+        Day\",\"url\":null}],\"blog_id\":\"ez7c883\",\"blog_name\":\"Stories by Adam
+        Day on Medium\",\"blog_slug\":\"clearskiesadam\",\"content_html\":\"<p>TL;DR:
+        Join me at ConTech Live to hear about a recent project with <a href=\\\"https://opencredo.com/\\\">Open
+        Credo</a> to see if we could detect unusual co-authorships in a dataset created
+        by Anna Abalkina. <a href=\\\"https://www.contech.live/contech2022\\\">Sign
+        up\_here!</a></p><p>Papermilling has a few definitions which you see here
+        and there. Sometimes it\u2019s \u201Corganised manipulation of the peer-review
+        process\u201D or it might be \u201Cmanufacturing of fraudulent research papers\u201D
+        and so\_on.</p><p>I described the general roles involved in papermilling in
+        <a href=\\\"https://publisherad.medium.com/how-papermills-work-generally-c080bb9fff43\\\">a
+        previous blog\_post</a>.</p><figure><img src=\\\"https://cdn-images-1.medium.com/max/937/1*OSsajzQlkOFyf_LkQ6lBfw.png\\\"
+        /></figure><p>But there\u2019s actually a lot of nuance in how different papermills
+        operate. Consider what happens when we have multiple agents, forgers and authors
+        operating in a\_network.</p><p>I\u2019m going to describe here 3 quite different
+        things which get called \u2018paper mills\u2019. Perhaps there are more than
+        3 main classes of papermill? Add a comment if you can think of another\_one!</p><h3>1.
+        Fabrication from\_scratch</h3><p>Any organisation which fabricates research
+        papers from scratch for sale. People have been fabricating research for as
+        long as research has been a thing, but it\u2019s the <em>organised</em> part
+        that makes this new. This happens at a vastly greater scale than it used to
+        and the problem continues to\_grow.</p><p>There are definitely templates and
+        re-used images and text in these papers, but I think \u2018from scratch\u2019
+        is a fair distinction between this and the other\_types.</p><p>All those fake
+        western blots? That\u2019s this. Those cancer genetics papers from obscure
+        hospital research departments? That\u2019s this too. Take a look at cases
+        highlighted by Jennifer Byrne, Elisabeth Bik, Cheshire, Smut Clyde and others
+        for examples.</p><p>My <a href=\\\"https://medium.com/p/719b8b3b8253\\\">Papermill
+        Alarm API</a>, mentioned in <a href=\\\"https://medium.com/p/b89db7feba9d\\\">previous
+        blog posts</a>, is mostly trained to highlight this kind of papermilling.</p><h3>2.
+        Fabrication by plagiarism</h3><p>Fabrication from scratch requires skill.
+        What if our forger doesn\u2019t know how to write a fake paper from scratch?
+        This is a <em>sad\_forger:</em></p><figure><img src=\\\"https://cdn-images-1.medium.com/max/250/1*7_PceWGAeLBoczc3dYi2Jg.png\\\"
+        /><figcaption>I\u2019ve made him look sad by rotating his mouth 180\xB0. Image
+        manipulation is not my\_fort\xE9.</figcaption></figure><p>So what can he do?
+        How can he turn that frown upside-down?</p><figure><img src=\\\"https://cdn-images-1.medium.com/max/363/1*0b31C3OWhZwrtkz9C3Cfww.png\\\"
+        /></figure><p>The idea is simple. If he can\u2019t write a fake paper, <em>he
+        can just copy a real one</em>! Or he can get creative and copy several bits
+        of papers and paste the bits into a new manuscript. If he\u2019s worried about
+        getting caught by anti-plagiarism software, he can always drop the text into
+        a paraphrasing tool. This is where we get \u201CTortured Phrases\u201D (<a
+        href=\\\"https://arxiv.org/abs/2107.06751\\\">see the great work of Guillaume
+        Cabanac et al on this subject</a>).</p><p>The difference between organised
+        plagiarism and papermilling-from-scratch is simply that, here, the forger
+        starts with 1 or more existing papers and <em>converts </em>them into a \u2018new\u2019\_one.</p><h3>3.
+        Authorship brokering</h3><p>This is where authorship slots on papers, fabricated
+        or not, are sold. This is actually just the \u2018agent\u2019 part of any
+        papermilling operation, but sometimes we see it as a standalone service.</p><p><a
+        href=\\\"https://retractionwatch.com/2019/07/18/exclusive-russian-site-says-it-has-brokered-authorships-for-more-than-10000-researchers/\\\">A
+        famous case of a brokerage advertising authorships for sale was brought to
+        light by Retraction Watch some years ago</a>. Anna Abalkina, a researcher
+        at Freie Universit\xE4t Berlin <a href=\\\"https://arxiv.org/abs/2112.13322\\\">investigated
+        this matter by tracking down the papers advertised on that site</a>. It\u2019s
+        a very interesting case and well-worth reading\_about.</p><p>It\u2019s fortunate
+        that the papers for sale on that site were advertised so openly. Consider
+        now that anyone can sell authorship on any paper privately. How can we detect
+        that? I\u2019ve learned recently that it might be possible to spot these brokered
+        authorships.</p><h3>Join me at ConTech\_Live!</h3><p>Earlier this year, SAGE
+        Publishing worked with <a href=\\\"https://opencredo.com/\\\">Open Credo</a>,
+        a software development consultancy here in London, on a project to see if
+        we could detect unusual co-authorships using the dataset created by Anna Abalkina
+        in her work. If you\u2019d like to know more, I suggest signing up for <a
+        href=\\\"https://www.contech.live/contech2022\\\">our forthcoming ConTech
+        presentation!</a></p><img src=\\\"https://medium.com/_/stat?event=post.clientViewed&amp;referrerSource=full_rss&amp;postId=14993c37ebfa\\\"
+        width=\\\"1\\\" height=\\\"1\\\" />\",\"content_text\":\"content_html\",\"doi\":\"https://doi.org/10.59350/dakrb-j7a75\",\"id\":\"8ec5510e-0bab-40ef-8978-9011f579aeca\",\"image\":\"https://cdn-images-1.medium.com/max/937/1*OSsajzQlkOFyf_LkQ6lBfw.png\",\"language\":\"en\",\"published_at\":1667236116,\"reference\":[],\"relationships\":[],\"summary\":\"TL;DR:
+        Join me at ConTech Live to hear about a recent project with Open Credo to
+        see if we could detect unusual co-authorships in a dataset created by Anna
+        Abalkina. Sign up\_here! Papermilling has a few definitions which you see
+        here and there.\",\"tags\":[\"Peer Review Journals\",\"Academic Publishing\",\"Research
+        Integrity\"],\"title\":\"(The?) 3 kinds of papermills\",\"updated_at\":1667236116,\"url\":\"https://clearskiesadam.medium.com/3-kinds-of-papermills-14993c37ebfa\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"brought
+        to light by <mark>Retraction</mark> <mark>Watch</mark> some years ago</a>\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"brought
+        to light by <mark>Retraction</mark> <mark>Watch</mark> some years ago</a>\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Martin
+        Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_id\":\"f4wdg32\",\"blog_name\":\"Syldavia
+        Gazette\",\"blog_slug\":\"syldavia_gazette\",\"content_html\":\"<h3><a href=\\\"https://www.cartercenter.org/news/pr/2023/2022-guinea-worm-worldwide-cases-announcement.html\\\">Guinea
+        worm disease reaches all-time low: only 13* human cases reported in 2022</a></h3><p>Only
+        13 human cases of Guinea worm disease were reported worldwide in 2022. This
+        Neglected Tropical Disease is on the WHO 2030 roadmap to become only the second
+        human disease in history to be eradicated, after smallpox.</p><h3><a href=\\\"https://doi.org/10.1126/science.adg7879\\\">ChatGPT
+        is fun, but not an author</a></h3><p>The Editor-In-Chief of the <em>Science</em>
+        journals explains their updated Editorial Policy specifying that text generated
+        by ChatGPT (or any other AI tools) cannot be used in publications, nor can
+        figures produced by such tools.</p><h3><a href=\\\"https://leakeyfoundation.org/meet-the-first-neanderthal-family/\\\">Meet
+        the first Neanderthal family</a></h3><p>A study published in October last
+        year retrieved the DNA from 17 Neanderthal remains, for the first time using
+        genetics to study the social organization of a Neanderthal community. </p><h3><a
+        href=\\\"https://retractionwatch.com/2022/12/30/university-to-investigate-adjunct-professor-after-allegations-of-plagiarism-and-legal-threats/\\\">University
+        to investigate adjunct professor after allegations of plagiarism \u2013 and
+        legal threats</a></h3><p>The University of Z\xFCrich in Switzerland has announced
+        that it had started an investigation into allegations that a researcher used
+        images and other material from a blog without attribution in a published book.</p><h3><a
+        href=\\\"https://doi.org/10.21105/joss.01686\\\">Welcome to the tidyverse</a></h3><p>The
+        tidyverse is a language for solving data science challenges with R code. It
+        is also a collection of R packages with a shared high-level design philosophy.
+        This article gives a short introduction to these highly popular software packages.</p><hr
+        /><h3>References</h3><ol><li>Guinea Worm Disease Reaches All-Time Low: Only
+        13* Human Cases Reported in 2022. The Carter Center. Accessed March 28, 2023.
+        <a href=\\\"https://www.cartercenter.org/news/pr/2023/2022-guinea-worm-worldwide-cases-announcement.html\\\">https://www.cartercenter.org/news/pr/2023/2022-guinea-worm-worldwide-cases-announcement.html</a></li><li>Thorp
+        HH. ChatGPT is fun, but not an author. <em>Science</em>. 2023;379(6630):313-313.
+        doi:<a href=\\\"https://doi.org/10.1126/science.adg7879\\\">10.1126/science.adg7879</a></li><li>Meet
+        the first Neanderthal family. The Leakey Foundation. Accessed March 28, 2023.
+        <a href=\\\"https://leakeyfoundation.org/meet-the-first-neanderthal-family/\\\">https://leakeyfoundation.org/meet-the-first-neanderthal-family/</a></li><li>Kincaid
+        AE. University to investigate adjunct professor after allegations of plagiarism
+        \u2013 and legal threats. Retraction Watch. Published December 30, 2022. Accessed
+        March 28, 2023. <a href=\\\"https://retractionwatch.com/2022/12/30/university-to-investigate-adjunct-professor-after-allegations-of-plagiarism-and-legal-threats/\\\">https://retractionwatch.com/2022/12/30/university-to-investigate-adjunct-professor-after-allegations-of-plagiarism-and-legal-threats/</a></li><li>Wickham
+        H, Averick M, Bryan J, et al. Welcome to the Tidyverse. <em>Journal of Open
+        Source Software</em>. 2019;4(43):1686. doi:<a href=\\\"https://doi.org/10.21105/joss.01686\\\">10.21105/joss.01686</a></li></ol>\",\"content_text\":\"content_html\",\"doi\":\"https://doi.org/10.53731/ffbx660-083tnag\",\"id\":\"0022b9ef-525a-4a79-81ad-13411697f58a\",\"image\":\"https://digitalpress.fra1.cdn.digitaloceanspaces.com/gtpg506/2023/04/gw-release-2023.jpg\",\"language\":\"en\",\"published_at\":1675263360,\"reference\":[{\"key\":\"ref1\",\"url\":\"https://cartercenter.org/news/pr/2023/2022-guinea-worm-worldwide-cases-announcement.html\"},{\"doi\":\"https://doi.org/10.1126/science.adg7879\",\"key\":\"ref2\"},{\"key\":\"ref3\",\"url\":\"https://leakeyfoundation.org/meet-the-first-neanderthal-family\"},{\"key\":\"ref4\",\"url\":\"https://retractionwatch.com/2022/12/30/university-to-investigate-adjunct-professor-after-allegations-of-plagiarism-and-legal-threats\"},{\"doi\":\"https://doi.org/10.21105/joss.01686\",\"key\":\"ref5\"}],\"relationships\":[],\"summary\":\"Guinea
+        worm disease reaches all-time low: only 13* human cases reported in 2022 Only
+        13 human cases of Guinea worm disease were reported worldwide in 2022. This
+        Neglected Tropical Disease is on the WHO 2030 roadmap to become only the second
+        human disease in history to be eradicated, after smallpox.\",\"tags\":[\"Weekly\"],\"title\":\"Guinea
+        Worms, ChatGPT, Neanderthals, Plagiarism, Tidyverse\",\"updated_at\":1681415899,\"url\":\"https://syldavia-gazette.org/guinea-worms-chatgpt-neanderthals\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"plagiarism
+        \u2013 and legal threats. <mark>Retraction</mark> <mark>Watch</mark>. Published
+        December 30, 2022\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"plagiarism
+        \u2013 and legal threats. <mark>Retraction</mark> <mark>Watch</mark>. Published
+        December 30, 2022\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Mike
+        Taylor\",\"url\":\"http://www.miketaylor.org.uk/dino/pubs/\"}],\"blog_id\":\"dkvra02\",\"blog_name\":\"Sauropod
+        Vertebra Picture of the Week\",\"blog_slug\":\"svpow\",\"content_html\":\"<p>Back
+        in March, <em>Nature</em> published \u201CHummingbird-sized dinosaur from
+        the Cretaceous period of Myanmar\u201D by Xing et al. (2020), which described
+        and named a tiny putative bird that was preserved in amber from Myanmar (formerly
+        Burma). It\u2019s a pretty spectacular find.</p>\\n<p></p><div><a href=\\\"https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg\\\"></a><p><strong>Xing
+        et al. (2020: figure 1).</strong> <strong>a</strong>, Photograph of the amber
+        piece with skull ventrolaterally exposed. <strong>b</strong>, <strong>c</strong>,
+        Scan (<strong>b</strong>) and drawing (<strong>c</strong>), left lateral view.
+        <strong>d</strong>, <strong>e</strong>, Scan (<strong>d</strong>) and drawing
+        (<strong>e</strong>), rostral view. <strong>f</strong>, <strong>g</strong>,
+        Scan (<strong>f</strong>) and drawing (<strong>g</strong>), occipital view.
+        <strong>h</strong>, <strong>i</strong>, Scan (<strong>h</strong>) and drawing
+        (<strong>i</strong>), dorsal view. de, dentary; fr, frontal; hy, hyoid bone
+        (or bones); jg, jugal; la, lacrimal; mx, maxilla; pa, parietal; pm, premaxilla;
+        po, postorbital; qd, quadrate; sc, scleral ossicle; so, supraoccipital; sq,
+        squamosal; th, teeth. Scale bars, 5 mm; longer scale bar below <strong>b</strong>
+        applies to <strong>b</strong>\u2212<strong>i</strong>.</p></div><p></p>\\n<p>Today,
+        though, that paper <a href=\\\"https://www.nature.com/articles/s41586-020-2553-9\\\">is
+        retracted</a>.</p>\\n<p>That\u2019s a very rare occurrence for a palaeontology
+        paper. And it raises a lot of questions. The retraction notice reads, in full:</p>\\n<blockquote><p>We,
+        the authors, are retracting this Article to prevent inaccurate information
+        from remaining in the literature. Although the description of <em>Oculudentavis
+        khaungraae</em> remains accurate, a new unpublished specimen casts doubts
+        upon our hypothesis regarding the phylogenetic position of HPG-15-3.</p></blockquote>\\n<p>But
+        we constantly see papers whose phylogenetic hypotheses are overturned by new
+        specimens. We usually deal with this by writing a new paper. Why, in this
+        case, is there a retraction? Something smells wrong here.</p>\\n<p>And the
+        plot thickens in <a href=\\\"https://retractionwatch.com/2020/07/22/a-big-nature-study-on-a-tiny-dinosaur-is-being-retracted/\\\">Retraction
+        Watch\u2019s account</a>: corresponding author Jingmai O\u2019Connor told
+        them:</p>\\n<blockquote><p>I don\u2019t agree with the retraction but there
+        is no point in fighting it, so we all signed it.</p>\\n<p>I cannot say why
+        <em>Nature</em> chose to retract, I cannot hypothesize on their inner machinations.
+        [\u2026] It is also not that unusual for paleontologists to misidentify things
+        and for new information to correct previous hypotheses. However, <em>Nature</em>
+        chose not to publish the Matter\u2019s Arising and instead retracts our paper
+        \u2013 they must have their reasons.</p></blockquote>\\n<p>This doesn\u2019t
+        add up. The retraction notice explictly states that the <em>authors</em> retracted
+        the original paper \u2014 yet the corresponding author says that the journal
+        did it, more or less against the authors\u2019 will.</p>\\n<p>I don\u2019t
+        know what\u2019s going on here. I agree with O\u2019Connor that \u201CIt\u2019s
+        unfortunate because this way science can\u2019t simply correct itself (as
+        it is supposed to do)\u201D. If, as Li et al. (2000) argue, <em>Oculudentavis</em>
+        is actually a squamate (lizard), well, fine: they can publish their conclusion,
+        and the community will arrive at a consensus as to which identification is
+        correct. That\u2019s how it works, right? So why the retraction?</p>\\n<p>And
+        there\u2019s more: what does this mean for zoological nomenclature? Is the
+        name <em>Oculudentavis khaungraae</em> still nomenclaturally valid? Opinions
+        on this seem to vary (see <a href=\\\"http://dinosaurmailinglist.cmnh.org/2020Jul/threads.html#00156\\\">the
+        Dinosaur Mailing List thread beginning with Ben Creisler\u2019s announcement
+        of the retraction</a>.)</p>\\n<p>I lean to the interpretation that, since
+        the <a href=\\\"https://www.iczn.org/the-code/the-international-code-of-zoological-nomenclature/the-code-online/\\\">International
+        Code on Zoological Nomenclature</a> does not mention retractions, it implicitly
+        takes the position that a paper once published is published forever. On that
+        basis, the name <em>Oculudentavis</em> remains valid and attached to the holoype
+        specimen \u2014 even if that name, with its <em>-avis</em> suffix, proves
+        to have been poorly chosen in pertaining to a non-bird. (After all, there
+        is plenty of precedent for misleading names staying in place: the whale <em>Basilosaurus</em>
+        is not a saurian, and the clade of \u201Cfalse crocodiles\u201D Pseudosuchia
+        includes the true crocodiles.)</p>\\n<p>This doesn\u2019t seem to be what
+        Springer Nature wants: in a Facebook exchange forwarded to me by a friend
+        who I will leave anonymous unless he or she chooses to out him or herself,
+        Henry Gee comments \u201CThe retraction means the paper is erased from the
+        record, and this includes the name\u201D.</p>\\n<p><a href=\\\"https://svpow.files.wordpress.com/2020/07/screen-shot-2020-07-22-at-5.29.33-pm.png\\\"></a></p>\\n<p>I
+        think this is simply incorrect. But I am no expert: I await comments from
+        those more versed in the intricacies of the ICZN.</p>\\n<p>At any rate, I
+        can\u2019t help but suspect that something is going on here that\u2019s not
+        being clearly stated. Could it be to do with the fact that Myanmar amber is
+        itself controversial, due to the human rights record of the Myanmar regime?
+        Is it even possible that one or more or the authors of the original <em>Oculudentavis</em>
+        colluded in describing it as a bird when they knew it was something else?
+        I don\u2019t know (and to be 100% clear, I am <em>not</em> accusing anyone
+        of anything). But I do know that <em>Nature</em>\u2018s vague and possibly
+        misleading retraction notice is not helping, and is not in the spirit of transparency
+        that we aim to cultivate in the sciences.</p>\\n<p>I\u2019m pretty sure we
+        don\u2019t yet know the full story.</p>\\n<h1>References</h1>\\n<ul>\\n<li><a
+        href=\\\"https://www.biorxiv.org/content/10.1101/2020.03.16.993949v1?versioned=true\\\">Zhiheng
+        Li, Wei Wang, Han Hu, Min Wang, Hongyu Yi and Jing Lu. 2020. Is <em>Oculudentavis</em>
+        a bird or even archosaur? doi:10.1101/2020.03.16.993949</a></li>\\n<li><a
+        href=\\\"https://www.nature.com/articles/s41586-020-2068-4\\\">Xing, L.; O\u2019Connor,
+        J. K.; Schmitz, L.; Chiappe, L. M.; McKellar, R. C.; Yi, Q.; Li, G. 2020.
+        Hummingbird-sized dinosaur from the Cretaceous period of Myanmar. <em>Nature</em>
+        <strong>579</strong>(7798):245\u2013249. doi:10.1038/s41586-020-2068-4</a></li>\\n</ul>\\n<p>\_</p>\\n\",\"content_text\":\"content_html\",\"doi\":\"https://doi.org/10.59350/hk3jx-6sv77\",\"id\":\"c556963d-9f80-4798-922b-f77180d3c33b\",\"image\":\"https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg\",\"language\":\"en\",\"published_at\":1595461726,\"reference\":[{\"key\":\"ref1\",\"url\":\"https://biorxiv.org/content/10.1101/2020.03.16.993949v1?versioned=true\"},{\"key\":\"ref2\",\"url\":\"https://nature.com/articles/s41586-020-2068-4\"}],\"relationships\":[],\"summary\":\"Back
+        in March, Nature published \u201CHummingbird-sized dinosaur from the Cretaceous
+        period of Myanmar\u201D by Xing et al. (2020), which described and named a
+        tiny putative bird that was preserved in amber from Myanmar (formerly Burma).
+        It\u2019s a pretty spectacular find. Today, though, that paper is retracted.
+        That\u2019s a very rare occurrence for a palaeontology paper.\",\"tags\":[\"New
+        Papers\",\"Nomenclature\",\"Paleontologists Behaving Badly\",\"Stinkin Lizards\",\"Stinkin
+        Theropods\"],\"title\":\"What\u2019s going on with <i>Oculudentavis</i>?\",\"updated_at\":1595754036,\"url\":\"https://svpow.com/2020/07/22/whats-going-on-with-oculudentavis\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"dinosaur-is-being-retracted/\\\"><mark>Retraction</mark>
+        <mark>Watch</mark>\u2019s account</a>: corresponding author\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"dinosaur-is-being-retracted/\\\"><mark>Retraction</mark>
+        <mark>Watch</mark>\u2019s account</a>: corresponding author\"}],\"text_match\":1157451437081362505,\"text_match_info\":{\"best_field_score\":\"2211881091072\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451437081362505\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Scott
+        Edmunds\",\"url\":\"http://orcid.org/0000-0001-6444-1436\"}],\"blog_id\":\"3ffcd46\",\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"content_html\":\"<p><img
+        loading=\\\"lazy\\\" src=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2020/02/Coronavirus-300x221.jpeg\\\"
+        alt=\\\"Coronavirus data forcasting\\\" width=\\\"318\\\" height=\\\"234\\\"
+        srcset=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2020/02/Coronavirus-300x221.jpeg
+        300w, http://gigasciencejournal.com/blog/wp-content/uploads/2020/02/Coronavirus-768x565.jpeg
+        768w, http://gigasciencejournal.com/blog/wp-content/uploads/2020/02/Coronavirus-1024x753.jpeg
+        1024w\\\" /><strong><em>With much of the GigaScience team spanning the Hong
+        Kong-Shenzhen border and now confined to remote working, the current 2019-novel
+        coronavirus outbreak has been particularly disruptive and close to home. As
+        with previous <a href=\\\"https://www.who.int/news-room/detail/30-01-2020-statement-on-the-second-meeting-of-the-international-health-regulations-(2005)-emergency-committee-regarding-the-outbreak-of-novel-coronavirus-(2019-ncov)\\\">WHO\_\u201Cpublic-health
+        emergency of international concern\u201D</a> such as Ebola and Zika, data
+        has provided a potent tool in fighting both the outbreak, and the conspiracy
+        theories that have filled the information gaps caused by poor communication
+        and lack of trust in local governments. Compared to previous outbreaks, we
+        are potentially better equipped to more rapidly fill in these information
+        gaps. With real-time visualization of cases and results using tools like <a
+        href=\\\"https://www.healthmap.org/ncov2019/\\\">healthmaps</a>, <a href=\\\"https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6\\\">JHU
+        Global Case dashboard</a>, forkable <a href=\\\"http://dx.doi.org/10.17504/protocols.io.bbmuik6w\\\">method
+        sharing via protocols.io</a>, and <a href=\\\"https://nextstrain.org/ncov\\\">Nextstrain</a>,
+        <a href=\\\"http://virological.org/\\\">forums like virological.</a> And the
+        rise of preprints for sharing of results, bioRxiv &amp; medRxiv having <a
+        href=\\\"https://www.biorxiv.org/search/text_abstract_title%3A2019-ncoV%20text_abstract_title_flags%3Amatch-all%20jcode%3Amedrxiv%7C%7Cbiorxiv%20numresults%3A10%20sort%3Arelevance-rank%20format_result%3Astandard\\\">48
+        Coronavirus submissions at time of posting</a> (and causing some controversy
+        with unreliable submissions, but seeing them debunked and <a href=\\\"https://www.statnews.com/2020/02/03/retraction-faulty-coronavirus-paper-good-moment-for-science/\\\">retracted
+        much faster</a> than<a href=\\\"https://www.sciencemag.org/news/2020/02/paper-non-symptomatic-patient-transmitting-coronavirus-wrong\\\">
+        traditional peer reviewed publications</a>).</em> </strong></p>\\n<p><strong><em><img
+        loading=\\\"lazy\\\" src=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2020/02/DSC03802-300x200.jpg\\\"
+        alt=\\\"Coronavirus data sifter\\\" width=\\\"257\\\" height=\\\"171\\\" srcset=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2020/02/DSC03802-300x200.jpg
+        300w, http://gigasciencejournal.com/blog/wp-content/uploads/2020/02/DSC03802-768x513.jpg
+        768w, http://gigasciencejournal.com/blog/wp-content/uploads/2020/02/DSC03802-1024x684.jpg
+        1024w, http://gigasciencejournal.com/blog/wp-content/uploads/2020/02/DSC03802.jpg
+        1616w\\\" />Trying to digest some of these data streams and following <a href=\\\"http://gigasciencejournal.com/blog/guest-blog-the-2014-ebola-epidemic-approaches-and-resources-to-slow-the-spread-of-infection/\\\">previous
+        blogs</a> <a href=\\\"http://gigasciencejournal.com/blog/guest-blog-the-ebola-epidemic-revisited-where-are-we-in-2015/\\\">on
+        the Ebola</a> and <a href=\\\"http://gigasciencejournal.com/blog/guest-blog-mind-zika-data-gap/\\\">Zika</a>
+        epidemics, we present another data oriented guest post from Michael Dean who
+        has pooled together these various data streams to present a non-specialist
+        view of the Coronavirus crisis. Michael is a researcher in the areas of human
+        genetics and cancer. He has worked on the understanding of the role of host
+        genetics in the response to HIV as well as cervical cancer and HPV. [Note:
+        the material presented here is from Michael\u2019s own perspective on the
+        public Coronavirus data and does not represent the viewpoint of his employer].</em></strong></p>\\n<div><img
+        loading=\\\"lazy\\\" src=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2020/02/Screenshot-2020-02-04-at-11.31.58-PM-291x300.png\\\"
+        alt=\\\"Coronavirus data plotted\\\" width=\\\"291\\\" height=\\\"300\\\"
+        srcset=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2020/02/Screenshot-2020-02-04-at-11.31.58-PM-291x300.png
+        291w, http://gigasciencejournal.com/blog/wp-content/uploads/2020/02/Screenshot-2020-02-04-at-11.31.58-PM.png
+        692w\\\" /><p>Table 1. Reported cases and deaths from 2019-nCoV. Source JHU
+        CSSE</p></div>\\n<p>At the start of the Year of the Mouse, the world is experiencing
+        an outbreak of a new Coronavirus, for now, called 2019-nCoV. As of February
+        4th (<a href=\\\"https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6\\\">source
+        JHU CSSE dashboard</a>)<sup>,</sup> there are 20,679 confirmed cases and 427
+        fatalities. Nearly 99% of the cases have been reported in China mostly in
+        Hubei Province; and all except two reported fatalities have occurred in Mainland
+        China. All the initial cases came from the city of Wuhan, the capital of Hubei,
+        in Central China, but the origin of the virus is unknown. The case fatality
+        rate (fatalities/total cases, CFR), based on reported data has been declining
+        from nearly 3% to 2% as more data has become available, but is less than 2%
+        in China, outside of Hubei. This is considerably lower than SARS (9.6%)<sup>1</sup>
+        and MERS (9-36%)<sup>2</sup></p>\\n<p>The first full-length reference genome
+        for the virus was deposited in <a href=\\\"https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2\\\">GENBANK
+        as NC_045512</a> by scientists at Fudan University, Shanghai, China, and referred
+        to as the Wuhan seafood market pneumonia virus, as many of the initial cases
+        were linked to a market of seafood and animals in the city of Wuhan. Multiple
+        additional complete genomes have been deposited in GENBANK by the researchers
+        within China and internationally including the US Centers for Disease Control
+        (CDC). Additional isolates (62 in total at the time of posting) have been
+        <a href=\\\"https://www.gisaid.org\\\">deposited in GISAID</a>, a public repository
+        of influenza virus sequences . Variation and evolution of the virus are being
+        followed by an open-sourced project tracking pathogen evolution, <a href=\\\"https://nextstrain.org/\\\">Nextstrain</a>.
+        To date, the virus has shown few variable sites and low diversity.</p>\\n<div><img
+        loading=\\\"lazy\\\" src=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2020/02/Screenshot-2020-02-04-at-10.13.08-PM-1024x251.png\\\"
+        alt=\\\"Coronavirus data\\\" width=\\\"799\\\" height=\\\"196\\\" srcset=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2020/02/Screenshot-2020-02-04-at-10.13.08-PM-1024x251.png
+        1024w, http://gigasciencejournal.com/blog/wp-content/uploads/2020/02/Screenshot-2020-02-04-at-10.13.08-PM-300x74.png
+        300w, http://gigasciencejournal.com/blog/wp-content/uploads/2020/02/Screenshot-2020-02-04-at-10.13.08-PM-768x189.png
+        768w\\\" /><p>Fig 1. Map and diversity of 2019-nCoV. The map of the viral
+        genome is shown with sites of identified variation and the known open reading
+        frames (ORF) and viral proteins; spike (S), nucleocapsid phosphoprotein (N),
+        and membrane glycoprotein (M). Source: Nextstrain.</p></div>\\n<p>The 2019-nCoV
+        is most closely related to a beta-coronavirus isolated in bats in Yunnan<sup>3,4</sup>
+        \_(<a href=\\\"https://nextstrain.org/groups/blab/sars-like-cov\\\">MG772933</a>),
+        and all the current isolates found in China or other countries are very closely
+        related (Figure 2). The sequence data suggests that there was a single zoonotic
+        event of viral transmission into the human population. Phylogenetic analysis
+        places 2019-nCoV in the sarbecovirus subgenus that includes the SARS virus.<sup>3</sup>
+        \_Three prereprints in bioRxiv describe data indicating that the virus uses
+        the angiotensin-converting enzyme II (ACE2) protein as its cellular receptor<sup>5-7</sup>,
+        as does SARS.<sup>8</sup> \_This result is significant as the Middle East
+        respiratory syndrome (MERS) virus, MERS-CoV, uses dipeptyl peptidase 4 (DPP4;
+        also known as CD26) as its receptor.<sup>9</sup> To date, there is no variation
+        in the portion of the virus that binds to ACE2<sup>6</sup>.</p>\\n<div><img
+        loading=\\\"lazy\\\" src=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2020/02/Screenshot-2020-02-04-at-10.20.22-PM-1024x631.png\\\"
+        alt=\\\"Coronavirus data\\\" width=\\\"759\\\" height=\\\"468\\\" srcset=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2020/02/Screenshot-2020-02-04-at-10.20.22-PM-1024x631.png
+        1024w, http://gigasciencejournal.com/blog/wp-content/uploads/2020/02/Screenshot-2020-02-04-at-10.20.22-PM-300x185.png
+        300w, http://gigasciencejournal.com/blog/wp-content/uploads/2020/02/Screenshot-2020-02-04-at-10.20.22-PM-768x473.png
+        768w\\\" /><p>Fig 2. Phylogenetic tree of 2019-nCoV. A tree of sequenced isolates
+        is shown along with the country or city where they were isolated, and the
+        date. Source: Nextstrain.</p></div>\\n<p>Peer-reviewed publications documented
+        the clinical features of 41 infected cases, 6 of whom died, and their demographic
+        and clinical features.<sup>10</sup> An estimate of 7 days from onset of symptoms
+        to hospital admission was presented. The second description of 99 cases has
+        also been published<sup>11</sup> along with reports documenting human-human
+        transmission.<sup>3,4</sup> \_A third study of 425 cases provided an estimate
+        of the mean incubation time of 5.2 days and a basic reproductive number of
+        2.2 (95% CI, 1.4 to 3.9).<sup>11</sup> At the time of writing, current estimates
+        of the case fatality rate (CFR) for 2019-nCoV are between 2 and 3 (<strong>Table
+        1</strong>). However, in regions of China outside of Hubei only 11 out of
+        6125 have died (0.18%). The first case report of a 35-year old male in the
+        US described mild to moderate symptoms, and a virus with one one amino acid
+        difference in one protein from the reference.<sup>12</sup> There has been
+        considerable cooperation among international health organizations, with the
+        CDC publishing the details of a <a href=\\\"https://www.cdc.gov/coronavirus/2019-nCoV/guidance-laboratories.html\\\">real-time
+        PCR diagnostic test</a>, and the World Health Organization has a site for
+        <a href=\\\"https://www.who.int/docs/default-source/coronaviruse/clinical-management-of-novel-cov.pdf?sfvrsn=bc7da517_2&amp;download=true\\\">up-to-date
+        clinical treatment guidelines</a>.</p>\\n<p>In conclusion there is still rapid
+        growth of 2019-nCoV infections in Hubei Province, with a slowly declining
+        fatality rate, but much fewer deaths outside of this region. Genetic and biological
+        data is being rapidly produced and disseminated allowing for the rapid development
+        of diagnostic tests and development of vaccines and other therapeutics.</p>\\n<p><strong>We
+        at <em>GigaScience</em> applaud this rapid and open sharing of the Coronavirus
+        data. We already have stringent open and transparent data, review and publication
+        policies in place, and would encourage submission of Data Notes and Technical
+        Notes (methodological and software papers) to enable due credit to producers
+        of data and tools. As with our dissemination of the data from the <a href=\\\"http://gigasciencejournal.com/blog/notes-from-an-e-coli-tweenome-lessons-learned-from-our-first-data-doi/\\\">deadly
+        German 2011 <em>E. coli</em> outbreak</a>, curation and dissemination will
+        be rapid, and we will also offer waivers of our article and data processing
+        charges for Coronavirus studies to encourage this. Please contact us if you
+        have presubmission inquiries or questions. While public events in our base
+        of Hong Kong have all been called off, there are <a href=\\\"https://github.com/opensourcehk/wuhanvirusdata\\\">local
+        \u201Cvirtual\u201D efforts</a> to crowdsource and hack data from the outbreak,
+        and some of the <em>GigaScience</em> team will be participating in a live
+        streaming data science workshop on Sunday 9th February (follow the <a href=\\\"https://www.youtube.com/channel/UC6xrF3O1aJxNXho9v_TYBMg?fbclid=IwAR3S7cyy_8jjJr_9Hu7a2i-0IzJwGW-1F6TcGTZjjzT0hX8hM_St9sZttyg\\\">youtube
+        link</a> to watch).</strong></p>\\n<p><span><span><strong>Further Reading<br
+        />\\n</strong></span></span><a href=\\\"https://doi.org/10.1038/nrmicro.2016.81\\\">1.</a>
+        de Wit . <em>et al.</em>, SARS and MERS: recent insights into emerging coronaviruses.
+        <em>Nat Rev Microbiol</em> <strong>14</strong>, 523-34 (2016).<br />\\n<a
+        href=\\\"https://doi.org/10.3390/v11121119\\\">2.</a> Willman M <em>et al.</em>,
+        A Comparative Analysis of Factors Influencing Two Outbreaks of Middle Eastern
+        Respiratory Syndrome (MERS) in Saudi Arabia and South Korea. <em>Viruses</em>
+        <strong>11</strong>(2019).<br />\\n<a href=\\\"https://doi.org/10.1016/S0140-6736(20)30211-7\\\">3.</a>
+        Zhu N.<em> et al.,</em> A Novel Coronavirus from Patients with Pneumonia in
+        China, 2019. <em>N Engl J Med</em> (2020).<br />\\n<a href=\\\"https://doi.org/10.1016/S0140-6736(20)30154-9\\\">4.</a>
+        Chan JF.<em> et al.</em> A familial cluster of pneumonia associated with the
+        2019 novel coronavirus indicating person-to-person transmission: a study of
+        a family cluster. <em>Lancet</em> (2020).<br />\\n<a href=\\\"https://doi.org/10.1101/2020.01.22.914952\\\">5.</a>
+        Zhou P <em>et al.,</em> Discovery of a novel coronavirus associated with the
+        recent pneumonia outbreak in humans and its potential bat origin. <em>bioRxiv</em>
+        (2020).<br />\\n<a href=\\\"https://doi.org/10.1101/2020.01.31.929042\\\">6.</a>
+        Hoffmann M <em>et al.,</em> The novel coronavirus 2019 (2019-nCoV) uses the
+        SARS-1 coronavirus receptor 2 ACE2 and the cellular protease TMPRSS2 for entry
+        into target cells. <em>bioRxiv</em> (2020).<br />\\n<a href=\\\"https://doi.org/10.1101/2020.01.22.915660\\\">7.</a>
+        Letko M <em>et al.</em>, Functional assessment of cell entry and receptor
+        usage for lineage B \u03B2-coronaviruses, including 2019-nCoV. <em>bioRxiv</em>
+        (2020).<br />\\n<a href=\\\"https://www.nature.com/articles/nature02145\\\">8.</a>
+        Li W<em> et al.,</em> Angiotensin-converting enzyme 2 is a functional receptor
+        for the SARS coronavirus. <em>Nature</em> <strong>426</strong>, 450-4 (2003).</p>\\n<p>The
+        post <a href=\\\"http://gigasciencejournal.com/blog/guest-blog-coronavirus-data/\\\">Guest
+        Blog: Data in the time of Coronavirus</a> appeared first on <a href=\\\"http://gigasciencejournal.com/blog\\\">GigaBlog</a>.</p>\\n\",\"content_text\":\"content_html\",\"doi\":\"https://doi.org/10.59350/qh3na-ehy20\",\"id\":\"d7e0d105-72ec-4b77-aeb1-f5555555f75b\",\"image\":\"http://gigasciencejournal.com/blog/wp-content/uploads/2020/02/Coronavirus-300x221.jpeg\",\"language\":\"en\",\"published_at\":1580830966,\"reference\":[],\"relationships\":[],\"summary\":\"<strong><em>With
+        much of the GigaScience team spanning the Hong Kong-Shenzhen border and now
+        confined to remote working, the current 2019-novel coronavirus outbreak has
+        been particularly disruptive and close to home.\",\"tags\":[\"Medicine\",\"Coronavirus\",\"Ebola\",\"Guest
+        Post\",\"Infectious Disease\"],\"title\":\"Guest Blog: Data in the time of
+        Coronavirus\",\"updated_at\":1581311457,\"url\":\"http://gigasciencejournal.com/blog/guest-blog-coronavirus-data\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"retraction\"],\"snippet\":\"com/2020/02/03/<mark>retraction</mark>-faulty-coronavirus-paper-good\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"retraction\"],\"snippet\":\"com/2020/02/03/<mark>retraction</mark>-faulty-coronavirus-paper-good\"}],\"text_match\":1155199671761633353,\"text_match_info\":{\"best_field_score\":\"1112386306048\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1155199671761633353\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Mike
+        Taylor\",\"url\":\"http://www.miketaylor.org.uk/dino/pubs/\"}],\"blog_id\":\"dkvra02\",\"blog_name\":\"Sauropod
+        Vertebra Picture of the Week\",\"blog_slug\":\"svpow\",\"content_html\":\"<p>This
+        Monday and Tuesday, I was at <a href=\\\"https://r2rconf.com/\\\">the R2R
+        (Researcher to Reader) conference</a> at BMA House in London. It\u2019s the
+        first time I\u2019ve been to this, and I was there at the invitation of my
+        old sparring partner <a href=\\\"https://twitter.com/Looptopper\\\">Rick Anderson</a>,
+        who was organizing <a href=\\\"https://r2rconf.com/2020/01/21/r2r-debate-teams-announced/\\\">this
+        year\u2019s debate</a>, on the proposition \u201CThe venue of its publication
+        tells us nothing useful about the quality of a paper\u201D.</p>\\n<p>I was
+        one half of the team arguing in favour of the proposition, along with <a href=\\\"https://twitter.com/TobyABGreen\\\">Toby
+        Green</a>, currently managing director at Coherent Digital and prevously head
+        of publishing at the OECD for twenty years. Our opponents were <a href=\\\"https://twitter.com/LearnedPublish\\\">Pippa
+        Smart</a>, publishing consultant and editor of <em>Learned Publishing</em>;
+        and Niall Boyce, editor of <em>The Lancet Psychiatry</em>.</p>\\n<p>I\u2019m
+        going to blog three of the four statements that were made. (The fourth, that
+        of Niall Boyce, is not available, as he spoke from handwritten notes.) I\u2019ll
+        finish this series with a fourth post summarising how the debate went, and
+        discussing what I now think about the proposition.</p>\\n<p>But now, here
+        is the opening statement for the proposition, co-written by Toby and me, and
+        delivered by him.</p>\\n<p></p><div><a href=\\\"https://svpow.files.wordpress.com/2020/02/r2r-debate.jpg\\\"></a><p>The
+        backs of the heads of the four R2R debaters as we watch the initial polling
+        on the proposition. From left to right: me, Toby, Pippa, Niall.</p></div><p></p>\\n<hr
+        />\\n<p>\_</p>\\n<p>What is the most significant piece of published research
+        in recent history? One strong candidate is a paper called \u201CIleal-lymphoid-nodular
+        hyperplasia, non-specific colitis, and pervasive developmental disorder in
+        children\u201D published in 1998. It was written by Andrew Wakefield et al.,
+        and postulated a link between the MMR vaccine and autism. This article became
+        the launching point for the anti-vax movement, which has resulted in (among
+        other things) 142,000 deaths from measles in 2019 alone. It has also contributed
+        to the general decline of trust in expertise and the rise of fake news.</p>\\n<p>This
+        article is now recognised as \u201Cnot just poor science, [but] outright fraud\u201D
+        (BMJ). It was eventually retracted \u2014 but it did take its venue of publication
+        12 years to do so. Where did it appear? In <em>The Lancet</em>, one of the
+        world\u2019s most established and prestigious medical journals, its prestige
+        quantified by a stellar Impact Factor of 59.1.</p>\\n<p>How could such a terrible
+        paper be published by such a respected journal? Because the venue of its publication
+        tells us nothing useful about the quality of a paper.</p>\\n<p>Retractions
+        from prestigious venues are not restricted to rogues like Wakefield. Last
+        month, Nobel Prize winner Frances Arnold said she was \u201Cbummed\u201D to
+        have to retract her 2019 paper on enzymatic synthesis of beta-lactams because
+        the results were not reproducible. \u201CCareful examination of the first
+        author\u2019s lab notebook then revealed missing contemporaneous entries and
+        raw data for key experiments.\u201D she explained. I.e. \u201Coops, we prepared
+        the paper sloppily, sooorry!\u201D</p>\\n<p>Prof. Arnold is the first woman
+        to be elected to all three National Academies in the USA and has been lauded
+        by institutions as diverse as the White House, BBC and the Vatican. She even
+        appeared as herself in the TV series, Big Bang Theory. She received widespread
+        praise for being so open about having to retract this work \u2014 yet what
+        does it say of the paper\u2019s venue of publication, <em>Science</em>? Plainly
+        the quality of this paper was not in the least assured by its venue of publication.
+        Or to put it another way, the venue of its publication tells us nothing useful
+        about the quality of a paper.</p>\\n<p>If we\u2019re going to talk about high-
+        and low-prestige venues, we\u2019ll need a ranking system of some sort. The
+        obvious ranking system is the Impact Factor \u2014 which, as Clarivate says
+        \u201Ccan be used to provide a gross approximation of the prestige of journals\u201D.
+        Love it or hate it, the IF has become ubiquitous, and we will reluctantly
+        use it here as a proxy for journal prestige.</p>\\n<p>So, then: what does
+        \u201Cquality\u201D really mean for a research paper? And how does it relate
+        to journal prestige?</p>\\n<p>One answer would be that a paper\u2019s quality
+        is to do with its methodological soundness: adherence to best practices that
+        make its findings reliable and reproducible. One important aspect of this
+        is statistical power: are enough observations made, and are the correlations
+        significant enough and strong enough for the results to carry weight? We would
+        hope that all reputable journals would consider this crucially important.
+        Yet Brembs et al. (2013) found no association between statistical power and
+        journal impact factor. So it seems the venue of its publication tells us nothing
+        useful about the quality of a paper.</p>\\n<p>Or perhaps we can define \u201Cquality\u201D
+        operationally, something like how frequently a paper is cited \u2014 more
+        being good, less being less good, right?. Astonishingly, given that Impact
+        Factor is derived from citation counts, Lozano et al. (2012) showed that citation
+        count of an individual paper is correlated only very weakly with the Impact
+        Factor of the journal it\u2019s published in \u2014 and that correlation has
+        been growing yet weaker since 1990, as the rise of the WWW has made discovery
+        of papers easier irrespective of their venue. In other words, the venue of
+        its publication tells us nothing useful about the quality of a paper.</p>\\n<p>We
+        might at this point ask ourselves whether there is <em>any</em> measurable
+        aspect of individual papers that correlates strongly with the Impact Factor
+        of the journal they appear in. There is: Fang et al. (2012) showed that Impact
+        Factor has a highly significant correlation with the number of retractions
+        for fraud or suspected fraud. Wakefield\u2019s paper has been cited 3336 times
+        \u2014 did the Lancet know what it was doing by delaying this paper\u2019s
+        retraction for so long?<sup>[1]</sup> So maybe the venue of its publication
+        does tell us something about the quality of a paper!</p>\\n<p>Imagine if we
+        asked 1000 random scholars to rank journals on an \u201Cdegree of excellence\u201D
+        scale. <em>Science</em> and <em>The Lancet</em> would, I\u2019m sure you\u2019ll
+        agree \u2014 like Liverpool\u2019s football team or that one from the \u201Cgreat
+        state of Kansas\u201D recently celebrated by Trump \u2014 be placed in the
+        journal Premier League. Yet the evidence shows \u2014 both from anecdote and
+        hard data \u2014 that papers published in these venues are at least as vulnerable
+        to error, poor experimental design and even outright fraud as those in less
+        exalted venues.</p>\\n<p>But let\u2019s look beyond journals \u2014 perhaps
+        we\u2019ll find a link between quality and venue elsewhere.</p>\\n<p>I\u2019d
+        like to tell you two stories about another venue of publication, this time,
+        the World Bank.</p>\\n<p>In 2016, the Bill &amp; Melinda Gates Foundation
+        pledged $5BN to fight AIDS in Africa. Why? Well, it was all down to someone
+        at the World Bank having the bright idea to take a copy of their latest report
+        on AIDS in Africa to Seattle and pitch the findings and recommendations directly
+        to Mr Gates. I often tell this story as an example of impact. I think we can
+        agree that the quality of this report must have been pretty high. After all,
+        it unlocked $5BN for a good cause. But, of course, you\u2019re thinking \u2014
+        D\u2019oh! It\u2019s a World Bank report, it must be high-quality. Really?</p>\\n<p>Consider
+        also this story: in 2014, headlines like this lit up around the world: \u201CLiterally
+        a Third of World Bank Policy Reports Have Never, Ever Been Read Online, By
+        Anyone\u201D (<em>Slate</em>) and \u201CWorld Bank learns most PDFs it produces
+        go unread\u201D (<em>Sydney Morning Herald</em>). These headlines were triggered
+        by a working paper, written by two economists from the World Bank and published
+        on its website. The punchline? They were wrong, the paper was very wrong.
+        Like Prof. Arnold\u2019s paper they were \u201Cmissing contemporaneous entries
+        and raw data\u201D, in this case data from the World Bank\u2019s official
+        repository. They\u2019d pulled the data from an old repository. If they had
+        also used data from the Bank\u2019s new repository they\u2019d have found
+        that every Bank report, however niche, had been downloaded many times. How
+        do I know? Because I called the one guy who would know the truth, the Bank\u2019s
+        Publisher, Carlos Rossel, and once he\u2019d calmed down, he told me.</p>\\n<p>So,
+        we have two reports from the same venue: one plainly exhibiting a degree of
+        excellence, the other painfully embarrassing (and, by the way, it still hasn\u2019t
+        been retracted).</p>\\n<p>Now, I bet you\u2019re thinking, the latter is a
+        working paper, therefore it hasn\u2019t been peer-reviewed and so it doesn\u2019t
+        count. Well, the Aids in Africa report wasn\u2019t \u201Cpeer reviewed\u201D
+        either \u2014 in the sense we all understand \u2014 but that didn\u2019t stop
+        Gates reaching for his Foundation\u2019s wallet. What about all the preprints
+        being posted on BiorXiv and elsewhere about the Coronavirus: do they \u201Cnot
+        count\u201D? This reminds me of a lovely headline when Cern\u2019s paper on
+        the discovery of the Higgs Boson finally made it into a journal some months
+        after the results had been revealed at a packed seminar, and weeks after the
+        paper had been posted on arXiv: \u201CHiggs boson discovery passes peer review,
+        becomes actual science\u201D. Quite apart from the irony expressed by the
+        headline writer, here\u2019s a puzzler for you. Was the quality of this paper
+        assured by finally being published in a journal (with an impact factor one-tenth
+        of <em>Science</em>\u2019s), or when it was posted in arXiv, or when it was
+        presented at a seminar? Which venue assured the quality of this work?</p>\\n<p>Of
+        course, none of them did because the venue of its publication tells us nothing
+        about the quality of the paper. The quality is inherent in the paper itself,
+        not in the venue where it is made public.</p>\\n<p>Wakefield paper\u2019s
+        lack of quality was also inherent in the paper itself and that it was published
+        in <em>The Lancet</em> (and is still available on more than seventy websites)
+        did not mean it was high quality. Or to put it another way, the venue of its
+        publication tells us nothing useful about the quality of a paper.</p>\\n<p>So
+        what are different venues good for? Today\u2019s scholarly publishing system
+        is still essentially the same as the one that Oldenburg et al started in the
+        17th Century. This system evolved in an environment when publishing costs
+        were significant and grew with increased dissemination (increased demand meant
+        higher print and delivery costs). This meant that editors had to make choices
+        to keep costs under control \u2014 to select what to publish and what to reject.
+        The selection criteria varied: some used geography to segment the market (<em>The
+        Chinese Journal of X</em>, <em>The European Journal of Y</em>); some set up
+        societies (<em>Operational Research Society Journal</em>) and others segmented
+        the market by discipline (<em>The International Journal of Neurology</em>).
+        These were genuinely useful distinctions to make, helping guide authors, readers
+        and librarians to solutions for their authoring, reading and archiving needs.</p>\\n<p>Most
+        journals pretend to use quality as a criterion to select within their niche
+        \u2014 but isn\u2019t it funny that there isn\u2019t a <em>Quality Journal
+        of Chemistry</em> or a <em>Higher-Quality Journal of Physics</em>? The real
+        reasons for selection and rejection are of course to do with building brands
+        and meeting business targets in terms of the number of pages published. If
+        quality was the overarching criteria, why, like the wine harvest, don\u2019t
+        journals fluctuate in output each year? Down when there\u2019s a poor-season
+        and up when the sun shines?</p>\\n<p>If quality was the principle reason for
+        acceptance and rejection, why is it absent from the list of most common reasons
+        for rejection? According to Editage one of the most common reasons is because
+        the paper didn\u2019t fit the aims and scope of the journal. Not because the
+        paper is of poor quality. The current publishing process isn\u2019t a system
+        for weeding out weak papers from prestige journals, leaving them with only
+        the best. It\u2019s a system for sorting stuff into \u201Chouses\u201D which
+        is as opaque, unaccountable and random as the Sorting Hat which confronted
+        Harry Potter at Hogwarts. This paper to the <em>Journal of Hufflepuff</em>;
+        that one to the <em>Journal of Slytherin</em>!</p>\\n<p>So the venue of its
+        publication can tell us useful things about a paper: its geographical origin,
+        its field of study, the society that endorses it. The one thing it can\u2019t
+        tell us is anything useful about the quality of a paper.</p>\\n<h1>Note</h1>\\n<p>[1]
+        We regret this phrasing. We asked \u201Cdid the Lancet know what it was doing\u201D
+        in the usual colloquial sense of implying a lack of competence (\u201Che doesn\u2019t
+        know what he\u2019s doing\u201D); but as Niall Boyce rightly pointed out,
+        it can be read as snidely implying that <em>The Lancet</em> knew <em>exactly</em>
+        what it was doing, and deliberately delayed the retraction in order to accumulate
+        more citations. For avoidance of doubt, that is not what we meant; we apologise
+        for not having written more clearly.</p>\\n<h1>References</h1>\\n<p>We were
+        of course not able to give references during the debate. But since our statement
+        included several citations, we can remedy that deficiency here.</p>\\n<ul>\\n<li><a
+        href=\\\"https://www.frontiersin.org/articles/10.3389/fnhum.2013.00291/full\\\">Brembs,
+        Bj\xF6rn, Katherine Button and Marcus Munaf\xF2. 2013. Deep impact: unintended
+        consequences of journal rank. <em>Frontiers in Human Neuroscience</em>, 24
+        June 2013.</a> doi:10.3389/fnhum.2013.00291</li>\\n<li><a href=\\\"https://science.sciencemag.org/content/364/6440/575?ijkey=f10fdfb89239f0f5a88dec146188a2b98ebee782&amp;keytype2=tf_ipsecsha\\\">Cho,
+        Inha, Zhi-Jun Jia and Frances H. Arnold. 2019. Site-selective enzymatic C\u2012H
+        amidation for synthesis of diverse lactams. <em>Science</em> <strong>364(6440)</strong>:575-578.</a>
+        doi:10.1126/science.aaw9068</li>\\n<li><a href=\\\"https://www.pnas.org/content/109/42/17028.long\\\">Fang,
+        F. C., R. G. Steen and A. Casadevall. 2012. Misconduct accounts for the majority
+        of retracted scientific publications. <em>Proceedings of the National Academy
+        of Sciences</em> <strong>109</strong>:17028\u201317033.</a> doi:10.1073/pnas.1212247109</li>\\n<li><a
+        href=\\\"https://onlinelibrary.wiley.com/doi/abs/10.1002/asi.22731\\\">Lozano,
+        G. A., V. Larivi\xE8re and Y. Gingras. 2012. The weakening relationship between
+        the impact factor and papers\u2019 citations in the digital age. <em>Journal
+        of the American Society for Information Science and Technology</em> <strong>63(11)</strong>:2140\u20132145.</a>
+        doi:10.1002/asi.22731</li>\\n<li><a href=\\\"https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(97)11096-0/fulltext\\\">Wakefield,
+        A. J., S. H. Murch, A. Anthony, J. Linnell, D. M. Casson, M. Malik, M. Berelowitz
+        and A. P. Dhillon. 1998. Ileal-lymphoid-nodular hyperplasia, non-specific
+        colitis, and pervasive developmental disorder in children. <em>The Lancet</em>
+        <strong>351(9103)</strong>:637\u2013641.</a> doi:10.1016/S0140-6736(97)11096-0
+        <strong>[RETRACTED]</strong></li>\\n</ul>\\n\",\"content_text\":\"content_html\",\"doi\":\"https://doi.org/10.59350/c8fz7-kyc20\",\"id\":\"66182581-1ee5-4d81-9aeb-087eaf5aeec8\",\"image\":\"https://svpow.files.wordpress.com/2020/02/r2r-debate.jpg\",\"language\":\"en\",\"published_at\":1582843201,\"reference\":[{\"key\":\"ref1\",\"url\":\"https://frontiersin.org/articles/10.3389/fnhum.2013.00291/full\"},{\"key\":\"ref2\",\"url\":\"https://science.sciencemag.org/content/364/6440/575?amp=&ijkey=f10fdfb89239f0f5a88dec146188a2b98ebee782\"},{\"key\":\"ref3\",\"url\":\"https://pnas.org/content/109/42/17028.long\"},{\"key\":\"ref4\",\"url\":\"https://onlinelibrary.wiley.com/doi/abs/10.1002/asi.22731\"},{\"key\":\"ref5\",\"url\":\"https://thelancet.com/journals/lancet/article/piis0140-6736(97)11096-0/fulltext\"}],\"relationships\":[],\"summary\":\"This
+        Monday and Tuesday, I was at the R2R (Researcher to Reader) conference at
+        BMA House in London.\",\"tags\":[\"Conferences\",\"R 2 R\"],\"title\":\"The
+        R2R debate, part 1: opening statement in support\",\"updated_at\":1582843202,\"url\":\"https://svpow.com/2020/02/27/the-r2r-debate-part-1-opening-statement-in-support\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"watch\"],\"snippet\":\"R2R
+        debaters as we <mark>watch</mark> the initial polling on\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"watch\"],\"snippet\":\"R2R
+        debaters as we <mark>watch</mark> the initial polling on\"}],\"text_match\":1155199671761633353,\"text_match_info\":{\"best_field_score\":\"1112386306048\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1155199671761633353\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Scott
+        Edmunds\",\"url\":\"http://orcid.org/0000-0001-6444-1436\"}],\"blog_id\":\"3ffcd46\",\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"content_html\":\"<p><strong>Push
+        the button! <em>GigaScience</em> moves toward more interactive articles</strong><br
+        />\\n<a href=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2014/02/bgi-galaxy-21.png\\\"><img
+        loading=\\\"lazy\\\" src=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2014/02/bgi-galaxy-21-300x257.png\\\"
+        width=\\\"300\\\" height=\\\"257\\\" srcset=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2014/02/bgi-galaxy-21-300x257.png
+        300w, http://gigasciencejournal.com/blog/wp-content/uploads/2014/02/bgi-galaxy-21-768x658.png
+        768w, http://gigasciencejournal.com/blog/wp-content/uploads/2014/02/bgi-galaxy-21.png
+        783w\\\" /></a><br />\\nResearch articles are being published with increasingly
+        large and complicated supporting datasets, together with the software code
+        used in analyses of the data. However, there is a <a href=\\\"http://www.plosmedicine.org/article/info:doi/10.1371/journal.pmed.0020124\\\"
+        target=\\\"_blank\\\">growing</a> <a href=\\\"http://www.nature.com/ng/journal/v41/n2/full/ng.295.html\\\"
+        target=\\\"_blank\\\">number</a> of studies reporting the inability to reproduce
+        previously published findings which may, at least in part, be responsible
+        for the increasing rate of retractions that <a href=\\\"http://bjoern.brembs.net/2013/07/the-looming-crisis-in-science/\\\"
+        target=\\\"_blank\\\">Bjorn Brembs has calculated</a> will overtake the number
+        of papers published some time in the mid-2040s. Furthermore, there is an awareness
+        of the \u201Creproducibility gap\u201D within the scientific community, with
+        Francis Collins of the NIH <a href=\\\"http://www.nature.com/news/policy-nih-plans-to-enhance-reproducibility-1.14586\\\"
+        target=\\\"_blank\\\">just publishing</a> a statement expressing concern about
+        this issue. Whilst this has provoked <a href=\\\"http://news.cell.com/cellreports/cell-reports/in-defense-of-science\\\"
+        target=\\\"_blank\\\">some</a> <a href=\\\"http://www.nature.com/news/reproducibility-the-risks-of-the-replication-drive-1.14184\\\"
+        target=\\\"_blank\\\">to deny</a> this is a serious issue (ironically in journals
+        with the <a href=\\\"http://iai.asm.org/content/79/10/3855.abstract\\\" target=\\\"_blank\\\">highest
+        retraction rates</a>), <em><a href=\\\"http://www.gigasciencejournal.com/\\\"
+        target=\\\"_blank\\\">GigaScience</a></em> has joined initiatives such as
+        <a href=\\\"https://www.synapse.org/\\\" target=\\\"_blank\\\">Sage Bionetworks
+        Synapse</a> and <a href=\\\"https://www.scienceexchange.com/\\\" target=\\\"_blank\\\">Science
+        Exchange</a> <a href=\\\"http://reproducibilityinitiative.org/\\\" target=\\\"_blank\\\">reproducibility
+        initiative</a> in attempting to do something about this through building platforms
+        and procedures to assist and reward authors who are keen on their work being
+        reproducible and actually used. The <a href=\\\"http://usegalaxy.org/\\\"
+        target=\\\"_blank\\\">Galaxy community</a> is one that shares similar goals,
+        with a computational platform which allows users to share workflows, histories
+        and wrapped tools in an easy-to-use and open source interface that even people
+        without coding experience can use. On top of our <a href=\\\"gigadb.org/\\\"
+        target=\\\"_blank\\\">GigaDB repository</a> to host large scale datasets,
+        we have also set up our own Galaxy server called <a href=\\\"http://galaxy.cbiit.cuhk.edu.hk/\\\"
+        target=\\\"_blank\\\">GigaGalaxy</a> to similarly present and host the computational
+        outputs and methods of studies published in <em>GigaScience</em>.</p>\\n<p>Attending
+        the <a href=\\\"https://wiki.galaxyproject.org/Events/GCC2013\\\" target=\\\"_blank\\\">Galaxy
+        Community Conference in Oslo</a> last summer (see the write-up <a href=\\\"http://blogs.biomedcentral.com/gigablog/2013/07/09/usegalaxy-lights-up-northern-skies/\\\"
+        target=\\\"_blank\\\">here</a>), we and the conference committee announced
+        a <a href=\\\"http://blogs.biomedcentral.com/gigablog/2013/04/05/call-for-papers-for-a-special-gcc2013-galaxy-series/\\\"
+        target=\\\"_blank\\\">call for papers</a> for a special thematic focused series
+        on studies utilizing large-scale datasets and workflows. The initial results
+        of this are now available, with the first two papers just out and available
+        from the <a href=\\\"http://www.gigasciencejournal.com/series/Galaxy\\\" target=\\\"_blank\\\">new
+        series page</a>. Whilst the series considers best practice papers, discussion,
+        as well as novel uses of Galaxy, these first papers are examples of Galaxy
+        toolkits, with a <a href=\\\"http://dx.doi.org/10.1186/2047-217X-2-17\\\"
+        target=\\\"_blank\\\">genome diversity tool collection</a> presented from
+        the Webb Miller lab at Pennsylvania State, and a <a href=\\\"http://dx.doi.org/10.1186/2047-217X-3-1\\\"
+        target=\\\"_blank\\\">set of analytical and visualisation tools for Complete
+        Genomics sequencing data</a> from the Stubbs lab at Erasmus Medical College.
+        What differentiates this series from other traditional journals are doing
+        is the focus on reproducibility, and the use of permanent DOIs and our own
+        Galaxy server that can archive and present wrapped tools and workflows and
+        histories from the papers.</p>\\n<p><strong>DOIs for workflows</strong><br
+        />\\nFollowing on from our experiences allocating <a href=\\\"http://en.wikipedia.org/wiki/Digital_object_identifier\\\"
+        target=\\\"_blank\\\">DOIs</a> to software from papers, we helped lobby <a
+        href=\\\"http://www.datacite.org/\\\" target=\\\"_blank\\\">DataCite</a> to
+        include \u201Cworkflow\u201D as a similar resource type, and they have now
+        <a href=\\\"http://schema.datacite.org/meta/kernel-3/example/datacite-example-workflow-v3.0.xml\\\"
+        target=\\\"_blank\\\">included this</a> in the release of their latest <a
+        href=\\\"http://schema.datacite.org/\\\" target=\\\"_blank\\\">metadata schema</a>.
+        We have been testing our GigaGalaxy platform by <a href=\\\"galaxy.cbiit.cuhk.edu.hk/galaxy/u/peter/p/soapdenovo2-tutorial-1\\\"
+        target=\\\"_blank\\\">implementing workflows</a> from our <a href=\\\"http://www.gigasciencejournal.com/content/1/1/18\\\"
+        target=\\\"_blank\\\">SOAPdenovo2 publication</a>, and we presented much of
+        this work at our \u201C<a href=\\\"http://blogs.biomedcentral.com/gigablog/2013/08/09/more-on-our-ismb-workshop-what-bioinformaticians-need-to-know-about-digital-publishing-beyond-the-pdf/\\\"
+        target=\\\"_blank\\\">What Bioinformaticians need to know Beyond the PDF</a>\u201D
+        workshop at ISMB (which incidentally will be <a href=\\\"http://www.researchobject.org/news/\\\"
+        target=\\\"_blank\\\">continued again</a> at the 2014 meeting). The genome
+        diversity toolkit is our first example of a DOI that resolves purely to a
+        workflow. From the landing page in GigaDB, you can download the Galaxy XML
+        files, or click the link to appropriate part in the <a href=\\\"http://galaxy.cbiit.cuhk.edu.hk/paper/list_published\\\"
+        target=\\\"_blank\\\">\u201CPapers\u201D section of our GigaGalaxy server</a>
+        to <a href=\\\"http://galaxy.cbiit.cuhk.edu.hk/u/gigascience/g/obedoyareina2013\\\"
+        target=\\\"_blank\\\">browse and run the workflows discussed in the paper</a>.
+        Presenting a handy toolkit covering a number of popular population genetics
+        tools, the paper provides diverse examples of their application on the genetics
+        of Lemurs, and Canines and Cave Bears (oh my!). Seven of these examples are
+        viewable on our <a href=\\\"http://galaxy.cbiit.cuhk.edu.hk/u/gigascience/g/obedoyareina2013\\\"
+        target=\\\"_blank\\\">GigaGalaxy page</a>. Whilst the latest versions of the
+        tools and further examples are available from the <a href=\\\"http://usegalaxy.org/\\\"
+        target=\\\"_blank\\\">main Galaxy server</a> and the authors website, the
+        <em>GigaScience</em> Galaxy server provides access to static versions of the
+        tools used within the examples of the paper. To make it a little more interactive
+        and understandable for users, we have produced SVG graphs to help visualize
+        how input datasets, workflows and histories are related to each example analysis.</p>\\n<p><a
+        href=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2014/02/Screen-shot-2014-02-05-at-4.31.52-PM.png\\\"><img
+        loading=\\\"lazy\\\" src=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2014/02/Screen-shot-2014-02-05-at-4.31.52-PM.png\\\"
+        width=\\\"744\\\" height=\\\"588\\\" srcset=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2014/02/Screen-shot-2014-02-05-at-4.31.52-PM.png
+        744w, http://gigasciencejournal.com/blog/wp-content/uploads/2014/02/Screen-shot-2014-02-05-at-4.31.52-PM-300x237.png
+        300w\\\" /></a></p>\\n<p>As a step on the road to executable papers, this
+        is aiming to be a more interactive and two-way experience than traditional
+        publication models still rooted in the print era, so please feedback to us
+        at editorial@gigasciencejournal.com on on any bugs or features you would like
+        to see. We would like to thank our collaborators at <a href=\\\"http://www.cuhk.edu.hk/cbiit/research.html\\\"
+        target=\\\"_blank\\\">CBIIT (the CUHK-BGI Innovation Institute of Trans-omics)</a>
+        who helped us set up our Galaxy server, <a href=\\\"http://www.biomedcentral.com/\\\"
+        target=\\\"_blank\\\">BioMed Central</a>, <a href=\\\"http://www.datacite.org/\\\"
+        target=\\\"_blank\\\">DataCite</a>, as well as the authors and reviewers for
+        working with us to get these examples out and online. The <a href=\\\"http://www.gigasciencejournal.com/series/Galaxy\\\"
+        target=\\\"_blank\\\">series</a> is still open and we are continuing to take
+        and review submissions, so watch the series page for future additions. Please
+        contact us if you are interested in submitting your work or submit through
+        our submission system <a href=\\\"http://www.gigasciencejournal.com/manuscript\\\"
+        target=\\\"_blank\\\">here</a>. Thanks to support from the <a href=\\\"http://www.genomics.cn/en/index\\\"
+        target=\\\"_blank\\\">BGI</a> our article processing charges are still currently
+        free and, as we are again silver sponsors of the <a href=\\\"https://wiki.galaxyproject.org/Events/GCC2014\\\"
+        target=\\\"_blank\\\">2014 Galaxy Community Conference</a>, we hope to meet
+        many of you there.</p>\\n<h3><strong>References</strong></h3>\\n<p><a href=\\\"http://dx.doi.org/10.1186/2047-217X-2-17\\\"
+        target=\\\"_blank\\\">1.</a> Bedoya-Reina et al.: Galaxy tools to study genome
+        diversity. GigaScience 2:17 <a href=\\\"http://dx.doi.org/10.1186/2047-217X-2-17\\\"
+        target=\\\"_blank\\\">http://dx.doi.org/10.1186/2047-217X-2-17</a></p>\\n<p><a
+        href=\\\"http://dx.doi.org/10.1186/2047-217X-3-1\\\" target=\\\"_blank\\\">2.</a>
+        Hiltemann et al.: CGtag: complete genomics toolkit and annotation in a cloud-based
+        Galaxy. GigaScience 2014 3:1 <a href=\\\"http://dx.doi.org/10.1186/2047-217X-3-1\\\"
+        target=\\\"_blank\\\">http://dx.doi.org/10.1186/2047-217X-3-1</a></p>\\n<p><a
+        href=\\\"http://dx.doi.org/10.5524/100069\\\" target=\\\"_blank\\\">3.</a>
+        Bedoya-Reina, OC; Ratan, A; Burhans, R; Kim, HL; Giardine, B; Riemer, C; Li,
+        Q; Olson, TL; Loughran Jr, TP; vonHoldt, BM; Perry, GH; Schuster, SC; Miller,
+        W (2013): GigaGalaxy workflows and histories from \u201CGalaxy tools to study
+        genome diversity\u201D GigaScience Database. <a href=\\\"http://dx.doi.org/10.5524/100069\\\"
+        target=\\\"_blank\\\">http://dx.doi.org/10.5524/100069</a></p>\\n<p><a href=\\\"http://www.gigasciencejournal.com/series/Galaxy\\\"
+        target=\\\"_blank\\\">4.</a> GigaScience Galaxy Series Page https://academic.oup.com/gigascience/pages/galaxy_series_data_intensive_reproducible_research</p>\\n<p>The
+        post <a href=\\\"http://gigasciencejournal.com/blog/rewarding-reproducibility-first-papers-in-our-galaxy-series-utilizing-our-gigagalaxy-platform/\\\">Rewarding
+        Reproducibility: First Papers in our Galaxy Series utilizing our GigaGalaxy
+        platform</a> appeared first on <a href=\\\"http://gigasciencejournal.com/blog\\\">GigaBlog</a>.</p>\\n\",\"content_text\":\"content_html\",\"doi\":\"https://doi.org/10.59350/w8kyr-0e629\",\"id\":\"f312e680-13a8-4720-a5ee-61a449410a58\",\"image\":\"http://gigasciencejournal.com/blog/wp-content/uploads/2014/02/bgi-galaxy-21-300x257.png\",\"language\":\"en\",\"published_at\":1391676080,\"reference\":[],\"relationships\":[],\"summary\":\"<strong>Push
+        the button! <em>GigaScience</em> moves toward more interactive articles</strong>
+        Research articles are being published with increasingly large and complicated
+        supporting datasets, together with the software code used in analyses of the
+        data.\",\"tags\":[\"Publishing\",\"Technology\",\"Usegalaxy\",\"Conferences\",\"Galaxy\"],\"title\":\"Rewarding
+        Reproducibility: First Papers in our Galaxy Series utilizing our GigaGalaxy
+        platform\",\"updated_at\":1692724775,\"url\":\"http://gigasciencejournal.com/blog/rewarding-reproducibility-first-papers-in-our-galaxy-series-utilizing-our-gigagalaxy-platform\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"retraction\"],\"snippet\":\"10/3855.abstract\\\"
+        target=\\\"_blank\\\">highest <mark>retraction</mark> rates</a>), <em><a href=\\\"http:\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"retraction\"],\"snippet\":\"10/3855.abstract\\\"
+        target=\\\"_blank\\\">highest <mark>retraction</mark> rates</a>), <em><a href=\\\"http:\"}],\"text_match\":1155199671761633353,\"text_match_info\":{\"best_field_score\":\"1112386306048\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1155199671761633353\",\"tokens_matched\":2}}],\"out_of\":9071,\"page\":2,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"retraction-watch\"},\"search_cutoff\":false,\"search_time_ms\":5}"
+    headers:
+      Connection:
+      - keep-alive
+      accept-ranges:
+      - none
+      access-control-allow-origin:
+      - '*'
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: OK
+version: 1
