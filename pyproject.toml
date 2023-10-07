@@ -30,3 +30,30 @@ black = "^23.9.1"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 88
+select = [
+    "F401",
+    "F403",
+]
+
+[tool.tox]
+legacy_tox_ini = """
+    [tox]
+    min_version = 4.0
+    env_list =
+        py39
+        py310
+        py311
+
+    [testenv]
+    deps = 
+        pytest
+        pytest-cov
+    commands = pytest --cov=commonmeta --cov-report=xml
+
+    [coverage:run]
+    relative_files = True
+    branch = True
+"""
