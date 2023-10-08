@@ -1,13 +1,47 @@
 import requests
+import re
+from typing import Optional
 
 
-def get_doi_metadata_from_ra(doi: str, headers) -> str:
-    """use DOI content negotiation to get metadata in various formats"""
-    response = requests.get(doi, headers=headers)
-    response.encoding = 'UTF-8'
+def sanitize_suffix(str):
+    # Regular expression to only allow certain characters in DOI suffix
+    # taken from https://www.crossref.org/blog/dois-and-matching-regular-expressions/
+    m = re.match(r"^\[-._;\(\)/:A-Z0-9\]+$", str)
+    print(m)
+    return m
+
+
+def get_doi_metadata_from_ra(
+    doi: str, format_: str = "bibtex", style: str = "apa", locale: str = "en-US"
+) -> Optional[dict]:
+    """use DOI content negotiation to get metadata in various formats.
+    format_ can be bibtex, ris, csl, citation, with bibtex as default."""
+
+    content_types = {
+        "bibtex": "application/x-bibtex",
+        "ris": "application/x-research-info-systems",
+        "csl": "application/vnd.citationstyles.csl+json",
+        "citation": f"text/x-bibliography; style={style}; locale={locale}",
+    }
+    content_type = content_types.get(format_) or "application/x-bibtex"
+    response = requests.get(doi, headers={"Accept": content_type})
+    response.encoding = "UTF-8"
     if response.status_code >= 400:
-        return "Metadata not found"
-    return response.text.strip()
+        return None
+    basename = doi.replace("/", "-")
+    if format_ == "csl":
+        ext = "json"
+    elif format_ == "ris":
+        ext = "ris"
+    elif format_ == "bibtex":
+        ext = "bib"
+    else:
+        ext = "txt"
+    options = {
+        "Content-Type": content_type,
+        "Content-Disposition": f"attachment; filename={basename}.{ext}",
+    }
+    return {"doi": doi, "data": response.text.strip(), "options": options}
 
 
 # def format_metadata(meta: dict, to: str = "bibtex"):

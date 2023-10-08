@@ -158,30 +158,11 @@ async def post(slug, suffix=None):
     elif slug in prefixes and suffix:
         doi = f"https://doi.org/{slug}/{suffix}"
         if format_ in formats:
-            content_types = {
-                "bibtex": "application/x-bibtex",
-                "ris": "application/x-research-info-systems",
-                "csl": "application/vnd.citationstyles.csl+json",
-                "citation": f"text/x-bibliography; style={style}; locale={locale}",
-            }
-            content_type = content_types.get(format_)
-            metadata = get_doi_metadata_from_ra(doi, headers={"Accept": content_type})
-            if not metadata:
-                logger.warning(f"Metadata not found for {doi}")
+            response = get_doi_metadata_from_ra(doi, format_, style, locale)
+            if not response:
+                logger.warning("Metadata not found")
                 return {"error": "Metadata not found."}, 404
-            if format_ == "csl":
-                filename = f"{slug}-{suffix}.json"
-            elif format_ == "ris":
-                filename = f"{slug}-{suffix}.ris"
-            elif format_ == "bibtex":
-                filename = f"{slug}-{suffix}.bib"
-            else:
-                filename = f"{slug}-{suffix}.txt"
-            options = {
-                "Content-Type": content_type,
-                "Content-Disposition": f"attachment; filename={filename}",
-            }
-            return (metadata, 200, options)
+            return (response["data"], 200, response["options"])
         else:
             try:
                 response = (
