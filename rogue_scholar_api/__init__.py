@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from dotenv import load_dotenv
 from quart import Quart, request, jsonify, redirect
-from quart_schema import QuartSchema, validate_request, validate_response
+from quart_schema import QuartSchema, Info, validate_request, validate_response
 from supabase import create_client, Client as SupabaseClient
 import typesense as ts
 
@@ -14,7 +14,7 @@ from rogue_scholar_api.utils import get_doi_metadata_from_ra, validate_uuid
 
 
 app = Quart(__name__)
-QuartSchema(app)
+QuartSchema(app, info=Info(title="Rogue Scholar API", version="0.6.0"))
 
 
 @dataclass
