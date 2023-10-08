@@ -11,7 +11,7 @@ interactions:
       User-Agent:
       - python-requests/2.31.0
     method: GET
-    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=retraction-watch&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Ccontent_html%2Creference&sort_by=_text_match%3Adesc&per_page=10&page=2
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=retraction-watch&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Ccontent_html%2Creference&filter_by=blog_slug%3A%21%3D%5Bxxx%5D&sort_by=_text_match%3Adesc&per_page=10&page=2
   response:
     body:
       string: "{\"facet_counts\":[],\"found\":18,\"hits\":[{\"document\":{\"authors\":[{\"name\":\"Bj\xF6rn

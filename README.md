@@ -14,7 +14,8 @@ The backend server for the [Rogue Scholar](https://rogue-scholar.org) science bl
 Requires Python 3.8 or higher. Uses [Poetry](https://python-poetry.org/) for dependency management. Depends on credentials for the Rogue Scholar Postgres database (hosted by Supabase) and Rogue Scholar search index (hosted by Typesense).
 
 ```
-quart --app rogue_scholar run
+poetry install
+poetry run quart --app rogue_scholar_api run
 ```
 
 ## Development

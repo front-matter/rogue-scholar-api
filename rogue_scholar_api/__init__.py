@@ -2,9 +2,9 @@ import os
 from uuid import UUID
 from dotenv import load_dotenv
 from supabase import create_client, Client as SupabaseClient
-from quart import Quart, request, jsonify, render_template
+from quart import Quart, request, jsonify
 import typesense as ts
-import chardet
+
 
 from rogue_scholar_api.utils import get_doi_metadata_from_ra
 
@@ -14,6 +14,9 @@ app = Quart(__name__)
 load_dotenv()
 supabase_url: str = os.environ.get("SUPABASE_URL")
 supabase_key: str = os.environ.get("SUPABASE_ANON_KEY")
+typesense_host: str = os.environ.get("TYPESENSE_HOST")
+typesense_api_key: str = os.environ.get("TYPESENSE_API_KEY")
+
 supabase: SupabaseClient = create_client(
     supabase_url=supabase_url, supabase_key=supabase_key
 )
@@ -25,10 +28,10 @@ postsWithBlogSelect = "id, doi, url, archive_url, title, summary, published_at, 
 postsWithContentSelect = "id, doi, url, archive_url, title, summary, content_html, published_at, updated_at, indexed_at, authors, image, tags, language, reference, relationships, blog_name, blog_slug, blog: blogs!inner(*)"
 typesense = ts.Client(
     {
-        "api_key": os.environ.get("TYPESENSE_API_KEY"),
+        "api_key": typesense_api_key,
         "nodes": [
             {
-                "host": os.environ.get("TYPESENSE_HOST"),
+                "host": typesense_host,
                 "port": "443",
                 "protocol": "https",
             }
@@ -77,10 +80,16 @@ async def blog(slug):
 @app.route("/posts")
 async def posts():
     query = request.args.get("query") or ""
+    tags = request.args.get("tags")
+    language = request.args.get("language")
     page = int(request.args.get("page") or "1")
+    filter_by = "blog_slug:!=[xxx]"
+    filter_by = filter_by + f" && tags:=[{tags}]" if tags else filter_by
+    filter_by = filter_by + f" && language:=[{language}]" if language else filter_by
     search_parameters = {
         "q": query,
         "query_by": "tags,title,doi,authors.name,authors.url,summary,content_html,reference",
+        "filter_by": filter_by,
         "sort_by": "_text_match:desc"
         if request.args.get("query")
         else "published_at:desc",

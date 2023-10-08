@@ -71,9 +71,6 @@ async def test_posts_not_indexed_route():
     assert response.status_code == 200
     result = await response.get_json()
     assert len(result) == 0
-    # post = result[0]
-    # assert post["title"] == "¿Qué libros científicos publicamos?"
-    # assert post["doi"] == "https://doi.org/10.59350/sfzv4-xdb68"
 
 
 @pytest.mark.vcr
@@ -83,12 +80,35 @@ async def test_posts_unregistered_route():
     assert response.status_code == 200
     result = await response.get_json()
     assert len(result) == 15
-    # post = result[0]
-    # assert (
-    #     post["title"]
-    #     == "Transmediale-Festival untersucht den „Full Take“ unserer Daten"
-    # )
-    # assert post["blog_slug"] == "irights"
+    # assert result["found"] == 15
+
+
+@pytest.mark.vcr
+async def test_posts_filter_by_tags_route():
+    test_client = app.test_client()
+    response = await test_client.get("/posts?tags=open+access")
+    assert response.status_code == 200
+    result = await response.get_json()
+    assert result["found"] == 615
+    post = py_.get(result, "hits[0].document")
+    assert (
+        post["title"]
+        == "Institutional Change toward Open Scholarship and Open Science"
+    )
+
+
+@pytest.mark.vcr
+async def test_posts_filter_by_language_route():
+    test_client = app.test_client()
+    response = await test_client.get("/posts?language=es")
+    assert response.status_code == 200
+    result = await response.get_json()
+    assert result["found"] == 48
+    post = py_.get(result, "hits[0].document")
+    assert (
+        post["title"]
+        == "¿Qué libros científicos publicamos?"
+    )
 
 
 async def test_post_route():
