@@ -5,13 +5,13 @@
 [![docs](https://img.shields.io/badge/docs-passing-blue)](https://docs.rogue-scholar.org)
 ![GitHub](https://img.shields.io/github/license/front-matter/rogue-scholar-api?logo=MIT)
 
-# rogue-scholar-api
+# Rogue Scholar API
 
-The backend server for the [Rogue Scholar](https://rogue-scholar.org) science blog archive. The Rogue Scholar API is a [Quart](https://pgjones.gitlab.io/quart/) application that provides a RESTful API for the Rogue Scholar service.
+The backend server for the [Rogue Scholar](https://rogue-scholar.org) science blog archive. The Rogue Scholar API is a Python [Quart](https://pgjones.gitlab.io/quart/) application that provides a RESTful API for the Rogue Scholar service.
 
 ## Installation
 
-Requires Python 3.8 or higher. Uses [Poetry](https://python-poetry.org/) for dependency management. Depends on credentials for the Rogue Scholar Postgres database (hosted by Supabase) and Rogue Scholar search index (hosted by Typesense):
+Requires Python 3.8 or higher (Python 3.11 recommended). Uses [Poetry](https://python-poetry.org/) for dependency management. Depends on credentials for the Rogue Scholar Postgres database (hosted by Supabase) and Rogue Scholar search index (hosted by Typesense):
 
 ```
 # required environment variables
