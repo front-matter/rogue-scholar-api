@@ -53,7 +53,7 @@ Follow along via [Github Issues](https://github.com/front-matter/rogue-scholar-a
 
 Documentation (work in progress) for using Rogue Scholar is available at the [Rogue Scholar Documentation](https://docs.rogue-scholar.org/) website.
 
-The Rogue Scholar API documentation is served by default at [/openapi.json](https://api.rogue-scholar.org/openapi.json) according to the OpenAPI standard, or at [/docs](https://api.rogue-scholar.org/docs) for a SwaggerUI interface.
+The Rogue Scholar API documentation is served by default at [/openapi.json](https://api.rogue-scholar.org/openapi.json) according to the OpenAPI standard, or at [/docs](https://api.rogue-scholar.org/docs) for a SwaggerUI interface, or at [/redocs](https://api.rogue-scholar.org/redocs) for a redoc interface.
 
 ## Meta
 
