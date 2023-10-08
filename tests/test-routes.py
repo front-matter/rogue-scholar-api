@@ -24,6 +24,7 @@ async def test_blogs_redirect_route():
     assert response.status_code == 301
     assert response.headers["Location"] == "/blogs"
 
+
 @pytest.mark.vcr
 async def test_blogs_route():
     test_client = app.test_client()
@@ -43,11 +44,13 @@ async def test_single_blog_route():
     assert result["title"] == "Andrew Heiss's blog"
     assert result["feed_url"] == "https://www.andrewheiss.com/atom.xml"
 
+
 async def test_posts_redirect_route():
     test_client = app.test_client()
     response = await test_client.get("/posts/")
     assert response.status_code == 301
     assert response.headers["Location"] == "/posts"
+
 
 async def test_posts_route():
     test_client = app.test_client()
@@ -148,6 +151,14 @@ async def test_post_route_by_doi():
     assert result["doi"] == "https://doi.org/10.59350/sfzv4-xdb68"
 
 
+async def test_post_route_by_doi_not_found():
+    test_client = app.test_client()
+    response = await test_client.get("/posts/10.59350/sfzv4-xdbxx")
+    assert response.status_code == 404
+    result = await response.get_json()
+    assert result["error"] == "Post not found"
+
+
 @pytest.mark.vcr
 async def test_post_as_bibtex():
     test_client = app.test_client()
@@ -166,6 +177,28 @@ async def test_post_as_bibtex():
 \ttitle = {{\\textquestiondown}Qu{\\'{e}} libros cient{\\'{\\i}}ficos publicamos?}
 }"""
     )
+
+
+@pytest.mark.vcr
+async def test_post_as_ris():
+    test_client = app.test_client()
+    response = await test_client.get("/posts/10.59350/sfzv4-xdb68?format=ris")
+    assert response.status_code == 200
+    result = await response.get_data(as_text=True)
+    type_ = result.splitlines()[0]
+    doi = result.splitlines()[1]
+    assert type_ == "TY  - GENERIC"
+    assert doi == "DO  - 10.59350/sfzv4-xdb68"
+
+
+@pytest.mark.vcr
+async def test_post_as_csl():
+    test_client = app.test_client()
+    response = await test_client.get("/posts/10.59350/sfzv4-xdb68?format=csl")
+    assert response.status_code == 200
+    result = await response.get_json()
+    assert result["type"] == "posted-content"
+    assert result["DOI"] == "10.59350/sfzv4-xdb68"
 
 
 @pytest.mark.vcr
