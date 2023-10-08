@@ -1,8 +1,9 @@
 import os
+import logging
 from uuid import UUID
 from dotenv import load_dotenv
 from supabase import create_client, Client as SupabaseClient
-from quart import Quart, request, jsonify
+from quart import Quart, request, jsonify, redirect
 import typesense as ts
 
 
@@ -20,6 +21,7 @@ typesense_api_key: str = os.environ.get("TYPESENSE_API_KEY")
 supabase: SupabaseClient = create_client(
     supabase_url=supabase_url, supabase_key=supabase_key
 )
+logger = logging.getLogger(__name__)
 blogsSelect = "slug, title, description, language, favicon, feed_url, feed_format, home_page_url, generator, category"
 blogWithPostsSelect = "slug, title, description, language, favicon, feed_url, current_feed_url, archive_prefix, feed_format, home_page_url, use_mastodon, created_at, modified_at, license, generator, category, backlog, prefix, status, plan, funding, items: posts (id, doi, url, archive_url, title, summary, published_at, updated_at, indexed_at, authors, image, tags, language, reference)"
 postsSelect = "id, doi, url, archive_url, title, summary, published_at, updated_at, indexed_at, authors, image, tags, language, reference, relationships, blog_name, blog_slug"
@@ -46,7 +48,12 @@ def run() -> None:
 
 @app.route("/")
 def default():
-    return "This is the Rogue Scholar API."
+    return redirect("https://rogue-scholar.org", code=301)
+
+
+@app.route("/blogs/")
+async def blogs_redirect():
+    return redirect('/blogs', code=301)
 
 
 @app.route("/blogs")
@@ -77,6 +84,11 @@ async def blog(slug):
     return jsonify(response.data)
 
 
+@app.route("/posts/")
+async def posts_redirect():
+    return redirect('/posts', code=301)
+
+
 @app.route("/posts")
 async def posts():
     query = request.args.get("query") or ""
@@ -96,8 +108,12 @@ async def posts():
         "per_page": 10,
         "page": page if page and page > 0 else 1,
     }
-    response = typesense.collections["posts"].documents.search(search_parameters)
-    return jsonify(response)
+    try:
+        response = typesense.collections["posts"].documents.search(search_parameters)
+        return jsonify(response)
+    except Exception as e:
+        logger.warning(e.args[0])
+        return {"error": "An error occured."}, 400
 
 
 @app.route("/posts/<slug>")
@@ -150,50 +166,51 @@ async def post(slug, suffix=None):
             }
             content_type = content_types.get(format_)
             metadata = get_doi_metadata_from_ra(doi, headers={"Accept": content_type})
-            try:
-                print(metadata)
-            except Exception:
-                pass
             if not metadata:
+                logger.warning(f"Metadata not found for {doi}")
                 return {"error": "Metadata not found."}, 404
-
-            filename = (
-                f"{slug}-{suffix}.{format_}"
-                if format_ != "citation"
-                else f"{slug}-{suffix}.txt"
-            )
-            return (
-                metadata,
-                200,
-                {
-                    "Content-Type": content_type,
-                    "Content-Disposition": f"attachment; filename={filename}",
-                },
-            )
+            if format_ == "csl":
+                filename = f"{slug}-{suffix}.json"
+            elif format_ == "ris":
+                filename = f"{slug}-{suffix}.ris"
+            elif format_ == "bibtex":
+                filename = f"{slug}-{suffix}.bib"
+            else:
+                filename = f"{slug}-{suffix}.txt"
+            options = {
+                "Content-Type": content_type,
+                "Content-Disposition": f"attachment; filename={filename}",
+            }
+            return (metadata, 200, options)
         else:
             try:
                 response = (
                     supabase.table("posts")
                     .select(postsWithContentSelect)
                     .eq("doi", doi)
-                    .single()
+                    .maybe_single()
                     .execute()
                 )
             except Exception as e:
-                print(e)
+                logger.warning(e.args[0])
                 return {"error": "Post not found"}, 404
             return jsonify(response.data)
     else:
         # Check if slug is a valid UUID
         try:
             UUID(slug, version=4)
+        except ValueError as e:
+            logger.warning(e.args[0])
+            return {"error": e.args[0]}, 400
+        try:
             response = (
                 supabase.table("posts")
-                .select(postsWithBlogSelect)
+                .select(postsWithContentSelect)
                 .eq("id", slug)
                 .maybe_single()
                 .execute()
             )
-            return jsonify(response.data)
-        except ValueError:
-            return {"error": "Not a valid uuid."}, 400
+        except Exception as e:
+            logger.warning(e.args[0])
+            return {"error": "Post not found"}, 404
+        return jsonify(response.data)

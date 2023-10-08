@@ -14,10 +14,15 @@ def vcr_config():
 async def test_index_route():
     test_client = app.test_client()
     response = await test_client.get("/")
-    assert response.status_code == 200
-    result = await response.get_data(as_text=True)
-    assert result == "This is the Rogue Scholar API."
+    assert response.status_code == 301
+    assert response.headers["Location"] == "https://rogue-scholar.org"
 
+
+async def test_blogs_redirect_route():
+    test_client = app.test_client()
+    response = await test_client.get("/blogs/")
+    assert response.status_code == 301
+    assert response.headers["Location"] == "/blogs"
 
 @pytest.mark.vcr
 async def test_blogs_route():
@@ -38,6 +43,11 @@ async def test_single_blog_route():
     assert result["title"] == "Andrew Heiss's blog"
     assert result["feed_url"] == "https://www.andrewheiss.com/atom.xml"
 
+async def test_posts_redirect_route():
+    test_client = app.test_client()
+    response = await test_client.get("/posts/")
+    assert response.status_code == 301
+    assert response.headers["Location"] == "/posts"
 
 async def test_posts_route():
     test_client = app.test_client()
@@ -78,7 +88,6 @@ async def test_posts_unregistered_route():
     assert response.status_code == 200
     result = await response.get_json()
     assert len(result) == 15
-    # assert result["found"] == 15
 
 
 @pytest.mark.vcr
@@ -90,8 +99,7 @@ async def test_posts_filter_by_tags_route():
     assert result["found"] == 615
     post = py_.get(result, "hits[0].document")
     assert (
-        post["title"]
-        == "Institutional Change toward Open Scholarship and Open Science"
+        post["title"] == "Institutional Change toward Open Scholarship and Open Science"
     )
 
 
@@ -103,10 +111,7 @@ async def test_posts_filter_by_language_route():
     result = await response.get_json()
     assert result["found"] == 48
     post = py_.get(result, "hits[0].document")
-    assert (
-        post["title"]
-        == "¿Qué libros científicos publicamos?"
-    )
+    assert post["title"] == "¿Qué libros científicos publicamos?"
 
 
 async def test_post_route():
@@ -116,6 +121,22 @@ async def test_post_route():
     result = await response.get_json()
     assert result["title"] == "¿Qué libros científicos publicamos?"
     assert result["doi"] == "https://doi.org/10.59350/sfzv4-xdb68"
+
+
+async def test_post_invalid_uuid_route():
+    test_client = app.test_client()
+    response = await test_client.get("/posts/77b2102f-fec5-425a-90a3-4a97c768")
+    assert response.status_code == 400
+    result = await response.get_json()
+    assert result["error"] == "badly formed hexadecimal UUID string"
+
+
+async def test_post_not_found_route():
+    test_client = app.test_client()
+    response = await test_client.get("/posts/77b2102f-fec5-425a-90a3-4a97c7689999")
+    assert response.status_code == 404
+    result = await response.get_json()
+    assert result["error"] == "Post not found"
 
 
 async def test_post_route_by_doi():
