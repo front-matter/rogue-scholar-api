@@ -1,7 +1,7 @@
 """Test utils"""
 import pytest  # noqa: F401
 
-from rogue_scholar_api.utils import get_doi_metadata_from_ra
+from rogue_scholar_api.utils import get_doi_metadata_from_ra, validate_uuid
 
 
 def test_get_doi_metadata_bibtex():
@@ -30,6 +30,20 @@ def test_get_doi_metadata_citation():
         result["data"]
         == "Fenner, M. (2023). The rise of the (science) newsletter. https://doi.org/10.53731/ybhah-9jy85"
     )
+
+
+def test_validate_uuid():
+    "validate uuid"
+    uuid = "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"
+    result = validate_uuid(uuid)
+    assert result is True
+
+
+def test_validate_invalid_uuid_():
+    "validate invalid uuid"
+    uuid = "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a1"
+    result = validate_uuid(uuid)
+    assert result is False
 
 
 # def test_sanitize_cool_suffix():

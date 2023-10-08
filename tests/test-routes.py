@@ -131,7 +131,7 @@ async def test_post_invalid_uuid_route():
     response = await test_client.get("/posts/77b2102f-fec5-425a-90a3-4a97c768")
     assert response.status_code == 400
     result = await response.get_json()
-    assert result["error"] == "badly formed hexadecimal UUID string"
+    assert result["error"] == "An error occured."
 
 
 async def test_post_not_found_route():

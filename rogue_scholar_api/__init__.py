@@ -1,13 +1,13 @@
 import os
 import logging
-from uuid import UUID
+from typing import Optional
 from dotenv import load_dotenv
 from supabase import create_client, Client as SupabaseClient
 from quart import Quart, request, jsonify, redirect
 import typesense as ts
 
 
-from rogue_scholar_api.utils import get_doi_metadata_from_ra
+from rogue_scholar_api.utils import get_doi_metadata_from_ra, validate_uuid
 
 
 app = Quart(__name__)
@@ -53,7 +53,7 @@ def default():
 
 @app.route("/blogs/")
 async def blogs_redirect():
-    return redirect('/blogs', code=301)
+    return redirect("/blogs", code=301)
 
 
 @app.route("/blogs")
@@ -86,7 +86,7 @@ async def blog(slug):
 
 @app.route("/posts/")
 async def posts_redirect():
-    return redirect('/posts', code=301)
+    return redirect("/posts", code=301)
 
 
 @app.route("/posts")
@@ -118,7 +118,7 @@ async def posts():
 
 @app.route("/posts/<slug>")
 @app.route("/posts/<slug>/<suffix>")
-async def post(slug, suffix=None):
+async def post(slug: str, suffix: Optional[str] = None):
     prefixes = [
         "10.34732",
         "10.53731",
@@ -128,6 +128,10 @@ async def post(slug, suffix=None):
         "10.59349",
         "10.59350",
     ]
+    permitted_slugs = ["unregistered", "not_indexed"] + prefixes
+    if slug not in permitted_slugs and not validate_uuid(slug):
+        logger.warning(f"Invalid slug: {slug}")
+        return {"error": "An error occured."}, 400
     format_ = request.args.get("format") or "json"
     locale = request.args.get("locale") or "en-US"
     style = request.args.get("style") or "apa"
@@ -177,12 +181,6 @@ async def post(slug, suffix=None):
                 return {"error": "Post not found"}, 404
             return jsonify(response.data)
     else:
-        # Check if slug is a valid UUID
-        try:
-            UUID(slug, version=4)
-        except ValueError as e:
-            logger.warning(e.args[0])
-            return {"error": e.args[0]}, 400
         try:
             response = (
                 supabase.table("posts")

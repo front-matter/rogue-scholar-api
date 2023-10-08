@@ -1,14 +1,23 @@
 import requests
-import re
+from uuid import UUID
+# import re
 from typing import Optional
 
 
-def sanitize_suffix(str):
-    # Regular expression to only allow certain characters in DOI suffix
-    # taken from https://www.crossref.org/blog/dois-and-matching-regular-expressions/
-    m = re.match(r"^\[-._;\(\)/:A-Z0-9\]+$", str)
-    print(m)
-    return m
+# def sanitize_suffix(str):
+#     # Regular expression to only allow certain characters in DOI suffix
+#     # taken from https://www.crossref.org/blog/dois-and-matching-regular-expressions/
+#     m = re.match(r"^\[-._;\(\)/:A-Z0-9\]+$", str)
+#     print(m)
+#     return m
+
+def validate_uuid(slug: str) -> bool:
+    """validate uuid"""
+    try:
+        UUID(slug, version=4)
+        return True
+    except ValueError:
+        return False
 
 
 def get_doi_metadata_from_ra(
@@ -23,7 +32,7 @@ def get_doi_metadata_from_ra(
         "csl": "application/vnd.citationstyles.csl+json",
         "citation": f"text/x-bibliography; style={style}; locale={locale}",
     }
-    content_type = content_types.get(format_) or "application/x-bibtex"
+    content_type = content_types.get(format_)
     response = requests.get(doi, headers={"Accept": content_type})
     response.encoding = "UTF-8"
     if response.status_code >= 400:
