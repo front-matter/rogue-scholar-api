@@ -11,7 +11,17 @@ The backend server for the [Rogue Scholar](https://rogue-scholar.org) science bl
 
 ## Installation
 
-Requires Python 3.8 or higher. Uses [Poetry](https://python-poetry.org/) for dependency management. Depends on credentials for the Rogue Scholar Postgres database (hosted by Supabase) and Rogue Scholar search index (hosted by Typesense).
+Requires Python 3.8 or higher. Uses [Poetry](https://python-poetry.org/) for dependency management. Depends on credentials for the Rogue Scholar Postgres database (hosted by Supabase) and Rogue Scholar search index (hosted by Typesense):
+
+```
+# required environment variables
+SUPABASE_URL
+SUPABASE_ANON_KEY
+TYPESENSE_HOST
+TYPESENSE_API_KEY
+```
+
+The API uses Poetry for dependency management. To install Poetry, see the [Poetry documentation](https://python-poetry.org/docs/#installation). Then install the dependencies and run the server:
 
 ```
 poetry install
