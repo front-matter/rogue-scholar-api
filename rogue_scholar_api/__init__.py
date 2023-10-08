@@ -1,101 +1,23 @@
-import os
 import logging
 from typing import Optional
-from dataclasses import dataclass
-from datetime import datetime
-from dotenv import load_dotenv
 from quart import Quart, request, jsonify, redirect
 from quart_schema import QuartSchema, Info, validate_request, validate_response
-from supabase import create_client, Client as SupabaseClient
-import typesense as ts
 
-
+from rogue_scholar_api.supabase import (
+    supabase_client as supabase,
+    blogsSelect,
+    blogWithPostsSelect,
+    postsWithConfigSelect,
+    postsWithContentSelect,
+)
+from rogue_scholar_api.typesense import typesense_client as typesense
 from rogue_scholar_api.utils import get_doi_metadata_from_ra, validate_uuid
-
+from rogue_scholar_api.schema import Blog, Post, PostQuery
 
 app = Quart(__name__)
 QuartSchema(app, info=Info(title="Rogue Scholar API", version="0.6.0"))
 
-
-@dataclass
-class Query:
-    query: str
-    tags: str
-    language: str
-    page: int
-
-
-@dataclass
-class Blog:
-    slug: str
-    title: str
-    description: str
-    language: str
-    favicon: str
-    feed_url: str
-    feed_format: str
-    home_page_url: str
-    generator: str
-    category: str
-    backlog: int
-    prefix: str
-    status: str
-    plan: str
-    funding: str
-    items: list
-
-
-@dataclass
-class Post:
-    id: str
-    doi: str
-    url: str
-    archive_url: str
-    title: str
-    summary: str
-    content_html: str
-    published_at: datetime
-    updated_at: datetime
-    indexed_at: datetime
-    authors: list
-    image: str
-    tags: list
-    language: str
-    reference: str
-    relationships: dict
-    blog_name: str
-    blog_slug: str
-    blog: dict
-
-
-load_dotenv()
-supabase_url: str = os.environ.get("SUPABASE_URL")
-supabase_key: str = os.environ.get("SUPABASE_ANON_KEY")
-typesense_host: str = os.environ.get("TYPESENSE_HOST")
-typesense_api_key: str = os.environ.get("TYPESENSE_API_KEY")
-
-supabase: SupabaseClient = create_client(
-    supabase_url=supabase_url, supabase_key=supabase_key
-)
 logger = logging.getLogger(__name__)
-blogsSelect = "slug, title, description, language, favicon, feed_url, feed_format, home_page_url, generator, category"
-blogWithPostsSelect = "slug, title, description, language, favicon, feed_url, current_feed_url, archive_prefix, feed_format, home_page_url, use_mastodon, created_at, modified_at, license, generator, category, backlog, prefix, status, plan, funding, items: posts (id, doi, url, archive_url, title, summary, published_at, updated_at, indexed_at, authors, image, tags, language, reference)"
-postsSelect = "id, doi, url, archive_url, title, summary, published_at, updated_at, indexed_at, authors, image, tags, language, reference, relationships, blog_name, blog_slug"
-postsWithConfigSelect = "id, doi, url, archive_url, title, summary, published_at, updated_at, indexed_at, indexed, authors, image, tags, language, reference, relationships, blog_name, blog_slug, blog: blogs!inner(slug, title, description, feed_url, home_page_url, language, category, status, generator, license, modified_at)"
-postsWithBlogSelect = "id, doi, url, archive_url, title, summary, published_at, updated_at, indexed_at, indexed, authors, image, tags, language, reference, relationships, blog_name, blog_slug, blog: blogs!inner(*)"
-postsWithContentSelect = "id, doi, url, archive_url, title, summary, content_html, published_at, updated_at, indexed_at, authors, image, tags, language, reference, relationships, blog_name, blog_slug, blog: blogs!inner(*)"
-typesense = ts.Client(
-    {
-        "api_key": typesense_api_key,
-        "nodes": [
-            {
-                "host": typesense_host,
-                "port": "443",
-                "protocol": "https",
-            }
-        ],
-    }
-)
 
 
 def run() -> None:
@@ -147,7 +69,7 @@ async def posts_redirect():
     return redirect("/posts", code=301)
 
 
-@validate_request(Query)
+@validate_request(PostQuery)
 @validate_response(Post)
 @app.route("/posts")
 async def posts():
