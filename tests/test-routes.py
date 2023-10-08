@@ -44,9 +44,8 @@ async def test_posts_route():
     response = await test_client.get("/posts")
     assert response.status_code == 200
     result = await response.get_json()
-    posts = result["hits"]
-    assert len(posts) == 10
-    post = py_.get(posts, "[0].document")
+    assert result["found"] == 9071
+    post = py_.get(result, "hits[0].document")
     assert post["title"] == "¿Qué libros científicos publicamos?"
     assert post["doi"] == "https://doi.org/10.59350/sfzv4-xdb68"
 
@@ -57,9 +56,8 @@ async def test_posts_with_query_and_pagination_route():
     response = await test_client.get("/posts?query=retraction-watch&page=2")
     assert response.status_code == 200
     result = await response.get_json()
-    posts = result["hits"]
-    assert len(posts) == 8
-    post = py_.get(posts, "[0].document")
+    assert result["found"] == 18
+    post = py_.get(result, "hits[0].document")
     assert post["title"] == "Are more retractions due to more scrutiny?"
     assert post["doi"] == "https://doi.org/10.59350/jgggm-t5x67"
 
