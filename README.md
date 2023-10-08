@@ -28,12 +28,15 @@ poetry install
 poetry run quart --app rogue_scholar_api run
 ```
 
+The API will then be available at `http://localhost:5000`.
+
+
 ## Development
 
 We use pytest for testing:
 
 ```
-pytest
+poetry run pytest
 ```
 
 Follow along via [Github Issues](https://github.com/front-matter/rogue-scholar-api/issues). Please open an issue if you encounter a bug or have a feature request.
@@ -49,6 +52,8 @@ Follow along via [Github Issues](https://github.com/front-matter/rogue-scholar-a
 ## Documentation
 
 Documentation (work in progress) for using Rogue Scholar is available at the [Rogue Scholar Documentation](https://docs.rogue-scholar.org/) website.
+
+The Rogue Scholar API documentation is served by default at [/openapi.json](https://api.rogue-scholar.org/openapi.json) according to the OpenAPI standard, or at [/docs](https://rogue-scholar.org/docs) for a SwaggerUI interface.
 
 ## Meta
 

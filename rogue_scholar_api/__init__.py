@@ -1,9 +1,12 @@
 import os
 import logging
 from typing import Optional
+from dataclasses import dataclass
+from datetime import datetime
 from dotenv import load_dotenv
-from supabase import create_client, Client as SupabaseClient
 from quart import Quart, request, jsonify, redirect
+from quart_schema import QuartSchema, validate_request, validate_response
+from supabase import create_client, Client as SupabaseClient
 import typesense as ts
 
 
@@ -11,6 +14,59 @@ from rogue_scholar_api.utils import get_doi_metadata_from_ra, validate_uuid
 
 
 app = Quart(__name__)
+QuartSchema(app)
+
+
+@dataclass
+class Query:
+    query: str
+    tags: str
+    language: str
+    page: int
+
+
+@dataclass
+class Blog:
+    slug: str
+    title: str
+    description: str
+    language: str
+    favicon: str
+    feed_url: str
+    feed_format: str
+    home_page_url: str
+    generator: str
+    category: str
+    backlog: int
+    prefix: str
+    status: str
+    plan: str
+    funding: str
+    items: list
+
+
+@dataclass
+class Post:
+    id: str
+    doi: str
+    url: str
+    archive_url: str
+    title: str
+    summary: str
+    content_html: str
+    published_at: datetime
+    updated_at: datetime
+    indexed_at: datetime
+    authors: list
+    image: str
+    tags: list
+    language: str
+    reference: str
+    relationships: dict
+    blog_name: str
+    blog_slug: str
+    blog: dict
+
 
 load_dotenv()
 supabase_url: str = os.environ.get("SUPABASE_URL")
@@ -56,6 +112,7 @@ async def blogs_redirect():
     return redirect("/blogs", code=301)
 
 
+@validate_response(Blog)
 @app.route("/blogs")
 async def blogs():
     page = int(request.args.get("page") or "1")
@@ -72,6 +129,7 @@ async def blogs():
     return jsonify(response.data)
 
 
+@validate_response(Blog)
 @app.route("/blogs/<slug>")
 async def blog(slug):
     response = (
@@ -89,6 +147,8 @@ async def posts_redirect():
     return redirect("/posts", code=301)
 
 
+@validate_request(Query)
+@validate_response(Post)
 @app.route("/posts")
 async def posts():
     query = request.args.get("query") or ""
@@ -116,6 +176,7 @@ async def posts():
         return {"error": "An error occured."}, 400
 
 
+@validate_response(Post)
 @app.route("/posts/<slug>")
 @app.route("/posts/<slug>/<suffix>")
 async def post(slug: str, suffix: Optional[str] = None):
