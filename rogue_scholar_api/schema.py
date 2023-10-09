@@ -10,7 +10,8 @@ class PostQuery:
     tags: Optional[str] = None
     language: Optional[str] = None
     page: Optional[int] = 1
-
+    per_page: Optional[int] = 10
+    include_fields: Optional[str] = None
 
 @dataclass
 class Blog:

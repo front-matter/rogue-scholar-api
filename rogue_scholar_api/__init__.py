@@ -2,6 +2,7 @@
 import logging
 from typing import Optional
 from datetime import timedelta
+from commonmeta.utils import compact
 # import importlib.metadata
 from quart import Quart, request, jsonify, redirect
 from quart_schema import (
@@ -96,25 +97,28 @@ async def posts_redirect():
 @validate_response(Post)
 @app.route("/posts")
 async def posts():
-    """Search posts by query, tags, language, and page."""
+    """Search posts by query, tags, language. Options to change page, per_page and include fields."""
     query = request.args.get("query") or ""
     tags = request.args.get("tags")
     language = request.args.get("language")
     page = int(request.args.get("page") or "1")
+    per_page = int(request.args.get("per_page") or "10")
+    include_fields = request.args.get("include_fields")
     # workaround to provide a default filter
     filter_by = "blog_slug:!=[xxx]"
     filter_by = filter_by + f" && tags:=[{tags}]" if tags else filter_by
     filter_by = filter_by + f" && language:=[{language}]" if language else filter_by
-    search_parameters = {
+    search_parameters = compact({
         "q": query,
         "query_by": "tags,title,doi,authors.name,authors.url,summary,content_html,reference",
         "filter_by": filter_by,
         "sort_by": "_text_match:desc"
         if request.args.get("query")
         else "published_at:desc",
-        "per_page": 10,
+        "per_page": min(per_page, 50),
         "page": page if page and page > 0 else 1,
-    }
+        "include_fields": include_fields,
+    })
     try:
         response = typesense.collections["posts"].documents.search(search_parameters)
         return jsonify(response)

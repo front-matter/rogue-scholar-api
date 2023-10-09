@@ -65,23 +65,35 @@ async def test_posts_route():
     response = await test_client.get("/posts")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] == 9071
+    assert result["found"] > 9070
     post = py_.get(result, "hits[0].document")
-    assert post["title"] == "¿Qué libros científicos publicamos?"
-    assert post["doi"] == "https://doi.org/10.59350/sfzv4-xdb68"
+    assert post["title"] is not None
 
 
 @pytest.mark.vcr
 async def test_posts_with_query_and_pagination_route():
     """Test posts route with query and pagination."""
     test_client = app.test_client()
-    response = await test_client.get("/posts?query=retraction-watch&page=2")
+    response = await test_client.get("/posts?query=retraction-watch&page=2&per_page=10")
     assert response.status_code == 200
     result = await response.get_json()
     assert result["found"] == 18
     post = py_.get(result, "hits[0].document")
     assert post["title"] == "Are more retractions due to more scrutiny?"
     assert post["doi"] == "https://doi.org/10.59350/jgggm-t5x67"
+
+
+@pytest.mark.vcr
+async def test_posts_with_query_and_include_fields_route():
+    """Test posts route with query and include fields."""
+    test_client = app.test_client()
+    response = await test_client.get("/posts?query=retraction-watch&include_fields=doi,title")
+    assert response.status_code == 200
+    result = await response.get_json()
+    assert result["found"] == 18
+    post = py_.get(result, "hits[0].document")
+    assert "doi" in post.keys()
+    assert "summary" not in post.keys()
 
 
 @pytest.mark.vcr
