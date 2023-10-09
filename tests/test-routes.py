@@ -109,6 +109,19 @@ async def test_posts_with_query_and_include_fields_route():
 
 
 @pytest.mark.vcr
+async def test_posts_with_query_and_sort_route():
+    """Test posts route with query and sort."""
+    test_client = app.test_client()
+    response = await test_client.get("/posts?query=retraction-watch&sort=published_at")
+    assert response.status_code == 200
+    result = await response.get_json()
+    assert result["found"] == 18
+    post0 = py_.get(result, "hits[0].document")
+    post1 = py_.get(result, "hits[1].document")
+    assert post0["published_at"] > post1["published_at"]
+
+
+@pytest.mark.vcr
 async def test_posts_not_indexed_route():
     """Test posts not_indexed route."""
     test_client = app.test_client()

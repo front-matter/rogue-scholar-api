@@ -11,6 +11,8 @@ class PostQuery:
     language: Optional[str] = None
     page: Optional[int] = 1
     per_page: Optional[int] = 10
+    sort: Optional[str] = None
+    order: Optional[str] = None
     include_fields: Optional[str] = None
     blog_slug: Optional[str] = None
 

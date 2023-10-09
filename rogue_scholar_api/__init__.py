@@ -103,6 +103,10 @@ async def posts():
     language = request.args.get("language")
     page = int(request.args.get("page") or "1")
     per_page = int(request.args.get("per_page") or "10")
+    # default sort depends on whether a query is provided
+    _text_match = request.args.get("query") and "_text_match" or "published_at"
+    sort = request.args.get("sort") or _text_match
+    order = request.args.get("order") == "asc" and "asc" or "desc"
     include_fields = request.args.get("include_fields")
     blog_slug = request.args.get("blog_slug")
     # workaround to provide a default filter
@@ -113,7 +117,7 @@ async def posts():
         "q": query,
         "query_by": "tags,title,doi,authors.name,authors.url,summary,content_html,reference",
         "filter_by": filter_by,
-        "sort_by": "_text_match:desc"
+        "sort_by": f"{sort}:{order}"
         if request.args.get("query")
         else "published_at:desc",
         "per_page": min(per_page, 50),
