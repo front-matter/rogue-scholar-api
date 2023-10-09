@@ -9,6 +9,7 @@ pytestmark = pytest.mark.asyncio
 
 @pytest.fixture(scope="session")
 def vcr_config():
+    """VCR configuration."""
     return {"filter_headers": ["apikey", "X-TYPESENSE-API-KEY", "authorization"]}
 
 

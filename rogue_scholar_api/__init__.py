@@ -27,7 +27,7 @@ from rogue_scholar_api.schema import Blog, Post, PostQuery
 
 rate_limiter = RateLimiter()
 logger = logging.getLogger(__name__)
-version = "0.6.1"  # TODO: importlib.metadata.version('rogue-scholar-api')
+version = "0.6.2"  # TODO: importlib.metadata.version('rogue-scholar-api')
 
 app = Quart(__name__)
 app.config.from_prefixed_env()
