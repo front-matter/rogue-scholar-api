@@ -1,7 +1,18 @@
+"""Main quart application"""
 import logging
 from typing import Optional
+from datetime import timedelta
+# import importlib.metadata
 from quart import Quart, request, jsonify, redirect
-from quart_schema import QuartSchema, Info, validate_request, validate_response, hide
+from quart_schema import (
+    QuartSchema,
+    Info,
+    validate_request,
+    validate_response,
+    hide,
+    RequestSchemaValidationError,
+)
+from quart_rate_limiter import RateLimiter, RateLimit
 
 from rogue_scholar_api.supabase import (
     supabase_client as supabase,
@@ -14,10 +25,14 @@ from rogue_scholar_api.typesense import typesense_client as typesense
 from rogue_scholar_api.utils import get_doi_metadata_from_ra, validate_uuid
 from rogue_scholar_api.schema import Blog, Post, PostQuery
 
-app = Quart(__name__)
-QuartSchema(app, info=Info(title="Rogue Scholar API", version="0.6.0"))
-
+rate_limiter = RateLimiter()
 logger = logging.getLogger(__name__)
+version = "0.6.1"  # TODO: importlib.metadata.version('rogue-scholar-api')
+
+app = Quart(__name__)
+app.config.from_prefixed_env()
+QuartSchema(app, info=Info(title="Rogue Scholar API", version=version))
+rate_limiter = RateLimiter(app, default_limits=[RateLimit(15, timedelta(seconds=60))])
 
 
 def run() -> None:
@@ -27,18 +42,21 @@ def run() -> None:
 @app.route("/")
 @hide
 def default():
+    """Redirect / to Rogue Scholar homepage."""
     return redirect("https://rogue-scholar.org", code=301)
 
 
 @app.route("/blogs/")
 @hide
 async def blogs_redirect():
+    """Redirect /blogs/ to /blogs."""
     return redirect("/blogs", code=301)
 
 
 @validate_response(Blog)
 @app.route("/blogs")
 async def blogs():
+    """Get all blogs."""
     page = int(request.args.get("page") or "1")
     start_page = (page - 1) * 100 if page > 0 else 0
     end_page = start_page + 100
@@ -56,6 +74,7 @@ async def blogs():
 @validate_response(Blog)
 @app.route("/blogs/<slug>")
 async def blog(slug):
+    """Get blog by slug."""
     response = (
         supabase.table("blogs")
         .select(blogWithPostsSelect)
@@ -69,6 +88,7 @@ async def blog(slug):
 @app.route("/posts/")
 @hide
 async def posts_redirect():
+    """Redirect /posts/ to /posts."""
     return redirect("/posts", code=301)
 
 
@@ -76,10 +96,12 @@ async def posts_redirect():
 @validate_response(Post)
 @app.route("/posts")
 async def posts():
+    """Search posts by query, tags, language, and page."""
     query = request.args.get("query") or ""
     tags = request.args.get("tags")
     language = request.args.get("language")
     page = int(request.args.get("page") or "1")
+    # workaround to provide a default filter
     filter_by = "blog_slug:!=[xxx]"
     filter_by = filter_by + f" && tags:=[{tags}]" if tags else filter_by
     filter_by = filter_by + f" && language:=[{language}]" if language else filter_by
@@ -105,6 +127,7 @@ async def posts():
 @app.route("/posts/<slug>")
 @app.route("/posts/<slug>/<suffix>")
 async def post(slug: str, suffix: Optional[str] = None):
+    """Get post by slug."""
     prefixes = [
         "10.34732",
         "10.53731",
@@ -179,3 +202,8 @@ async def post(slug: str, suffix: Optional[str] = None):
             logger.warning(e.args[0])
             return {"error": "Post not found"}, 404
         return jsonify(response.data)
+
+
+@app.errorhandler(RequestSchemaValidationError)
+async def handle_request_validation_error():
+    return {"error": "VALIDATION"}, 400

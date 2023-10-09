@@ -1,7 +1,8 @@
-from rogue_scholar_api import app
 import pytest  # noqa: F401
 import pytest_asyncio  # noqa: F401
 import pydash as py_  # noqa: F401
+
+from rogue_scholar_api import app
 
 pytestmark = pytest.mark.asyncio
 
@@ -12,6 +13,7 @@ def vcr_config():
 
 
 async def test_index_route():
+    """Test index route."""
     test_client = app.test_client()
     response = await test_client.get("/")
     assert response.status_code == 301
@@ -19,6 +21,7 @@ async def test_index_route():
 
 
 async def test_blogs_redirect_route():
+    """Test blogs redirect route."""
     test_client = app.test_client()
     response = await test_client.get("/blogs/")
     assert response.status_code == 301
@@ -27,6 +30,7 @@ async def test_blogs_redirect_route():
 
 @pytest.mark.vcr
 async def test_blogs_route():
+    """Test blogs route."""
     test_client = app.test_client()
     response = await test_client.get("/blogs")
     assert response.status_code == 200
@@ -37,6 +41,7 @@ async def test_blogs_route():
 
 
 async def test_single_blog_route():
+    """Test single blog route."""
     test_client = app.test_client()
     response = await test_client.get("/blogs/andrewheiss")
     assert response.status_code == 200
@@ -46,6 +51,7 @@ async def test_single_blog_route():
 
 
 async def test_posts_redirect_route():
+    """Test posts redirect route."""
     test_client = app.test_client()
     response = await test_client.get("/posts/")
     assert response.status_code == 301
@@ -53,6 +59,7 @@ async def test_posts_redirect_route():
 
 
 async def test_posts_route():
+    """Test posts route."""
     test_client = app.test_client()
     response = await test_client.get("/posts")
     assert response.status_code == 200
@@ -65,6 +72,7 @@ async def test_posts_route():
 
 @pytest.mark.vcr
 async def test_posts_with_query_and_pagination_route():
+    """Test posts route with query and pagination."""
     test_client = app.test_client()
     response = await test_client.get("/posts?query=retraction-watch&page=2")
     assert response.status_code == 200
@@ -77,6 +85,7 @@ async def test_posts_with_query_and_pagination_route():
 
 @pytest.mark.vcr
 async def test_posts_not_indexed_route():
+    """Test posts not_indexed route."""
     test_client = app.test_client()
     response = await test_client.get("/posts/not_indexed")
     assert response.status_code == 200
@@ -86,6 +95,7 @@ async def test_posts_not_indexed_route():
 
 @pytest.mark.vcr
 async def test_posts_unregistered_route():
+    """Test posts unregistered route."""
     test_client = app.test_client()
     response = await test_client.get("/posts/unregistered")
     assert response.status_code == 200
@@ -95,6 +105,7 @@ async def test_posts_unregistered_route():
 
 @pytest.mark.vcr
 async def test_posts_filter_by_tags_route():
+    """Test posts route with tags filter."""
     test_client = app.test_client()
     response = await test_client.get("/posts?tags=open+access")
     assert response.status_code == 200
@@ -108,6 +119,7 @@ async def test_posts_filter_by_tags_route():
 
 @pytest.mark.vcr
 async def test_posts_filter_by_language_route():
+    """Test posts route with language filter."""
     test_client = app.test_client()
     response = await test_client.get("/posts?language=es")
     assert response.status_code == 200
@@ -118,6 +130,7 @@ async def test_posts_filter_by_language_route():
 
 
 async def test_post_route():
+    """Test post route."""
     test_client = app.test_client()
     response = await test_client.get("/posts/77b2102f-fec5-425a-90a3-4a97c768bdc4")
     assert response.status_code == 200
@@ -127,6 +140,7 @@ async def test_post_route():
 
 
 async def test_post_invalid_uuid_route():
+    """Test post route with invalid uuid."""
     test_client = app.test_client()
     response = await test_client.get("/posts/77b2102f-fec5-425a-90a3-4a97c768")
     assert response.status_code == 400
@@ -135,6 +149,7 @@ async def test_post_invalid_uuid_route():
 
 
 async def test_post_not_found_route():
+    """Test post route with uuid not found."""
     test_client = app.test_client()
     response = await test_client.get("/posts/77b2102f-fec5-425a-90a3-4a97c7689999")
     assert response.status_code == 404
@@ -143,6 +158,7 @@ async def test_post_not_found_route():
 
 
 async def test_post_route_by_doi():
+    """Test post route by doi."""
     test_client = app.test_client()
     response = await test_client.get("/posts/10.59350/sfzv4-xdb68")
     assert response.status_code == 200
@@ -152,6 +168,7 @@ async def test_post_route_by_doi():
 
 
 async def test_post_route_by_doi_not_found():
+    """Test post route by doi not found."""
     test_client = app.test_client()
     response = await test_client.get("/posts/10.59350/sfzv4-xdbxx")
     assert response.status_code == 404
@@ -161,6 +178,7 @@ async def test_post_route_by_doi_not_found():
 
 @pytest.mark.vcr
 async def test_post_as_bibtex():
+    """Test post formatted as bibtex."""
     test_client = app.test_client()
     response = await test_client.get("/posts/10.59350/sfzv4-xdb68?format=bibtex")
     assert response.status_code == 200
@@ -181,6 +199,7 @@ async def test_post_as_bibtex():
 
 @pytest.mark.vcr
 async def test_post_as_ris():
+    """Test post formatted as ris."""
     test_client = app.test_client()
     response = await test_client.get("/posts/10.59350/sfzv4-xdb68?format=ris")
     assert response.status_code == 200
@@ -193,6 +212,7 @@ async def test_post_as_ris():
 
 @pytest.mark.vcr
 async def test_post_as_csl():
+    """Test post formatted as csl."""
     test_client = app.test_client()
     response = await test_client.get("/posts/10.59350/sfzv4-xdb68?format=csl")
     assert response.status_code == 200
@@ -203,6 +223,7 @@ async def test_post_as_csl():
 
 @pytest.mark.vcr
 async def test_post_as_citation():
+    """Test post as formatted citation."""
     test_client = app.test_client()
     response = await test_client.get("/posts/10.59350/sfzv4-xdb68?format=citation")
     assert response.status_code == 200
@@ -215,6 +236,7 @@ async def test_post_as_citation():
 
 @pytest.mark.vcr
 async def test_post_as_citation_with_style():
+    """Test post as formatted citation with vancouver style."""
     test_client = app.test_client()
     response = await test_client.get(
         "/posts/10.59350/sfzv4-xdb68?format=citation&style=vancouver"
@@ -229,6 +251,7 @@ async def test_post_as_citation_with_style():
 
 @pytest.mark.vcr
 async def test_post_as_citation_with_locale():
+    """Test post as formatted citation with locale."""
     test_client = app.test_client()
     response = await test_client.get(
         "/posts/10.59350/sfzv4-xdb68?format=citation&style=vancouver&locale=es"
@@ -243,6 +266,7 @@ async def test_post_as_citation_with_locale():
 
 @pytest.mark.vcr
 async def test_post_not_found():
+    """Test post not found."""
     test_client = app.test_client()
     response = await test_client.get("/posts/10.59350/sfzv4-xdb69")
     assert response.status_code == 404

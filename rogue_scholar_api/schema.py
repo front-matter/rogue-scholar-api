@@ -1,17 +1,20 @@
+from typing import Optional
 from dataclasses import dataclass
 from datetime import datetime
 
 
 @dataclass
 class PostQuery:
-    query: str
-    tags: str
-    language: str
-    page: int
+    """Query parameters for posts."""
+    query: Optional[str] = None
+    tags: Optional[str] = None
+    language: Optional[str] = None
+    page: Optional[int] = 1
 
 
 @dataclass
 class Blog:
+    """Blog schema."""
     slug: str
     title: str
     description: str
@@ -32,6 +35,7 @@ class Blog:
 
 @dataclass
 class Post:
+    """Post schema."""
     id: str
     doi: str
     url: str

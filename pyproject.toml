@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rogue-scholar-api"
-version = "0.6.0"
+version = "0.6.1"
 description = "API for the Rogue Scholar science blogging platform."
 authors = ["Martin Fenner <martin@front-matter.io>"]
 license = "MIT"
@@ -20,6 +20,7 @@ pydash = "^6.0"
 commonmeta-py = "^0.8.4"
 pytest-asyncio = "^0.21.1"
 chardet = "^5.2.0"
+quart-rate-limiter = "^0.9.0"
 
 
 [tool.poetry.group.dev.dependencies]

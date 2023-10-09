@@ -1,131 +1,5 @@
 interactions:
 - request:
-    body: '{}'
-    headers:
-      accept:
-      - application/vnd.pgrst.object+json
-      accept-encoding:
-      - gzip, deflate
-      accept-profile:
-      - public
-      connection:
-      - keep-alive
-      content-length:
-      - '2'
-      content-profile:
-      - public
-      content-type:
-      - application/json
-      host:
-      - db.rogue-scholar.org
-      user-agent:
-      - python-httpx/0.24.1
-      x-client-info:
-      - supabase-py/1.2.0
-    method: GET
-    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20content_html%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28%2A%29&doi=eq.https%3A//doi.org/10.59350/sfzv4-xdb68
-  response:
-    content: "{\"id\":\"77b2102f-fec5-425a-90a3-4a97c768bdc4\",\"doi\":\"https://doi.org/10.59350/sfzv4-xdb68\",\"url\":\"https://norbisley.wordpress.com/2023/10/06/que-libros-cientificos-publicamos\",\"archive_url\":null,\"title\":\"\xBFQu\xE9
-      libros cient\xEDficos publicamos?\",\"summary\":\"Con frecuencia a la editorial
-      llegan textos que terminan siendo muy diferentes a la idea de libro que el autor
-      tra\xEDa inicialmente. Esto se debe en parte, a que es insuficiente el abordaje
-      de las clasificaciones de textos cient\xEDficos que se divulga institucionalmente.\",\"content_html\":\"\\n<p><img
-      loading=\\\"lazy\\\" width=\\\"1008\\\" height=\\\"301\\\" src=\\\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png\\\"
-      srcset=\\\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png 1008w,
-      https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png?w=150&amp;h=45
-      150w, https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png?w=300&amp;h=90
-      300w, https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png?w=768&amp;h=229
-      768w\\\" /></p>\\n\\n\\n\\n<p>Con frecuencia a la editorial llegan textos que
-      terminan siendo muy diferentes a la idea de libro que el autor tra\xEDa inicialmente.
-      Esto se debe en parte, a que es insuficiente el abordaje de las clasificaciones
-      de textos cient\xEDficos que se divulga institucionalmente.  Aqu\xED comento
-      brevemente algunos tipos de libros que publicamos en <a href=\\\"https://edicionesuc.reduc.edu.cu/\\\">Ediciones
-      Universidad de Camag\xFCey.</a></p>\\n\\n\\n\\n<ul>\\n<li><strong>Libros de
-      texto: </strong>se utilizan para mejorar la comprensi\xF3n de una asignatura.
-      Enriquecen los procesos de aprendizaje mediante la explicaci\xF3n te\xF3rica
-      de los principales conceptos, su aplicaci\xF3n explicada en ejemplos concretos
-      y la presentaci\xF3n de ejercicios que responden a las habilidades o competencias
-      de un programa.</li>\\n\\n\\n\\n<li><strong>Gu\xEDas de estudio o de ejercicios:</strong>
-      proporcionan informaci\xF3n detallada sobre un tema espec\xEDfico mediante la
-      resoluci\xF3n de problemas. Pueden incluir consejos, estrategias, tutoriales.
-      Culminan con la lista de soluciones de manera tal que pueda facilitar el autoaprendizaje.</li>\\n\\n\\n\\n<li><strong>Ciclos
-      de conferencias:</strong> se publica el programa con su justificaci\xF3n y todas
-      las conferencias que debe desarrollar un docente de la asignatura.</li>\\n\\n\\n\\n<li><strong>Libros
-      de consulta o de referencia:</strong> no son de lectura continuada, sino que
-      el lector los consulta cuando quiere conocer un dato determinado. Debe contar
-      con entradas organizadas alfab\xE9tica o cronol\xF3gicamente de acuerdo al tema
-      y puede ser o no ilustrado (enciclopedias, diccionarios, vocabularios, gu\xEDas
-      telef\xF3nicas, cat\xE1logos, directorios, etc.).</li>\\n\\n\\n\\n<li><strong>Libros
-      de ensayo: </strong>presentan una posici\xF3n argumentativa sobre un tema, resultado
-      de una investigaci\xF3n exhaustiva en la que el autor defiende un punto de vista.</li>\\n\\n\\n\\n<li><strong>Manual:
-      </strong>proporciona instrucciones detalladas sobre c\xF3mo utilizar un producto
-      o realizar un proceso. Los manuales suelen incluir diagramas, gr\xE1ficos y
-      otros elementos visuales para hacer que la informaci\xF3n sea m\xE1s f\xE1cil
-      de comprender. Son libros instructivos.</li>\\n\\n\\n\\n<li><strong>Compilaciones:</strong>
-      este texto re\xFAne los principales textos (o partes de textos) y aportes existentes
-      sobre un tema. Puede reunir diferentes g\xE9neros con una estructura tem\xE1tica
-      l\xF3gica seg\xFAn el objetivo que persiga el compilador.</li>\\n\\n\\n\\n<li><strong>Compendio:</strong>
-      presenta una materia en extenso, abracando todas las aristas posibles. Recopila
-      informaci\xF3n de manera descriptiva.</li>\\n\\n\\n\\n<li><strong>Monograf\xEDa:
-      </strong>analiza una materia en profundidad, dejando partes \u2014debidamente
-      limitadas en la descripci\xF3n del objeto de estudio\u2014 sin ser estudiadas.</li>\\n\\n\\n\\n<li><strong>Tratados:</strong>
-      se caracteriza por la exposici\xF3n objetiva, integral y ordenada de conocimientos
-      sobre un t\xF3pico espec\xEDfico. Se relata o escribe tal como un discurso,
-      usando el texto expositivo y en tercera persona; se subdivide en numerosos apartados
-      que ayudan a organizarlo de forma correlativa y l\xF3gica. El tratado debe incluir
-      gran cantidad de datos precisos.</li>\\n\\n\\n\\n<li><strong>Memorias: </strong>Presenta
-      conclusiones y trabajos presentados a un evento.</li>\\n</ul>\\n\\n\\n\\n<p>Todos
-      los libros de este sello editorial son digitales y est\xE1n disponibles, en
-      acceso abierto. </p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<p>Bibliograf\xEDas:</p>\\n\\n\\n\\n<p>Moyano,
-      Estela. \u201CUna clasificaci\xF3n de g\xE9neros cient\xEDficos.\u201D XIX Congreso
-      aesla. Vol. 1. No. 9. 2001.</p>\\n\\n\\n\\n<p>M\xE9ndez, Misael. \u201CCategor\xEDas
-      de trabajo en edici\xF3n de textos: breve experiencia con publicaciones cubanas
-      y extranjeras.\u201D Islas 135 (2003): 27-48.</p>\\n\\n\\n\\n<p>M\xE9ndez, Misael.
-      Ser manual pero no parecerlo. Editorial Samuel Feijoo, Las Villas, 2020.</p>\\n\",\"published_at\":1696588740,\"updated_at\":1696589176,\"indexed_at\":1696593190,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-9373-4622\", \"name\": \"Norbisley Fern\xE1ndez\"}],\"image\":\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png\",\"tags\":[\"Presentacion
-      De La Informacion Cientifica\",\"Sin Categoria\"],\"language\":\"es\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Edici\xF3n
-      y comunicaci\xF3n de la Ciencia\",\"blog_slug\":\"norbisley\",\"blog\":{\"id\":\"6aswq28\",\"title\":\"Edici\xF3n
-      y comunicaci\xF3n de la Ciencia\",\"description\":null,\"language\":\"es\",\"favicon\":\"https://db.rogue-scholar.org/storage/v1/object/public/images/Screenshot%202023-08-28%20063918.png\",\"feed_url\":\"https://norbisley.wordpress.com/feed/atom/\",\"home_page_url\":\"https://norbisley.wordpress.com\",\"user_id\":\"126368cd-e941-4e6f-8316-f5fe574e595b\",\"created_at\":\"2023-08-22\",\"feed_format\":\"application/atom+xml\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"generator\":\"WordPress.com\",\"category\":\"mediaAndCommunications\",\"prefix\":\"10.59350\",\"modified_at\":\"2023-10-06T10:46:16+00:00\",\"version\":\"https://jsonfeed.org/version/1.1\",\"current_feed_url\":null,\"status\":\"active\",\"issn\":null,\"backlog\":0,\"authors\":null,\"plan\":\"Starter\",\"slug\":\"norbisley\",\"use_mastodon\":false,\"api\":true,\"funding\":null,\"archive_prefix\":null,\"use_api\":true,\"relative_url\":null,\"canonical_url\":null,\"filter\":null}}"
-    headers:
-      Access-Control-Allow-Origin:
-      - '*'
-      CF-Cache-Status:
-      - DYNAMIC
-      CF-Ray:
-      - 812898a48dc4215d-DUS
-      Connection:
-      - keep-alive
-      Content-Location:
-      - /posts?doi=eq.https%3A%2F%2Fdoi.org%2F10.59350%2Fsfzv4-xdb68&select=id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20content_html%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28%2A%29
-      Content-Profile:
-      - public
-      Content-Range:
-      - 0-0/*
-      Content-Type:
-      - application/vnd.pgrst.object+json; charset=utf-8
-      Date:
-      - Sat, 07 Oct 2023 19:37:00 GMT
-      Server:
-      - cloudflare
-      Strict-Transport-Security:
-      - max-age=2592000; includeSubDomains
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
-      Via:
-      - kong/2.8.1
-      X-Kong-Proxy-Latency:
-      - '0'
-      X-Kong-Upstream-Latency:
-      - '5'
-      alt-svc:
-      - h3=":443"; ma=86400
-      sb-gateway-version:
-      - '1'
-    http_version: HTTP/1.1
-    status_code: 200
-- request:
     body: null
     headers:
       Accept:
@@ -147,7 +21,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 812898a5dd37b978-AMS
+      - 8134eeb068dd1aff-AMS
       Connection:
       - keep-alive
       Content-Length:
@@ -155,11 +29,11 @@ interactions:
       Content-Type:
       - text/html;charset=utf-8
       Date:
-      - Sat, 07 Oct 2023 19:37:01 GMT
+      - Mon, 09 Oct 2023 07:32:54 GMT
       NEL:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=jQkPfnw797L3%2FwMmyRsv4Fh%2BWI8TE2Oz47XgevgcGCcnzPuZQyRjLXrDrPP2kcu6Sjxxj5XrjyRERNKvPjQ7aRxfZ9IrE%2FdCIAMgsWg%2F2q9cjKTTOTLITLVl4PXdhuq12dAvz3c%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=5Xwj7rqJ1tCmxgpqS07yoxDvKrjmIy5g%2F7ctg%2F6F6p8U3gh7CgcTxppftocUg9sNCbh1xYgqK%2FTi%2FzdIzjww20bLSlZZQdowzdAtvm0jGRhYbAtWCzGHqW%2BV%2FCYDYVsQW1Q1Xec%3D"}],"group":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -167,7 +41,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       expires:
-      - Sat, 07 Oct 2023 20:30:32 GMT
+      - Mon, 09 Oct 2023 08:00:14 GMT
       location:
       - https://api.crossref.org/v1/works/10.59350%2Fsfzv4-xdb68/transform
       permissions-policy:
@@ -207,7 +81,7 @@ interactions:
       content-type:
       - text/x-bibliography
       date:
-      - Sat, 07 Oct 2023 19:37:01 GMT
+      - Mon, 09 Oct 2023 07:32:55 GMT
       link:
       - "<http://dx.doi.org/10.59350/sfzv4-xdb68>; rel=\"canonical\", <https://norbisley.wordpress.com/2023/10/06/que-libros-cientificos-publicamos>;
         version=\"vor\"; type=\"text/html\"; rel=\"item\", <https://creativecommons.org/licenses/by/4.0/legalcode>;

@@ -1,14 +1,13 @@
+"""Supabase client configuration"""
 from os import environ
 from dotenv import load_dotenv
 from supabase import create_client, Client as SupabaseClient
 
 load_dotenv()
-supabase_url: str = environ.get("SUPABASE_URL")
-supabase_key: str = environ.get("SUPABASE_ANON_KEY")
-supabase_admin_key: str = environ.get("SUPABASE_SERVICE_ROLE_KEY")
 
 supabase_client: SupabaseClient = create_client(
-    supabase_url=supabase_url, supabase_key=supabase_key
+    supabase_url=environ["QUART_SUPABASE_URL"],
+    supabase_key=environ["QUART_SUPABASE_ANON_KEY"],
 )
 
 blogsSelect = "slug, title, description, language, favicon, feed_url, feed_format, home_page_url, generator, category"

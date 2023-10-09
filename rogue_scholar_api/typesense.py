@@ -1,17 +1,16 @@
+"""Typesense client configuration"""
 from os import environ
 from dotenv import load_dotenv
 from typesense import Client as TypesenseClient
 
 load_dotenv()
-typesense_host: str = environ.get("TYPESENSE_HOST")
-typesense_api_key: str = environ.get("TYPESENSE_API_KEY")
 
 typesense_client = TypesenseClient(
     {
-        "api_key": typesense_api_key,
+        "api_key": environ["QUART_TYPESENSE_API_KEY"],
         "nodes": [
             {
-                "host": typesense_host,
+                "host": environ["QUART_TYPESENSE_HOST"],
                 "port": "443",
                 "protocol": "https",
             }
