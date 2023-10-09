@@ -104,8 +104,9 @@ async def posts():
     page = int(request.args.get("page") or "1")
     per_page = int(request.args.get("per_page") or "10")
     include_fields = request.args.get("include_fields")
+    blog_slug = request.args.get("blog_slug")
     # workaround to provide a default filter
-    filter_by = "blog_slug:!=[xxx]"
+    filter_by = f"blog_slug:{blog_slug}" if blog_slug else "blog_slug:!=[xxx]"
     filter_by = filter_by + f" && tags:=[{tags}]" if tags else filter_by
     filter_by = filter_by + f" && language:=[{language}]" if language else filter_by
     search_parameters = compact({

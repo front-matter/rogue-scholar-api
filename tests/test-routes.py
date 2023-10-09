@@ -84,6 +84,18 @@ async def test_posts_with_query_and_pagination_route():
 
 
 @pytest.mark.vcr
+async def test_posts_with_blog_slug_route():
+    """Test posts route with blog_slug."""
+    test_client = app.test_client()
+    response = await test_client.get("/posts?blog_slug=rossmounce")
+    assert response.status_code == 200
+    result = await response.get_json()
+    assert result["found"] == 127
+    post = py_.get(result, "hits[0].document")
+    assert post["title"] is not None
+
+
+@pytest.mark.vcr
 async def test_posts_with_query_and_include_fields_route():
     """Test posts route with query and include fields."""
     test_client = app.test_client()

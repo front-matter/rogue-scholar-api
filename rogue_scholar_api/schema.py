@@ -12,6 +12,7 @@ class PostQuery:
     page: Optional[int] = 1
     per_page: Optional[int] = 10
     include_fields: Optional[str] = None
+    blog_slug: Optional[str] = None
 
 @dataclass
 class Blog:
