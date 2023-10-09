@@ -1,7 +1,7 @@
 import logging
 from typing import Optional
 from quart import Quart, request, jsonify, redirect
-from quart_schema import QuartSchema, Info, validate_request, validate_response
+from quart_schema import QuartSchema, Info, validate_request, validate_response, hide
 
 from rogue_scholar_api.supabase import (
     supabase_client as supabase,
@@ -25,11 +25,13 @@ def run() -> None:
 
 
 @app.route("/")
+@hide
 def default():
     return redirect("https://rogue-scholar.org", code=301)
 
 
 @app.route("/blogs/")
+@hide
 async def blogs_redirect():
     return redirect("/blogs", code=301)
 
@@ -65,6 +67,7 @@ async def blog(slug):
 
 
 @app.route("/posts/")
+@hide
 async def posts_redirect():
     return redirect("/posts", code=301)
 
