@@ -1,7 +1,10 @@
 import requests
+import datetime
+import iso8601
 from uuid import UUID
 # import re
 from typing import Optional
+
 
 
 # def sanitize_suffix(str):
@@ -10,6 +13,16 @@ from typing import Optional
 #     m = re.match(r"^\[-._;\(\)/:A-Z0-9\]+$", str)
 #     print(m)
 #     return m
+
+def unix_timestamp(date_str: str) -> int:
+    """convert edtf level 0 iso8601 date to unix timestamp"""
+    dt = iso8601.parse_date(date_str)
+
+     # date = datetime.date.fromisoformat(date_str)
+    # midnight = datetime.datetime.combine(datetime, datetime.datetime.min.time())
+    print(int(dt.timestamp()))
+    return int(dt.timestamp())
+
 
 def validate_uuid(slug: str) -> bool:
     """validate uuid"""

@@ -1,7 +1,7 @@
 """Main quart application"""
 import logging
 from typing import Optional
-from datetime import timedelta
+from datetime import timedelta, date
 from commonmeta.utils import compact
 # import importlib.metadata
 from quart import Quart, request, jsonify, redirect
@@ -23,7 +23,7 @@ from rogue_scholar_api.supabase import (
     postsWithContentSelect,
 )
 from rogue_scholar_api.typesense import typesense_client as typesense
-from rogue_scholar_api.utils import get_doi_metadata_from_ra, validate_uuid
+from rogue_scholar_api.utils import get_doi_metadata_from_ra, validate_uuid, unix_timestamp
 from rogue_scholar_api.schema import Blog, Post, PostQuery
 
 rate_limiter = RateLimiter()
@@ -109,8 +109,10 @@ async def posts():
     order = request.args.get("order") == "asc" and "asc" or "desc"
     include_fields = request.args.get("include_fields")
     blog_slug = request.args.get("blog_slug")
-    # workaround to provide a default filter
-    filter_by = f"blog_slug:{blog_slug}" if blog_slug else "blog_slug:!=[xxx]"
+    published_since = unix_timestamp(request.args.get("published_since")) if request.args.get("published_since") else 0
+    # filter posts by date published, blog, tags, and/or language
+    filter_by = f"published_at:>= {published_since}"
+    filter_by = f"blog_slug:{blog_slug}" if blog_slug else filter_by
     filter_by = filter_by + f" && tags:=[{tags}]" if tags else filter_by
     filter_by = filter_by + f" && language:=[{language}]" if language else filter_by
     search_parameters = compact({

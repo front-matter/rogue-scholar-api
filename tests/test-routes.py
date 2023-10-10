@@ -99,7 +99,9 @@ async def test_posts_with_blog_slug_route():
 async def test_posts_with_query_and_include_fields_route():
     """Test posts route with query and include fields."""
     test_client = app.test_client()
-    response = await test_client.get("/posts?query=retraction-watch&include_fields=doi,title")
+    response = await test_client.get(
+        "/posts?query=retraction-watch&include_fields=doi,title"
+    )
     assert response.status_code == 200
     result = await response.get_json()
     assert result["found"] == 18
@@ -139,6 +141,18 @@ async def test_posts_unregistered_route():
     assert response.status_code == 200
     result = await response.get_json()
     assert len(result) == 15
+
+
+@pytest.mark.vcr
+async def test_posts_filter_by_published_since_route():
+    """Test posts route with published_since filter."""
+    test_client = app.test_client()
+    response = await test_client.get("/posts?published_since=2023-10-06")
+    assert response.status_code == 200
+    result = await response.get_json()
+    assert result["found"] == 6
+    post = py_.get(result, "hits[0].document")
+    assert post["title"] is not None
 
 
 @pytest.mark.vcr

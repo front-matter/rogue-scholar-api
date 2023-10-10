@@ -1,7 +1,11 @@
 """Test utils"""
 import pytest  # noqa: F401
 
-from rogue_scholar_api.utils import get_doi_metadata_from_ra, validate_uuid
+from rogue_scholar_api.utils import (
+    get_doi_metadata_from_ra,
+    validate_uuid,
+    unix_timestamp,
+)
 
 
 def test_get_doi_metadata_bibtex():
@@ -44,6 +48,24 @@ def test_validate_invalid_uuid_():
     uuid = "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a1"
     result = validate_uuid(uuid)
     assert result is False
+
+
+def test_unix_timestamp():
+    "convert edtf level 0 iso8601 date to unix timestamp"
+    date = "2021-08-01"
+    assert unix_timestamp(date) == 1627776000
+
+
+def test_unix_timestamp_year_month():
+    "convert edtf level 0 iso8601 date to unix timestamp"
+    date = "2021-08"
+    assert unix_timestamp(date) == 1627776000
+
+
+def test_unix_timestamp_year():
+    "convert edtf level 0 iso8601 date to unix timestamp"
+    date = "2021"
+    assert unix_timestamp(date) == 1609459200
 
 
 # def test_sanitize_cool_suffix():
