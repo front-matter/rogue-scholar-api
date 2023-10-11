@@ -4,6 +4,7 @@ import iso8601
 from uuid import UUID
 # import re
 from typing import Optional
+from commonmeta.doi_utils import doi_from_url
 
 
 
@@ -46,11 +47,12 @@ def get_doi_metadata_from_ra(
         "citation": f"text/x-bibliography; style={style}; locale={locale}",
     }
     content_type = content_types.get(format_)
-    response = requests.get(doi, headers={"Accept": content_type})
+    response = requests.get(doi, headers={"Accept": content_type}, timeout=10)
     response.encoding = "UTF-8"
     if response.status_code >= 400:
         return None
-    basename = doi.replace("/", "-")
+    
+    basename = doi_from_url(doi).replace("/", "-")
     if format_ == "csl":
         ext = "json"
     elif format_ == "ris":
