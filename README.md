@@ -4,6 +4,7 @@
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=front-matter_rogue-scholar-api&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=front-matter_rogue-scholar-api)
 [![docs](https://img.shields.io/badge/docs-passing-blue)](https://docs.rogue-scholar.org)
 ![GitHub](https://img.shields.io/github/license/front-matter/rogue-scholar-api?logo=MIT)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8433679.svg)](https://doi.org/10.5281/zenodo.8433679)
 
 # Rogue Scholar API
 
