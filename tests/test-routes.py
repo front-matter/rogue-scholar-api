@@ -21,6 +21,14 @@ async def test_index_route():
     assert response.headers["Location"] == "https://rogue-scholar.org"
 
 
+async def test_heartbeat_route():
+    """Test heartbeat route."""
+    test_client = app.test_client()
+    response = await test_client.get("/heartbeat")
+    assert response.status_code == 200
+    assert await response.get_data(as_text=True) == "OK"
+
+
 async def test_blogs_redirect_route():
     """Test blogs redirect route."""
     test_client = app.test_client()

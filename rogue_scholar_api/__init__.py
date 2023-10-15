@@ -3,6 +3,9 @@ import logging
 from typing import Optional
 from datetime import timedelta, date
 from commonmeta.utils import compact
+from os import environ
+from dotenv import load_dotenv
+
 # import importlib.metadata
 from quart import Quart, request, jsonify, redirect
 from quart_schema import (
@@ -17,15 +20,21 @@ from quart_rate_limiter import RateLimiter, RateLimit
 
 from rogue_scholar_api.supabase import (
     supabase_client as supabase,
+    supabase_admin_client as supabase_admin,
     blogsSelect,
     blogWithPostsSelect,
     postsWithConfigSelect,
     postsWithContentSelect,
 )
 from rogue_scholar_api.typesense import typesense_client as typesense
-from rogue_scholar_api.utils import get_doi_metadata_from_ra, validate_uuid, unix_timestamp
+from rogue_scholar_api.utils import (
+    get_doi_metadata_from_ra,
+    validate_uuid,
+    unix_timestamp,
+)
 from rogue_scholar_api.schema import Blog, Post, PostQuery
 
+load_dotenv()
 rate_limiter = RateLimiter()
 logger = logging.getLogger(__name__)
 version = "0.6.2"  # TODO: importlib.metadata.version('rogue-scholar-api')
@@ -45,6 +54,12 @@ def run() -> None:
 def default():
     """Redirect / to Rogue Scholar homepage."""
     return redirect("https://rogue-scholar.org", code=301)
+
+
+@app.route("/heartbeat")
+async def heartbeat():
+    """Heartbeat."""
+    return "OK", 200
 
 
 @app.route("/blogs/")
@@ -109,29 +124,61 @@ async def posts():
     order = request.args.get("order") == "asc" and "asc" or "desc"
     include_fields = request.args.get("include_fields")
     blog_slug = request.args.get("blog_slug")
-    published_since = unix_timestamp(request.args.get("published_since")) if request.args.get("published_since") else 0
+    published_since = (
+        unix_timestamp(request.args.get("published_since"))
+        if request.args.get("published_since")
+        else 0
+    )
     # filter posts by date published, blog, tags, and/or language
     filter_by = f"published_at:>= {published_since}"
     filter_by = f"blog_slug:{blog_slug}" if blog_slug else filter_by
     filter_by = filter_by + f" && tags:=[{tags}]" if tags else filter_by
     filter_by = filter_by + f" && language:=[{language}]" if language else filter_by
-    search_parameters = compact({
-        "q": query,
-        "query_by": "tags,title,doi,authors.name,authors.url,summary,content_html,reference",
-        "filter_by": filter_by,
-        "sort_by": f"{sort}:{order}"
-        if request.args.get("query")
-        else "published_at:desc",
-        "per_page": min(per_page, 50),
-        "page": page if page and page > 0 else 1,
-        "include_fields": include_fields,
-    })
+    search_parameters = compact(
+        {
+            "q": query,
+            "query_by": "tags,title,doi,authors.name,authors.url,summary,content_html,reference",
+            "filter_by": filter_by,
+            "sort_by": f"{sort}:{order}"
+            if request.args.get("query")
+            else "published_at:desc",
+            "per_page": min(per_page, 50),
+            "page": page if page and page > 0 else 1,
+            "include_fields": include_fields,
+        }
+    )
     try:
         response = typesense.collections["posts"].documents.search(search_parameters)
         return jsonify(response)
     except Exception as e:
         logger.warning(e.args[0])
         return {"error": "An error occured."}, 400
+
+
+@validate_response(Post)
+@app.route("/posts", methods=["POST"])
+async def post_posts():
+    """Create posts."""
+    print(
+        request.headers["Authorization"].split(" ")[1]
+        == environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
+    )
+    if (
+        request.headers.get("Authorization", None) is None
+        or request.headers.get("Authorization").split(" ")[1]
+        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
+    ):
+        return {"error": "Unauthorized."}, 401
+
+    response = (
+        supabase.table("blogs")
+        .select("slug")
+        .eq("status", "active")
+        .order("slug", desc=False)
+        .execute()
+    )
+    return jsonify(response.data)
+    return {"error": "An error occured."}, 400
 
 
 @validate_response(Post)
