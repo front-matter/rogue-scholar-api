@@ -117,7 +117,14 @@ async def post_blog(slug: str, suffix: Optional[str] = None):
     """Update blog by slug."""
     page = int(request.args.get("page") or "1")
     update = request.args.get("update")
-    if suffix is None:
+
+    if (
+        request.headers.get("Authorization", None) is None
+        or request.headers.get("Authorization").split(" ")[1]
+        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
+    ):
+        return {"error": "Unauthorized."}, 401
+    elif suffix is None:
         response = (
             supabase.table("blogs")
             .select(blogWithPostsSelect)
@@ -213,13 +220,7 @@ async def post_posts():
             .maybe_single()
             .execute()
         )
-        if not response.data:
-            return {"error": "Blog not found."}, 404
-        result = extract_all_posts_by_blog(
-            blog_slug, page=page, update_all=(update == "all")
-        )
-
-        return jsonify(result)
+        return jsonify(response.data)
     else:
         return {"error": "An error occured."}, 400
 
