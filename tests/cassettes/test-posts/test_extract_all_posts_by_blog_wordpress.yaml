@@ -23,22 +23,23 @@ interactions:
       x-client-info:
       - supabase-py/1.2.0
     method: GET
-    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20modified_at%2C%20use_mastodon%2C%20generator%2C%20favicon%2C%20title%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.epub_fis
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20modified_at%2C%20use_mastodon%2C%20generator%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.epub_fis
   response:
-    content: '{"id":"mdh1h61","slug":"epub_fis","feed_url":"https://blog.dini.de/EPub_FIS/feed/atom/","current_feed_url":null,"home_page_url":"https://blog.dini.de/EPub_FIS","archive_prefix":null,"feed_format":"application/atom+xml","modified_at":"2023-09-25T09:01:59+00:00","use_mastodon":false,"generator":"WordPress
-      6.2.3","favicon":"https://blog.dini.de/EPub_FIS/wp-content/uploads/2018/03/cropped-DINI-AG-FIS-3-1-150x150.png","title":"FIS
-      & EPub","category":"socialSciences","status":"active","user_id":"a9e3541e-1e00-4bf3-8a4d-fc9b1c505651","authors":null,"plan":"Team","use_api":true,"relative_url":null,"filter":null}'
+    content: '{"id":"mdh1h61","slug":"epub_fis","feed_url":"https://blog.dini.de/EPub_FIS/feed/atom/","current_feed_url":null,"home_page_url":"https://blog.dini.de/EPub_FIS","archive_prefix":null,"feed_format":"application/atom+xml","created_at":"2023-07-21","modified_at":"2023-09-25T09:01:59+00:00","use_mastodon":false,"generator":"WordPress
+      6.3.2","favicon":"https://blog.dini.de/EPub_FIS/wp-content/uploads/2018/03/cropped-DINI-AG-FIS-3-1-150x150.png","title":"FIS
+      & EPub","description":"Gemeinsamer Blog der DINI AG Forschungsinformationssystem
+      und Elektronisches Publizieren","category":"socialSciences","status":"active","user_id":"a9e3541e-1e00-4bf3-8a4d-fc9b1c505651","authors":null,"plan":"Team","use_api":true,"relative_url":null,"filter":null}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 81797c5a98e62163-DUS
+      - 81804a2f1c377a40-DUS
       Connection:
       - keep-alive
       Content-Location:
-      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20modified_at%2C%20use_mastodon%2C%20generator%2C%20favicon%2C%20title%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.epub_fis
+      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20modified_at%2C%20use_mastodon%2C%20generator%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.epub_fis
       Content-Profile:
       - public
       Content-Range:
@@ -46,7 +47,7 @@ interactions:
       Content-Type:
       - application/vnd.pgrst.object+json; charset=utf-8
       Date:
-      - Tue, 17 Oct 2023 15:13:28 GMT
+      - Wed, 18 Oct 2023 11:02:34 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -58,9 +59,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '2'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '6'
+      - '7'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -917,7 +918,7 @@ interactions:
       Content-Type:
       - application/atom+xml; charset=UTF-8
       Date:
-      - Tue, 17 Oct 2023 15:13:29 GMT
+      - Wed, 18 Oct 2023 11:02:34 GMT
       ETag:
       - '"e4e8d2285ca450c3bfcdfc28f25fe8ac"'
       Last-Modified:
@@ -942,6 +943,8 @@ interactions:
       - blog.dini.de
       User-Agent:
       - Python/3.11 aiohttp/3.8.6
+      sentry-trace:
+      - 4d68dbb8149942af9c5dbf98f668b5d9-9d49b7f570a14fe6
     method: GET
     uri: https://blog.dini.de/EPub_FIS?rest_route=/wp/v2/posts&page=1&per_page=50&_embed=1
   response:
@@ -952,7 +955,7 @@ interactions:
       Content-Type:
       - text/html; charset=iso-8859-1
       Date:
-      - Tue, 17 Oct 2023 15:13:29 GMT
+      - Wed, 18 Oct 2023 11:02:34 GMT
       Location:
       - https://blog.dini.de/EPub_FIS/?rest_route=/wp/v2/posts&page=1&per_page=50&_embed=1
       Server:
@@ -971,6 +974,8 @@ interactions:
       - blog.dini.de
       User-Agent:
       - Python/3.11 aiohttp/3.8.6
+      sentry-trace:
+      - 4d68dbb8149942af9c5dbf98f668b5d9-9d49b7f570a14fe6
     method: GET
     uri: https://blog.dini.de/EPub_FIS/?rest_route=/wp/v2/posts&page=1&per_page=50&_embed=1
   response:
@@ -5255,7 +5260,7 @@ interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Tue, 17 Oct 2023 15:13:29 GMT
+      - Wed, 18 Oct 2023 11:02:34 GMT
       Link:
       - <https://blog.dini.de/EPub_FIS/wp-json/wp/v2/posts?rest_route=%2Fwp%2Fv2%2Fposts&page=2&per_page=50&_embed=1>;
         rel="next"

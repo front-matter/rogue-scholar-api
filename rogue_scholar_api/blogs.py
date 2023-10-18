@@ -13,7 +13,7 @@ def extract_single_blog(slug: str):
     response = (
         supabase.table("blogs")
         .select(
-            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, modified_at, use_mastodon, generator, favicon, title, category, status, user_id, authors, plan, use_api, relative_url, filter"
+            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, modified_at, use_mastodon, generator, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter"
         )
         .eq("slug", slug)
         .maybe_single()
@@ -25,27 +25,28 @@ def extract_single_blog(slug: str):
     socket.setdefaulttimeout(60)
     parsed = feedparser.parse(response.data["feed_url"])
     feed = parsed.feed
-    home_page_url = feed.get("link", None)
-    modified_at = feed.get("updated", None)
+    home_page_url = feed.get("link", None) or config["home_page_url"]
+    modified_at = feed.get("updated", None) or config["modified_at"]
 
-    feed_format = parse_feed_format(feed)
-    title = feed.get("title", None)
+    feed_format = parse_feed_format(feed) or config["feed_format"]
+    title = feed.get("title", None) or config["title"]
     generator = (
         parse_generator(feed.get("generator_detail", None)) or config["generator"]
     )
-    description = feed.get("subtitle", None)
-    favicon = feed.get("icon", None)
+    description = feed.get("subtitle", None) or config["description"]
+    favicon = feed.get("icon", None) or config["favicon"]
 
     # ignore the default favicons
     if favicon in ["https://s0.wp.com/i/buttonw-com.png"]:
         favicon = None
-    language = feed.get("language", "en").split("-")[0]
+    language = feed.get("language", "en").split("-")[0] or config["language"]
 
     blog = {
         "id": config["id"],
         "slug": slug,
         "version": "https://jsonfeed.org/version/1.1",
         "feed_url": config["feed_url"],
+        "created_at": config["created_at"],
         "modified_at": modified_at,
         "current_feed_url": config["current_feed_url"],
         "home_page_url": home_page_url,

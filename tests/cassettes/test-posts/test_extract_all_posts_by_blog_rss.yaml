@@ -23,21 +23,21 @@ interactions:
       x-client-info:
       - supabase-py/1.2.0
     method: GET
-    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20modified_at%2C%20use_mastodon%2C%20generator%2C%20favicon%2C%20title%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.tarleb
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20modified_at%2C%20use_mastodon%2C%20generator%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.tarleb
   response:
-    content: '{"id":"7gyq558","slug":"tarleb","feed_url":"https://tarleb.com/index.xml","current_feed_url":null,"home_page_url":"https://tarleb.com/index.html","archive_prefix":null,"feed_format":"application/rss+xml","modified_at":"2023-03-24T00:00:00+00:00","use_mastodon":false,"generator":"Quarto
-      1.2.475","favicon":null,"title":"tarleb","category":"computerAndInformationSciences","status":"active","user_id":"dead81b3-8a8b-45c9-85fe-f01bb3948c77","authors":null,"plan":"Starter","use_api":null,"relative_url":null,"filter":null}'
+    content: '{"id":"7gyq558","slug":"tarleb","feed_url":"https://tarleb.com/index.xml","current_feed_url":null,"home_page_url":"https://tarleb.com/index.html","archive_prefix":null,"feed_format":"application/rss+xml","created_at":"2023-04-20","modified_at":"2023-03-24T00:00:00+00:00","use_mastodon":false,"generator":"Quarto
+      1.2.475","favicon":null,"title":"tarleb","description":"tarleb''s blog","category":"computerAndInformationSciences","status":"active","user_id":"dead81b3-8a8b-45c9-85fe-f01bb3948c77","authors":null,"plan":"Starter","use_api":null,"relative_url":null,"filter":null}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 817ad89c5c5ccb19-DUS
+      - 81804acb2ae47a40-DUS
       Connection:
       - keep-alive
       Content-Location:
-      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20modified_at%2C%20use_mastodon%2C%20generator%2C%20favicon%2C%20title%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.tarleb
+      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20modified_at%2C%20use_mastodon%2C%20generator%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.tarleb
       Content-Profile:
       - public
       Content-Range:
@@ -45,7 +45,7 @@ interactions:
       Content-Type:
       - application/vnd.pgrst.object+json; charset=utf-8
       Date:
-      - Tue, 17 Oct 2023 19:11:13 GMT
+      - Wed, 18 Oct 2023 11:02:59 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -59,7 +59,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -795,7 +795,7 @@ interactions:
       Content-Type:
       - application/xml
       Date:
-      - Tue, 17 Oct 2023 19:11:13 GMT
+      - Wed, 18 Oct 2023 11:02:59 GMT
       ETag:
       - W/"64205d75-291df"
       Last-Modified:
@@ -811,15 +811,15 @@ interactions:
       X-Cache-Hits:
       - '1'
       X-Fastly-Request-ID:
-      - 2d96e7e823a84c776acf9d62fde7e65b770bf41c
+      - 4d13d5818fc234dfc68f1f6f108b912393d3dde5
       X-GitHub-Request-Id:
-      - C440:E42E:176744A:17AC74D:652EDB86
+      - B8D8:F487:CB1FE8:CDAAF3:652FB941
       X-Served-By:
-      - cache-ams21063-AMS
+      - cache-ams21051-AMS
       X-Timer:
-      - S1697569874.830993,VS0,VE106
+      - S1697626979.234151,VS0,VE99
       expires:
-      - Tue, 17 Oct 2023 19:17:50 GMT
+      - Wed, 18 Oct 2023 11:03:53 GMT
       x-proxy-cache:
       - MISS
     status:
@@ -2937,7 +2937,7 @@ interactions:
       Access-Control-Allow-Origin:
       - '*'
       Age:
-      - '1'
+      - '0'
       Cache-Control:
       - max-age=600
       Connection:
@@ -2949,11 +2949,11 @@ interactions:
       Content-Type:
       - application/xml
       Date:
-      - Tue, 17 Oct 2023 19:11:14 GMT
+      - Wed, 18 Oct 2023 11:02:59 GMT
       Etag:
       - W/"64205d75-291df"
       Expires:
-      - Tue, 17 Oct 2023 19:17:50 GMT
+      - Wed, 18 Oct 2023 11:03:53 GMT
       Last-Modified:
       - Sun, 26 Mar 2023 14:57:57 GMT
       Server:
@@ -2967,13 +2967,13 @@ interactions:
       X-Cache-Hits:
       - '1'
       X-Fastly-Request-ID:
-      - 8f503bb390a283c87ab182b27b1a8dceece7ae17
+      - c1f009a2ef16472c5dd5fa06f758cfd836ee9d0e
       X-GitHub-Request-Id:
-      - C440:E42E:176744A:17AC74D:652EDB86
+      - B8D8:F487:CB1FE8:CDAAF3:652FB941
       X-Served-By:
-      - cache-ams21060-AMS
+      - cache-ams21066-AMS
       X-Timer:
-      - S1697569875.972640,VS0,VE1
+      - S1697626980.524412,VS0,VE2
       x-proxy-cache:
       - MISS
     status:

@@ -23,20 +23,21 @@ interactions:
       x-client-info:
       - supabase-py/1.2.0
     method: GET
-    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20modified_at%2C%20use_mastodon%2C%20generator%2C%20favicon%2C%20title%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.wisspub
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20modified_at%2C%20use_mastodon%2C%20generator%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.wisspub
   response:
-    content: '{"id":"34zkv26","slug":"wisspub","feed_url":"https://wisspub.net/feed/atom/","current_feed_url":null,"home_page_url":"https://wisspub.net","archive_prefix":null,"feed_format":"application/atom+xml","modified_at":"2023-07-13T08:19:22+00:00","use_mastodon":true,"generator":"WordPress.com","favicon":null,"title":"wisspub.net","category":"socialSciences","status":"active","user_id":"dbffda7d-f391-48fb-a6d2-d4a284c59c8d","authors":null,"plan":"Team","use_api":true,"relative_url":null,"filter":null}'
+    content: '{"id":"34zkv26","slug":"wisspub","feed_url":"https://wisspub.net/feed/atom/","current_feed_url":null,"home_page_url":"https://wisspub.net","archive_prefix":null,"feed_format":"application/atom+xml","created_at":"2023-01-16","modified_at":"2023-07-13T08:19:22+00:00","use_mastodon":true,"generator":"WordPress.com","favicon":null,"title":"wisspub.net","description":"Gemeinschaftsblog
+      zu wissenschaftlicher Kommunikation im Netz.","category":"socialSciences","status":"active","user_id":"dbffda7d-f391-48fb-a6d2-d4a284c59c8d","authors":null,"plan":"Team","use_api":true,"relative_url":null,"filter":null}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8179cd125c2e7a48-DUS
+      - 81804a3afba17a40-DUS
       Connection:
       - keep-alive
       Content-Location:
-      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20modified_at%2C%20use_mastodon%2C%20generator%2C%20favicon%2C%20title%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.wisspub
+      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20modified_at%2C%20use_mastodon%2C%20generator%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.wisspub
       Content-Profile:
       - public
       Content-Range:
@@ -44,7 +45,7 @@ interactions:
       Content-Type:
       - application/vnd.pgrst.object+json; charset=utf-8
       Date:
-      - Tue, 17 Oct 2023 16:08:35 GMT
+      - Wed, 18 Oct 2023 11:02:36 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -56,7 +57,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
       - '5'
       alt-svc:
@@ -644,7 +645,7 @@ interactions:
       Content-Type:
       - application/atom+xml; charset=UTF-8
       Date:
-      - Tue, 17 Oct 2023 16:08:35 GMT
+      - Wed, 18 Oct 2023 11:02:36 GMT
       Host-Header:
       - WordPress.com
       Last-Modified:
@@ -7517,7 +7518,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 17 Oct 2023 16:08:38 GMT
+      - Wed, 18 Oct 2023 11:02:37 GMT
       Expires:
       - Wed, 11 Jan 1984 05:00:00 GMT
       Host-Header:

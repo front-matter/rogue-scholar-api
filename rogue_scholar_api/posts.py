@@ -93,12 +93,17 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             async with aiohttp.ClientSession() as session:
                 async with session.get(feed_url, timeout=10) as resp:
                     posts = await resp.json()
+                    # only include posts that have been modified since last update
+                    if not update_all:
+                        posts = filter_updated_posts(posts, blog, key="post_date")
                     extract_posts = [extract_substack_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "WordPress" and blog["use_api"]:
             async with aiohttp.ClientSession() as session:
                 async with session.get(feed_url, timeout=10) as resp:
                     posts = await resp.json()
+                    if not update_all:
+                        posts = filter_updated_posts(posts, blog, key="modified_gmt")
                     extract_posts = [extract_wordpress_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "WordPress.com" and blog["use_api"]:
@@ -106,6 +111,8 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                 async with session.get(feed_url, timeout=10) as resp:
                     json = await resp.json()
                     posts = json.get("posts", [])
+                    if not update_all:
+                        posts = filter_updated_posts(posts, blog, key="modified")
                     extract_posts = [extract_wordpresscom_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "Ghost" and blog["use_api"]:
@@ -114,18 +121,18 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                 async with session.get(feed_url, headers=headers, timeout=10) as resp:
                     json = await resp.json()
                     posts = json.get("posts", [])
+                    if not update_all:
+                        posts = filter_updated_posts(posts, blog, key="updated_at")
                     extract_posts = [extract_ghost_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/feed+json":
             async with aiohttp.ClientSession() as session:
                 async with session.get(feed_url, timeout=10) as resp:
                     json = await resp.json()
-                    # if not update_all:
-                    #  json["items"] = json["items"].filter((post) => {
-                    #     return post.date_modified > (blog.modified_at as string)
-                    #   })
-                    # slice results of pagination if not supported by blogging platform
-                    posts = json.get("items", [])[start_page:end_page]
+                    posts = json.get("items", [])
+                    if not update_all:
+                        posts = filter_updated_posts(posts, blog, key="date_modified")
+                    posts = posts[start_page:end_page]
             extract_posts = [extract_json_feed_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/atom+xml":
@@ -133,7 +140,10 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                 async with session.get(feed_url, timeout=10) as resp:
                     xml = await resp.text()
                     json = xmltodict.parse(xml)
-                    posts = py_.get(json, "feed.entry", [])[start_page:end_page]
+                    posts = py_.get(json, "feed.entry", [])
+                    if not update_all:
+                        posts = filter_updated_posts(posts, blog, key="published")
+                    posts = posts[start_page:end_page]
             extract_posts = [
                 extract_atom_post(jsn.loads(jsn.dumps(x)), blog) for x in posts
             ]
@@ -143,7 +153,10 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                 async with session.get(feed_url, timeout=10) as resp:
                     xml = await resp.text()
                     json = xmltodict.parse(xml)
-                    posts = py_.get(json, "rss.channel.item", [])[start_page:end_page]
+                    posts = py_.get(json, "rss.channel.item", [])
+                    if not update_all:
+                        posts = filter_updated_posts(posts, blog, key="pubDate")
+                    posts = posts[start_page:end_page]
             extract_posts = [
                 extract_rss_post(jsn.loads(jsn.dumps(x)), blog) for x in posts
             ]
@@ -531,6 +544,15 @@ async def extract_rss_post(post, blog):
         "url": url,
     }
 
+
+def filter_updated_posts(posts, blog, key):
+    """Filter posts by modified date."""
+    return [
+        x
+        for x in posts
+        if unix_timestamp(x.get(key, None))
+        > unix_timestamp(blog["modified_at"])
+    ]
 
 def get_references(content_html: str):
     """Extract references from content_html,

@@ -8,8 +8,8 @@ from rogue_scholar_api.blogs import (
 )
 
 
-def test_extract_single_blog():
-    "extract single blog"
+def test_extract_single_blog_atom_feed():
+    "extract single blog atom feed"
     slug = "epub_fis"
     result = extract_single_blog(slug)
     assert result["slug"] == slug
@@ -17,10 +17,40 @@ def test_extract_single_blog():
     assert result["feed_url"] == "https://blog.dini.de/EPub_FIS/feed/atom/"
     assert result["home_page_url"] == "https://blog.dini.de/EPub_FIS"
     assert result["generator"] == "WordPress 6.3.2"
+    assert result["created_at"] == "2023-07-21"
+    assert result["modified_at"] > result["created_at"]
     assert (
         result["favicon"]
         == "https://blog.dini.de/EPub_FIS/wp-content/uploads/2018/03/cropped-DINI-AG-FIS-3-1-150x150.png"
     )
+
+
+def test_extract_single_blog_json_feed():
+    "extract single blog json feed"
+    slug = "ropensci"
+    result = extract_single_blog(slug)
+    assert result["slug"] == slug
+    assert result["title"] == "rOpenSci - open tools for open science"
+    assert result["feed_url"] == "https://ropensci.org/blog/index.json"
+    assert result["home_page_url"] == "https://ropensci.org/blog"
+    assert result["generator"] == "Hugo -- gohugo.io"
+    assert result["created_at"] == "2023-08-31"
+    assert result["modified_at"] > result["created_at"]
+    assert result["favicon"] == "https://ropensci.org/apple-touch-icon.png"
+
+
+def test_extract_single_blog_rss_feed():
+    "extract single blog rss feed"
+    slug = "andrewheiss"
+    result = extract_single_blog(slug)
+    assert result["slug"] == slug
+    assert result["title"] == "Andrew Heiss's blog"
+    assert result["feed_url"] == "https://www.andrewheiss.com/atom.xml"
+    assert result["home_page_url"] == "https://www.andrewheiss.com/atom.html"
+    assert result["generator"] == "Quarto 1.4.385"
+    assert result["created_at"] == "2023-08-22"
+    assert result["modified_at"] > result["created_at"]
+    assert result["favicon"] is None
 
 
 def test_parse_generator_hugo():

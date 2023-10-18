@@ -1,6 +1,6 @@
 """Test posts"""
 import pytest  # noqa: F401
-
+from datetime import datetime
 from rogue_scholar_api.posts import (
     extract_all_posts_by_blog,
     get_urls,
@@ -20,12 +20,17 @@ def vcr_config():
 async def test_extract_all_posts_by_blog_wordpress():
     """Extract all posts by blog wordpress"""
     slug = "epub_fis"
-    result = await extract_all_posts_by_blog(slug)
+    result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
     assert len(result) == 50
     post = result[0]
     assert post["title"] == "Aktualisierte OpenAIRE Richtlinie für FIS-Manager"
-    assert post["authors"][0] == {'name': 'Gastautor(en)'}
-    assert post["tags"] == ["Elektronisches Publizieren", "Forschungsinformationssysteme", "Projekt", "OpenAIRE"]
+    assert post["authors"][0] == {"name": "Gastautor(en)"}
+    assert post["tags"] == [
+        "Elektronisches Publizieren",
+        "Forschungsinformationssysteme",
+        "Projekt",
+        "OpenAIRE",
+    ]
 
 
 @pytest.mark.vcr
@@ -33,12 +38,24 @@ async def test_extract_all_posts_by_blog_wordpress():
 async def test_extract_all_posts_by_blog_wordpresscom():
     """Extract all posts by blog wordpresscom"""
     slug = "wisspub"
-    result = await extract_all_posts_by_blog(slug)
+    result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
     assert len(result) == 50
     post = result[0]
-    assert post["title"] == "DOIs für Wissenschaftsblogs? – Ein Interview mit Martin Fenner zu Rogue Scholar"
-    assert post["authors"][0] == {'name': 'Heinz Pampel', 'url': 'https://orcid.org/0000-0003-3334-2771'}
-    assert post["tags"] == ['Langzeitarchivierung', 'Open Science', 'Publikationsverhalten', 'Web 2.0', 'Wissenschaftskommunikation']
+    assert (
+        post["title"]
+        == "DOIs für Wissenschaftsblogs? – Ein Interview mit Martin Fenner zu Rogue Scholar"
+    )
+    assert post["authors"][0] == {
+        "name": "Heinz Pampel",
+        "url": "https://orcid.org/0000-0003-3334-2771",
+    }
+    assert post["tags"] == [
+        "Langzeitarchivierung",
+        "Open Science",
+        "Publikationsverhalten",
+        "Web 2.0",
+        "Wissenschaftskommunikation",
+    ]
 
 
 @pytest.mark.vcr
@@ -46,12 +63,24 @@ async def test_extract_all_posts_by_blog_wordpresscom():
 async def test_extract_all_posts_by_blog_ghost():
     """Extract all posts by blog ghost"""
     slug = "front_matter"
-    result = await extract_all_posts_by_blog(slug)
+    result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
     assert len(result) == 50
     post = result[0]
     assert post["title"] == "Generating Overlay blog posts"
-    assert post["authors"][0] == {'name': 'Martin Fenner', 'url': 'https://orcid.org/0000-0003-1419-2405'}
+    assert post["authors"][0] == {
+        "name": "Martin Fenner",
+        "url": "https://orcid.org/0000-0003-1419-2405",
+    }
     assert post["tags"] == ["Feature"]
+
+
+@pytest.mark.vcr
+@pytest.mark.asyncio
+async def test_extract_all_posts_by_blog_ghost_updated():
+    """Extract all posts by blog ghost updated only"""
+    slug = "front_matter"
+    result = await extract_all_posts_by_blog(slug, page=1, update_all=False)
+    assert len(result) == 0
 
 
 @pytest.mark.vcr
@@ -59,11 +88,14 @@ async def test_extract_all_posts_by_blog_ghost():
 async def test_extract_all_posts_by_blog_substack():
     """Extract all posts by blog substack"""
     slug = "cwagen"
-    result = await extract_all_posts_by_blog(slug)
+    result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
     assert len(result) == 50
     post = result[0]
     assert post["title"] == "Networking, For Skeptics"
-    assert post["authors"][0] == {'name': 'Corin Wagen', 'url': 'https://orcid.org/0000-0003-3315-3524'}
+    assert post["authors"][0] == {
+        "name": "Corin Wagen",
+        "url": "https://orcid.org/0000-0003-3315-3524",
+    }
     assert post["tags"] == []
 
 
@@ -72,13 +104,31 @@ async def test_extract_all_posts_by_blog_substack():
 async def test_extract_all_posts_by_blog_json_feed():
     """Extract all posts by blog json feed"""
     slug = "ropensci"
-    result = await extract_all_posts_by_blog(slug)
+    result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
     assert len(result) == 50
     post = result[0]
     assert post["title"] == "How to Translate a Hugo Blog Post with Babeldown"
-    assert post["authors"][0] == {'name': 'Maëlle Salmon', 'url': 'https://orcid.org/0000-0002-2815-0399'}
-    assert post["url"] == "https://ropensci.org/blog/2023/09/26/how-to-translate-a-hugo-blog-post-with-babeldown"
-    assert post["tags"] == ['Tech Notes', 'Multilingual']
+    assert post["authors"][0] == {
+        "name": "Maëlle Salmon",
+        "url": "https://orcid.org/0000-0002-2815-0399",
+    }
+    assert (
+        post["url"]
+        == "https://ropensci.org/blog/2023/09/26/how-to-translate-a-hugo-blog-post-with-babeldown"
+    )
+    assert post["tags"] == ["Tech Notes", "Multilingual"]
+
+
+@pytest.mark.vcr
+@pytest.mark.asyncio
+async def test_extract_all_posts_by_blog_json_feed_updated():
+    """Extract all posts by blog json feed only updated"""
+    slug = "ropensci"
+    result = await extract_all_posts_by_blog(slug, page=1, update_all=False)
+    assert len(result) == 10
+    post = result[1]
+    assert post["title"] == "Teaching targets with Penguins"
+    assert datetime.fromtimestamp(post["updated_at"]).isoformat() == "2023-10-13T10:10:57"
 
 
 @pytest.mark.vcr
@@ -86,12 +136,12 @@ async def test_extract_all_posts_by_blog_json_feed():
 async def test_extract_all_posts_by_blog_json_feed_with_pagination():
     """Extract all posts by blog json feed with pagination"""
     slug = "ropensci"
-    result = await extract_all_posts_by_blog(slug, page=2)
+    result = await extract_all_posts_by_blog(slug, page=2, update_all=True)
     assert len(result) == 50
     post = result[0]
     assert post["title"] == "How to Save ggplot2 Plots in a targets Workflow?"
     assert post["url"] == "https://ropensci.org/blog/2022/12/06/save-ggplot2-targets"
-    assert post["tags"] == ['Targets', 'Ggplot2', 'Workflow', 'Tech Notes', 'Community']
+    assert post["tags"] == ["Targets", "Ggplot2", "Workflow", "Tech Notes", "Community"]
 
 
 @pytest.mark.vcr
@@ -99,13 +149,19 @@ async def test_extract_all_posts_by_blog_json_feed_with_pagination():
 async def test_extract_all_posts_by_blog_blogger():
     """Extract all posts by blogger blog"""
     slug = "iphylo"
-    result = await extract_all_posts_by_blog(slug, page=3)
+    result = await extract_all_posts_by_blog(slug, page=3, update_all=True)
     assert len(result) == 50
     post = result[0]
     assert post["title"] == "TDWG 2017: thoughts on day 1"
-    assert post["authors"][0] == {'name': 'Roderic Page', 'url': 'https://orcid.org/0000-0002-7101-9767'}
-    assert post["url"] == "https://iphylo.blogspot.com/2017/10/tdwg-2017-thoughts-on-day-1.html"
-    assert post["tags"] == ['BHL', 'GBIF', 'Knowledge Graph', 'Linked Data', 'TDWG']
+    assert post["authors"][0] == {
+        "name": "Roderic Page",
+        "url": "https://orcid.org/0000-0002-7101-9767",
+    }
+    assert (
+        post["url"]
+        == "https://iphylo.blogspot.com/2017/10/tdwg-2017-thoughts-on-day-1.html"
+    )
+    assert post["tags"] == ["BHL", "GBIF", "Knowledge Graph", "Linked Data", "TDWG"]
 
 
 @pytest.mark.vcr
@@ -113,12 +169,21 @@ async def test_extract_all_posts_by_blog_blogger():
 async def test_extract_all_posts_by_blog_atom():
     """Extract all posts by blog atom"""
     slug = "eve"
-    result = await extract_all_posts_by_blog(slug, page=3)
+    result = await extract_all_posts_by_blog(slug, page=3, update_all=True)
     assert len(result) == 50
     post = result[0]
-    assert post["title"] == "The Publisher's Association's impact assessment on OA is pretty much as you'd expect"
-    assert post["authors"][0] == {'name': 'Martin Paul Eve', 'url': 'https://orcid.org/0000-0002-5589-8511'}
-    assert post["url"] == "https://eve.gd/2021/02/17/the-publishers-associations-impact-assessment-on-oa"
+    assert (
+        post["title"]
+        == "The Publisher's Association's impact assessment on OA is pretty much as you'd expect"
+    )
+    assert post["authors"][0] == {
+        "name": "Martin Paul Eve",
+        "url": "https://orcid.org/0000-0002-5589-8511",
+    }
+    assert (
+        post["url"]
+        == "https://eve.gd/2021/02/17/the-publishers-associations-impact-assessment-on-oa"
+    )
     assert post["tags"] == []
 
 
@@ -127,11 +192,11 @@ async def test_extract_all_posts_by_blog_atom():
 async def test_extract_all_posts_by_blog_rss():
     """Extract all posts by blog rss"""
     slug = "tarleb"
-    result = await extract_all_posts_by_blog(slug)
+    result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
     assert len(result) == 18
     post = result[0]
     assert post["title"] == "Typst Musings"
-    assert post["authors"][0] == {'name': 'Albert Krewinkel'}
+    assert post["authors"][0] == {"name": "Albert Krewinkel"}
     assert post["tags"] == ["PDF"]
 
 
