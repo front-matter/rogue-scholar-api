@@ -718,25 +718,6 @@ files = [
 ]
 
 [[package]]
-name = "edtf"
-version = "4.0.1"
-description = "Python implementation of Library of Congress EDTF (Extended Date Time Format) specification"
-optional = false
-python-versions = "*"
-files = [
-    {file = "edtf-4.0.1-py2.py3-none-any.whl", hash = "sha256:744135d392774c636425d8ed6dc9182093f2c0174ca9f3f7968588b0168d826c"},
-    {file = "edtf-4.0.1.tar.gz", hash = "sha256:4f4a7425a4a32862f5870de4facecc9050f01a57e19394eb9739fb970cab810e"},
-]
-
-[package.dependencies]
-pyparsing = "*"
-python-dateutil = "*"
-six = "*"
-
-[package.extras]
-test = ["django", "nose", "tox"]
-
-[[package]]
 name = "exceptiongroup"
 version = "1.1.3"
 description = "Backport of PEP 654 (exception groups)"
@@ -3512,13 +3493,13 @@ devenv = ["black", "check-manifest", "flake8", "pyroma", "pytest (>=4.3)", "pyte
 
 [[package]]
 name = "urllib3"
-version = "1.26.17"
+version = "1.26.18"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
 files = [
-    {file = "urllib3-1.26.17-py2.py3-none-any.whl", hash = "sha256:94a757d178c9be92ef5539b8840d48dc9cf1b2709c9d6b588232a055c524458b"},
-    {file = "urllib3-1.26.17.tar.gz", hash = "sha256:24d6a242c28d29af46c3fae832c36db3bbebcc533dd1bb549172cd739c82df21"},
+    {file = "urllib3-1.26.18-py2.py3-none-any.whl", hash = "sha256:34b97092d7e0a3a8cf7cd10e386f401b3737364026c45e622aa02903dffe0f07"},
+    {file = "urllib3-1.26.18.tar.gz", hash = "sha256:f8ecc1bba5667413457c529ab955bf8c67b45db799d159066261719e328580a0"},
 ]
 
 [package.extras]
@@ -3933,4 +3914,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "ef654e1dea5216e96f0812d9f467c8b41d9b531fafe4adb864389a9aa5a22a9a"
+content-hash = "dfbee2e861f182f33288473fdc0955aa7de12b3750ac5117a0f9da166fb1ff1d"
