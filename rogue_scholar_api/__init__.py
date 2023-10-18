@@ -115,6 +115,7 @@ async def blog(slug):
 @app.route("/blogs/<slug>/<suffix>", methods=["POST"])
 async def post_blog(slug: str, suffix: Optional[str] = None):
     """Update blog by slug."""
+
     page = int(request.args.get("page") or "1")
     update = request.args.get("update")
 
@@ -203,8 +204,6 @@ async def post_posts():
     """Update posts."""
 
     blog_slug = request.args.get("blog_slug")
-    page = int(request.args.get("page") or "1")
-    update = request.args.get("update")
 
     if (
         request.headers.get("Authorization", None) is None
