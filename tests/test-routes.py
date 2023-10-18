@@ -1,6 +1,7 @@
 import pytest  # noqa: F401
 import pytest_asyncio  # noqa: F401
 import pydash as py_  # noqa: F401
+from os import environ
 
 from rogue_scholar_api import app
 
@@ -44,7 +45,7 @@ async def test_blogs_route():
     response = await test_client.get("/blogs")
     assert response.status_code == 200
     result = await response.get_json()
-    assert len(result) == 60
+    assert len(result) == 63
     assert result[0]["title"] == "A blog by Ross Mounce"
     assert result[0]["slug"] == "rossmounce"
 
@@ -57,6 +58,31 @@ async def test_single_blog_route():
     result = await response.get_json()
     assert result["title"] == "Andrew Heiss's blog"
     assert result["feed_url"] == "https://www.andrewheiss.com/atom.xml"
+
+
+@pytest.mark.vcr
+async def test_single_blog_post_route():
+    """Test single blog post route."""
+    test_client = app.test_client()
+    key = environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
+    headers = {"Authorization": f"Bearer {key}"}
+    response = await test_client.post("/blogs/andrewheiss", headers=headers)
+    assert response.status_code == 200
+    result = await response.get_json()
+    assert result["title"] == "Andrew Heiss's blog"
+    assert result["feed_url"] == "https://www.andrewheiss.com/atom.xml"
+
+
+@pytest.mark.vcr
+async def test_single_blog_with_posts_post_route():
+    """Test single blog with posts post route."""
+    test_client = app.test_client()
+    key = environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
+    headers = {"Authorization": f"Bearer {key}"}
+    response = await test_client.post("/blogs/andrewheiss/posts", headers=headers)
+    assert response.status_code == 200
+    result = await response.get_json()
+    assert len(result) == 10
 
 
 async def test_posts_redirect_route():
@@ -85,10 +111,9 @@ async def test_posts_with_query_and_pagination_route():
     response = await test_client.get("/posts?query=retraction-watch&page=2&per_page=10")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] == 18
+    assert result["found"] == 20
     post = py_.get(result, "hits[0].document")
-    assert post["title"] == "Are more retractions due to more scrutiny?"
-    assert post["doi"] == "https://doi.org/10.59350/jgggm-t5x67"
+    assert post["title"] == "The lowest common denominator: marketing science with jIF"
 
 
 @pytest.mark.vcr
@@ -112,7 +137,7 @@ async def test_posts_with_query_and_include_fields_route():
     )
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] == 18
+    assert result["found"] == 20
     post = py_.get(result, "hits[0].document")
     assert "doi" in post.keys()
     assert "summary" not in post.keys()
@@ -125,7 +150,7 @@ async def test_posts_with_query_and_sort_route():
     response = await test_client.get("/posts?query=retraction-watch&sort=published_at")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] == 18
+    assert result["found"] == 20
     post0 = py_.get(result, "hits[0].document")
     post1 = py_.get(result, "hits[1].document")
     assert post0["published_at"] > post1["published_at"]
@@ -158,7 +183,7 @@ async def test_posts_filter_by_published_since_route():
     response = await test_client.get("/posts?published_since=2023-10-06")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] == 6
+    assert result["found"] == 22
     post = py_.get(result, "hits[0].document")
     assert post["title"] is not None
 
@@ -170,10 +195,11 @@ async def test_posts_filter_by_tags_route():
     response = await test_client.get("/posts?tags=open+access")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] == 615
+    assert result["found"] == 616
     post = py_.get(result, "hits[0].document")
     assert (
-        post["title"] == "Institutional Change toward Open Scholarship and Open Science"
+        post["title"]
+        == "OpenCitations needs you: support the change in research practices"
     )
 
 
@@ -187,6 +213,19 @@ async def test_posts_filter_by_language_route():
     assert result["found"] == 48
     post = py_.get(result, "hits[0].document")
     assert post["title"] == "¿Qué libros científicos publicamos?"
+
+
+@pytest.mark.vcr
+async def test_posts_post_route():
+    """Test posts post route."""
+    test_client = app.test_client()
+    key = environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
+    headers = {"Authorization": f"Bearer {key}"}
+    response = await test_client.post("/posts", headers=headers)
+    assert response.status_code == 200
+    result = await response.get_json()
+    assert len(result) == 62
+    assert result[0] == {"slug": "andrewheiss"}
 
 
 async def test_post_route():

@@ -1,0 +1,90 @@
+interactions:
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      user-agent:
+      - python-httpx/0.24.1
+      x-client-info:
+      - supabase-py/1.2.0
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=slug&status=eq.active&order=slug
+  response:
+    content: "[{\"slug\":\"andrewheiss\"}, \n {\"slug\":\"b_l_a_k_e\"}, \n {\"slug\":\"behind_the_science\"},
+      \n {\"slug\":\"brembs\"}, \n {\"slug\":\"chjh\"}, \n {\"slug\":\"chrisvoncsefalvay\"},
+      \n {\"slug\":\"chroknowlogy\"}, \n {\"slug\":\"clearskiesadam\"}, \n {\"slug\":\"coref\"},
+      \n {\"slug\":\"csl\"}, \n {\"slug\":\"cwagen\"}, \n {\"slug\":\"danielskatz\"},
+      \n {\"slug\":\"donnywinston\"}, \n {\"slug\":\"dustinstoltz\"}, \n {\"slug\":\"elephantinthelab\"},
+      \n {\"slug\":\"epub_fis\"}, \n {\"slug\":\"eve\"}, \n {\"slug\":\"fairdata\"},
+      \n {\"slug\":\"flavoursofopen\"}, \n {\"slug\":\"freaktakes\"}, \n {\"slug\":\"front_matter\"},
+      \n {\"slug\":\"gigablog\"}, \n {\"slug\":\"grieve_smith\"}, \n {\"slug\":\"ideas\"},
+      \n {\"slug\":\"iphylo\"}, \n {\"slug\":\"irights\"}, \n {\"slug\":\"irishplants\"},
+      \n {\"slug\":\"jabberwocky_ecology\"}, \n {\"slug\":\"joss\"}, \n {\"slug\":\"kalz\"},
+      \n {\"slug\":\"kj_garza\"}, \n {\"slug\":\"lab_sub\"}, \n {\"slug\":\"leidenmadtrics\"},
+      \n {\"slug\":\"libscie\"}, \n {\"slug\":\"markrubin\"}, \n {\"slug\":\"musings\"},
+      \n {\"slug\":\"norbisley\"}, \n {\"slug\":\"oa_works\"}, \n {\"slug\":\"oaberlin\"},
+      \n {\"slug\":\"opencitations\"}, \n {\"slug\":\"qdr\"}, \n {\"slug\":\"quantixed\"},
+      \n {\"slug\":\"recology\"}, \n {\"slug\":\"researchsoft\"}, \n {\"slug\":\"ropensci\"},
+      \n {\"slug\":\"ropensci_es\"}, \n {\"slug\":\"ropensci_fr\"}, \n {\"slug\":\"rossmounce\"},
+      \n {\"slug\":\"rubinpsyc\"}, \n {\"slug\":\"rzepa\"}, \n {\"slug\":\"samuelmoore\"},
+      \n {\"slug\":\"scholcommlab\"}, \n {\"slug\":\"sfmatheson\"}, \n {\"slug\":\"stasis\"},
+      \n {\"slug\":\"sven_lieber\"}, \n {\"slug\":\"svpow\"}, \n {\"slug\":\"syldavia_gazette\"},
+      \n {\"slug\":\"syntaxus_baccata\"}, \n {\"slug\":\"tarleb\"}, \n {\"slug\":\"upstream\"},
+      \n {\"slug\":\"wisspub\"}, \n {\"slug\":\"x_dev\"}]"
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 817f7543c8c01626-DUS
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Location:
+      - /blogs?order=slug&select=slug&status=eq.active
+      Content-Profile:
+      - public
+      Content-Range:
+      - 0-61/*
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 18 Oct 2023 08:37:12 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/2.8.1
+      X-Kong-Proxy-Latency:
+      - '1'
+      X-Kong-Upstream-Latency:
+      - '4'
+      alt-svc:
+      - h3=":443"; ma=86400
+      sb-gateway-version:
+      - '1'
+    http_version: HTTP/1.1
+    status_code: 200
+version: 1

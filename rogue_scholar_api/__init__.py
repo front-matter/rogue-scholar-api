@@ -46,6 +46,7 @@ rate_limiter = RateLimiter(app, default_limits=[RateLimit(15, timedelta(seconds=
 
 
 def run() -> None:
+    """Run the app."""
     app.run()
 
 
@@ -99,6 +100,32 @@ async def blog(slug):
         .execute()
     )
     return jsonify(response.data)
+
+
+@validate_response(Blog)
+@app.route("/blogs/<slug>", methods=["POST"])
+@app.route("/blogs/<slug>/<suffix>", methods=["POST"])
+async def post_blog(slug: str, suffix: Optional[str] = None):
+    """Update blog by slug."""
+    if suffix is None:
+        response = (
+            supabase.table("blogs")
+            .select(blogWithPostsSelect)
+            .eq("slug", slug)
+            .maybe_single()
+            .execute()
+        )
+        return jsonify(response.data)
+    elif slug and suffix == "posts":
+        response = (
+            supabase.table("posts")
+            .select(postsWithConfigSelect)
+            .eq("blog_slug", slug)
+            .order("published_at", desc=True)
+            .limit(10)
+            .execute()
+        )
+        return jsonify(response.data)
 
 
 @app.route("/posts/")
@@ -158,11 +185,7 @@ async def posts():
 @validate_response(Post)
 @app.route("/posts", methods=["POST"])
 async def post_posts():
-    """Create posts."""
-    print(
-        request.headers["Authorization"].split(" ")[1]
-        == environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
-    )
+    """Update posts."""
     if (
         request.headers.get("Authorization", None) is None
         or request.headers.get("Authorization").split(" ")[1]

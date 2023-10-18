@@ -5,6 +5,8 @@ from rogue_scholar_api.utils import (
     get_doi_metadata_from_ra,
     validate_uuid,
     unix_timestamp,
+    start_case,
+    normalize_tag,
 )
 
 
@@ -51,21 +53,39 @@ def test_validate_invalid_uuid_():
 
 
 def test_unix_timestamp():
-    "convert edtf level 0 iso8601 date to unix timestamp"
+    "convert iso8601 date to unix timestamp"
     date = "2021-08-01"
     assert unix_timestamp(date) == 1627776000
 
 
 def test_unix_timestamp_year_month():
-    "convert edtf level 0 iso8601 date to unix timestamp"
+    "convert iso8601 date to unix timestamp"
     date = "2021-08"
     assert unix_timestamp(date) == 1627776000
 
 
 def test_unix_timestamp_year():
-    "convert edtf level 0 iso8601 date to unix timestamp"
+    "convert iso8601 date to unix timestamp"
     date = "2021"
     assert unix_timestamp(date) == 1609459200
+
+
+def test_start_case():
+    """capitalize first letter without lowercasing the rest"""
+    content = "wikiCite"
+    assert start_case(content) == "WikiCite"
+
+
+def test_normalize_tag():
+    """normalize tag"""
+    tag = "#open science"
+    assert normalize_tag(tag) == "Open Science"
+
+
+def test_normalize_tag_fixed():
+    """normalize tag fixed"""
+    tag = "#OSTP"
+    assert normalize_tag(tag) == "OSTP"
 
 
 # def test_sanitize_cool_suffix():
