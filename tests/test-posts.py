@@ -1,12 +1,11 @@
 """Test posts"""
 import pytest  # noqa: F401
-import asyncio
 
 from rogue_scholar_api.posts import (
     extract_all_posts_by_blog,
     get_urls,
-    get_title,
-    get_abstract,
+    # get_title,
+    # get_abstract,
 )
 
 

@@ -1,7 +1,7 @@
 """Main quart application"""
 import logging
 from typing import Optional
-from datetime import timedelta, date
+from datetime import timedelta
 from commonmeta.utils import compact
 from os import environ
 from dotenv import load_dotenv
@@ -20,7 +20,7 @@ from quart_rate_limiter import RateLimiter, RateLimit
 
 from rogue_scholar_api.supabase import (
     supabase_client as supabase,
-    supabase_admin_client as supabase_admin,
+    # supabase_admin_client as supabase_admin,
     blogsSelect,
     blogWithPostsSelect,
     postsWithConfigSelect,
@@ -53,8 +53,8 @@ def run() -> None:
 @app.route("/")
 @hide
 def default():
-    """Redirect / to Rogue Scholar homepage."""
-    return redirect("https://rogue-scholar.org", code=301)
+    """Redirect / to /posts."""
+    return redirect("/posts", code=301)
 
 
 @app.route("/heartbeat")

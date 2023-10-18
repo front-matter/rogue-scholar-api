@@ -19,7 +19,7 @@ async def test_index_route():
     test_client = app.test_client()
     response = await test_client.get("/")
     assert response.status_code == 301
-    assert response.headers["Location"] == "https://rogue-scholar.org"
+    assert response.headers["Location"] == "/posts"
 
 
 async def test_heartbeat_route():

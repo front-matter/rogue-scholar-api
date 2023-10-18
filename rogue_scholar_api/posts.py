@@ -1,6 +1,4 @@
-from feedparser import parse
 from os import environ
-from dotenv import load_dotenv
 from furl import furl
 import aiohttp
 import asyncio
@@ -11,7 +9,6 @@ import bleach
 import html
 import json as jsn
 import xmltodict
-import datetime
 from dateutil import parser
 
 from idutils import is_doi, is_orcid
