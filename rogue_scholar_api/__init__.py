@@ -5,6 +5,7 @@ from datetime import timedelta
 from commonmeta.utils import compact
 from os import environ
 from dotenv import load_dotenv
+import sentry_sdk
 
 # import importlib.metadata
 from quart import Quart, request, jsonify, redirect
@@ -39,6 +40,12 @@ rate_limiter = RateLimiter()
 logger = logging.getLogger(__name__)
 version = "0.6.2"  # TODO: importlib.metadata.version('rogue-scholar-api')
 
+sentry_sdk.init(
+    dsn=environ["QUART_SENTRY_DSN"],
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    traces_sample_rate=1.0,
+)
 app = Quart(__name__)
 app.config.from_prefixed_env()
 QuartSchema(app, info=Info(title="Rogue Scholar API", version=version))
