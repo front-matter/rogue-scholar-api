@@ -23,9 +23,9 @@ interactions:
       x-client-info:
       - supabase-py/1.2.0
     method: GET
-    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20modified_at%2C%20use_mastodon%2C%20generator%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.wisspub
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.wisspub
   response:
-    content: '{"id":"34zkv26","slug":"wisspub","feed_url":"https://wisspub.net/feed/atom/","current_feed_url":null,"home_page_url":"https://wisspub.net","archive_prefix":null,"feed_format":"application/atom+xml","created_at":"2023-01-16","modified_at":"2023-07-13T08:19:22+00:00","use_mastodon":true,"generator":"WordPress.com","favicon":null,"title":"wisspub.net","description":"Gemeinschaftsblog
+    content: '{"id":"34zkv26","slug":"wisspub","feed_url":"https://wisspub.net/feed/atom/","current_feed_url":null,"home_page_url":"https://wisspub.net","archive_prefix":null,"feed_format":"application/atom+xml","created_at":"2023-01-16","updated_at":0,"use_mastodon":true,"generator":"WordPress.com","favicon":null,"title":"wisspub.net","description":"Gemeinschaftsblog
       zu wissenschaftlicher Kommunikation im Netz.","category":"socialSciences","status":"active","user_id":"dbffda7d-f391-48fb-a6d2-d4a284c59c8d","authors":null,"plan":"Team","use_api":true,"relative_url":null,"filter":null}'
     headers:
       Access-Control-Allow-Origin:
@@ -33,11 +33,11 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 81804a3afba17a40-DUS
+      - 8183d7b59ef4cae1-DUS
       Connection:
       - keep-alive
       Content-Location:
-      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20modified_at%2C%20use_mastodon%2C%20generator%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.wisspub
+      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.wisspub
       Content-Profile:
       - public
       Content-Range:
@@ -45,7 +45,7 @@ interactions:
       Content-Type:
       - application/vnd.pgrst.object+json; charset=utf-8
       Date:
-      - Wed, 18 Oct 2023 11:02:36 GMT
+      - Wed, 18 Oct 2023 21:23:28 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -645,7 +645,7 @@ interactions:
       Content-Type:
       - application/atom+xml; charset=UTF-8
       Date:
-      - Wed, 18 Oct 2023 11:02:36 GMT
+      - Wed, 18 Oct 2023 21:23:28 GMT
       Host-Header:
       - WordPress.com
       Last-Modified:
@@ -1356,8 +1356,9 @@ interactions:
         class=\"embed-youtube\" style=\"text-align:center; display: block;\"><iframe
         class=\"youtube-player\" width=\"640\" height=\"360\" src=\"https:\/\/www.youtube.com\/embed\/T2ucjuNxVzU?version=3&#038;rel=1&#038;showsearch=0&#038;showinfo=1&#038;iv_load_policy=1&#038;fs=1&#038;hl=en&#038;autohide=2&#038;wmode=transparent\"
         allowfullscreen=\"true\" style=\"border:0;\" sandbox=\"allow-scripts allow-same-origin
-        allow-popups allow-presentation\"><\/iframe><\/span>\n<\/div><figcaption class=\"wp-element-caption\"><em>Aktivit\u00e4ten
-        der NASA im Kontext von Open Science und Klimagerechtigkeit<\/em><\/figcaption><\/figure>\n\n\n\n<p>Der
+        allow-popups allow-presentation allow-popups-to-escape-sandbox\"><\/iframe><\/span>\n<\/div><figcaption
+        class=\"wp-element-caption\"><em>Aktivit\u00e4ten der NASA im Kontext von
+        Open Science und Klimagerechtigkeit<\/em><\/figcaption><\/figure>\n\n\n\n<p>Der
         Dialog der Forschenden auf internationaler Ebene ist auch n\u00f6tig, um wissenschaftliche
         Daten auf globaler Ebene zu erheben. In weltweiten Messe-Netzwerken (z. B.
         in der Seismologie oder der Meteorologie) arbeiten Forschende aus aller Welt
@@ -3227,7 +3228,7 @@ interactions:
         style=\"text-align:center; display: block;\"><iframe class=\"youtube-player\"
         width=\"640\" height=\"360\" src=\"https:\/\/www.youtube.com\/embed\/g9P4CAOfccs?version=3&#038;rel=1&#038;showsearch=0&#038;showinfo=1&#038;iv_load_policy=1&#038;fs=1&#038;hl=en&#038;autohide=2&#038;wmode=transparent\"
         allowfullscreen=\"true\" style=\"border:0;\" sandbox=\"allow-scripts allow-same-origin
-        allow-popups allow-presentation\"><\/iframe><\/span>\n<\/div><figcaption>Jason
+        allow-popups allow-presentation allow-popups-to-escape-sandbox\"><\/iframe><\/span>\n<\/div><figcaption>Jason
         Priem, <a href=\"http:\/\/ourresearch.org\/\">ourresearch.org<\/a>, <a href=\"https:\/\/youtu.be\/8M-BbJSnkgs?t=440\">Stronger
         together: a single open dataset to map every facet of global research<\/a>,
         Presented at FORCE2019<\/figcaption><\/figure>\n\n\n\n<p>Dies birgt nat\u00fcrlich
@@ -4049,7 +4050,7 @@ interactions:
         display: block;\"><iframe class=\"youtube-player\" width=\"640\" height=\"360\"
         src=\"https:\/\/www.youtube.com\/embed\/ZlUg8XwJNRc?version=3&#038;rel=1&#038;showsearch=0&#038;showinfo=1&#038;iv_load_policy=1&#038;fs=1&#038;hl=en&#038;autohide=2&#038;wmode=transparent\"
         allowfullscreen=\"true\" style=\"border:0;\" sandbox=\"allow-scripts allow-same-origin
-        allow-popups allow-presentation\"><\/iframe><\/span>\n<\/div><\/figure>\n\n\n\n<p><\/p>\n","excerpt":"<p>Die
+        allow-popups allow-presentation allow-popups-to-escape-sandbox\"><\/iframe><\/span>\n<\/div><\/figure>\n\n\n\n<p><\/p>\n","excerpt":"<p>Die
         seit l\u00e4ngerem bekannten Bestrebungen, eine internationale und offene
         ID f\u00fcr Institutionen im Forschungsumfeld zu schaffen, sind in ROR (<a
         href=\"https:\/\/ror.org\" rel=\"nofollow\">https:\/\/ror.org<\/a>) gem\u00fcndet.
@@ -4073,7 +4074,7 @@ interactions:
         display: block;\"><iframe class=\"youtube-player\" width=\"640\" height=\"360\"
         src=\"https:\/\/www.youtube.com\/embed\/cpFswDvajvw?version=3&#038;rel=1&#038;showsearch=0&#038;showinfo=1&#038;iv_load_policy=1&#038;fs=1&#038;hl=en&#038;autohide=2&#038;wmode=transparent\"
         allowfullscreen=\"true\" style=\"border:0;\" sandbox=\"allow-scripts allow-same-origin
-        allow-popups allow-presentation\"><\/iframe><\/span>\n<\/div><\/figure>\n\n\n\n<p>Schliesslich
+        allow-popups allow-presentation allow-popups-to-escape-sandbox\"><\/iframe><\/span>\n<\/div><\/figure>\n\n\n\n<p>Schliesslich
         ist diese Transparenz seit l\u00e4ngerem erkl\u00e4rtes Ziel von Swissuniversities
         f\u00fcr die aktuellen Verhandlungen mit Elsevier, SpringerNature und Wiley:<\/p>\n\n\n\n<blockquote
         class=\"wp-block-quote\"><p><strong><em>3. Transparenz der Lizenzvertr\u00e4ge<\/em><\/strong><em><br>
@@ -7518,7 +7519,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 18 Oct 2023 11:02:37 GMT
+      - Wed, 18 Oct 2023 21:23:31 GMT
       Expires:
       - Wed, 11 Jan 1984 05:00:00 GMT
       Host-Header:

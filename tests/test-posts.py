@@ -4,6 +4,7 @@ from datetime import datetime
 from rogue_scholar_api.posts import (
     extract_all_posts_by_blog,
     get_urls,
+    get_references
     # get_title,
     # get_abstract,
 )
@@ -71,6 +72,31 @@ async def test_extract_all_posts_by_blog_ghost():
         "name": "Martin Fenner",
         "url": "https://orcid.org/0000-0003-1419-2405",
     }
+    assert len(post["images"]) == 1
+    assert post["images"][0] == {
+        "alt": "",
+        "height": "190",
+        "sizes": "(min-width: 720px) 720px",
+        "src": "https://blog.front-matter.io/content/images/2023/10/mermaid-figure-1.png",
+        "srcset": "https://blog.front-matter.io/content/images/size/w600/2023/10/mermaid-figure-1.png "
+        "600w, "
+        "https://blog.front-matter.io/content/images/size/w1000/2023/10/mermaid-figure-1.png "
+        "1000w, "
+        "https://blog.front-matter.io/content/images/size/w1600/2023/10/mermaid-figure-1.png "
+        "1600w, "
+        "https://blog.front-matter.io/content/images/size/w2400/2023/10/mermaid-figure-1.png "
+        "2400w",
+        "width": "2000",
+    }
+    assert (
+        post["image"]
+        == "https://images.unsplash.com/flagged/photo-1552425083-0117136f7d67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIxfHxjYW5vcHl8ZW58MHx8fHwxNjk3MDQwMDk1fDA&ixlib=rb-4.0.3&q=80&w=2000"
+    )
+    assert len(post["reference"]) == 3
+    assert (
+        post["reference"][0]
+        == {'doi': 'https://doi.org/10.53731/ar11b-5ea39', 'key': 'ref1'}
+    )
     assert post["tags"] == ["Feature"]
 
 
@@ -116,6 +142,7 @@ async def test_extract_all_posts_by_blog_json_feed():
         post["url"]
         == "https://ropensci.org/blog/2023/09/26/how-to-translate-a-hugo-blog-post-with-babeldown"
     )
+    assert len(post["reference"]) == 0
     assert post["tags"] == ["Tech Notes", "Multilingual"]
 
 
@@ -125,10 +152,12 @@ async def test_extract_all_posts_by_blog_json_feed_updated():
     """Extract all posts by blog json feed only updated"""
     slug = "ropensci"
     result = await extract_all_posts_by_blog(slug, page=1, update_all=False)
-    assert len(result) == 10
+    assert len(result) == 50
     post = result[1]
-    assert post["title"] == "Teaching targets with Penguins"
-    assert datetime.fromtimestamp(post["updated_at"]).isoformat() == "2023-10-13T10:10:57"
+    assert post["title"] == "rOpenSci News Digest, September 2023"
+    assert (
+        datetime.fromtimestamp(post["updated_at"]).isoformat() == "2023-09-22T09:59:27"
+    )
 
 
 @pytest.mark.vcr
@@ -161,6 +190,7 @@ async def test_extract_all_posts_by_blog_blogger():
         post["url"]
         == "https://iphylo.blogspot.com/2017/10/tdwg-2017-thoughts-on-day-1.html"
     )
+    assert len(post["reference"]) == 0
     assert post["tags"] == ["BHL", "GBIF", "Knowledge Graph", "Linked Data", "TDWG"]
 
 
@@ -207,6 +237,19 @@ def test_get_urls():
     assert result == [
         "https://iphylo.blogspot.com/feeds/posts/default?start-index=1&max-results=50"
     ]
+
+
+def test_get_references():
+    """Extract references"""
+    html ="""Bla. <h2>References</h2><p>Fenner, M. (2023). <em>Rogue Scholar has an API</em>. 
+    <a href="https://doi.org/10.53731/ar11b-5ea39">https://doi.org/10.53731/ar11b-5ea39</a></p>
+    <p>Crossref, Hendricks, G., Center for Scientific Integrity, &amp; Lammey, R. (2023). 
+    <em>Crossref acquires Retraction Watch data and opens it for the scientific community</em>. 
+    <a href="https://doi.org/10.13003/c23rw1d9">https://doi.org/10.13003/c23rw1d9</a></p>"""
+    
+    result = get_references(html)
+    assert len(result) == 2
+    assert result[0] == {'doi': 'https://doi.org/10.53731/ar11b-5ea39', 'key': 'ref1'}
 
 
 # def test_get_title():

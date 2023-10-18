@@ -33,6 +33,7 @@ from rogue_scholar_api.utils import (
     validate_uuid,
     unix_timestamp,
 )
+from rogue_scholar_api.posts import extract_all_posts_by_blog
 from rogue_scholar_api.schema import Blog, Post, PostQuery
 
 load_dotenv()
@@ -114,6 +115,8 @@ async def blog(slug):
 @app.route("/blogs/<slug>/<suffix>", methods=["POST"])
 async def post_blog(slug: str, suffix: Optional[str] = None):
     """Update blog by slug."""
+    page = int(request.args.get("page") or "1")
+    update = request.args.get("update")
     if suffix is None:
         response = (
             supabase.table("blogs")
@@ -124,15 +127,14 @@ async def post_blog(slug: str, suffix: Optional[str] = None):
         )
         return jsonify(response.data)
     elif slug and suffix == "posts":
-        response = (
-            supabase.table("posts")
-            .select(postsWithConfigSelect)
-            .eq("blog_slug", slug)
-            .order("published_at", desc=True)
-            .limit(10)
-            .execute()
-        )
-        return jsonify(response.data)
+        try:
+            result = await extract_all_posts_by_blog(
+                slug, page=page, update_all=(update == "all")
+            )
+        except Exception as e:
+            logger.warning(e.args[0])
+            return {"error": "An error occured."}, 400
+        return jsonify(result)
 
 
 @app.route("/posts/")
@@ -189,26 +191,37 @@ async def posts():
         return {"error": "An error occured."}, 400
 
 
-@validate_response(Post)
 @app.route("/posts", methods=["POST"])
 async def post_posts():
     """Update posts."""
+
+    blog_slug = request.args.get("blog_slug")
+    page = int(request.args.get("page") or "1")
+    update = request.args.get("update")
+
     if (
         request.headers.get("Authorization", None) is None
         or request.headers.get("Authorization").split(" ")[1]
         != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
     ):
         return {"error": "Unauthorized."}, 401
+    elif blog_slug:
+        response = (
+            supabase.table("blogs")
+            .select("slug", "title", "updated_at")
+            .eq("slug", blog_slug)
+            .maybe_single()
+            .execute()
+        )
+        if not response.data:
+            return {"error": "Blog not found."}, 404
+        result = extract_all_posts_by_blog(
+            blog_slug, page=page, update_all=(update == "all")
+        )
 
-    response = (
-        supabase.table("blogs")
-        .select("slug")
-        .eq("status", "active")
-        .order("slug", desc=False)
-        .execute()
-    )
-    return jsonify(response.data)
-    return {"error": "An error occured."}, 400
+        return jsonify(result)
+    else:
+        return {"error": "An error occured."}, 400
 
 
 @validate_response(Post)

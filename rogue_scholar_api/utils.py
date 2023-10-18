@@ -1,6 +1,7 @@
 """Utility functions"""
 import requests
 import iso8601
+from dateutil import parser
 from uuid import UUID
 from typing import Optional
 from commonmeta.doi_utils import doi_from_url
@@ -51,10 +52,25 @@ AUTHOR_IDS = {
 }
 
 
+def get_date(date: str):
+    """Get iso8601 date from string."""
+    if not date:
+        return None
+    try:
+        return parser.parse(date).isoformat("T","seconds")
+    except Exception as e:
+        print(e)
+        return None
+
+
 def unix_timestamp(date_str: str) -> int:
     """convert iso8601 date to unix timestamp"""
-    dt = iso8601.parse_date(date_str)
-    return int(dt.timestamp())
+    try:
+        dt = iso8601.parse_date(date_str)
+        return int(dt.timestamp())
+    except ValueError as e:
+        print(e)
+        return 0
 
 
 def validate_uuid(slug: str) -> bool:

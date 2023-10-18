@@ -23,7 +23,7 @@ interactions:
       x-client-info:
       - supabase-py/1.2.0
     method: GET
-    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20modified_at%29&blogs.prefix=not.is.null&indexed=is.null&doi=not.is.null&order=published_at.desc&limit=15
+    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%2C%20modified_at%29&blogs.prefix=not.is.null&indexed=is.null&doi=not.is.null&order=published_at.desc&limit=15
   response:
     content: '[]'
     headers:
@@ -32,13 +32,13 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 817f753d68011626-DUS
+      - 8183e2c76a8ac49f-DUS
       Connection:
       - keep-alive
       Content-Encoding:
       - gzip
       Content-Location:
-      - /posts?blogs.prefix=not.is.null&doi=not.is.null&indexed=is.null&limit=15&order=published_at.desc&select=id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20modified_at%29
+      - /posts?blogs.prefix=not.is.null&doi=not.is.null&indexed=is.null&limit=15&order=published_at.desc&select=id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%2C%20modified_at%29
       Content-Profile:
       - public
       Content-Range:
@@ -46,7 +46,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 18 Oct 2023 08:37:11 GMT
+      - Wed, 18 Oct 2023 21:31:01 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -58,9 +58,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '14'
+      - '25'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:

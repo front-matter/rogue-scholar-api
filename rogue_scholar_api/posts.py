@@ -9,14 +9,13 @@ import bleach
 import html
 import json as jsn
 import xmltodict
-from dateutil import parser
 
 from idutils import is_doi, is_orcid
 
 from commonmeta.base_utils import wrap, compact
 from commonmeta.utils import normalize_url
 from rogue_scholar_api.blogs import extract_single_blog
-from rogue_scholar_api.utils import unix_timestamp, normalize_tag, AUTHOR_IDS
+from rogue_scholar_api.utils import unix_timestamp, normalize_tag, get_date, AUTHOR_IDS
 
 
 def author_ids():
@@ -202,14 +201,12 @@ async def extract_wordpress_post(post, blog):
     # if not author"name"] && blog.authors) {
     #     author = blog.authors && blog.authors[0]
     authors = [format_author(i) for i in wrap(py_.get(post, "_embedded.author", None))]
-    content_html = bleach.clean(
-        py_.get(post, "content.rendered", ""),
-        tags=["b", "i", "em", "strong", "sub", "sup", "img"],
-    )
+    content_html = py_.get(post, "content.rendered", "")
+    soup = BeautifulSoup(content_html, "html.parser")
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
     url = normalize_url(post.get("link", None))
-    images = get_images(content_html, url, blog["home_page_url"])
+    images = get_images(soup, url, blog["home_page_url"])
     image = (
         py_.get(post, "_embedded.wp:featuredmedia[0].source_url", None)
         or py_.get(post, "yoast_head_json.og_image[0].url", None)
@@ -262,17 +259,15 @@ async def extract_wordpresscom_post(post, blog):
         )
 
     authors = [format_author(i) for i in wrap(post.get("author", None))]
-    content_html = bleach.clean(
-        post.get("content", ""),
-        tags=["b", "i", "em", "strong", "sub", "sup", "img"],
-    )
+    content_html = post.get("content", "")
+    soup = BeautifulSoup(content_html, "html.parser")
     summary = get_abstract(post.get("excerpt", None)) or get_title(
         post.get("title", None)
     )
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
     url = normalize_url(post.get("URL", None))
-    images = get_images(content_html, url, blog.get("home_page_url", None))
+    images = get_images(soup, url, blog.get("home_page_url", None))
     image = images[0].get("src", None) if len(images) > 0 else None
     tags = [normalize_tag(i) for i in post.get("categories", None).keys()][:5]
 
@@ -307,16 +302,16 @@ async def extract_ghost_post(post, blog):
         }
 
     authors = [format_author(i) for i in wrap(post.get("authors", None))]
-    content_html = bleach.clean(
-        post.get("html", ""),
-        tags=["b", "i", "em", "strong", "sub", "sup", "img"],
-    )
+    content_html = post.get("html", "")
+    soup = BeautifulSoup(content_html, "html.parser")
     summary = get_abstract(post.get("excerpt", None))
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
     url = normalize_url(post.get("url", None))
-    images = get_images(content_html, url, blog.get("home_page_url", None))
-    image = images[0].get("src", None) if len(images) > 0 else None
+    images = get_images(soup, url, blog.get("home_page_url", None))
+    image = post.get("feature_image", None)
+    if not image and len(images) > 0:
+        image = images[0].get("src", None)
     tags = [normalize_tag(i.get("name", None)) for i in post.get("tags", None)][:5]
 
     return {
@@ -353,16 +348,14 @@ async def extract_substack_post(post, blog):
         )
 
     authors = [format_author(i) for i in wrap(post.get("publishedBylines", None))]
-    content_html = bleach.clean(
-        post.get("body_html", ""),
-        tags=["b", "i", "em", "strong", "sub", "sup", "img"],
-    )
+    content_html = post.get("body_html", "")
+    soup = BeautifulSoup(content_html, "html.parser")
     summary = get_abstract(post.get("description", None))
     published_at = unix_timestamp(post.get("post_date", None))
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
     url = normalize_url(post.get("canonical_url", None))
-    images = get_images(content_html, url, blog.get("home_page_url", None))
+    images = get_images(soup, url, blog.get("home_page_url", None))
     image = post.get("cover_image", None)
     if not image and len(images) > 0:
         image = images[0].get("src", None)
@@ -399,15 +392,13 @@ async def extract_json_feed_post(post, blog):
         return compact({"name": name, "url": url})
 
     authors = [format_author(i) for i in wrap(post.get("authors", None))]
-    content_html = bleach.clean(
-        post.get("content_html", ""),
-        tags=["b", "i", "em", "strong", "sub", "sup", "img"],
-    )
+    content_html = post.get("content_html", "")
+    soup = BeautifulSoup(content_html, "html.parser")
     summary = get_abstract(content_html)
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
     url = normalize_url(post.get("url", None))
-    images = get_images(content_html, url, blog.get("home_page_url", None))
+    images = get_images(soup, url, blog.get("home_page_url", None))
     image = py_.get(post, "media:thumbnail.@url", None)
     if not image and len(images) > 0:
         image = images[0].get("src", None)
@@ -449,10 +440,8 @@ async def extract_atom_post(post, blog):
         )
 
     authors = [format_author(i) for i in wrap(post.get("author", None))]
-    content_html = bleach.clean(
-        py_.get(post, "content.#text", ""),
-        tags=["b", "i", "em", "strong", "sub", "sup", "img"],
-    )
+    content_html = py_.get(post, "content.#text", "")
+    soup = BeautifulSoup(content_html, "html.parser")
     summary = get_abstract(content_html)
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
@@ -469,7 +458,7 @@ async def extract_atom_post(post, blog):
         )
 
     url = get_url(post.get("link", None))
-    images = get_images(content_html, url, blog.get("home_page_url", None))
+    images = get_images(soup, url, blog.get("home_page_url", None))
     image = py_.get(post, "media:thumbnail.@url", None)
     if not image and len(images) > 0:
         image = images[0].get("src", None)
@@ -510,16 +499,14 @@ async def extract_rss_post(post, blog):
         )
 
     authors = [format_author(i) for i in wrap(post.get("dc:creator", None))]
-    content_html = bleach.clean(
-        post.get("description", ""),
-        tags=["b", "i", "em", "strong", "sub", "sup", "img"],
-    )
+    content_html = post.get("description", "")
+    soup = BeautifulSoup(content_html, "html.parser")
     summary = get_abstract(content_html)
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
     url = normalize_url(post.get("link", None))
     published_at = get_date(post.get("pubDate", None))
-    images = get_images(content_html, url, blog.get("home_page_url", None))
+    images = get_images(soup, url, blog.get("home_page_url", None))
     image = py_.get(post, "media:thumbnail.@url", None)
     if not image and len(images) > 0:
         image = images[0].get("src", None)
@@ -546,34 +533,51 @@ async def extract_rss_post(post, blog):
 
 
 def filter_updated_posts(posts, blog, key):
-    """Filter posts by modified date."""
+    """Filter posts by date updated."""
+
+    def parse_date(date):
+        """Parse date into iso8601 string"""
+        date_updated = get_date(date)
+        return unix_timestamp(date_updated)
+    
     return [
         x
         for x in posts
-        if unix_timestamp(x.get(key, None))
-        > unix_timestamp(blog["modified_at"])
+        if parse_date(x.get(key, None)) > blog["updated_at"]
     ]
+
+
+def sanitize_html(content_html: str):
+    """Sanitize content_html."""
+    return bleach.clean(
+        content_html,
+        tags=["b", "i", "em", "strong", "sub", "sup", "img"],
+        attributes={
+            "*": ["class"],
+            "a": ["href", "rel"],
+            "img": ["src", "srcset", "width", "height", "sizes", "alt"],
+        },
+    )
+
 
 def get_references(content_html: str):
     """Extract references from content_html,
     defined as the text after the tag "References</h2>",
     "References</h3>" or "References</h4>"""
     reference_html = re.split(
-        r"/(?:References|Referenzen|Bibliography)<\/(?:h1|h2|h3|h4)>/",
+        r"(?:References|Referenzen|Bibliography)<\/(?:h1|h2|h3|h4)>",
         content_html,
         maxsplit=2,
     )
-
     if len(reference_html) == 1:
         return []
 
     # strip optional text after references, using <hr>, <hr />, <h2, <h3, <h4 as tag
     reference_html[1] = re.split(
-        r"/(?:<hr \/>|<hr>|<h2|<h3|<h4)/", reference_html[1], maxsplit=2
+        r"(?:<hr \/>|<hr>|<h2|<h3|<h4)", reference_html[1], maxsplit=2
     )[0]
 
     urls = get_urls(reference_html[1])
-
     if not urls or len(urls) == 0:
         return []
 
@@ -594,16 +598,6 @@ def get_references(content_html: str):
 
     references = [format_reference(url, index) for index, url in enumerate(urls)]
     return references
-
-
-def get_date(date: str):
-    """Get date from string."""
-    if not date:
-        return None
-    try:
-        return parser.parse(date).isoformat()
-    except ValueError:
-        return None
 
 
 def get_title(content_html: str):
@@ -647,13 +641,97 @@ def get_abstract(content_html: str = None, maxlen: int = 450):
 
 
 def get_relationships(content_html: str):
-    """Get relationships from content_html."""
-    return []
+    """Get relationships from content_html. Extract links from 
+    Acknowledgments section,defined as the text after the tag
+    "Acknowledgments</h2>", "Acknowledgments</h3>" or "Acknowledgments</h4>"""
+  
+    # const relationships_html = content_html.split(
+    #     /(?:Acknowledgments)<\/(?:h2|h3|h4)>/,
+    #     2
+    # )
+
+    # if (relationships_html.length == 1) {
+    #     return []
+    # }
+
+    # // strip optional text after notes, using <hr>, <hr />, <h2, <h3, <h4 as tag
+    # relationships_html[1] = relationships_html[1].split(
+    #     /(?:<hr \/>|<hr>|<h2|<h3|<h4)/,
+    #     2
+    # )[0]
+
+    # // split notes into sentences and classify relationship type for each sentence
+    # const sentences = relationships_html[1].split(/(?<=\w{3}[.!?])\s+/)
+
+    # const relationships = sentences
+    #     .map((sentence) => {
+    #     sentence = sentence.trim()
+    #     const urls = getUrls(sentence).filter((url) => {
+    #         const uri = new URL(url)
+
+    #         return uri.host !== "orcid.org"
+    #     })
+
+    #     // detect type of relationship, default is generic relationship
+    #     let type = "IsRelatedTo"
+
+    #     if (sentence.search(/(originally published|cross-posted)/i) > -1) {
+    #         type = "IsIdenticalTo"
+    #     } else if (sentence.search(/peer-reviewed version/i) > -1) {
+    #         type = "IsPreprintOf"
+    #     } else if (sentence.search(/work was funded/i) > -1) {
+    #         type = "HasAward"
+    #     } else {
+    #         // console.log(sentence)
+    #     }
+    #     return urls.map((url) => {
+    #         return {
+    #         type: type,
+    #         url: url,
+    #         }
+    #     })
+    #     })
+    #     .flat()
+    relationships = []
+
+    return relationships
 
 
-def get_images(content_html: str, url: str, home_page_url: str):
+def get_images(soup, url: str, home_page_url: str):
     """Extract images from content_html."""
-    return []
+
+    def extract_img(image):
+        """Extract url from link."""
+        src = image.attrs.get("src", None)
+
+        # src = getSrcUrl(src, url, home_page_url)
+        srcset = image.attrs.get("srcset", None)
+
+        # TODO: relative urls
+        # if (isString(srcset)) {
+        #     srcset = srcset
+        #     .split(", ")
+        #     .map((src) => getSrcUrl(src, url, home_page_url))
+        #     .join(", ")
+        # }
+        alt = image.attrs.get("alt", None)
+
+        if alt:
+            alt = alt.strip()
+
+        return compact(
+            {
+                "src": src,
+                "srcset": srcset,
+                "width": image.attrs.get("width", None),
+                "height": image.attrs.get("height", None),
+                "sizes": image.attrs.get("sizes", None),
+                "alt": alt,
+            }
+        )
+
+    images = [extract_img(i) for i in soup.find_all("img")]
+    return images
 
 
 def get_urls(content_html: str):

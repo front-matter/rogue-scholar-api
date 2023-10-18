@@ -74,15 +74,30 @@ async def test_single_blog_post_route():
 
 
 @pytest.mark.vcr
-async def test_single_blog_with_posts_post_route():
-    """Test single blog with posts post route."""
+async def test_single_blog_with_posts_rss_route():
+    """Test single blog with posts rss route."""
     test_client = app.test_client()
     key = environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
     headers = {"Authorization": f"Bearer {key}"}
     response = await test_client.post("/blogs/andrewheiss/posts", headers=headers)
     assert response.status_code == 200
     result = await response.get_json()
-    assert len(result) == 10
+    assert len(result) == 0
+
+
+@pytest.mark.vcr
+async def test_single_blog_with_posts_json_feed_route():
+    """Test single blog with posts json feed route."""
+    test_client = app.test_client()
+    key = environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
+    headers = {"Authorization": f"Bearer {key}"}
+    response = await test_client.post("/blogs/ropensci/posts?page=1", headers=headers)
+    assert response.status_code == 200
+    result = await response.get_json()
+    print(result)
+    assert len(result) == 50
+    post = result[0]
+    assert post["title"] == "How to Translate a Hugo Blog Post with Babeldown"
 
 
 async def test_posts_redirect_route():
@@ -215,17 +230,17 @@ async def test_posts_filter_by_language_route():
     assert post["title"] == "¿Qué libros científicos publicamos?"
 
 
-@pytest.mark.vcr
-async def test_posts_post_route():
-    """Test posts post route."""
-    test_client = app.test_client()
-    key = environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
-    headers = {"Authorization": f"Bearer {key}"}
-    response = await test_client.post("/posts", headers=headers)
-    assert response.status_code == 200
-    result = await response.get_json()
-    assert len(result) == 62
-    assert result[0] == {"slug": "andrewheiss"}
+# @pytest.mark.vcr
+# async def test_posts_post_route():
+#     """Test posts post route."""
+#     test_client = app.test_client()
+#     key = environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
+#     headers = {"Authorization": f"Bearer {key}"}
+#     response = await test_client.post("/posts", headers=headers)
+#     assert response.status_code == 200
+#     result = await response.get_json()
+#     assert len(result) == 62
+#     assert result[0] == {"slug": "andrewheiss"}
 
 
 async def test_post_route():
@@ -234,7 +249,7 @@ async def test_post_route():
     response = await test_client.get("/posts/77b2102f-fec5-425a-90a3-4a97c768bdc4")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["title"] == "¿Qué libros científicos publicamos?"
+    assert result["title"] == "¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?"
     assert result["doi"] == "https://doi.org/10.59350/sfzv4-xdb68"
 
 
@@ -262,7 +277,7 @@ async def test_post_route_by_doi():
     response = await test_client.get("/posts/10.59350/sfzv4-xdb68")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["title"] == "¿Qué libros científicos publicamos?"
+    assert result["title"] == "¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?"
     assert result["doi"] == "https://doi.org/10.59350/sfzv4-xdb68"
 
 

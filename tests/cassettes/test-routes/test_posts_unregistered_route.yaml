@@ -23,151 +23,158 @@ interactions:
       x-client-info:
       - supabase-py/1.2.0
     method: GET
-    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20modified_at%29&blogs.prefix=not.is.null&doi=is.null&order=published_at.desc&limit=15
+    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%2C%20modified_at%29&blogs.prefix=not.is.null&doi=is.null&order=published_at.desc&limit=15
   response:
-    content: "[{\"id\":\"17f83c59-65d5-439e-88e4-e5917117d1d5\",\"doi\":null,\"url\":\"https://irights.info/2010/03/29/irights-im-deutschlandradio-und-medienradio/1840\",\"archive_url\":null,\"title\":\"iRights
-      im Deutschlandradio und Medienradio\",\"summary\":\"Am Donnerstag bzw. Samstag
-      war ich als Gespr\xE4chpartner bei zwei H\xF6rfunksendungen eingeladen. Zum
-      einen habe ich in der Sendung Breitband auf Deutschlandradio Kultur ca. sechs
-      Minuten \xFCber den<strong> runden Tisch mit Innenminister Thomas de Maizi\xE8re</strong>
-      berichtet. Daf\xFCr war ich am Samstag live im Studio.\",\"published_at\":1269859681,\"updated_at\":1360614936,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"name\":
-      null}],\"image\":null,\"tags\":[\"In Eigener Sache\",\"Politik Recht\",\"Urheberrecht\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
-      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"2023-10-13T17:35:02+00:00\"}},
-      \n {\"id\":\"f73e5ced-81ed-4f0a-8278-ceb91cd7aea5\",\"doi\":null,\"url\":\"https://eve.gd/2010/03/27/implementing-coins\",\"archive_url\":null,\"title\":\"Implementing
-      COinS\",\"summary\":\"After the Vitae Digital Researcher workshop at the British
-      Library, I decided to ramp up my web presence to a slightly more professional
-      level than it had previously obtained.  Having also decided that it would be
-      nice to take a bit of a break this weekend, I went ahead and implemented COinS
-      on my main web page.\",\"published_at\":1269705358,\"updated_at\":1269705358,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":\"https://eve.gd/images/uploads/2010/03/Bookshelf_photo-300x228.jpg\",\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
-      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"0521a4f8-2219-4d9f-85ae-9e2cb13c0ce3\",\"doi\":null,\"url\":\"https://eve.gd/2010/03/22/undergraduates-in-the-british-library-reading-rooms\",\"archive_url\":null,\"title\":\"Undergraduates
-      in the British Library reading rooms\",\"summary\":\"One of the long running
-      debates regarding the British Library reading rooms has resurfaced this week.
-      \ Upon entering the library this morning I was handed a letter of invitation
-      to the Reader's Committee (or similarly titled initiative); it's self-purported
-      goal, to discuss requirements of readers at the BL that have gone unheeded by
-      management.  Several of these items are, indeed, worthy of discussion.\",\"published_at\":1269273358,\"updated_at\":1269273358,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+    content: "[{\"id\":\"819a7513-4889-4df0-a093-eb9bfd1d4ee1\",\"doi\":null,\"url\":\"https://eve.gd/2008/09/24/the-importance-of-weaponization-in-exploit-development\",\"archive_url\":null,\"title\":\"The
+      importance of weaponization in exploit development\",\"summary\":\"A while back
+      (quite a long while back now I suppose) I entered SmugMug's \\\"competition\\\"
+      to \\\"hack\\\" their system. As it was hardly impenetrable I succeeded and
+      succesfully claimed a security bounty from them; although they weren't so keen
+      to publicise that! Now, you can moralise about security bounties if you want,
+      but I am a student and starving in a garret.\",\"published_at\":1222271758,\"updated_at\":1222271758,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
       \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
       Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"cf721085-7e88-4c1e-a533-7498253778a8\",\"doi\":null,\"url\":\"https://eve.gd/2010/03/19/international-pynchon-week-2010-abstracts\",\"archive_url\":null,\"title\":\"International
-      Pynchon Week 2010 Abstracts\",\"summary\":\"The abstracts for International
-      Pynchon Week 2010 are now online!\",\"published_at\":1269014158,\"updated_at\":1269014158,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":\"https://eve.gd/images/uploads/2010/03/IPW2010-269x300.gif\",\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
-      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"dc5da954-8bc2-4f79-997f-821bd798ff72\",\"doi\":null,\"url\":\"https://irights.info/2010/03/19/plagiat-oder-was/1825\",\"archive_url\":null,\"title\":\"Plagiat
-      oder was\",\"summary\":\"Da hat ja die Hegemann zum Gl\xFCck doch nicht den
-      Leipziger Buchpreis bekommen.\",\"published_at\":1269010570,\"updated_at\":1269010570,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"name\":
-      null}],\"image\":\"../wp-includes/js/tinymce/plugins/wordpress/img/trans.gif\",\"tags\":[\"Gesellschaft
-      Kunst\",\"Literatur\",\"Themen\",\"Urheberrecht\",\"Zitat Plagiat\",\"Kunst\",\"Shields\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
-      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"2023-10-13T17:35:02+00:00\"}},
-      \n {\"id\":\"568213bb-f0b6-4907-9e7e-1fd8287251bd\",\"doi\":null,\"url\":\"https://eve.gd/2010/03/17/can-we-avoid-the-s-word-regarding-david-foster-wallace\",\"archive_url\":null,\"title\":\"Can
-      we avoid the S word regarding David Foster Wallace?\",\"summary\":\"The London
-      Review of Books has just published a blog post entitled Wallace v. the Terrible
-      Master. You can read the full article here: http://www.lrb.co.uk/blog/2010/03/16/alex-abramovich/wallace-v-the-terrible-master/
-      \ My concern is that, in every recent web publication on the author, the only
-      aspect of his life in which people are interested, is his death.\",\"published_at\":1268841358,\"updated_at\":1268841358,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":\"https://eve.gd/images/uploads/2010/03/InfiniteJest-193x300.jpg\",\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
-      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"61802699-9d77-4948-9e53-841573b8cc4f\",\"doi\":null,\"url\":\"https://eve.gd/2010/03/17/david-foster-wallace-archive-material\",\"archive_url\":null,\"title\":\"David
-      Foster Wallace archive material\",\"summary\":\"I've just, a few days belatedly,
-      checked out the Howling Fantods website and caught up with the news regarding
-      the Harry Ransom Center aquiring the DFW archives.  I thought it would be apt
-      to post a link to the fantastic scribd scans of some of this material. I particularly
-      like the editors suggestions for Infinite Jest. Looks like the \\\"make it shorter\\\"
-      suggestion wasn't exactly taken to heart - thankfully!\",\"published_at\":1268841358,\"updated_at\":1268850856,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
+      \n {\"id\":\"13d542cf-d1a3-4ea4-a816-62fdafa88d54\",\"doi\":null,\"url\":\"https://eve.gd/2008/09/17/creating-an-irc-frontback-end-from-a-c-web-application\",\"archive_url\":null,\"title\":\"Creating
+      an IRC front/back-end from a C# web application\",\"summary\":\"This lengthy
+      howto will show you how to hook up C# to an eggdrop IRC bot. I've taken this
+      approach because it avoids the overhead of managing a fully fledged IRC client
+      in C# whilst still providing 2-way command functionality between IRC and the
+      application.\",\"published_at\":1221666958,\"updated_at\":1221666958,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
       \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
       Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"be8d3773-068b-4b85-b11f-cb16619c3ce3\",\"doi\":null,\"url\":\"https://eve.gd/2010/03/16/british-library-usage-made-clear\",\"archive_url\":null,\"title\":\"British
-      Library usage made clear\",\"summary\":\"It's only really during the mass exodus
-      of a fire alarm that the sheer scale of operations daily at the British Library
-      become clear. Here's a picture I snapped of the readers flocking back into the
-      building. Lucky this didn't happen yesterday during the Digital Researcher conference!
-      It was also notable that, on re-admittance, there were no security checks.\",\"published_at\":1268754958,\"updated_at\":1268775780,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":\"https://eve.gd/images/uploads/2010/03/Photo0015.jpg.scaled.1000-300x225.jpg\",\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
+      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
+      \n {\"id\":\"c54bed50-554b-4cd6-aef0-fab6d61fff5f\",\"doi\":null,\"url\":\"https://eve.gd/2008/07/31/c-dataexecutor-class-again\",\"archive_url\":null,\"title\":\"C#
+      DataExecutor class again\",\"summary\":\"Just been asked some further questions
+      about the DataExecutor class on FreeNode and thought I'd give some usage instructions/clarification
+      here.  Howto: Fill a strongly typed dataset  Set your base class (of your TableAdapter)
+      to Tools.genericTableAdapter.\",\"published_at\":1217519758,\"updated_at\":1217519758,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
       Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"46f06dee-9e60-47ed-9470-e555dfe598d0\",\"doi\":null,\"url\":\"https://eve.gd/2010/03/15/humanities-map\",\"archive_url\":null,\"title\":\"Humanities
-      Map\",\"summary\":\"The result of a humanities discipline map for Digital Researcher
-      2010 at the British Library!      Humanities Map was originally published by
-      Martin Paul Eve at Martin Paul Eve on March 15, 2010.\",\"published_at\":1268668558,\"updated_at\":1268668558,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":\"https://eve.gd/images/uploads/2010/03/Screen_shot_2010-03-15_at_15.3-300x194.png\",\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
+      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
+      \n {\"id\":\"e5f154f5-8a9d-46a8-979f-4552fc9bf18a\",\"doi\":null,\"url\":\"https://eve.gd/2008/07/30/expanding-a-treeview-to-a-specific-node-in-wpf\",\"archive_url\":null,\"title\":\"Expanding
+      a treeview to a specific node in WPF\",\"summary\":\"I've been exploring the
+      dark alleyways of the Windows Presentation Foundation this week and found no
+      way in my trawlings of the net to expand a treeview to a specific node.  No
+      FindNode, no ExpandTo or ExpandAll. Great.  Anyway, here's the solution I came
+      up with. It relies upon a binding the Tag property to the text you are searching
+      for, but that could obviously be changed.\",\"published_at\":1217433358,\"updated_at\":1217433358,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
       Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"f5032ba0-6f5e-496a-b350-9a70c12935f1\",\"doi\":null,\"url\":\"https://eve.gd/2010/03/14/dark-cloud-looming\",\"archive_url\":null,\"title\":\"Dark
-      cloud looming\",\"summary\":\"Tomorrow I plan to attend the Digital Researcher
-      seminar day at the British Library.  It promises to be an excellent day providing
-      insights on how researchers can best employ microblogging, social networking,
-      social bookmarking/citations and many of the other nifty collaborative elements
-      of the web that simply weren't there in the '90s.\",\"published_at\":1268582158,\"updated_at\":1268582158,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":\"https://eve.gd/images/uploads/2010/03/twitter-down-300x76.png\",\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
+      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
+      \n {\"id\":\"d3dcea43-b7b0-44e5-97bb-a6caab45c31c\",\"doi\":null,\"url\":\"https://eve.gd/2008/07/23/building-a-robust-ssl-crc-verified-serverclient-solution-in-the-net-framework-with-c\",\"archive_url\":null,\"title\":\"Building
+      a robust, SSL, CRC-Verified server/client solution in the .NET Framework with
+      C#\",\"summary\":\"Quite a lengthy post here with a lot of code in the hope
+      that my experience of building an integrity-checking SSL (text-only for now)
+      communication system will be of use to somebody else.\",\"published_at\":1216828558,\"updated_at\":1216828558,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
       Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"0544561c-fc15-41cd-8456-acee1d757992\",\"doi\":null,\"url\":\"https://eve.gd/2010/03/13/thomas-pynchon-critical-bibliography-zotero-group\",\"archive_url\":null,\"title\":\"Thomas
-      Pynchon critical bibliography Zotero group\",\"summary\":\"In the spirit of
-      social networking/research interaction, I have established a Zotero group for
-      researchers working in my field; the novels of Thomas Pynchon. The site is here:
-      http://www.zotero.org/groups/thomas_pynchon If you haven't used Zotero before,
-      it's the ultimate open-source, freely available citation tool. It will do all
-      the hard work of formatting your citations and even share them across multiple
-      computers.\",\"published_at\":1268495758,\"updated_at\":1268495758,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":\"https://eve.gd/images/uploads/2010/03/34-1-200x300.jpg\",\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
+      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
+      \n {\"id\":\"ad5541f0-c455-49cb-932c-1efe4893b04e\",\"doi\":null,\"url\":\"https://eve.gd/2008/07/06/c-memorymanagement-class\",\"archive_url\":null,\"title\":\"C#
+      MemoryManagement Class\",\"summary\":\"Well, first off, this is the first post
+      using the new blogging solution! Let's hope it works!\",\"published_at\":1215359758,\"updated_at\":1215359758,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
       Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"80f1401f-8f4f-4303-99e7-933330dea89c\",\"doi\":null,\"url\":\"https://eve.gd/2010/03/11/sshsplit-featured\",\"archive_url\":null,\"title\":\"sshsplit
-      featured\",\"summary\":\"My first attempt at Python got a slot on the Ubuntu
-      opportunistic developer slot. Check it out here: http://www.jonobacon.org/2010/03/06/the-grand-app-writing-challenge-submissions/
-      Also, note, first post to posterous.          sshsplit featured was originally
-      published by Martin Paul Eve at Martin Paul Eve on March 11, 2010.\",\"published_at\":1268322958,\"updated_at\":1268322958,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":\"http://www.martineve.com/wp-content/uploads/2010/03/sshsplit-screen2.png.scaled.500-300x202.jpg\",\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
+      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
+      \n {\"id\":\"eccaae75-dd24-4d62-b5be-d6ae2132c15d\",\"doi\":null,\"url\":\"https://www.ch.imperial.ac.uk/rzepa/blog?p=8\",\"archive_url\":null,\"title\":\"Jmol
+      and WordPress: Loading 3D molecular models, molecular isosurfaces and molecular
+      vibrations into a blog\",\"summary\":\"Click on the static image to get an active
+      model.\",\"published_at\":1208009717,\"updated_at\":1625736062,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-8635-8390\", \"name\": \"Henry Rzepa\"}],\"image\":\"https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2021/07/a80.jpg\",\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Henry
+      Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"blog\":{\"slug\":\"rzepa\",\"title\":\"Henry
+      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"language\":\"en\",\"category\":\"chemicalSciences\",\"status\":\"active\",\"generator\":\"WordPress
+      6.3.1\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"2023-10-12T10:03:31+00:00\"}},
+      \n {\"id\":\"5474d6bc-4a89-4c7d-9394-90ff496394d7\",\"doi\":null,\"url\":\"https://eve.gd/2008/04/06/binding-to-radiobuttons-in-net-windows-forms\",\"archive_url\":null,\"title\":\"Binding
+      to RadioButtons in .NET Windows Forms\",\"summary\":\"Well, it's not security
+      related, but I thought it was worth sharing my solution for all those people
+      who are having trouble binding either ApplicationSettings or any other datasource
+      to a RadioButton in the .NET Framework (C# and VB.NET) WinForms environment.
+      \ The problem is that when binding a RadioButton's Checked property clicking
+      on a differentbutton in the set will not select the new option, but merely deselect
+      all options.\",\"published_at\":1207497358,\"updated_at\":1207497358,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
       Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"d3128c4e-d39d-4af2-a639-dc126eb4e0ef\",\"doi\":null,\"url\":\"https://irights.info/2010/03/11/heute-irights-info-redakteur-till-kreutzer-bei-den-kolner-tagen-zum-informationsrecht/1814\",\"archive_url\":null,\"title\":\"iRights.info-Redakteur
-      Till Kreutzer bei den K\xF6lner Tagen zum Informationsrecht\",\"summary\":\"Heute
-      und morgen finden wieder die K\xF6lner Tage zum Informationsrecht statt. Sie
-      werden ausgerichtet von der Zeitschrift Computer und Recht und der Deutschen
-      Gesellschaft f\xFCr Recht und Informatik e.V. In diesem Jahr geht es um \u201CSoftwarevertr\xE4ge
-      und Datenschutz im Unternehmen\u201D. iRights.info-Redakteur Till Kreutzer ist
-      mit von der Partie. In seinem Vortrag heute um 11 Uhr setzt er sich mit Open
-      Source Lizenzmanagement auseinander.\",\"published_at\":1268293636,\"updated_at\":1363083821,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"name\":
-      null}],\"image\":null,\"tags\":[\"In Eigener Sache\",\"Software Open Source\",\"Themen\",\"Urheberrecht\",\"Veranstaltungshinweise\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
-      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"2023-10-13T17:35:02+00:00\"}},
-      \n {\"id\":\"699a29c2-cfee-4448-8045-cb6fc04ca1c3\",\"doi\":null,\"url\":\"https://irights.info/2010/03/05/irights-info-was-kauft-man-wenn-man-ein-e-book-kauft/1812\",\"archive_url\":null,\"title\":\"iRights.info:
-      Was kauft man, wenn man ein E-Book kauft?\",\"summary\":\"Ilja Braun hat sich
-      der Frage angenommen, was Verlage E-Book-K\xE4ufern (sind es \xFCberhaupt \u201CK\xE4ufer\u201D?)
-      vorschreiben wollen, was davon rechtens ist, wie\u2019s in der Frage weitergeht.
-      Hier sein Ergebnis.\",\"published_at\":1267772897,\"updated_at\":1267772897,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"name\":
-      null}],\"image\":\"http://immateriblog.de/wp-content/uploads/2010/03/06_07.gif\",\"tags\":[\"Bucher\",\"E
-      Books Horbucher\",\"Literatur\",\"Technologie\",\"Themen\",\"Urheberrecht\",\"Verbraucherschutz\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
-      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"2023-10-13T17:35:02+00:00\"}},
-      \n {\"id\":\"71da2a30-2aaa-494a-9743-164ee3f7444d\",\"doi\":null,\"url\":\"https://eve.gd/2010/03/02/sshsplit-a-dynamic-tunnel-multiplexer\",\"archive_url\":null,\"title\":\"sshsplit:
-      a dynamic tunnel multiplexer\",\"summary\":\"Introducing sshsplit  sshsplit
-      is a GPL-3 licensed application that multiplexes ssh dynamic tunnels.  &lt;/img&gt;
-      \ For example, you might normally run:  ssh -D 54321 remote-host  to get a tunnel
-      on 127.0.0.1:54321 that goes through remote-host.  However, if you are using
-      a network-resource-intensive application (torrent clients for example), this
-      single tunnel will not suffice for, say, 1000 concurrent connections.\",\"published_at\":1267545358,\"updated_at\":1267545358,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":\"http://pro.grammatic.org/sshsplit/sshsplit-screen1.png\",\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
+      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
+      \n {\"id\":\"2231f80a-0669-4eb3-b71a-4a93a74a3eb3\",\"doi\":null,\"url\":\"https://eve.gd/2008/03/05/ie7-remote-file-access\",\"archive_url\":null,\"title\":\"IE7
+      Remote File Access\",\"summary\":\"Just a quick post to draw attention to Ronald's
+      excellent article at http://www.0x000000.com/?i=525 where he has pulled off
+      a very interesting remote file access in IE7. The attack works by including
+      an invalid DTD on an XML file which then streams the content of the requested
+      file in its error message.  Use IE7? Be afraid.      IE7 Remote File Access
+      was originally published by Martin Paul Eve at Martin Paul Eve on March 05,
+      2008.\",\"published_at\":1204732558,\"updated_at\":1204732558,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
       Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"modified_at\":\"1970-01-01T00:00:00+00:00\"}}]"
+      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
+      \n {\"id\":\"5a32f84c-41b1-4e2f-9034-bde836ff4eb5\",\"doi\":null,\"url\":\"https://eve.gd/2008/02/28/firefox-3-disallows-cross-site-xbl\",\"archive_url\":null,\"title\":\"Firefox
+      3 disallows cross-site XBL\",\"summary\":\"Well, I decided to play around a
+      little with Firefox 3 Beta 3 today and discovered that it looks like the ever
+      popular -moz-binding css attribute is now rendered a little less useful. It
+      is now impossible to load off-site XBL via this method.  However, all is not
+      lost.\",\"published_at\":1204214158,\"updated_at\":1204214158,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
+      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
+      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
+      \n {\"id\":\"37fadcdd-6104-431b-b7a6-cea6167b0762\",\"doi\":null,\"url\":\"https://eve.gd/2008/02/23/wp-aspxrewriter-alpha-test\",\"archive_url\":null,\"title\":\"wp-aspxrewriter
+      alpha test\",\"summary\":\"Well, today I deployed an early version of my wp-aspxrewriter
+      component to my personal blog.  This component is an ASP.NET HttpModule in conjunction
+      with a Wordpress plugin and code hack (official patch for the hack submitted
+      at their trac site) which allows 100% pretty permalinks under IIS6.  The current
+      mechanism is grim. A request to a non-existent .aspx page invokes the handler.\",\"published_at\":1203782158,\"updated_at\":1203799253,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
+      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
+      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
+      \n {\"id\":\"5c53892f-4c3e-4cfc-b17b-a449111923b6\",\"doi\":null,\"url\":\"https://eve.gd/2008/02/02/an-xml-based-xss-poc-platform\",\"archive_url\":null,\"title\":\"An
+      XML based XSS PoC platform\",\"summary\":\"Well, long time no post. Been in
+      hospital. Been busy with college. Life gets in the way of hacking.  Usually
+      when one wast to illustrate an XSS vulnerability there are two approaches. The
+      first is to show the client the XSS and assume that they know and understand
+      the impact. The second is to write a fully fledged exploit which takes some
+      form of action on the client's server so that they can see the truly devastating
+      impact.\",\"published_at\":1201967758,\"updated_at\":1201971464,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
+      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
+      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
+      \n {\"id\":\"9c6423a8-2041-4927-979f-f02b228a8192\",\"doi\":null,\"url\":\"https://eve.gd/2007/11/27/right-to-left-and-left-to-right-characters\",\"archive_url\":null,\"title\":\"Right-To-Left
+      and Left-To-Right characters\",\"summary\":\"There's been a fair bit of discussion
+      going on at slackers on the security implications of the Unicode characters
+      U+202D and U+202E which switch the left-to-right and right-to-left encoding
+      of the following text.\",\"published_at\":1196178958,\"updated_at\":1196178958,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
+      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
+      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
+      \n {\"id\":\"c7af5198-4821-45e3-a937-d0b9db550630\",\"doi\":null,\"url\":\"https://eve.gd/2007/11/17/ie7-javascript-modify-the-dom-without-crashing-the-browser\",\"archive_url\":null,\"title\":\"IE7
+      Javascript - modify the DOM without crashing the browser\",\"summary\":\"One
+      of the biggest problems faced when writing Javascript that modifies the DOM
+      is the fact that the poorly written IE7 crashes because it hasn't finished loading
+      the current element. This only seems to happen when the DOM is modified through
+      a script loaded by an xx:expression binding in a style tag.\",\"published_at\":1195314958,\"updated_at\":1195314958,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
+      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
+      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
+      \n {\"id\":\"02a3404a-56ec-4d71-90ef-6b668cf56590\",\"doi\":null,\"url\":\"https://eve.gd/2007/11/09/xss-for-the-common-good-greasemousey\",\"archive_url\":null,\"title\":\"XSS
+      for the common good - GreaseMousey\",\"summary\":\"I know I haven't posted anything
+      here for a good while, but that's because on top of uni work I have a surprise
+      up my sleeve in the not so distant future. I also do intend to continue working
+      on .NETIDS when I finally get some time!  This is not that surprising... but
+      something I found interesting.  A certain musical group, whom I will not name
+      here, recently changed their forum onto a new proprietary system.\",\"published_at\":1194623758,\"updated_at\":1194632774,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
+      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
+      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}}]"
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 817f753e18e21626-DUS
+      - 8183e2c82afec49f-DUS
       Connection:
       - keep-alive
       Content-Encoding:
       - gzip
       Content-Location:
-      - /posts?blogs.prefix=not.is.null&doi=is.null&limit=15&order=published_at.desc&select=id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20modified_at%29
+      - /posts?blogs.prefix=not.is.null&doi=is.null&limit=15&order=published_at.desc&select=id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%2C%20modified_at%29
       Content-Profile:
       - public
       Content-Range:
@@ -175,7 +182,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 18 Oct 2023 08:37:12 GMT
+      - Wed, 18 Oct 2023 21:31:01 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:

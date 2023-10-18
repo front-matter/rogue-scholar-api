@@ -5,7 +5,7 @@ from commonmeta.utils import wrap
 from rogue_scholar_api.supabase import (
     supabase_client as supabase,
 )
-from rogue_scholar_api.utils import start_case
+from rogue_scholar_api.utils import start_case, get_date, unix_timestamp
 
 
 def extract_single_blog(slug: str):
@@ -13,7 +13,7 @@ def extract_single_blog(slug: str):
     response = (
         supabase.table("blogs")
         .select(
-            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, modified_at, use_mastodon, generator, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter"
+            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, use_mastodon, generator, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter"
         )
         .eq("slug", slug)
         .maybe_single()
@@ -26,7 +26,7 @@ def extract_single_blog(slug: str):
     parsed = feedparser.parse(response.data["feed_url"])
     feed = parsed.feed
     home_page_url = feed.get("link", None) or config["home_page_url"]
-    modified_at = feed.get("updated", None) or config["modified_at"]
+    updated_at = unix_timestamp(get_date(feed.get("updated", None))) or config["updated_at"]
 
     feed_format = parse_feed_format(feed) or config["feed_format"]
     title = feed.get("title", None) or config["title"]
@@ -47,7 +47,7 @@ def extract_single_blog(slug: str):
         "version": "https://jsonfeed.org/version/1.1",
         "feed_url": config["feed_url"],
         "created_at": config["created_at"],
-        "modified_at": modified_at,
+        "updated_at": updated_at,
         "current_feed_url": config["current_feed_url"],
         "home_page_url": home_page_url,
         "archive_prefix": config["archive_prefix"],

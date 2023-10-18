@@ -2,12 +2,20 @@
 import pytest  # noqa: F401
 
 from rogue_scholar_api.utils import (
+    get_date,
     get_doi_metadata_from_ra,
     validate_uuid,
     unix_timestamp,
     start_case,
     normalize_tag,
 )
+
+
+def test_get_date_rss():
+    "parse datetime from rss"
+    date = "Mon, 18 Sep 2023 04:00:00 GMT"
+    result = get_date(date)
+    assert result == "2023-09-18T04:00:00+00:00"
 
 
 def test_get_doi_metadata_bibtex():
