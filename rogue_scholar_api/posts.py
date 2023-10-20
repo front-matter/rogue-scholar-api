@@ -9,13 +9,14 @@ import bleach
 import html
 import json as jsn
 import xmltodict
-
+import time
 from idutils import is_doi, is_orcid
-
 from commonmeta.base_utils import wrap, compact
 from commonmeta.utils import normalize_url
+
 from rogue_scholar_api.blogs import extract_single_blog
 from rogue_scholar_api.utils import unix_timestamp, normalize_tag, get_date, AUTHOR_IDS
+from rogue_scholar_api.supabase import supabase_admin_client as supabase_admin
 
 
 def author_ids():
@@ -166,7 +167,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
         print(e)
         blog_with_posts["entries"] = []
 
-    return blog_with_posts["entries"]
+    return [upsert_single_post(i) for i in blog_with_posts["entries"]]
 
 
 async def extract_wordpress_post(post, blog):
@@ -205,7 +206,7 @@ async def extract_wordpress_post(post, blog):
     soup = BeautifulSoup(content_html, "html.parser")
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
-    url = normalize_url(post.get("link", None))
+    url = normalize_url(post.get("link", None), secure=True)
     images = get_images(soup, url, blog["home_page_url"])
     image = (
         py_.get(post, "_embedded.wp:featuredmedia[0].source_url", None)
@@ -266,7 +267,7 @@ async def extract_wordpresscom_post(post, blog):
     )
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
-    url = normalize_url(post.get("URL", None))
+    url = normalize_url(post.get("URL", None), secure=True)
     images = get_images(soup, url, blog.get("home_page_url", None))
     image = images[0].get("src", None) if len(images) > 0 else None
     tags = [normalize_tag(i) for i in post.get("categories", None).keys()][:5]
@@ -307,7 +308,7 @@ async def extract_ghost_post(post, blog):
     summary = get_abstract(post.get("excerpt", None))
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
-    url = normalize_url(post.get("url", None))
+    url = normalize_url(post.get("url", None), secure=True)
     images = get_images(soup, url, blog.get("home_page_url", None))
     image = post.get("feature_image", None)
     if not image and len(images) > 0:
@@ -354,7 +355,7 @@ async def extract_substack_post(post, blog):
     published_at = unix_timestamp(post.get("post_date", None))
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
-    url = normalize_url(post.get("canonical_url", None))
+    url = normalize_url(post.get("canonical_url", None), secure=True)
     images = get_images(soup, url, blog.get("home_page_url", None))
     image = post.get("cover_image", None)
     if not image and len(images) > 0:
@@ -397,7 +398,7 @@ async def extract_json_feed_post(post, blog):
     summary = get_abstract(content_html)
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
-    url = normalize_url(post.get("url", None))
+    url = normalize_url(post.get("url", None), secure=True)
     images = get_images(soup, url, blog.get("home_page_url", None))
     image = py_.get(post, "media:thumbnail.@url", None)
     if not image and len(images) > 0:
@@ -454,7 +455,8 @@ async def extract_atom_post(post, blog):
             next(
                 (link["@href"] for link in wrap(links) if link["@type"] == "text/html"),
                 None,
-            )
+            ),
+            secure=True,
         )
 
     url = get_url(post.get("link", None))
@@ -504,7 +506,7 @@ async def extract_rss_post(post, blog):
     summary = get_abstract(content_html)
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
-    url = normalize_url(post.get("link", None))
+    url = normalize_url(post.get("link", None), secure=True)
     published_at = get_date(post.get("pubDate", None))
     images = get_images(soup, url, blog.get("home_page_url", None))
     image = py_.get(post, "media:thumbnail.@url", None)
@@ -539,12 +541,64 @@ def filter_updated_posts(posts, blog, key):
         """Parse date into iso8601 string"""
         date_updated = get_date(date)
         return unix_timestamp(date_updated)
-    
-    return [
-        x
-        for x in posts
-        if parse_date(x.get(key, None)) > blog["updated_at"]
-    ]
+
+    return [x for x in posts if parse_date(x.get(key, None)) > blog["updated_at"]]
+
+
+def upsert_single_post(post):
+    """Upsert single post."""
+
+    # missing title or publication date in the
+    if not post.get("title", None) or post.get("published_at", None) > int(time.time()):
+        return None
+
+    try:
+        response = (
+            supabase_admin.table("posts")
+            .upsert(
+                {
+                    "authors": post.get("authors", None),
+                    "blog_id": post.get("blog_id", None),
+                    "blog_name": post.get("blog_name", None),
+                    "blog_slug": post.get("blog_slug", None),
+                    "content_html": post.get("content_html", None),
+                    "content_text": post.get("content_text", None),
+                    "images": post.get("images", None),
+                    "updated_at": post.get("updated_at", None),
+                    "published_at": post.get("published_at", None),
+                    "image": post.get("image", None),
+                    "language": post.get("language", None),
+                    "reference": post.get("reference", None),
+                    "relationships": post.get("relationships", None),
+                    "summary": post.get("summary", None),
+                    "tags": post.get("tags", None),
+                    "title": post.get("title", None),
+                    "url": post.get("url", None),
+                    "archive_url": post.get("archive_url", None),
+                },
+                returning="representation",
+                ignore_duplicates=False,
+                on_conflict="url",
+            )
+            .execute()
+        )
+        data = response.data[0]
+
+        # workaround for comparing two timestamps in supabase
+        post_to_update = (
+            supabase_admin.table("posts")
+            .update(
+                {
+                    "indexed": data.get("indexed_at", 0) > data.get("updated_at", 1),
+                }
+            )
+            .eq("id", data["id"])
+            .execute()
+        )
+        return post_to_update.data[0]
+    except Exception as error:
+        print(error)
+        return None
 
 
 def sanitize_html(content_html: str):
@@ -604,6 +658,7 @@ def get_title(content_html: str):
     """Sanitize title."""
     if not content_html:
         return None
+    content_html = html.unescape(content_html).strip()
     content_html = re.sub(r"(<br>|<p>)", " ", content_html)
     content_html = re.sub(r"(h1>|h2>|h3>|h4>)", "strong>", content_html)
 
@@ -612,7 +667,7 @@ def get_title(content_html: str):
     sanitized = bleach.clean(
         content_html, tags=["b", "i", "em", "strong", "sub", "sup"], attributes={}
     )
-    return html.unescape(sanitized).strip()
+    return sanitized
 
 
 def get_abstract(content_html: str = None, maxlen: int = 450):
@@ -624,27 +679,22 @@ def get_abstract(content_html: str = None, maxlen: int = 450):
     sanitized = bleach.clean(
         content_html, tags=["b", "i", "em", "strong", "sub", "sup"], attributes={}
     )
+    truncated = py_.truncate(sanitized, maxlen, omission="", separator=" ")
 
-    # remove incomplete last sentence if ellipsis at the end of abstract
-    # and shorter than maxlen
-    # TODO: check for end of abstract
-    if len(sanitized) <= 450 and "[…]" in sanitized:
-        maxlen = len(sanitized) - 4
-
-    # use separator regex to split on sentence boundary
-    truncated = py_.truncate(
-        sanitized, length=maxlen, omission="", separator="/(?<=\w{3}[.!?])\s+/"
-    )
-    truncated = re.sub(r"\n+/", " ", truncated).strip()
+    # remove incomplete last sentence
+    if truncated[:-1] not in [".", "!", "?"]:
+        sentences = re.split(r"(?<=\w{3}[.!?])\s+", truncated)
+        truncated = " ".join(sentences[:-2])
+    truncated = re.sub(r"\n+", " ", truncated).strip()
 
     return truncated
 
 
 def get_relationships(content_html: str):
-    """Get relationships from content_html. Extract links from 
+    """Get relationships from content_html. Extract links from
     Acknowledgments section,defined as the text after the tag
     "Acknowledgments</h2>", "Acknowledgments</h3>" or "Acknowledgments</h4>"""
-  
+
     # const relationships_html = content_html.split(
     #     /(?:Acknowledgments)<\/(?:h2|h3|h4)>/,
     #     2
