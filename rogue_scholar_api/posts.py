@@ -25,11 +25,10 @@ def author_ids():
 
 async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool = False):
     """Extract all posts by blog."""
+
     blog = extract_single_blog(slug)
-
     url = furl(blog.get("feed_url", None))
-    generator = blog.get("generator", "").split(" ")[0]
-
+    generator = blog.get("generator", "").split(" ")[0] if blog.get("generator", None) else None
     # limit number of pages for free plan to 5 (50 posts)
     page = min(page, 5) if blog.get("plan", None) == "Starter" else page
     start_page = (page - 1) * 50 if page > 0 else 0
@@ -82,7 +81,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
 
     feed_url = url.set(params).url
     blog_with_posts = {}
-
+    
     # use pagination of results only for non-API blogs
     if params:
         start_page = 0
