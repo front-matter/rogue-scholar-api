@@ -4,6 +4,7 @@ from typing import Optional
 from datetime import timedelta
 from commonmeta.utils import compact
 from os import environ
+import asyncio
 from dotenv import load_dotenv
 import sentry_sdk
 
@@ -203,25 +204,33 @@ async def posts():
 async def post_posts():
     """Update posts."""
 
-    blog_slug = request.args.get("blog_slug")
-
+    page = int(request.args.get("page") or "1")
+    update = request.args.get("update")
+    
     if (
         request.headers.get("Authorization", None) is None
         or request.headers.get("Authorization").split(" ")[1]
         != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
     ):
         return {"error": "Unauthorized."}, 401
-    elif blog_slug:
+    else:
         response = (
             supabase.table("blogs")
-            .select("slug", "title", "updated_at")
-            .eq("slug", blog_slug)
-            .maybe_single()
+            .select("slug")
+            .in_("status", ["active"])
+            .order("title", desc=False)
             .execute()
         )
-        return jsonify(response.data)
-    else:
-        return {"error": "An error occured."}, 400
+        
+        try:
+            extract_posts = [await extract_all_posts_by_blog(
+                        x["slug"], page=page, update_all=(update == "all")
+                    ) for x in response.data]
+            result = await asyncio.gather(*extract_posts)
+            return jsonify(result)
+        except Exception as e:
+            logger.warning(e.args[0])
+            return {"error": "An error occured."}, 400
 
 
 @validate_response(Post)
