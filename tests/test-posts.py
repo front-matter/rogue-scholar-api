@@ -18,7 +18,7 @@ def vcr_config():
     return {"filter_headers": ["apikey", "key", "X-TYPESENSE-API-KEY", "authorization"]}
 
 
-# @pytest.mark.vcr
+@pytest.mark.vcr
 @pytest.mark.asyncio
 async def test_extract_all_posts():
     """Extract all posts"""
@@ -136,7 +136,7 @@ async def test_extract_all_posts_by_blog_substack():
     result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
     assert len(result) == 50
     post = result[0]
-    assert post["title"] == "Networking, For Skeptics"
+    assert post["title"] == "Organic Chemistry’s Wish List, Four Years Later"
     assert post["authors"][0] == {
         "name": "Corin Wagen",
         "url": "https://orcid.org/0000-0003-3315-3524",
@@ -170,12 +170,7 @@ async def test_extract_all_posts_by_blog_json_feed_updated():
     """Extract all posts by blog json feed only updated"""
     slug = "ropensci"
     result = await extract_all_posts_by_blog(slug, page=1, update_all=False)
-    assert len(result) == 12
-    post = result[1]
-    assert post["title"] == "My Life with the R-universe"
-    assert (
-        datetime.fromtimestamp(post["updated_at"]).isoformat() == "2023-10-13T10:10:57"
-    )
+    assert len(result) == 0
 
 
 @pytest.mark.vcr

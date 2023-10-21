@@ -38,12 +38,13 @@ async def extract_all_posts(page: int = 1, update_all: bool = False):
     )
     tasks = []
     for blog in blogs.data:
-        task = asyncio.ensure_future(extract_all_posts_by_blog(blog["slug"], page, update_all))
+        task = asyncio.ensure_future(
+            extract_all_posts_by_blog(blog["slug"], page, update_all)
+        )
         tasks.append(task)
 
     results = await asyncio.gather(*tasks)
     return [item for sublist in results for item in sublist]
-
 
     # def flatten_extend(matrix):
     #     flat_list = []
@@ -63,7 +64,18 @@ async def extract_all_posts(page: int = 1, update_all: bool = False):
 async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool = False):
     """Extract all posts by blog."""
 
-    blog = extract_single_blog(slug)
+    response = (
+        supabase.table("blogs")
+        .select(
+            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, use_mastodon, generator, language, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter"
+        )
+        .eq("slug", slug)
+        .maybe_single()
+        .execute()
+    )
+    blog = response.data
+    if not blog:
+        return {}
     url = furl(blog.get("feed_url", None))
     generator = (
         blog.get("generator", "").split(" ")[0] if blog.get("generator", None) else None

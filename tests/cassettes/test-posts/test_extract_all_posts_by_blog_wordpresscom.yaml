@@ -23,9 +23,9 @@ interactions:
       x-client-info:
       - supabase-py/1.2.0
     method: GET
-    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.wisspub
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20language%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.wisspub
   response:
-    content: '{"id":"34zkv26","slug":"wisspub","feed_url":"https://wisspub.net/feed/atom/","current_feed_url":null,"home_page_url":"https://wisspub.net","archive_prefix":null,"feed_format":"application/atom+xml","created_at":"2023-01-16","updated_at":1689236362,"use_mastodon":true,"generator":"WordPress.com","favicon":null,"title":"wisspub.net","description":"Gemeinschaftsblog
+    content: '{"id":"34zkv26","slug":"wisspub","feed_url":"https://wisspub.net/feed/atom/","current_feed_url":null,"home_page_url":"https://wisspub.net","archive_prefix":null,"feed_format":"application/atom+xml","created_at":"2023-01-16","updated_at":1689236362,"use_mastodon":true,"generator":"WordPress.com","language":"de","favicon":null,"title":"wisspub.net","description":"Gemeinschaftsblog
       zu wissenschaftlicher Kommunikation im Netz.","category":"socialSciences","status":"active","user_id":"dbffda7d-f391-48fb-a6d2-d4a284c59c8d","authors":null,"plan":"Team","use_api":true,"relative_url":null,"filter":null}'
     headers:
       Access-Control-Allow-Origin:
@@ -33,11 +33,11 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395ac8cffcaf1-DUS
+      - 819c1dc0591d1632-DUS
       Connection:
       - keep-alive
       Content-Location:
-      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.wisspub
+      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20language%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.wisspub
       Content-Profile:
       - public
       Content-Range:
@@ -45,7 +45,7 @@ interactions:
       Content-Type:
       - application/vnd.pgrst.object+json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:35 GMT
+      - Sat, 21 Oct 2023 20:05:35 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -645,7 +645,7 @@ interactions:
       Content-Type:
       - application/atom+xml; charset=UTF-8
       Date:
-      - Fri, 20 Oct 2023 19:14:36 GMT
+      - Sat, 21 Oct 2023 20:05:35 GMT
       Host-Header:
       - WordPress.com
       Last-Modified:
@@ -660,7 +660,7 @@ interactions:
       - Accept-Encoding
       - accept, content-type, cookie
       X-ac:
-      - 3.ams _dfw REVALIDATED
+      - 3.ams _dfw HIT
       X-hacker:
       - Want root?  Visit join.a8c.com/hacker and mention this header.
       X-nc:
@@ -668,6 +668,150 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      user-agent:
+      - python-httpx/0.24.1
+      x-client-info:
+      - supabase-py/1.2.0
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/posts?select=updated_at%2C%20blog_slug&blog_slug=eq.wisspub&order=updated_at.desc&limit=1
+  response:
+    content: '[{"updated_at":1689236362,"blog_slug":"wisspub"}]'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 819c1dc27c3c1632-DUS
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Location:
+      - /posts?blog_slug=eq.wisspub&limit=1&order=updated_at.desc&select=updated_at%2C%20blog_slug
+      Content-Profile:
+      - public
+      Content-Range:
+      - 0-0/*
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 21 Oct 2023 20:05:35 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/2.8.1
+      X-Kong-Proxy-Latency:
+      - '0'
+      X-Kong-Upstream-Latency:
+      - '9'
+      alt-svc:
+      - h3=":443"; ma=86400
+      sb-gateway-version:
+      - '1'
+    http_version: HTTP/1.1
+    status_code: 200
+- request:
+    body: '{"id": "34zkv26", "slug": "wisspub", "title": "wisspub.net", "description":
+      "Gemeinschaftsblog zu wissenschaftlicher Kommunikation im Netz.", "feed_url":
+      "https://wisspub.net/feed/atom/", "current_feed_url": null, "home_page_url":
+      "https://wisspub.net", "feed_format": "application/atom+xml", "modified_at":
+      null, "updated_at": 1689236362, "language": "de", "category": "socialSciences",
+      "favicon": null, "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "generator": "WordPress.com", "status": "active", "user_id": "dbffda7d-f391-48fb-a6d2-d4a284c59c8d",
+      "use_mastodon": true}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '595'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      prefer:
+      - return=representation,resolution=merge-duplicates
+      user-agent:
+      - python-httpx/0.24.1
+      x-client-info:
+      - supabase-py/1.2.0
+    method: POST
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?on_conflict=slug
+  response:
+    content: '[{"id":"34zkv26","title":"wisspub.net","description":"Gemeinschaftsblog
+      zu wissenschaftlicher Kommunikation im Netz.","language":"de","favicon":null,"feed_url":"https://wisspub.net/feed/atom/","home_page_url":"https://wisspub.net","user_id":"dbffda7d-f391-48fb-a6d2-d4a284c59c8d","created_at":"2023-01-16","feed_format":"application/atom+xml","license":"https://creativecommons.org/licenses/by/4.0/legalcode","generator":"WordPress.com","category":"socialSciences","prefix":null,"modified_at":null,"version":"https://jsonfeed.org/version/1.1","current_feed_url":null,"status":"active","issn":null,"backlog":0,"authors":null,"plan":"Team","slug":"wisspub","use_mastodon":true,"api":true,"funding":null,"archive_prefix":null,"use_api":true,"relative_url":null,"canonical_url":null,"filter":null,"updated_at":1689236362}]'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 819c1dc2e8b32163-DUS
+      Connection:
+      - keep-alive
+      Content-Profile:
+      - public
+      Content-Range:
+      - '*/*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 21 Oct 2023 20:05:35 GMT
+      Preference-Applied:
+      - resolution=merge-duplicates
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/2.8.1
+      X-Kong-Proxy-Latency:
+      - '0'
+      X-Kong-Upstream-Latency:
+      - '3'
+      alt-svc:
+      - h3=":443"; ma=86400
+      sb-gateway-version:
+      - '1'
+    http_version: HTTP/1.1
+    status_code: 201
 - request:
     body: null
     headers: {}
@@ -7474,7 +7618,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 20 Oct 2023 19:14:38 GMT
+      - Sat, 21 Oct 2023 20:05:37 GMT
       Expires:
       - Wed, 11 Jan 1984 05:00:00 GMT
       Host-Header:
@@ -7860,7 +8004,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395c03f67717a-DUS
+      - 819c1dd02ea52163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -7870,7 +8014,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:38 GMT
+      - Sat, 21 Oct 2023 20:05:37 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -7884,7 +8028,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '4'
       alt-svc:
@@ -8092,7 +8236,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395c108a8717a-DUS
+      - 819c1dd0af2a2163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -8104,7 +8248,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:38 GMT
+      - Sat, 21 Oct 2023 20:05:38 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -8116,9 +8260,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -8386,7 +8530,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395c1b9a8717a-DUS
+      - 819c1dd178282163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -8396,7 +8540,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:39 GMT
+      - Sat, 21 Oct 2023 20:05:38 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -8410,9 +8554,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -8566,7 +8710,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395c25acf717a-DUS
+      - 819c1dd249182163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -8578,7 +8722,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:39 GMT
+      - Sat, 21 Oct 2023 20:05:38 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -8592,7 +8736,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '5'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -8880,7 +9024,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395c2dba9717a-DUS
+      - 819c1dd2a9a82163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -8890,7 +9034,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:39 GMT
+      - Sat, 21 Oct 2023 20:05:38 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -9070,7 +9214,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395c35c5b717a-DUS
+      - 819c1dd37a7e2163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -9082,7 +9226,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:39 GMT
+      - Sat, 21 Oct 2023 20:05:38 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -9258,7 +9402,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395c3dd5c717a-DUS
+      - 819c1dd3eadc2163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -9268,7 +9412,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:39 GMT
+      - Sat, 21 Oct 2023 20:05:38 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -9282,9 +9426,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -9385,7 +9529,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395c4df31717a-DUS
+      - 819c1dd45b3a2163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -9397,7 +9541,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:39 GMT
+      - Sat, 21 Oct 2023 20:05:38 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -9411,7 +9555,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '2'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -9584,7 +9728,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395c5a832717a-DUS
+      - 819c1dd4cb9d2163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -9594,7 +9738,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:39 GMT
+      - Sat, 21 Oct 2023 20:05:38 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -9610,7 +9754,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -9717,7 +9861,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395c618d9717a-DUS
+      - 819c1dd59c7e2163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -9729,7 +9873,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:39 GMT
+      - Sat, 21 Oct 2023 20:05:38 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -9904,7 +10048,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395c6c9ca717a-DUS
+      - 819c1dd61cf72163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -9914,7 +10058,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:39 GMT
+      - Sat, 21 Oct 2023 20:05:38 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -9928,9 +10072,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -10031,7 +10175,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395c75aa8717a-DUS
+      - 819c1dd68d6a2163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -10043,7 +10187,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:39 GMT
+      - Sat, 21 Oct 2023 20:05:38 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -10055,7 +10199,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -10575,7 +10719,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395c7cb53717a-DUS
+      - 819c1dd6edcb2163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -10585,7 +10729,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:40 GMT
+      - Sat, 21 Oct 2023 20:05:39 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -10601,7 +10745,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -10879,7 +11023,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395c8dd0a717a-DUS
+      - 819c1dd7fec72163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -10891,7 +11035,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:40 GMT
+      - Sat, 21 Oct 2023 20:05:39 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -10903,9 +11047,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -11112,7 +11256,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395c95e14717a-DUS
+      - 819c1dd8df862163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -11122,7 +11266,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:40 GMT
+      - Sat, 21 Oct 2023 20:05:39 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -11136,9 +11280,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -11261,7 +11405,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395ca2f50717a-DUS
+      - 819c1dd9783e2163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -11273,7 +11417,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:40 GMT
+      - Sat, 21 Oct 2023 20:05:39 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -11285,7 +11429,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -11815,7 +11959,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395ca9816717a-DUS
+      - 819c1dd9e8bb2163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -11825,7 +11969,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:40 GMT
+      - Sat, 21 Oct 2023 20:05:39 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -11839,9 +11983,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -12128,7 +12272,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395cc3ad6717a-DUS
+      - 819c1dda895a2163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -12140,7 +12284,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:40 GMT
+      - Sat, 21 Oct 2023 20:05:39 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -12152,7 +12296,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -12422,7 +12566,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395ccdbdb717a-DUS
+      - 819c1ddaf9d62163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -12432,7 +12576,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:40 GMT
+      - Sat, 21 Oct 2023 20:05:39 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -12446,7 +12590,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '4'
       alt-svc:
@@ -12602,7 +12746,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395cd5cab717a-DUS
+      - 819c1ddb7a872163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -12614,7 +12758,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:40 GMT
+      - Sat, 21 Oct 2023 20:05:39 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -12626,7 +12770,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -12943,7 +13087,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395ce1e11717a-DUS
+      - 819c1ddc1b422163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -12953,7 +13097,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:41 GMT
+      - Sat, 21 Oct 2023 20:05:39 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -12967,7 +13111,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '4'
       alt-svc:
@@ -13146,7 +13290,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395ce9ec8717a-DUS
+      - 819c1ddc8bc02163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -13158,7 +13302,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:41 GMT
+      - Sat, 21 Oct 2023 20:05:39 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -13170,9 +13314,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -13709,7 +13853,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395cf787d717a-DUS
+      - 819c1ddcfc142163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -13719,7 +13863,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:41 GMT
+      - Sat, 21 Oct 2023 20:05:40 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -14025,7 +14169,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395d0194e717a-DUS
+      - 819c1ddd7ca02163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -14037,7 +14181,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:41 GMT
+      - Sat, 21 Oct 2023 20:05:40 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -14049,9 +14193,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -14311,7 +14455,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395d09a1d717a-DUS
+      - 819c1ddded0e2163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -14321,7 +14465,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:41 GMT
+      - Sat, 21 Oct 2023 20:05:40 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -14486,7 +14630,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395d11aea717a-DUS
+      - 819c1dde9dee2163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -14498,7 +14642,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:41 GMT
+      - Sat, 21 Oct 2023 20:05:40 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -14765,7 +14909,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395d1ec5a717a-DUS
+      - 819c1ddf6eb02163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -14775,7 +14919,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:41 GMT
+      - Sat, 21 Oct 2023 20:05:40 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -14789,9 +14933,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -14937,7 +15081,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395d2cdba717a-DUS
+      - 819c1de01f762163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -14949,7 +15093,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:41 GMT
+      - Sat, 21 Oct 2023 20:05:40 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -14961,9 +15105,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '2'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '2'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -15224,7 +15368,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395d33e51717a-DUS
+      - 819c1de08ffe2163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -15234,7 +15378,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:41 GMT
+      - Sat, 21 Oct 2023 20:05:40 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -15248,9 +15392,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -15400,7 +15544,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395d3cfad717a-DUS
+      - 819c1de118882163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -15412,7 +15556,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:41 GMT
+      - Sat, 21 Oct 2023 20:05:40 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -15542,7 +15686,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395d44839717a-DUS
+      - 819c1de1a9352163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -15552,7 +15696,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:42 GMT
+      - Sat, 21 Oct 2023 20:05:40 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -15644,7 +15788,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395d4c8c2717a-DUS
+      - 819c1de2aa492163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -15656,7 +15800,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:42 GMT
+      - Sat, 21 Oct 2023 20:05:40 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -15668,7 +15812,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -15944,7 +16088,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395d53973717a-DUS
+      - 819c1de30a982163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -15954,7 +16098,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:42 GMT
+      - Sat, 21 Oct 2023 20:05:41 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -15968,9 +16112,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -16126,7 +16270,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395d60a8e717a-DUS
+      - 819c1de37b1d2163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -16138,7 +16282,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:42 GMT
+      - Sat, 21 Oct 2023 20:05:41 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -16150,9 +16294,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '2'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -16575,7 +16719,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395d67b17717a-DUS
+      - 819c1de3eb8e2163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -16585,7 +16729,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:42 GMT
+      - Sat, 21 Oct 2023 20:05:41 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -16599,7 +16743,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
       - '4'
       alt-svc:
@@ -16832,7 +16976,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395d77c60717a-DUS
+      - 819c1de46bf22163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -16844,7 +16988,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:42 GMT
+      - Sat, 21 Oct 2023 20:05:41 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -17537,7 +17681,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395d87dc9717a-DUS
+      - 819c1de51cb32163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -17547,7 +17691,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:42 GMT
+      - Sat, 21 Oct 2023 20:05:41 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -17563,7 +17707,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '5'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -17924,7 +18068,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395d94ee8717a-DUS
+      - 819c1de5fdd12163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -17936,7 +18080,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:42 GMT
+      - Sat, 21 Oct 2023 20:05:41 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -18501,7 +18645,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395d9cfac717a-DUS
+      - 819c1de65e3e2163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -18511,7 +18655,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:42 GMT
+      - Sat, 21 Oct 2023 20:05:41 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -18525,9 +18669,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -18825,7 +18969,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395da486c717a-DUS
+      - 819c1de6deb12163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -18837,7 +18981,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:42 GMT
+      - Sat, 21 Oct 2023 20:05:41 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -18849,7 +18993,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -19633,7 +19777,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395dac926717a-DUS
+      - 819c1de74f242163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -19643,7 +19787,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:43 GMT
+      - Sat, 21 Oct 2023 20:05:41 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -20073,7 +20217,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395db9a59717a-DUS
+      - 819c1de7efe02163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -20085,7 +20229,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:43 GMT
+      - Sat, 21 Oct 2023 20:05:41 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -20099,7 +20243,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -20274,7 +20418,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395dc8bf0717a-DUS
+      - 819c1de8785a2163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -20284,7 +20428,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:43 GMT
+      - Sat, 21 Oct 2023 20:05:41 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -20407,7 +20551,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395dd1cd7717a-DUS
+      - 819c1de949942163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -20419,7 +20563,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:43 GMT
+      - Sat, 21 Oct 2023 20:05:41 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -20431,7 +20575,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -20601,7 +20745,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395dd8d6f717a-DUS
+      - 819c1de9aa042163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -20611,7 +20755,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:43 GMT
+      - Sat, 21 Oct 2023 20:05:42 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -20625,9 +20769,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -20731,7 +20875,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395de1e27717a-DUS
+      - 819c1dea1a972163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -20743,7 +20887,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:43 GMT
+      - Sat, 21 Oct 2023 20:05:42 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -20755,7 +20899,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -20940,7 +21084,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395df0f9c717a-DUS
+      - 819c1dea8b0e2163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -20950,7 +21094,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:43 GMT
+      - Sat, 21 Oct 2023 20:05:42 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -20966,7 +21110,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -21077,7 +21221,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395dfd918717a-DUS
+      - 819c1deafb8d2163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -21089,7 +21233,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:43 GMT
+      - Sat, 21 Oct 2023 20:05:42 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -21103,7 +21247,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '2'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -21283,7 +21427,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395e08a22717a-DUS
+      - 819c1debbc632163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -21293,7 +21437,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:43 GMT
+      - Sat, 21 Oct 2023 20:05:42 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -21417,7 +21561,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395e10ad9717a-DUS
+      - 819c1decad702163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -21429,7 +21573,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:44 GMT
+      - Sat, 21 Oct 2023 20:05:42 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -21676,7 +21820,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395e19b88717a-DUS
+      - 819c1ded2e1a2163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -21686,7 +21830,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:44 GMT
+      - Sat, 21 Oct 2023 20:05:42 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -21702,7 +21846,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -21837,7 +21981,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395e22cad717a-DUS
+      - 819c1dedcf1a2163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -21849,7 +21993,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:44 GMT
+      - Sat, 21 Oct 2023 20:05:42 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -21861,7 +22005,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -22286,7 +22430,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395e32e15717a-DUS
+      - 819c1dee3fcb2163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -22296,7 +22440,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:44 GMT
+      - Sat, 21 Oct 2023 20:05:42 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -22312,7 +22456,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -22542,7 +22686,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395e3aed4717a-DUS
+      - 819c1deec9082163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -22554,7 +22698,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:44 GMT
+      - Sat, 21 Oct 2023 20:05:42 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -22566,7 +22710,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -22905,7 +23049,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395e45fc1717a-DUS
+      - 819c1defcad62163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -22915,7 +23059,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:44 GMT
+      - Sat, 21 Oct 2023 20:05:43 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -22929,7 +23073,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -23119,7 +23263,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395e4e87c717a-DUS
+      - 819c1df05b642163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -23131,7 +23275,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:44 GMT
+      - Sat, 21 Oct 2023 20:05:43 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -23143,9 +23287,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -23657,7 +23801,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395e5995b717a-DUS
+      - 819c1df0bbc82163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -23667,7 +23811,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:44 GMT
+      - Sat, 21 Oct 2023 20:05:43 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -23681,9 +23825,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -23958,7 +24102,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395e66a46717a-DUS
+      - 819c1df12c322163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -23970,7 +24114,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:44 GMT
+      - Sat, 21 Oct 2023 20:05:43 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -24296,7 +24440,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395e6eaef717a-DUS
+      - 819c1df19ca92163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -24306,7 +24450,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:44 GMT
+      - Sat, 21 Oct 2023 20:05:43 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -24497,7 +24641,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395e76b85717a-DUS
+      - 819c1df24d4f2163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -24509,7 +24653,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:45 GMT
+      - Sat, 21 Oct 2023 20:05:43 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -24806,7 +24950,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395e80c6a717a-DUS
+      - 819c1df30e5c2163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -24816,7 +24960,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:45 GMT
+      - Sat, 21 Oct 2023 20:05:43 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -24830,7 +24974,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -24993,7 +25137,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395e88d01717a-DUS
+      - 819c1df45f982163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -25005,7 +25149,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:45 GMT
+      - Sat, 21 Oct 2023 20:05:43 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -25017,9 +25161,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '2'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -25301,7 +25445,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395e90da3717a-DUS
+      - 819c1df4b8112163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -25311,7 +25455,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:45 GMT
+      - Sat, 21 Oct 2023 20:05:43 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -25486,7 +25630,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395e9bead717a-DUS
+      - 819c1df548a02163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -25498,7 +25642,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:45 GMT
+      - Sat, 21 Oct 2023 20:05:43 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -25510,9 +25654,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '2'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -25652,7 +25796,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395ea3f58717a-DUS
+      - 819c1df649c12163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -25662,7 +25806,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:45 GMT
+      - Sat, 21 Oct 2023 20:05:44 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -25678,7 +25822,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -25767,7 +25911,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395eaafe5717a-DUS
+      - 819c1df6ba2d2163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -25779,7 +25923,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:45 GMT
+      - Sat, 21 Oct 2023 20:05:44 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -26146,7 +26290,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395eb289b717a-DUS
+      - 819c1df72aa62163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -26156,7 +26300,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:45 GMT
+      - Sat, 21 Oct 2023 20:05:44 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -26170,9 +26314,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -26368,7 +26512,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395ec2a08717a-DUS
+      - 819c1df7ab202163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -26380,7 +26524,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:45 GMT
+      - Sat, 21 Oct 2023 20:05:44 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -26394,7 +26538,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '2'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -27012,7 +27156,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395ecfb32717a-DUS
+      - 819c1df81b762163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -27022,7 +27166,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:45 GMT
+      - Sat, 21 Oct 2023 20:05:44 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -27036,9 +27180,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '5'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -27369,7 +27513,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395edbc4f717a-DUS
+      - 819c1dfa0d7f2163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -27381,7 +27525,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:46 GMT
+      - Sat, 21 Oct 2023 20:05:44 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -27545,7 +27689,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395ee3cee717a-DUS
+      - 819c1dfa7e012163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -27555,7 +27699,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:46 GMT
+      - Sat, 21 Oct 2023 20:05:44 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -27664,7 +27808,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395eebdd2717a-DUS
+      - 819c1dfaeed02163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -27676,7 +27820,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:46 GMT
+      - Sat, 21 Oct 2023 20:05:44 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -27688,9 +27832,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '2'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -28466,7 +28610,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395ef2ea6717a-DUS
+      - 819c1dfb6f512163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -28476,7 +28620,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:46 GMT
+      - Sat, 21 Oct 2023 20:05:44 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -28490,9 +28634,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '2'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -28904,7 +29048,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395f04880717a-DUS
+      - 819c1dfc08042163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -28916,7 +29060,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:46 GMT
+      - Sat, 21 Oct 2023 20:05:45 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -28928,9 +29072,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -29093,7 +29237,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395f0c96f717a-DUS
+      - 819c1dfce8e52163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -29103,7 +29247,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:46 GMT
+      - Sat, 21 Oct 2023 20:05:45 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -29220,7 +29364,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395f14a58717a-DUS
+      - 819c1dfd59432163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -29232,7 +29376,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:46 GMT
+      - Sat, 21 Oct 2023 20:05:45 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -29385,7 +29529,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395f1baf8717a-DUS
+      - 819c1dfdb99a2163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -29395,7 +29539,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:46 GMT
+      - Sat, 21 Oct 2023 20:05:45 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -29409,9 +29553,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -29500,7 +29644,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395f2bc8d717a-DUS
+      - 819c1dfe3a142163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -29512,7 +29656,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:46 GMT
+      - Sat, 21 Oct 2023 20:05:45 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -29524,7 +29668,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -29628,7 +29772,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395f38e0c717a-DUS
+      - 819c1dfe9a6c2163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -29638,7 +29782,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:47 GMT
+      - Sat, 21 Oct 2023 20:05:45 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -29724,7 +29868,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395f3fec9717a-DUS
+      - 819c1dff5b432163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -29736,7 +29880,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:47 GMT
+      - Sat, 21 Oct 2023 20:05:45 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -29748,7 +29892,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -29989,7 +30133,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395f47f81717a-DUS
+      - 819c1e002c3a2163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -29999,7 +30143,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:47 GMT
+      - Sat, 21 Oct 2023 20:05:45 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -30015,7 +30159,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -30155,7 +30299,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395f4f88e717a-DUS
+      - 819c1e00cd482163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -30167,7 +30311,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:47 GMT
+      - Sat, 21 Oct 2023 20:05:45 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -30335,7 +30479,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395f57962717a-DUS
+      - 819c1e013dc62163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -30345,7 +30489,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:47 GMT
+      - Sat, 21 Oct 2023 20:05:45 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -30457,7 +30601,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395f5fa5a717a-DUS
+      - 819c1e01be3b2163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -30469,7 +30613,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:47 GMT
+      - Sat, 21 Oct 2023 20:05:45 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -30660,7 +30804,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395f6cbd6717a-DUS
+      - 819c1e021ebc2163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -30670,7 +30814,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:47 GMT
+      - Sat, 21 Oct 2023 20:05:45 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -30684,9 +30828,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -30794,7 +30938,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395f75c90717a-DUS
+      - 819c1e028f372163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -30806,7 +30950,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:47 GMT
+      - Sat, 21 Oct 2023 20:05:46 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -30820,7 +30964,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -30959,7 +31103,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395f7bd21717a-DUS
+      - 819c1e03784e2163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -30969,7 +31113,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:47 GMT
+      - Sat, 21 Oct 2023 20:05:46 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -31074,7 +31218,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395f83dc9717a-DUS
+      - 819c1e03f8d72163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -31086,7 +31230,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:47 GMT
+      - Sat, 21 Oct 2023 20:05:46 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -31558,7 +31702,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395f93f9a717a-DUS
+      - 819c1e0469662163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -31568,7 +31712,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:47 GMT
+      - Sat, 21 Oct 2023 20:05:46 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -31582,9 +31726,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -31833,7 +31977,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395fa18f7717a-DUS
+      - 819c1e04f9db2163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -31845,7 +31989,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:48 GMT
+      - Sat, 21 Oct 2023 20:05:46 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -31857,9 +32001,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -32127,7 +32271,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395fa899e717a-DUS
+      - 819c1e05eab72163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -32137,7 +32281,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:48 GMT
+      - Sat, 21 Oct 2023 20:05:46 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -32151,9 +32295,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -32305,7 +32449,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395fb0a56717a-DUS
+      - 819c1e06bbac2163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -32317,7 +32461,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:48 GMT
+      - Sat, 21 Oct 2023 20:05:46 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -33324,7 +33468,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395fb7b42717a-DUS
+      - 819c1e072c5c2163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -33334,7 +33478,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:48 GMT
+      - Sat, 21 Oct 2023 20:05:46 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -33348,9 +33492,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '2'
       X-Kong-Upstream-Latency:
-      - '6'
+      - '5'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -33869,7 +34013,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395fc0bfc717a-DUS
+      - 819c1e087ddb2163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -33881,7 +34025,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:48 GMT
+      - Sat, 21 Oct 2023 20:05:46 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -33893,9 +34037,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -34151,7 +34295,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395fc7cb7717a-DUS
+      - 819c1e08ee3a2163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -34161,7 +34305,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:48 GMT
+      - Sat, 21 Oct 2023 20:05:47 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -34177,7 +34321,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -34324,7 +34468,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395fd5dae717a-DUS
+      - 819c1e09ff582163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -34336,7 +34480,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:48 GMT
+      - Sat, 21 Oct 2023 20:05:47 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -34549,7 +34693,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395fdce3d717a-DUS
+      - 819c1e0a5fcc2163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -34559,7 +34703,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:48 GMT
+      - Sat, 21 Oct 2023 20:05:47 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -34573,7 +34717,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -34694,7 +34838,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395fe4ed7717a-DUS
+      - 819c1e0ad8342163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -34706,7 +34850,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:48 GMT
+      - Sat, 21 Oct 2023 20:05:47 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -34718,7 +34862,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -34838,7 +34982,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395fecf81717a-DUS
+      - 819c1e0b48b62163-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -34848,7 +34992,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:48 GMT
+      - Sat, 21 Oct 2023 20:05:47 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -34864,7 +35008,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -34942,7 +35086,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819395ffd916717a-DUS
+      - 819c1e0bb92e2163-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -34954,7 +35098,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:14:48 GMT
+      - Sat, 21 Oct 2023 20:05:47 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -34968,7 +35112,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '2'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:

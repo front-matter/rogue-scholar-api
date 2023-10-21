@@ -23,22 +23,23 @@ interactions:
       x-client-info:
       - supabase-py/1.2.0
     method: GET
-    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.front_matter
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20language%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.front_matter
   response:
-    content: '{"id":"f0m0e38","slug":"front_matter","feed_url":"https://blog.front-matter.io/atom-complete/","current_feed_url":"https://blog.front-matter.io/atom/","home_page_url":"https://blog.front-matter.io","archive_prefix":null,"feed_format":"application/atom+xml","created_at":"2023-01-02","updated_at":1697042527,"use_mastodon":true,"generator":"Ghost
-      5.52","favicon":"https://blog.front-matter.io/favicon.png","title":"Front Matter","description":"The
-      Front Matter Blog covers the intersection of science and technology since 2007.","category":"computerAndInformationSciences","status":"active","user_id":"8498eaf6-8c58-4b58-bc15-27eda292b1aa","authors":null,"plan":"Team","use_api":true,"relative_url":null,"filter":null}'
+    content: '{"id":"f0m0e38","slug":"front_matter","feed_url":"https://blog.front-matter.io/atom-complete/","current_feed_url":"https://blog.front-matter.io/atom/","home_page_url":"https://blog.front-matter.io","archive_prefix":null,"feed_format":"application/atom+xml","created_at":"2023-01-02","updated_at":1697099245,"use_mastodon":true,"generator":"Ghost
+      5.52","language":"en","favicon":"https://blog.front-matter.io/favicon.png","title":"Front
+      Matter","description":"The Front Matter Blog covers the intersection of science
+      and technology since 2007.","category":"computerAndInformationSciences","status":"active","user_id":"8498eaf6-8c58-4b58-bc15-27eda292b1aa","authors":null,"plan":"Team","use_api":true,"relative_url":null,"filter":null}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 81939ee78a8a7175-DUS
+      - 819c1e5568326a9a-DUS
       Connection:
       - keep-alive
       Content-Location:
-      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.front_matter
+      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20language%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.front_matter
       Content-Profile:
       - public
       Content-Range:
@@ -46,7 +47,7 @@ interactions:
       Content-Type:
       - application/vnd.pgrst.object+json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:20:53 GMT
+      - Sat, 21 Oct 2023 20:05:59 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -32304,7 +32305,7 @@ interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '27801'
+      - '116906'
       Alt-Svc:
       - clear
       Cache-Control:
@@ -32316,7 +32317,7 @@ interactions:
       Content-Type:
       - application/atom+xml; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:20:54 GMT
+      - Sat, 21 Oct 2023 20:05:59 GMT
       Ghost-Age:
       - '0'
       Ghost-Cache:
@@ -32339,9 +32340,9 @@ interactions:
       - c20e94f4-bbdf-4d77-a0d9-915ff7654a85
       - c20e94f4-bbdf-4d77-a0d9-915ff7654a85
       X-Served-By:
-      - cache-ams21028-AMS
+      - cache-ams21025-AMS
       X-Timer:
-      - S1697829654.003703,VS0,VE4
+      - S1697918759.461916,VS0,VE3
       etag:
       - W/"2d9e5a-aN8OsfrtLs1NoIA2ZgNJoa+Y35Q"
       x-request-id:
@@ -32351,12 +32352,158 @@ interactions:
       code: 200
       message: OK
 - request:
+    body: '{}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      user-agent:
+      - python-httpx/0.24.1
+      x-client-info:
+      - supabase-py/1.2.0
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/posts?select=updated_at%2C%20blog_slug&blog_slug=eq.front_matter&order=updated_at.desc&limit=1
+  response:
+    content: '[{"updated_at":1697099245,"blog_slug":"front_matter"}]'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 819c1e6269526a9a-DUS
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Location:
+      - /posts?blog_slug=eq.front_matter&limit=1&order=updated_at.desc&select=updated_at%2C%20blog_slug
+      Content-Profile:
+      - public
+      Content-Range:
+      - 0-0/*
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 21 Oct 2023 20:06:01 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/2.8.1
+      X-Kong-Proxy-Latency:
+      - '1'
+      X-Kong-Upstream-Latency:
+      - '9'
+      alt-svc:
+      - h3=":443"; ma=86400
+      sb-gateway-version:
+      - '1'
+    http_version: HTTP/1.1
+    status_code: 200
+- request:
+    body: '{"id": "f0m0e38", "slug": "front_matter", "title": "Front Matter", "description":
+      "The Front Matter Blog covers the intersection of science and technology since
+      2007.", "feed_url": "https://blog.front-matter.io/atom-complete/", "current_feed_url":
+      "https://blog.front-matter.io/atom/", "home_page_url": "https://blog.front-matter.io",
+      "feed_format": "application/atom+xml", "modified_at": null, "updated_at": 1697099245,
+      "language": "en", "category": "computerAndInformationSciences", "favicon": "https://blog.front-matter.io/favicon.png",
+      "license": "https://creativecommons.org/licenses/by/4.0/legalcode", "generator":
+      "Ghost 5.52", "status": "active", "user_id": "8498eaf6-8c58-4b58-bc15-27eda292b1aa",
+      "use_mastodon": true}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '727'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      prefer:
+      - return=representation,resolution=merge-duplicates
+      user-agent:
+      - python-httpx/0.24.1
+      x-client-info:
+      - supabase-py/1.2.0
+    method: POST
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?on_conflict=slug
+  response:
+    content: '[{"id":"f0m0e38","title":"Front Matter","description":"The Front Matter
+      Blog covers the intersection of science and technology since 2007.","language":"en","favicon":"https://blog.front-matter.io/favicon.png","feed_url":"https://blog.front-matter.io/atom-complete/","home_page_url":"https://blog.front-matter.io","user_id":"8498eaf6-8c58-4b58-bc15-27eda292b1aa","created_at":"2023-01-02","feed_format":"application/atom+xml","license":"https://creativecommons.org/licenses/by/4.0/legalcode","generator":"Ghost
+      5.52","category":"computerAndInformationSciences","prefix":"10.53731","modified_at":null,"version":"https://jsonfeed.org/version/1.1","current_feed_url":"https://blog.front-matter.io/atom/","status":"active","issn":"2749-9952","backlog":0,"authors":null,"plan":"Team","slug":"front_matter","use_mastodon":true,"api":true,"funding":null,"archive_prefix":null,"use_api":true,"relative_url":null,"canonical_url":null,"filter":null,"updated_at":1697099245}]'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 819c1e62ddbe2163-DUS
+      Connection:
+      - keep-alive
+      Content-Profile:
+      - public
+      Content-Range:
+      - '*/*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 21 Oct 2023 20:06:01 GMT
+      Preference-Applied:
+      - resolution=merge-duplicates
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/2.8.1
+      X-Kong-Proxy-Latency:
+      - '1'
+      X-Kong-Upstream-Latency:
+      - '3'
+      alt-svc:
+      - h3=":443"; ma=86400
+      sb-gateway-version:
+      - '1'
+    http_version: HTTP/1.1
+    status_code: 201
+- request:
     body: null
     headers:
       Accept-Version:
       - v5.0
     method: GET
-    uri: https://front-matter.ghost.io/ghost/api/content/posts/?page=1&limit=50&include=tags,authors&key=b099ebe9ce894979c77431e6d3
+    uri: https://front-matter.ghost.io/ghost/api/content/posts/?page=1&limit=50&filter&include=tags,authors&key=b099ebe9ce894979c77431e6d3
   response:
     body:
       string: "{\"posts\":[{\"id\":\"6526c60bf23c390001a8394c\",\"uuid\":\"e9d845a4-81e9-498f-b252-4493f9f42bc2\",\"title\":\"Generating
@@ -36142,7 +36289,7 @@ interactions:
       Access-Control-Allow-Origin:
       - '*'
       Age:
-      - '12'
+      - '75241'
       Alt-Svc:
       - clear
       Cache-Control:
@@ -36156,7 +36303,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 20 Oct 2023 19:20:55 GMT
+      - Sat, 21 Oct 2023 20:06:01 GMT
       Etag:
       - W/"6f944-OU2srky1o253XRM8z1Y7zCoK2Gk"
       Ghost-Age:
@@ -36178,15 +36325,15 @@ interactions:
       X-Cache-Hits:
       - '1'
       X-Request-ID:
-      - 03fc8bcd-6979-40d5-a2c9-04cd1e579b79
+      - 48c0c4a1-828c-40ce-92c0-2685bda36b13
       X-Served-By:
-      - cache-ams21036-AMS
+      - cache-ams21049-AMS
       X-Timer:
-      - S1697829655.213600,VS0,VE17
+      - S1697918762.588864,VS0,VE2
       content-version:
       - v5.69
       x-request-id:
-      - 03fc8bcd-6979-40d5-a2c9-04cd1e579b79
+      - 48c0c4a1-828c-40ce-92c0-2685bda36b13
     status:
       code: 200
       message: OK
