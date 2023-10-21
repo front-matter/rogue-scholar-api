@@ -2,6 +2,7 @@
 import pytest  # noqa: F401
 from datetime import datetime
 from rogue_scholar_api.posts import (
+    extract_all_posts,
     extract_all_posts_by_blog,
     upsert_single_post,
     get_urls,
@@ -15,6 +16,23 @@ from rogue_scholar_api.posts import (
 def vcr_config():
     """VCR configuration."""
     return {"filter_headers": ["apikey", "key", "X-TYPESENSE-API-KEY", "authorization"]}
+
+
+# @pytest.mark.vcr
+@pytest.mark.asyncio
+async def test_extract_all_posts():
+    """Extract all posts"""
+    result = await extract_all_posts()
+    assert len(result) == 50
+    post = result[0]
+    assert post["title"] == "Aktualisierte OpenAIRE Richtlinie für FIS-Manager"
+    assert post["authors"][0] == {"name": "Gastautor(en)"}
+    assert post["tags"] == [
+        "Elektronisches Publizieren",
+        "Forschungsinformationssysteme",
+        "Projekt",
+        "OpenAIRE",
+    ]
 
 
 @pytest.mark.vcr

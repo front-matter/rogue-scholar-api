@@ -3,11 +3,18 @@ import pytest  # noqa: F401
 
 from rogue_scholar_api.blogs import (
     extract_single_blog,
+    upsert_single_blog,
     parse_generator,
     parse_feed_format,
 )
 
+@pytest.fixture(scope="session")
+def vcr_config():
+    """VCR configuration."""
+    return {"filter_headers": ["apikey", "key", "X-TYPESENSE-API-KEY", "authorization"]}
 
+
+@pytest.mark.vcr
 def test_extract_single_blog_atom_feed():
     "extract single blog atom feed"
     slug = "epub_fis"
@@ -18,13 +25,14 @@ def test_extract_single_blog_atom_feed():
     assert result["home_page_url"] == "https://blog.dini.de/EPub_FIS"
     assert result["generator"] == "WordPress 6.3.2"
     assert result["created_at"] == "2023-07-21"
-    # assert result["updated_at"] > 0
+    assert result["updated_at"] > 0
     assert (
         result["favicon"]
         == "https://blog.dini.de/EPub_FIS/wp-content/uploads/2018/03/cropped-DINI-AG-FIS-3-1-150x150.png"
     )
 
 
+@pytest.mark.vcr
 def test_extract_single_blog_json_feed():
     "extract single blog json feed"
     slug = "ropensci"
@@ -35,10 +43,11 @@ def test_extract_single_blog_json_feed():
     assert result["home_page_url"] == "https://ropensci.org/blog"
     assert result["generator"] == "Hugo -- gohugo.io"
     assert result["created_at"] == "2023-08-31"
-    # assert result["updated_at"] > 0
+    assert result["updated_at"] > 0
     assert result["favicon"] == "https://ropensci.org/apple-touch-icon.png"
 
 
+@pytest.mark.vcr
 def test_extract_single_blog_rss_feed():
     "extract single blog rss feed"
     slug = "andrewheiss"
@@ -49,7 +58,7 @@ def test_extract_single_blog_rss_feed():
     assert result["home_page_url"] == "https://www.andrewheiss.com/atom.html"
     assert result["generator"] == "Quarto 1.4.385"
     assert result["created_at"] == "2023-08-22"
-    # assert result["updated_at"] > 0
+    assert result["updated_at"] > 0
     assert result["favicon"] is None
 
 
@@ -187,3 +196,38 @@ def test_parse_feed_format_json_feed():
     }
     result = parse_feed_format(feed_format)
     assert result == "application/rss+xml"
+
+
+@pytest.mark.vcr
+def test_upsert_single_blog():
+    """Upsert single blog"""
+    blog = {
+        "id": "mdh1h61",
+        "slug": "epub_fis",
+        "version": "https://jsonfeed.org/version/1.1",
+        "feed_url": "https://blog.dini.de/EPub_FIS/feed/atom/",
+        "created_at": "2023-07-21",
+        "updated_at": 1695639719,
+        "current_feed_url": None,
+        "home_page_url": "https://blog.dini.de/EPub_FIS",
+        "archive_prefix": None,
+        "feed_format": "application/atom+xml",
+        "title": "FIS & EPub",
+        "generator": "WordPress 6.3.2",
+        "description": "Gemeinsamer Blog der DINI AG Forschungsinformationssystem und Elektronisches Publizieren",
+        "favicon": "https://blog.dini.de/EPub_FIS/wp-content/uploads/2018/03/cropped-DINI-AG-FIS-3-1-150x150.png",
+        "language": "de",
+        "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
+        "category": "socialSciences",
+        "status": "active",
+        "plan": "Team",
+        "user_id": "a9e3541e-1e00-4bf3-8a4d-fc9b1c505651",
+        "authors": None,
+        "use_mastodon": False,
+        "use_api": True,
+        "relative_url": None,
+        "filter": None,
+    }
+    result = upsert_single_blog(blog)
+    assert result["title"] == "FIS & EPub"
+    assert result["slug"] == "epub_fis"

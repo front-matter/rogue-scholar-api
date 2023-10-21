@@ -16,11 +16,48 @@ from commonmeta.utils import normalize_url
 
 from rogue_scholar_api.blogs import extract_single_blog
 from rogue_scholar_api.utils import unix_timestamp, normalize_tag, get_date, AUTHOR_IDS
-from rogue_scholar_api.supabase import supabase_admin_client as supabase_admin
+from rogue_scholar_api.supabase import (
+    supabase_admin_client as supabase_admin,
+    supabase_client as supabase,
+)
 
 
 def author_ids():
     """Author ids that can't be extracted from the blogging platform, e.g. from an RSS feed."""
+
+
+async def extract_all_posts(page: int = 1, update_all: bool = False):
+    """Extract all posts."""
+
+    blogs = (
+        supabase.table("blogs")
+        .select("slug")
+        .in_("status", ["active"])
+        .order("title", desc=False)
+        .execute()
+    )
+    tasks = []
+    for blog in blogs.data:
+        task = asyncio.ensure_future(extract_all_posts_by_blog(blog["slug"], page, update_all))
+        tasks.append(task)
+
+    results = await asyncio.gather(*tasks)
+    return [item for sublist in results for item in sublist]
+
+
+    # def flatten_extend(matrix):
+    #     flat_list = []
+    #     for row in matrix:
+    #         flat_list.extend(row)
+    #     return flat_list
+
+    # extracted_posts = await asyncio.gather(
+    #     *[
+    #         extract_all_posts_by_blog(i["slug"], page, update_all)
+    #         for i in wrap(blogs.data[0])
+    #     ]
+    # )
+    # return flatten_extend(extracted_posts)
 
 
 async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool = False):
@@ -28,7 +65,9 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
 
     blog = extract_single_blog(slug)
     url = furl(blog.get("feed_url", None))
-    generator = blog.get("generator", "").split(" ")[0] if blog.get("generator", None) else None
+    generator = (
+        blog.get("generator", "").split(" ")[0] if blog.get("generator", None) else None
+    )
     # limit number of pages for free plan to 5 (50 posts)
     page = min(page, 5) if blog.get("plan", None) == "Starter" else page
     start_page = (page - 1) * 50 if page > 0 else 0
@@ -66,6 +105,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                 params = {
                     "page": page,
                     "limit": 50,
+                    "filter": blog.get("filter", None),
                     "include": "tags,authors",
                     "key": key,
                 }
@@ -81,7 +121,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
 
     feed_url = url.set(params).url
     blog_with_posts = {}
-    
+
     # use pagination of results only for non-API blogs
     if params:
         start_page = 0
@@ -210,7 +250,7 @@ async def extract_wordpress_post(post, blog):
     image = (
         py_.get(post, "_embedded.wp:featuredmedia[0].source_url", None)
         or py_.get(post, "yoast_head_json.og_image[0].url", None)
-        or post.jetpack_featured_media_url
+        or post.get("jetpack_featured_media_url", None)
     )
     if not image and len(images) > 0:
         image = images[0].get("src", None)
@@ -671,6 +711,7 @@ def get_title(content_html: str):
 
 def get_abstract(content_html: str = None, maxlen: int = 450):
     """Get abstract from content_html."""
+    print(content_html)
     if not content_html:
         return None
     content_html = re.sub(r"(<br>|<p>)", " ", content_html)
@@ -686,7 +727,7 @@ def get_abstract(content_html: str = None, maxlen: int = 450):
         truncated = " ".join(sentences[:-2])
     truncated = re.sub(r"\n+", " ", truncated).strip()
 
-    return truncated
+    return truncated or ""
 
 
 def get_relationships(content_html: str):

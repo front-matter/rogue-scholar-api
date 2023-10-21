@@ -1,0 +1,1080 @@
+interactions:
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      user-agent:
+      - python-httpx/0.24.1
+      x-client-info:
+      - supabase-py/1.2.0
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20language%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.epub_fis
+  response:
+    content: '{"id":"mdh1h61","slug":"epub_fis","feed_url":"https://blog.dini.de/EPub_FIS/feed/atom/","current_feed_url":null,"home_page_url":"https://blog.dini.de/EPub_FIS","archive_prefix":null,"feed_format":"application/atom+xml","created_at":"2023-07-21","updated_at":1697718444,"use_mastodon":false,"generator":"WordPress
+      6.3.2","language":"de","favicon":"https://blog.dini.de/EPub_FIS/wp-content/uploads/2018/03/cropped-DINI-AG-FIS-3-1-150x150.png","title":"FIS
+      & EPub","description":"Gemeinsamer Blog der DINI AG Forschungsinformationssystem
+      und Elektronisches Publizieren","category":"socialSciences","status":"active","user_id":"a9e3541e-1e00-4bf3-8a4d-fc9b1c505651","authors":null,"plan":"Team","use_api":true,"relative_url":null,"filter":null}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 819bfb6e28317175-DUS
+      Connection:
+      - keep-alive
+      Content-Location:
+      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20language%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.epub_fis
+      Content-Profile:
+      - public
+      Content-Range:
+      - 0-0/*
+      Content-Type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      Date:
+      - Sat, 21 Oct 2023 19:42:09 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/2.8.1
+      X-Kong-Proxy-Latency:
+      - '0'
+      X-Kong-Upstream-Latency:
+      - '6'
+      alt-svc:
+      - h3=":443"; ma=86400
+      sb-gateway-version:
+      - '1'
+    http_version: HTTP/1.1
+    status_code: 200
+- request:
+    body: null
+    headers:
+      A-Im:
+      - feed
+      Accept:
+      - application/atom+xml,application/rdf+xml,application/rss+xml,application/x-netcdf,application/xml;q=0.9,text/xml;q=0.2,*/*;q=0.1
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - close
+      Host:
+      - blog.dini.de
+      User-Agent:
+      - feedparser/6.0.10 +https://github.com/kurtmckee/feedparser/
+    method: GET
+    uri: https://blog.dini.de/EPub_FIS/feed/atom/
+  response:
+    body:
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><feed\n\txmlns=\"http://www.w3.org/2005/Atom\"\n\txmlns:thr=\"http://purl.org/syndication/thread/1.0\"\n\txml:lang=\"de-DE\"\n\t\n\txmlns:georss=\"http://www.georss.org/georss\"\n\txmlns:geo=\"http://www.w3.org/2003/01/geo/wgs84_pos#\"\n\t>\n\t<title
+        type=\"text\">FIS &amp; EPub</title>\n\t<subtitle type=\"text\">Gemeinsamer
+        Blog der DINI AG Forschungsinformationssystem und Elektronisches Publizieren</subtitle>\n\n\t<updated>2023-09-25T11:01:59Z</updated>\n\n\t<link
+        rel=\"alternate\" type=\"text/html\" href=\"https://blog.dini.de/EPub_FIS\"
+        />\n\t<id>https://blog.dini.de/EPub_FIS/feed/atom/</id>\n\t<link rel=\"self\"
+        type=\"application/atom+xml\" href=\"https://blog.dini.de/EPub_FIS/feed/atom/\"
+        />\n\n\t<generator uri=\"https://wordpress.org/\" version=\"6.3.2\">WordPress</generator>\n<icon>https://blog.dini.de/EPub_FIS/wp-content/uploads/2018/03/cropped-DINI-AG-FIS-3-1-150x150.png</icon>\n\t<entry>\n\t\t<author>\n\t\t\t<name>Gastautor(en)</name>\n\t\t\t\t\t</author>\n\n\t\t<title
+        type=\"html\"><![CDATA[Aktualisierte OpenAIRE Richtlinie f\xFCr FIS-Manager]]></title>\n\t\t<link
+        rel=\"alternate\" type=\"text/html\" href=\"https://blog.dini.de/EPub_FIS/2023/09/25/openaire-richtlinie-fis-manager/\"
+        />\n\n\t\t<id>https://blog.dini.de/EPub_FIS/?p=3211</id>\n\t\t<updated>2023-09-25T11:01:59Z</updated>\n\t\t<published>2023-09-25T11:01:59Z</published>\n\t\t<category
+        scheme=\"https://blog.dini.de/EPub_FIS\" term=\"Elektronisches Publizieren\"
+        /><category scheme=\"https://blog.dini.de/EPub_FIS\" term=\"Forschungsinformationssysteme\"
+        /><category scheme=\"https://blog.dini.de/EPub_FIS\" term=\"Projekt\" /><category
+        scheme=\"https://blog.dini.de/EPub_FIS\" term=\"OpenAIRE\" />\n\t\t<summary
+        type=\"html\"><![CDATA[Im Juni 2023 wurden die &#8222;OpenAIRE Guidelines
+        for CRIS Managers v1.2&#8220; als Resultat eines intensiven Austauschs der
+        FIS Gemeinschaft ver\xF6ffentlicht.&#160; Bereits im Jahre 2015 wurde die
+        erste Richtlinie f\xFCr Forschungsinformationssysteme (FIS) ver\xF6ffentlicht,
+        welche die M\xF6glichkeit bot, Informationen im wissenschaftlichen Kontext,
+        wie Publikationen, Datensets, Personen-, Projekt- und Organisations-Informationen,
+        Veranstaltungen und weiteres plattform-unabh\xE4ngig basierend auf dem Common
+        [&#8230;]]]></summary>\n\n\t\t\t\t\t<content type=\"html\" xml:base=\"https://blog.dini.de/EPub_FIS/2023/09/25/openaire-richtlinie-fis-manager/\"><![CDATA[\n<p>Im
+        Juni 2023 wurden die &#8222;OpenAIRE Guidelines for CRIS Managers v1.2&#8220;
+        als Resultat eines intensiven Austauschs der FIS Gemeinschaft ver\xF6ffentlicht.&nbsp;</p>\n\n\n\n<p>Bereits
+        im Jahre 2015 wurde die erste Richtlinie f\xFCr Forschungsinformationssysteme
+        (FIS) ver\xF6ffentlicht, welche die M\xF6glichkeit bot, Informationen im wissenschaftlichen
+        Kontext, wie Publikationen, Datensets, Personen-, Projekt- und Organisations-Informationen,
+        Veranstaltungen und weiteres plattform-unabh\xE4ngig basierend auf dem Common
+        European Research Information Format (CERIF) auszutauschen. Dies war die Grundlage
+        f\xFCr den Metadata-Austausch mit <a rel=\"noreferrer noopener\" href=\"https://www.openaire.eu\"
+        data-type=\"URL\" data-id=\"https://www.openaire.eu\" target=\"_blank\">OpenAIRE
+        (Open Access Infrastructure for Research in Europe)</a>, dem damaligen Open-Access-Aggregator.
+        Die Ver\xF6ffentlichung wurde durch die Kollaboration des OpenAIRE-Projektes
+        und der europ\xE4ischen Vereinigung der Forschungsinformationssystem Betreibenden,
+        <a rel=\"noreferrer noopener\" href=\"https://eurocris.org\" data-type=\"URL\"
+        data-id=\"https://eurocris.org\" target=\"_blank\">euroCRIS</a>, m\xF6glich
+        und erschien unter dem Titel <a href=\"https://doi.org/10.5281/zenodo.17065\"
+        data-type=\"URL\" data-id=\"https://doi.org/10.5281/zenodo.17065\" target=\"_blank\"
+        rel=\"noreferrer noopener\">&#8222;OpenAIRE Guidelines for CRIS Managers v1.0&#8220;</a>.</p>\n\n\n\n<span
+        id=\"more-3211\"></span>\n\n\n\n<p>Aufgrund der R\xFCckmeldungen aus der Gemeinschaft
+        der FIS-Betreibenden wie auch der Plattform-Entwickler und auf Basis der Diskussionen
+        bei den euroCRIS Veranstaltungen, wurde diese <a href=\"https://doi.org/10.5281/zenodo.1298649\"
+        data-type=\"URL\" data-id=\"https://doi.org/10.5281/zenodo.1298649\" target=\"_blank\"
+        rel=\"noreferrer noopener\">Richtlinien in 2018 aktualisiert</a>.&nbsp;</p>\n\n\n\n<p>Die
+        Fortsetzung des intensiven Austausches mit der FIS-Gemeinschaft auf deutscher,
+        europ\xE4ischer und internationaler Ebene hat nun zu einer weiteren Aktualisierung
+        der Richtlinie gef\xFChrt. Die <a href=\"https://doi.org/10.5281/zenodo.8050935\"
+        data-type=\"URL\" data-id=\"https://doi.org/10.5281/zenodo.8050935\" target=\"_blank\"
+        rel=\"noreferrer noopener\">&#8222;OpenAIRE Guidelines for CRIS Managers v1.2&#8220;</a>
+        wurde im Juni 2023 ver\xF6ffentlicht.&nbsp;</p>\n\n\n\n<p>Das Metadatenformat
+        von OpenAIRE bietet nicht nur die M\xF6glichkeit unter Ber\xFCcksichtigung
+        multilingualer Aspekte Metadaten mit der OpenAIRE Infrastruktur und der European
+        Open Science Cloud (EOSC) auszutauschen, sondern erm\xF6glicht auch den Austausch
+        zwischen FIS-Systemen unterschiedlicher Einrichtungen, wie zum Beispiel zwischen
+        Universit\xE4ten und Forschungsf\xF6rderern. Aber auch die Erstellung und
+        der Austausch eines Profils von Forschenden w\xE4re denkbar.</p>\n\n\n\n<p>Die
+        aktualisierten Richtlinien reflektieren insbesondere:</p>\n\n\n\n<ul>\n<li>die
+        verbesserte M\xF6glichkeit, den Speicherort von Dateien darzustellen. Hierzu
+        wurde die Entit\xE4t &#8222;Medium&#8220; von CERIF in das Profil aufgenommen,</li>\n\n\n\n<li>die
+        Aktualisierung der genutzten COAR-Vokabulare zu <em>Resource Type</em> und
+        <em>Access Type</em>,</li>\n\n\n\n<li>einen generischen Personen Identifikator,</li>\n\n\n\n<li>Einf\xFChrung
+        strukturierter Organisations- und Einheiten-Identifikatoren,</li>\n\n\n\n<li>Erkl\xE4rung
+        der Bedeutung von Datumsfelder im Bereich Patente,</li>\n\n\n\n<li>einen strukturierten
+        Identifikator f\xFCr F\xF6rder-Informationen (GrandDOI),</li>\n\n\n\n<li>die
+        Unterst\xFCtzung gemeinsamer Datumsstrukturen \xE4hnlich dem DataCite Metadata
+        Schema von Dates in den Entit\xE4ten &#8222;Product&#8220; und &#8222;Medium&#8220;,</li>\n\n\n\n<li>Empfehlung
+        zur Verwendung von SPDX-Lizenz-URIs,</li>\n\n\n\n<li>die Erweiterung der Dokumentation
+        um neue Punkte; existierende Dokumentation-Abschnitte wurden verbessert, sowie
+        Beispiele aktualisiert.</li>\n</ul>\n\n\n\n<p>Detaillierte <a href=\"https://github.com/openaire/guidelines-cris-managers/releases/tag/v1.2.0\"
+        data-type=\"URL\" data-id=\"https://github.com/openaire/guidelines-cris-managers/releases/tag/v1.2.0\"
+        target=\"_blank\" rel=\"noreferrer noopener\">Informationen und Diskussionsbeitr\xE4ge</a>
+        sind auf GitHub offen einsehbar.&nbsp;</p>\n\n\n\n<p>Die breite Basis von
+        M\xF6glichkeiten zum Erfahrungsaustausch und der Beteiligung an den Erweiterungen
+        und Verbesserungen der Richtlinie wie z.B. auf den euroCRIS Konferenzen, via
+        <a rel=\"noreferrer noopener\" href=\"https://github.com/openaire/guidelines-cris-managers/issues\"
+        data-type=\"URL\" data-id=\"https://github.com/openaire/guidelines-cris-managers/issues\"
+        target=\"_blank\">GitHub</a>, aber auch der dort aufgelisteten, <a rel=\"noreferrer
+        noopener\" href=\"https://github.com/openaire/guidelines-cris-managers#contributing\"
+        data-type=\"URL\" data-id=\"https://github.com/openaire/guidelines-cris-managers#contributing\"
+        target=\"_blank\">teils anonymen M\xF6glichkeiten</a>, haben die Grundlage
+        f\xFCr diese Neuerungen geschaffen. Die etablierten Plattformen bieten Forschungsf\xF6rderern,
+        Universit\xE4ten, Hochschulen, wissenschaftlichen und au\xDFeruniversit\xE4ren
+        Forschungseinrichtungen, wie auch Projekten auf regionaler und nationaler
+        Ebene sowie Wissenschaftler:innen die M\xF6glichkeit, die Interoperabilit\xE4t
+        von FIS-Plattformen zu steigern.</p>\n\n\n\n<p>Die neue Richtlinie, wie auch
+        Beispiele und Dateien f\xFCr die Plattform-Entwicklung sind unter&nbsp;</p>\n\n\n\n<ul>\n<li>DOI:
+        <a href=\"https://doi.org/10.5281/zenodo.8050935\">https://doi.org/10.5281/zenodo.8050935</a></li>\n\n\n\n<li>GitHub:
+        <a href=\"https://github.com/openaire/guidelines-cris-managers/tree/v1.2\">https://github.com/openaire/guidelines-cris-managers/tree/v1.2</a></li>\n</ul>\n\n\n\n<p>verf\xFCgbar.
+        Ein <a href=\"https://github.com/EuroCRIS/openaire-cris-validator/releases/tag/v2.0.0\"
+        data-type=\"URL\" data-id=\"https://github.com/EuroCRIS/openaire-cris-validator/releases/tag/v2.0.0\"
+        target=\"_blank\" rel=\"noreferrer noopener\">Metadaten-Validator-Tool</a>
+        steht ebenfalls frei verf\xFCgbar \xFCber das GitHub Repositorium von euroCRIS
+        zum Download bereit.</p>\n\n\n\n<p>Die HTML Repr\xE4sentation der OpenAIRE
+        Richtlinien findet sich unter <a href=\"https://guidelines.openaire.eu/\">https://guidelines.openaire.eu</a>.</p>\n\n\n\n<p>R\xFCckfragen
+        k\xF6nnen gern an das Autorenteam via GitHub gestellt werden.</p>\n\n\n\n<h1
+        class=\"wp-block-heading\">Autor</h1>\n\n\n\n<p><a href=\"https://orcid.org/0000-0003-3883-4169\"
+        data-type=\"URL\" data-id=\"https://orcid.org/0000-0003-3883-4169\">Andreas
+        Czerniak</a> ist Diplom-Informatiker und spezialisiert auf gro\xDFe informationsintensive
+        Technologien und Infrastrukturen. Seit 2018 arbeitet er an der <a href=\"https://ub.uni-bielefeld.de/\">Universit\xE4tsbibliothek
+        Bielefeld</a> und ist derzeit in dem DFG-gef\xF6rderten Projekt <a href=\"https://www.pid-network.de/\">PID-Network
+        Deutschland</a> t\xE4tig. Er war Projektbeauftragter f\xFCr das EU-finanzierte
+        Projekt: OpenAIRE-Advance und -NEXUS und ist Mitautor von OpenAIRE- und EOSC-Guidelines.
+        Im technischen Team von OpenAIRE war er verantwortlich f\xFCr die Integration
+        von Datenquellen wie institutionellen, thematischen und literarischen Repositorien,
+        Forschungsinformationssystemen, Aggregatoren sowie Zeitschriftenverlagen,
+        die Grundlage f\xFCr den <a href=\"https://graph.openaire.eu/\">OpenAIRE Graph</a>
+        sind.</p>\n\n\n\n<h1 class=\"wp-block-heading\">Zitiervorschlag</h1>\n\n\n\n<p>Czerniak,
+        Andreas. &#8222;Aktualisierte OpenAIRE Richtlinie f\xFCr FIS-Manager&#8220;\_<em>Blog
+        der DINI AGs FIS &amp; EPUB</em>, 2023. <a href=\"https://doi.org/10.57689/dini-blog.20230925\">https://doi.org/10.57689/dini-blog.20230925</a>.</p>\n\n\n\n<hr
+        class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<p><em>Dieser
+        Beitrag&nbsp;\u2013&nbsp;ausgenommen&nbsp;Zitate&nbsp;und&nbsp;anderweitig&nbsp;gekennzeichnete&nbsp;Teile&nbsp;\u2013&nbsp;ist&nbsp;lizenziert&nbsp;unter&nbsp;der&nbsp;<a
+        href=\"http://creativecommons.org/licenses/by/4.0/\">Creative Commons Namensnennung
+        4.0 International Lizenz</a>&nbsp;(CC&nbsp;BY&nbsp;4.0).</em></p>\n\n\n\n<figure
+        class=\"wp-block-image\"><a href=\"http://creativecommons.org/licenses/by/4.0/\"><img
+        decoding=\"async\" src=\"https://i.creativecommons.org/l/by/4.0/88x31.png\"
+        alt=\"Creative Commons Lizenzvertrag\"/></a></figure>\n]]></content>\n\t\t\n\t\t\t\t\t<link
+        rel=\"replies\" type=\"text/html\" href=\"https://blog.dini.de/EPub_FIS/2023/09/25/openaire-richtlinie-fis-manager/#comments\"
+        thr:count=\"0\" />\n\t\t\t<link rel=\"replies\" type=\"application/atom+xml\"
+        href=\"https://blog.dini.de/EPub_FIS/2023/09/25/openaire-richtlinie-fis-manager/feed/atom/\"
+        thr:count=\"0\" />\n\t\t\t<thr:total>0</thr:total>\n\t\t\t</entry>\n\t\t<entry>\n\t\t<author>\n\t\t\t<name>Daniel
+        Beucke</name>\n\t\t\t\t\t\t\t<uri>https://orcid.org/0000-0003-4905-1936</uri>\n\t\t\t\t\t\t</author>\n\n\t\t<title
+        type=\"html\"><![CDATA[Neue Heimat f\xFCr den Blog]]></title>\n\t\t<link rel=\"alternate\"
+        type=\"text/html\" href=\"https://blog.dini.de/EPub_FIS/2023/07/24/neue-heimat-fuer-den-blog/\"
+        />\n\n\t\t<id>https://blog.dini.de/EPub_FIS/?p=3187</id>\n\t\t<updated>2023-07-24T09:15:37Z</updated>\n\t\t<published>2023-07-24T09:15:37Z</published>\n\t\t<category
+        scheme=\"https://blog.dini.de/EPub_FIS\" term=\"DINI\" /><category scheme=\"https://blog.dini.de/EPub_FIS\"
+        term=\"Elektronisches Publizieren\" /><category scheme=\"https://blog.dini.de/EPub_FIS\"
+        term=\"Forschungsinformationssysteme\" /><category scheme=\"https://blog.dini.de/EPub_FIS\"
+        term=\"Neuigkeiten\" />\n\t\t<summary type=\"html\"><![CDATA[Vor gut neun
+        Jahren hatte die DINI AG FIS die Idee einen Blog zu starten, um \xFCber Themen
+        rund die Arbeit der AG zu berichten. Schnell hatte sich ein kleines Team gefunden
+        und die ersten Beitr\xE4ge wurden verfasst. Die Technik konnte schnell und
+        unkompliziert bei der TIB beheimatet werden, die die Infrastruktur \xFCber
+        WordPress bereitstellte. [&#8230;]]]></summary>\n\n\t\t\t\t\t<content type=\"html\"
+        xml:base=\"https://blog.dini.de/EPub_FIS/2023/07/24/neue-heimat-fuer-den-blog/\"><![CDATA[\n<p>Vor
+        gut neun Jahren hatte die DINI AG FIS die Idee einen Blog zu starten, um \xFCber
+        Themen rund die Arbeit der AG zu berichten. Schnell hatte sich ein kleines
+        Team gefunden und die ersten Beitr\xE4ge wurden verfasst. Die Technik konnte
+        schnell und unkompliziert bei der TIB beheimatet werden, die die Infrastruktur
+        \xFCber WordPress bereitstellte. Nach ein paar Anpassungen am Design wurde
+        dann losgelegt. Der ersten Beitrag war der Aufruf zur Kommentierung zum Positionspapier
+        \u201EForschungsinformationssysteme in Hochschulen und Forschungseinrichtungen\u201C
+        <img src=\"https://s.w.org/images/core/emoji/14.0.0/72x72/1f449.png\" alt=\"\U0001F449\"
+        class=\"wp-smiley\" style=\"height: 1em; max-height: 1em;\" /> <a href=\"https://doi.org/10.57689/DINI-BLOG.20151209\">https://doi.org/10.57689/DINI-BLOG.20151209</a>.
+        </p>\n\n\n\n<p>Seit mittlerweile fast drei Jahren betreiben nun die DINI AGs
+        FIS und E-Pub den Blog gemeinsam (<a href=\"https://doi.org/10.57689/DINI-BLOG.20200930\">https://doi.org/10.57689/DINI-BLOG.20200930</a>).
+        Thematisch gab es schon immer \xDCberschneidungen zwischen den zwei Themenbereichen.
+        Zudem kam uns die personelle \xDCberschneidung zu Gute <img src=\"https://s.w.org/images/core/emoji/14.0.0/72x72/1f609.png\"
+        alt=\"\U0001F609\" class=\"wp-smiley\" style=\"height: 1em; max-height: 1em;\"
+        /></p>\n\n\n\n<p>Mittlerweile haben wir viel Beitr\xE4ge verfasst. Zum gro\xDFen
+        Teil durch Mitglieder aus den beiden beteiligten AGs, aber auch immer mal
+        wieder von Gast-Autor*innen. Daf\xFCr m\xF6chten wir uns hier auch nochmal
+        explizit bedanken. </p>\n\n\n\n<p>Dies ist nun der 100ste Beitrag in unserem
+        Blog. Aber es sollen noch viele mehr folgen! Also immer gern bei uns melden,
+        wenn Ideen bestehen, hier im Blog zu ver\xF6ffentlichen (Informationen <img
+        src=\"https://s.w.org/images/core/emoji/14.0.0/72x72/1f449.png\" alt=\"\U0001F449\"
+        class=\"wp-smiley\" style=\"height: 1em; max-height: 1em;\" /> <a href=\"https://blog.dini.de/EPub_FIS/hinweise-fuer-autorinnen/\"
+        data-type=\"page\" data-id=\"2851\">Hinweise f\xFCr Autor*innen</a>).</p>\n\n\n\n<p>Dieser
+        Beitrag ist zugleich der erste in unserem neuen zu Hause. Nach 9 Jahren auf
+        der Infrastruktur der TIB, sind wir nun auf Servern der DINI untergekommen!
+        Vielen Dank an dieser Stelle an die TIB und vor allem an Michael Hohlfeld!
+        </p>\n\n\n\n<p>Wir haben weitere tolle Ideen, wie wir hier im Blog \xFCber
+        Themen zu Forschungsinformationen und dem elektronischen Publizieren informieren
+        werden. Also gern wieder vorbei schauen!</p>\n\n\n\n<p>Das Redaktionsteam:
+        Arvid, Daniel, Franziska und Ursula</p>\n\n\n\n<h1 class=\"wp-block-heading\">Autor*innen</h1>\n\n\n\n<p>Dieser
+        Beitrag wurde vom Redaktionsteam verfasst.</p>\n\n\n\n<h1 class=\"wp-block-heading\">Zitiervorschlag</h1>\n\n\n\n<p>Deppe,
+        Arvid, Daniel Beucke, Franziska Mau und Ursula Arning. &#8222;Neue Heimat
+        f\xFCr den Blog&#8220;&nbsp;<em>Blog der DINI AGs FIS &amp; EPUB</em>, 2023.
+        <a href=\"https://doi.org/10.57689/dini-blog.20230724\">https://doi.org/10.57689/dini-blog.20230724</a>.</p>\n\n\n\n<hr
+        class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<p><em>Dieser
+        Beitrag&nbsp;\u2013&nbsp;ausgenommen&nbsp;Zitate&nbsp;und&nbsp;anderweitig&nbsp;gekennzeichnete&nbsp;Teile&nbsp;\u2013&nbsp;ist&nbsp;lizenziert&nbsp;unter&nbsp;der&nbsp;<a
+        href=\"http://creativecommons.org/licenses/by/4.0/\">Creative Commons Namensnennung
+        4.0 International Lizenz</a>&nbsp;(CC&nbsp;BY&nbsp;4.0).</em></p>\n\n\n\n<figure
+        class=\"wp-block-image\"><a href=\"http://creativecommons.org/licenses/by/4.0/\"><img
+        decoding=\"async\" src=\"https://i.creativecommons.org/l/by/4.0/88x31.png\"
+        alt=\"Creative Commons Lizenzvertrag\"/></a></figure>\n]]></content>\n\t\t\n\t\t\t\t\t<link
+        rel=\"replies\" type=\"text/html\" href=\"https://blog.dini.de/EPub_FIS/2023/07/24/neue-heimat-fuer-den-blog/#comments\"
+        thr:count=\"0\" />\n\t\t\t<link rel=\"replies\" type=\"application/atom+xml\"
+        href=\"https://blog.dini.de/EPub_FIS/2023/07/24/neue-heimat-fuer-den-blog/feed/atom/\"
+        thr:count=\"0\" />\n\t\t\t<thr:total>0</thr:total>\n\t\t\t</entry>\n\t\t<entry>\n\t\t<author>\n\t\t\t<name>Kathrin
+        H\xF6hner</name>\n\t\t\t\t\t</author>\n\n\t\t<title type=\"html\"><![CDATA[Mapping
+        des Gemeinsamen Vokabulars zum KDSF angepasst]]></title>\n\t\t<link rel=\"alternate\"
+        type=\"text/html\" href=\"https://blog.dini.de/EPub_FIS/2023/06/12/mapping-des-gemeinsamen-vokabulars-zum-kdsf-angepasst/\"
+        />\n\n\t\t<id>https://blog.dini.de/EPub_FIS/?p=3143</id>\n\t\t<updated>2023-07-12T13:57:44Z</updated>\n\t\t<published>2023-06-12T13:33:26Z</published>\n\t\t<category
+        scheme=\"https://blog.dini.de/EPub_FIS\" term=\"Elektronisches Publizieren\"
+        /><category scheme=\"https://blog.dini.de/EPub_FIS\" term=\"Forschungsinformationssysteme\"
+        /><category scheme=\"https://blog.dini.de/EPub_FIS\" term=\"Kerndatensatz
+        Forschung\" />\n\t\t<summary type=\"html\"><![CDATA[Wie bereits im Januar
+        hier im Blog angek\xFCndigt hat die gemeinsame Arbeitsgruppe der DINI AG FIS
+        und DINI AG E-Pub das Mapping des Gemeinsamen Vokabulars auf den KDSF noch
+        einmal \xFCberarbeitet. Ziel war es, eine vollst\xE4ndige Abbildung auf die
+        Publikationstypen des KDSF zu erstellen. Im ersten Mapping war teilweise ausschlie\xDFlich
+        eine Zuordnung auf Ebene der [&#8230;]]]></summary>\n\n\t\t\t\t\t<content
+        type=\"html\" xml:base=\"https://blog.dini.de/EPub_FIS/2023/06/12/mapping-des-gemeinsamen-vokabulars-zum-kdsf-angepasst/\"><![CDATA[\n<p>Wie
+        bereits im <a href=\"https://blogs.tib.eu/wp/dini-ag-blog/2023/01/16/aktualisierung-mappings-gemeinsames-vokabulars-kdsf/\">Januar
+        hier im Blog</a> angek\xFCndigt hat die gemeinsame Arbeitsgruppe der DINI
+        AG FIS und DINI AG E-Pub das <a href=\"http://dx.doi.org/10.18452/24149.2\">Mapping
+        des Gemeinsamen Vokabulars auf den KDSF</a> noch einmal \xFCberarbeitet. Ziel
+        war es, eine vollst\xE4ndige Abbildung auf die Publikationstypen des KDSF
+        zu erstellen. Im ersten Mapping war teilweise ausschlie\xDFlich eine Zuordnung
+        auf Ebene der Dokumenttypen oder andere Attribute des KDSF erfolgt. Dies wurde
+        nun korrigiert, f\xFChrt jedoch dazu, dass an manchen Stellen keine eindeutige
+        Empfehlung ausgesprochen werden kann. In diesen F\xE4llen sollten die Betreibenden
+        des Repositoriums entscheiden, ob weitere Merkmale als Bedingungen f\xFCr
+        ein Mapping herangezogen werden. </p>\n\n\n\n<span id=\"more-3143\"></span>\n\n\n\n<p>Das
+        \xFCberarbeitete Mapping finden Sie hier: <a href=\"https://edoc.hu-berlin.de/handle/18452/24967.3\">https://edoc.hu-berlin.de/handle/18452/24967.3</a></p>\n\n\n\n<p>Bei
+        der Verwendung des Mappings ist folgendes zu beachten:</p>\n\n\n\n<ul>\n<li>Dem
+        Mapping liegt das Szenario zugrunde, dass aus Repositorien, die das Gemeinsame
+        Vokabular bedienen, auf die Publikationstypen des KDSF (sowie ggf. weitere
+        Ausdifferenzierungen des KDSF) gemappt wird; der umgekehrte Weg ist nicht
+        ber\xFCcksichtigt.</li>\n\n\n\n<li>Die Definition einer (Forschungs-)Publikation
+        ist im KDSF enger gefasst als im Gemeinsamen Vokabular.</li>\n\n\n\n<li>An
+        manchen Stellen kann keine eindeutige Empfehlung ausgesprochen werden. In
+        diesen F\xE4llen sollten die Betreibenden des Repositoriums entscheiden, ob
+        weitere Merkmale als Bedingungen f\xFCr ein Mapping herangezogen werden.</li>\n\n\n\n<li>Aus
+        Gr\xFCnden der Transparenz ist die urspr\xFCngliche Zuordnung der Terme des
+        Gemeinsamen Vokabulars zum KDSF in der Tabelle mit aufgef\xFChrt.</li>\n</ul>\n\n\n\n<h1
+        class=\"wp-block-heading\">Zitiervorschlag</h1>\n\n\n\n<p>H\xF6hner, Kathrin.
+        \u201EMapping des Gemeinsamen Vokabulars zum KDSF angepasst\u201D <em>Blog
+        der DINI AGs FIS &amp; EPUB</em>, 2023. <a href=\"https://doi.org/10.57689/DINI-BLOG.20230612\">https://doi.org/10.57689/DINI-BLOG.20230612</a>.</p>\n\n\n\n<hr
+        class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<p><em>Dieser
+        Beitrag \u2013 ausgenommen Zitate und anderweitig gekennzeichnete Teile \u2013
+        ist lizenziert unter der <a href=\"http://creativecommons.org/licenses/by/4.0/\">Creative
+        Commons Namensnennung 4.0 International Lizenz</a> (CC BY 4.0).</em></p>\n\n\n\n<figure
+        class=\"wp-block-image\"><a href=\"http://creativecommons.org/licenses/by/4.0/\"><img
+        decoding=\"async\" src=\"https://i.creativecommons.org/l/by/4.0/88x31.png\"
+        alt=\"Creative Commons Lizenzvertrag\"/></a></figure>\n]]></content>\n\t\t\n\t\t\t\t\t<link
+        rel=\"replies\" type=\"text/html\" href=\"https://blog.dini.de/EPub_FIS/2023/06/12/mapping-des-gemeinsamen-vokabulars-zum-kdsf-angepasst/#comments\"
+        thr:count=\"0\" />\n\t\t\t<link rel=\"replies\" type=\"application/atom+xml\"
+        href=\"https://blog.dini.de/EPub_FIS/2023/06/12/mapping-des-gemeinsamen-vokabulars-zum-kdsf-angepasst/feed/atom/\"
+        thr:count=\"0\" />\n\t\t\t<thr:total>0</thr:total>\n\t\t\t</entry>\n\t\t<entry>\n\t\t<author>\n\t\t\t<name>Franziska
+        Mau</name>\n\t\t\t\t\t</author>\n\n\t\t<title type=\"html\"><![CDATA[Vernetzungstagung
+        der Gesch\xE4ftsstelle der KFiD und CRIS.NRW mit der RES-Community]]></title>\n\t\t<link
+        rel=\"alternate\" type=\"text/html\" href=\"https://blog.dini.de/EPub_FIS/2023/06/05/vernetzungstagung-der-geschaeftsstelle-der-kfid-und-cris-nrw-mit-der-res-community/\"
+        />\n\n\t\t<id>https://blog.dini.de/EPub_FIS/?p=3147</id>\n\t\t<updated>2023-07-19T11:20:02Z</updated>\n\t\t<published>2023-06-05T13:29:51Z</published>\n\t\t<category
+        scheme=\"https://blog.dini.de/EPub_FIS\" term=\"Kerndatensatz Forschung\"
+        />\n\t\t<summary type=\"html\"><![CDATA[Ende Mai traf sich die Community um
+        das Forschungsinformationssystem HISinOne-RES in Berlin. Organisiert wurde
+        die Veranstaltung von CRIS.NRW und der Gesch\xE4ftsstelle der Kommission f\xFCr
+        Forschungsinformationen in Deutschland (KFiD). Insgesamt nahmen 47 Personen
+        teil, welche vor allem in Hochschulen t\xE4tig sind, die HISinOne-RES zur
+        Erhebung und Verarbeitung von Forschungsaktivit\xE4ten nutzen oder \xFCber
+        dessen Nutzung nachdenken. Vertreten [&#8230;]]]></summary>\n\n\t\t\t\t\t<content
+        type=\"html\" xml:base=\"https://blog.dini.de/EPub_FIS/2023/06/05/vernetzungstagung-der-geschaeftsstelle-der-kfid-und-cris-nrw-mit-der-res-community/\"><![CDATA[\n<p>Ende
+        Mai traf sich die Community um das Forschungsinformationssystem HISinOne-RES
+        in Berlin. Organisiert wurde die Veranstaltung von <a href=\"https://www.uni-muenster.de/CRIS.NRW\">CRIS.NRW</a>
+        und der Gesch\xE4ftsstelle der Kommission f\xFCr Forschungsinformationen in
+        Deutschland (<a href=\"https://kfid-online.de\">KFiD</a>). Insgesamt nahmen
+        47 Personen teil, welche vor allem in Hochschulen t\xE4tig sind, die HISinOne-RES
+        zur Erhebung und Verarbeitung von Forschungsaktivit\xE4ten nutzen oder \xFCber
+        dessen Nutzung nachdenken. Vertreten waren neun Bundesl\xE4nder, unter ihnen
+        auch die beiden L\xE4nder Nordrhein-Westfalen und Th\xFCringen, welche neben
+        Bayern und Hessen zu den Bundesl\xE4ndern mit einem Kooperationsvorhaben im
+        Bereich Forschungsinformationssystem (FIS) bzw. Kerndatensatz Forschung (KDSF-Standard)
+        geh\xF6ren. Die Veranstaltung bot eine Plattform f\xFCr den Austausch rund
+        um Fragen der Forschungsberichterstattung sowie die Einf\xFChrung und Nutzung
+        des HISinOne-RES-Systems. Ziele waren unter anderem die Ermittlung von Bedarfen
+        zur Verbesserung der Anwendbarkeit des KDSF-Standards und die F\xF6rderung
+        der Vernetzung untereinander, mit der KFiD und mit CRIS.NRW. Begr\xFC\xDFt
+        wurden die Teilnehmenden vom Direktor des DDR-Museums, welches als Tagungsort
+        diente.</p>\n\n\n\n<span id=\"more-3147\"></span>\n\n\n\n<p>Was macht eigentlich
+        die KFiD und welche Themen besch\xE4ftigen sie gerade? Sophie Biesenbender,
+        Leiterin der KFiD-Gesch\xE4ftsstelle, gew\xE4hrte den Teilnehmenden Einblicke
+        in die Arbeit der KFiD und deren aktuelle Arbeitspakete, welche in Bezug auf
+        die Weiterentwicklung des KDSF z.B. die Abbildung und Differenzierung promovierter
+        Wissenschaftlicher:innen unterhalb der Professur sowie die Abbildung von Forschungspreisen
+        umfasst. Auch die internationale Zusammenarbeit im Rahmen des Boards des europ\xE4ischen
+        Vereins <a href=\"https://eurocris.org\">euroCRIS</a> sieht die KFiD als ihre
+        Aufgabe.</p>\n\n\n\n<p>Beim Impuls zu \u201EDatenschutz und Gremienarbeit
+        an der Hochschule\u201C von Marlene Haupt entbrannten Diskussionen unter den
+        Teilnehmenden, welche im anschlie\xDFenden Beitrag von Naira M\xFCller zum
+        selbigen Thema weitergef\xFChrt wurden. Klar wurde, dass die Bedingungen zwischen
+        den einzelnen Bundesl\xE4ndern teilweise stark variieren und auch zwischen
+        einzelnen Institutionen gro\xDFe Unterschiede in der Handhabung existieren
+        k\xF6nnen, bei welchen die Datenschutzbeauftragten selbst keinen unerheblichen
+        Einfluss haben.</p>\n\n\n\n<p>Beim Diskussionsbeitrag von Diana Schmidt, Tanja
+        Surdyk und Lia Moreno Codinachs ging es um das Projektmanagement. Das Thema
+        wurde durch die Community bereits in ihrem Onlineforum diskutiert und scheint
+        ein Dauerbrenner zu sein. Gerade bei Einrichtungen, die sich in der Einf\xFChrungsphase
+        eines Forschungsinformationssystems befinden oder kurz davor stehen, kommen
+        Fragen zum Projektmanagement auf. Wie gehe ich am besten vor? Welche Tools
+        bieten sich an? Was muss ich beachten? Die Community tauschte sich rege zu
+        diesem Thema aus und der Bedarf an Unterst\xFCtzungen, wie z.B. Leitf\xE4den
+        oder kollegialer Beratung, besteht nach wie vor.</p>\n\n\n\n<p>Die RES-Community
+        in ihrer Selbstorganisation st\xE4rken und die aktive Zusammenarbeit anschieben
+        war das Anliegen des Beitrags von Diana Schmidt und Franziska Mau. Bereits
+        beim letzten digitalen Treffen der RES-Community wurden Ideen gesammelt, die
+        nun zur Umsetzung abgestimmt wurden. Rahmenbedingungen f\xFCr zuk\xFCnftige
+        Community-Tagungen, die Bildung von Fachgruppen oder auch der Bedarf an erg\xE4nzenden
+        Tools zum bereits vorhandenen Onlineforum wurden thematisiert. Klar ist, die
+        Community lebt vom Einsatz jeder Einzelnen und jedes Einzelnen. In vielen
+        F\xE4llen ist dieser leider wie so oft durch den Mangel an Ressourcen begrenzt.</p>\n\n\n\n<p>Victoria
+        Jakob \xFCbernahm das Thema Datenbereinigung und Qualit\xE4tsmanagement. Hier
+        zeigte sich Bedarf an der Definition von Prozessen sowie der Weiterentwicklung
+        von RES. Das Thema Schnittstellen wurde von Norman Peitz mit den Teilnehmenden
+        diskutiert. Die Community hofft vor allem auf die Stabilisierung der Schnittstellen
+        und Webservices. Klar wurde aber auch, es m\xFCssen Kompromisse gefunden werden
+        und es k\xF6nnen nicht alle W\xFCnsche der verschiedenen Hochschulen auf einmal
+        erf\xFCllt werden. Einig dagegen war sich die Community bei der Frage nach
+        ihren Spielregeln. Hannah Lloyd-Jones fasste den von CRIS.NRW eingebrachten
+        Vorschlag zusammen. Die Vorsitzenden der Community sollen alle zwei Jahre
+        gew\xE4hlt werden. Zudem sollen freiwillige Repr\xE4sentant:innen bei Bedarf
+        themenbezogen unterst\xFCtzen. Treffen sollen j\xE4hrlich zweimal in Pr\xE4senz
+        und dreimal digital veranstaltet werden, was auch die in einer Abfrage erhobenen
+        W\xFCnsche der Community zum Tagungsturnus widerspiegelt.</p>\n\n\n\n<p>Zum
+        Erfahrungsaustausch zur Zusammenarbeit mit der HIS eG lud Malte Kramer ein.
+        Vor allem der Mangel an geb\xFCndelter Kommunikation mit der HIS eG wurde
+        von der Community als problematisch bewertet. Die einzelnen Hochschulen m\xF6chten
+        besser dar\xFCber informiert sein, welche Themen andere Hochschulen aktuell
+        bearbeiten und welche Anforderungen sie formulieren, um ggf. Bedarfe besser
+        b\xFCndeln und Kompromisse finden zu k\xF6nnen. Dies best\xE4tigte sich auch
+        in der Betrachtung zur Entwicklungsplanung f\xFCr das Release 2023.12, welche
+        Daniela Niehus vorstellte. Auch in der anschlie\xDFenden Diskussion mit Britta
+        Ebeling, der RES-Produktmanagerin der HIS eG, war dies ein wichtiger Punkt.
+        Die Community w\xFCnscht sich vor allem mehr Transparenz im Rahmen der Entwicklungsplanung.</p>\n\n\n\n<p>Als
+        Themen mit der h\xF6chsten Priorit\xE4t f\xFCr die Weiterentwicklung von RES
+        wiesen sowohl eine durchgef\xFChrte Umfrage der HIS eG sowie das von der RES-Community
+        erarbeitete Zielbild die Themen Publikationen und Projekte aus. Allerdings
+        zeigte die Diskussion auch, dass in den einzelnen Einrichtungen durchaus unterschiedliche
+        Priorit\xE4ten sowie konkrete Bedarfe bestehen. Somit sind im Rahmen der genossenschaftlich
+        organisierten Weiterentwicklung von RES Kompromissbereitschaft und Geduld
+        von den Hochschulen gefordert.</p>\n\n\n\n<h1 class=\"wp-block-heading\">Veranstaltungshinweis:
+        Forschungsfeldklassifikation des KDSF</h1>\n\n\n\n<p>Am 13. Juni 2023 finden
+        sich Vertreter:innen von Hochschulen und au\xDFeruniversit\xE4ren Forschungseinrichtungen
+        virtuell zu einem ersten Vernetzungs-Workshop zur \u201EForschungsfeldklassifikation
+        des KDSF\u201C zusammen, um sich \xFCber erste Erfahrungen und Vorgehensweisen
+        bei der Einf\xFChrung der neuen Forschungsfeldklassifikation und Unterst\xFCtzungsbedarfe
+        seitens der KFiD auszutauschen. Interessierte sind zu einer Teilnahme herzlich
+        eingeladen. Bitte wenden Sie sich dazu gerne an die <a href=\"https://kfid-online.de/kontakt_gs.php\">Gesch\xE4ftsstelle
+        der KFiD</a>.</p>\n\n\n\n<h1 class=\"wp-block-heading\">Zitiervorschlag</h1>\n\n\n\n<p>Mau,
+        Franziska: &#8222;Vernetzungstagung der Gesch\xE4ftsstelle der KFiD und CRIS.NRW
+        mit der RES-Community&#8220; <em>Blog der DINI AGs FIS &amp; EPUB</em>, 2023.
+        <a href=\"https://doi.org/10.57689/dini-blog.20230605\">https://doi.org/10.57689/dini-blog.20230605</a></p>\n\n\n\n<hr
+        class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<p><em>Dieser
+        Beitrag \u2013 ausgenommen Zitate und anderweitig gekennzeichnete Teile \u2013
+        ist lizenziert unter der <a href=\"http://creativecommons.org/licenses/by/4.0/\">Creative
+        Commons Namensnennung 4.0 International Lizenz</a> (CC BY 4.0).</em></p>\n\n\n\n<figure
+        class=\"wp-block-image\"><a href=\"http://creativecommons.org/licenses/by/4.0/\"><img
+        decoding=\"async\" src=\"https://i.creativecommons.org/l/by/4.0/88x31.png\"
+        alt=\"Creative Commons Lizenzvertrag\"/></a></figure>\n]]></content>\n\t\t\n\t\t\t\t\t<link
+        rel=\"replies\" type=\"text/html\" href=\"https://blog.dini.de/EPub_FIS/2023/06/05/vernetzungstagung-der-geschaeftsstelle-der-kfid-und-cris-nrw-mit-der-res-community/#comments\"
+        thr:count=\"0\" />\n\t\t\t<link rel=\"replies\" type=\"application/atom+xml\"
+        href=\"https://blog.dini.de/EPub_FIS/2023/06/05/vernetzungstagung-der-geschaeftsstelle-der-kfid-und-cris-nrw-mit-der-res-community/feed/atom/\"
+        thr:count=\"0\" />\n\t\t\t<thr:total>0</thr:total>\n\t\t\t</entry>\n\t\t<entry>\n\t\t<author>\n\t\t\t<name>Franziska
+        Mau</name>\n\t\t\t\t\t</author>\n\n\t\t<title type=\"html\"><![CDATA[Aktuelles
+        aus dem Netzwerk FIS Niedersachsen]]></title>\n\t\t<link rel=\"alternate\"
+        type=\"text/html\" href=\"https://blog.dini.de/EPub_FIS/2023/05/15/aktuelles-aus-dem-netzwerk-fis-niedersachsen/\"
+        />\n\n\t\t<id>https://blog.dini.de/EPub_FIS/?p=3151</id>\n\t\t<updated>2023-07-12T13:55:39Z</updated>\n\t\t<published>2023-05-15T13:38:13Z</published>\n\t\t<category
+        scheme=\"https://blog.dini.de/EPub_FIS\" term=\"Forschungsinformationssysteme\"
+        />\n\t\t<summary type=\"html\"><![CDATA[Angesto\xDFen durch j\xFCngste Aktivit\xE4ten
+        auf Landesebene, traf sich am 10.05.23 das Netzwerk FIS Niedersachsen zum
+        digitalen Austausch. Mehr als zwei Jahre war der letzte Austausch bereits
+        her (https://blogs.tib.eu/wp/dini-ag-blog/2021/05/10/fis-niedersachsen). Erfreulich
+        viele FIS Referent*innen bzw. Personen, die an ihrer jeweiligen Einrichtung
+        im Kontext von Forschungsinformationen t\xE4tig sind, nahmen an dem Treffen
+        teil. Insgesamt 20 Expert*innen kamen zusammen, [&#8230;]]]></summary>\n\n\t\t\t\t\t<content
+        type=\"html\" xml:base=\"https://blog.dini.de/EPub_FIS/2023/05/15/aktuelles-aus-dem-netzwerk-fis-niedersachsen/\"><![CDATA[\n<p>Angesto\xDFen
+        durch j\xFCngste Aktivit\xE4ten auf Landesebene, traf sich am 10.05.23 das
+        Netzwerk FIS Niedersachsen zum digitalen Austausch. Mehr als zwei Jahre war
+        der letzte Austausch bereits her (<a href=\"https://blogs.tib.eu/wp/dini-ag-blog/2021/05/10/fis-niedersachsen\">https://blogs.tib.eu/wp/dini-ag-blog/2021/05/10/fis-niedersachsen</a>).</p>\n\n\n\n<span
+        id=\"more-3151\"></span>\n\n\n\n<p>Erfreulich viele FIS Referent*innen bzw.
+        Personen, die an ihrer jeweiligen Einrichtung im Kontext von Forschungsinformationen
+        t\xE4tig sind, nahmen an dem Treffen teil. Insgesamt 20 Expert*innen kamen
+        zusammen, unter welche sich auch eine Bremer Teilnehmerin gesellt hatte. Vertreten
+        waren unter den 15 Institutionen neben Universit\xE4ten und Hochschulen auch
+        Forschungseinrichtungen.</p>\n\n\n\n<p>Als ersten Tagesordnungspunkt galt
+        es, sich gegenseitig auf den aktuellen Stand zu bringen. Hierzu hatten die
+        Teilnehmenden im Vorfeld anhand eines Steckbriefes bereits Informationen zusammengetragen.
+        Welche Softwarebasis wurde gew\xE4hlt und welche Anwendungsbereiche stehen
+        im Fokus? Wie ist der Umsetzungsstand? Was sind die derzeitigen Baustellen
+        und die gr\xF6\xDFten Herausforderungen? Besonders deutlich wurde, dass aktuell
+        an vielen Stellen \xE4hnliche Herausforderungen bestehen und die Thematiken,
+        mit denen sich die Kolleg*innen sich gegenw\xE4rtig besch\xE4ftigen, gar nicht
+        so weit voneinander entfernt liegen. Datenqualit\xE4t, Schnittstellen, fehlende
+        personelle Ressourcen oder die Gestaltung von Berichten waren genannte Aspekte.
+        Einige Einrichtungen betreiben bereits seit Jahren ein Forschungsportal, andere
+        behelfen sich noch mit Insell\xF6sungen und&nbsp; w\xFCnschen sich die Einf\xFChrung
+        eines FIS. Propriet\xE4re wie auch Open Source L\xF6sungen befinden sich im
+        Einsatz. Manche Einrichtungen haben ihre Forschenden bereits gut in die im
+        FIS abgebildeten Prozesse eingebunden und erfahren eine hohe Akzeptanz. Andere
+        stehen noch vor der Herausforderung, eine geeignete Kommunikationsstrategie
+        und Anreize zu schaffen. \u2013 So vielf\xE4ltig wie die Einrichtungen zwischen
+        Wilhelmshaven, G\xF6ttingen, Osnabr\xFCck und Braunschweig waren auch die
+        vorgestellten L\xF6sungen und Umsetzungsst\xE4nde.</p>\n\n\n\n<p>Als zweiten
+        Tagesordnungspunkt diskutierten die Teilnehmenden \xFCber die Institutionalisierung
+        eines gemeinsamen Netzwerkes und einer zentralen Servicestelle, wie sie in
+        einzelnen Bundesl\xE4ndern&nbsp; bereits existiert. Einen Impuls gab Victoria
+        Jakob.</p>\n\n\n\n<p>Zuletzt wurde die weitere Zusammenarbeit besprochen.
+        Die Teilnehmenden waren sich einig, dass ein regelm\xE4\xDFiger Austausch
+        ab sofort eingerichtet werden soll. Hierzu m\xF6chte das Netzwerk sich zweimal
+        j\xE4hrlich treffen, wobei jeweils ein Treffen in Pr\xE4senz und ein digitales
+        angestrebt werden. Das n\xE4chste Treffen soll im Oktober oder November eint\xE4gig
+        in Pr\xE4senz stattfinden. Der Veranstaltungsort und der genaue Zeitpunkt
+        werden noch bekanntgegeben. Dar\xFCber hinaus f\xFChrt das Netzwerk nun einen
+        gemeinsamen \u201EThemensammler\u201C, in dem der Austauschbedarf zu konkreten
+        Anliegen gesammelt wird. Hieraus k\xF6nnen erg\xE4nzende themengebundene Treffen
+        oder Untergruppen entstehen. Das Netzwerk FIS Niedersachsen ist ein loser
+        Zusammenschluss auf kollegialer Ebene. Somit sind das Engagement und die Initiative
+        jedes Einzelnen und jeder Einzelnen gefragt. \u2013 Die Stimmung war gut und
+        es wehte ein Hauch von Aktivismus durch den BBB-Raum. Somit hoffen wir auf
+        zahlreiche weitere fruchtbare Treffen und einen regen kollegialen Austausch.</p>\n\n\n\n<p><em>Interessierte
+        nieders\xE4chsische Kolleg*innen, die noch nicht Teil des Netzwerkes sind,
+        k\xF6nnen hier die Mailingliste abonnieren: </em><a href=\"https://listserv.gwdg.de/mailman/listinfo/fisniedersachsen\"><em>https://listserv.gwdg.de/mailman/listinfo/fisniedersachsen</em></a><em>.
+        Jens Nieschulze und Franziska Mau stehen bei Fragen zum Netzwerk als Ansprechpartner*innen
+        zur Verf\xFCgung.</em></p>\n\n\n\n<h1 class=\"wp-block-heading\">Autor*innen</h1>\n\n\n\n<p>Dieser
+        Beitrag wurde verfasst von Franziska Mau (Servicezentrum f\xFCr Forschung
+        und Transfer, TU Clausthal; ORCiD: <a href=\"https://orcid.org/0000-0001-7701-0301\">0000-0001-7701-0301)</a>
+        und Jens Nieschulze (Abteilung Forschung und Transfer, Universit\xE4t G\xF6ttingen;
+        ORCID: <a href=\"https://orcid.org/0000-0001-7535-6253\">0000-0001-7535-6253</a>).</p>\n\n\n\n<h1
+        class=\"wp-block-heading\">Zitiervorschlag</h1>\n\n\n\n<p><em>Mau, </em><em>Franziska
+        &amp; Nieschulze, Jens:</em> &#8222;Aktuelles aus dem Netzwerk FIS Niedersachsen&#8220;
+        <em>Blog der DINI AGs FIS &amp; EPUB</em>, 2023. <a href=\"https://doi.org/10.57689/dini-blog.20230515\">https://doi.org/10.57689/dini-blog.20230515</a></p>\n\n\n\n<hr
+        class=\"wp-block-separator has-alpha-channel-opacity\"/>\n\n\n\n<p><em>Dieser
+        Beitrag \u2013 ausgenommen Zitate und anderweitig gekennzeichnete Teile \u2013
+        ist lizenziert unter der <a href=\"http://creativecommons.org/licenses/by/4.0/\">Creative
+        Commons Namensnennung 4.0 International Lizenz</a> (CC BY 4.0).</em></p>\n\n\n\n<figure
+        class=\"wp-block-image\"><a href=\"http://creativecommons.org/licenses/by/4.0/\"><img
+        decoding=\"async\" src=\"https://i.creativecommons.org/l/by/4.0/88x31.png\"
+        alt=\"Creative Commons Lizenzvertrag\"/></a></figure>\n]]></content>\n\t\t\n\t\t\t\t\t<link
+        rel=\"replies\" type=\"text/html\" href=\"https://blog.dini.de/EPub_FIS/2023/05/15/aktuelles-aus-dem-netzwerk-fis-niedersachsen/#comments\"
+        thr:count=\"0\" />\n\t\t\t<link rel=\"replies\" type=\"application/atom+xml\"
+        href=\"https://blog.dini.de/EPub_FIS/2023/05/15/aktuelles-aus-dem-netzwerk-fis-niedersachsen/feed/atom/\"
+        thr:count=\"0\" />\n\t\t\t<thr:total>0</thr:total>\n\t\t\t</entry>\n\t\t<entry>\n\t\t<author>\n\t\t\t<name>meineckei</name>\n\t\t\t\t\t\t\t<uri>https://orcid.org/0000-0001-8337-3619</uri>\n\t\t\t\t\t\t</author>\n\n\t\t<title
+        type=\"html\"><![CDATA[Noch Repositorium oder schon Bibliografie &#8211; ist
+        mein Dienst DINI-zertifizierbar?]]></title>\n\t\t<link rel=\"alternate\" type=\"text/html\"
+        href=\"https://blog.dini.de/EPub_FIS/2023/03/20/dienst-dini-zertifizierbar/\"
+        />\n\n\t\t<id>https://blogs.tib.eu/wp/dini-ag-blog/?p=3112</id>\n\t\t<updated>2023-03-20T07:39:43Z</updated>\n\t\t<published>2023-03-20T07:39:43Z</published>\n\t\t<category
+        scheme=\"https://blog.dini.de/EPub_FIS\" term=\"DINI\" /><category scheme=\"https://blog.dini.de/EPub_FIS\"
+        term=\"Elektronisches Publizieren\" /><category scheme=\"https://blog.dini.de/EPub_FIS\"
+        term=\"Zertifikat\" />\n\t\t<summary type=\"html\"><![CDATA[Ihr Repositorium
+        ist nach DINI-Kriterien aufgesetzt oder entsprechend angepasst; es w\xE4re
+        sch\xF6n, wenn das Engagement zus\xE4tzlich mit einem Zertifikat belohnt werden
+        k\xF6nnte. Eine Vielzahl heute betriebener Repositorien sind heterogen, sie
+        enthalten neben frei zug\xE4nglichen Volltexten z. B. Forschungsdaten, bibliografische
+        Daten ohne Dokumente oder wurden um weitere forschungsnahe Services erweitert.
+        Kann ein solches Repositorium \xFCberhaupt ein [&#8230;]]]></summary>\n\n\t\t\t\t\t<content
+        type=\"html\" xml:base=\"https://blog.dini.de/EPub_FIS/2023/03/20/dienst-dini-zertifizierbar/\"><![CDATA[<p>Ihr
+        Repositorium ist nach DINI-Kriterien aufgesetzt oder entsprechend angepasst;
+        es w\xE4re sch\xF6n, wenn das Engagement zus\xE4tzlich mit einem Zertifikat
+        belohnt werden k\xF6nnte.</p>\n<p>Eine Vielzahl heute betriebener Repositorien
+        sind heterogen, sie enthalten neben frei zug\xE4nglichen Volltexten z. B.
+        Forschungsdaten, bibliografische Daten ohne Dokumente oder wurden um weitere
+        forschungsnahe Services erweitert. Kann ein solches Repositorium \xFCberhaupt
+        ein DINI-Zertifikat 2022 erhalten?</p>\n<p>Diese Frage ist nicht pauschal
+        zu beantworten. Wichtige Hinweise gibt das Glossar\_im <a href=\"https://doi.org/10.18452/24678\">DINI-Zertifikat
+        f\xFCr Open-Access-Publikationsdienste 2022</a> selbst.<span id=\"more-3112\"></span></p>\n<p><strong><em><img
+        src=\"https://s.w.org/images/core/emoji/14.0.0/72x72/1f50e.png\" alt=\"\U0001F50E\"
+        class=\"wp-smiley\" style=\"height: 1em; max-height: 1em;\" />\_Was ist eigentlich
+        Gegenstand einer DINI-Zertifizierung?</em></strong></p>\n<p><img src=\"https://s.w.org/images/core/emoji/14.0.0/72x72/1f449.png\"
+        alt=\"\U0001F449\" class=\"wp-smiley\" style=\"height: 1em; max-height: 1em;\"
+        />\_Zertifizierbar sind Open-Access-Publikationsdienste.</p>\n<p>[su_quote]Gegenstand
+        der Zertifizierung sind Open-Access-Publikationsdienste. Sie sind als umfassende
+        Dienstleistung zur Ver\xF6ffentlichung und nachhaltigen Online-Bereitstellung
+        sowie zur Verbreitung wissenschaftlicher Publikationen in elektronischer Form
+        zu verstehen (..) Im Fokus der Zertifizierung stehen folgende Dienste, die
+        nachfolgend genauer spezifiziert werden: Institutionelle Open-Access-Repositorien
+        Institutions\xFCbergreifende Repositorien Fachbezogene Open-Access-Repositorien
+        Open-Access-Zeitschriften (Glossar)[/su_quote]</p>\n<p><strong><em><img src=\"https://s.w.org/images/core/emoji/14.0.0/72x72/1f50e.png\"
+        alt=\"\U0001F50E\" class=\"wp-smiley\" style=\"height: 1em; max-height: 1em;\"
+        />\_Was wird nicht zertifiziert?</em></strong></p>\n<p>[su_quote]Folgende
+        Dienste sind dagegen nicht prim\xE4r Gegenstand der Zertifizierung auf der
+        Basis des DINI-Zertifikats in seiner aktuellen Fassung:</p>\n<ul>\n<li>Digitale
+        Sammlungen</li>\n<li>Forschungsdatenrepositorien</li>\n<li>Forschungsinformationssysteme
+        (CRIS)</li>\n<li>Hochschulbibliografien (Glossar)[/su_quote]</li>\n</ul>\n<p>Worum
+        handelt es sich also bei Ihrem Dienst? Ber\xFCcksichtigen Sie bei Ihrer Selbsteinsch\xE4tzung
+        insbesondere die folgenden Aussagen:</p>\n<p><strong><em><img src=\"https://s.w.org/images/core/emoji/14.0.0/72x72/1f50e.png\"
+        alt=\"\U0001F50E\" class=\"wp-smiley\" style=\"height: 1em; max-height: 1em;\"
+        />\_Handelt es sich bei meinem Dienst um ein Open-Access-Repositorium im Sinne
+        des DINI-Kriterienkatalogs?</em></strong></p>\n<p>[su_quote]Repositorium<br
+        />\nEin institutionelles Repositorium beinhaltet \xFCberwiegend Open-Access-Volltexte
+        einer wissenschaftlichen Einrichtung. Es kann jegliche Art wissenschaftlicher
+        Publikationen von Angeh\xF6rigen dieser Institution (insbesondere Qualifikationsarbeiten
+        wie Habilitationen, Dissertationen, Diplom-, Bachelor-, Master- und Magisterarbeiten)
+        sowie weitere Ergebnisse (wie Berichte, Zweitver\xF6ffentlichungen etc.) und
+        weitere Materialien beinhalten. (Glossar)[/su_quote]</p>\n<p>Die Definitionen
+        f\xFCr institutionen\xFCbergreifende und fachliche Repositorien lauten entsprechend.</p>\n<p><em><strong><img
+        src=\"https://s.w.org/images/core/emoji/14.0.0/72x72/1f50e.png\" alt=\"\U0001F50E\"
+        class=\"wp-smiley\" style=\"height: 1em; max-height: 1em;\" />\_Enth\xE4lt
+        mein Repositorium also haupts\xE4chlich Open-Access-Dokumente?</strong></em></p>\n<p><img
+        src=\"https://s.w.org/images/core/emoji/14.0.0/72x72/1f449.png\" alt=\"\U0001F449\"
+        class=\"wp-smiley\" style=\"height: 1em; max-height: 1em;\" /> Gem\xE4\xDF
+        Mindestkriterium 2.8 muss der \xFCberwiegende Teil der angebotenen Dokumente
+        im Sinne von Open Access bereitgestellt werden. Reine Metadatens\xE4tze sind
+        keine Publikationen im Sinn des DINI-Zertifikats:</p>\n<p>[su_quote]Dokument<br
+        />\nAls Dokument im Sinne des Zertifikats wird die kleinste logische Einheit
+        gefasst, die mittels Open-Access-Publikationsdiensten ver\xF6ffentlicht und
+        bereitgestellt wird. In der Regel handelt es sich um eine zusammenh\xE4ngende
+        wissenschaftliche, textzentrierte Abhandlung mit als solchen gekennzeichneten
+        Urheber*innen. Hier verwendete Synonyme sind elektronisches Dokument, Publikation,
+        Ver\xF6ffentlichung, Werk, Arbeit. Der Begriff soll umfassend verstanden werden
+        und kann insbesondere f\xFCr Dienste, die sich der Bereitstellung anderer
+        digitaler Artefakte widmen (z. B. Daten oder Bilder), auch durch den Begriff
+        Objekt ersetzt werden. (Glossar)[/su_quote]</p>\n<p><strong><em><img src=\"https://s.w.org/images/core/emoji/14.0.0/72x72/1f50e.png\"
+        alt=\"\U0001F50E\" class=\"wp-smiley\" style=\"height: 1em; max-height: 1em;\"
+        />\_Auf meinem Repositorium werden \xFCberwiegend bibliografische (Open-Access-)Eintr\xE4ge
+        verzeichnet. Es gibt aber auch Open-Access-Dokumente. Handelt es sich bei
+        dem Dienst nun um ein Repositorium oder eine Bibliografie im Sinne des DINI-Zertifikats?</em></strong></p>\n<p>[su_quote]Eine
+        Hochschulbibliografie hat den Anspruch, den gesamten Publikations-Output (sowohl
+        Open-Access-Volltexte als auch Metadatens\xE4tze ohne Volltexte) einer Institution
+        darzustellen. Mitunter wird auch das institutionelle Repositorium als Nachweissystem
+        f\xFCr die Hochschulbibliografie genutzt; hierbei ist der Anteil der Volltexte
+        bisher in der Regel gering. (Glossar)[/su_quote]</p>\n<p>Ein im Sinne des
+        DINI-Zertifikats zertifizierungsf\xE4higes Repositorium beinhaltet \xFCberwiegend
+        Open-Access-Volltexte. Ist dies nicht der Fall und trifft die obige Definition
+        zu, handelt es sich um eine Hochschulbibliografie.<br />\nEine Hochschulbibliografie
+        ist kein Open-Access-Publikationsdienst im Sinne des DINI-Zertifikats. Dies
+        gilt auch, wenn die vorhandenen Eintr\xE4ge zum \xFCberwiegenden Teil auf
+        Open-Access-Dokumente verweisen, die an anderer Stelle ver\xF6ffentlicht und/oder
+        archiviert wurden.</p>\n<p><strong><em><img src=\"https://s.w.org/images/core/emoji/14.0.0/72x72/1f50e.png\"
+        alt=\"\U0001F50E\" class=\"wp-smiley\" style=\"height: 1em; max-height: 1em;\"
+        />\_Bei meinem Dienst handelt es sich um ein Open-Access-Repositorium. Es
+        enth\xE4lt zum \xFCberwiegenden Teil Open-Access-Volltexte. Was nun?</em></strong></p>\n<p>Sofern
+        es sich bei Ihrem Dienst um ein OA-Repositorium handelt, ist es gem\xE4\xDF
+        dem Kriterienkatalog verpflichtend, Open-Access-Publikationen transparent
+        darzustellen. Dies kann lediglich entfallen, wenn das Repositorium ausschlie\xDFlich
+        OA-Publikationen enth\xE4lt. Es gilt das Mindestkriterium M1.4:</p>\n<p>[su_quote]Auf
+        der Weboberfl\xE4che werden Open-Access-Publikationen transparent dargestellt.
+        Eine Eingrenzung der Suche nach Open-Access-Publikationen (beispielsweise
+        durch Checkboxen oder Facetten) ist m\xF6glich. Dar\xFCber hinaus werden Open-Access-Publikationen
+        in Browsing- und Trefferlisten grafisch kenntlich gemacht, z. B. durch die
+        Verwendung eines Logos. Enth\xE4lt der Publikationsdienst ausschlie\xDFlich
+        Open-Access-Publikationen, ist diese grunds\xE4tzliche Eigenschaft auf der
+        Weboberfl\xE4che deutlich zu machen. Eine entsprechende Kennzeichnung der
+        einzelnen Publikationen als Open-Access-Inhalte kann dann entfallen.(Kriterienkatalog)[/su_quote]</p>\n<h1>Zusammengefasst:</h1>\n<ul>\n<li>Pr\xFCfen
+        Sie das Verh\xE4ltnis von Open-Access-Dokumenten und reinen Metadatens\xE4tzen.</li>\n<li>Handelt
+        es sich bei Ihrem Dienst um eine Hochschulbibliografie oder ein OA-Repositorium
+        gem\xE4\xDF DINI-Kriterienkatalog?</li>\n<li>Haben Sie die Open-Access-Publikationen,
+        die Ihr Repositorium zu einem \xFCberwiegenden Teil enth\xE4lt, kenntlich
+        gemacht?</li>\n</ul>\n<p>Wenn alles zutrifft, freuen wir uns auf Ihre Einreichung.
+        Bitte melden Sie sich bei der DINI-Gesch\xE4ftsstelle (<a class=\"external-link\"
+        href=\"mailto:gs@dini.de\" rel=\"nofollow\">gs@dini.de</a>), um Ihr Interesse
+        an einer Zertifizierung anzuk\xFCndigen. Sie erhalten im Anschluss Zugangsdaten
+        f\xFCr das\_Fragebogenformular\_und k\xF6nnen mit der Beantwortung der Fragen
+        beginnen. Der Fragebogen ist speicherbar und kann zu einem beliebigen sp\xE4teren
+        Zeitpunkt wieder aufgerufen werden.</p>\n<p>Wenn Sie nach wie vor nicht sicher
+        sind, ob Ihr Publikationsdienst zertifizierbar ist, wenden Sie sich an die
+        Sprecher:innen der die-AG Elektronisches Publizieren (<a href=\"mailto:epub-sprecher@dini.de\">epub-sprecher@dini.de</a>).</p>\n<p>Auch
+        wenn sich ggf. Ihr Dienst nach dieser Einsch\xE4tzung zum gegenw\xE4rtigen
+        Zeitpunkt als nicht f\xFCr die Zertifizierung geeignet herausstellen sollte,
+        so ist eine Orientierung am Kriterienkatalog in jedem Fall von Vorteil. Ihr
+        Dienst, Ihre Nutzenden und Ihre Einrichtung profizieren in jedem Fall von
+        einem strukturierte, an Standards orientierten Dienst.</p>\n<p>\xDCbrigens:
+        Nach dem Zertifikat ist vor dem Zertifikat <img src=\"https://s.w.org/images/core/emoji/14.0.0/72x72/1f449.png\"
+        alt=\"\U0001F449\" class=\"wp-smiley\" style=\"height: 1em; max-height: 1em;\"
+        />\_die DINI-AG Elektronisches Publizieren wird sich im Rahmen der Vorbereitung
+        auf das Zertifikat 2025 intensiv mit der Frage heterogener Publikationsdienste
+        besch\xE4ftigen.</p>\n<h1>Zitiervorschlag</h1>\n<p>Meinecke, Isabella. &#8222;Noch
+        Repositorium oder schon Bibliografie &#8211; ist mein Dienst DINI-zertifizierbar?&#8220;\_<i>Blog
+        der DINI AGs FIS &amp; EPUB</i>, 2023. <a href=\"https://doi.org/10.57689/dini-blog.20230320\">https://doi.org/10.57689/dini-blog.20230320</a></p>\n<hr
+        />\n<p><em><span dir=\"ltr\" role=\"presentation\">Diese</span>r Beitrag <span
+        dir=\"ltr\" role=\"presentation\">\u2013</span> <span dir=\"ltr\" role=\"presentation\">ausgenommen</span>
+        <span dir=\"ltr\" role=\"presentation\">Zitate</span> <span dir=\"ltr\" role=\"presentation\">und</span>
+        <span dir=\"ltr\" role=\"presentation\">anderweitig </span><span dir=\"ltr\"
+        role=\"presentation\">gekennzeichnete</span> <span dir=\"ltr\" role=\"presentation\">Teile</span>
+        <span dir=\"ltr\" role=\"presentation\">\u2013</span> <span dir=\"ltr\" role=\"presentation\">ist</span>
+        lizenziert <span dir=\"ltr\" role=\"presentation\">unter</span> <span dir=\"ltr\"
+        role=\"presentation\">der</span> <a href=\"http://creativecommons.org/licenses/by/4.0/\"
+        rel=\"license\">Creative Commons Namensnennung 4.0 International Lizenz</a>
+        (<span dir=\"ltr\" role=\"presentation\">CC</span> <span dir=\"ltr\" role=\"presentation\">BY</span>
+        <span dir=\"ltr\" role=\"presentation\">4.0</span>).<br />\n</em><a href=\"http://creativecommons.org/licenses/by/4.0/\"
+        rel=\"license\"><img decoding=\"async\" src=\"https://i.creativecommons.org/l/by/4.0/88x31.png\"
+        alt=\"Creative Commons Lizenzvertrag\" /></a></p>\n]]></content>\n\t\t\n\t\t\t\t\t<link
+        rel=\"replies\" type=\"text/html\" href=\"https://blog.dini.de/EPub_FIS/2023/03/20/dienst-dini-zertifizierbar/#comments\"
+        thr:count=\"0\" />\n\t\t\t<link rel=\"replies\" type=\"application/atom+xml\"
+        href=\"https://blog.dini.de/EPub_FIS/2023/03/20/dienst-dini-zertifizierbar/feed/atom/\"
+        thr:count=\"0\" />\n\t\t\t<thr:total>0</thr:total>\n\t\t\t</entry>\n\t\t<entry>\n\t\t<author>\n\t\t\t<name>Gastautor(en)</name>\n\t\t\t\t\t</author>\n\n\t\t<title
+        type=\"html\"><![CDATA[Dasselbe in Gr\xFCn: EZB-Tool zur automatisierten Identifizierung
+        von Publikationen mit Zweitver\xF6ffentlichungspotenzial]]></title>\n\t\t<link
+        rel=\"alternate\" type=\"text/html\" href=\"https://blog.dini.de/EPub_FIS/2023/02/23/dasselbe-in-gruen-ezb-tool-zur-automatisierten-identifizierung-von-publikationen-mit-zweitveroeffentlichungspotenzial/\"
+        />\n\n\t\t<id>https://blogs.tib.eu/wp/dini-ag-blog/?p=3094</id>\n\t\t<updated>2023-02-23T10:49:09Z</updated>\n\t\t<published>2023-02-23T10:49:09Z</published>\n\t\t<category
+        scheme=\"https://blog.dini.de/EPub_FIS\" term=\"Elektronisches Publizieren\"
+        /><category scheme=\"https://blog.dini.de/EPub_FIS\" term=\"Neuigkeiten\"
+        /><category scheme=\"https://blog.dini.de/EPub_FIS\" term=\"Open Access\"
+        />\n\t\t<summary type=\"html\"><![CDATA[Die Identifizierung von Publikationen,
+        die auf Grundlage von Open-Access-Rechten (OA-Rechten) aus Allianz-, National-
+        oder Konsortiallizenzen zweitver\xF6ffentlicht werden d\xFCrfen (green open
+        access), ist bislang mit einem erheblichen, oft manuellen Arbeitsaufwand verbunden.
+        Dazu z\xE4hlt neben der Feststellung, an welchen Lizenzvertr\xE4gen mit OA-Rechten
+        die eigene Einrichtung teilnimmt, auch die Ermittlung der darin enthaltenen
+        Zeitschriften. Mit dem OA-Rechte-Tool\_der Elektronischen [&#8230;]]]></summary>\n\n\t\t\t\t\t<content
+        type=\"html\" xml:base=\"https://blog.dini.de/EPub_FIS/2023/02/23/dasselbe-in-gruen-ezb-tool-zur-automatisierten-identifizierung-von-publikationen-mit-zweitveroeffentlichungspotenzial/\"><![CDATA[<p>Die
+        Identifizierung von Publikationen, die auf Grundlage von Open-Access-Rechten
+        (OA-Rechten) aus Allianz-, National- oder Konsortiallizenzen zweitver\xF6ffentlicht
+        werden d\xFCrfen (green open access), ist bislang mit einem erheblichen, oft
+        manuellen Arbeitsaufwand verbunden. Dazu z\xE4hlt neben der Feststellung,
+        an welchen Lizenzvertr\xE4gen mit OA-Rechten die eigene Einrichtung teilnimmt,
+        auch die Ermittlung der darin enthaltenen Zeitschriften.<span id=\"more-3094\"></span></p>\n<p>Mit
+        dem <a href=\"https://ezb.ur.de/services/oa\">OA-Rechte-Tool</a>\_der Elektronischen
+        Zeitschriftenbibliothek (EZB) gibt es nun eine M\xF6glichkeit, vorhandene
+        OA-Rechte f\xFCr Publikationen aus der eigenen Einrichtung relativ einfach
+        und systematisch zu ermitteln. Grundlage daf\xFCr sind OA-Rechte aus Allianz-,
+        National- oder Konsortiallizenzen, die schon seit einigen Jahren in der EZB
+        strukturiert erfasst und \xFCber die <a href=\"https://ezb.ur.de/services/oa-ezb\">OA-EZB-Schnittstelle</a>
+        zeitschriften- und institutionsspezifisch zur automatisierten Abfrage bereitgestellt
+        werden. In einigen Vertr\xE4gen wurden auch OA-Rechte f\xFCr die lizenznehmenden
+        Institutionen verhandelt, sodass in diesen F\xE4llen eine Zweitver\xF6ffentlichung
+        ohne das Mitwirken der Autorinnen und Autoren erfolgen kann.</p>\n<p>Forschungseinrichtungen
+        und Bibliotheken k\xF6nnen mithilfe des OA-Rechte-Tools aus einer Liste von
+        Publikationen, die an ihrer Einrichtung entstanden sind, automatisiert diejenigen
+        identifizieren, die f\xFCr eine Zweitver\xF6ffentlichung in Frage kommen.
+        Dar\xFCber hinaus erhalten die Einrichtungen eine \xDCbersicht \xFCber die
+        Zug\xE4nglichkeit der angefragten Publikationen. Zudem erm\xF6glicht das OA-Rechte-Tool
+        Einzelrechtepr\xFCfungen, beispielsweise im Rahmen eines Workflows zur Ermittlung
+        der rechtlichen Voraussetzungen f\xFCr eine Zweitver\xF6ffentlichung.</p>\n<p>F\xFCr
+        eine Anfrage an das OA-Rechte-Tool wird eine Liste mit Digital Object Identifiern
+        (DOI) der Publikationen mit mindestens einer affiliierten Autorin oder eines
+        affiliierten Autors der zugeh\xF6rigen Einrichtung ben\xF6tigt. Das OA-Rechte-Tool
+        ist unter der URL <a href=\"https://ezb.ur.de/services/oa\">https://ezb.ur.de/services/oa</a>
+        erreichbar und kann frei nachgenutzt werden.</p>\n<p><em>Ausf\xFChrlichere
+        Informationen finden Sie im Aufsatz: </em><br />\n<em>Weisheit, S. (2022).
+        Dasselbe in Gr\xFCn: Analysetool zur automatisierten Identifizierung von Publikationen
+        mit Zweitver\xF6ffentlichungspotenzial. O-Bib. Das Offene Bibliotheksjournal
+        / Herausgeber VDB, 9(4), 1\u201312. </em><br />\n<a href=\"https://doi.org/10.5282/o-bib/5871\"><em>https://doi.org/10.5282/o-bib/5871</em></a></p>\n<h1>Autorin</h1>\n<p>Silke
+        Weisheit (<a href=\"https://orcid.org/0000-0002-2609-4274\">https://orcid.org/0000-0002-2609-4274</a>)
+        ist in der Universit\xE4tsbibliothek Regensburg als Leiterin der Elektronischen
+        Zeitschriftenbibliothek (EZB) und des Sachgebiets EZB/DBIS t\xE4tig.</p>\n<h1>Zitiervorschlag</h1>\n<p>Weinheit,
+        Silke. &#8222;Dasselbe in Gr\xFCn: EZB-Tool zur automatisierten Identifizierung
+        von Publikationen mit Zweitver\xF6ffentlichungspotenzial&#8220; <i>Blog der
+        DINI AGs FIS &amp; EPUB</i>, 2023. <a href=\"https://doi.org/10.57689/dini-blog.20230227\">https://doi.org/10.57689/dini-blog.20230227</a>.</p>\n<hr
+        />\n<p><em><span dir=\"ltr\" role=\"presentation\">Diese</span>r Beitrag <span
+        dir=\"ltr\" role=\"presentation\">\u2013</span> <span dir=\"ltr\" role=\"presentation\">ausgenommen</span>
+        <span dir=\"ltr\" role=\"presentation\">Zitate</span> <span dir=\"ltr\" role=\"presentation\">und</span>
+        <span dir=\"ltr\" role=\"presentation\">anderweitig </span><span dir=\"ltr\"
+        role=\"presentation\">gekennzeichnete</span> <span dir=\"ltr\" role=\"presentation\">Teile</span>
+        <span dir=\"ltr\" role=\"presentation\">\u2013</span> <span dir=\"ltr\" role=\"presentation\">ist</span>
+        lizenziert <span dir=\"ltr\" role=\"presentation\">unter</span> <span dir=\"ltr\"
+        role=\"presentation\">der</span> <a href=\"http://creativecommons.org/licenses/by/4.0/\"
+        rel=\"license\">Creative Commons Namensnennung 4.0 International Lizenz</a>
+        (<span dir=\"ltr\" role=\"presentation\">CC</span> <span dir=\"ltr\" role=\"presentation\">BY</span>
+        <span dir=\"ltr\" role=\"presentation\">4.0</span>).<br />\n</em><a href=\"http://creativecommons.org/licenses/by/4.0/\"
+        rel=\"license\"><img decoding=\"async\" src=\"https://i.creativecommons.org/l/by/4.0/88x31.png\"
+        alt=\"Creative Commons Lizenzvertrag\" /></a></p>\n<p>&nbsp;</p>\n]]></content>\n\t\t\n\t\t\t\t\t<link
+        rel=\"replies\" type=\"text/html\" href=\"https://blog.dini.de/EPub_FIS/2023/02/23/dasselbe-in-gruen-ezb-tool-zur-automatisierten-identifizierung-von-publikationen-mit-zweitveroeffentlichungspotenzial/#comments\"
+        thr:count=\"0\" />\n\t\t\t<link rel=\"replies\" type=\"application/atom+xml\"
+        href=\"https://blog.dini.de/EPub_FIS/2023/02/23/dasselbe-in-gruen-ezb-tool-zur-automatisierten-identifizierung-von-publikationen-mit-zweitveroeffentlichungspotenzial/feed/atom/\"
+        thr:count=\"0\" />\n\t\t\t<thr:total>0</thr:total>\n\t\t\t</entry>\n\t\t<entry>\n\t\t<author>\n\t\t\t<name>Daniel
+        Beucke</name>\n\t\t\t\t\t\t\t<uri>https://orcid.org/0000-0003-4905-1936</uri>\n\t\t\t\t\t\t</author>\n\n\t\t<title
+        type=\"html\"><![CDATA[Alternative Publishing Platforms &#8211; KE Arbeitsgruppe
+        ruft zur Unterst\xFCtzung auf]]></title>\n\t\t<link rel=\"alternate\" type=\"text/html\"
+        href=\"https://blog.dini.de/EPub_FIS/2023/02/20/alternative-publishing-platforms/\"
+        />\n\n\t\t<id>https://blogs.tib.eu/wp/dini-ag-blog/?p=3086</id>\n\t\t<updated>2023-07-19T04:41:45Z</updated>\n\t\t<published>2023-02-20T07:55:10Z</published>\n\t\t<category
+        scheme=\"https://blog.dini.de/EPub_FIS\" term=\"Elektronisches Publizieren\"
+        /><category scheme=\"https://blog.dini.de/EPub_FIS\" term=\"Forschungsinformationssysteme\"
+        /><category scheme=\"https://blog.dini.de/EPub_FIS\" term=\"Neuigkeiten\"
+        /><category scheme=\"https://blog.dini.de/EPub_FIS\" term=\"Knowledge Exchange\"
+        /><category scheme=\"https://blog.dini.de/EPub_FIS\" term=\"Umfrage\" />\n\t\t<summary
+        type=\"html\"><![CDATA[Knowledge Exchange (KE) ist ein Zusammenschluss von
+        sechs europ\xE4ischen Einrichtungen &#8211; f\xFCr Deutschland ist die Deutsche
+        Forschungsgemeinschaft (DFG) Mitglied. Ein Teil der Arbeit von KE besteht
+        aus kleineren Arbeitsgruppen, die ein Thema f\xFCr eine bestimmte Zeit aufgreifen
+        und bearbeiten. Aktuell gibt es u.a. die Task &#38; Finish group Alternative
+        Publishing Platforms, in der Xenia van [&#8230;]]]></summary>\n\n\t\t\t\t\t<content
+        type=\"html\" xml:base=\"https://blog.dini.de/EPub_FIS/2023/02/20/alternative-publishing-platforms/\"><![CDATA[<p><a
+        href=\"https://www.knowledge-exchange.info/\">Knowledge Exchange (KE)</a>
+        ist ein Zusammenschluss von sechs europ\xE4ischen Einrichtungen &#8211; f\xFCr
+        Deutschland ist die Deutsche Forschungsgemeinschaft (DFG) Mitglied. Ein Teil
+        der Arbeit von KE besteht aus kleineren Arbeitsgruppen, die ein Thema f\xFCr
+        eine bestimmte Zeit aufgreifen und bearbeiten. Aktuell gibt es u.a. die <a
+        href=\"https://www.knowledge-exchange.info/event/alternative-publishing-platforms\">Task
+        &amp; Finish group Alternative Publishing Platforms</a>, in der Xenia van
+        Edig (TIB) und Daniel Beucke (SUB G\xF6ttingen) f\xFCr die DFG vertreten sind.
+        Ziel ist es, eine \xDCbersicht zu alternativen Publikationswegen zu erfassen
+        und eine Taxonomie dazu zu erstellen. Immer neue Plattformen mit den unterschiedlichsten
+        Funktionalit\xE4ten entstehen und bieten ihre Services an. Diese stellen ein
+        Gegengewicht zu den \u201Cklassischen\u201D Abl\xE4ufen im Verlagswesen dar.
+        Zum Beispiel hinsichtlich angepasster Publikationsprozesse, offener&nbsp;
+        Begutachtungsverfahren oder anderen Gesch\xE4ftsmodellen.<span id=\"more-3086\"></span></p>\n<p>Der
+        erste Schritt der Gruppe war die Erstellung eines <a href=\"https://doi.org/10.21428/996e2e37.3ebdc864\">Scoping-Papers</a>,
+        in dem das Thema konkreter aufgegriffen wurde. Das Dokument ist selbst auf
+        einer \u201Calternativen\u201D Plattform entstanden, die eine aktive Mitarbeit
+        der Community erlaubt und die Versionierung des Dokuments \xFCbernimmt.</p>\n<p>Aktuell
+        ruft die Gruppe zur <a href=\"https://knowledge-exchange.pubpub.org/\">Beteiligung
+        an einer Umfrage</a> auf, um in einem zweiten Schritt eine Taxonomie der unterschiedlichen
+        Plattformen zu erstellen. Die Beteiligung an dieser Umfrage steht allen Plattformen
+        offen, die im Bereich des Open-Access-Publizierens t\xE4tig sind und in die
+        Taxonomie der alternativen Publikationsplattformen von der Knowledge Exchange
+        aufgenommen werden m\xF6chten.</p>\n<p>Weitere Informationen sowie den Link
+        zum Fragebogen, sind auf der Seite zur Umfrage zu finden: <a href=\"https://knowledge-exchange.pubpub.org/\">https://knowledge-exchange.pubpub.org/</a></p>\n<h1>Autor*innen</h1>\n<p>Dieser
+        Beitrag wurde verfasst von <a href=\"https://orcid.org/0000-0003-2510-0529\">Dr.
+        Xenia van Edig</a> (Technischen Informationsbibliothek). Sie ist Publication
+        Platform Managerin der Open-Access-Publikationsplattform TIB Open Publishing.
+        Sowie&nbsp;<a href=\"https://orcid.org/0000-0003-4905-1936\">Daniel Beucke</a>
+        (Nieders\xE4chsischen Staats- und Universit\xE4tsbibliothek G\xF6ttingen).</p>\n<h1>Zitiervorschlag</h1>\n<p>van
+        Edig, Xenia und Daniel Beucke. &#8222;Alternative Publishing Platforms &#8211;
+        KE Arbeitsgruppe ruft zur Unterst\xFCtzung auf&#8220;&nbsp;<i>Blog der DINI
+        AGs FIS &amp; EPUB</i>, 2023. <a href=\"https://doi.org/10.57689/dini-blog.20230220\">https://doi.org/10.57689/dini-blog.20230220</a></p>\n<hr>\n<p><em><span
+        dir=\"ltr\" role=\"presentation\">Diese</span>r Beitrag <span dir=\"ltr\"
+        role=\"presentation\">\u2013</span> <span dir=\"ltr\" role=\"presentation\">ausgenommen</span>
+        <span dir=\"ltr\" role=\"presentation\">Zitate</span> <span dir=\"ltr\" role=\"presentation\">und</span>
+        <span dir=\"ltr\" role=\"presentation\">anderweitig </span><span dir=\"ltr\"
+        role=\"presentation\">gekennzeichnete</span> <span dir=\"ltr\" role=\"presentation\">Teile</span>
+        <span dir=\"ltr\" role=\"presentation\">\u2013</span> <span dir=\"ltr\" role=\"presentation\">ist</span>
+        lizenziert <span dir=\"ltr\" role=\"presentation\">unter</span> <span dir=\"ltr\"
+        role=\"presentation\">der</span> <a href=\"http://creativecommons.org/licenses/by/4.0/\"
+        rel=\"license\">Creative Commons Namensnennung 4.0 International Lizenz</a>
+        (<span dir=\"ltr\" role=\"presentation\">CC</span> <span dir=\"ltr\" role=\"presentation\">BY</span>
+        <span dir=\"ltr\" role=\"presentation\">4.0</span>).<br />\n</em><a href=\"http://creativecommons.org/licenses/by/4.0/\"
+        rel=\"license\"><img decoding=\"async\" src=\"https://i.creativecommons.org/l/by/4.0/88x31.png\"
+        alt=\"Creative Commons Lizenzvertrag\"></a></p>\n]]></content>\n\t\t\n\t\t\t\t\t<link
+        rel=\"replies\" type=\"text/html\" href=\"https://blog.dini.de/EPub_FIS/2023/02/20/alternative-publishing-platforms/#comments\"
+        thr:count=\"1\" />\n\t\t\t<link rel=\"replies\" type=\"application/atom+xml\"
+        href=\"https://blog.dini.de/EPub_FIS/2023/02/20/alternative-publishing-platforms/feed/atom/\"
+        thr:count=\"1\" />\n\t\t\t<thr:total>1</thr:total>\n\t\t\t</entry>\n\t\t<entry>\n\t\t<author>\n\t\t\t<name>Daniel
+        Beucke</name>\n\t\t\t\t\t\t\t<uri>https://orcid.org/0000-0003-4905-1936</uri>\n\t\t\t\t\t\t</author>\n\n\t\t<title
+        type=\"html\"><![CDATA[DINI-OAI-Validator &#8211; endlich (bald) neu]]></title>\n\t\t<link
+        rel=\"alternate\" type=\"text/html\" href=\"https://blog.dini.de/EPub_FIS/2023/02/13/dini-oai-validator/\"
+        />\n\n\t\t<id>https://blogs.tib.eu/wp/dini-ag-blog/?p=3081</id>\n\t\t<updated>2023-02-13T10:24:21Z</updated>\n\t\t<published>2023-02-13T10:24:21Z</published>\n\t\t<category
+        scheme=\"https://blog.dini.de/EPub_FIS\" term=\"DINI\" /><category scheme=\"https://blog.dini.de/EPub_FIS\"
+        term=\"Elektronisches Publizieren\" /><category scheme=\"https://blog.dini.de/EPub_FIS\"
+        term=\"Zertifikat\" /><category scheme=\"https://blog.dini.de/EPub_FIS\" term=\"DINI-OAI-Validator\"
+        />\n\t\t<summary type=\"html\"><![CDATA[Der DINI-OAI-Validator ist seit Jahren
+        ein entscheidendes Tool f\xFCr das DINI-Zertifikat. Das aktuell laufende Tool
+        basiert auf sehr veraltetem Quellcode und pr\xFCft die Kriterien aus dem DINI-Zertifikat
+        2013. Im April 2021 war es dann soweit und das Tool war nicht mehr verf\xFCgbar,
+        sodass die gesamte Zertifizierung stoppen musste. Mehr dazu im Blogbeitrag
+        von Paul Vierkant [&#8230;]]]></summary>\n\n\t\t\t\t\t<content type=\"html\"
+        xml:base=\"https://blog.dini.de/EPub_FIS/2023/02/13/dini-oai-validator/\"><![CDATA[<p>Der
+        DINI-OAI-Validator ist seit Jahren ein entscheidendes Tool f\xFCr das DINI-Zertifikat.
+        Das <a href=\"https://validator.dini.de\">aktuell laufende Tool</a> basiert
+        auf sehr veraltetem Quellcode und pr\xFCft die Kriterien aus dem DINI-Zertifikat
+        2013. Im April 2021 war es dann soweit und das Tool war nicht mehr verf\xFCgbar,
+        sodass die gesamte Zertifizierung stoppen musste. Mehr dazu im Blogbeitrag
+        von Paul Vierkant &#8211; <a href=\"https://doi.org/10.57689/DINI-BLOG.20210422\">DINI-Zertifizierungen
+        on hold</a>. Um eine Zertifizierung wieder zu erm\xF6glichen wurde im Dezember
+        2021 &#8211; mit gro\xDFer Unterst\xFCtzung aus dem DINI-Vorstand &#8211;
+        das Tool wieder zum Leben erweckt und damit war auch die <a href=\"https://doi.org/10.57689/DINI-BLOG.20211221\">DINI-Zertifizierung
+        wieder m\xF6glich</a>. Weiterhin aber &#8222;nur&#8220; gegen die Kriterien
+        aus dem DINI-Zertifikat 2013 und mit bekannten Fehlern bei der Pr\xFCfung.</p>\n<p>Damit
+        ist jetzt Schluss!<span id=\"more-3081\"></span></p>\n<p>ZB MED &#8211; unter
+        Federf\xFChrung von Ursula Arning &#8211; hat mit Unterst\xFCtzung der Sprecher*innen
+        der DINI AG E-Pub einen Antrag geschrieben und bei der DFG eingereicht. Nach
+        einer kurzen Zeit des Daumendr\xFCckens und wirklich sehr positiven R\xFCckmeldungen
+        seitens der Begutachtenden kann das Projekt jetzt starten.<br />\nMit dem
+        Projekt \u201C<a href=\"https://www.zbmed.de/forschen/laufende-projekte/dov-quapub/\">DOV-QuaPub
+        &#8211; DINI-OAI-Validator &#8211; Qualit\xE4tssicherung von Publikationsplattformen</a>\u201D
+        gibt es neben einem wirklich interessanten Projekttitel viele Ideen und Mittel,
+        um den DINI-OAI-Validator auf neue Beine zu stellen. Mittlerweile konnte ein
+        Auftrag vergeben werden und ein erstes Kick-Off Treffen hat stattgefunden,
+        in dem die konkrete Umsetzung besprochen wurde. Die ersten Arbeiten sind bereits
+        gestartet und noch in diesem Jahr wird ein neuer OAI-Validator angeboten,
+        der bei der Zertifizierung zum aktuellen DINI-Zertifikat 2022 unterst\xFCtzen
+        wird. Damit die Entwicklung auch f\xFCr weitere Versionen von Zertifikaten
+        genutzt werden kann, wird das Tool zeitgem\xE4\xDF entwickelt, sodass die
+        Anpassungen an den zu pr\xFCfenden Kriterien per Konfiguration angepasst werden
+        k\xF6nnen. Zudem findet im Rahmen des Projekts eine Anpassung an den Online-Fragebogen
+        statt, der f\xFCr die Beantragung des Zertifikats notwendig ist. Hier werden
+        die R\xFCckmeldungen aus der Community &#8211; z. B. aus den beiden stattgefundenen
+        Workshops (&#8222;<a href=\"https://doi.org/10.57689/dini-blog.20221024\">Gemeinsam
+        zum DINI-Zertifikat 2022</a>&#8220; und &#8222;I<a href=\"https://doi.org/10.57689/dini-blog.20230109\">n
+        wenigen Schritten zum DINI-Zertifikat 2022</a>&#8220; ) eingebunden, um die
+        Zertifizierung f\xFCr die Beantragenden, aber auch die Begutachtenden so intuitiv
+        wie m\xF6glich zu machen.</p>\n<p>Bei Fragen gern an die Sprecher*innen der
+        DINI AG E-Pub wenden: <a href=\"mailto:epub-sprecher@dini.de\">epub-sprecher@dini.de</a></p>\n<p>\xDCber
+        die weiteren Schritte und den hoffentlich baldigen neuen Service werden wir
+        im Blog berichten.</p>\n<h1>Zitiervorschlag</h1>\n<p>Beucke, Daniel. \u201EDINI-OAI-Validator
+        &#8211; endlich (bald) neu\u201C\_<i>Blog der DINI AGs FIS &amp; EPUB</i>,
+        2023. <a href=\"https://doi.org/10.57689/dini-blog.20230213\">https://doi.org/10.57689/dini-blog.20230213</a></p>\n<hr
+        />\n<p><em><span dir=\"ltr\" role=\"presentation\">Diese</span>r Beitrag <span
+        dir=\"ltr\" role=\"presentation\">\u2013</span> <span dir=\"ltr\" role=\"presentation\">ausgenommen</span>
+        <span dir=\"ltr\" role=\"presentation\">Zitate</span> <span dir=\"ltr\" role=\"presentation\">und</span>
+        <span dir=\"ltr\" role=\"presentation\">anderweitig </span><span dir=\"ltr\"
+        role=\"presentation\">gekennzeichnete</span> <span dir=\"ltr\" role=\"presentation\">Teile</span>
+        <span dir=\"ltr\" role=\"presentation\">\u2013</span><span dir=\"ltr\" role=\"presentation\">ist</span>lizenziert
+        <span dir=\"ltr\" role=\"presentation\">unter</span> <span dir=\"ltr\" role=\"presentation\">der</span>
+        <a href=\"http://creativecommons.org/licenses/by/4.0/\" rel=\"license\">Creative
+        Commons Namensnennung 4.0 International Lizenz </a>(<span dir=\"ltr\" role=\"presentation\">CC</span>
+        <span dir=\"ltr\" role=\"presentation\">BY</span> <span dir=\"ltr\" role=\"presentation\">4.0</span>).<br
+        />\n</em><a href=\"http://creativecommons.org/licenses/by/4.0/\" rel=\"license\"><img
+        decoding=\"async\" src=\"https://i.creativecommons.org/l/by/4.0/88x31.png\"
+        alt=\"Creative Commons Lizenzvertrag\" /></a></p>\n]]></content>\n\t\t\n\t\t\t\t\t<link
+        rel=\"replies\" type=\"text/html\" href=\"https://blog.dini.de/EPub_FIS/2023/02/13/dini-oai-validator/#comments\"
+        thr:count=\"1\" />\n\t\t\t<link rel=\"replies\" type=\"application/atom+xml\"
+        href=\"https://blog.dini.de/EPub_FIS/2023/02/13/dini-oai-validator/feed/atom/\"
+        thr:count=\"1\" />\n\t\t\t<thr:total>1</thr:total>\n\t\t\t</entry>\n\t\t<entry>\n\t\t<author>\n\t\t\t<name>Franziska
+        Mau</name>\n\t\t\t\t\t</author>\n\n\t\t<title type=\"html\"><![CDATA[Gemeinsam
+        gestalten: RES-Community arbeitet an ihrem Zielbild f\xFCr HISinOne-RES]]></title>\n\t\t<link
+        rel=\"alternate\" type=\"text/html\" href=\"https://blog.dini.de/EPub_FIS/2023/02/06/zielbild-fuer-hisinone-res/\"
+        />\n\n\t\t<id>https://blogs.tib.eu/wp/dini-ag-blog/?p=3072</id>\n\t\t<updated>2023-02-06T08:16:06Z</updated>\n\t\t<published>2023-02-06T08:16:06Z</published>\n\t\t<category
+        scheme=\"https://blog.dini.de/EPub_FIS\" term=\"Forschungsinformationssysteme\"
+        /><category scheme=\"https://blog.dini.de/EPub_FIS\" term=\"Neuigkeiten\"
+        /><category scheme=\"https://blog.dini.de/EPub_FIS\" term=\"HISinOne\" />\n\t\t<summary
+        type=\"html\"><![CDATA[Die RES-Community\_konkretisiert ihr gemeinsames Zielbild
+        f\xFCr HISinOne-RES. Anhand eines von CRIS.NRW gestalteten Impulses f\xFCr
+        ein Zielbild, wurden beim Community-Treffen im September 2022 dessen Diskussion
+        und Weiterentwicklung angesto\xDFen. Im Community-Forum haben auch nach dem
+        Treffen im September viele Einrichtungen ihr Feedback gegeben, um ihre Anforderungen
+        in das Zielbild einflie\xDFen zu lassen. Die vielf\xE4ltigen Beitr\xE4ge wurden
+        nun [&#8230;]]]></summary>\n\n\t\t\t\t\t<content type=\"html\" xml:base=\"https://blog.dini.de/EPub_FIS/2023/02/06/zielbild-fuer-hisinone-res/\"><![CDATA[<p>Die
+        <a href=\"https://blogs.tib.eu/wp/dini-ag-blog/2022/02/21/gruendung-res-community/\">RES-Community</a>\_konkretisiert
+        ihr gemeinsames Zielbild f\xFCr HISinOne-RES. Anhand eines von CRIS.NRW gestalteten
+        Impulses f\xFCr ein Zielbild, wurden beim Community-Treffen im September 2022
+        dessen Diskussion und Weiterentwicklung angesto\xDFen. Im Community-Forum
+        haben auch nach dem Treffen im September viele Einrichtungen ihr Feedback
+        gegeben, um ihre Anforderungen in das Zielbild einflie\xDFen zu lassen.</p>\n<p>Die
+        vielf\xE4ltigen Beitr\xE4ge wurden nun in einer Umfrage zusammengetragen,
+        die aktuell im Community-Forum stattfindet. Einrichtungen k\xF6nnen ihre Anforderungen
+        an das System darin individuell priorisieren. Die Umfrage gliedert sich in
+        die sieben Teilbereiche</p>\n<ol>\n<li>\xDCbergreifende Ziele,</li>\n<li>Projektverwaltung,</li>\n<li>Publikationsverwaltung,</li>\n<li>Promotionsverwaltung,</li>\n<li>Forschungsinfrastrukturen,</li>\n<li>Transfer
+        und</li>\n<li>Au\xDFendarstellung.</li>\n</ol>\n<p><span id=\"more-3072\"></span></p>\n<p>Die
+        Ergebnisse der Umfrage sollen in der n\xE4chsten Community-Sitzung am 9. M\xE4rz
+        2023 vorgestellt und diskutiert werden, um ein abgestimmtes Zielbild zu entwickeln.
+        Im Anschluss werden Vertreter*innen der Community das Zielbild der HIS eG
+        pr\xE4sentieren.</p>\n<p>Die Umfrage l\xE4uft noch bis zum 24.02.2023. Interessierte
+        Einrichtungen, die noch nicht Mitglied der RES-Community sind, k\xF6nnen sich
+        an <a href=\"mailto:res-community@cris.nrw\">res-community@cris.nrw</a> wenden.</p>\n<h1>Zitiervorschlag</h1>\n<p>Mau,
+        Franziska. &#8222;Gemeinsam gestalten: RES-Community arbeitet an ihrem Zielbild
+        f\xFCr HISinOne-RES&#8220;\_<i>Blog der DINI AGs FIS &amp; EPUB</i>, 2023.
+        <a href=\"https://doi.org/10.57689/dini-blog.20230206\">https://doi.org/10.57689/dini-blog.20230206</a></p>\n<hr
+        />\n<p><em><span dir=\"ltr\" role=\"presentation\">Diese</span>r Beitrag <span
+        dir=\"ltr\" role=\"presentation\">\u2013</span> <span dir=\"ltr\" role=\"presentation\">ausgenommen</span>
+        <span dir=\"ltr\" role=\"presentation\">Zitate</span> <span dir=\"ltr\" role=\"presentation\">und</span>
+        <span dir=\"ltr\" role=\"presentation\">anderweitig </span><span dir=\"ltr\"
+        role=\"presentation\">gekennzeichnete</span> <span dir=\"ltr\" role=\"presentation\">Teile</span>
+        <span dir=\"ltr\" role=\"presentation\">\u2013</span> <span dir=\"ltr\" role=\"presentation\">ist</span>
+        lizenziert <span dir=\"ltr\" role=\"presentation\">unter</span> <span dir=\"ltr\"
+        role=\"presentation\">der</span> <a href=\"http://creativecommons.org/licenses/by/4.0/\"
+        rel=\"license\">Creative Commons Namensnennung 4.0 International Lizenz</a>
+        (<span dir=\"ltr\" role=\"presentation\">CC</span> <span dir=\"ltr\" role=\"presentation\">BY</span>
+        <span dir=\"ltr\" role=\"presentation\">4.0</span>).<br />\n</em><a href=\"http://creativecommons.org/licenses/by/4.0/\"
+        rel=\"license\"><img decoding=\"async\" src=\"https://i.creativecommons.org/l/by/4.0/88x31.png\"
+        alt=\"Creative Commons Lizenzvertrag\" /></a></p>\n]]></content>\n\t\t\n\t\t\t\t\t<link
+        rel=\"replies\" type=\"text/html\" href=\"https://blog.dini.de/EPub_FIS/2023/02/06/zielbild-fuer-hisinone-res/#comments\"
+        thr:count=\"0\" />\n\t\t\t<link rel=\"replies\" type=\"application/atom+xml\"
+        href=\"https://blog.dini.de/EPub_FIS/2023/02/06/zielbild-fuer-hisinone-res/feed/atom/\"
+        thr:count=\"0\" />\n\t\t\t<thr:total>0</thr:total>\n\t\t\t</entry>\n\t</feed>\n"
+    headers:
+      Connection:
+      - close
+      Content-Type:
+      - application/atom+xml; charset=UTF-8
+      Date:
+      - Sat, 21 Oct 2023 19:42:10 GMT
+      ETag:
+      - '"211db721bf98c2ee0e6aee81aeb9cc43"'
+      Last-Modified:
+      - Thu, 19 Oct 2023 12:27:24 GMT
+      Link:
+      - <https://blog.dini.de/EPub_FIS/wp-json/>; rel="https://api.w.org/"
+      Server:
+      - Apache/2.4.25 (Debian)
+      Transfer-Encoding:
+      - chunked
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      user-agent:
+      - python-httpx/0.24.1
+      x-client-info:
+      - supabase-py/1.2.0
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/posts?select=updated_at%2C%20blog_slug&blog_slug=eq.epub_fis&order=updated_at.desc&limit=1
+  response:
+    content: '[{"updated_at":1697718444,"blog_slug":"epub_fis"}]'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 819bfb720cda7175-DUS
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Location:
+      - /posts?blog_slug=eq.epub_fis&limit=1&order=updated_at.desc&select=updated_at%2C%20blog_slug
+      Content-Profile:
+      - public
+      Content-Range:
+      - 0-0/*
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 21 Oct 2023 19:42:10 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/2.8.1
+      X-Kong-Proxy-Latency:
+      - '1'
+      X-Kong-Upstream-Latency:
+      - '8'
+      alt-svc:
+      - h3=":443"; ma=86400
+      sb-gateway-version:
+      - '1'
+    http_version: HTTP/1.1
+    status_code: 200
+- request:
+    body: '{"id": "mdh1h61", "slug": "epub_fis", "title": "FIS & EPub", "description":
+      "Gemeinsamer Blog der DINI AG Forschungsinformationssystem und Elektronisches
+      Publizieren", "feed_url": "https://blog.dini.de/EPub_FIS/feed/atom/", "current_feed_url":
+      null, "home_page_url": "https://blog.dini.de/EPub_FIS", "feed_format": "application/atom+xml",
+      "modified_at": null, "updated_at": 1697718444, "language": "de", "category":
+      "socialSciences", "favicon": "https://blog.dini.de/EPub_FIS/wp-content/uploads/2018/03/cropped-DINI-AG-FIS-3-1-150x150.png",
+      "license": "https://creativecommons.org/licenses/by/4.0/legalcode", "generator":
+      "WordPress 6.3.2", "status": "active", "user_id": "a9e3541e-1e00-4bf3-8a4d-fc9b1c505651",
+      "use_mastodon": false}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '734'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      prefer:
+      - return=representation,resolution=merge-duplicates
+      user-agent:
+      - python-httpx/0.24.1
+      x-client-info:
+      - supabase-py/1.2.0
+    method: POST
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?on_conflict=slug
+  response:
+    content: '[{"id":"mdh1h61","title":"FIS & EPub","description":"Gemeinsamer Blog
+      der DINI AG Forschungsinformationssystem und Elektronisches Publizieren","language":"de","favicon":"https://blog.dini.de/EPub_FIS/wp-content/uploads/2018/03/cropped-DINI-AG-FIS-3-1-150x150.png","feed_url":"https://blog.dini.de/EPub_FIS/feed/atom/","home_page_url":"https://blog.dini.de/EPub_FIS","user_id":"a9e3541e-1e00-4bf3-8a4d-fc9b1c505651","created_at":"2023-07-21","feed_format":"application/atom+xml","license":"https://creativecommons.org/licenses/by/4.0/legalcode","generator":"WordPress
+      6.3.2","category":"socialSciences","prefix":null,"modified_at":null,"version":"https://jsonfeed.org/version/1.1","current_feed_url":null,"status":"active","issn":"2940-1798","backlog":0,"authors":null,"plan":"Team","slug":"epub_fis","use_mastodon":false,"api":true,"funding":null,"archive_prefix":null,"use_api":true,"relative_url":null,"canonical_url":null,"filter":null,"updated_at":1697718444}]'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 819bfb739ff17a5a-DUS
+      Connection:
+      - keep-alive
+      Content-Profile:
+      - public
+      Content-Range:
+      - '*/*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 21 Oct 2023 19:42:10 GMT
+      Preference-Applied:
+      - resolution=merge-duplicates
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/2.8.1
+      X-Kong-Proxy-Latency:
+      - '0'
+      X-Kong-Upstream-Latency:
+      - '5'
+      alt-svc:
+      - h3=":443"; ma=86400
+      sb-gateway-version:
+      - '1'
+    http_version: HTTP/1.1
+    status_code: 201
+version: 1

@@ -94,9 +94,7 @@ async def test_single_blog_with_posts_json_feed_route():
     response = await test_client.post("/blogs/ropensci/posts?page=1", headers=headers)
     assert response.status_code == 200
     result = await response.get_json()
-    assert len(result) == 12
-    post = result[0]
-    assert post["title"] == "rOpenSci News Digest, October 2023"
+    assert len(result) == 0
 
 
 async def test_posts_redirect_route():

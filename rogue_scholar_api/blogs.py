@@ -4,6 +4,7 @@ from commonmeta.utils import wrap
 
 from rogue_scholar_api.supabase import (
     supabase_client as supabase,
+    supabase_admin_client as supabase_admin,
 )
 from rogue_scholar_api.utils import start_case, get_date, unix_timestamp
 
@@ -13,7 +14,7 @@ def extract_single_blog(slug: str):
     response = (
         supabase.table("blogs")
         .select(
-            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, use_mastodon, generator, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter"
+            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, use_mastodon, generator, language, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter"
         )
         .eq("slug", slug)
         .maybe_single()
@@ -26,12 +27,15 @@ def extract_single_blog(slug: str):
     parsed = feedparser.parse(response.data["feed_url"])
     feed = parsed.feed
     home_page_url = feed.get("link", None) or config["home_page_url"]
-    updated_at = unix_timestamp(get_date(feed.get("updated", None))) or config["updated_at"]
+    updated_at = get_date(feed.get("updated", None))
+    if updated_at:
+        updated_at = unix_timestamp(updated_at) or config["updated_at"]
 
     feed_format = parse_feed_format(feed) or config["feed_format"]
     title = feed.get("title", None) or config["title"]
     generator = (
-        parse_generator(feed.get("generator_detail", None)) or config["generator"]
+        parse_generator(feed.get("generator_detail", None) or feed.get("generator"))
+        or config["generator"]
     )
     description = feed.get("subtitle", None) or config["description"]
     favicon = feed.get("icon", None) or config["favicon"]
@@ -39,7 +43,9 @@ def extract_single_blog(slug: str):
     # ignore the default favicons
     if favicon in ["https://s0.wp.com/i/buttonw-com.png"]:
         favicon = None
-    language = feed.get("language", "en").split("-")[0] or config["language"]
+    language = feed.get("language", None) or config["language"]
+    if language:
+        language = language.split("-")[0]
 
     blog = {
         "id": config["id"],
@@ -68,12 +74,14 @@ def extract_single_blog(slug: str):
         "relative_url": config["relative_url"],
         "filter": config["filter"],
     }
-    return blog
+    return upsert_single_blog(blog)
 
 
 def parse_generator(generator):
     """Parse blog generator."""
-    if isinstance(generator, dict):
+    if not generator:
+        return None
+    elif isinstance(generator, dict):
         version = generator.get("version", None)
         name = generator.get("name", None)
         names = name.split(" ")
@@ -97,12 +105,9 @@ def parse_generator(generator):
             name = "Squarespace"
 
         return name + f" {version}" if version else name
-    elif isinstance(generator, str):
-        if generator == "Wowchemy (https://wowchemy.com)":
-            return "Hugo"
-        return generator.capitalize()
-    else:
-        return None
+    if generator == "Wowchemy (https://wowchemy.com)":
+        return "Hugo"
+    return generator.capitalize()
 
 
 def parse_feed_format(feed):
@@ -114,3 +119,59 @@ def parse_feed_format(feed):
         (link["type"] for link in wrap(links) if link["rel"] == "self"),
         None,
     )
+
+
+def upsert_single_blog(blog):
+    """Upsert single blog."""
+
+    # find timestamp from last modified post
+    response = (
+        supabase.table("posts")
+        .select("updated_at, blog_slug")
+        .eq("blog_slug", blog.get("slug"))
+        .order("updated_at", desc=True)
+        .limit(1)
+        .execute()
+    )
+
+    blog["updated_at"] = (
+        response.data
+        and response.data[0]
+        and response.data[0].get("updated_at", 0)
+        or 0
+    )
+
+    try:
+        response = (
+            supabase_admin.table("blogs")
+            .upsert(
+                {
+                    "id": blog.get("id", None),
+                    "slug": blog.get("slug", None),
+                    "title": blog.get("title", None),
+                    "description": blog.get("description", None),
+                    "feed_url": blog.get("feed_url", None),
+                    "current_feed_url": blog.get("current_feed_url", None),
+                    "home_page_url": blog.get("home_page_url", None),
+                    "feed_format": blog.get("feed_format", None),
+                    "modified_at": blog.get("modified_at", None),
+                    "updated_at": blog.get("updated_at", None),
+                    "language": blog.get("language", None),
+                    "category": blog.get("category", None),
+                    "favicon": blog.get("favicon", None),
+                    "license": blog.get("license", None),
+                    "generator": blog.get("generator", None),
+                    "status": blog.get("status", None),
+                    "user_id": blog.get("user_id", None),
+                    "use_mastodon": blog.get("use_mastodon", None),
+                },
+                returning="representation",
+                ignore_duplicates=False,
+                on_conflict="slug",
+            )
+            .execute()
+        )
+        return response.data[0]
+    except Exception as error:
+        print(error)
+        return None

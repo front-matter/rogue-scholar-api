@@ -2,7 +2,7 @@
 import logging
 from typing import Optional
 from datetime import timedelta
-from commonmeta.utils import compact
+from commonmeta.utils import compact, wrap
 from os import environ
 import asyncio
 from dotenv import load_dotenv
@@ -34,7 +34,7 @@ from rogue_scholar_api.utils import (
     validate_uuid,
     unix_timestamp,
 )
-from rogue_scholar_api.posts import extract_all_posts_by_blog
+from rogue_scholar_api.posts import extract_all_posts, extract_all_posts_by_blog
 from rogue_scholar_api.schema import Blog, Post, PostQuery
 
 load_dotenv()
@@ -140,11 +140,11 @@ async def post_blog(slug: str, suffix: Optional[str] = None):
             result = await extract_all_posts_by_blog(
                 slug, page=page, update_all=(update == "all")
             )
+            return jsonify(result)
         except Exception as e:
             logger.warning(e.args[0])
             return {"error": "An error occured."}, 400
-        return jsonify(result)
-
+        
 
 @app.route("/posts/")
 @hide
@@ -214,22 +214,12 @@ async def post_posts():
     ):
         return {"error": "Unauthorized."}, 401
     else:
-        response = (
-            supabase.table("blogs")
-            .select("slug")
-            .in_("status", ["active"])
-            .order("title", desc=False)
-            .execute()
-        )
-        
         try:
-            extract_posts = [await extract_all_posts_by_blog(
-                        x["slug"], page=page, update_all=(update == "all")
-                    ) for x in response.data]
-            result = await asyncio.gather(*extract_posts)
-            return jsonify(result)
+            extracted_posts = await extract_all_posts(page=page, update_all=(update == "all"))
+            print(extracted_posts)
+            return jsonify(extracted_posts.flatten())
         except Exception as e:
-            logger.warning(e.args[0])
+            logger.warning(e) # .args[0])
             return {"error": "An error occured."}, 400
 
 
