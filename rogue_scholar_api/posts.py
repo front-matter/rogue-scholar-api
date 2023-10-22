@@ -552,9 +552,9 @@ async def extract_rss_post(post, blog):
     url = normalize_url(post.get("link", None), secure=True)
     published_at = get_date(post.get("pubDate", None))
     images = get_images(soup, url, blog.get("home_page_url", None))
-    image = py_.get(post, "media:thumbnail.@url", None)
-    if not image and len(images) > 0:
-        image = images[0].get("src", None)
+    image = py_.get(post, "media:content.@url", None) or py_.get(post, "media:thumbnail.@url", None)
+    # if not image and len(images) > 0:
+    #     image = images[0].get("src", None)
     tags = [normalize_tag(i) for i in wrap(post.get("category", None))][:5]
 
     return {
