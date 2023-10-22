@@ -109,7 +109,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                 params = {
                     "page": page,
                     "limit": 50,
-                    "filter": blog.get("filter", None),
+                    "filter": blog.get("filter", None) or "visibility:public",
                     "include": "tags,authors",
                     "key": key,
                 }
