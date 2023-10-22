@@ -1,5 +1,7 @@
-import feedparser
+"""Blogs module."""
 import socket
+import asyncio
+import feedparser
 from commonmeta.utils import wrap
 
 from rogue_scholar_api.supabase import (
@@ -9,7 +11,26 @@ from rogue_scholar_api.supabase import (
 from rogue_scholar_api.utils import start_case, get_date, unix_timestamp
 
 
-def extract_single_blog(slug: str):
+async def extract_all_blogs():
+    """Extract all blogs."""
+
+    blogs = (
+        supabase.table("blogs")
+        .select("slug")
+        .in_("status", ["active"])
+        .order("title", desc=False)
+        .execute()
+    )
+    tasks = []
+    for blog in blogs.data:
+        task = extract_single_blog(blog["slug"])
+        tasks.append(task)
+
+    results = await asyncio.gather(*tasks)
+    return results
+
+
+async def extract_single_blog(slug: str):
     """Extract a single blog."""
     response = (
         supabase.table("blogs")
@@ -26,7 +47,7 @@ def extract_single_blog(slug: str):
     socket.setdefaulttimeout(60)
     parsed = feedparser.parse(response.data["feed_url"])
     feed = parsed.feed
-    home_page_url = feed.get("link", None) or config["home_page_url"]
+    home_page_url = config["home_page_url"] or feed.get("link", None)
     updated_at = get_date(feed.get("updated", None))
     if updated_at:
         updated_at = unix_timestamp(updated_at) or config["updated_at"]
@@ -74,7 +95,7 @@ def extract_single_blog(slug: str):
         "relative_url": config["relative_url"],
         "filter": config["filter"],
     }
-    return upsert_single_blog(blog)
+    return update_single_blog(blog)
 
 
 def parse_generator(generator):
@@ -121,13 +142,13 @@ def parse_feed_format(feed):
     )
 
 
-def upsert_single_blog(blog):
-    """Upsert single blog."""
+def update_single_blog(blog):
+    """Update single blog."""
 
-    # find timestamp from last modified post
+    # find timestamp from last updated post
     response = (
         supabase.table("posts")
-        .select("updated_at, blog_slug")
+        .select("updated_at")
         .eq("blog_slug", blog.get("slug"))
         .order("updated_at", desc=True)
         .limit(1)
@@ -144,17 +165,14 @@ def upsert_single_blog(blog):
     try:
         response = (
             supabase_admin.table("blogs")
-            .upsert(
+            .update(
                 {
-                    "id": blog.get("id", None),
-                    "slug": blog.get("slug", None),
                     "title": blog.get("title", None),
                     "description": blog.get("description", None),
                     "feed_url": blog.get("feed_url", None),
                     "current_feed_url": blog.get("current_feed_url", None),
                     "home_page_url": blog.get("home_page_url", None),
                     "feed_format": blog.get("feed_format", None),
-                    "modified_at": blog.get("modified_at", None),
                     "updated_at": blog.get("updated_at", None),
                     "language": blog.get("language", None),
                     "category": blog.get("category", None),
@@ -164,11 +182,9 @@ def upsert_single_blog(blog):
                     "status": blog.get("status", None),
                     "user_id": blog.get("user_id", None),
                     "use_mastodon": blog.get("use_mastodon", None),
-                },
-                returning="representation",
-                ignore_duplicates=False,
-                on_conflict="slug",
+                }
             )
+            .eq('slug', blog.get("slug"))
             .execute()
         )
         return response.data[0]

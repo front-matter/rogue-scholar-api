@@ -35,6 +35,7 @@ from rogue_scholar_api.utils import (
     unix_timestamp,
 )
 from rogue_scholar_api.posts import extract_all_posts, extract_all_posts_by_blog
+from rogue_scholar_api.blogs import extract_single_blog, extract_all_blogs
 from rogue_scholar_api.schema import Blog, Post, PostQuery
 
 load_dotenv()
@@ -98,6 +99,22 @@ async def blogs():
 
 
 @validate_response(Blog)
+@app.route("/blogs", methods=["POST"])
+async def post_blogs():
+    """Update all blogs, using information from the blogs' feed."""
+
+    if (
+        request.headers.get("Authorization", None) is None
+        or request.headers.get("Authorization").split(" ")[1]
+        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
+    ):
+        return {"error": "Unauthorized."}, 401
+    else:
+        result = await extract_all_blogs()
+        return jsonify(result)
+
+
+@validate_response(Blog)
 @app.route("/blogs/<slug>")
 async def blog(slug):
     """Get blog by slug."""
@@ -113,9 +130,16 @@ async def blog(slug):
 
 @validate_response(Blog)
 @app.route("/blogs/<slug>", methods=["POST"])
+async def post_blog(slug):
+    """Update blog by slug, using information from the blog's feed."""
+    result = await extract_single_blog(slug)
+    return jsonify(result)
+
+
+@validate_response(Blog)
 @app.route("/blogs/<slug>/<suffix>", methods=["POST"])
-async def post_blog(slug: str, suffix: Optional[str] = None):
-    """Update blog by slug."""
+async def post_blog_posts(slug: str, suffix: Optional[str] = None):
+    """Update blog posts by slug."""
 
     page = int(request.args.get("page") or "1")
     update = request.args.get("update")
@@ -126,15 +150,6 @@ async def post_blog(slug: str, suffix: Optional[str] = None):
         != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
     ):
         return {"error": "Unauthorized."}, 401
-    elif suffix is None:
-        response = (
-            supabase.table("blogs")
-            .select(blogWithPostsSelect)
-            .eq("slug", slug)
-            .maybe_single()
-            .execute()
-        )
-        return jsonify(response.data)
     elif slug and suffix == "posts":
         try:
             result = await extract_all_posts_by_blog(
@@ -144,6 +159,8 @@ async def post_blog(slug: str, suffix: Optional[str] = None):
         except Exception as e:
             logger.warning(e.args[0])
             return {"error": "An error occured."}, 400
+    else:
+        return {"error": "An error occured."}, 400
         
 
 @app.route("/posts/")

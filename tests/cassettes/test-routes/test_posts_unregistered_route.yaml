@@ -23,158 +23,131 @@ interactions:
       x-client-info:
       - supabase-py/1.2.0
     method: GET
-    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%2C%20modified_at%29&blogs.prefix=not.is.null&doi=is.null&order=published_at.desc&limit=15
+    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%29&blogs.prefix=not.is.null&doi=is.null&order=published_at.desc&limit=15
   response:
-    content: "[{\"id\":\"819a7513-4889-4df0-a093-eb9bfd1d4ee1\",\"doi\":null,\"url\":\"https://eve.gd/2008/09/24/the-importance-of-weaponization-in-exploit-development\",\"archive_url\":null,\"title\":\"The
-      importance of weaponization in exploit development\",\"summary\":\"A while back
-      (quite a long while back now I suppose) I entered SmugMug's \\\"competition\\\"
-      to \\\"hack\\\" their system. As it was hardly impenetrable I succeeded and
-      succesfully claimed a security bounty from them; although they weren't so keen
-      to publicise that! Now, you can moralise about security bounties if you want,
-      but I am a student and starving in a garret.\",\"published_at\":1222271758,\"updated_at\":1222271758,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
-      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"13d542cf-d1a3-4ea4-a816-62fdafa88d54\",\"doi\":null,\"url\":\"https://eve.gd/2008/09/17/creating-an-irc-frontback-end-from-a-c-web-application\",\"archive_url\":null,\"title\":\"Creating
-      an IRC front/back-end from a C# web application\",\"summary\":\"This lengthy
-      howto will show you how to hook up C# to an eggdrop IRC bot. I've taken this
-      approach because it avoids the overhead of managing a fully fledged IRC client
-      in C# whilst still providing 2-way command functionality between IRC and the
-      application.\",\"published_at\":1221666958,\"updated_at\":1221666958,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
-      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"c54bed50-554b-4cd6-aef0-fab6d61fff5f\",\"doi\":null,\"url\":\"https://eve.gd/2008/07/31/c-dataexecutor-class-again\",\"archive_url\":null,\"title\":\"C#
-      DataExecutor class again\",\"summary\":\"Just been asked some further questions
-      about the DataExecutor class on FreeNode and thought I'd give some usage instructions/clarification
-      here.  Howto: Fill a strongly typed dataset  Set your base class (of your TableAdapter)
-      to Tools.genericTableAdapter.\",\"published_at\":1217519758,\"updated_at\":1217519758,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
-      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"e5f154f5-8a9d-46a8-979f-4552fc9bf18a\",\"doi\":null,\"url\":\"https://eve.gd/2008/07/30/expanding-a-treeview-to-a-specific-node-in-wpf\",\"archive_url\":null,\"title\":\"Expanding
-      a treeview to a specific node in WPF\",\"summary\":\"I've been exploring the
-      dark alleyways of the Windows Presentation Foundation this week and found no
-      way in my trawlings of the net to expand a treeview to a specific node.  No
-      FindNode, no ExpandTo or ExpandAll. Great.  Anyway, here's the solution I came
-      up with. It relies upon a binding the Tag property to the text you are searching
-      for, but that could obviously be changed.\",\"published_at\":1217433358,\"updated_at\":1217433358,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
-      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"d3dcea43-b7b0-44e5-97bb-a6caab45c31c\",\"doi\":null,\"url\":\"https://eve.gd/2008/07/23/building-a-robust-ssl-crc-verified-serverclient-solution-in-the-net-framework-with-c\",\"archive_url\":null,\"title\":\"Building
-      a robust, SSL, CRC-Verified server/client solution in the .NET Framework with
-      C#\",\"summary\":\"Quite a lengthy post here with a lot of code in the hope
-      that my experience of building an integrity-checking SSL (text-only for now)
-      communication system will be of use to somebody else.\",\"published_at\":1216828558,\"updated_at\":1216828558,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
-      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"ad5541f0-c455-49cb-932c-1efe4893b04e\",\"doi\":null,\"url\":\"https://eve.gd/2008/07/06/c-memorymanagement-class\",\"archive_url\":null,\"title\":\"C#
-      MemoryManagement Class\",\"summary\":\"Well, first off, this is the first post
-      using the new blogging solution! Let's hope it works!\",\"published_at\":1215359758,\"updated_at\":1215359758,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
-      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"eccaae75-dd24-4d62-b5be-d6ae2132c15d\",\"doi\":null,\"url\":\"https://www.ch.imperial.ac.uk/rzepa/blog?p=8\",\"archive_url\":null,\"title\":\"Jmol
-      and WordPress: Loading 3D molecular models, molecular isosurfaces and molecular
-      vibrations into a blog\",\"summary\":\"Click on the static image to get an active
-      model.\",\"published_at\":1208009717,\"updated_at\":1625736062,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-8635-8390\", \"name\": \"Henry Rzepa\"}],\"image\":\"https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2021/07/a80.jpg\",\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Henry
-      Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"blog\":{\"slug\":\"rzepa\",\"title\":\"Henry
-      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"language\":\"en\",\"category\":\"chemicalSciences\",\"status\":\"active\",\"generator\":\"WordPress
-      6.3.1\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"2023-10-12T10:03:31+00:00\"}},
-      \n {\"id\":\"5474d6bc-4a89-4c7d-9394-90ff496394d7\",\"doi\":null,\"url\":\"https://eve.gd/2008/04/06/binding-to-radiobuttons-in-net-windows-forms\",\"archive_url\":null,\"title\":\"Binding
-      to RadioButtons in .NET Windows Forms\",\"summary\":\"Well, it's not security
-      related, but I thought it was worth sharing my solution for all those people
-      who are having trouble binding either ApplicationSettings or any other datasource
-      to a RadioButton in the .NET Framework (C# and VB.NET) WinForms environment.
-      \ The problem is that when binding a RadioButton's Checked property clicking
-      on a differentbutton in the set will not select the new option, but merely deselect
-      all options.\",\"published_at\":1207497358,\"updated_at\":1207497358,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
-      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"2231f80a-0669-4eb3-b71a-4a93a74a3eb3\",\"doi\":null,\"url\":\"https://eve.gd/2008/03/05/ie7-remote-file-access\",\"archive_url\":null,\"title\":\"IE7
-      Remote File Access\",\"summary\":\"Just a quick post to draw attention to Ronald's
-      excellent article at http://www.0x000000.com/?i=525 where he has pulled off
-      a very interesting remote file access in IE7. The attack works by including
-      an invalid DTD on an XML file which then streams the content of the requested
-      file in its error message.  Use IE7? Be afraid.      IE7 Remote File Access
-      was originally published by Martin Paul Eve at Martin Paul Eve on March 05,
-      2008.\",\"published_at\":1204732558,\"updated_at\":1204732558,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
-      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"5a32f84c-41b1-4e2f-9034-bde836ff4eb5\",\"doi\":null,\"url\":\"https://eve.gd/2008/02/28/firefox-3-disallows-cross-site-xbl\",\"archive_url\":null,\"title\":\"Firefox
-      3 disallows cross-site XBL\",\"summary\":\"Well, I decided to play around a
-      little with Firefox 3 Beta 3 today and discovered that it looks like the ever
-      popular -moz-binding css attribute is now rendered a little less useful. It
-      is now impossible to load off-site XBL via this method.  However, all is not
-      lost.\",\"published_at\":1204214158,\"updated_at\":1204214158,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
-      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"37fadcdd-6104-431b-b7a6-cea6167b0762\",\"doi\":null,\"url\":\"https://eve.gd/2008/02/23/wp-aspxrewriter-alpha-test\",\"archive_url\":null,\"title\":\"wp-aspxrewriter
-      alpha test\",\"summary\":\"Well, today I deployed an early version of my wp-aspxrewriter
-      component to my personal blog.  This component is an ASP.NET HttpModule in conjunction
-      with a Wordpress plugin and code hack (official patch for the hack submitted
-      at their trac site) which allows 100% pretty permalinks under IIS6.  The current
-      mechanism is grim. A request to a non-existent .aspx page invokes the handler.\",\"published_at\":1203782158,\"updated_at\":1203799253,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
-      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"5c53892f-4c3e-4cfc-b17b-a449111923b6\",\"doi\":null,\"url\":\"https://eve.gd/2008/02/02/an-xml-based-xss-poc-platform\",\"archive_url\":null,\"title\":\"An
-      XML based XSS PoC platform\",\"summary\":\"Well, long time no post. Been in
-      hospital. Been busy with college. Life gets in the way of hacking.  Usually
-      when one wast to illustrate an XSS vulnerability there are two approaches. The
-      first is to show the client the XSS and assume that they know and understand
-      the impact. The second is to write a fully fledged exploit which takes some
-      form of action on the client's server so that they can see the truly devastating
-      impact.\",\"published_at\":1201967758,\"updated_at\":1201971464,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
-      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"9c6423a8-2041-4927-979f-f02b228a8192\",\"doi\":null,\"url\":\"https://eve.gd/2007/11/27/right-to-left-and-left-to-right-characters\",\"archive_url\":null,\"title\":\"Right-To-Left
-      and Left-To-Right characters\",\"summary\":\"There's been a fair bit of discussion
-      going on at slackers on the security implications of the Unicode characters
-      U+202D and U+202E which switch the left-to-right and right-to-left encoding
-      of the following text.\",\"published_at\":1196178958,\"updated_at\":1196178958,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
-      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"c7af5198-4821-45e3-a937-d0b9db550630\",\"doi\":null,\"url\":\"https://eve.gd/2007/11/17/ie7-javascript-modify-the-dom-without-crashing-the-browser\",\"archive_url\":null,\"title\":\"IE7
-      Javascript - modify the DOM without crashing the browser\",\"summary\":\"One
-      of the biggest problems faced when writing Javascript that modifies the DOM
-      is the fact that the poorly written IE7 crashes because it hasn't finished loading
-      the current element. This only seems to happen when the DOM is modified through
-      a script loaded by an xx:expression binding in a style tag.\",\"published_at\":1195314958,\"updated_at\":1195314958,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
-      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}},
-      \n {\"id\":\"02a3404a-56ec-4d71-90ef-6b668cf56590\",\"doi\":null,\"url\":\"https://eve.gd/2007/11/09/xss-for-the-common-good-greasemousey\",\"archive_url\":null,\"title\":\"XSS
-      for the common good - GreaseMousey\",\"summary\":\"I know I haven't posted anything
-      here for a good while, but that's because on top of uni work I have a surprise
-      up my sleeve in the not so distant future. I also do intend to continue working
-      on .NETIDS when I finally get some time!  This is not that surprising... but
-      something I found interesting.  A certain musical group, whom I will not name
-      here, recently changed their forum onto a new proprietary system.\",\"published_at\":1194623758,\"updated_at\":1194632774,\"indexed_at\":0,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8511\", \"name\": \"Martin Paul Eve\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Martin
-      Paul Eve\",\"blog_slug\":\"eve\",\"blog\":{\"slug\":\"eve\",\"title\":\"Martin
-      Paul Eve\",\"description\":null,\"feed_url\":\"https://eve.gd/feed_all.xml\",\"home_page_url\":\"https://eve.gd\",\"language\":\"en\",\"category\":\"languagesAndLiterature\",\"status\":\"active\",\"generator\":\"Jekyll\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":0,\"modified_at\":\"1970-01-01T00:00:00+00:00\"}}]"
+    content: "[{\"id\":\"11a52dd7-1a9a-4b76-9256-c16fb882ae07\",\"doi\":null,\"url\":\"https://larsgw.blogspot.com/2020/03/economics-of-open-source-versus-open.html#comment-form\",\"archive_url\":null,\"title\":\"Economics
+      of open source versus open science\",\"summary\":\"\",\"published_at\":1584978000,\"updated_at\":1680209196,\"indexed_at\":0,\"indexed\":false,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-4751-4637\", \"name\": \"Lars Willighagen\"}],\"image\":\"https://lh3.googleusercontent.com/saNvSR2_xkDNAkKpUvtmfkq5CPgDob5zdYRPWcUwpDcBWJPcK_ZEJ6FxEAstyozxtx_PxumKnXAEbw=s72-c\",\"tags\":[\"Programming\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Syntaxus
+      baccata\",\"blog_slug\":\"syntaxus_baccata\",\"blog\":{\"slug\":\"syntaxus_baccata\",\"title\":\"Syntaxus
+      baccata\",\"description\":\"Thoughts about bibliographic metadata, programming,
+      statistics, taxonomy, and biology.\",\"feed_url\":\"https://larsgw.blogspot.com/feeds/posts/default\",\"home_page_url\":\"https://larsgw.blogspot.com/\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Blogger
+      7.00\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1693563330}},
+      \n {\"id\":\"08962717-7a93-454c-b9e7-083660715898\",\"doi\":null,\"url\":\"https://www.andrewheiss.com/blog/2020/03/12/emergency-online-teaching-resources\",\"archive_url\":null,\"title\":\"Emergency
+      online teaching resources\",\"summary\":\"\",\"published_at\":1583985600,\"updated_at\":1583985600,\"indexed_at\":0,\"indexed\":false,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2020/03/12/emergency-online-teaching-resources/personal-room-screen.png\",\"tags\":[\"Teaching\",\"COVID-19\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Andrew
+      Heiss's blog\",\"blog_slug\":\"andrewheiss\",\"blog\":{\"slug\":\"andrewheiss\",\"title\":\"Andrew
+      Heiss's blog\",\"description\":\"Andrew Heiss's blog\",\"feed_url\":\"https://www.andrewheiss.com/atom.xml\",\"home_page_url\":\"https://www.andrewheiss.com\",\"language\":\"en\",\"category\":\"politicalScience\",\"status\":\"active\",\"generator\":\"Quarto
+      1.4.385\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695009600}},
+      \n {\"id\":\"2d070578-ff6c-49f2-984d-1045e5b59269\",\"doi\":null,\"url\":\"https://www.underworldcode.org/joss-publication-underworld-2\",\"archive_url\":null,\"title\":\"JOSS
+      publication - Underworld 2\",\"summary\":\"\",\"published_at\":1583883551,\"updated_at\":1597639318,\"indexed_at\":0,\"indexed\":false,\"authors\":[{\"url\":
+      null, \"name\": \"john mansour\"}],\"image\":\"https://www.underworldcode.org/content/images/2020/08/Screen-Shot-2020-03-11-at-10.32.26-am-1.png\",\"tags\":[\"Underworld
+      Code\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Underworld
+      Geodynamics Community\",\"blog_slug\":\"underworldcode\",\"blog\":{\"slug\":\"underworldcode\",\"title\":\"Underworld
+      Geodynamics Community\",\"description\":\"Geodynamics, Computation and Education\",\"feed_url\":\"https://www.underworldcode.org/rss/\",\"home_page_url\":\"https://www.underworldcode.org/\",\"language\":\"en\",\"category\":\"earthAndRelatedEnvironmentalSciences\",\"status\":\"active\",\"generator\":\"Ghost
+      5.69\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697583587}},
+      \n {\"id\":\"9c45a023-21d3-4f09-a9d1-60ba75b5ef89\",\"doi\":null,\"url\":\"https://www.andrewheiss.com/blog/2020/02/25/closing-backdoors-dags\",\"archive_url\":null,\"title\":\"Ways
+      to close backdoors in DAGs\",\"summary\":\"\",\"published_at\":1582606800,\"updated_at\":1582606800,\"indexed_at\":0,\"indexed\":false,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://latex.codecogs.com/png.latex?x\",\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Andrew
+      Heiss's blog\",\"blog_slug\":\"andrewheiss\",\"blog\":{\"slug\":\"andrewheiss\",\"title\":\"Andrew
+      Heiss's blog\",\"description\":\"Andrew Heiss's blog\",\"feed_url\":\"https://www.andrewheiss.com/atom.xml\",\"home_page_url\":\"https://www.andrewheiss.com\",\"language\":\"en\",\"category\":\"politicalScience\",\"status\":\"active\",\"generator\":\"Quarto
+      1.4.385\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695009600}},
+      \n {\"id\":\"1190d8d7-1da9-42d9-8b23-e04ff4cb48f4\",\"doi\":null,\"url\":\"https://www.andrewheiss.com/blog/2020/01/10/makefile-subdirectory-zips\",\"archive_url\":null,\"title\":\"Automatically
+      zip up subdirectories with Make\",\"summary\":\"\",\"published_at\":1578632400,\"updated_at\":1578632400,\"indexed_at\":0,\"indexed\":false,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Andrew
+      Heiss's blog\",\"blog_slug\":\"andrewheiss\",\"blog\":{\"slug\":\"andrewheiss\",\"title\":\"Andrew
+      Heiss's blog\",\"description\":\"Andrew Heiss's blog\",\"feed_url\":\"https://www.andrewheiss.com/atom.xml\",\"home_page_url\":\"https://www.andrewheiss.com\",\"language\":\"en\",\"category\":\"politicalScience\",\"status\":\"active\",\"generator\":\"Quarto
+      1.4.385\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695009600}},
+      \n {\"id\":\"37a68fdc-6352-45ab-a214-bcbd4cd8a136\",\"doi\":null,\"url\":\"https://www.andrewheiss.com/blog/2020/01/01/flexdashboard-dynamic-data\",\"archive_url\":null,\"title\":\"Create
+      a dynamic dashboard with R, flexdashboard, and Shiny\",\"summary\":\"Now that
+      I\u2019m on the tenure track, I\u2019ve been looking for a way to keep track
+      of my different research projects so I can get them all finished and published.\",\"published_at\":1577854800,\"updated_at\":1577854800,\"indexed_at\":0,\"indexed\":false,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2020/01/01/flexdashboard-dynamic-data/shiny.png\",\"tags\":[\"R
+      Markdown\",\"Shiny\",\"R\",\"Google Sheets\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Andrew
+      Heiss's blog\",\"blog_slug\":\"andrewheiss\",\"blog\":{\"slug\":\"andrewheiss\",\"title\":\"Andrew
+      Heiss's blog\",\"description\":\"Andrew Heiss's blog\",\"feed_url\":\"https://www.andrewheiss.com/atom.xml\",\"home_page_url\":\"https://www.andrewheiss.com\",\"language\":\"en\",\"category\":\"politicalScience\",\"status\":\"active\",\"generator\":\"Quarto
+      1.4.385\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695009600}},
+      \n {\"id\":\"8a423ce7-89c8-4ddf-9ec3-9136704685d7\",\"doi\":null,\"url\":\"https://www.underworldcode.org/getting-started-60-seconds-to-underworld\",\"archive_url\":null,\"title\":\"Getting
+      started: 60 seconds to Underworld\",\"summary\":\"\",\"published_at\":1574299310,\"updated_at\":1597639823,\"indexed_at\":0,\"indexed\":false,\"authors\":[{\"url\":
+      null, \"name\": \"Rohan Byrne\"}],\"image\":\"https://www.underworldcode.org/content/images/2020/08/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg\",\"tags\":[\"Documentation\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Underworld
+      Geodynamics Community\",\"blog_slug\":\"underworldcode\",\"blog\":{\"slug\":\"underworldcode\",\"title\":\"Underworld
+      Geodynamics Community\",\"description\":\"Geodynamics, Computation and Education\",\"feed_url\":\"https://www.underworldcode.org/rss/\",\"home_page_url\":\"https://www.underworldcode.org/\",\"language\":\"en\",\"category\":\"earthAndRelatedEnvironmentalSciences\",\"status\":\"active\",\"generator\":\"Ghost
+      5.69\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697583587}},
+      \n {\"id\":\"f95f807e-4d40-4c35-8fcf-0cc999a41367\",\"doi\":null,\"url\":\"https://www.underworldcode.org/adding-zotero-references-to-a-webpage\",\"archive_url\":null,\"title\":\"An
+      automated (zotero) bibliography in a webpage\",\"summary\":\"How we added an
+      auto-updating set of citations to underworld in our publications [https://www.underworldcode.org/publications-using-uw/]
+      webpage.\",\"published_at\":1571811475,\"updated_at\":1597639360,\"indexed_at\":0,\"indexed\":false,\"authors\":[{\"url\":
+      \"http://www.moresi.info\", \"name\": \"Louis Moresi\"}],\"image\":\"https://www.underworldcode.org/content/images/2020/08/Screen-Shot-2019-10-23-at-5.20.27-pm.png\",\"tags\":[\"Tricks
+      Of The Trade\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Underworld
+      Geodynamics Community\",\"blog_slug\":\"underworldcode\",\"blog\":{\"slug\":\"underworldcode\",\"title\":\"Underworld
+      Geodynamics Community\",\"description\":\"Geodynamics, Computation and Education\",\"feed_url\":\"https://www.underworldcode.org/rss/\",\"home_page_url\":\"https://www.underworldcode.org/\",\"language\":\"en\",\"category\":\"earthAndRelatedEnvironmentalSciences\",\"status\":\"active\",\"generator\":\"Ghost
+      5.69\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697583587}},
+      \n {\"id\":\"37445138-9d6d-4586-b77f-38ce28030ca4\",\"doi\":null,\"url\":\"https://larsgw.blogspot.com/2019/10/bibtex-rework-syntax-update.html#comment-form\",\"archive_url\":null,\"title\":\"BibTeX
+      Rework: Syntax Update\",\"summary\":\"\",\"published_at\":1570829340,\"updated_at\":1680209216,\"indexed_at\":0,\"indexed\":false,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-4751-4637\", \"name\": \"Lars Willighagen\"}],\"image\":\"https://lh3.googleusercontent.com/ayty0CUxmvRE3gi842VGNuaAgiJJqeMs4INxIMPHD1p8tkXHcrcapOQ6eUhHljcW0ohXpx8RYGF9JA=s72-c\",\"tags\":[\"Bibliography\",\"BibTeX\",\"Citation.js\",\"Programming\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Syntaxus
+      baccata\",\"blog_slug\":\"syntaxus_baccata\",\"blog\":{\"slug\":\"syntaxus_baccata\",\"title\":\"Syntaxus
+      baccata\",\"description\":\"Thoughts about bibliographic metadata, programming,
+      statistics, taxonomy, and biology.\",\"feed_url\":\"https://larsgw.blogspot.com/feeds/posts/default\",\"home_page_url\":\"https://larsgw.blogspot.com/\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Blogger
+      7.00\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1693563330}},
+      \n {\"id\":\"aa545c95-0414-4419-ae0c-6ce4c2d6532a\",\"doi\":null,\"url\":\"https://www.andrewheiss.com/blog/2019/10/09/convert-md-rtf-macos-services\",\"archive_url\":null,\"title\":\"Convert
+      Markdown to rich text (with syntax highlighting!) in any macOS app\",\"summary\":\"GSU
+      uses Microsoft\u2019s Office365 for e-mail, which is fine. My previous institutions\u2014Duke
+      and BYU\u2014both use it too, and it\u2019s pretty standard. GSU also enforces
+      2-factor authentication (2FA) with Duo, which is also fine.\",\"published_at\":1570593600,\"updated_at\":1570593600,\"indexed_at\":0,\"indexed\":false,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2019/10/09/convert-md-rtf-macos-services/make-uppercase.png\",\"tags\":[\"Pandoc\",\"Macos\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Andrew
+      Heiss's blog\",\"blog_slug\":\"andrewheiss\",\"blog\":{\"slug\":\"andrewheiss\",\"title\":\"Andrew
+      Heiss's blog\",\"description\":\"Andrew Heiss's blog\",\"feed_url\":\"https://www.andrewheiss.com/atom.xml\",\"home_page_url\":\"https://www.andrewheiss.com\",\"language\":\"en\",\"category\":\"politicalScience\",\"status\":\"active\",\"generator\":\"Quarto
+      1.4.385\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695009600}},
+      \n {\"id\":\"4307b179-2c2e-4f6f-9556-9a3356838dae\",\"doi\":null,\"url\":\"https://www.underworldcode.org/underworld-release-2-8\",\"archive_url\":null,\"title\":\"Underworld
+      Release\_2.8\",\"summary\":\"--------------------------------------------------------------------------------
+      Version 2.8 of Underworld has been released recently. As with all major releases,
+      this release brings numerous new features, enhancements and bug fixes.\",\"published_at\":1567432800,\"updated_at\":1597642150,\"indexed_at\":0,\"indexed\":false,\"authors\":[{\"url\":
+      null, \"name\": \"john mansour\"}],\"image\":\"https://www.underworldcode.org/content/images/2020/08/1_GHHNX3IYhEbMLebwplKlgQ.gif\",\"tags\":[\"Underworld
+      Code\",\"Documentation\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Underworld
+      Geodynamics Community\",\"blog_slug\":\"underworldcode\",\"blog\":{\"slug\":\"underworldcode\",\"title\":\"Underworld
+      Geodynamics Community\",\"description\":\"Geodynamics, Computation and Education\",\"feed_url\":\"https://www.underworldcode.org/rss/\",\"home_page_url\":\"https://www.underworldcode.org/\",\"language\":\"en\",\"category\":\"earthAndRelatedEnvironmentalSciences\",\"status\":\"active\",\"generator\":\"Ghost
+      5.69\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697583587}},
+      \n {\"id\":\"5a5729a0-57ae-43ea-a62f-e7c05a3c191b\",\"doi\":null,\"url\":\"https://larsgw.blogspot.com/2019/08/debugging-karmabug.html#comment-form\",\"archive_url\":null,\"title\":\"Debugging
+      the Karmabug\",\"summary\":\"\",\"published_at\":1565914320,\"updated_at\":1680209246,\"indexed_at\":0,\"indexed\":false,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-4751-4637\", \"name\": \"Lars Willighagen\"}],\"image\":null,\"tags\":[\"Programming\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Syntaxus
+      baccata\",\"blog_slug\":\"syntaxus_baccata\",\"blog\":{\"slug\":\"syntaxus_baccata\",\"title\":\"Syntaxus
+      baccata\",\"description\":\"Thoughts about bibliographic metadata, programming,
+      statistics, taxonomy, and biology.\",\"feed_url\":\"https://larsgw.blogspot.com/feeds/posts/default\",\"home_page_url\":\"https://larsgw.blogspot.com/\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Blogger
+      7.00\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1693563330}},
+      \n {\"id\":\"e3bed03a-cb8c-4cf6-8a42-279373ee616d\",\"doi\":null,\"url\":\"https://www.underworldcode.org/viscoelasticity\",\"archive_url\":null,\"title\":\"Viscoelasticity
+      in Underworld2\",\"summary\":\"\",\"published_at\":1565584448,\"updated_at\":1597639986,\"indexed_at\":0,\"indexed\":false,\"authors\":[{\"url\":
+      null, \"name\": \"Rebecca Farrington\"}],\"image\":\"https://www.underworldcode.org/content/images/2020/08/VE.png\",\"tags\":[\"Geodynamics\",\"Underworld
+      Code\",\"Editors-pick\"],\"language\":\"en\",\"reference\":[{\"key\": \"ref1\",
+      \"url\": \"http://onlinelibrary.wiley.com/doi/10.1002/2014gc005507/abstract?ref=underworldcode.org\"}],\"relationships\":[],\"blog_name\":\"Underworld
+      Geodynamics Community\",\"blog_slug\":\"underworldcode\",\"blog\":{\"slug\":\"underworldcode\",\"title\":\"Underworld
+      Geodynamics Community\",\"description\":\"Geodynamics, Computation and Education\",\"feed_url\":\"https://www.underworldcode.org/rss/\",\"home_page_url\":\"https://www.underworldcode.org/\",\"language\":\"en\",\"category\":\"earthAndRelatedEnvironmentalSciences\",\"status\":\"active\",\"generator\":\"Ghost
+      5.69\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697583587}},
+      \n {\"id\":\"dc196fbf-c02c-4dd2-aa37-00459ef171c4\",\"doi\":null,\"url\":\"https://larsgw.blogspot.com/2019/08/citationjs-ris-rework-pt-2.html#comment-form\",\"archive_url\":null,\"title\":\"Citation.js:
+      RIS Rework Pt. 2\",\"summary\":\"\",\"published_at\":1565018940,\"updated_at\":1680209255,\"indexed_at\":0,\"indexed\":false,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-4751-4637\", \"name\": \"Lars Willighagen\"}],\"image\":\"https://lh3.googleusercontent.com/pLaxqMz1kLcYzrmgdrC7ebI_gDqV1kZ6fqUaoD7v162T8r8_pI_sr_UjNN7RKwOdmpiRMBjVz0e9GYQex0rF2xgjESJgDIPZqHJuY4oCTUEkvgbENGJuZyYLmyAGUhnjnTU5vEqqhW-f7KigYudnMUGg1wqbotNQE44B2TKBBwldOgXqj52fdmzKTwAvO2UTZNVUoyNbQBmFFfncdbCOiehC2Zb4sKS3c2YJ0cyHu6zhMkrgO4dFk7OGcnUWM2samSg_oRIsS01B1Y3ylzdZmLGqZfLILA1K6Yy3SMrdVZ4PLi4IJN4WVcwPkBgndErOeuFNau0XoZK54oASSuvD6hE3rI7MTsPrckhIEaNdDq5r9_QE_VsZ_pxEV-ekVdJzsGReOgh3u0oF5Y0jQsDtE-Y_OLxxqFm4Q6zrQnpsX1caZ2TZDloU-714Z0Yi0V4xl8nskweRLW52V0THrYzbvV_l_YQJV8koNl-6j55h_Lg7ocYS85-MLiunZ-mhsKBXBvQAmRix1GjOi8FkRK_kwDk0liYjen7CRHzgPGipqIewphZy3aSGOW5A9YyAcMgfPeD_HemPTPABKoKybsB45ACkfb3gSUqgsPIpO3hf4sRuRJ1N2nswlwxxxACpUiKtVH7Xq3c3U5HG-P2o0OlbUBUB92FnKoew1Gm7QT4RxT3Qg4KyHodrPMXrwnyoi550dBMNt7oIkWznrbsjlxDeompttA=s72-w844-h469-c-no\",\"tags\":[\"Bibliography\",\"Citation.js\",\"Programming\",\"RIS\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Syntaxus
+      baccata\",\"blog_slug\":\"syntaxus_baccata\",\"blog\":{\"slug\":\"syntaxus_baccata\",\"title\":\"Syntaxus
+      baccata\",\"description\":\"Thoughts about bibliographic metadata, programming,
+      statistics, taxonomy, and biology.\",\"feed_url\":\"https://larsgw.blogspot.com/feeds/posts/default\",\"home_page_url\":\"https://larsgw.blogspot.com/\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Blogger
+      7.00\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1693563330}},
+      \n {\"id\":\"64ce18e5-d2f5-48aa-af6c-ab773f5e231a\",\"doi\":null,\"url\":\"https://larsgw.blogspot.com/2019/07/citationjs-ris-rework-pt-1.html#comment-form\",\"archive_url\":null,\"title\":\"Citation.js:
+      RIS Rework Pt. 1\",\"summary\":\"\",\"published_at\":1564521360,\"updated_at\":1680209264,\"indexed_at\":0,\"indexed\":false,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-4751-4637\", \"name\": \"Lars Willighagen\"}],\"image\":null,\"tags\":[\"Bibliography\",\"Citation.js\",\"Programming\",\"RIS\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Syntaxus
+      baccata\",\"blog_slug\":\"syntaxus_baccata\",\"blog\":{\"slug\":\"syntaxus_baccata\",\"title\":\"Syntaxus
+      baccata\",\"description\":\"Thoughts about bibliographic metadata, programming,
+      statistics, taxonomy, and biology.\",\"feed_url\":\"https://larsgw.blogspot.com/feeds/posts/default\",\"home_page_url\":\"https://larsgw.blogspot.com/\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Blogger
+      7.00\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1693563330}}]"
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8183e2c82afec49f-DUS
+      - 81a07dee09cecb15-DUS
       Connection:
       - keep-alive
       Content-Encoding:
       - gzip
       Content-Location:
-      - /posts?blogs.prefix=not.is.null&doi=is.null&limit=15&order=published_at.desc&select=id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%2C%20modified_at%29
+      - /posts?blogs.prefix=not.is.null&doi=is.null&limit=15&order=published_at.desc&select=id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%29
       Content-Profile:
       - public
       Content-Range:
@@ -182,7 +155,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 18 Oct 2023 21:31:01 GMT
+      - Sun, 22 Oct 2023 08:50:17 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -196,7 +169,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '9'
+      - '15'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:

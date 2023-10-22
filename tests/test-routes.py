@@ -50,6 +50,21 @@ async def test_blogs_route():
     assert result[0]["slug"] == "rossmounce"
 
 
+@pytest.mark.vcr
+async def test_blogs_post_route():
+    """Test blogs post route."""
+    test_client = app.test_client()
+    key = environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
+    headers = {"Authorization": f"Bearer {key}"}
+    response = await test_client.post("/blogs", headers=headers)
+    assert response.status_code == 200
+    result = await response.get_json()
+    assert len(result) == 64
+    assert result[0]["title"] == "A blog by Ross Mounce"
+    assert result[0]["slug"] == "rossmounce"
+
+
+@pytest.mark.vcr
 async def test_single_blog_route():
     """Test single blog route."""
     test_client = app.test_client()

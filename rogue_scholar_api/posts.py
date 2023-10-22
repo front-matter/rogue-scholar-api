@@ -1,3 +1,4 @@
+"""Posts module."""
 from os import environ
 from furl import furl
 import aiohttp
@@ -38,27 +39,12 @@ async def extract_all_posts(page: int = 1, update_all: bool = False):
     )
     tasks = []
     for blog in blogs.data:
-        task = asyncio.ensure_future(
-            extract_all_posts_by_blog(blog["slug"], page, update_all)
-        )
+        task = extract_all_posts_by_blog(blog["slug"], page, update_all)
         tasks.append(task)
 
     results = await asyncio.gather(*tasks)
+    print(results)
     return [item for sublist in results for item in sublist]
-
-    # def flatten_extend(matrix):
-    #     flat_list = []
-    #     for row in matrix:
-    #         flat_list.extend(row)
-    #     return flat_list
-
-    # extracted_posts = await asyncio.gather(
-    #     *[
-    #         extract_all_posts_by_blog(i["slug"], page, update_all)
-    #         for i in wrap(blogs.data[0])
-    #     ]
-    # )
-    # return flatten_extend(extracted_posts)
 
 
 async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool = False):
@@ -647,8 +633,8 @@ def upsert_single_post(post):
             .execute()
         )
         return post_to_update.data[0]
-    except Exception as error:
-        print(error)
+    except Exception as e:
+        print(e)
         return None
 
 
@@ -723,7 +709,6 @@ def get_title(content_html: str):
 
 def get_abstract(content_html: str = None, maxlen: int = 450):
     """Get abstract from content_html."""
-    print(content_html)
     if not content_html:
         return None
     content_html = re.sub(r"(<br>|<p>)", " ", content_html)

@@ -37,8 +37,8 @@ async def test_extract_all_posts():
 
 @pytest.mark.vcr
 @pytest.mark.asyncio
-async def test_extract_all_posts_by_blog_wordpressorg():
-    """Extract all posts by blog wordpress.org"""
+async def test_extract_posts_by_blog_wordpressorg():
+    """Extract posts by blog wordpress.org"""
     slug = "epub_fis"
     result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
     assert len(result) == 50
@@ -55,8 +55,8 @@ async def test_extract_all_posts_by_blog_wordpressorg():
 
 @pytest.mark.vcr
 @pytest.mark.asyncio
-async def test_extract_all_posts_by_blog_wordpresscom():
-    """Extract all posts by blog wordpress.com"""
+async def test_extract_posts_by_blog_wordpresscom():
+    """Extract posts by blog wordpress.com"""
     slug = "wisspub"
     result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
     assert len(result) == 50
@@ -80,8 +80,8 @@ async def test_extract_all_posts_by_blog_wordpresscom():
 
 @pytest.mark.vcr
 @pytest.mark.asyncio
-async def test_extract_all_posts_by_blog_ghost():
-    """Extract all posts by blog ghost"""
+async def test_extract_posts_by_blog_ghost():
+    """Extract posts by blog ghost"""
     slug = "front_matter"
     result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
     assert len(result) == 50
@@ -121,8 +121,8 @@ async def test_extract_all_posts_by_blog_ghost():
 
 @pytest.mark.vcr
 @pytest.mark.asyncio
-async def test_extract_all_posts_by_blog_ghost_updated():
-    """Extract all posts by blog ghost updated only"""
+async def test_extract_posts_by_blog_ghost_updated():
+    """Extract posts by blog ghost updated only"""
     slug = "front_matter"
     result = await extract_all_posts_by_blog(slug, page=1, update_all=False)
     assert len(result) == 0
@@ -130,8 +130,8 @@ async def test_extract_all_posts_by_blog_ghost_updated():
 
 @pytest.mark.vcr
 @pytest.mark.asyncio
-async def test_extract_all_posts_by_blog_substack():
-    """Extract all posts by blog substack"""
+async def test_extract_posts_by_blog_substack():
+    """Extract posts by blog substack"""
     slug = "cwagen"
     result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
     assert len(result) == 50
@@ -146,8 +146,8 @@ async def test_extract_all_posts_by_blog_substack():
 
 @pytest.mark.vcr
 @pytest.mark.asyncio
-async def test_extract_all_posts_by_blog_json_feed():
-    """Extract all posts by blog json feed"""
+async def test_extract_posts_by_blog_json_feed():
+    """Extract posts by blog json feed"""
     slug = "ropensci"
     result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
     assert len(result) == 50
@@ -166,8 +166,8 @@ async def test_extract_all_posts_by_blog_json_feed():
 
 @pytest.mark.vcr
 @pytest.mark.asyncio
-async def test_extract_all_posts_by_blog_json_feed_updated():
-    """Extract all posts by blog json feed only updated"""
+async def test_extract_posts_by_blog_json_feed_updated():
+    """Extract posts by blog json feed only updated"""
     slug = "ropensci"
     result = await extract_all_posts_by_blog(slug, page=1, update_all=False)
     assert len(result) == 0
@@ -175,8 +175,8 @@ async def test_extract_all_posts_by_blog_json_feed_updated():
 
 @pytest.mark.vcr
 @pytest.mark.asyncio
-async def test_extract_all_posts_by_blog_json_feed_with_pagination():
-    """Extract all posts by blog json feed with pagination"""
+async def test_extract_posts_by_blog_json_feed_with_pagination():
+    """Extract posts by blog json feed with pagination"""
     slug = "ropensci"
     result = await extract_all_posts_by_blog(slug, page=2, update_all=True)
     assert len(result) == 50
@@ -188,8 +188,8 @@ async def test_extract_all_posts_by_blog_json_feed_with_pagination():
 
 @pytest.mark.vcr
 @pytest.mark.asyncio
-async def test_extract_all_posts_by_blog_blogger():
-    """Extract all posts by blogger blog"""
+async def test_extract_posts_by_blog_blogger():
+    """Extract posts by blogger blog"""
     slug = "iphylo"
     result = await extract_all_posts_by_blog(slug, page=3, update_all=True)
     assert len(result) == 50
@@ -209,8 +209,8 @@ async def test_extract_all_posts_by_blog_blogger():
 
 @pytest.mark.vcr
 @pytest.mark.asyncio
-async def test_extract_all_posts_by_blog_atom():
-    """Extract all posts by blog atom"""
+async def test_extract_posts_by_blog_atom():
+    """Extract posts by blog atom"""
     slug = "eve"
     result = await extract_all_posts_by_blog(slug, page=3, update_all=True)
     assert len(result) == 50
@@ -232,8 +232,8 @@ async def test_extract_all_posts_by_blog_atom():
 
 @pytest.mark.vcr
 @pytest.mark.asyncio
-async def test_extract_all_posts_by_blog_rss():
-    """Extract all posts by blog rss"""
+async def test_extract_posts_by_blog_rss():
+    """Extract posts by blog rss"""
     slug = "tarleb"
     result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
     assert len(result) == 18

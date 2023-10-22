@@ -1,0 +1,615 @@
+interactions:
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      user-agent:
+      - python-httpx/0.24.1
+      x-client-info:
+      - supabase-py/1.2.0
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=slug%2C%20title%2C%20description%2C%20language%2C%20favicon%2C%20feed_url%2C%20current_feed_url%2C%20archive_prefix%2C%20feed_format%2C%20home_page_url%2C%20use_mastodon%2C%20created_at%2C%20license%2C%20generator%2C%20category%2C%20backlog%2C%20prefix%2C%20status%2C%20plan%2C%20funding%2C%20items%3A%20posts%20%28id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%29&slug=eq.andrewheiss
+  response:
+    content: "{\"slug\":\"andrewheiss\",\"title\":\"Andrew Heiss's blog\",\"description\":\"Andrew
+      Heiss's blog\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://www.andrewheiss.com/atom.xml\",\"current_feed_url\":null,\"archive_prefix\":null,\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://www.andrewheiss.com\",\"use_mastodon\":true,\"created_at\":\"2023-08-22\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"generator\":\"Quarto
+      1.4.385\",\"category\":\"politicalScience\",\"backlog\":0,\"prefix\":\"10.59350\",\"status\":\"active\",\"plan\":\"Starter\",\"funding\":null,\"items\":[{\"id\":\"1b523bcd-ed81-4454-8492-b6e7abd94982\",\"doi\":\"https://doi.org/10.59350/t57vy-p5115\",\"url\":\"https://www.andrewheiss.com/blog/2021/08/21/r2-euler/index.html\",\"archive_url\":null,\"title\":\"Exploring
+      R\xB2 and regression variance with Euler/Venn diagrams\",\"summary\":\"Regression
+      is the core of my statistics and program evaluation/causal inference courses.
+      As I\u2019ve taught different stats classes, I\u2019ve found that one of the
+      regression diagnostic statistics that students really glom onto is . Unlike
+      lots of regression diagnostics like AIC, BIC, and the joint F-statistic,  has
+      a really intuitive interpretation\u2014it\u2019s the percent of variation in
+      the outcome variable explained by all the explanatory variables.\",\"published_at\":1629518400,\"updated_at\":1629518400,\"indexed_at\":1693048508,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2021/08/21/r2-euler/index_files/figure-html/nice-plot-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Regression\",\"Statistics\",\"Data
+      Visualization\"],\"language\":\"en\",\"reference\":[{\"doi\": \"https://doi.org/10.3758/BF03204399\",
+      \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.1080/10691898.2001.11910646\",
+      \"key\": \"ref2\"}]}, \n {\"id\":\"7c6149ca-03ca-43ee-932b-4d68567e3380\",\"doi\":\"https://doi.org/10.59350/ha58q-xzf62\",\"url\":\"https://www.andrewheiss.com/blog/2021/07/10/hex-cross-stitch/index.html\",\"archive_url\":null,\"title\":\"Hex
+      sticker/logo cross stitch pattern\",\"summary\":\"<i></i> Downloads  Jump to
+      the downloads and get your own free pattern and template files!  In the data
+      science world, hex stickers with logos of developers\u2019 favorite packages
+      are all the rage.\",\"published_at\":1625889600,\"updated_at\":1625889600,\"indexed_at\":1693063479,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2021/07/10/hex-cross-stitch/card-image.jpg\",\"tags\":[\"Art\",\"Cross
+      Stitch\",\"Pandemic Boredom\",\"Data Science\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"a68efe8c-a571-4517-aacb-73f707644cfe\",\"doi\":\"https://doi.org/10.59350/yrbym-m0y62\",\"url\":\"https://www.andrewheiss.com/blog/2021/08/25/twfe-diagnostics/index.html\",\"archive_url\":null,\"title\":\"Exploring
+      Pamela Jakiela\u2019s simple TWFE diagnostics with R\",\"summary\":\"The world
+      of econometrics has been roiled over the past couple years with a bunch of new
+      papers showing how two-way fixed effects (TWFE; situations with nested levels
+      of observations, like country-year, state-month, etc.) estimates of causal effects
+      from difference-in-differences-based natural experiments can be biased when
+      treatment is applied at different times.\",\"published_at\":1629864000,\"updated_at\":1629864000,\"indexed_at\":1693049050,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2021/08/25/twfe-diagnostics/index_files/figure-html/show-weights-hist-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Regression\",\"Statistics\",\"Data
+      Visualization\"],\"language\":\"en\",\"reference\":[{\"doi\": \"https://doi.org/10.2139/ssrn.3794018\",
+      \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.1016/j.jeconom.2020.12.001\",
+      \"key\": \"ref2\"}, {\"doi\": \"https://doi.org/10.1257/aer.20181169\", \"key\":
+      \"ref3\"}, {\"doi\": \"https://doi.org/10.1016/j.jeconom.2021.03.014\", \"key\":
+      \"ref4\"}, {\"key\": \"ref5\", \"url\": \"https://arxiv.org/abs/2103.13229\"},
+      {\"doi\": \"https://doi.org/10.1016/j.jeconom.2020.09.006\", \"key\": \"ref6\"}]},
+      \n {\"id\":\"8a85c0c2-23f3-4437-bc82-fa318284c28d\",\"doi\":\"https://doi.org/10.59350/rgwda-0tv16\",\"url\":\"https://www.andrewheiss.com/blog/2023/06/01/geocoding-routing-openstreetmap-r/index.html\",\"archive_url\":null,\"title\":\"How
+      to make fancy road trip maps with R and OpenStreetMap\",\"summary\":\"In a couple
+      days, I\u2019m going to drive across the country to Utah, my home state. I haven\u2019t
+      been out west with my whole family in four years\u2014not since 2019 when we
+      moved from Spanish Fork, Utah to Atlanta, Georgia. According to Google Maps,
+      it\u2019s a mere 1,900 miles (3,000 kilometers) through the middle of the United
+      States and should take 28 hours, assuming no stops.\",\"published_at\":1685592000,\"updated_at\":1685592000,\"indexed_at\":1693042446,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2023/06/01/geocoding-routing-openstreetmap-r/index_files/figure-html/plot-routes-stops-distances-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Gis\",\"Maps\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"7cbf49a3-0b62-41ca-915d-55bc08be0c5c\",\"doi\":\"https://doi.org/10.59350/cwrq4-m7h10\",\"url\":\"https://www.andrewheiss.com/blog/2023/01/08/bibdesk-to-zotero-pandoc/index.html\",\"archive_url\":null,\"title\":\"How
+      to migrate from BibDesk to Zotero for pandoc-based writing\",\"summary\":\"<strong>My
+      longstanding workflow for writing, citing, and PDF management</strong>  When
+      I started my first master\u2019s degree program in 2008, I decided to stop using
+      Word for all my academic writing and instead use plain text Markdown for everything.
+      Markdown itself had been a thing for 4 years, and MultiMarkdown\u2014a pandoc-like
+      extension of Markdown that could handle BibTeX bibliographies\u2014was brand
+      new.\",\"published_at\":1673154000,\"updated_at\":1673154000,\"indexed_at\":1693058038,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2023/01/08/bibdesk-to-zotero-pandoc/img/zotero-final.png\",\"tags\":[\"Writing\",\"Markdown\",\"Citations\",\"Pandoc\",\"Zotero\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"86d55a9a-5e72-4f62-8280-9fc1a451b5ba\",\"doi\":\"https://doi.org/10.59350/xge39-emt86\",\"url\":\"https://www.andrewheiss.com/blog/2022/09/26/guide-visualizing-types-posteriors/index.html\",\"archive_url\":null,\"title\":\"Visualizing
+      the differences between Bayesian posterior predictions, linear predictions,
+      and the expectation of posterior predictions\",\"summary\":\"<i></i> Downloadable
+      cheat sheets!  You can download PDF, SVG, and PNG versions of the diagrams and
+      cheat sheets in this post, as well as the original Adobe Illustrator and InDesign
+      files, at the bottom of this post  Do whatever you want with them!\",\"published_at\":1664164800,\"updated_at\":1664164800,\"indexed_at\":1693058713,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2022/09/26/guide-visualizing-types-posteriors/index_files/figure-html/plot-logit-predictions-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Regression\",\"Bayes\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"20750667-f5ed-414b-bcd0-cd13d344b9d9\",\"doi\":\"https://doi.org/10.59350/e0855-b1171\",\"url\":\"https://www.andrewheiss.com/blog/2023/03/21/aragorn-dunedan-numenorean-simulation/index.html\",\"archive_url\":null,\"title\":\"How
+      old was Aragorn in regular human years?\",\"summary\":\"In <em>The Two Towers</em>,
+      while talking with Eowyn, Aragorn casually mentions that he\u2019s actually
+      87 years old.   Aragorn announcing his age  When Aragorn is off running for
+      miles and miles and fighting orcs and trolls and Uruk-hai and doing all his
+      other <em>Lord of the Rings</em> adventures, he hardly behaves like a regular
+      human 87-year-old. How old is he really?\",\"published_at\":1679371200,\"updated_at\":1679371200,\"indexed_at\":1693057431,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2023/03/21/aragorn-dunedan-numenorean-simulation/img/aragorn-final-50.jpg\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Simulations\",\"Brms\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"d2334768-abfc-4cdf-83a0-61baa165eb6b\",\"doi\":\"https://doi.org/10.59350/pdqkh-czk27\",\"url\":\"https://www.andrewheiss.com/blog/2021/01/26/bayesian-cross-stitch-sampler/index.html\",\"archive_url\":null,\"title\":\"Bayesian
+      (cross stitch) sampler\",\"summary\":\"<i></i> Downloads  Jump to the downloads
+      and get your own free pattern!  For my latest pandemic art medium (on this,
+      the three hundred and nineteenth day of sheltering in place), I decided to teach
+      myself how to cross stitch. I did a ton of needlepoint as a kid and teen, but
+      was always afraid of cross stitch because it was so much smaller and more delicate.\",\"published_at\":1611637200,\"updated_at\":1611637200,\"indexed_at\":1693060438,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2021/01/26/bayesian-cross-stitch-sampler/sampler-photo.jpg\",\"tags\":[\"Art\",\"Cross
+      Stitch\",\"Pandemic Boredom\",\"Bayes\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"8572aae9-c9ff-4f6a-8f94-75ed48b89be4\",\"doi\":\"https://doi.org/10.59350/94eck-1gd29\",\"url\":\"https://www.andrewheiss.com/blog/2019/01/29/diff-means-half-dozen-ways/index.html\",\"archive_url\":null,\"title\":\"Half
+      a dozen frequentist and Bayesian ways to measure the difference in means in
+      two groups\",\"summary\":\"(See this notebook on GitHub)  Taking a sample from
+      two groups from a population and seeing if there\u2019s a significant or substantial
+      difference between them is a standard task in statistics.\",\"published_at\":1548738000,\"updated_at\":1548738000,\"indexed_at\":1693055887,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2019/01/29/diff-means-half-dozen-ways/compare-everything-1.png\",\"tags\":[\"R\",\"Ggplot\",\"Tidyverse\",\"Stan\",\"Bayes\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"9a16e1ac-99b1-43ab-b3c4-6937703bb815\",\"doi\":\"https://doi.org/10.59350/2mz75-rrc46\",\"url\":\"https://www.andrewheiss.com/blog/2023/08/12/conjoint-multilevel-multinomial-guide/index.html\",\"archive_url\":null,\"title\":\"The
+      ultimate practical guide to multilevel multinomial conjoint analysis with R\",\"summary\":\"I
+      recently posted a guide (mostly for future-me) about how to analyze conjoint
+      survey data with R. I explore two different estimands that social scientists
+      are interested in\u2014causal average marginal component effects (AMCEs) and
+      descriptive marginal means\u2014and show how to find them with R, with both
+      frequentist and Bayesian approaches.  However, that post is a little wrong.
+      It\u2019s not <em>wrong</em> wrong, but it is a bit oversimplified.\",\"published_at\":1691812800,\"updated_at\":1691812800,\"indexed_at\":1693043646,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2023/08/12/conjoint-multilevel-multinomial-guide/index_files/figure-html/plot-amces-minivans-carpool-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Statistics\",\"Brms\"],\"language\":\"en\",\"reference\":[{\"doi\":
+      \"https://doi.org/10.1007/978-3-030-14316-9\", \"key\": \"ref1\"}, {\"doi\":
+      \"https://doi.org/10.1111/1758-5899.12984\", \"key\": \"ref2\"}, {\"doi\": \"https://doi.org/10.1017/CBO9780511790942\",
+      \"key\": \"ref3\"}, {\"doi\": \"https://doi.org/10.1017/psrm.2020.56\", \"key\":
+      \"ref4\"}, {\"key\": \"ref5\", \"url\": \"http://support.sas.com/resources/papers/tnote/tnote_marketresearch.html\"}]},
+      \n {\"id\":\"a017c730-9f55-48e8-a986-ce1043341e8f\",\"doi\":\"https://doi.org/10.59350/64j0k-26134\",\"url\":\"https://www.andrewheiss.com/blog/2023/09/18/understanding-dirichlet-beta-intuition/index.html\",\"archive_url\":null,\"title\":\"Guide
+      to understanding the intuition behind the Dirichlet distribution\",\"summary\":\"I\u2019ve
+      been finishing up a project that uses ordered Beta regression (Kubinec 2022),
+      a neat combination of Beta regression and ordered logistic regression that you
+      can use for modeling continuous outcomes that are bounded on either side (in
+      my project, we\u2019re modeling a variable that can only be between 1 and 32,
+      for instance). It\u2019s possible to use something like zero-one-inflated Beta
+      regression for outcomes like this, but that kind of model requ\",\"published_at\":1695009600,\"updated_at\":1695009600,\"indexed_at\":1695065592,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2023/09/18/understanding-dirichlet-beta-intuition/index_files/figure-html/plot-3-7-2-betas-1.png\",\"tags\":[\"R\",\"Statistics\",\"Regression\",\"Tidyverse\",\"Ggplot\"],\"language\":\"en\",\"reference\":[{\"doi\":
+      \"https://doi.org/10.1017/pan.2022.20\", \"key\": \"ref1\"}]}, \n {\"id\":\"f1490d18-2aff-49ba-bbf5-4eee53222b29\",\"doi\":\"https://doi.org/10.59350/xwnfm-x1827\",\"url\":\"https://www.andrewheiss.com/blog/2022/11/29/conditional-marginal-marginaleffects/index.html\",\"archive_url\":null,\"title\":\"Marginal
+      and conditional effects for GLMMs with {marginaleffects}\",\"summary\":\"As
+      a field, statistics is really bad at naming things.  Take, for instance, the
+      term \u201Cfixed effects.\u201D In econometrics and other social science-flavored
+      statistics, this typically refers to categorical terms in a regression model.\",\"published_at\":1669698000,\"updated_at\":1669698000,\"indexed_at\":1693050236,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2022/11/29/conditional-marginal-marginaleffects/index_files/figure-html/plot-conditional-preds-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Regression\",\"Statistics\",\"Bayes\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"fefa26ae-5fb8-4d00-a20d-f890cdc25841\",\"doi\":\"https://doi.org/10.59350/qvp0m-tr543\",\"url\":\"https://www.andrewheiss.com/blog/2021/07/20/afc-richmond-ted-lasso-cross-stitch/index.html\",\"archive_url\":null,\"title\":\"AFC
+      Richmond / Ted Lasso cross stitch pattern\",\"summary\":\"<i></i> Downloads
+      \ Jump to the downloads and get your own free pattern and template files!  Apparently
+      I now only produce cross stitch content. Thanks, pandemic.  In preparation for
+      season 2 of the incredible <em>Ted Lasso</em>, I made a cross stitch version
+      of the AFC Richmond crest, and I\u2019m really happy with how it turned out!\",\"published_at\":1626753600,\"updated_at\":1626753600,\"indexed_at\":1693044310,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"{\\\"src\\\":\\\"https://www.andrewheiss.com/blog/2021/07/20/afc-richmond-ted-lasso-cross-stitch/afc-richmond-cross-stitch.jpg\\\",\\\"srcset\\\":null,\\\"width\\\":null,\\\"height\\\":null,\\\"sizes\\\":null,\\\"alt\\\":null}\",\"tags\":[\"Art\",\"Cross
+      Stitch\",\"Pandemic Boredom\",\"Ted Lasso\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"14f9809b-afb4-4918-b47d-caff5f742763\",\"doi\":\"https://doi.org/10.59350/40xaj-4e562\",\"url\":\"https://www.andrewheiss.com/blog/2022/05/20/marginalia/index.html\",\"archive_url\":null,\"title\":\"Marginalia:
+      A guide to figuring out what the heck marginal effects, marginal slopes, average
+      marginal effects, marginal effects at the mean, and all these other marginal
+      things are\",\"summary\":\"<i></i> Diagrams!  You can download PDF, SVG, and
+      PNG versions of the marginal effects diagrams in this guide, as well as the
+      original Adobe Illustrator file, here: PDFs, SVGs, and PNGs Illustrator .ai
+      file  Do whatever you want with them! They\u2019re licensed under Creative Commons
+      Attribution-ShareAlike (BY-SA 4.0).  I\u2019m a huge fan of doing research and
+      analysis in public.\",\"published_at\":1653019200,\"updated_at\":1653019200,\"indexed_at\":1693050837,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2022/05/20/marginalia/images/twitter-cover@3x.png\",\"tags\":[\"R\",\"Tidyverse\",\"Regression\",\"Statistics\",\"Data
+      Visualization\"],\"language\":\"en\",\"reference\":[]}, \n {\"id\":\"0395cdf8-92a4-42ba-9565-57cb960aba1c\",\"doi\":\"https://doi.org/10.59350/qba9a-b3561\",\"url\":\"https://www.andrewheiss.com/blog/2023/08/15/matrix-multiply-logit-predict/index.html\",\"archive_url\":null,\"title\":\"Manually
+      generate predicted values for logistic regression with matrix multiplication
+      in R\",\"summary\":\"In a project I\u2019m working on, I need to generate predictions
+      from a logistic regression model.\",\"published_at\":1692072000,\"updated_at\":1692072000,\"indexed_at\":1693064637,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2023/08/15/matrix-multiply-logit-predict/social-image.png\",\"tags\":[\"R\",\"Statistics\",\"Regression\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"0364f69e-9e2f-4178-a07e-22d768d0afb9\",\"doi\":\"https://doi.org/10.59350/y07h7-cn637\",\"url\":\"https://www.andrewheiss.com/blog/2019/10/09/convert-md-rtf-macos-services/index.html\",\"archive_url\":null,\"title\":\"Convert
+      Markdown to rich text (with syntax highlighting!) in any macOS app\",\"summary\":\"GSU
+      uses Microsoft\u2019s Office365 for e-mail, which is fine. My previous institutions\u2014Duke
+      and BYU\u2014both use it too, and it\u2019s pretty standard. GSU also enforces
+      2-factor authentication (2FA) with Duo, which is also fine. Everybody should
+      use some sort of 2FA for all their important accounts!  However, for whatever
+      reason, GSU\u2019s version of Duo\u2019s 2FA doesn\u2019t allow you to generate
+      app-specific passwords for things like e-mail.\",\"published_at\":1570593600,\"updated_at\":1570593600,\"indexed_at\":1693066672,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2019/10/09/convert-md-rtf-macos-services/workflow-best.png\",\"tags\":[\"Pandoc\",\"Macos\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"7134cc1f-3b14-4779-a99d-4c051e006088\",\"doi\":\"https://doi.org/10.59350/yqs5b-36r77\",\"url\":\"https://www.andrewheiss.com/blog/2021/01/15/msm-gee-multilevel/index.html\",\"archive_url\":null,\"title\":\"Marginal
+      structural models for panel data with GEE and multilevel models\",\"summary\":\"Since
+      my last two blog posts on binary and continuous inverse probability weights
+      (IPWs) and marginal structural models (MSMs) for time-series cross-sectional
+      (TSCS) panel data, I\u2019ve spent a ton of time trying to figure out why I
+      couldn\u2019t recover the exact causal effect I had built in to those examples
+      when using panel data. It was a mystery, and it took weeks to figure out what
+      was happening.\",\"published_at\":1610686800,\"updated_at\":1610686800,\"indexed_at\":1693061035,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2021/01/15/msm-gee-multilevel/index_files/figure-html/depression-dag-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Causal
+      Inference\",\"DA Gs\",\"Do Calculus\"],\"language\":\"en\",\"reference\":[{\"doi\":
+      \"https://doi.org/10.1017/s0003055418000357\", \"key\": \"ref1\"}, {\"doi\":
+      \"https://doi.org/10.1177/2167696815621645\", \"key\": \"ref2\"}]}, \n {\"id\":\"f6a38901-a1c1-41d5-8f03-ac2f74f0a3ec\",\"doi\":\"https://doi.org/10.59350/bsctw-0a955\",\"url\":\"https://www.andrewheiss.com/blog/2023/07/28/gradient-map-fills-r-sf/index.html\",\"archive_url\":null,\"title\":\"How
+      to fill maps with density gradients with R, {ggplot2}, and {sf}\",\"summary\":\"The
+      students in my summer data visualization class are finishing up their final
+      projects this week and I\u2019ve been answering a bunch of questions on our
+      class Slack. Often these are relatively standard reminders of how to tinker
+      with specific ggplot layers (chaning the colors of a legend, adding line breaks
+      in labels, etc.), but today one student had a fascinating and tricky question
+      that led me down a realy fun dataviz rabbit hole.\",\"published_at\":1690516800,\"updated_at\":1690516800,\"indexed_at\":1693056379,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2023/07/28/gradient-map-fills-r-sf/index_files/figure-html/plot-all-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Gis\",\"Maps\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"22f2cfd8-9237-4d46-bec4-772c1bee4c39\",\"doi\":\"https://doi.org/10.59350/48w1z-xen07\",\"url\":\"https://www.andrewheiss.com/blog/2020/12/03/ipw-tscs-msm/index.html\",\"archive_url\":null,\"title\":\"Generating
+      inverse probability weights for marginal structural models with time-series
+      cross-sectional panel data\",\"summary\":\"In my post on generating inverse
+      probability weights for both binary and continuous treatments, I mentioned that
+      I\u2019d eventually need to figure out how to deal with more complex data structures
+      and causal models where treatments, outcomes, and confounders vary over time.\",\"published_at\":1606971600,\"updated_at\":1606971600,\"indexed_at\":1693061632,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2020/12/03/ipw-tscs-msm/blackwell-glynn-fig-2.png\",\"tags\":[\"R\",\"Tidyverse\",\"Causal
+      Inference\",\"DA Gs\",\"Do Calculus\"],\"language\":\"en\",\"reference\":[{\"doi\":
+      \"https://doi.org/10.1017/s0003055418000357\", \"key\": \"ref1\"}, {\"doi\":
+      \"https://doi.org/10.1093/aje/kwn164\", \"key\": \"ref2\"}, {\"key\": \"ref3\",
+      \"url\": \"https://hsph.harvard.edu/miguel-hernan/causal-inference-book\"},
+      {\"doi\": \"https://doi.org/10.1080/01621459.2014.956872\", \"key\": \"ref4\"},
+      {\"doi\": \"https://doi.org/10.1097/00001648-200009000-00011\", \"key\": \"ref5\"},
+      {\"doi\": \"https://doi.org/10.1177/2167696815621645\", \"key\": \"ref6\"}]},
+      \n {\"id\":\"9d15c727-1454-4376-9d7a-856f9c16427c\",\"doi\":\"https://doi.org/10.59350/gyvjk-hrx68\",\"url\":\"https://www.andrewheiss.com/blog/2021/12/20/fully-bayesian-ate-iptw/index.html\",\"archive_url\":null,\"title\":\"How
+      to create a(n almost) fully Bayesian outcome model with inverse probability
+      weights\",\"summary\":\"<i></i> Read the previous post first!  This post is
+      a sequel to the previous one on Bayesian propensity scores and won\u2019t make
+      a lot of sense without reading that one first. Read that one first!  In my previous
+      post about how to create Bayesian propensity scores and how to legally use them
+      in a second stage outcome model, I ended up using frequentist models for the
+      outcome stage.\",\"published_at\":1639976400,\"updated_at\":1639976400,\"indexed_at\":1693059365,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2021/12/20/fully-bayesian-ate-iptw/index_files/figure-html/plot-ate-posterior-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Regression\",\"Statistics\",\"Data
+      Visualization\"],\"language\":\"en\",\"reference\":[{\"doi\": \"https://doi.org/10.1002/sim.8486\",
+      \"key\": \"ref1\"}]}, \n {\"id\":\"9c1b0881-3d40-44c1-9c82-46b1429f632e\",\"doi\":\"https://doi.org/10.59350/1svkc-rkv91\",\"url\":\"https://www.andrewheiss.com/blog/2020/12/01/ipw-binary-continuous/index.html\",\"archive_url\":null,\"title\":\"Generating
+      inverse probability weights for both binary and continuous treatments\",\"summary\":\"My
+      program evaluation class is basically a fun wrapper around topics in causal
+      inference and econometrics. I\u2019m a big fan of Judea Pearl-style \u201Ccausal
+      revolution\u201D causal graphs (or DAGs), and they\u2019ve made it easier for
+      both me and my students to understand econometric approaches like diff-in-diff,
+      regression discontinuity, and instrumental variables.\",\"published_at\":1606798800,\"updated_at\":1606798800,\"indexed_at\":1693064047,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2020/12/01/ipw-binary-continuous/index_files/figure-html/dag-binary-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Causal
+      Inference\",\"DA Gs\",\"Do Calculus\"],\"language\":\"en\",\"reference\":[{\"doi\":
+      \"https://doi.org/10.1017/s0003055418000357\", \"key\": \"ref1\"}, {\"doi\":
+      \"https://doi.org/10.1097/eDe.0000000000000053\", \"key\": \"ref2\"}]}, \n {\"id\":\"42a22171-add7-4cfd-bb83-82994482f4d7\",\"doi\":\"https://doi.org/10.59350/z5y4e-jgk85\",\"url\":\"https://www.andrewheiss.com/blog/2020/02/25/closing-backdoors-dags/index.html\",\"archive_url\":null,\"title\":\"Ways
+      to close backdoors in DAGs\",\"summary\":\"(See this notebook on GitHub)  I\u2019ve
+      been teaching program evaluation in the MPA/MPP program at GSU for the past
+      semester and a half, and since I was given free rein over how to teach it, I
+      decided to make it as modern and cutting edge as possible.\",\"published_at\":1582606800,\"updated_at\":1582606800,\"indexed_at\":1693055175,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2020/02/25/closing-backdoors-dags/load-libraries-make-dag-1.png\",\"tags\":[],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"001929d7-96ff-414e-934f-90c5ca46ae68\",\"doi\":\"https://doi.org/10.59350/6qevp-87j81\",\"url\":\"https://www.andrewheiss.com/blog/2021/08/27/tikz-knitr-html-svg-fun/index.html\",\"archive_url\":null,\"title\":\"How
+      to automatically convert TikZ images to SVG (with fonts!) from knitr\",\"summary\":\"<i></i>
+      Update #1  An update to knitr has made it a ton easier to embed fonts in SVG
+      files from R. Jump to the update to see how. <i></i> Update #2  Also, it\u2019s
+      possible to change TikZ fonts and not use Computer Modern for everything! Jump
+      to the second update to see how.\",\"published_at\":1630036800,\"updated_at\":1630036800,\"indexed_at\":1693054011,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2021/08/27/tikz-knitr-html-svg-fun/example-final.png\",\"tags\":[\"R\",\"Tidyverse\",\"R
+      Markdown\",\"Tikz\"],\"language\":\"en\",\"reference\":[]}, \n {\"id\":\"17afd62d-e3ab-44bc-9296-f106d037a223\",\"doi\":\"https://doi.org/10.59350/xgwjy-dyj66\",\"url\":\"https://www.andrewheiss.com/blog/2023/07/25/conjoint-bayesian-frequentist-guide/index.html\",\"archive_url\":null,\"title\":\"The
+      ultimate practical guide to conjoint analysis with R\",\"summary\":\"In my research,
+      I study international nongovernmental organizations (INGOs) and look at how
+      lots of different institutional and organizational factors influence INGO behavior.
+      For instance, many authoritarian regimes have passed anti-NGO laws and engaged
+      in other forms of legal crackdown, which has forced NGOs to change their programming
+      strategies and their sources of funding.\",\"published_at\":1690257600,\"updated_at\":1690257600,\"indexed_at\":1693056895,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2023/07/25/conjoint-bayesian-frequentist-guide/index_files/figure-html/amce-mfx-bayes-plot-excerpt-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Statistics\",\"Brms\"],\"language\":\"en\",\"reference\":[{\"doi\":
+      \"https://doi.org/10.1111/1758-5899.12984\", \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.1093/pan/mpt024\",
+      \"key\": \"ref2\"}, {\"doi\": \"https://doi.org/10.1017/pan.2019.30\", \"key\":
+      \"ref3\"}, {\"doi\": \"https://doi.org/10.1515/9781501716744\", \"key\": \"ref4\"},
+      {\"doi\": \"https://doi.org/10.1093/acprof:oso/9780199754076.001.0001\", \"key\":
+      \"ref5\"}, {\"doi\": \"https://doi.org/10.1017/S0003055418000217\", \"key\":
+      \"ref6\"}]}, \n {\"id\":\"00f330b1-cbdc-4f76-b8c9-fe61004d82e4\",\"doi\":\"https://doi.org/10.59350/ass44-ypk45\",\"url\":\"https://www.andrewheiss.com/blog/2019/02/16/algebra-calculus-r-yacas/index.html\",\"archive_url\":null,\"title\":\"Chidi\u2019s
+      budget and utility: doing algebra and calculus with R and yacas\",\"summary\":\"(See
+      this notebook on GitHub)  A year ago, I wrote about how to use R to solve a
+      typical microeconomics problem: finding the optimal price and quantity of some
+      product given its demand and cost. Doing this involves setting the first derivatives
+      of two functions equal to each other and using algebra to find where they cross.\",\"published_at\":1550293200,\"updated_at\":1550293200,\"indexed_at\":1693062970,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2019/02/16/algebra-calculus-r-yacas/complete-example-1.png\",\"tags\":[\"R\",\"Ggplot\",\"Tidyverse\",\"Yacas\",\"Economics\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"8e0f6069-b9a4-43f0-8fef-2ae631447238\",\"doi\":\"https://doi.org/10.59350/t19jz-ds665\",\"url\":\"https://www.andrewheiss.com/blog/2021/12/01/multilevel-models-panel-data-guide/index.html\",\"archive_url\":null,\"title\":\"A
+      guide to working with country-year panel data and Bayesian multilevel models\",\"summary\":\"In
+      most of my research, I work with country-level panel data where each row is
+      a country in a specific year (Afghanistan in 2010, Afghanistan in 2011, and
+      so on), also known as time-series cross-sectional (TSCS) data.\",\"published_at\":1638334800,\"updated_at\":1638334800,\"indexed_at\":1693047932,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2021/12/01/multilevel-models-panel-data-guide/index_files/figure-html/plot-global-hypothetical-year-year-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Regression\",\"Statistics\",\"Data
+      Visualization\"],\"language\":\"en\",\"reference\":[]}, \n {\"id\":\"625b137c-d67d-41e4-8e35-c0a6516d18c4\",\"doi\":\"https://doi.org/10.59350/hwwgk-v9636\",\"url\":\"https://www.andrewheiss.com/blog/2023/01/09/syllabus-csl-pandoc/index.html\",\"archive_url\":null,\"title\":\"One
+      Simple Trick\u2122 to create inline bibliography entries with Markdown and pandoc\",\"summary\":\"Pandoc-flavored
+      Markdown makes it really easy to cite and reference things. You can write something
+      like this (assuming you use this references.bib BibTeX file): --- title: \\\"Some
+      title\\\" bibliography: references.bib --- According to @Lovelace:1842, computers
+      can calculate things.\",\"published_at\":1673240400,\"updated_at\":1673240400,\"indexed_at\":1693045614,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":null,\"tags\":[\"Writing\",\"Markdown\",\"Citations\",\"Pandoc\",\"Zotero\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"c1b5ba00-6b7d-4506-9e64-3d141d7c23de\",\"doi\":\"https://doi.org/10.59350/ccrtd-z3s22\",\"url\":\"https://www.andrewheiss.com/blog/2023/04/26/middle-earth-mapping-sf-r-gis/index.html\",\"archive_url\":null,\"title\":\"Making
+      Middle Earth maps with R\",\"summary\":\"I\u2019ve taught a course on data visualization
+      with R since 2017, and it\u2019s become one of my more popular classes, especially
+      since it\u2019s all available asynchronously online with hours of Creative Commons-licensed
+      videos and materials.\",\"published_at\":1682481600,\"updated_at\":1682481600,\"indexed_at\":1693046128,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2023/04/26/middle-earth-mapping-sf-r-gis/index_files/figure-html/shire-zoomed-in-fancy-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Gis\",\"Maps\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"324e029c-3da2-4c50-ab0b-1306fb93ce5e\",\"doi\":\"https://doi.org/10.59350/szk3h-v8674\",\"url\":\"https://www.andrewheiss.com/blog/2018/12/17/academic-job-market-visualized/index.html\",\"archive_url\":null,\"title\":\"The
+      academic job search finally comes to an end\",\"summary\":\"I am <em>so beyond
+      thrilled</em> to announce that I\u2019ll be joining the Andrew Young School
+      of Policy Studies at Georgia State University in Fall 2019 as an assistant professor
+      in the Department of Public Management and Policy. I\u2019ll be teaching classes
+      in statistics/data science, economics, and nonprofit management in beautiful
+      downtown Atlanta, and we\u2019ll be moving back to the South. I am so so excited
+      about this!\",\"published_at\":1545022800,\"updated_at\":1545022800,\"indexed_at\":1693065232,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2018/12/17/academic-job-market-visualized/index_files/figure-html/plot-waffle-total-1.png\",\"tags\":[\"R\",\"Ggplot\",\"Dataviz\",\"Jobs\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"6cc350a5-dd4f-4105-9928-71df0323420a\",\"doi\":\"https://doi.org/10.59350/10v3c-1ws96\",\"url\":\"https://www.andrewheiss.com/blog/2023/07/25/conjoint-bayesian-frequentist-guide\",\"archive_url\":null,\"title\":\"The
+      ultimate practical guide to conjoint analysis with R\",\"summary\":\"\",\"published_at\":1690257600,\"updated_at\":1690257600,\"indexed_at\":1697864654,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Baligned%7D%0A%5Ctheta%20=%5C%20&%5Ctextbf%7BE%7D%20%5B%5Ctext%7BOutcome%7D%20%5Cmid%20%5Coperatorname%7Bdo%7D(%5Ctext%7BFeature%7D%20=%20%5Ctext%7Breference%20level%7D)%5D%5C%20-%20%5C%5C%0A&%5Ctextbf%7BE%7D%5B%5Ctext%7BOutcome%7D%20%5Cmid%20%5Coperatorname%7Bdo%7D(%5Ctext%7BFeature%7D%20=%20%5Ctext%7Blevel%20of%20interest%7D)%5D%0A%5Cend%7Baligned%7D%0A\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Statistics\",\"Brms\"],\"language\":\"en\",\"reference\":[{\"doi\":
+      \"https://doi.org/10.1111/1758-5899.12984\", \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.1093/pan/mpt024\",
+      \"key\": \"ref2\"}, {\"doi\": \"https://doi.org/10.1017/pan.2019.30\", \"key\":
+      \"ref3\"}, {\"doi\": \"https://doi.org/10.1515/9781501716744\", \"key\": \"ref4\"},
+      {\"doi\": \"https://doi.org/10.1093/acprof:oso/9780199754076.001.0001\", \"key\":
+      \"ref5\"}, {\"doi\": \"https://doi.org/10.1017/S0003055418000217\", \"key\":
+      \"ref6\"}]}, \n {\"id\":\"eaa2ea1f-8fb5-49c4-a680-b28b3988fc15\",\"doi\":\"https://doi.org/10.59350/8vtys-s0p68\",\"url\":\"https://www.andrewheiss.com/blog/2020/01/01/flexdashboard-dynamic-data/index.html\",\"archive_url\":null,\"title\":\"Create
+      a dynamic dashboard with R, flexdashboard, and Shiny\",\"summary\":\"Now that
+      I\u2019m on the tenure track, I\u2019ve been looking for a way to keep track
+      of my different research projects so I can get them all finished and published.
+      Matt Lebo\u2019s \u201CManaging Your Research Pipeline\u201D presents a neat
+      way of quantifying and tracking the progress of your research, and I recently
+      adopted it for my own stuff.\",\"published_at\":1577854800,\"updated_at\":1577854800,\"indexed_at\":1693049636,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2020/01/01/flexdashboard-dynamic-data/shiny.png\",\"tags\":[\"R
+      Markdown\",\"Shiny\",\"R\",\"Google Sheets\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"5764ee08-2808-4aef-aa80-e1e651834088\",\"doi\":\"https://doi.org/10.59350/ety2j-09566\",\"url\":\"https://www.andrewheiss.com/blog/2022/05/09/hurdle-lognormal-gaussian-brms/index.html\",\"archive_url\":null,\"title\":\"A
+      guide to modeling outcomes that have lots of zeros with Bayesian hurdle lognormal
+      and hurdle Gaussian regression models\",\"summary\":\"In a research project
+      I\u2019ve been working on for several years now, we\u2019re interested in the
+      effect of anti-NGO legal crackdowns on various foreign aid-related outcomes:
+      the amount of foreign aid a country receives and the proportion of that aid
+      dedicated to contentious vs.\_non-contentious causes or issues. These outcome
+      variables are easily measurable thanks to the AidData project, but they post
+      a tricky methodological issue.\",\"published_at\":1652068800,\"updated_at\":1652068800,\"indexed_at\":1693053230,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2022/05/09/hurdle-lognormal-gaussian-brms/index_files/figure-html/plot-emmeans-mfx-gdp-1.png\",\"tags\":[],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"7164571c-0d16-4565-808e-b1fe5cae17f6\",\"doi\":\"https://doi.org/10.59350/24rwv-k9n62\",\"url\":\"https://www.andrewheiss.com/blog/2023/07/03/using-google-location-history-with-r-roadtrip/index.html\",\"archive_url\":null,\"title\":\"Road
+      trip analysis! How to use and play with Google Location History in R\",\"summary\":\"As
+      I explained in my previous blog post, in June 2023 I drove my family across
+      the country in a 5,000-mile roundtrip odyssey from Atlanta, Georgia to just-south-of-Salt
+      Lake City, Utah, and back again.\",\"published_at\":1688356800,\"updated_at\":1688356800,\"indexed_at\":1693043041,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2023/07/03/using-google-location-history-with-r-roadtrip/index_files/figure-html/fig-map-with-dates-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Gis\",\"Maps\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"0981220e-1335-4fa5-8fba-cd1b4df7b541\",\"doi\":\"https://doi.org/10.59350/wbn93-edb02\",\"url\":\"https://www.andrewheiss.com/blog/2021/11/10/ame-bayes-re-guide/index.html\",\"archive_url\":null,\"title\":\"A
+      guide to correctly calculating posterior predictions and average marginal effects
+      with multilievel Bayesian models\",\"summary\":\"At the end of my previous post
+      on beta and zero-inflated-beta regression, I included an example of a multilevel
+      model that predicted the proportion of women members of parliament based on
+      whether a country implements gender-based quotas for their legislatures, along
+      with a few different control variables. I also included random effects for year
+      and region in order to capture time- and geography-specific trends.\",\"published_at\":1636520400,\"updated_at\":1636520400,\"indexed_at\":1693059893,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2021/11/10/ame-bayes-re-guide/index_files/figure-html/all-effects-combined-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Regression\",\"Statistics\",\"Data
+      Visualization\"],\"language\":\"en\",\"reference\":[]}, \n {\"id\":\"90c76b34-1d97-475e-8591-66868871ae0d\",\"doi\":\"https://doi.org/10.59350/nrwsd-3jz20\",\"url\":\"https://www.andrewheiss.com/blog/2021/12/18/bayesian-propensity-scores-weights/index.html\",\"archive_url\":null,\"title\":\"How
+      to use Bayesian propensity scores and inverse probability weights\",\"summary\":\"This
+      post combines two of my long-standing interests: causal inference and Bayesian
+      statistics. I\u2019ve been teaching a course on program evaluation and causal
+      inference for a couple years now and it has become one of my favorite classes
+      ever.\",\"published_at\":1639803600,\"updated_at\":1639803600,\"indexed_at\":1693047222,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2021/12/18/bayesian-propensity-scores-weights/index_files/figure-html/plot-iptw-pseudo-populations-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Regression\",\"Statistics\",\"Data
+      Visualization\"],\"language\":\"en\",\"reference\":[{\"doi\": \"https://doi.org/10.1002/sim.8486\",
+      \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.1111/biom.12273\", \"key\":
+      \"ref2\"}, {\"doi\": \"https://doi.org/10.1002/9780470316696\", \"key\": \"ref3\"},
+      {\"doi\": \"https://doi.org/10.1111/biom.12269\", \"key\": \"ref4\"}, {\"doi\":
+      \"https://doi.org/10.1080/00031305.2015.1111260\", \"key\": \"ref5\"}]}, \n
+      {\"id\":\"74e5397b-9ef0-408f-8851-c794c2029edf\",\"doi\":\"https://doi.org/10.59350/fqkhz-kq526\",\"url\":\"https://www.andrewheiss.com/blog/2021/09/07/do-calculus-backdoors/index.html\",\"archive_url\":null,\"title\":\"Do-calculus
+      adventures! Exploring the three rules of do-calculus in plain language and deriving
+      the backdoor adjustment formula by hand\",\"summary\":\"I\u2019ve been teaching
+      a course on program evaluation since Fall 2019, and while part of the class
+      is focused on logic models and the more managerial aspects of evaluation, the
+      bulk of the class is focused on causal inference. Ever since reading Judea Pearl\u2019s
+      <em>The Book of Why</em> in 2019, I\u2019ve thrown myself into the world of
+      DAGs, econometrics, and general causal inference, and I\u2019ve been both teaching
+      it and using it in research ever since.\",\"published_at\":1630987200,\"updated_at\":1630987200,\"indexed_at\":1693045023,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2021/09/07/do-calculus-backdoors/do-calculus-math.png\",\"tags\":[\"R\",\"Tidyverse\",\"DA
+      Gs\",\"Causal Inference\",\"Do Calculus\"],\"language\":\"en\",\"reference\":[{\"key\":
+      \"ref1\", \"url\": \"https://arxiv.org/abs/1906.07125\"}, {\"key\": \"ref2\",
+      \"url\": \"https://bradyneal.com/causal-inference-course\"}, {\"key\": \"ref3\",
+      \"url\": \"https://dl.acm.org/doi/10.5555/3020652.3020654\"}]}, \n {\"id\":\"e3dcc941-10b7-48fa-a599-53148cdb094f\",\"doi\":\"https://doi.org/10.59350/xt35j-dw116\",\"url\":\"https://www.andrewheiss.com/blog/2021/09/07/do-calculus-backdoors\",\"archive_url\":null,\"title\":\"Do-calculus
+      adventures! Exploring the three rules of do-calculus in plain language and deriving
+      the backdoor adjustment formula by hand\",\"summary\":\"\",\"published_at\":1630987200,\"updated_at\":1630987200,\"indexed_at\":1697900631,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://latex.codecogs.com/png.latex?%5Coperatorname%7Bdo%7D(%5Ccdot)\",\"tags\":[\"R\",\"Tidyverse\",\"DAGs\",\"Causal
+      Inference\",\"Do Calculus\"],\"language\":\"en\",\"reference\":[{\"key\": \"ref1\",
+      \"url\": \"https://arxiv.org/abs/1906.07125\"}, {\"key\": \"ref2\", \"url\":
+      \"https://www.bradyneal.com/causal-inference-course\"}, {\"key\": \"ref3\",
+      \"url\": \"https://dl.acm.org/doi/10.5555/3020652.3020654\"}]}, \n {\"id\":\"d60d3aad-7b1e-4e3b-ae7b-2e27ae2f163a\",\"doi\":\"https://doi.org/10.59350/t1hra-4a041\",\"url\":\"https://www.andrewheiss.com/blog/2020/01/10/makefile-subdirectory-zips/index.html\",\"archive_url\":null,\"title\":\"Automatically
+      zip up subdirectories with Make\",\"summary\":\"See this notebook on GitHub.
+      You can (and should) download the project from there if you want to follow along
+      and try this out.  tl;dr: Skip to the completed example.  I use <strong>blogdown</strong>
+      to generate the websites for all the courses I teach, and it\u2019s delightful
+      to not have to worry about databases and server configurations.\",\"published_at\":1578632400,\"updated_at\":1578632400,\"indexed_at\":1693062300,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2020/01/10/makefile-subdirectory-zips/makefile-subdirectory-zips.png\",\"tags\":[],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"4e4ce690-322a-4211-8c80-9e937559864d\",\"doi\":\"https://doi.org/10.59350/kw2gj-kw740\",\"url\":\"https://www.andrewheiss.com/blog/2023/05/15/fancy-bayes-diffs-props/index.html\",\"archive_url\":null,\"title\":\"A
+      guide to Bayesian proportion tests with R and {brms}\",\"summary\":\"I\u2019ve
+      been working on converting a couple of my dissertation chapters into standalone
+      articles, so I\u2019ve been revisiting and improving my older R code. As part
+      of my dissertation work, I ran a global survey of international NGOs to see
+      how they adjust their programs and strategies when working under authoritarian
+      legal restrictions in dictatorship.\",\"published_at\":1684123200,\"updated_at\":1684123200,\"indexed_at\":1693046632,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2023/05/15/fancy-bayes-diffs-props/index_files/figure-html/q2-plot-final-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Bayes\",\"Brms\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"6aa473fa-d608-4e18-9cb5-b9d1edaaa259\",\"doi\":\"https://doi.org/10.59350/7p1a4-0tw75\",\"url\":\"https://www.andrewheiss.com/blog/2021/11/08/beta-regression-guide/index.html\",\"archive_url\":null,\"title\":\"A
+      guide to modeling proportions with Bayesian beta and zero-inflated beta regression
+      models\",\"summary\":\"In the data I work with, it\u2019s really common to come
+      across data that\u2019s measured as proportions: the percent of women in the
+      public sector workforce, the amount of foreign aid a country receives as a percent
+      of its GDP, the percent of religious organizations in a state\u2019s nonprofit
+      sector, and so on.  When working with this kind of data as an outcome variable
+      (or dependent variable) in a model, analysis gets tricky if you use standard
+      models like\",\"published_at\":1636347600,\"updated_at\":1636347600,\"indexed_at\":1693054581,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2021/11/08/beta-regression-guide/index_files/figure-html/plot-dist-beta-shifted-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Regression\",\"Statistics\",\"Data
+      Visualization\"],\"language\":\"en\",\"reference\":[{\"doi\": \"https://doi.org/10.1017/psrm.2019.31\",
+      \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.1016/j.ecosta.2021.07.006\",
+      \"key\": \"ref2\"}, {\"doi\": \"https://doi.org/10.1177/0010414006297342\",
+      \"key\": \"ref3\"}]}, \n {\"id\":\"445d61c3-2e48-4fd2-8eb4-570587253652\",\"doi\":\"https://doi.org/10.59350/2ngxe-g6z04\",\"url\":\"https://www.andrewheiss.com/blog/2023/09/18/understanding-dirichlet-beta-intuition\",\"archive_url\":null,\"title\":\"Guide
+      to understanding the intuition behind the Dirichlet distribution\",\"summary\":\"\",\"published_at\":1695009600,\"updated_at\":1695009600,\"indexed_at\":1697848405,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://latex.codecogs.com/png.latex?%5Coperatorname%7BDirichlet%7D(1,%201,%201)\",\"tags\":[\"R\",\"Statistics\",\"Regression\",\"Tidyverse\",\"Ggplot\"],\"language\":\"en\",\"reference\":[{\"doi\":
+      \"https://doi.org/10.1017/pan.2022.20\", \"key\": \"ref1\"}]}, \n {\"id\":\"53017098-944c-4e55-b825-bb6cc1e3fded\",\"doi\":\"https://doi.org/10.59350/8g15j-hjb98\",\"url\":\"https://www.andrewheiss.com/blog/2023/08/15/matrix-multiply-logit-predict\",\"archive_url\":null,\"title\":\"Manually
+      generate predicted values for logistic regression with matrix multiplication
+      in R\",\"summary\":\"\",\"published_at\":1692072000,\"updated_at\":1692072000,\"indexed_at\":1697854121,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2023/08/15/matrix-multiply-logit-predict/social-image.png\",\"tags\":[\"R\",\"Statistics\",\"Regression\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"1665e164-6874-4b7d-8d0f-9e6c569bfff4\",\"doi\":\"https://doi.org/10.59350/mh4db-csa32\",\"url\":\"https://www.andrewheiss.com/blog/2023/08/12/conjoint-multilevel-multinomial-guide\",\"archive_url\":null,\"title\":\"The
+      ultimate practical guide to multilevel multinomial conjoint analysis with R\",\"summary\":\"\",\"published_at\":1691812800,\"updated_at\":1691812800,\"indexed_at\":1697855307,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://latex.codecogs.com/png.latex?x\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Statistics\",\"Brms\"],\"language\":\"en\",\"reference\":[{\"doi\":
+      \"https://doi.org/10.1007/978-3-030-14316-9\", \"key\": \"ref1\"}, {\"doi\":
+      \"https://doi.org/10.1111/1758-5899.12984\", \"key\": \"ref2\"}, {\"doi\": \"https://doi.org/10.1017/CBO9780511790942\",
+      \"key\": \"ref3\"}, {\"doi\": \"https://doi.org/10.1017/psrm.2020.56\", \"key\":
+      \"ref4\"}, {\"key\": \"ref5\", \"url\": \"http://support.sas.com/resources/papers/tnote/tnote_marketresearch.html\"}]},
+      \n {\"id\":\"a4395ab3-164b-430c-8c6f-2e409aa3a787\",\"doi\":\"https://doi.org/10.59350/7j8pq-w6149\",\"url\":\"https://www.andrewheiss.com/blog/2023/04/26/middle-earth-mapping-sf-r-gis\",\"archive_url\":null,\"title\":\"Making
+      Middle Earth maps with R\",\"summary\":\"\",\"published_at\":1682481600,\"updated_at\":1682481600,\"indexed_at\":1697877194,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2023/04/26/middle-earth-mapping-sf-r-gis/index_files/figure-html/us-map-basic-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Gis\",\"Maps\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"56118b99-6dff-4d02-a7a5-41a44c9b2b15\",\"doi\":\"https://doi.org/10.59350/g5ga0-0y077\",\"url\":\"https://www.andrewheiss.com/blog/2023/05/15/fancy-bayes-diffs-props\",\"archive_url\":null,\"title\":\"A
+      guide to Bayesian proportion tests with R and {brms}\",\"summary\":\"\",\"published_at\":1684123200,\"updated_at\":1684123200,\"indexed_at\":1697875437,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2023/05/15/fancy-bayes-diffs-props/img/pisa.png\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Bayes\",\"Brms\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"d20087b3-d37e-4dfd-9090-3371e5116d55\",\"doi\":\"https://doi.org/10.59350/z6vcz-96113\",\"url\":\"https://www.andrewheiss.com/blog/2021/12/18/bayesian-propensity-scores-weights\",\"archive_url\":null,\"title\":\"How
+      to use Bayesian propensity scores and inverse probability weights\",\"summary\":\"This
+      post combines two of my long-standing interests: causal inference and Bayesian
+      statistics.\",\"published_at\":1639803600,\"updated_at\":1639803600,\"indexed_at\":1697897027,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B%5Ctext%7BTreatment%7D%7D%7B%5Ctext%7BPropensity%7D%7D%20+%20%5Cfrac%7B1%20-%20%5Ctext%7BTreatment%7D%7D%7B1%20-%20%5Ctext%7BPropensity%7D%7D%0A\",\"tags\":[\"R\",\"Tidyverse\",\"Regression\",\"Statistics\",\"Data
+      Visualization\"],\"language\":\"en\",\"reference\":[{\"doi\": \"https://doi.org/10.1002/sim.8486\",
+      \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.1111/biom.12273\", \"key\":
+      \"ref2\"}, {\"doi\": \"https://doi.org/10.1002/9780470316696\", \"key\": \"ref3\"},
+      {\"doi\": \"https://doi.org/10.1111/biom.12269\", \"key\": \"ref4\"}, {\"doi\":
+      \"https://doi.org/10.1080/00031305.2015.1111260\", \"key\": \"ref5\"}]}, \n
+      {\"id\":\"50f781f8-6fe2-4164-b94a-726a69f943b1\",\"doi\":\"https://doi.org/10.59350/6gnkf-69n26\",\"url\":\"https://www.andrewheiss.com/blog/2023/01/09/syllabus-csl-pandoc\",\"archive_url\":null,\"title\":\"One
+      Simple Trick\u2122 to create inline bibliography entries with Markdown and pandoc\",\"summary\":\"\",\"published_at\":1673240400,\"updated_at\":1673240400,\"indexed_at\":1697885589,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2023/01/09/syllabus-csl-pandoc/citation-hover.png\",\"tags\":[\"Writing\",\"Markdown\",\"Citations\",\"Pandoc\",\"Zotero\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"9d3307c7-0e67-4fc8-91b8-bf0cd0f9a5a1\",\"doi\":\"https://doi.org/10.59350/f0j1p-rqd04\",\"url\":\"https://www.andrewheiss.com/blog/2022/05/20/marginalia\",\"archive_url\":null,\"title\":\"Marginalia:
+      A guide to figuring out what the heck marginal effects, marginal slopes, average
+      marginal effects, marginal effects at the mean, and all these other marginal
+      things are\",\"summary\":\"\",\"published_at\":1653019200,\"updated_at\":1653019200,\"indexed_at\":1697895187,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2022/05/20/marginalia/images/normal-work.png\",\"tags\":[\"R\",\"Tidyverse\",\"Regression\",\"Statistics\",\"Data
+      Visualization\"],\"language\":\"en\",\"reference\":[]}, \n {\"id\":\"714f55e9-ea0e-48fe-8e40-3fa29d537718\",\"doi\":\"https://doi.org/10.59350/4aktt-fa489\",\"url\":\"https://www.andrewheiss.com/blog/2022/11/29/conditional-marginal-marginaleffects\",\"archive_url\":null,\"title\":\"Marginal
+      and conditional effects for GLMMs with {marginaleffects}\",\"summary\":\"\",\"published_at\":1669698000,\"updated_at\":1669698000,\"indexed_at\":1697889180,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2022/11/29/conditional-marginal-marginaleffects/chelsea-meme.jpg\",\"tags\":[\"R\",\"Tidyverse\",\"Regression\",\"Statistics\",\"Bayes\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"c98cd583-9023-4a17-852c-40d38cb28a4f\",\"doi\":\"https://doi.org/10.59350/egjg9-tk036\",\"url\":\"https://www.andrewheiss.com/blog/2022/09/26/guide-visualizing-types-posteriors\",\"archive_url\":null,\"title\":\"Visualizing
+      the differences between Bayesian posterior predictions, linear predictions,
+      and the expectation of posterior predictions\",\"summary\":\"\",\"published_at\":1664164800,\"updated_at\":1664164800,\"indexed_at\":1697890657,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2022/09/26/guide-visualizing-types-posteriors/index_files/figure-html/plot-mass-flipper-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Regression\",\"Bayes\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"af8a93ff-54b9-417d-ac4e-6bfb697e6ae3\",\"doi\":\"https://doi.org/10.59350/297tw-t4j74\",\"url\":\"https://www.andrewheiss.com/blog/2022/06/23/long-labels-ggplot\",\"archive_url\":null,\"title\":\"Quick
+      and easy ways to deal with long labels in ggplot2\",\"summary\":\"\",\"published_at\":1655956800,\"updated_at\":1655956800,\"indexed_at\":1697892414,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2022/06/23/long-labels-ggplot/index_files/figure-html/plot-the-problem-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Data
+      Visualization\"],\"language\":\"en\",\"reference\":[]}, \n {\"id\":\"deab20b9-ded6-49e5-a8b0-ea69e3605f9a\",\"doi\":\"https://doi.org/10.59350/tqjtb-gmx37\",\"url\":\"https://www.andrewheiss.com/blog/2021/12/01/multilevel-models-panel-data-guide\",\"archive_url\":null,\"title\":\"A
+      guide to working with country-year panel data and Bayesian multilevel models\",\"summary\":\"\",\"published_at\":1638334800,\"updated_at\":1638334800,\"indexed_at\":1697898790,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2021/12/01/multilevel-models-panel-data-guide/chelsea-meme.jpg\",\"tags\":[\"R\",\"Tidyverse\",\"Regression\",\"Statistics\",\"Data
+      Visualization\"],\"language\":\"en\",\"reference\":[]}, \n {\"id\":\"bdd23c3b-9686-49a8-9c1d-b0d6258b0523\",\"doi\":\"https://doi.org/10.59350/v2fmc-mn375\",\"url\":\"https://www.andrewheiss.com/blog/2021/08/25/twfe-diagnostics\",\"archive_url\":null,\"title\":\"Exploring
+      Pamela Jakiela\u2019s simple TWFE diagnostics with R\",\"summary\":\"\",\"published_at\":1629864000,\"updated_at\":1629864000,\"indexed_at\":1697901787,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2021/08/25/twfe-diagnostics/index_files/figure-html/show-fake-data-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Regression\",\"Statistics\",\"Data
+      Visualization\"],\"language\":\"en\",\"reference\":[{\"doi\": \"https://doi.org/10.2139/ssrn.3794018\",
+      \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.1016/j.jeconom.2020.12.001\",
+      \"key\": \"ref2\"}, {\"doi\": \"https://doi.org/10.1257/aer.20181169\", \"key\":
+      \"ref3\"}, {\"doi\": \"https://doi.org/10.1016/j.jeconom.2021.03.014\", \"key\":
+      \"ref4\"}, {\"key\": \"ref5\", \"url\": \"https://arxiv.org/abs/2103.13229\"},
+      {\"doi\": \"https://doi.org/10.1016/j.jeconom.2020.09.006\", \"key\": \"ref6\"}]},
+      \n {\"id\":\"effca05b-e93f-4011-abe7-d4a548842ee9\",\"doi\":\"https://doi.org/10.59350/xwg15-mv656\",\"url\":\"https://www.andrewheiss.com/blog/2021/07/10/hex-cross-stitch\",\"archive_url\":null,\"title\":\"Hex
+      sticker/logo cross stitch pattern\",\"summary\":\"\",\"published_at\":1625889600,\"updated_at\":1625889600,\"indexed_at\":1697903567,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2021/07/10/hex-cross-stitch/class-hexes.png\",\"tags\":[\"Art\",\"Cross
+      Stitch\",\"Pandemic Boredom\",\"Data Science\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"017802c9-1595-4b62-a10b-ca7b72adfa52\",\"doi\":\"https://doi.org/10.59350/f0q05-qmr36\",\"url\":\"https://www.andrewheiss.com/blog/2021/11/10/ame-bayes-re-guide\",\"archive_url\":null,\"title\":\"A
+      guide to correctly calculating posterior predictions and average marginal effects
+      with multilievel Bayesian models\",\"summary\":\"\",\"published_at\":1636520400,\"updated_at\":1636520400,\"indexed_at\":1697899375,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2021/11/10/ame-bayes-re-guide/tj-tweet.png\",\"tags\":[\"R\",\"Tidyverse\",\"Regression\",\"Statistics\",\"Data
+      Visualization\"],\"language\":\"en\",\"reference\":[]}, \n {\"id\":\"ade93ed7-02c7-4ba4-baae-371ecff33f5a\",\"doi\":\"https://doi.org/10.59350/d1k2x-mwe79\",\"url\":\"https://www.andrewheiss.com/blog/2021/11/08/beta-regression-guide\",\"archive_url\":null,\"title\":\"A
+      guide to modeling proportions with Bayesian beta and zero-inflated beta regression
+      models\",\"summary\":\"\",\"published_at\":1636347600,\"updated_at\":1636347600,\"indexed_at\":1697899977,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2021/11/08/beta-regression-guide/index_files/figure-html/example-beyond-one-plot-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Regression\",\"Statistics\",\"Data
+      Visualization\"],\"language\":\"en\",\"reference\":[{\"doi\": \"https://doi.org/10.1017/psrm.2019.31\",
+      \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.1016/j.ecosta.2021.07.006\",
+      \"key\": \"ref2\"}, {\"doi\": \"https://doi.org/10.1177/0010414006297342\",
+      \"key\": \"ref3\"}]}, \n {\"id\":\"a067c8a0-7049-4352-afd7-6d70c2352a1b\",\"doi\":\"https://doi.org/10.59350/c73ge-yge57\",\"url\":\"https://www.andrewheiss.com/blog/2021/07/20/afc-richmond-ted-lasso-cross-stitch\",\"archive_url\":null,\"title\":\"AFC
+      Richmond / Ted Lasso cross stitch pattern\",\"summary\":\"\",\"published_at\":1626753600,\"updated_at\":1626753600,\"indexed_at\":1697902971,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2021/07/20/afc-richmond-ted-lasso-cross-stitch/afc-richmond-cross-stitch.jpg\",\"tags\":[\"Art\",\"Cross
+      Stitch\",\"Pandemic Boredom\",\"Ted Lasso\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"30e3ebd0-5988-4410-aeb0-f17c48520813\",\"doi\":\"https://doi.org/10.59350/m83nd-vxb04\",\"url\":\"https://www.andrewheiss.com/blog/2021/01/26/bayesian-cross-stitch-sampler\",\"archive_url\":null,\"title\":\"Bayesian
+      (cross stitch) sampler\",\"summary\":\"\",\"published_at\":1611637200,\"updated_at\":1611637200,\"indexed_at\":1697906151,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2021/01/26/bayesian-cross-stitch-sampler/sampler-photo.jpg\",\"tags\":[\"Art\",\"Cross
+      Stitch\",\"Pandemic Boredom\",\"Bayes\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"9c45a023-21d3-4f09-a9d1-60ba75b5ef89\",\"doi\":null,\"url\":\"https://www.andrewheiss.com/blog/2020/02/25/closing-backdoors-dags\",\"archive_url\":null,\"title\":\"Ways
+      to close backdoors in DAGs\",\"summary\":\"\",\"published_at\":1582606800,\"updated_at\":1582606800,\"indexed_at\":0,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://latex.codecogs.com/png.latex?x\",\"tags\":[],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"1190d8d7-1da9-42d9-8b23-e04ff4cb48f4\",\"doi\":null,\"url\":\"https://www.andrewheiss.com/blog/2020/01/10/makefile-subdirectory-zips\",\"archive_url\":null,\"title\":\"Automatically
+      zip up subdirectories with Make\",\"summary\":\"\",\"published_at\":1578632400,\"updated_at\":1578632400,\"indexed_at\":0,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"37a68fdc-6352-45ab-a214-bcbd4cd8a136\",\"doi\":null,\"url\":\"https://www.andrewheiss.com/blog/2020/01/01/flexdashboard-dynamic-data\",\"archive_url\":null,\"title\":\"Create
+      a dynamic dashboard with R, flexdashboard, and Shiny\",\"summary\":\"Now that
+      I\u2019m on the tenure track, I\u2019ve been looking for a way to keep track
+      of my different research projects so I can get them all finished and published.\",\"published_at\":1577854800,\"updated_at\":1577854800,\"indexed_at\":0,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2020/01/01/flexdashboard-dynamic-data/shiny.png\",\"tags\":[\"R
+      Markdown\",\"Shiny\",\"R\",\"Google Sheets\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"97b2758b-0255-49a3-ba75-71bfb2588117\",\"doi\":\"https://doi.org/10.59350/346w5-ah522\",\"url\":\"https://www.andrewheiss.com/blog/2020/12/01/ipw-binary-continuous\",\"archive_url\":null,\"title\":\"Generating
+      inverse probability weights for both binary and continuous treatments\",\"summary\":\"\",\"published_at\":1606798800,\"updated_at\":1606798800,\"indexed_at\":1697907843,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2020/12/01/ipw-binary-continuous/index_files/figure-html/dag-binary-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Causal
+      Inference\",\"DAGs\",\"Do Calculus\"],\"language\":\"en\",\"reference\":[{\"doi\":
+      \"https://doi.org/10.1017/s0003055418000357\", \"key\": \"ref1\"}, {\"doi\":
+      \"https://doi.org/10.1097/eDe.0000000000000053\", \"key\": \"ref2\"}]}, \n {\"id\":\"aa545c95-0414-4419-ae0c-6ce4c2d6532a\",\"doi\":null,\"url\":\"https://www.andrewheiss.com/blog/2019/10/09/convert-md-rtf-macos-services\",\"archive_url\":null,\"title\":\"Convert
+      Markdown to rich text (with syntax highlighting!) in any macOS app\",\"summary\":\"GSU
+      uses Microsoft\u2019s Office365 for e-mail, which is fine. My previous institutions\u2014Duke
+      and BYU\u2014both use it too, and it\u2019s pretty standard. GSU also enforces
+      2-factor authentication (2FA) with Duo, which is also fine.\",\"published_at\":1570593600,\"updated_at\":1570593600,\"indexed_at\":0,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2019/10/09/convert-md-rtf-macos-services/make-uppercase.png\",\"tags\":[\"Pandoc\",\"Macos\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"bbf627b8-1677-4920-b9ef-52b1532c7a8c\",\"doi\":null,\"url\":\"https://www.andrewheiss.com/blog/2019/02/16/algebra-calculus-r-yacas\",\"archive_url\":null,\"title\":\"Chidi\u2019s
+      budget and utility: doing algebra and calculus with R and yacas\",\"summary\":\"\",\"published_at\":1550293200,\"updated_at\":1550293200,\"indexed_at\":0,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://latex.codecogs.com/png.latex?%0AU(x,%20y)%20=%20x%5E2%5C%200.25y%0A\",\"tags\":[\"R\",\"Ggplot\",\"Tidyverse\",\"Yacas\",\"Economics\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"95f5e5b8-47e0-4bee-9ee4-10616c8930c6\",\"doi\":null,\"url\":\"https://www.andrewheiss.com/blog/2019/01/29/diff-means-half-dozen-ways\",\"archive_url\":null,\"title\":\"Half
+      a dozen frequentist and Bayesian ways to measure the difference in means in
+      two groups\",\"summary\":\"\",\"published_at\":1548738000,\"updated_at\":1548738000,\"indexed_at\":0,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2019/01/29/diff-means-half-dozen-ways/eda-plots-1.png\",\"tags\":[\"R\",\"Ggplot\",\"Tidyverse\",\"Stan\",\"Bayes\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"a3502188-9973-4168-8eb2-51a9e6a2a130\",\"doi\":\"https://doi.org/10.59350/b4gjd-50c81\",\"url\":\"https://www.andrewheiss.com/blog/2022/12/08/log10-natural-log-scales-ggplot/index.html\",\"archive_url\":null,\"title\":\"How
+      to use natural and base 10 log scales in ggplot2\",\"summary\":\"I always forget
+      how to deal with logged values in ggplot\u2014particularly things that use the
+      natural log.\",\"published_at\":1670475600,\"updated_at\":1670475600,\"indexed_at\":1693052346,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2022/12/08/log10-natural-log-scales-ggplot/index_files/figure-html/plot-log-e-automatic-manual-breaks-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Data
+      Visualization\"],\"language\":\"en\",\"reference\":[]}, \n {\"id\":\"58f9dab3-06a5-416c-8580-11356d92052d\",\"doi\":\"https://doi.org/10.59350/x7xtj-3dh31\",\"url\":\"https://www.andrewheiss.com/blog/2022/06/23/long-labels-ggplot/index.html\",\"archive_url\":null,\"title\":\"Quick
+      and easy ways to deal with long labels in ggplot2\",\"summary\":\"In one of
+      the assignments for my data visualization class, I have students visualize the
+      number of essential construction projects that were allowed to continue during
+      New York City\u2019s initial COVID shelter-in-place order in March and April
+      2020. It\u2019s a good dataset to practice visualizing amounts and proportions
+      and to practice with <strong>dplyr</strong>\u2019s group_by() and summarize()
+      and shows some interesting trends.\",\"published_at\":1655956800,\"updated_at\":1655956800,\"indexed_at\":1693051561,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2022/06/23/long-labels-ggplot/index_files/figure-html/plot-all-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Data
+      Visualization\"],\"language\":\"en\",\"reference\":[]}, \n {\"id\":\"ee023592-4c20-4ef9-81e1-6b2acf764b42\",\"doi\":\"https://doi.org/10.59350/3bzxm-ecg70\",\"url\":\"https://www.andrewheiss.com/blog/2020/03/12/emergency-online-teaching-resources/index.html\",\"archive_url\":null,\"title\":\"Emergency
+      online teaching resources\",\"summary\":\"<em>This is written for instructors
+      in the Department of Public Management and Policy at the Andrew Young School
+      of Policy Studies at Georgia State University, but it\u2019s hopefully widely
+      applicable too.</em>  With more than 100 universities moving their teaching
+      online (including Emory just last night), it\u2019s looking more and more inevitable
+      that GSU will make a similar switch any time now.\",\"published_at\":1583985600,\"updated_at\":1583985600,\"indexed_at\":1693065922,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2020/03/12/emergency-online-teaching-resources/emergency-teaching-img.jpg\",\"tags\":[\"Teaching\",\"COVID
+      19\"],\"language\":\"en\",\"reference\":[]}, \n {\"id\":\"88be3332-0327-4a46-b81d-d3e30259ec70\",\"doi\":\"https://doi.org/10.59350/hdc67-2k282\",\"url\":\"https://www.andrewheiss.com/blog/2023/07/28/gradient-map-fills-r-sf\",\"archive_url\":null,\"title\":\"How
+      to fill maps with density gradients with R, {ggplot2}, and {sf}\",\"summary\":\"\",\"published_at\":1690516800,\"updated_at\":1690516800,\"indexed_at\":1697863976,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2023/07/28/gradient-map-fills-r-sf/index_files/figure-html/plot-xy-overplot-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Gis\",\"Maps\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"af0fa6fa-5049-47e1-9e84-d7fe38c5d6e1\",\"doi\":\"https://doi.org/10.59350/d029k-7kf49\",\"url\":\"https://www.andrewheiss.com/blog/2023/03/21/aragorn-dunedan-numenorean-simulation\",\"archive_url\":null,\"title\":\"How
+      old was Aragorn in regular human years?\",\"summary\":\"\",\"published_at\":1679371200,\"updated_at\":1679371200,\"indexed_at\":1697881366,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2023/03/21/aragorn-dunedan-numenorean-simulation/img/aragorn-87-50.jpg\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Simulations\",\"Brms\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"c0c0cee0-d8df-40a0-918f-9d5f2db343ae\",\"doi\":\"https://doi.org/10.59350/2yr7t-5va34\",\"url\":\"https://www.andrewheiss.com/blog/2023/07/03/using-google-location-history-with-r-roadtrip\",\"archive_url\":null,\"title\":\"Road
+      trip analysis! How to use and play with Google Location History in R\",\"summary\":\"\",\"published_at\":1688356800,\"updated_at\":1688356800,\"indexed_at\":1697866984,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2023/07/03/using-google-location-history-with-r-roadtrip/img/google-takeout.png\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Gis\",\"Maps\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"5af3bd28-33eb-4afc-b6e6-ed7dfbe0c267\",\"doi\":\"https://doi.org/10.59350/me77p-s1307\",\"url\":\"https://www.andrewheiss.com/blog/2023/06/01/geocoding-routing-openstreetmap-r\",\"archive_url\":null,\"title\":\"How
+      to make fancy road trip maps with R and OpenStreetMap\",\"summary\":\"In a couple
+      days, I\u2019m going to drive across the country to Utah, my home state.\",\"published_at\":1685592000,\"updated_at\":1685592000,\"indexed_at\":1697869592,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2023/06/01/geocoding-routing-openstreetmap-r/img/google-maps-ga-to-ut.png\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Gis\",\"Maps\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"2ed69f72-6b73-44b6-8b72-0a42c3169666\",\"doi\":\"https://doi.org/10.59350/e2bw6-sjq27\",\"url\":\"https://www.andrewheiss.com/blog/2023/01/08/bibdesk-to-zotero-pandoc\",\"archive_url\":null,\"title\":\"How
+      to migrate from BibDesk to Zotero for pandoc-based writing\",\"summary\":\"\",\"published_at\":1673154000,\"updated_at\":1673154000,\"indexed_at\":1697886863,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2023/01/08/bibdesk-to-zotero-pandoc/img/extra-fields.png\",\"tags\":[\"Writing\",\"Markdown\",\"Citations\",\"Pandoc\",\"Zotero\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"ebcfdcbf-ca47-4f4a-b79a-b0dfa5596a86\",\"doi\":\"https://doi.org/10.59350/954h7-fgh53\",\"url\":\"https://www.andrewheiss.com/blog/2022/12/08/log10-natural-log-scales-ggplot\",\"archive_url\":null,\"title\":\"How
+      to use natural and base 10 log scales in ggplot2\",\"summary\":\"\",\"published_at\":1670475600,\"updated_at\":1670475600,\"indexed_at\":1697888579,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2022/12/08/log10-natural-log-scales-ggplot/index_files/figure-html/plot-unlogged-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Ggplot\",\"Data
+      Visualization\"],\"language\":\"en\",\"reference\":[]}, \n {\"id\":\"06dd84e9-43bc-4f40-b214-304a8a2d9445\",\"doi\":\"https://doi.org/10.59350/6exz3-3vd33\",\"url\":\"https://www.andrewheiss.com/blog/2022/05/09/hurdle-lognormal-gaussian-brms\",\"archive_url\":null,\"title\":\"A
+      guide to modeling outcomes that have lots of zeros with Bayesian hurdle lognormal
+      and hurdle Gaussian regression models\",\"summary\":\"\",\"published_at\":1652068800,\"updated_at\":1652068800,\"indexed_at\":1697895777,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2022/05/09/hurdle-lognormal-gaussian-brms/index_files/figure-html/plot-gdp-dist-1.png\",\"tags\":[],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"4694530f-6dad-4676-9511-9432cb87671c\",\"doi\":\"https://doi.org/10.59350/vjjmz-bfn60\",\"url\":\"https://www.andrewheiss.com/blog/2021/12/20/fully-bayesian-ate-iptw\",\"archive_url\":null,\"title\":\"How
+      to create a(n almost) fully Bayesian outcome model with inverse probability
+      weights\",\"summary\":\"\",\"published_at\":1639976400,\"updated_at\":1639976400,\"indexed_at\":1697896380,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://latex.codecogs.com/png.latex?%5Cnu\",\"tags\":[\"R\",\"Tidyverse\",\"Regression\",\"Statistics\",\"Data
+      Visualization\"],\"language\":\"en\",\"reference\":[{\"doi\": \"https://doi.org/10.1002/sim.8486\",
+      \"key\": \"ref1\"}]}, \n {\"id\":\"08962717-7a93-454c-b9e7-083660715898\",\"doi\":null,\"url\":\"https://www.andrewheiss.com/blog/2020/03/12/emergency-online-teaching-resources\",\"archive_url\":null,\"title\":\"Emergency
+      online teaching resources\",\"summary\":\"\",\"published_at\":1583985600,\"updated_at\":1583985600,\"indexed_at\":0,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2020/03/12/emergency-online-teaching-resources/personal-room-screen.png\",\"tags\":[\"Teaching\",\"COVID-19\"],\"language\":\"en\",\"reference\":[]},
+      \n {\"id\":\"3829eab2-b836-4b41-99d1-d3287b116d6f\",\"doi\":\"https://doi.org/10.59350/km1bz-ah952\",\"url\":\"https://www.andrewheiss.com/blog/2021/08/27/tikz-knitr-html-svg-fun\",\"archive_url\":null,\"title\":\"How
+      to automatically convert TikZ images to SVG (with fonts!) from knitr\",\"summary\":\"\",\"published_at\":1630036800,\"updated_at\":1630036800,\"indexed_at\":1697901338,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2021/08/27/tikz-knitr-html-svg-fun/example-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"R
+      Markdown\",\"Tikz\"],\"language\":\"en\",\"reference\":[]}, \n {\"id\":\"8b93f226-11ae-46e4-a817-849d5e1200dc\",\"doi\":\"https://doi.org/10.59350/88myw-vdt06\",\"url\":\"https://www.andrewheiss.com/blog/2020/12/03/ipw-tscs-msm\",\"archive_url\":null,\"title\":\"Generating
+      inverse probability weights for marginal structural models with time-series
+      cross-sectional panel data\",\"summary\":\"\",\"published_at\":1606971600,\"updated_at\":1606971600,\"indexed_at\":1697907178,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2020/12/03/ipw-tscs-msm/index_files/figure-html/dag-simple-1.png\",\"tags\":[\"R\",\"Tidyverse\",\"Causal
+      Inference\",\"DAGs\",\"Do Calculus\"],\"language\":\"en\",\"reference\":[{\"doi\":
+      \"https://doi.org/10.1017/s0003055418000357\", \"key\": \"ref1\"}, {\"doi\":
+      \"https://doi.org/10.1093/aje/kwn164\", \"key\": \"ref2\"}, {\"key\": \"ref3\",
+      \"url\": \"https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book\"},
+      {\"doi\": \"https://doi.org/10.1080/01621459.2014.956872\", \"key\": \"ref4\"},
+      {\"doi\": \"https://doi.org/10.1097/00001648-200009000-00011\", \"key\": \"ref5\"},
+      {\"doi\": \"https://doi.org/10.1177/2167696815621645\", \"key\": \"ref6\"}]},
+      \n {\"id\":\"e259cd02-cadd-4c12-a8c1-53efffc6e6ff\",\"doi\":\"https://doi.org/10.59350/7y9kv-gz333\",\"url\":\"https://www.andrewheiss.com/blog/2021/08/21/r2-euler\",\"archive_url\":null,\"title\":\"Exploring
+      R\xB2 and regression variance with Euler/Venn diagrams\",\"summary\":\"\",\"published_at\":1629518400,\"updated_at\":1629518400,\"indexed_at\":1697902395,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://latex.codecogs.com/png.latex?R%5E2\",\"tags\":[\"R\",\"Tidyverse\",\"Regression\",\"Statistics\",\"Data
+      Visualization\"],\"language\":\"en\",\"reference\":[{\"doi\": \"https://doi.org/10.3758/BF03204399\",
+      \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.1080/10691898.2001.11910646\",
+      \"key\": \"ref2\"}]}, \n {\"id\":\"ce78cada-89d6-4216-af38-db466973b7b0\",\"doi\":\"https://doi.org/10.59350/rhprw-dp469\",\"url\":\"https://www.andrewheiss.com/blog/2021/01/15/msm-gee-multilevel\",\"archive_url\":null,\"title\":\"Marginal
+      structural models for panel data with GEE and multilevel models\",\"summary\":\"\",\"published_at\":1610686800,\"updated_at\":1610686800,\"indexed_at\":1697906596,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://latex.codecogs.com/png.latex?X_t\",\"tags\":[\"R\",\"Tidyverse\",\"Causal
+      Inference\",\"DAGs\",\"Do Calculus\"],\"language\":\"en\",\"reference\":[{\"doi\":
+      \"https://doi.org/10.1017/s0003055418000357\", \"key\": \"ref1\"}, {\"doi\":
+      \"https://doi.org/10.1177/2167696815621645\", \"key\": \"ref2\"}]}]}"
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 81a07b0fc8497a40-DUS
+      Connection:
+      - keep-alive
+      Content-Location:
+      - /blogs?select=slug%2C%20title%2C%20description%2C%20language%2C%20favicon%2C%20feed_url%2C%20current_feed_url%2C%20archive_prefix%2C%20feed_format%2C%20home_page_url%2C%20use_mastodon%2C%20created_at%2C%20license%2C%20generator%2C%20category%2C%20backlog%2C%20prefix%2C%20status%2C%20plan%2C%20funding%2C%20items%3A%20posts%20%28id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%29&slug=eq.andrewheiss
+      Content-Profile:
+      - public
+      Content-Range:
+      - 0-0/*
+      Content-Type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      Date:
+      - Sun, 22 Oct 2023 08:48:20 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/2.8.1
+      X-Kong-Proxy-Latency:
+      - '1'
+      X-Kong-Upstream-Latency:
+      - '17'
+      alt-svc:
+      - h3=":443"; ma=86400
+      sb-gateway-version:
+      - '1'
+    http_version: HTTP/1.1
+    status_code: 200
+version: 1

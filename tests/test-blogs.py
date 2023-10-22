@@ -3,7 +3,8 @@ import pytest  # noqa: F401
 
 from rogue_scholar_api.blogs import (
     extract_single_blog,
-    upsert_single_blog,
+    extract_all_blogs,
+    update_single_blog,
     parse_generator,
     parse_feed_format,
 )
@@ -15,10 +16,22 @@ def vcr_config():
 
 
 @pytest.mark.vcr
-def test_extract_single_blog_atom_feed():
+@pytest.mark.asyncio
+async def test_extract_all_blogs():
+    "extract all blogs"
+    result = await extract_all_blogs()
+    assert len(result) == 64
+    blog = result[0]
+    assert blog["slug"] == "rossmounce"
+    assert blog["feed_url"] == "Ross Mounce"
+
+
+@pytest.mark.vcr
+@pytest.mark.asyncio
+async def test_extract_single_blog_atom_feed():
     "extract single blog atom feed"
     slug = "epub_fis"
-    result = extract_single_blog(slug)
+    result = await extract_single_blog(slug)
     assert result["slug"] == slug
     assert result["title"] == "FIS & EPub"
     assert result["feed_url"] == "https://blog.dini.de/EPub_FIS/feed/atom/"
@@ -33,10 +46,11 @@ def test_extract_single_blog_atom_feed():
 
 
 @pytest.mark.vcr
-def test_extract_single_blog_json_feed():
+@pytest.mark.asyncio
+async def test_extract_single_blog_json_feed():
     "extract single blog json feed"
     slug = "ropensci"
-    result = extract_single_blog(slug)
+    result = await extract_single_blog(slug)
     assert result["slug"] == slug
     assert result["title"] == "rOpenSci - open tools for open science"
     assert result["feed_url"] == "https://ropensci.org/blog/index.json"
@@ -48,10 +62,11 @@ def test_extract_single_blog_json_feed():
 
 
 @pytest.mark.vcr
-def test_extract_single_blog_rss_feed():
+@pytest.mark.asyncio
+async def test_extract_single_blog_rss_feed():
     "extract single blog rss feed"
     slug = "andrewheiss"
-    result = extract_single_blog(slug)
+    result = await extract_single_blog(slug)
     assert result["slug"] == slug
     assert result["title"] == "Andrew Heiss's blog"
     assert result["feed_url"] == "https://www.andrewheiss.com/atom.xml"
@@ -199,10 +214,10 @@ def test_parse_feed_format_json_feed():
 
 
 @pytest.mark.vcr
-def test_upsert_single_blog():
+@pytest.mark.asyncio
+def test_update_single_blog():
     """Upsert single blog"""
     blog = {
-        "id": "mdh1h61",
         "slug": "epub_fis",
         "version": "https://jsonfeed.org/version/1.1",
         "feed_url": "https://blog.dini.de/EPub_FIS/feed/atom/",
@@ -228,6 +243,6 @@ def test_upsert_single_blog():
         "relative_url": None,
         "filter": None,
     }
-    result = upsert_single_blog(blog)
+    result = update_single_blog(blog)
     assert result["title"] == "FIS & EPub"
     assert result["slug"] == "epub_fis"
