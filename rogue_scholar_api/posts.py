@@ -42,9 +42,15 @@ async def extract_all_posts(page: int = 1, update_all: bool = False):
         task = extract_all_posts_by_blog(blog["slug"], page, update_all)
         tasks.append(task)
 
-    results = await asyncio.gather(*tasks)
-    print(results)
-    return [item for sublist in results for item in sublist]
+    raw_results = await asyncio.gather(*tasks)
+
+    # flatten list of lists
+    results = []
+    for result in raw_results:
+        if result:
+            results.append(result[0])
+    
+    return results
 
 
 async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool = False):
@@ -334,15 +340,17 @@ async def extract_ghost_post(post, blog):
 
     def format_author(author):
         """Format author."""
-        return {
+        return compact({
             "name": author.get("name", None),
             "url": author.get("website", None),
-        }
+        })
 
     authors = [format_author(i) for i in wrap(post.get("authors", None))]
     content_html = post.get("html", "")
     soup = BeautifulSoup(content_html, "html.parser")
     summary = get_abstract(post.get("excerpt", None))
+    if not summary:
+        summary = get_abstract(content_html)
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
     url = normalize_url(post.get("url", None), secure=True)
@@ -585,9 +593,9 @@ def filter_updated_posts(posts, blog, key):
 def upsert_single_post(post):
     """Upsert single post."""
 
-    # missing title or publication date in the
+    # missing title or publication date
     if not post.get("title", None) or post.get("published_at", None) > int(time.time()):
-        return None
+        return {}
 
     try:
         response = (
@@ -607,7 +615,7 @@ def upsert_single_post(post):
                     "language": post.get("language", None),
                     "reference": post.get("reference", None),
                     "relationships": post.get("relationships", None),
-                    "summary": post.get("summary", None),
+                    "summary": post.get("summary", ""),
                     "tags": post.get("tags", None),
                     "title": post.get("title", None),
                     "url": post.get("url", None),

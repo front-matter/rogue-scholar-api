@@ -23,7 +23,7 @@ async def test_extract_all_blogs():
     assert len(result) == 64
     blog = result[0]
     assert blog["slug"] == "rossmounce"
-    assert blog["feed_url"] == "Ross Mounce"
+    assert blog["feed_url"] == "https://rossmounce.co.uk/feed/atom"
 
 
 @pytest.mark.vcr
@@ -70,7 +70,7 @@ async def test_extract_single_blog_rss_feed():
     assert result["slug"] == slug
     assert result["title"] == "Andrew Heiss's blog"
     assert result["feed_url"] == "https://www.andrewheiss.com/atom.xml"
-    assert result["home_page_url"] == "https://www.andrewheiss.com/atom.html"
+    assert result["home_page_url"] == "https://www.andrewheiss.com"
     assert result["generator"] == "Quarto 1.4.385"
     assert result["created_at"] == "2023-08-22"
     assert result["updated_at"] > 0
@@ -214,7 +214,6 @@ def test_parse_feed_format_json_feed():
 
 
 @pytest.mark.vcr
-@pytest.mark.asyncio
 def test_update_single_blog():
     """Upsert single blog"""
     blog = {

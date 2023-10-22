@@ -23,16 +23,14 @@ def vcr_config():
 async def test_extract_all_posts():
     """Extract all posts"""
     result = await extract_all_posts()
-    assert len(result) == 50
+    assert len(result) == 2
     post = result[0]
-    assert post["title"] == "Aktualisierte OpenAIRE Richtlinie für FIS-Manager"
-    assert post["authors"][0] == {"name": "Gastautor(en)"}
-    assert post["tags"] == [
-        "Elektronisches Publizieren",
-        "Forschungsinformationssysteme",
-        "Projekt",
-        "OpenAIRE",
-    ]
+    assert post["title"] == "Creating a voice-activated AI responder in Python"
+    assert post["authors"][0] == {
+        "name": "Martin Paul Eve",
+        "url": "https://orcid.org/0000-0002-5589-8511",
+    }
+    assert post["tags"] == []
 
 
 @pytest.mark.vcr
@@ -156,10 +154,7 @@ async def test_extract_posts_by_blog_json_feed():
     assert post["authors"][0] == {
         "name": "The rOpenSci Team",
     }
-    assert (
-        post["url"]
-        == "https://ropensci.org/blog/2023/10/20/news-october-2023"
-    )
+    assert post["url"] == "https://ropensci.org/blog/2023/10/20/news-october-2023"
     assert len(post["reference"]) == 0
     assert post["tags"] == ["Newsletter"]
 
@@ -182,7 +177,10 @@ async def test_extract_posts_by_blog_json_feed_with_pagination():
     assert len(result) == 50
     post = result[0]
     assert post["title"] == "rOpenSci News Digest, December 2022"
-    assert post["url"] == "https://ropensci.org/blog/2022/12/16/ropensci-news-digest-december-2022"
+    assert (
+        post["url"]
+        == "https://ropensci.org/blog/2022/12/16/ropensci-news-digest-december-2022"
+    )
     assert post["tags"] == ["Newsletter"]
 
 
@@ -248,7 +246,7 @@ def test_upsert_single_post_in_the_future():
     """Upsert single post in the future"""
     post = {"title": "In the future", "published_at": 2000000000}
     result = upsert_single_post(post)
-    assert result is None
+    assert result == {}
 
 
 @pytest.mark.vcr

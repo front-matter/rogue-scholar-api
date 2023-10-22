@@ -251,9 +251,14 @@ async def test_posts_post_route():
     response = await test_client.post("/posts", headers=headers)
     assert response.status_code == 200
     result = await response.get_json()
-    assert len(result) == 51
+    assert len(result) == 2
     post = result[0]
-    assert post == "2"
+    assert post["title"] == "Creating a voice-activated AI responder in Python"
+    assert post["authors"][0] == {
+        "name": "Martin Paul Eve",
+        "url": "https://orcid.org/0000-0002-5589-8511",
+    }
+    assert post["tags"] == []
 
 
 @pytest.mark.vcr

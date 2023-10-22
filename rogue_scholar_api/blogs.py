@@ -95,7 +95,8 @@ async def extract_single_blog(slug: str):
         "relative_url": config["relative_url"],
         "filter": config["filter"],
     }
-    return update_single_blog(blog)
+    blog = update_single_blog(blog)
+    return blog
 
 
 def parse_generator(generator):

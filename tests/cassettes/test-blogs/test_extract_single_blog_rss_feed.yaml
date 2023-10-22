@@ -25,7 +25,7 @@ interactions:
     method: GET
     uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20language%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.andrewheiss
   response:
-    content: '{"id":"tcw6w29","slug":"andrewheiss","feed_url":"https://www.andrewheiss.com/atom.xml","current_feed_url":null,"home_page_url":"https://www.andrewheiss.com/atom.html","archive_prefix":null,"feed_format":"application/rss+xml","created_at":"2023-08-22","updated_at":1695009600,"use_mastodon":true,"generator":"Quarto
+    content: '{"id":"tcw6w29","slug":"andrewheiss","feed_url":"https://www.andrewheiss.com/atom.xml","current_feed_url":null,"home_page_url":"https://www.andrewheiss.com","archive_prefix":null,"feed_format":"application/rss+xml","created_at":"2023-08-22","updated_at":1695009600,"use_mastodon":true,"generator":"Quarto
       1.4.385","language":"en","favicon":null,"title":"Andrew Heiss''s blog","description":"Andrew
       Heiss''s blog","category":"politicalScience","status":"active","user_id":"7e027f20-14b4-4d41-b547-a5dc12ae3ea4","authors":null,"plan":"Starter","use_api":null,"relative_url":null,"filter":null}'
     headers:
@@ -34,7 +34,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819bfb838aef7175-DUS
+      - 81a0bd351b2d161f-DUS
       Connection:
       - keep-alive
       Content-Location:
@@ -46,7 +46,7 @@ interactions:
       Content-Type:
       - application/vnd.pgrst.object+json; charset=utf-8
       Date:
-      - Sat, 21 Oct 2023 19:42:13 GMT
+      - Sun, 22 Oct 2023 09:33:29 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -60,7 +60,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '5'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -17561,7 +17561,7 @@ interactions:
       Content-Type:
       - application/xml
       Date:
-      - Sat, 21 Oct 2023 19:42:13 GMT
+      - Sun, 22 Oct 2023 09:33:30 GMT
       ETag:
       - '"b0ee0e-60762260d1722-gzip"'
       Last-Modified:
@@ -17603,22 +17603,22 @@ interactions:
       x-client-info:
       - supabase-py/1.2.0
     method: GET
-    uri: https://db.rogue-scholar.org/rest/v1/posts?select=updated_at%2C%20blog_slug&blog_slug=eq.andrewheiss&order=updated_at.desc&limit=1
+    uri: https://db.rogue-scholar.org/rest/v1/posts?select=updated_at&blog_slug=eq.andrewheiss&order=updated_at.desc&limit=1
   response:
-    content: '[{"updated_at":1695009600,"blog_slug":"andrewheiss"}]'
+    content: '[{"updated_at":1695009600}]'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819bfba85d291536-DUS
+      - 81a0bd55eeeccb22-DUS
       Connection:
       - keep-alive
       Content-Encoding:
       - gzip
       Content-Location:
-      - /posts?blog_slug=eq.andrewheiss&limit=1&order=updated_at.desc&select=updated_at%2C%20blog_slug
+      - /posts?blog_slug=eq.andrewheiss&limit=1&order=updated_at.desc&select=updated_at
       Content-Profile:
       - public
       Content-Range:
@@ -17626,7 +17626,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Sat, 21 Oct 2023 19:42:18 GMT
+      - Sun, 22 Oct 2023 09:33:35 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -17648,13 +17648,12 @@ interactions:
     http_version: HTTP/1.1
     status_code: 200
 - request:
-    body: '{"id": "tcw6w29", "slug": "andrewheiss", "title": "Andrew Heiss''s blog",
-      "description": "Andrew Heiss''s blog", "feed_url": "https://www.andrewheiss.com/atom.xml",
-      "current_feed_url": null, "home_page_url": "https://www.andrewheiss.com/atom.html",
-      "feed_format": "application/rss+xml", "modified_at": null, "updated_at": 1695009600,
-      "language": "en", "category": "politicalScience", "favicon": null, "license":
-      "https://creativecommons.org/licenses/by/4.0/legalcode", "generator": "Quarto
-      1.4.385", "status": "active", "user_id": "7e027f20-14b4-4d41-b547-a5dc12ae3ea4",
+    body: '{"title": "Andrew Heiss''s blog", "description": "Andrew Heiss''s blog",
+      "feed_url": "https://www.andrewheiss.com/atom.xml", "current_feed_url": null,
+      "home_page_url": "https://www.andrewheiss.com", "feed_format": "application/rss+xml",
+      "updated_at": 1695009600, "language": "en", "category": "politicalScience",
+      "favicon": null, "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "generator": "Quarto 1.4.385", "status": "active", "user_id": "7e027f20-14b4-4d41-b547-a5dc12ae3ea4",
       "use_mastodon": true}'
     headers:
       accept:
@@ -17666,7 +17665,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '590'
+      - '519'
       content-profile:
       - public
       content-type:
@@ -17674,36 +17673,36 @@ interactions:
       host:
       - db.rogue-scholar.org
       prefer:
-      - return=representation,resolution=merge-duplicates
+      - return=representation
       user-agent:
       - python-httpx/0.24.1
       x-client-info:
       - supabase-py/1.2.0
-    method: POST
-    uri: https://db.rogue-scholar.org/rest/v1/blogs?on_conflict=slug
+    method: PATCH
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?slug=eq.andrewheiss
   response:
     content: '[{"id":"tcw6w29","title":"Andrew Heiss''s blog","description":"Andrew
-      Heiss''s blog","language":"en","favicon":null,"feed_url":"https://www.andrewheiss.com/atom.xml","home_page_url":"https://www.andrewheiss.com/atom.html","user_id":"7e027f20-14b4-4d41-b547-a5dc12ae3ea4","created_at":"2023-08-22","feed_format":"application/rss+xml","license":"https://creativecommons.org/licenses/by/4.0/legalcode","generator":"Quarto
-      1.4.385","category":"politicalScience","prefix":"10.59350","modified_at":null,"version":"https://jsonfeed.org/version/1.1","current_feed_url":null,"status":"active","issn":null,"backlog":0,"authors":null,"plan":"Starter","slug":"andrewheiss","use_mastodon":true,"api":false,"funding":null,"archive_prefix":null,"use_api":null,"relative_url":null,"canonical_url":null,"filter":null,"updated_at":1695009600}]'
+      Heiss''s blog","language":"en","favicon":null,"feed_url":"https://www.andrewheiss.com/atom.xml","home_page_url":"https://www.andrewheiss.com","user_id":"7e027f20-14b4-4d41-b547-a5dc12ae3ea4","created_at":"2023-08-22","feed_format":"application/rss+xml","license":"https://creativecommons.org/licenses/by/4.0/legalcode","generator":"Quarto
+      1.4.385","category":"politicalScience","prefix":"10.59350","version":"https://jsonfeed.org/version/1.1","current_feed_url":null,"status":"active","issn":null,"backlog":0,"authors":null,"plan":"Starter","slug":"andrewheiss","use_mastodon":true,"api":false,"funding":null,"archive_prefix":null,"use_api":null,"relative_url":null,"canonical_url":null,"filter":null,"updated_at":1695009600}]'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 819bfba92c88cb05-DUS
+      - 81a0bd56fe507a5b-DUS
       Connection:
       - keep-alive
+      Content-Encoding:
+      - gzip
       Content-Profile:
       - public
       Content-Range:
-      - '*/*'
+      - 0-0/*
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Sat, 21 Oct 2023 19:42:19 GMT
-      Preference-Applied:
-      - resolution=merge-duplicates
+      - Sun, 22 Oct 2023 09:33:35 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -17717,11 +17716,11 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
       - '1'
     http_version: HTTP/1.1
-    status_code: 201
+    status_code: 200
 version: 1
