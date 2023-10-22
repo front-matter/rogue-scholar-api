@@ -1,9 +1,11 @@
 """Utility functions"""
+from uuid import UUID
+from typing import Optional
 import requests
 import iso8601
 from dateutil import parser
-from uuid import UUID
-from typing import Optional
+from furl import furl
+
 from commonmeta.doi_utils import doi_from_url
 
 
@@ -170,3 +172,17 @@ def get_doi_metadata_from_ra(
 #         return write_csl(subject)
 #     elif to == "citation":
 #         return write_citation(subject)
+
+
+def normalize_url(url: Optional[str], secure=False, lower=False) -> Optional[str]:
+    """Normalize URL"""
+    if url is None or not isinstance(url, str):
+        return None
+    f = furl(url)
+    f.path.normalize()
+    f.remove(fragment=True)
+    if secure is True and f.scheme == "http":
+        f.set(scheme='https')
+    if lower is True:
+        return f.url.lower().strip("/")
+    return f.url.strip("/")

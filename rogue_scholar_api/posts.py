@@ -13,10 +13,8 @@ import xmltodict
 import time
 from idutils import is_doi, is_orcid
 from commonmeta.base_utils import wrap, compact
-from commonmeta.utils import normalize_url
 
-from rogue_scholar_api.blogs import extract_single_blog
-from rogue_scholar_api.utils import unix_timestamp, normalize_tag, get_date, AUTHOR_IDS
+from rogue_scholar_api.utils import unix_timestamp, normalize_tag, get_date, normalize_url, AUTHOR_IDS
 from rogue_scholar_api.supabase import (
     supabase_admin_client as supabase_admin,
     supabase_client as supabase,
@@ -607,7 +605,7 @@ def upsert_single_post(post):
                     "blog_name": post.get("blog_name", None),
                     "blog_slug": post.get("blog_slug", None),
                     "content_html": post.get("content_html", None),
-                    "content_text": post.get("content_text", None),
+                    "content_text": post.get("content_text", "content_text"),
                     "images": post.get("images", None),
                     "updated_at": post.get("updated_at", None),
                     "published_at": post.get("published_at", None),
