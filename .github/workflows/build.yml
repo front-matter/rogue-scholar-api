@@ -26,6 +26,7 @@ jobs:
           QUART_SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.QUART_SUPABASE_SERVICE_ROLE_KEY }}
           QUART_TYPESENSE_API_KEY: ${{ secrets.QUART_TYPESENSE_API_KEY }}
           QUART_TYPESENSE_HOST: ${{ secrets.QUART_TYPESENSE_HOST }}
+          QUART_SENTRY_DSN: ${{ secrets.QUART_SENTRY_DSN }}
       - name: Override Coverage Source Path for Sonar
         run: sed -i 's@'$GITHUB_WORKSPACE'@/github/workspace/@g' coverage.xml
       - name: SonarCloud Scan
