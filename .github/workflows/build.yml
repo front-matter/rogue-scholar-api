@@ -23,6 +23,7 @@ jobs:
         env:
           QUART_SUPABASE_URL: ${{ secrets.QUART_SUPABASE_URL }}
           QUART_SUPABASE_ANON_KEY: ${{ secrets.QUART_SUPABASE_ANON_KEY }}
+          QUART_SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.QUART_SUPABASE_SERVICE_ROLE_KEY }}
           QUART_TYPESENSE_API_KEY: ${{ secrets.QUART_TYPESENSE_API_KEY }}
           QUART_TYPESENSE_HOST: ${{ secrets.QUART_TYPESENSE_HOST }}
       - name: Override Coverage Source Path for Sonar
