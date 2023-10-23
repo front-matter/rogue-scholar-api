@@ -35,7 +35,7 @@ async def extract_single_blog(slug: str):
     response = (
         supabase.table("blogs")
         .select(
-            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, use_mastodon, generator, language, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter"
+            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, use_mastodon, generator, language, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter, secure"
         )
         .eq("slug", slug)
         .maybe_single()
@@ -94,6 +94,7 @@ async def extract_single_blog(slug: str):
         "use_api": config["use_api"],
         "relative_url": config["relative_url"],
         "filter": config["filter"],
+        "secure": config["secure"],
     }
     blog = update_single_blog(blog)
     return blog
@@ -183,6 +184,7 @@ def update_single_blog(blog):
                     "status": blog.get("status", None),
                     "user_id": blog.get("user_id", None),
                     "use_mastodon": blog.get("use_mastodon", None),
+                    "secure": blog.get("secure", None),
                 }
             )
             .eq('slug', blog.get("slug"))

@@ -63,7 +63,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
     response = (
         supabase.table("blogs")
         .select(
-            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, use_mastodon, generator, language, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter"
+            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, use_mastodon, generator, language, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter, secure"
         )
         .eq("slug", slug)
         .maybe_single()
@@ -253,7 +253,7 @@ async def extract_wordpress_post(post, blog):
     soup = BeautifulSoup(content_html, "html.parser")
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
-    url = normalize_url(post.get("link", None))
+    url = normalize_url(post.get("link", None), secure=blog.get("secure", True))
     images = get_images(soup, url, blog["home_page_url"])
     image = (
         py_.get(post, "_embedded.wp:featuredmedia[0].source_url", None)
@@ -290,6 +290,7 @@ async def extract_wordpress_post(post, blog):
         "tags": terms,
         "title": py_.get(post, "title.rendered", ""),
         "url": url,
+        "guid": py_.get(post, "guid.rendered", None)
     }
 
 
@@ -314,7 +315,7 @@ async def extract_wordpresscom_post(post, blog):
     )
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
-    url = normalize_url(post.get("URL", None))
+    url = normalize_url(post.get("URL", None), secure=blog.get("secure", True))
     images = get_images(soup, url, blog.get("home_page_url", None))
     image = images[0].get("src", None) if len(images) > 0 else None
     tags = [normalize_tag(i) for i in post.get("categories", None).keys()][:5]
@@ -336,6 +337,7 @@ async def extract_wordpresscom_post(post, blog):
         "tags": tags,
         "title": get_title(post.get("title", None)),
         "url": url,
+        "guid": post.get("guid", None),
     }
 
 
@@ -359,7 +361,7 @@ async def extract_ghost_post(post, blog):
     summary = get_abstract(content_html)
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
-    url = normalize_url(post.get("url", None))
+    url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
     images = get_images(soup, url, blog.get("home_page_url", None))
     image = post.get("feature_image", None)
     if not image and len(images) > 0:
@@ -383,6 +385,7 @@ async def extract_ghost_post(post, blog):
         "tags": tags,
         "title": get_title(post.get("title", None)),
         "url": url,
+        "guid": post.get("id", None),
     }
 
 
@@ -406,7 +409,7 @@ async def extract_substack_post(post, blog):
     published_at = unix_timestamp(post.get("post_date", None))
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
-    url = normalize_url(post.get("canonical_url", None))
+    url = normalize_url(post.get("canonical_url", None), secure=blog.get("secure", True))
     images = get_images(soup, url, blog.get("home_page_url", None))
     image = post.get("cover_image", None)
     if not image and len(images) > 0:
@@ -430,6 +433,7 @@ async def extract_substack_post(post, blog):
         "tags": tags,
         "title": get_title(post.get("title", None)),
         "url": url,
+        "guid": post.get("id", None),
     }
 
 
@@ -449,7 +453,7 @@ async def extract_json_feed_post(post, blog):
     summary = get_abstract(content_html)
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
-    url = normalize_url(post.get("url", None))
+    url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
     images = get_images(soup, url, blog.get("home_page_url", None))
     image = py_.get(post, "media:thumbnail.@url", None)
     if not image and len(images) > 0:
@@ -473,6 +477,7 @@ async def extract_json_feed_post(post, blog):
         "tags": tags,
         "title": get_title(post.get("title", None)),
         "url": url,
+        "guid": post.get("id", None),
     }
 
 
@@ -507,7 +512,7 @@ async def extract_atom_post(post, blog):
                 (link["@href"] for link in wrap(links) if link["@rel"] == "alternate"),
                 None,
             ),
-            secure=True,
+            secure=blog.get("secure", True),
         )
 
     url = get_url(post.get("link", None))
@@ -536,6 +541,7 @@ async def extract_atom_post(post, blog):
         "tags": tags,
         "title": get_title(py_.get(post, "title.#text", "")),
         "url": url,
+        "guid": post.get("id", None),
     }
 
 
@@ -557,7 +563,7 @@ async def extract_rss_post(post, blog):
     summary = get_abstract(content_html)
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
-    url = normalize_url(post.get("link", None))
+    url = normalize_url(post.get("link", None), secure=blog.get("secure", True))
     published_at = get_date(post.get("pubDate", None))
     images = get_images(soup, url, blog.get("home_page_url", None))
     image = py_.get(post, "media:content.@url", None) or py_.get(
@@ -584,6 +590,7 @@ async def extract_rss_post(post, blog):
         "tags": tags,
         "title": get_title(post.get("title", None)),
         "url": url,
+        "guid": post.get("guid", None),
     }
 
 
@@ -627,6 +634,7 @@ def upsert_single_post(post):
                     "tags": post.get("tags", None),
                     "title": post.get("title", None),
                     "url": post.get("url", None),
+                    "guid": post.get("guid", None),
                     "archive_url": post.get("archive_url", None),
                 },
                 returning="representation",
@@ -645,7 +653,7 @@ def upsert_single_post(post):
                     "indexed": data.get("indexed_at", 0) > data.get("updated_at", 1),
                 }
             )
-            .eq("id", data["id"])
+            .eq("uuid", data["uuid"])
             .execute()
         )
         return post_to_update.data[0]
