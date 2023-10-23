@@ -6,7 +6,7 @@ import asyncio
 from bs4 import BeautifulSoup
 import re
 import pydash as py_
-import bleach
+import nh3
 import html
 import json as jsn
 import xmltodict
@@ -14,7 +14,13 @@ import time
 from idutils import is_doi, is_orcid
 from commonmeta.base_utils import wrap, compact
 
-from rogue_scholar_api.utils import unix_timestamp, normalize_tag, get_date, normalize_url, AUTHOR_IDS
+from rogue_scholar_api.utils import (
+    unix_timestamp,
+    normalize_tag,
+    get_date,
+    normalize_url,
+    AUTHOR_IDS,
+)
 from rogue_scholar_api.supabase import (
     supabase_admin_client as supabase_admin,
     supabase_client as supabase,
@@ -47,7 +53,7 @@ async def extract_all_posts(page: int = 1, update_all: bool = False):
     for result in raw_results:
         if result:
             results.append(result[0])
-    
+
     return results
 
 
@@ -338,10 +344,12 @@ async def extract_ghost_post(post, blog):
 
     def format_author(author):
         """Format author."""
-        return compact({
-            "name": author.get("name", None),
-            "url": author.get("website", None),
-        })
+        return compact(
+            {
+                "name": author.get("name", None),
+                "url": author.get("website", None),
+            }
+        )
 
     authors = [format_author(i) for i in wrap(post.get("authors", None))]
     content_html = post.get("html", "")
@@ -552,7 +560,9 @@ async def extract_rss_post(post, blog):
     url = normalize_url(post.get("link", None), secure=True)
     published_at = get_date(post.get("pubDate", None))
     images = get_images(soup, url, blog.get("home_page_url", None))
-    image = py_.get(post, "media:content.@url", None) or py_.get(post, "media:thumbnail.@url", None)
+    image = py_.get(post, "media:content.@url", None) or py_.get(
+        post, "media:thumbnail.@url", None
+    )
     # if not image and len(images) > 0:
     #     image = images[0].get("src", None)
     tags = [normalize_tag(i) for i in wrap(post.get("category", None))][:5]
@@ -646,9 +656,9 @@ def upsert_single_post(post):
 
 def sanitize_html(content_html: str):
     """Sanitize content_html."""
-    return bleach.clean(
+    return nh3.clean(
         content_html,
-        tags=["b", "i", "em", "strong", "sub", "sup", "img"],
+        tags={"b", "i", "em", "strong", "sub", "sup", "img"},
         attributes={
             "*": ["class"],
             "a": ["href", "rel"],
@@ -707,8 +717,8 @@ def get_title(content_html: str):
 
     # remove strong tags around the whole title
     content_html = re.sub(r"^<strong>(.*)<\/strong>$", "$1", content_html)
-    sanitized = bleach.clean(
-        content_html, tags=["b", "i", "em", "strong", "sub", "sup"], attributes={}
+    sanitized = nh3.clean(
+        content_html, tags={"b", "i", "em", "strong", "sub", "sup"}, attributes={}
     )
     return sanitized
 
@@ -719,17 +729,16 @@ def get_abstract(content_html: str = None, maxlen: int = 450):
         return None
     content_html = re.sub(r"(<br>|<p>)", " ", content_html)
     content_html = re.sub(r"(h1>|h2>|h3>|h4>)", "strong>", content_html)
-    sanitized = bleach.clean(
-        content_html, tags=["b", "i", "em", "strong", "sub", "sup"], attributes={}
+    sanitized = nh3.clean(
+        content_html, tags={"b", "i", "em", "strong", "sub", "sup"}, attributes={}
     )
     truncated = py_.truncate(sanitized, maxlen, omission="", separator=" ")
-
+    
     # remove incomplete last sentence
-    if truncated[:-1] not in [".", "!", "?"]:
+    if truncated[:-1] not in [".", "!", "?", ":"]:
         sentences = re.split(r"(?<=\w{3}[.!?])\s+", truncated)
         truncated = " ".join(sentences[:-2])
     truncated = re.sub(r"\n+", " ", truncated).strip()
-
     return truncated or ""
 
 

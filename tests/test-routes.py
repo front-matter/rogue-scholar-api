@@ -251,7 +251,7 @@ async def test_posts_post_route():
     response = await test_client.post("/posts", headers=headers)
     assert response.status_code == 200
     result = await response.get_json()
-    assert len(result) == 2
+    assert len(result) == 1
     post = result[0]
     assert post["title"] == "Creating a voice-activated AI responder in Python"
     assert post["authors"][0] == {

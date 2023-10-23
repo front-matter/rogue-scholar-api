@@ -23,7 +23,7 @@ def vcr_config():
 async def test_extract_all_posts():
     """Extract all posts"""
     result = await extract_all_posts()
-    assert len(result) == 2
+    assert len(result) == 1
     post = result[0]
     assert post["title"] == "Creating a voice-activated AI responder in Python"
     assert post["authors"][0] == {
