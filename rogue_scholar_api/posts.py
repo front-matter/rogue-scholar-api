@@ -354,9 +354,9 @@ async def extract_ghost_post(post, blog):
     authors = [format_author(i) for i in wrap(post.get("authors", None))]
     content_html = post.get("html", "")
     soup = BeautifulSoup(content_html, "html.parser")
-    summary = get_abstract(post.get("excerpt", None))
-    if not summary:
-        summary = get_abstract(content_html)
+
+    # don't use excerpt as summary, because it's not html
+    summary = get_abstract(content_html)
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
     url = normalize_url(post.get("url", None))
@@ -727,8 +727,8 @@ def get_abstract(content_html: str = None, maxlen: int = 450):
     """Get abstract from content_html."""
     if not content_html:
         return None
-    content_html = re.sub(r"(<br>|<p>)", " ", content_html)
-    content_html = re.sub(r"(h1>|h2>|h3>|h4>)", "strong>", content_html)
+    content_html = re.sub(r"(<br>|<br/>|<p>|</pr>)", " ", content_html)
+    content_html = re.sub(r"(h1>|h2>|h3>|h4>)", "strong> ", content_html)
     sanitized = nh3.clean(
         content_html, tags={"b", "i", "em", "strong", "sub", "sup"}, attributes={}
     )

@@ -41,7 +41,7 @@ from rogue_scholar_api.schema import Blog, Post, PostQuery
 load_dotenv()
 rate_limiter = RateLimiter()
 logger = logging.getLogger(__name__)
-version = "0.6.2"  # TODO: importlib.metadata.version('rogue-scholar-api')
+version = "0.7.0"  # TODO: importlib.metadata.version('rogue-scholar-api')
 
 sentry_sdk.init(
     dsn=environ["QUART_SENTRY_DSN"],
