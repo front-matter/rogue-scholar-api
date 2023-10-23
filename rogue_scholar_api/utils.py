@@ -181,8 +181,8 @@ def normalize_url(url: Optional[str], secure=False, lower=False) -> Optional[str
     f = furl(url)
     f.path.normalize()
     f.remove(fragment=True)
-    if secure is True and f.scheme == "http":
+    if secure and f.scheme == "http":
         f.set(scheme='https')
-    if lower is True:
+    if lower:
         return f.url.lower().strip("/")
     return f.url.strip("/")

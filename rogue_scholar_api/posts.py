@@ -253,7 +253,7 @@ async def extract_wordpress_post(post, blog):
     soup = BeautifulSoup(content_html, "html.parser")
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
-    url = normalize_url(post.get("link", None), secure=True)
+    url = normalize_url(post.get("link", None))
     images = get_images(soup, url, blog["home_page_url"])
     image = (
         py_.get(post, "_embedded.wp:featuredmedia[0].source_url", None)
@@ -314,7 +314,7 @@ async def extract_wordpresscom_post(post, blog):
     )
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
-    url = normalize_url(post.get("URL", None), secure=True)
+    url = normalize_url(post.get("URL", None))
     images = get_images(soup, url, blog.get("home_page_url", None))
     image = images[0].get("src", None) if len(images) > 0 else None
     tags = [normalize_tag(i) for i in post.get("categories", None).keys()][:5]
@@ -359,7 +359,7 @@ async def extract_ghost_post(post, blog):
         summary = get_abstract(content_html)
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
-    url = normalize_url(post.get("url", None), secure=True)
+    url = normalize_url(post.get("url", None))
     images = get_images(soup, url, blog.get("home_page_url", None))
     image = post.get("feature_image", None)
     if not image and len(images) > 0:
@@ -406,7 +406,7 @@ async def extract_substack_post(post, blog):
     published_at = unix_timestamp(post.get("post_date", None))
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
-    url = normalize_url(post.get("canonical_url", None), secure=True)
+    url = normalize_url(post.get("canonical_url", None))
     images = get_images(soup, url, blog.get("home_page_url", None))
     image = post.get("cover_image", None)
     if not image and len(images) > 0:
@@ -449,7 +449,7 @@ async def extract_json_feed_post(post, blog):
     summary = get_abstract(content_html)
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
-    url = normalize_url(post.get("url", None), secure=True)
+    url = normalize_url(post.get("url", None))
     images = get_images(soup, url, blog.get("home_page_url", None))
     image = py_.get(post, "media:thumbnail.@url", None)
     if not image and len(images) > 0:
@@ -557,7 +557,7 @@ async def extract_rss_post(post, blog):
     summary = get_abstract(content_html)
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
-    url = normalize_url(post.get("link", None), secure=True)
+    url = normalize_url(post.get("link", None))
     published_at = get_date(post.get("pubDate", None))
     images = get_images(soup, url, blog.get("home_page_url", None))
     image = py_.get(post, "media:content.@url", None) or py_.get(
