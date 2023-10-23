@@ -23,7 +23,7 @@ interactions:
       x-client-info:
       - supabase-py/1.2.0
     method: GET
-    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20content_html%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28%2A%29&doi=eq.https%3A//doi.org/10.59350/sfzv4-xdb69
+    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20content_html%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28%2A%29&doi=eq.https%3A//doi.org/10.59350/sfzv4-xdb69
   response:
     content: '{"code":"PGRST116","details":"Results contain 0 rows, application/vnd.pgrst.object+json
       requires 1 row","hint":null,"message":"JSON object requested, multiple (or no)
@@ -34,13 +34,13 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 817f756fad2d7a46-DUS
+      - 81ad9d941a817175-DUS
       Connection:
       - keep-alive
       Content-Type:
       - application/vnd.pgrst.object+json; charset=utf-8
       Date:
-      - Wed, 18 Oct 2023 08:37:19 GMT
+      - Mon, 23 Oct 2023 23:03:49 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:

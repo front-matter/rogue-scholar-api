@@ -40,7 +40,7 @@ class Blog:
 @dataclass
 class Post:
     """Post schema."""
-    uuid: str
+    id: str
     guid: str
     doi: str
     url: str

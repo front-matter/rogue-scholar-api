@@ -29,21 +29,19 @@ interactions:
     method: GET
     uri: https://db.rogue-scholar.org/rest/v1/blogs?select=slug%2C%20title%2C%20description%2C%20language%2C%20favicon%2C%20feed_url%2C%20feed_format%2C%20home_page_url%2C%20generator%2C%20category&status=in.%28approved%2Cactive%2Carchived%29&order=title
   response:
-    content: "[{\"slug\":\"rossmounce\",\"title\":\"A blog by Ross Mounce\",\"description\":null,\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://rossmounce.co.uk/wp-json/wp/v2/posts\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://rossmounce.co.uk\",\"generator\":\"WordPress\",\"category\":\"naturalSciences\"},
+    content: "[{\"slug\":\"rossmounce\",\"title\":\"A blog by Ross Mounce\",\"description\":null,\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://rossmounce.co.uk/feed/atom\",\"feed_format\":\"application/feed+json\",\"home_page_url\":\"https://rossmounce.co.uk\",\"generator\":\"WordPress\",\"category\":\"naturalSciences\"},
       \n {\"slug\":\"andrewheiss\",\"title\":\"Andrew Heiss's blog\",\"description\":\"Andrew
       Heiss's blog\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://www.andrewheiss.com/atom.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://www.andrewheiss.com\",\"generator\":\"Quarto
       1.4.385\",\"category\":\"politicalScience\"}, \n {\"slug\":\"behind_the_science\",\"title\":\"Behind
       the Science\",\"description\":\"Ein Blog aus dem Admin-Bereich der Wissenschaft\",\"language\":\"de\",\"favicon\":null,\"feed_url\":\"https://ulirockenbauch.blog/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://ulirockenbauch.blog\",\"generator\":\"WordPress.com\",\"category\":\"socialSciences\"},
       \n {\"slug\":\"brembs\",\"title\":\"bjoern.brembs.blog\",\"description\":\"The
       blog of neurobiologist Bj\xF6rn Brembs\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://bjoern.brembs.net/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://bjoern.brembs.net\",\"generator\":\"WordPress\",\"category\":\"biologicalSciences\"},
-      \n {\"slug\":\"b_l_a_k_e\",\"title\":\"Blog - Blake Lee-Whiting\",\"description\":null,\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://www.b-l-a-k-e.com/blog?format=rss\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://www.b-l-a-k-e.com/blog\",\"generator\":\"Site-server
-      v6.0.0-2103de5ef4113dede0a855ecc535e943ec13f6ba-1 (http://www.squarespace.com)\",\"category\":\"politicalScience\"},
-      \n {\"slug\":\"researchsoft\",\"title\":\"Blog on Research Software Alliance\",\"description\":null,\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://www.researchsoft.org/feed.xml\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://www.researchsoft.org/blog\",\"generator\":\"Hugo
-      0.76.5\",\"category\":\"computerAndInformationSciences\"}, \n {\"slug\":\"dustinstoltz\",\"title\":\"Blogs
+      \n {\"slug\":\"b_l_a_k_e\",\"title\":\"Blog - Blake Lee-Whiting\",\"description\":null,\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://www.b-l-a-k-e.com/blog?format=rss\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://www.b-l-a-k-e.com/blog/\",\"generator\":\"Squarespace
+      6.0.0\",\"category\":\"politicalScience\"}, \n {\"slug\":\"dustinstoltz\",\"title\":\"Blogs
       on Dustin S. Stoltz\",\"description\":\"Recent content in Blogs on Dustin S.
-      Stoltz\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://www.dustinstoltz.com/blog/index.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://www.dustinstoltz.com/blog\",\"generator\":\"Hugo
-      -- gohugo.io\",\"category\":\"sociology\"}, \n {\"slug\":\"chjh\",\"title\":\"Chris
-      Hartgerink\",\"description\":\"Chris Hartgerink\",\"language\":\"en\",\"favicon\":\"https://www.chjh.nl/favicon.png\",\"feed_url\":\"https://www.chjh.nl/rss/\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://www.chjh.nl\",\"generator\":\"Ghost
+      Stoltz\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://www.dustinstoltz.com/blog/index.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://www.dustinstoltz.com/blog/\",\"generator\":\"Hugo\",\"category\":\"sociology\"},
+      \n {\"slug\":\"chjh\",\"title\":\"Chris Hartgerink\",\"description\":\"Chris
+      Hartgerink\",\"language\":\"en\",\"favicon\":\"https://www.chjh.nl/favicon.png\",\"feed_url\":\"https://www.chjh.nl/rss/\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://www.chjh.nl/\",\"generator\":\"Ghost
       5.69\",\"category\":\"socialSciences\"}, \n {\"slug\":\"chrisvoncsefalvay\",\"title\":\"Chris
       von Csefalvay\",\"description\":\"Chris von Csefalvay is a computational epidemiologist/data
       scientist working at the intersection of AI, epidemiology and public health.\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://chrisvoncsefalvay.com/posts/index.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://chrisvoncsefalvay.com/posts/index.html\",\"generator\":\"Quarto
@@ -53,7 +51,7 @@ interactions:
       6.3.2\",\"category\":\"humanities\"}, \n {\"slug\":\"csl\",\"title\":\"Citation
       Style Language\",\"description\":\"CitationStyles.org, home of the Citation
       Style Language (CSL), a popular open XML-based language to describe the formatting
-      of citations and bibliographies.\",\"language\":\"en\",\"favicon\":\"https://citationstyles.org/assets/img/csl-logo-small-inverse-150.png\",\"feed_url\":\"https://citationstyles.org/feed.xml\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://citationstyles.org\",\"generator\":\"Jekyll
+      of citations and bibliographies.\",\"language\":\"en\",\"favicon\":\"https://citationstyles.org/assets/img/csl-logo-small-inverse-150.png\",\"feed_url\":\"https://citationstyles.org/feed.xml\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://citationstyles.org/\",\"generator\":\"Jekyll
       3.9.3\",\"category\":\"computerAndInformationSciences\"}, \n {\"slug\":\"cwagen\",\"title\":\"Corin
       Wagen\",\"description\":\"My personal blog, focusing on issues of chemistry
       and metascience, unified by trying to answer the question \\\"how can we make
@@ -63,11 +61,11 @@ interactions:
       science reform, and the replication crisis.\",\"language\":\"en\",\"favicon\":\"https://substackcdn.com/image/fetch/w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F00187507-ddc5-4baa-9dae-79f9487d8bce_325x325.png\",\"feed_url\":\"https://markrubin.substack.com/feed\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://markrubin.substack.com\",\"generator\":\"Substack\",\"category\":\"socialSciences\"},
       \n {\"slug\":\"danielskatz\",\"title\":\"Daniel S. Katz's blog\",\"description\":null,\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://danielskatzblog.wordpress.com/feed/atom\\n\\n\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://danielskatzblog.wordpress.com\",\"generator\":\"WordPress.com\",\"category\":\"computerAndInformationSciences\"},
       \n {\"slug\":\"donnywinston\",\"title\":\"Donny Winston\",\"description\":\"Made
-      as simple as possible, but not simpler.\",\"language\":\"en\",\"favicon\":\"https://files.polyneme.xyz/polyneme-logo-sq-AdH548JPkxW0qf3M5NVTVLt5qdVKFN28AKKvS35A2ndmDMQ0baH90H5APJvIITO2UkFht8rLzZGQTxob8DCqG3KqnsEOczShPKoT.png\",\"feed_url\":\"https://donnywinston.com/2023-07-26-all-feed.xml\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://donnywinston.com\",\"generator\":\"Hugo
+      as simple as possible, but not simpler.\",\"language\":\"en\",\"favicon\":\"https://files.polyneme.xyz/polyneme-logo-sq-AdH548JPkxW0qf3M5NVTVLt5qdVKFN28AKKvS35A2ndmDMQ0baH90H5APJvIITO2UkFht8rLzZGQTxob8DCqG3KqnsEOczShPKoT.png\",\"feed_url\":\"https://donnywinston.com/2023-07-26-all-feed.xml\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://donnywinston.com/\",\"generator\":\"Hugo
       0.110.0\",\"category\":\"naturalSciences\"}, \n {\"slug\":\"norbisley\",\"title\":\"Edici\xF3n
-      y comunicaci\xF3n de la Ciencia\",\"description\":null,\"language\":\"es\",\"favicon\":\"https://db.rogue-scholar.org/storage/v1/object/public/images/Screenshot%202023-08-28%20063918.png\",\"feed_url\":\"https://norbisley.wordpress.com/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://norbisley.wordpress.com\",\"generator\":\"WordPress.com\",\"category\":\"mediaAndCommunications\"},
+      y comunicaci\xF3n de la Ciencia\",\"description\":null,\"language\":\"es\",\"favicon\":\"https://norbisley.files.wordpress.com/2023/08/cropped-cropped-logo-1.png?w=32\",\"feed_url\":\"https://norbisley.wordpress.com/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://norbisley.wordpress.com\",\"generator\":\"WordPress.com\",\"category\":\"mediaAndCommunications\"},
       \n {\"slug\":\"elephantinthelab\",\"title\":\"Elephant in the Lab\",\"description\":\"Bold
-      ideas and critical thoughts on science.\",\"language\":\"en\",\"favicon\":\"https://elephantinthelab.org/wp-content/uploads/2017/05/cropped-ElephantInTheLab-Icon-12-1-32x32.png\",\"feed_url\":\"https://elephantinthelab.org/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://elephantinthelab.org\",\"generator\":\"WordPress
+      ideas and critical thoughts on science.\",\"language\":\"en\",\"favicon\":\"https://elephantinthelab.org/wp-content/uploads/2017/05/cropped-ElephantInTheLab-Icon-12-1-32x32.png\",\"feed_url\":\"https://elephantinthelab.org/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://elephantinthelab.org/\",\"generator\":\"WordPress
       6.0.6\",\"category\":\"socialSciences\"}, \n {\"slug\":\"fairdata\",\"title\":\"FAIR
       Data Digest\",\"description\":\"Notes on my work with (cultural heritage) FAIR
       data. Topics cover Programming, Open Science, Digital Humanities, Knowledge
@@ -81,66 +79,71 @@ interactions:
       analyses for those building a new generation of research orgs\",\"language\":\"en\",\"favicon\":\"https://substackcdn.com/image/fetch/w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F96e4b611-885c-4c06-a190-0605cd088b4f_368x368.png\",\"feed_url\":\"https://www.freaktakes.com/feed\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://www.freaktakes.com\",\"generator\":\"Substack\",\"category\":\"philosophyEthicsAndReligion\"},
       \n {\"slug\":\"front_matter\",\"title\":\"Front Matter\",\"description\":\"The
       Front Matter Blog covers the intersection of science and technology since 2007.\",\"language\":\"en\",\"favicon\":\"https://blog.front-matter.io/favicon.png\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://blog.front-matter.io\",\"generator\":\"Ghost
-      5.52\",\"category\":\"computerAndInformationSciences\"}, \n {\"slug\":\"gigablog\",\"title\":\"GigaBlog\",\"description\":\"Data
+      5.52\",\"category\":\"computerAndInformationSciences\"}, \n {\"slug\":\"geo_down_under\",\"title\":\"Geo\u2605
+      Down Under\",\"description\":\"Experts in geodynamics, geophysics & geology
+      tell you what you need to know\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://www.geo-down-under.org.au/rss/\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://www.geo-down-under.org.au\",\"generator\":\"Ghost
+      5.62\",\"category\":\"earthAndRelatedEnvironmentalSciences\"}, \n {\"slug\":\"gigablog\",\"title\":\"GigaBlog\",\"description\":\"Data
       driven blogging from the GigaScience editors\",\"language\":\"en\",\"favicon\":\"https://db.rogue-scholar.org/storage/v1/object/public/images/GigaBlog%20Icon.png\",\"feed_url\":\"http://gigasciencejournal.com/blog/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"http://gigasciencejournal.com/blog\",\"generator\":\"WordPress
       6.2.3\",\"category\":\"biologicalSciences\"}, \n {\"slug\":\"rzepa\",\"title\":\"Henry
-      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"language\":\"en\",\"favicon\":\"https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/08/cropped-blog-rzepa-32x32.jpg\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"generator\":\"WordPress
+      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"language\":\"en\",\"favicon\":\"https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/10/image-150x150.jpg\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"generator\":\"WordPress
       6.3.1\",\"category\":\"chemicalSciences\"}, \n {\"slug\":\"ideas\",\"title\":\"I.D.E.A.S.\",\"description\":\"Innovation
-      and Design Experiments in Academic Surgery (I.D.E.A.S.)\",\"language\":\"en\",\"favicon\":\"https://www.ideasurg.pub/favicon.png\",\"feed_url\":\"https://www.ideasurg.pub/rss/\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://www.ideasurg.pub\",\"generator\":\"Ghost
+      and Design Experiments in Academic Surgery (I.D.E.A.S.)\",\"language\":\"en\",\"favicon\":\"https://www.ideasurg.pub/favicon.png\",\"feed_url\":\"https://www.ideasurg.pub/rss/\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://www.ideasurg.pub/\",\"generator\":\"Ghost
       5.69\",\"category\":\"clinicalMedicine\"}, \n {\"slug\":\"iphylo\",\"title\":\"iPhylo\",\"description\":\"Rants,
       raves (and occasionally considered opinions) on phyloinformatics, taxonomy,
       and biodiversity informatics.  For more ranty and less considered opinions,
-      see my <a href=\\\"https://twitter.com/rdmpage\\\">Twitter feed</a>.<br>ISSN
+      see my <a href=\\\"https://twitter.com/rdmpage\\\">Twitter feed</a>.<br />ISSN
       2051-8188. Written content on this site is licensed under a <a href=\\\"https://creativecommons.org/licenses/by/4.0/\\\">Creative
-      Commons Attribution 4.0 International license</a>.\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://iphylo.blogspot.com/feeds/posts/default\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://iphylo.blogspot.com\",\"generator\":\"Blogger
+      Commons Attribution 4.0 International license</a>.\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://iphylo.blogspot.com/feeds/posts/default\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://iphylo.blogspot.com/\",\"generator\":\"Blogger
       7.00\",\"category\":\"computerAndInformationSciences\"}, \n {\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
-      und kreatives Schaffen in der digitalen Welt\",\"language\":\"de\",\"favicon\":null,\"feed_url\":\"https://irights.info/feed/atom\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://irights.info\",\"generator\":\"WordPress\",\"category\":\"law\"},
+      und kreatives Schaffen in der digitalen Welt\",\"language\":\"de\",\"favicon\":null,\"feed_url\":\"https://irights.info/feed/atom\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://irights.info/\",\"generator\":\"WordPress\",\"category\":\"law\"},
       \n {\"slug\":\"irishplants\",\"title\":\"Irish Plants\",\"description\":\"Jake's
       blog\",\"language\":\"en\",\"favicon\":\"https://irishplants.org/blog/wp-content/uploads/2022/08/favicon32.png\",\"feed_url\":\"http://irishplants.org/blog/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://irishplants.org/blog\",\"generator\":\"WordPress
       6.3.2\",\"category\":\"biologicalSciences\"}, \n {\"slug\":\"jabberwocky_ecology\",\"title\":\"Jabberwocky
       Ecology\",\"description\":\"Ethan White and Morgan Ernest's blog for discussing
       issues and ideas related to ecology and academia.\",\"language\":\"en\",\"favicon\":\"https://secure.gravatar.com/blavatar/805953466a80fcabef50a73dfb96d52b?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png\",\"feed_url\":\"https://jabberwocky.weecology.org/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://jabberwocky.weecology.org\",\"generator\":\"WordPress.com\",\"category\":\"biologicalSciences\"},
-      \n {\"slug\":\"joss\",\"title\":\"Journal of Open Source Software Blog\",\"description\":\"Blog
-      for the Journal of Open Source Software \u2022 <a href='https://joss.theoj.org'>https://joss.theoj.org</a>\",\"language\":\"en\",\"favicon\":\"https://user-images.githubusercontent.com/4483/49343677-fcd32700-f63b-11e8-8883-8c07463ee2a9.png\",\"feed_url\":\"https://blog.joss.theoj.org/feed.xml\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://blog.joss.theoj.org\",\"generator\":\"Jekyll
+      \n {\"slug\":\"joss\",\"title\":\"Journal of Open Source Software Blog |\",\"description\":\"Blog
+      for the Journal of Open Source Software \u2022 <a href='https://joss.theoj.org'>https://joss.theoj.org</a>\",\"language\":\"en\",\"favicon\":\"https://user-images.githubusercontent.com/4483/49343677-fcd32700-f63b-11e8-8883-8c07463ee2a9.png\",\"feed_url\":\"https://blog.joss.theoj.org/feed.xml\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://blog.joss.theoj.org/\",\"generator\":\"Jekyll
       3.9.2\",\"category\":\"computerAndInformationSciences\"}, \n {\"slug\":\"x_dev\",\"title\":\"JSC
       Accelerating Devices Lab\",\"description\":\"Various notes from the Accelerating
-      Devices Lab (X-Dev) of J\xFClich Supercomputing Centre\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://x-dev.pages.jsc.fz-juelich.de/feed.xml\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://x-dev.pages.jsc.fz-juelich.de\",\"generator\":\"Jekyll
+      Devices Lab (X-Dev) of J\xFClich Supercomputing Centre\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://x-dev.pages.jsc.fz-juelich.de/feed.xml\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://x-dev.pages.jsc.fz-juelich.de//\",\"generator\":\"Jekyll
       4.2.2\",\"category\":\"eletricalEngineering\"}, \n {\"slug\":\"lab_sub\",\"title\":\"lab.sub
-      - Articles\",\"description\":\"Better sit thus, and observe thy strange things\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://lab.sub.uni-goettingen.de/atom.xml\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://lab.sub.uni-goettingen.de\",\"generator\":\"Jekyll\",\"category\":\"computerAndInformationSciences\"},
+      - Articles\",\"description\":\"Better sit thus, and observe thy strange things\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://lab.sub.uni-goettingen.de/atom.xml\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://lab.sub.uni-goettingen.de/\",\"generator\":\"Jekyll\",\"category\":\"computerAndInformationSciences\"},
       \n {\"slug\":\"leidenmadtrics\",\"title\":\"Leiden Madtrics\",\"description\":\"Leiden
-      Madtrics\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://www.leidenmadtrics.nl/feed/\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://www.leidenmadtrics.nl\",\"generator\":null,\"category\":\"socialSciences\"},
+      Madtrics\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://www.leidenmadtrics.nl/feed/\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://www.leidenmadtrics.nl/\",\"generator\":\"Other\",\"category\":\"socialSciences\"},
       \n {\"slug\":\"libscie\",\"title\":\"Liberate Science\",\"description\":\"Research
       as a commons\",\"language\":\"en\",\"favicon\":\"https://libscie.org/favicon.png\",\"feed_url\":\"https://libscie.org/rss/\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://libscie.org\",\"generator\":\"Ghost
       5.49\",\"category\":\"socialSciences\"}, \n {\"slug\":\"eve\",\"title\":\"Martin
       Paul Eve\",\"description\":null,\"language\":\"en\",\"favicon\":\"https://eve.gd/favicon.png\",\"feed_url\":\"https://eve.gd/feed_all.xml\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://eve.gd\",\"generator\":\"Jekyll\",\"category\":\"languagesAndLiterature\"},
       \n {\"slug\":\"musings\",\"title\":\"Musings about Librarianship - Aaron Tay\",\"description\":\"Follow
       Musings about Librarianship - Aaron Tay, filter it, and define how you want
-      to receive the news (via Email, RSS, Telegram, WhatsApp etc.)\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://musingsaboutlibrarianship.blogspot.com/feeds/posts/default\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://musingsaboutlibrarianship.blogspot.com\",\"generator\":null,\"category\":\"otherSocialSciences\"},
+      to receive the news (via Email, RSS, Telegram, WhatsApp etc.)\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://musingsaboutlibrarianship.blogspot.com/feeds/posts/default\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://follow.it/musings-about-librarianship-aaron-tay\",\"generator\":\"Other\",\"category\":\"otherSocialSciences\"},
       \n {\"slug\":\"oa_works\",\"title\":\"OA.Works Blog\",\"description\":\"OA.Works
-      Blog\",\"language\":\"en\",\"favicon\":\"https://blog.oa.works/favicon.png\",\"feed_url\":\"https://blog.oa.works/rss/\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://blog.oa.works\",\"generator\":\"Ghost
+      Blog\",\"language\":\"en\",\"favicon\":\"https://blog.oa.works/favicon.png\",\"feed_url\":\"https://blog.oa.works/rss/\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://blog.oa.works/\",\"generator\":\"Ghost
       5.69\",\"category\":\"computerAndInformationSciences\"}, \n {\"slug\":\"oaberlin\",\"title\":\"Open
       Access Blog Berlin\",\"description\":null,\"language\":\"de\",\"favicon\":\"https://blogs.fu-berlin.de/open-access-berlin/files/2021/09/cropped-banner-1-32x32.jpg\",\"feed_url\":\"https://blogs.fu-berlin.de/open-access-berlin/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://blogs.fu-berlin.de/open-access-berlin\",\"generator\":\"WordPress
       6.0\",\"category\":\"otherHumanities\"}, \n {\"slug\":\"opencitations\",\"title\":\"OpenCitations
-      Blog\",\"description\":\"The blog of the OpenCitations Infrastructure\",\"language\":\"en\",\"favicon\":\"https://opencitations.hypotheses.org/files/2022/08/cropped-OpenCitations-logo-512x512-1-32x32.jpg\",\"feed_url\":\"https://opencitations.hypotheses.org/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://opencitations.hypotheses.org\",\"generator\":\"WordPress
-      6.2\",\"category\":\"socialSciences\"}, \n {\"slug\":\"kalz\",\"title\":\"Prof.
-      Dr. Marco Kalz\",\"description\":\"Posts\",\"language\":\"en\",\"favicon\":\"https://kalz.cc/media/icon_hu05a4ac2b0390de3ce22dc055dc4e56d4_40775_512x512_fill_lanczos_center_3.png\",\"feed_url\":\"https://kalz.cc/post/index.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://kalz.cc\",\"generator\":\"Hugo\",\"category\":\"educationalSciences\"},
-      \n {\"slug\":\"thor\",\"title\":\"Project THOR\",\"description\":\"Technical
-      and Human infrastructure for Open Research.\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://project-thor.eu/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://project-thor.eu\",\"generator\":\"WordPress.com\",\"category\":\"computerAndInformationSciences\"},
-      \n {\"slug\":\"qdr\",\"title\":\"QDR Blog\",\"description\":null,\"language\":\"en\",\"favicon\":\"https://db.rogue-scholar.org/storage/v1/object/public/images/QDR-logo-acronym-solo-new.png\",\"feed_url\":\"https://qdr.syr.edu/qdr-blog/rss.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://qdr.syr.edu/qdr-blog\",\"generator\":\"Drupal\",\"category\":\"socialSciences\"},
+      blog\",\"description\":\"The blog of the OpenCitations Infrastructure\",\"language\":\"en\",\"favicon\":\"https://opencitations.hypotheses.org/files/2022/08/cropped-OpenCitations-logo-512x512-1-32x32.jpg\",\"feed_url\":\"https://opencitations.hypotheses.org/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://opencitations.hypotheses.org\",\"generator\":\"WordPress
+      6.2\",\"category\":\"socialSciences\"}, \n {\"slug\":\"kalz\",\"title\":\"Posts
+      | Prof. Dr. Marco Kalz\",\"description\":\"Posts\",\"language\":\"en\",\"favicon\":\"https://kalz.cc/media/icon_hu05a4ac2b0390de3ce22dc055dc4e56d4_40775_512x512_fill_lanczos_center_3.png\",\"feed_url\":\"https://kalz.cc/post/index.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://kalz.cc/post/\",\"generator\":\"Wowchemy
+      (https://wowchemy.com)\",\"category\":\"educationalSciences\"}, \n {\"slug\":\"thor\",\"title\":\"Project
+      THOR\",\"description\":\"Technical and Human infrastructure for Open Research.\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://project-thor.eu/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://project-thor.eu\",\"generator\":\"WordPress.com\",\"category\":\"computerAndInformationSciences\"},
+      \n {\"slug\":\"qdr\",\"title\":\"QDR Blog\",\"description\":null,\"language\":\"en\",\"favicon\":\"https://db.rogue-scholar.org/storage/v1/object/public/images/QDR-logo-acronym-solo-new.png\",\"feed_url\":\"https://qdr.syr.edu/qdr-blog/rss.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://qdr.syr.edu/\",\"generator\":\"Drupal\",\"category\":\"socialSciences\"},
       \n {\"slug\":\"quantixed\",\"title\":\"quantixed\",\"description\":\"x == (s
-      || z). You say it kwontized\",\"language\":\"en\",\"favicon\":\"https://i0.wp.com/quantixed.org/wp-content/uploads/2017/12/cropped-qlogo512x512-01.png?fit=32%2C32&#038;ssl=1\",\"feed_url\":\"https://quantixed.org/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://quantixed.org\",\"generator\":\"WordPress
+      || z). You say it kwontized\",\"language\":\"en\",\"favicon\":\"https://i0.wp.com/quantixed.org/wp-content/uploads/2017/12/cropped-qlogo512x512-01.png?fit=32%2C32&ssl=1\",\"feed_url\":\"https://quantixed.org/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://quantixed.org\",\"generator\":\"WordPress
       6.3.2\",\"category\":\"computerAndInformationSciences\"}, \n {\"slug\":\"sfmatheson\",\"title\":\"Quintessence
       of Dust\",\"description\":\"<i>Quintessence of Dust</i> explores science, society,
       and human nature, focusing on genetics, development, evolution, neuroscience,
       systems biology, and topics related to scientific literacy. I occasionally discuss
       intelligent design, creationism, science denial, and other political/social
       influences on scientific literacy. Additional topics: philosophy, baseball,
-      scientific culture, and Shakespeare. My main theme is <b><u>scientific explanation</u></b>.\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"http://sfmatheson.blogspot.com/feeds/posts/default\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"http://sfmatheson.blogspot.com\",\"generator\":\"Blogger
+      scientific culture, and Shakespeare. My main theme is <b><u>scientific explanation</u></b>.\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"http://sfmatheson.blogspot.com/feeds/posts/default\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"http://sfmatheson.blogspot.com/\",\"generator\":\"Blogger
       7.00\",\"category\":\"socialSciences\"}, \n {\"slug\":\"coref\",\"title\":\"re3data
-      COREF Project Blog\",\"description\":\"COREF Blog\",\"language\":\"en\",\"favicon\":\"https://coref.project.re3data.org/user/themes/quark/images/favicon.png\",\"feed_url\":\"https://coref.project.re3data.org/blog.json\",\"feed_format\":\"application/feed+json\",\"home_page_url\":\"https://coref.project.re3data.org\",\"generator\":null,\"category\":\"computerAndInformationSciences\"},
+      COREF Project Blog\",\"description\":\"COREF Blog\",\"language\":\"en\",\"favicon\":\"https://coref.project.re3data.org/user/themes/quark/images/favicon.png\",\"feed_url\":\"https://coref.project.re3data.org/blog.json\",\"feed_format\":\"application/feed+json\",\"home_page_url\":\"https://coref.project.re3data.org\",\"generator\":\"Other\",\"category\":\"computerAndInformationSciences\"},
       \n {\"slug\":\"recology\",\"title\":\"recology\",\"description\":\"code and
-      such\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://recology.info/feed.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://recology.info\",\"generator\":\"Jekyll
-      4.3.2\",\"category\":\"computerAndInformationSciences\"}, \n {\"slug\":\"ropensci_es\",\"title\":\"rOpenSci
+      such\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://recology.info/feed.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://recology.info/\",\"generator\":\"Jekyll
+      4.3.2\",\"category\":\"computerAndInformationSciences\"}, \n {\"slug\":\"researchsoft\",\"title\":\"Research
+      Software Alliance\",\"description\":null,\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://www.researchsoft.org/feed.xml\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://researchsoft.org/\",\"generator\":\"Hugo
+      0.76.5\",\"category\":\"computerAndInformationSciences\"}, \n {\"slug\":\"ropensci_es\",\"title\":\"rOpenSci
       - herramientas abiertas para una ciencia abierta\",\"description\":\"Open Tools
       and R Packages for Open Science\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://ropensci.org/es/blog/index.json\",\"feed_format\":\"application/feed+json\",\"home_page_url\":\"https://ropensci.org/es/blog\",\"generator\":\"Hugo
       -- gohugo.io\",\"category\":\"computerAndInformationSciences\"}, \n {\"slug\":\"ropensci\",\"title\":\"rOpenSci
@@ -150,13 +153,13 @@ interactions:
       - open tools for open science\",\"description\":\"Open Tools and R Packages
       for Open Science\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://ropensci.org/fr/blog/index.json\",\"feed_format\":\"application/feed+json\",\"home_page_url\":\"https://ropensci.org/fr/blog\",\"generator\":\"Hugo
       -- gohugo.io\",\"category\":\"computerAndInformationSciences\"}, \n {\"slug\":\"samuelmoore\",\"title\":\"Samuel
-      Moore\",\"description\":\"publishing, technology, commons\",\"language\":\"en\",\"favicon\":\"https://www.samuelmoore.org/wp-content/uploads/2019/02/cropped-cropped-cropped-roAorange-icon-2-32x32.png\",\"feed_url\":\"https://www.samuelmoore.org/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://www.samuelmoore.org\",\"generator\":\"WordPress
+      Moore\",\"description\":\"publishing, technology, commons\",\"language\":\"en\",\"favicon\":\"https://www.samuelmoore.org/wp-content/uploads/2019/02/cropped-cropped-cropped-roAorange-icon-2-32x32.png\",\"feed_url\":\"https://www.samuelmoore.org/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://www.samuelmoore.org/\",\"generator\":\"WordPress
       6.3.2\",\"category\":\"socialSciences\"}, \n {\"slug\":\"svpow\",\"title\":\"Sauropod
       Vertebra Picture of the Week\",\"description\":\"SV-POW!  ...  All sauropod
       vertebrae, except when we're talking about Open Access\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://svpow.com/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://svpow.com\",\"generator\":\"WordPress.com\",\"category\":\"earthAndRelatedEnvironmentalSciences\"},
       \n {\"slug\":\"scholcommlab\",\"title\":\"Scholarly Communications Lab | ScholCommLab\",\"description\":null,\"language\":\"en\",\"favicon\":\"https://www.scholcommlab.ca/wp-content/uploads/2018/03/SCL_logo-150x150.png\",\"feed_url\":\"https://www.scholcommlab.ca/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://www.scholcommlab.ca\",\"generator\":\"WordPress
       6.3.2\",\"category\":\"socialSciences\"}, \n {\"slug\":\"stasis\",\"title\":\"Stasis\",\"description\":\"Avenues
-      to Ancient Civil War\",\"language\":\"en\",\"favicon\":\"https://stasis.hypotheses.org/files/2023/09/cropped-messerstich.png\",\"feed_url\":\"https://stasis.hypotheses.org/feed/atom\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://stasis.hypotheses.org\",\"generator\":\"WordPress
+      to Ancient Civil War\",\"language\":\"en\",\"favicon\":\"https://stasis.hypotheses.org/files/2023/09/cropped-messerstich-32x32.png\",\"feed_url\":\"https://stasis.hypotheses.org/feed/atom\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://stasis.hypotheses.org\",\"generator\":\"WordPress
       6.2\",\"category\":\"historyAndArchaeology\"}, \n {\"slug\":\"clearskiesadam\",\"title\":\"Stories
       by Adam Day on Medium\",\"description\":\"Stories by Adam Day on Medium\",\"language\":\"en\",\"favicon\":\"https://cdn-images-1.medium.com/fit/c/150/150/1*DJGPkBv9iJDmlE836eaoig.jpeg\",\"feed_url\":\"https://medium.com/@clearskiesadam/feed\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://medium.com/@clearskiesadam?source=rss-ed0928b1b891------2\",\"generator\":\"Medium\",\"category\":\"computerAndInformationSciences\"},
       \n {\"slug\":\"kj_garza\",\"title\":\"Stories by Kristian Garza on Medium\",\"description\":\"Stories
@@ -164,18 +167,21 @@ interactions:
       \n {\"slug\":\"rubinpsyc\",\"title\":\"Stories by Mark Rubin on Medium\",\"description\":\"Stories
       by Mark Rubin on Medium\",\"language\":\"en\",\"favicon\":\"https://cdn-images-1.medium.com/fit/c/150/150/0*uCUPpslzlmB4BHIe.jpg\",\"feed_url\":\"https://medium.com/@rubinpsyc/feed\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://medium.com/@rubinpsyc?source=rss-c222612e11a4------2\",\"generator\":\"Medium\",\"category\":\"socialSciences\"},
       \n {\"slug\":\"sven_lieber\",\"title\":\"Sven Lieber\",\"description\":\"Sven
-      Lieber\",\"language\":\"en\",\"favicon\":\"https://sven-lieber.org/media/icon_hufdd866d90d76849587aac6fbf27da1ac_464_512x512_fill_lanczos_center_3.png\",\"feed_url\":\"https://sven-lieber.org/en/index.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://sven-lieber.org/en\",\"generator\":\"Hugo\",\"category\":\"computerAndInformationSciences\"},
-      \n {\"slug\":\"syldavia_gazette\",\"title\":\"Syldavia Gazette\",\"description\":\"The
+      Lieber\",\"language\":\"en\",\"favicon\":\"https://sven-lieber.org/media/icon_hufdd866d90d76849587aac6fbf27da1ac_464_512x512_fill_lanczos_center_3.png\",\"feed_url\":\"https://sven-lieber.org/en/index.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://sven-lieber.org/en/\",\"generator\":\"Wowchemy
+      (https://wowchemy.com)\",\"category\":\"computerAndInformationSciences\"}, \n
+      {\"slug\":\"syldavia_gazette\",\"title\":\"Syldavia Gazette\",\"description\":\"The
       Syldavia Gazette is a weekly newsletter that highlights interesting science
       stories from around the web.\",\"language\":\"en\",\"favicon\":\"https://syldavia-gazette.org/favicon.png\",\"feed_url\":\"https://syldavia-gazette.org/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://syldavia-gazette.org\",\"generator\":\"Ghost
       5.40\",\"category\":\"humanities\"}, \n {\"slug\":\"syntaxus_baccata\",\"title\":\"Syntaxus
       baccata\",\"description\":\"Thoughts about bibliographic metadata, programming,
-      statistics, taxonomy, and biology.\",\"language\":\"en\",\"favicon\":\"https://blogger.googleusercontent.com/img/a/AVvXsEjHdUshBRlHAgurlZYYubJ9yfTRkteSS8hwgor7bpsdHNByrUXglmpVcCS2McVehJLgWZPyr61hB2Nq8iXql2-0qLFfZZHWdMn8wuKGz5UO1vZXWQkRKn_4EelUV6NneQW6fN1wlggv7skzUBri-T7bJZnlzXkKj6FjF8p0wLDR8DXwO7oN8QSwcN9-=s64\",\"feed_url\":\"https://larsgw.blogspot.com/feeds/posts/default\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://larsgw.blogspot.com\",\"generator\":\"Blogger
+      statistics, taxonomy, and biology.\",\"language\":\"en\",\"favicon\":\"https://blogger.googleusercontent.com/img/a/AVvXsEjHdUshBRlHAgurlZYYubJ9yfTRkteSS8hwgor7bpsdHNByrUXglmpVcCS2McVehJLgWZPyr61hB2Nq8iXql2-0qLFfZZHWdMn8wuKGz5UO1vZXWQkRKn_4EelUV6NneQW6fN1wlggv7skzUBri-T7bJZnlzXkKj6FjF8p0wLDR8DXwO7oN8QSwcN9-=s64\",\"feed_url\":\"https://larsgw.blogspot.com/feeds/posts/default\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://larsgw.blogspot.com/\",\"generator\":\"Blogger
       7.00\",\"category\":\"computerAndInformationSciences\"}, \n {\"slug\":\"tarleb\",\"title\":\"tarleb\",\"description\":\"tarleb's
       blog\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://tarleb.com/index.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://tarleb.com/index.html\",\"generator\":\"Quarto
       1.2.475\",\"category\":\"computerAndInformationSciences\"}, \n {\"slug\":\"grieve_smith\",\"title\":\"Technology
       and language\",\"description\":\"by Angus Grieve-Smith\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://grieve-smith.com/blog/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://grieve-smith.com/blog\",\"generator\":\"WordPress
-      6.3.2\",\"category\":\"languagesAndLiterature\"}, \n {\"slug\":\"upstream\",\"title\":\"Upstream\",\"description\":\"The
+      6.3.2\",\"category\":\"languagesAndLiterature\"}, \n {\"slug\":\"underworldcode\",\"title\":\"Underworld
+      Geodynamics Community\",\"description\":\"Geodynamics, Computation and Education\",\"language\":\"en\",\"favicon\":\"https://www.underworldcode.org/favicon.png\",\"feed_url\":\"https://www.underworldcode.org/rss/\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://www.underworldcode.org/\",\"generator\":\"Ghost
+      5.69\",\"category\":\"earthAndRelatedEnvironmentalSciences\"}, \n {\"slug\":\"upstream\",\"title\":\"Upstream\",\"description\":\"The
       community blog for all things Open Research.\",\"language\":\"en\",\"favicon\":\"https://upstream.force11.org/favicon.png\",\"feed_url\":\"https://upstream.force11.org/atom-complete/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://upstream.force11.org\",\"generator\":\"Ghost
       5.25\",\"category\":\"humanities\"}, \n {\"slug\":\"wisspub\",\"title\":\"wisspub.net\",\"description\":\"Gemeinschaftsblog
       zu wissenschaftlicher Kommunikation im Netz.\",\"language\":\"de\",\"favicon\":null,\"feed_url\":\"https://wisspub.net/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://wisspub.net\",\"generator\":\"WordPress.com\",\"category\":\"socialSciences\"}]"
@@ -185,7 +191,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 817f752f6f171626-DUS
+      - 81ad9a7c8e487a54-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -195,11 +201,11 @@ interactions:
       Content-Profile:
       - public
       Content-Range:
-      - 0-62/*
+      - 0-64/*
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 18 Oct 2023 08:37:09 GMT
+      - Mon, 23 Oct 2023 23:01:42 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -211,9 +217,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '8'
+      - '5'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:

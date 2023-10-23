@@ -23,30 +23,175 @@ interactions:
       x-client-info:
       - supabase-py/1.2.0
     method: GET
-    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%29&blogs.prefix=not.is.null&indexed=is.null&doi=not.is.null&order=published_at.desc&limit=15
+    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%29&blogs.prefix=not.is.null&indexed=is.null&doi=not.is.null&order=published_at.desc&limit=15
   response:
-    content: '[]'
+    content: "[{\"id\":\"35bea8e0-7c8d-475c-83b0-c9c10b96f468\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/c6935-n5w84\",\"url\":\"https://ropensci.org/blog/2023/10/20/news-october-2023\",\"archive_url\":null,\"title\":\"rOpenSci
+      News Digest, October 2023\",\"summary\":\"Dear rOpenSci friends, it\u2019s time
+      for our monthly news roundup!\",\"published_at\":1697760000,\"updated_at\":1697788477,\"indexed_at\":1697790900,\"indexed\":null,\"authors\":[{\"name\":
+      \"The rOpenSci Team\"}],\"image\":null,\"tags\":[\"Newsletter\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"rOpenSci
+      - open tools for open science\",\"blog_slug\":\"ropensci\",\"blog\":{\"slug\":\"ropensci\",\"title\":\"rOpenSci
+      - open tools for open science\",\"description\":\"Open Tools and R Packages
+      for Open Science\",\"feed_url\":\"https://ropensci.org/blog/index.json\",\"home_page_url\":\"https://ropensci.org/blog\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Hugo
+      -- gohugo.io\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697790198}},
+      \n {\"id\":\"3f6ae6d1-d797-485d-8605-a28e95797d89\",\"guid\":\"6529e3004e902104cd51d4e3\",\"doi\":\"https://doi.org/10.54900/g4928-wva21\",\"url\":\"https://upstream.force11.org/building-a-community-of-practice\",\"archive_url\":null,\"title\":\"Building
+      a Community of Practice: Observations of the Current Use of DataCite DOIs as
+      Project IDs\",\"summary\":\"Project identifiers have been used in DataCite for
+      nearly a decade.\",\"published_at\":1697531478,\"updated_at\":1697753088,\"indexed_at\":1697753527,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0001-9998-0114\", \"name\": \"Erin Robinson\"}, {\"url\":
+      \"https://orcid.org/0000-0003-3585-6733\", \"name\": \"Ted Habermann\"}],\"image\":\"https://images.unsplash.com/photo-1572177812156-58036aae439c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDR8fHByb2plY3R8ZW58MHx8fHwxNjk3MzQwODQ2fDA&ixlib=rb-4.0.3&q=80&w=2000\",\"tags\":[\"Original
+      Research\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Upstream\",\"blog_slug\":\"upstream\",\"blog\":{\"slug\":\"upstream\",\"title\":\"Upstream\",\"description\":\"The
+      community blog for all things Open Research.\",\"feed_url\":\"https://upstream.force11.org/atom-complete/\",\"home_page_url\":\"https://upstream.force11.org\",\"language\":\"en\",\"category\":\"humanities\",\"status\":\"active\",\"generator\":\"Ghost
+      5.25\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697753088}},
+      \n {\"id\":\"1cc6de6d-9eef-4305-a936-933446c315dd\",\"guid\":\"6526c60bf23c390001a8394c\",\"doi\":\"https://doi.org/10.53731/gzrse-p5d35\",\"url\":\"https://blog.front-matter.io/posts/generating-overlay-blog-posts\",\"archive_url\":null,\"title\":\"Generating
+      Overlay blog posts\",\"summary\":\"\",\"published_at\":1697042431,\"updated_at\":1698073388,\"indexed_at\":1697988317,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":\"https://images.unsplash.com/flagged/photo-1552425083-0117136f7d67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIxfHxjYW5vcHl8ZW58MHx8fHwxNjk3MDQwMDk1fDA&ixlib=rb-4.0.3&q=80&w=2000\",\"tags\":[\"Feature\"],\"language\":\"en\",\"reference\":[{\"doi\":
+      \"https://doi.org/10.53731/ar11b-5ea39\", \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.5281/ZENODO.8433675\",
+      \"key\": \"ref2\"}, {\"doi\": \"https://doi.org/10.13003/c23rw1d9\", \"key\":
+      \"ref3\"}],\"relationships\":[],\"blog_name\":\"Front Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
+      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
+      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost
+      5.52\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1698073841}},
+      \n {\"id\":\"658f301f-1e22-4b45-8b69-6c5414745001\",\"guid\":\"652689904e902104cd51d1c9\",\"doi\":\"https://doi.org/10.54900/6sz4q-47185\",\"url\":\"https://upstream.force11.org/working-for-global-equity-through-digital-object-identifiers\",\"archive_url\":null,\"title\":\"Working
+      for Global Equity through Digital Object Identifiers\",\"summary\":\"Persistent
+      Identifiers, or \u201CPIDs\u201D, have become a popular topic for anyone involved
+      in the research communications world. PIDs play a crucial role in the scholarly
+      ecosystem by providing long-lasting references to and between all kinds of digital
+      resources.\",\"published_at\":1697038421,\"updated_at\":1697449360,\"indexed_at\":1697805687,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0001-7234-3684\", \"name\": \"Matt Buys\"}, {\"url\":
+      \"https://orcid.org/0000-0002-0353-2702\", \"name\": \"Ginny Hendricks\"}],\"image\":\"https://upstream.force11.org/content/images/2023/10/pexels-monstera-production-7412043.jpg\",\"tags\":[\"Thought
+      Pieces\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Upstream\",\"blog_slug\":\"upstream\",\"blog\":{\"slug\":\"upstream\",\"title\":\"Upstream\",\"description\":\"The
+      community blog for all things Open Research.\",\"feed_url\":\"https://upstream.force11.org/atom-complete/\",\"home_page_url\":\"https://upstream.force11.org\",\"language\":\"en\",\"category\":\"humanities\",\"status\":\"active\",\"generator\":\"Ghost
+      5.25\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697753088}},
+      \n {\"id\":\"cc25062b-cf1c-4077-9559-a703acc19a00\",\"guid\":\"652500eff224a54ca047d3e8\",\"doi\":\"https://doi.org/10.59350/wk19c-zqs88\",\"url\":\"https://libscie.org/onboarding-with-confidence-in-open-science-s03e16\",\"archive_url\":null,\"title\":\"Onboarding
+      with confidence in open research (s03e16)\",\"summary\":\"\U0001F508This is
+      a transcript of the Open Update podcast. Listen to the original audio on Anchor.fm.
+      [00:00:00] <strong>Chris Hartgerink:</strong> Welcome back to the Open Update.\",\"published_at\":1696929637,\"updated_at\":1696929637,\"indexed_at\":1696951516,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0003-1050-6809\", \"name\": \"Chris Hartgerink\"},
+      {\"url\": \"http://www.sarahannemfield.com\", \"name\": \"Sarahanne Field\"}],\"image\":\"https://images.unsplash.com/photo-1593435221376-379aaae1a26c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDMzfHxyYW1wfGVufDB8fHx8MTY5NjkyMzk0OHww&ixlib=rb-4.0.3&q=80&w=2000\",\"tags\":[\"Open
+      Update\",\"Labs\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Liberate
+      Science\",\"blog_slug\":\"libscie\",\"blog\":{\"slug\":\"libscie\",\"title\":\"Liberate
+      Science\",\"description\":\"Research as a commons\",\"feed_url\":\"https://libscie.org/rss/\",\"home_page_url\":\"https://libscie.org\",\"language\":\"en\",\"category\":\"socialSciences\",\"status\":\"active\",\"generator\":\"Ghost
+      5.49\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1696947067}},
+      \n {\"id\":\"54eb2ba9-ddc4-4132-9114-439ad52a04ad\",\"guid\":\"https://stasis.hypotheses.org/?p=896\",\"doi\":\"https://doi.org/10.59350/5b9hv-1xz57\",\"url\":\"https://stasis.hypotheses.org/896\",\"archive_url\":null,\"title\":\"Civil
+      War Seen Through the Lens of Ancient History\",\"summary\":\"The words and concepts
+      we use to describe a particular war speak volumes about who we are as individuals
+      and as a community, and where we stand in an unfolding conflict. Concepts have
+      always been used to occupy the moral high ground.\",\"published_at\":1696927158,\"updated_at\":1696930192,\"indexed_at\":1697806638,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://vbn.aau.dk/en/persons/131743\", \"name\": \"Carsten Hjort Lange\"}],\"image\":\"https://stasis.hypotheses.org/files/2023/09/feature-image-lange_2023.png\",\"tags\":[\"Book
+      Launch\",\"Adolf Hitler\",\"Ancient History\",\"Antebellum\",\"Bellum Civile\"],\"language\":\"en\",\"reference\":[{\"key\":
+      \"ref1\", \"url\": \"https://www.degruyter.com/document/isbn/9783111335216/html\"},
+      {\"key\": \"ref2\", \"url\": \"https://www.flickr.com/photos/37527185@n05/50820534063\"},
+      {\"key\": \"ref3\", \"url\": \"https://creativecommons.org/licenses/by/2.0\"},
+      {\"doi\": \"https://doi.org/10.59350/5b9hv-1xz57\", \"key\": \"ref4\"}, {\"key\":
+      \"ref5\", \"url\": \"https://stasis.hypotheses.org/896\"}],\"relationships\":[],\"blog_name\":\"Stasis\",\"blog_slug\":\"stasis\",\"blog\":{\"slug\":\"stasis\",\"title\":\"Stasis\",\"description\":\"Avenues
+      to Ancient Civil War\",\"feed_url\":\"https://stasis.hypotheses.org/feed/atom\",\"home_page_url\":\"https://stasis.hypotheses.org\",\"language\":\"en\",\"category\":\"historyAndArchaeology\",\"status\":\"active\",\"generator\":\"WordPress
+      6.2\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1696930321}},
+      \n {\"id\":\"63235dbd-05a6-4ab1-b870-f07f9b3f6ad7\",\"guid\":\"6524026b509bba0001454cd2\",\"doi\":\"https://doi.org/10.53731/ar11b-5ea39\",\"url\":\"https://blog.front-matter.io/posts/rogue-scholar-has-an-api\",\"archive_url\":null,\"title\":\"Rogue
+      Scholar has an API\",\"summary\":\"The Rogue Scholar science blog archive has
+      launched a dedicated API today, publicly available at https://api.rogue-scholar.org
+      and complementing the website.\",\"published_at\":1696864797,\"updated_at\":1698073841,\"indexed_at\":1697988837,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":\"https://images.unsplash.com/photo-1555952494-efd681c7e3f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDM0fHxweXRob258ZW58MHx8fHwxNjk2ODU4Nzc5fDA&ixlib=rb-4.0.3&q=80&w=2000\",\"tags\":[\"Feature\"],\"language\":\"en\",\"reference\":[{\"doi\":
+      \"https://doi.org/10.5281/ZENODO.8433679\", \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.59349/zh4g1-q7e26\",
+      \"key\": \"ref2\"}],\"relationships\":[],\"blog_name\":\"Front Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
+      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
+      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost
+      5.52\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1698073841}},
+      \n {\"id\":\"e8fabcb0-5df4-4eb2-9578-40377e006490\",\"guid\":\"https://stasis.hypotheses.org/?p=1\",\"doi\":\"https://doi.org/10.59350/377m7-vkt78\",\"url\":\"https://stasis.hypotheses.org/1\",\"archive_url\":null,\"title\":\"Stasis.
+      An Academic Blog on Ancient Civil War\",\"summary\":\"Welcome to <strong>Stasis
+      \u2013 Avenues to Ancient Civil War</strong>, an academic blog on polarization,
+      internal conflict, and reconciliation in antiquity.\",\"published_at\":1696836362,\"updated_at\":1696930321,\"indexed_at\":1697807290,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5589-8634\", \"name\": \"Johannes Wienand\"}],\"image\":\"https://stasis.hypotheses.org/files/2023/09/L515mont-trans-small.png\",\"tags\":[\"From
+      The Editors\",\"Ancient History\",\"Archaeology\",\"Civil War\",\"Classical
+      Philology\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Stasis\",\"blog_slug\":\"stasis\",\"blog\":{\"slug\":\"stasis\",\"title\":\"Stasis\",\"description\":\"Avenues
+      to Ancient Civil War\",\"feed_url\":\"https://stasis.hypotheses.org/feed/atom\",\"home_page_url\":\"https://stasis.hypotheses.org\",\"language\":\"en\",\"category\":\"historyAndArchaeology\",\"status\":\"active\",\"generator\":\"WordPress
+      6.2\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1696930321}},
+      \n {\"id\":\"4478bd32-3f2c-4f3a-bed7-b01813d2896c\",\"guid\":\"https://irishplants.org/blog/?p=550\",\"doi\":\"https://doi.org/10.59350/trmdy-rqh50\",\"url\":\"https://irishplants.org/blog/2023/10/07/plasmopara-euphrasiae\",\"archive_url\":null,\"title\":\"<i>Plasmopara
+      euphrasiae</i>: a downy mildew species new to Ireland\",\"summary\":\"Slievenacloy
+      Nature Reserve is an Ulster Wildlife reserve in Antrim.\",\"published_at\":1696690840,\"updated_at\":1696691765,\"indexed_at\":1697659465,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://irishplants.org/\", \"name\": \"Jake Dalzell\"}],\"image\":\"https://irishplants.org/blog/wp-content/uploads/2023/10/PXL_20230813_1308594122-scaled.jpg\",\"tags\":[\"Ecology\",\"Fieldwork\",\"Plant
+      Parasites\",\"Plants\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Irish
+      Plants\",\"blog_slug\":\"irishplants\",\"blog\":{\"slug\":\"irishplants\",\"title\":\"Irish
+      Plants\",\"description\":\"Jake's blog\",\"feed_url\":\"http://irishplants.org/blog/feed/atom/\",\"home_page_url\":\"https://irishplants.org/blog\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress
+      6.3.2\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1696691878}},
+      \n {\"id\":\"5445be3e-02ea-41a9-9bbb-551678bff69f\",\"guid\":\"https://irishplants.org/blog/?p=543\",\"doi\":\"https://doi.org/10.59350/s4z64-azn42\",\"url\":\"https://irishplants.org/blog/2023/10/07/autumn-ladys-tresses\",\"archive_url\":null,\"title\":\"Autumn
+      Lady&#8217;s Tresses: an orchid species new to Ulster\",\"summary\":\"On the
+      thirteenth of August, I was at Killard National Nature Reserve, Co. Down, with
+      my mum. We were looking for Frog Orchids and other species rare in the county
+      like Quaking Grass and Field Scabious. She found a plant she didn\u2019t recognise
+      and asked me what it was, and it was Autumn Lady\u2019s Tresses.\",\"published_at\":1696689687,\"updated_at\":1696691800,\"indexed_at\":1697660186,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://irishplants.org/\", \"name\": \"Jake Dalzell\"}],\"image\":\"https://irishplants.org/blog/wp-content/uploads/2023/10/DSC_0592-2-scaled.jpg\",\"tags\":[\"Plants\",\"Conservation\",\"Ecology\",\"Fieldwork\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Irish
+      Plants\",\"blog_slug\":\"irishplants\",\"blog\":{\"slug\":\"irishplants\",\"title\":\"Irish
+      Plants\",\"description\":\"Jake's blog\",\"feed_url\":\"http://irishplants.org/blog/feed/atom/\",\"home_page_url\":\"https://irishplants.org/blog\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress
+      6.3.2\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1696691878}},
+      \n {\"id\":\"4ede6374-6ba8-436f-81e6-4504fd70441a\",\"guid\":\"651d174894e4e100013aeebf\",\"doi\":\"https://doi.org/10.53731/ybhah-9jy85\",\"url\":\"https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter\",\"archive_url\":null,\"title\":\"The
+      rise of the (science) newsletter\",\"summary\":\"Newsletters have been around
+      forever, but their popularity has significantly increased in the past few years,
+      also thanks to platforms such as Ghost, Medium, and Substack.\",\"published_at\":1696415792,\"updated_at\":1696441214,\"indexed_at\":1696673135,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":\"https://images.unsplash.com/photo-1518546488314-6ed28acc48e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDI1fHxyaXNlfGVufDB8fHx8MTY5NjQwNTMyNnww&ixlib=rb-4.0.3&q=80&w=2000\",\"tags\":[\"Feature\"],\"language\":\"en\",\"reference\":[{\"doi\":
+      \"https://doi.org/10.1038/d41586-023-02554-0\", \"key\": \"ref1\"}, {\"doi\":
+      \"https://doi.org/10.24343/C34W2H\", \"key\": \"ref2\"}, {\"doi\": \"https://doi.org/10.53731/9cdnt-2k006\",
+      \"key\": \"ref3\"}],\"relationships\":[],\"blog_name\":\"Front Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
+      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
+      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost
+      5.52\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1698073841}},
+      \n {\"id\":\"3a14093c-03f8-4a66-8512-47266b2e5759\",\"guid\":\"651aebc3bdc3b90001605e56\",\"doi\":\"https://doi.org/10.53731/yaws9-eyt23\",\"url\":\"https://blog.front-matter.io/posts/collecting-metadata\",\"archive_url\":null,\"title\":\"Collecting
+      metadata for science blog posts\",\"summary\":\"Metadata are an important feature
+      of every scholarly resource.\",\"published_at\":1696276976,\"updated_at\":1696276976,\"indexed_at\":1696277535,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":\"https://blog.front-matter.io/content/images/2023/10/8071729256_19fe2e444c.jpg\",\"tags\":[\"Feature\"],\"language\":\"en\",\"reference\":[{\"doi\":
+      \"https://doi.org/10.1038/s41597-019-0031-8\", \"key\": \"ref1\"}, {\"doi\":
+      \"https://doi.org/10.53731/6mkrk-dzh02\", \"key\": \"ref2\"}],\"relationships\":[],\"blog_name\":\"Front
+      Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
+      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
+      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost
+      5.52\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1698073841}},
+      \n {\"id\":\"d9dc091e-d740-4fdf-ba67-0aae45325399\",\"guid\":\"https://bjoern.brembs.net/?p=2710\",\"doi\":\"https://doi.org/10.59350/s2frx-79339\",\"url\":\"https://bjoern.brembs.net/2023/09/no-evilsevier-deal\",\"archive_url\":null,\"title\":\"No
+      Evilsevier DEAL!\",\"summary\":\"\",\"published_at\":1695912169,\"updated_at\":1695914704,\"indexed_at\":1696087377,\"indexed\":null,\"authors\":[{\"name\":
+      \"Bj\xF6rn Brembs\"}],\"image\":null,\"tags\":[\"Science Politics\",\"DEAL\",\"Elsevier\",\"Infrastructure\",\"Transformative
+      Agreements\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"bjoern.brembs.blog\",\"blog_slug\":\"brembs\",\"blog\":{\"slug\":\"brembs\",\"title\":\"bjoern.brembs.blog\",\"description\":\"The
+      blog of neurobiologist Bj\xF6rn Brembs\",\"feed_url\":\"https://bjoern.brembs.net/feed/atom/\",\"home_page_url\":\"https://bjoern.brembs.net\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695914704}},
+      \n {\"id\":\"8dd4d8bd-98b8-487b-b37f-4fa1ff0dead6\",\"guid\":\"650164b9f224a54ca047d11b\",\"doi\":\"https://doi.org/10.59350/mcssw-16w57\",\"url\":\"https://libscie.org/s03e15\",\"archive_url\":null,\"title\":\"Stagnation
+      or solidification of open science? (s03e15)\",\"summary\":\"\U0001F508This is
+      a transcript of the Open Update podcast. Listen to the original audio on Anchor.fm.
+      [00:00:00] <strong>Chris Hartgerink:</strong> Welcome back to the Open Update.\",\"published_at\":1695711612,\"updated_at\":1695711612,\"indexed_at\":1695738887,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0003-1050-6809\", \"name\": \"Chris Hartgerink\"}],\"image\":\"https://images.unsplash.com/photo-1598763555653-573648fbd120?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDgzfHxzb2xpZHN8ZW58MHx8fHwxNjk0NTkwMzIxfDA&ixlib=rb-4.0.3&q=80&w=2000\",\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Liberate
+      Science\",\"blog_slug\":\"libscie\",\"blog\":{\"slug\":\"libscie\",\"title\":\"Liberate
+      Science\",\"description\":\"Research as a commons\",\"feed_url\":\"https://libscie.org/rss/\",\"home_page_url\":\"https://libscie.org\",\"language\":\"en\",\"category\":\"socialSciences\",\"status\":\"active\",\"generator\":\"Ghost
+      5.49\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1696947067}},
+      \n {\"id\":\"78af77d1-72ba-4d9d-92aa-9dc258bbf00a\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/evaf9-2qf48\",\"url\":\"https://ropensci.org/blog/2023/09/26/how-to-translate-a-hugo-blog-post-with-babeldown\",\"archive_url\":null,\"title\":\"How
+      to Translate a Hugo Blog Post with Babeldown\",\"summary\":\"<p>As part of our
+      <a href=\\\"/multilingual-publishing/\\\">multilingual publishing project</a>,
+      and with <a href=\\\"https://www.r-consortium.org/all-projects/awarded-projects/2022-group-2\\\">funding
+      from the R Consortium</a>, we&rsquo;ve worked on the R package <a href=\\\"https://docs.ropensci.org/babeldown/\\\">babeldown</a>
+      for translating Markdown-based content using the DeepL API.In this tech note,
+      we&rsquo;ll show how you can use babeldown to translate a Hugo blog post!\",\"published_at\":1695686400,\"updated_at\":1695713432,\"indexed_at\":1696161190,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-2815-0399\", \"name\": \"Ma\xEBlle Salmon\"},
+      {\"url\": \"https://orcid.org/0000-0002-4522-7466\", \"name\": \"Yanina Bellini
+      Saibene\"}],\"image\":\"placeholder.png\",\"tags\":[\"Tech Notes\",\"Multilingual\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"rOpenSci
+      - open tools for open science\",\"blog_slug\":\"ropensci\",\"blog\":{\"slug\":\"ropensci\",\"title\":\"rOpenSci
+      - open tools for open science\",\"description\":\"Open Tools and R Packages
+      for Open Science\",\"feed_url\":\"https://ropensci.org/blog/index.json\",\"home_page_url\":\"https://ropensci.org/blog\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Hugo
+      -- gohugo.io\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697790198}}]"
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 81a07ded1892cb15-DUS
+      - 81ad9ceb5de66a85-DUS
       Connection:
       - keep-alive
       Content-Encoding:
       - gzip
       Content-Location:
-      - /posts?blogs.prefix=not.is.null&doi=not.is.null&indexed=is.null&limit=15&order=published_at.desc&select=id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%29
+      - /posts?blogs.prefix=not.is.null&doi=not.is.null&indexed=is.null&limit=15&order=published_at.desc&select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%29
       Content-Profile:
       - public
       Content-Range:
-      - '*/*'
+      - 0-14/*
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Sun, 22 Oct 2023 08:50:17 GMT
+      - Mon, 23 Oct 2023 23:03:22 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -58,9 +203,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '14'
+      - '32'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:

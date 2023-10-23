@@ -653,7 +653,7 @@ def upsert_single_post(post):
                     "indexed": data.get("indexed_at", 0) > data.get("updated_at", 1),
                 }
             )
-            .eq("uuid", data["uuid"])
+            .eq("id", data["id"])
             .execute()
         )
         return post_to_update.data[0]

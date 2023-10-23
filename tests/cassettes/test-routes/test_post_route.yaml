@@ -23,24 +23,30 @@ interactions:
       x-client-info:
       - supabase-py/1.2.0
     method: GET
-    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20content_html%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28%2A%29&id=eq.77b2102f-fec5-425a-90a3-4a97c768bdc4
+    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20content_html%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28%2A%29&id=eq.77b2102f-fec5-425a-90a3-4a97c768bdc4
   response:
-    content: "{\"id\":\"77b2102f-fec5-425a-90a3-4a97c768bdc4\",\"doi\":\"https://doi.org/10.59350/sfzv4-xdb68\",\"url\":\"https://norbisley.wordpress.com/2023/10/06/que-libros-cientificos-publicamos\",\"archive_url\":null,\"title\":\"\xBFQu\xE9
+    content: "{\"id\":\"77b2102f-fec5-425a-90a3-4a97c768bdc4\",\"guid\":\"https://norbisley.wordpress.com/?p=517\",\"doi\":\"https://doi.org/10.59350/sfzv4-xdb68\",\"url\":\"https://norbisley.wordpress.com/2023/10/06/que-libros-cientificos-publicamos\",\"archive_url\":null,\"title\":\"\xBFQu\xE9
       libros cient\xEDficos publicamos en Ediciones Universidad de Camag\xFCey?\",\"summary\":\"Con
+      frecuencia a la editorial llegan textos que terminan siendo muy diferentes a
+      la idea de libro que el autor tra\xEDa inicialmente.\",\"content_html\":\"\\n<p><img
+      data-attachment-id=\\\"523\\\" data-permalink=\\\"https://norbisley.wordpress.com/2023/10/06/que-libros-cientificos-publicamos/rrm1esyb-3/\\\"
+      data-orig-file=\\\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png\\\"
+      data-orig-size=\\\"1008,301\\\" data-comments-opened=\\\"1\\\" data-image-meta=\\\"{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}\\\"
+      data-image-title=\\\"rrm1esyb\\\" data-image-description=\\\"\\\" data-image-caption=\\\"\\\"
+      data-medium-file=\\\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png?w=300\\\"
+      data-large-file=\\\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png?w=1008\\\"
+      loading=\\\"lazy\\\" width=\\\"1008\\\" height=\\\"301\\\" class=\\\"wp-image-523\\\"
+      style=\\\"width: 500px\\\" src=\\\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png\\\"
+      alt=\\\"\\\" srcset=\\\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png
+      1008w, https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png?w=150&amp;h=45
+      150w, https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png?w=300&amp;h=90
+      300w, https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png?w=768&amp;h=229
+      768w\\\" sizes=\\\"(max-width: 1008px) 100vw, 1008px\\\"></p>\\n\\n\\n\\n<p>Con
       frecuencia a la editorial llegan textos que terminan siendo muy diferentes a
       la idea de libro que el autor tra\xEDa inicialmente. Esto se debe en parte,
       a que es insuficiente el abordaje de las clasificaciones de textos cient\xEDficos
-      que se divulga institucionalmente.\",\"content_html\":\"\\n<p><img loading=\\\"lazy\\\"
-      width=\\\"1008\\\" height=\\\"301\\\" src=\\\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png\\\"
-      srcset=\\\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png 1008w,
-      https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png?w=150&amp;h=45
-      150w, https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png?w=300&amp;h=90
-      300w, https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png?w=768&amp;h=229
-      768w\\\" /></p>\\n\\n\\n\\n<p>Con frecuencia a la editorial llegan textos que
-      terminan siendo muy diferentes a la idea de libro que el autor tra\xEDa inicialmente.
-      Esto se debe en parte, a que es insuficiente el abordaje de las clasificaciones
-      de textos cient\xEDficos que se divulga institucionalmente.  Aqu\xED comento
-      brevemente algunos tipos de libros que publicamos en <a href=\\\"https://edicionesuc.reduc.edu.cu/\\\">Ediciones
+      que se divulga institucionalmente.  Aqu\xED comento brevemente algunos tipos
+      de libros que publicamos en <a href=\\\"https://edicionesuc.reduc.edu.cu/\\\">Ediciones
       Universidad de Camag\xFCey.</a></p>\\n\\n\\n\\n<ul>\\n<li><strong>Libros de
       texto: </strong>se utilizan para mejorar la comprensi\xF3n de una asignatura.
       Enriquecen los procesos de aprendizaje mediante la explicaci\xF3n te\xF3rica
@@ -78,26 +84,26 @@ interactions:
       conclusiones y trabajos presentados a un evento.</li>\\n</ul>\\n\\n\\n\\n<p>Todos
       los libros de este sello editorial son digitales y est\xE1n disponibles, en
       acceso abierto. </p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<p><strong>Bibliograf\xEDas:</strong></p>\\n\\n\\n\\n<p>Moyano,
-      Estela. \u201CUna clasificaci\xF3n de g\xE9neros cient\xEDficos.\u201D XIX Congreso
-      aesla. Vol. 1. No. 9. 2001.</p>\\n\\n\\n\\n<p>M\xE9ndez, Misael. \u201CCategor\xEDas
+      Estela. &#8220;Una clasificaci\xF3n de g\xE9neros cient\xEDficos.&#8221; XIX
+      Congreso aesla. Vol. 1. No. 9. 2001.</p>\\n\\n\\n\\n<p>M\xE9ndez, Misael. &#8220;Categor\xEDas
       de trabajo en edici\xF3n de textos: breve experiencia con publicaciones cubanas
-      y extranjeras.\u201D Islas 135 (2003): 27-48.</p>\\n\\n\\n\\n<p>M\xE9ndez, Misael.
-      Ser manual pero no parecerlo. Editorial Samuel Feijoo, Las Villas, 2020.</p>\\n\",\"published_at\":1696588740,\"updated_at\":1696673881,\"indexed_at\":1697808044,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-9373-4622\", \"name\": \"NFernan\"}],\"image\":\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png\",\"tags\":[\"Presentacion
-      De La Informacion Cientifica\",\"Sin Categoria\"],\"language\":\"es\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Edici\xF3n
+      y extranjeras.&#8221; Islas 135 (2003): 27-48.</p>\\n\\n\\n\\n<p>M\xE9ndez,
+      Misael. Ser manual pero no parecerlo. Editorial Samuel Feijoo, Las Villas, 2020.</p>\\n\",\"published_at\":1696588740,\"updated_at\":1696673881,\"indexed_at\":1697808044,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-9373-4622\", \"name\": \"NFernan\"}],\"image\":\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png\",\"tags\":[\"Presentaci\xF3n
+      De La Informaci\xF3n Cient\xEDfica\",\"Sin Categor\xEDa\"],\"language\":\"es\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Edici\xF3n
       y comunicaci\xF3n de la Ciencia\",\"blog_slug\":\"norbisley\",\"blog\":{\"id\":\"6aswq28\",\"title\":\"Edici\xF3n
-      y comunicaci\xF3n de la Ciencia\",\"description\":null,\"language\":\"es\",\"favicon\":\"https://db.rogue-scholar.org/storage/v1/object/public/images/Screenshot%202023-08-28%20063918.png\",\"feed_url\":\"https://norbisley.wordpress.com/feed/atom/\",\"home_page_url\":\"https://norbisley.wordpress.com\",\"user_id\":\"126368cd-e941-4e6f-8316-f5fe574e595b\",\"created_at\":\"2023-08-22\",\"feed_format\":\"application/atom+xml\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"generator\":\"WordPress.com\",\"category\":\"mediaAndCommunications\",\"prefix\":\"10.59350\",\"modified_at\":\"2023-10-06T10:46:16+00:00\",\"version\":\"https://jsonfeed.org/version/1.1\",\"current_feed_url\":null,\"status\":\"active\",\"issn\":null,\"backlog\":0,\"authors\":null,\"plan\":\"Starter\",\"slug\":\"norbisley\",\"use_mastodon\":false,\"api\":true,\"funding\":null,\"archive_prefix\":null,\"use_api\":true,\"relative_url\":null,\"canonical_url\":null,\"filter\":null,\"updated_at\":1696673881}}"
+      y comunicaci\xF3n de la Ciencia\",\"description\":null,\"language\":\"es\",\"favicon\":\"https://norbisley.files.wordpress.com/2023/08/cropped-cropped-logo-1.png?w=32\",\"feed_url\":\"https://norbisley.wordpress.com/feed/atom/\",\"home_page_url\":\"https://norbisley.wordpress.com\",\"user_id\":\"126368cd-e941-4e6f-8316-f5fe574e595b\",\"created_at\":\"2023-08-22\",\"feed_format\":\"application/atom+xml\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"generator\":\"WordPress.com\",\"category\":\"mediaAndCommunications\",\"prefix\":\"10.59350\",\"version\":\"https://jsonfeed.org/version/1.1\",\"current_feed_url\":null,\"status\":\"active\",\"issn\":null,\"backlog\":0,\"authors\":null,\"plan\":\"Starter\",\"slug\":\"norbisley\",\"use_mastodon\":false,\"api\":true,\"funding\":null,\"archive_prefix\":null,\"use_api\":true,\"relative_url\":null,\"canonical_url\":null,\"filter\":null,\"updated_at\":1696673881,\"secure\":true}}"
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 8197e02c2ee81620-DUS
+      - 81ad9d62bdf1c4bd-DUS
       Connection:
       - keep-alive
       Content-Location:
-      - /posts?id=eq.77b2102f-fec5-425a-90a3-4a97c768bdc4&select=id%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20content_html%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28%2A%29
+      - /posts?id=eq.77b2102f-fec5-425a-90a3-4a97c768bdc4&select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20content_html%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28%2A%29
       Content-Profile:
       - public
       Content-Range:
@@ -105,7 +111,7 @@ interactions:
       Content-Type:
       - application/vnd.pgrst.object+json; charset=utf-8
       Date:
-      - Sat, 21 Oct 2023 07:44:30 GMT
+      - Mon, 23 Oct 2023 23:03:41 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:

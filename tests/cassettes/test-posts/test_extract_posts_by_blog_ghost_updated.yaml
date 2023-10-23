@@ -23,23 +23,23 @@ interactions:
       x-client-info:
       - supabase-py/1.2.0
     method: GET
-    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20language%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.front_matter
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20language%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.front_matter
   response:
-    content: '{"id":"f0m0e38","slug":"front_matter","feed_url":"https://blog.front-matter.io/atom-complete/","current_feed_url":"https://blog.front-matter.io/atom/","home_page_url":"https://blog.front-matter.io","archive_prefix":null,"feed_format":"application/atom+xml","created_at":"2023-01-02","updated_at":1697099245,"use_mastodon":true,"generator":"Ghost
+    content: '{"id":"f0m0e38","slug":"front_matter","feed_url":"https://blog.front-matter.io/atom-complete/","current_feed_url":"https://blog.front-matter.io/atom/","home_page_url":"https://blog.front-matter.io","archive_prefix":null,"feed_format":"application/atom+xml","created_at":"2023-01-02","updated_at":1698073841,"use_mastodon":true,"generator":"Ghost
       5.52","language":"en","favicon":"https://blog.front-matter.io/favicon.png","title":"Front
       Matter","description":"The Front Matter Blog covers the intersection of science
-      and technology since 2007.","category":"computerAndInformationSciences","status":"active","user_id":"8498eaf6-8c58-4b58-bc15-27eda292b1aa","authors":null,"plan":"Team","use_api":true,"relative_url":null,"filter":null}'
+      and technology since 2007.","category":"computerAndInformationSciences","status":"active","user_id":"8498eaf6-8c58-4b58-bc15-27eda292b1aa","authors":null,"plan":"Team","use_api":true,"relative_url":null,"filter":null,"secure":true}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 81a0a9460862cb01-DUS
+      - 81ad99a83c12cb0d-DUS
       Connection:
       - keep-alive
       Content-Location:
-      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20language%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.front_matter
+      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20language%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.front_matter
       Content-Profile:
       - public
       Content-Range:
@@ -47,7 +47,7 @@ interactions:
       Content-Type:
       - application/vnd.pgrst.object+json; charset=utf-8
       Date:
-      - Sun, 22 Oct 2023 09:19:53 GMT
+      - Mon, 23 Oct 2023 23:01:08 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -61,7 +61,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -74,7 +74,7 @@ interactions:
       Accept-Version:
       - v5.0
     method: GET
-    uri: https://front-matter.ghost.io/ghost/api/content/posts/?page=1&limit=50&filter&include=tags,authors&key=b099ebe9ce894979c77431e6d3
+    uri: https://front-matter.ghost.io/ghost/api/content/posts/?page=1&limit=50&filter=visibility:public&include=tags,authors&key=b099ebe9ce894979c77431e6d3
   response:
     body:
       string: "{\"posts\":[{\"id\":\"6526c60bf23c390001a8394c\",\"uuid\":\"e9d845a4-81e9-498f-b252-4493f9f42bc2\",\"title\":\"Generating
@@ -131,19 +131,22 @@ interactions:
         (0.8) [Computer software]. Zenodo. <a href=\\\"https://doi.org/10.5281/ZENODO.8433675\\\">https://doi.org/10.5281/ZENODO.8433675</a></p><p>Crossref,
         Hendricks, G., Center for Scientific Integrity, &amp; Lammey, R. (2023). <em>Crossref
         acquires Retraction Watch data and opens it for the scientific community</em>.
-        <a href=\\\"https://doi.org/10.13003/c23rw1d9\\\">https://doi.org/10.13003/c23rw1d9</a></p>\",\"comment_id\":\"6526c60bf23c390001a8394c\",\"feature_image\":\"https://images.unsplash.com/flagged/photo-1552425083-0117136f7d67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIxfHxjYW5vcHl8ZW58MHx8fHwxNjk3MDQwMDk1fDA&ixlib=rb-4.0.3&q=80&w=2000\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2023-10-11T15:58:03.000+00:00\",\"updated_at\":\"2023-10-12T08:27:25.000+00:00\",\"published_at\":\"2023-10-11T16:40:31.000+00:00\",\"custom_excerpt\":\"On
-        Monday the Rogue Scholar science blog archive launched a dedicated API. Today
-        I am reporting on the first Jupyter notebook using that API to generate an
-        overlay blog post.\",\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":\"https://doi.org/10.53731/gzrse-p5d35\",\"tags\":[{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
+        <a href=\\\"https://doi.org/10.13003/c23rw1d9\\\">https://doi.org/10.13003/c23rw1d9</a></p>\",\"comment_id\":\"6526c60bf23c390001a8394c\",\"feature_image\":\"https://images.unsplash.com/flagged/photo-1552425083-0117136f7d67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIxfHxjYW5vcHl8ZW58MHx8fHwxNjk3MDQwMDk1fDA&ixlib=rb-4.0.3&q=80&w=2000\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2023-10-11T15:58:03.000+00:00\",\"updated_at\":\"2023-10-23T15:03:08.000+00:00\",\"published_at\":\"2023-10-11T16:40:31.000+00:00\",\"custom_excerpt\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":\"https://doi.org/10.53731/gzrse-p5d35\",\"tags\":[{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
         explore issues raised by news stories in more depth.\",\"feature_image\":\"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHJlc2VhcmNofGVufDB8fHx8MTYxODEyMzQxNQ&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/feature/\"}],\"authors\":[{\"id\":\"1\",\"name\":\"Martin
         Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"}],\"primary_author\":{\"id\":\"1\",\"name\":\"Martin
         Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"},\"primary_tag\":{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
         explore issues raised by news stories in more depth.\",\"feature_image\":\"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHJlc2VhcmNofGVufDB8fHx8MTYxODEyMzQxNQ&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/feature/\"},\"url\":\"https://blog.front-matter.io/posts/generating-overlay-blog-posts/\",\"excerpt\":\"On
         Monday the Rogue Scholar science blog archive launched a dedicated API. Today
         I am reporting on the first Jupyter notebook using that API to generate an
-        overlay blog post.\",\"reading_time\":2,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":null,\"feature_image_caption\":\"Photo
-        by <a href=\\\"https://unsplash.com/@inset_agency?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\\\">Paul
-        Knight</a> / <a href=\\\"https://unsplash.com/?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\\\">Unsplash</a>\"},{\"id\":\"6524026b509bba0001454cd2\",\"uuid\":\"532dfbe1-2040-4d6a-80cc-6becb907abc0\",\"title\":\"Rogue
+        overlay blog post.\\n\\nAn\_overlay journal\_or\_overlay ejournal\_is a type
+        of\_open access\_academic journal, almost always an online\_electronic journal\_(ejournal),
+        that does not produce its own content, but selects from texts that are already
+        freely available online.\_From Wikipedia\\n\\nAn overlay blog post applies
+        the idea of an overlay journal to scie\",\"reading_time\":2,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":null,\"feature_image_caption\":\"<span
+        style=\\\"white-space: pre-wrap;\\\">Photo by </span><a href=\\\"https://unsplash.com/@inset_agency?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\\\"><span
+        style=\\\"white-space: pre-wrap;\\\">Paul Knight</span></a><span style=\\\"white-space:
+        pre-wrap;\\\"> / </span><a href=\\\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\\\"><span
+        style=\\\"white-space: pre-wrap;\\\">Unsplash</span></a>\"},{\"id\":\"6524026b509bba0001454cd2\",\"uuid\":\"532dfbe1-2040-4d6a-80cc-6becb907abc0\",\"title\":\"Rogue
         Scholar has an API\",\"slug\":\"rogue-scholar-has-an-api\",\"html\":\"<p>The
         Rogue Scholar science blog archive has launched a dedicated API today, publicly
         available at <code>https://api.rogue-scholar.org</code> and complementing
@@ -220,17 +223,22 @@ interactions:
         M. (2023). <em>front-matter/rogue-scholar-api: Initial public release</em>
         (v0.6,2) [Computer software]. Zenodo. <a href=\\\"https://doi.org/10.5281/ZENODO.8433679\\\">https://doi.org/10.5281/ZENODO.8433679</a></p><p>Smith,
         A. M. (2023). <em>JOSS publishes 2000th paper</em>. Journal of Open Source
-        Software Blog. <a href=\\\"https://doi.org/10.59349/zh4g1-q7e26\\\">https://doi.org/10.59349/zh4g1-q7e26</a></p>\",\"comment_id\":\"6524026b509bba0001454cd2\",\"feature_image\":\"https://images.unsplash.com/photo-1555952494-efd681c7e3f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDM0fHxweXRob258ZW58MHx8fHwxNjk2ODU4Nzc5fDA&ixlib=rb-4.0.3&q=80&w=2000\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2023-10-09T13:38:51.000+00:00\",\"updated_at\":\"2023-10-12T08:11:37.000+00:00\",\"published_at\":\"2023-10-09T15:19:57.000+00:00\",\"custom_excerpt\":\"The
-        Rogue Scholar science blog archive has launched a dedicated API today, publicly
-        available at https://api.rogue-scholar.org and complementing the website.\",\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":null,\"tags\":[{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
+        Software Blog. <a href=\\\"https://doi.org/10.59349/zh4g1-q7e26\\\">https://doi.org/10.59349/zh4g1-q7e26</a></p>\",\"comment_id\":\"6524026b509bba0001454cd2\",\"feature_image\":\"https://images.unsplash.com/photo-1555952494-efd681c7e3f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDM0fHxweXRob258ZW58MHx8fHwxNjk2ODU4Nzc5fDA&ixlib=rb-4.0.3&q=80&w=2000\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2023-10-09T13:38:51.000+00:00\",\"updated_at\":\"2023-10-23T15:10:41.000+00:00\",\"published_at\":\"2023-10-09T15:19:57.000+00:00\",\"custom_excerpt\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":null,\"tags\":[{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
         explore issues raised by news stories in more depth.\",\"feature_image\":\"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHJlc2VhcmNofGVufDB8fHx8MTYxODEyMzQxNQ&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/feature/\"}],\"authors\":[{\"id\":\"1\",\"name\":\"Martin
         Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"}],\"primary_author\":{\"id\":\"1\",\"name\":\"Martin
         Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"},\"primary_tag\":{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
         explore issues raised by news stories in more depth.\",\"feature_image\":\"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHJlc2VhcmNofGVufDB8fHx8MTYxODEyMzQxNQ&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/feature/\"},\"url\":\"https://blog.front-matter.io/posts/rogue-scholar-has-an-api/\",\"excerpt\":\"The
         Rogue Scholar science blog archive has launched a dedicated API today, publicly
-        available at https://api.rogue-scholar.org and complementing the website.\",\"reading_time\":3,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":null,\"feature_image_caption\":\"Photo
-        by <a href=\\\"https://unsplash.com/@hishahadat?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\\\">Shahadat
-        Rahman</a> / <a href=\\\"https://unsplash.com/?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\\\">Unsplash</a>\"},{\"id\":\"651d174894e4e100013aeebf\",\"uuid\":\"609b3f6c-f8ee-4230-8468-4f01a40e7d0a\",\"title\":\"The
+        available at https://api.rogue-scholar.org and complementing the website.\\n\\nRogue
+        Scholar had an API before but with two important limitations.\\n\\n * Serverless.
+        The API at https://rogue-scholar.org/api uses serverless technology, which
+        isn't a good fit for long-running resource-intense processes.\\n * GitHub
+        Actions. GitHub Actions are used for DOI registrations. They can be triggered
+        at specific times, but not more \",\"reading_time\":3,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":null,\"feature_image_caption\":\"<span
+        style=\\\"white-space: pre-wrap;\\\">Photo by </span><a href=\\\"https://unsplash.com/@hishahadat?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\\\"><span
+        style=\\\"white-space: pre-wrap;\\\">Shahadat Rahman</span></a><span style=\\\"white-space:
+        pre-wrap;\\\"> / </span><a href=\\\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\\\"><span
+        style=\\\"white-space: pre-wrap;\\\">Unsplash</span></a>\"},{\"id\":\"651d174894e4e100013aeebf\",\"uuid\":\"609b3f6c-f8ee-4230-8468-4f01a40e7d0a\",\"title\":\"The
         rise of the (science) newsletter\",\"slug\":\"the-rise-of-the-science-newsletter\",\"html\":\"<p>Newsletters
         have been around forever, but their popularity has significantly increased
         in the past few years, also thanks to platforms such as <a href=\\\"https://ghost.org/\\\"
@@ -3860,7 +3868,7 @@ interactions:
       Access-Control-Allow-Origin:
       - '*'
       Age:
-      - '122873'
+      - '820'
       Alt-Svc:
       - clear
       Cache-Control:
@@ -3870,17 +3878,17 @@ interactions:
       Content-Encoding:
       - gzip
       Content-Length:
-      - '97777'
+      - '97892'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Sun, 22 Oct 2023 09:19:53 GMT
+      - Mon, 23 Oct 2023 23:01:08 GMT
       Etag:
-      - W/"6f944-OU2srky1o253XRM8z1Y7zCoK2Gk"
+      - W/"6fc3c-6CYO5mnqEVFarsx100eDDTAhD04"
       Ghost-Age:
-      - '0'
+      - '27249'
       Ghost-Cache:
-      - MISS
+      - HIT
       Ghost-Fastly:
       - 'true'
       Server:
@@ -3896,15 +3904,15 @@ interactions:
       X-Cache-Hits:
       - '1'
       X-Request-ID:
-      - 48c0c4a1-828c-40ce-92c0-2685bda36b13
+      - 4b285e18-d024-4c67-86b2-fcc0725bdfa7
       X-Served-By:
-      - cache-ams21058-AMS
+      - cache-ams21078-AMS
       X-Timer:
-      - S1697966393.499216,VS0,VE1
+      - S1698102069.643885,VS0,VE1
       content-version:
       - v5.69
       x-request-id:
-      - 48c0c4a1-828c-40ce-92c0-2685bda36b13
+      - d5c55085-c28a-48c8-97aa-3773161b27d7
     status:
       code: 200
       message: OK

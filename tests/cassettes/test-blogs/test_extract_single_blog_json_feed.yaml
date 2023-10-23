@@ -23,23 +23,23 @@ interactions:
       x-client-info:
       - supabase-py/1.2.0
     method: GET
-    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20language%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.ropensci
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20language%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.ropensci
   response:
     content: '{"id":"e22ws68","slug":"ropensci","feed_url":"https://ropensci.org/blog/index.json","current_feed_url":null,"home_page_url":"https://ropensci.org/blog","archive_prefix":null,"feed_format":"application/feed+json","created_at":"2023-08-31","updated_at":1697790198,"use_mastodon":false,"generator":"Hugo
       -- gohugo.io","language":"en","favicon":"https://ropensci.org/apple-touch-icon.png","title":"rOpenSci
       - open tools for open science","description":"Open Tools and R Packages for
-      Open Science","category":"computerAndInformationSciences","status":"active","user_id":"3ea9676b-41b6-4e57-aeda-44a7d7fe1dba","authors":null,"plan":"Team","use_api":null,"relative_url":null,"filter":null}'
+      Open Science","category":"computerAndInformationSciences","status":"active","user_id":"3ea9676b-41b6-4e57-aeda-44a7d7fe1dba","authors":null,"plan":"Team","use_api":null,"relative_url":null,"filter":null,"secure":true}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 81a0bd268efa161f-DUS
+      - 81ad98e67f2f162c-DUS
       Connection:
       - keep-alive
       Content-Location:
-      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20language%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter&slug=eq.ropensci
+      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20language%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.ropensci
       Content-Profile:
       - public
       Content-Range:
@@ -47,7 +47,7 @@ interactions:
       Content-Type:
       - application/vnd.pgrst.object+json; charset=utf-8
       Date:
-      - Sun, 22 Oct 2023 09:33:27 GMT
+      - Mon, 23 Oct 2023 23:00:37 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -59,7 +59,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '5'
       alt-svc:
@@ -37366,11 +37366,11 @@ interactions:
         I1fm0x//DQAA//8DANFHSfEqHb0A
     headers:
       Age:
-      - '4453'
+      - '0'
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 81a0bd286ca80e88-AMS
+      - 81ad98e809e76560-AMS
       Cache-Control:
       - public,max-age=0,must-revalidate
       Connection:
@@ -37380,11 +37380,11 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Sun, 22 Oct 2023 09:33:28 GMT
+      - Mon, 23 Oct 2023 23:00:38 GMT
       NEL:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=tGDvrIm15nwuE1rGh5UIPdUgli4Cl4ObftmS%2F%2BLlGtg8Twxfe0yuBCg0rWy5oV0HLGfYbCmcecSvq2rnblgPPZMalNhYi%2B%2BSYsWtpGTwHvdLiJfSLos6kg45OlSDK80XzQuWgSidI88iAEg%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=3afr%2Fi3UhLJVm500P6wDTdDh2cmIinrMqQj2pzZBZTfLPhiVkrsUdA%2Fj6Jc8OcJ9L8e7qWqqVN4a1teEZJZeqm2MMcsc%2Bprgoz9nq74BxUKb8%2B6bBsgS%2BWaxkGyB8T%2B6u4%2BFJzqJ%2BkDyFYc%3D"}],"group":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Transfer-Encoding:
@@ -37398,7 +37398,7 @@ interactions:
       vary:
       - Accept-Encoding
       x-nf-request-id:
-      - 01HDBBPXMS8PPETMG6AAMG9283
+      - 01HDFC9KN1MXNG1KWYJWKHWSAH
     status:
       code: 200
       message: OK
@@ -37435,7 +37435,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 81a0bd3308b5161f-DUS
+      - 81ad98f40850162c-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -37449,7 +37449,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Sun, 22 Oct 2023 09:33:29 GMT
+      - Mon, 23 Oct 2023 23:00:39 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -37461,7 +37461,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '2'
+      - '1'
       X-Kong-Upstream-Latency:
       - '8'
       alt-svc:
@@ -37478,7 +37478,7 @@ interactions:
       "computerAndInformationSciences", "favicon": "https://ropensci.org/apple-touch-icon.png",
       "license": "https://creativecommons.org/licenses/by/4.0/legalcode", "generator":
       "Hugo -- gohugo.io", "status": "active", "user_id": "3ea9676b-41b6-4e57-aeda-44a7d7fe1dba",
-      "use_mastodon": false}'
+      "use_mastodon": false, "secure": true}'
     headers:
       accept:
       - '*/*'
@@ -37489,7 +37489,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '618'
+      - '634'
       content-profile:
       - public
       content-type:
@@ -37507,14 +37507,14 @@ interactions:
   response:
     content: '[{"id":"e22ws68","title":"rOpenSci - open tools for open science","description":"Open
       Tools and R Packages for Open Science","language":"en","favicon":"https://ropensci.org/apple-touch-icon.png","feed_url":"https://ropensci.org/blog/index.json","home_page_url":"https://ropensci.org/blog","user_id":"3ea9676b-41b6-4e57-aeda-44a7d7fe1dba","created_at":"2023-08-31","feed_format":"application/feed+json","license":"https://creativecommons.org/licenses/by/4.0/legalcode","generator":"Hugo
-      -- gohugo.io","category":"computerAndInformationSciences","prefix":"10.59350","version":"https://jsonfeed.org/version/1.1","current_feed_url":null,"status":"active","issn":null,"backlog":0,"authors":null,"plan":"Team","slug":"ropensci","use_mastodon":false,"api":false,"funding":null,"archive_prefix":null,"use_api":null,"relative_url":null,"canonical_url":null,"filter":null,"updated_at":1697790198}]'
+      -- gohugo.io","category":"computerAndInformationSciences","prefix":"10.59350","version":"https://jsonfeed.org/version/1.1","current_feed_url":null,"status":"active","issn":null,"backlog":0,"authors":null,"plan":"Team","slug":"ropensci","use_mastodon":false,"api":false,"funding":null,"archive_prefix":null,"use_api":null,"relative_url":null,"canonical_url":null,"filter":null,"updated_at":1697790198,"secure":true}]'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 81a0bd33a8388741-DUS
+      - 81ad98f46c817166-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -37526,7 +37526,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Sun, 22 Oct 2023 09:33:29 GMT
+      - Mon, 23 Oct 2023 23:00:39 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
