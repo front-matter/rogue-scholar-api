@@ -6,8 +6,8 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  sonarcloud:
-    name: SonarCloud
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -19,22 +19,8 @@ jobs:
       - name: Install tox and any other packages
         run: pip install tox
       - name: Run tox
-        run: tox -e py
+        run: tox -e py311
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
         env:
-          QUART_SUPABASE_URL: ${{ secrets.QUART_SUPABASE_URL }}
-          QUART_SUPABASE_ANON_KEY: ${{ secrets.QUART_SUPABASE_ANON_KEY }}
-          QUART_SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.QUART_SUPABASE_SERVICE_ROLE_KEY }}
-          QUART_TYPESENSE_API_KEY: ${{ secrets.QUART_TYPESENSE_API_KEY }}
-          QUART_TYPESENSE_HOST: ${{ secrets.QUART_TYPESENSE_HOST }}
-          QUART_SENTRY_DSN: ${{ secrets.QUART_SENTRY_DSN }}
-      - name: Override Coverage Source Path for Sonar
-        run: sed -i 's@'$GITHUB_WORKSPACE'@/github/workspace/@g' coverage.xml
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          QUART_SUPABASE_URL: ${{ secrets.QUART_SUPABASE_URL }}
-          QUART_SUPABASE_ANON_KEY: ${{ secrets.QUART_SUPABASE_ANON_KEY }}
-          QUART_TYPESENSE_API_KEY: ${{ secrets.QUART_TYPESENSE_API_KEY }}
-          QUART_TYPESENSE_HOST: ${{ secrets.QUART_TYPESENSE_HOST }}
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
