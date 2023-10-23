@@ -504,7 +504,7 @@ async def extract_atom_post(post, blog):
         """Get url."""
         return normalize_url(
             next(
-                (link["@href"] for link in wrap(links) if link["@type"] == "text/html"),
+                (link["@href"] for link in wrap(links) if link["@rel"] == "alternate"),
                 None,
             ),
             secure=True,
