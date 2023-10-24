@@ -59,7 +59,7 @@ def get_date(date: str):
     if not date:
         return None
     try:
-        return parser.parse(date).isoformat("T","seconds")
+        return parser.parse(date).isoformat("T", "seconds")
     except Exception as e:
         print(e)
         return None
@@ -181,8 +181,22 @@ def normalize_url(url: Optional[str], secure=False, lower=False) -> Optional[str
     f = furl(url)
     f.path.normalize()
     f.remove(fragment=True)
+
+    # remove specific query parameters
+    f.remove(
+        [
+            "origin",
+            "ref",
+            "referrer",
+            "source",
+            "utm_content",
+            "utm_medium",
+            "utm_campaign",
+            "utm_source",
+        ]
+    )
     if secure and f.scheme == "http":
-        f.set(scheme='https')
+        f.set(scheme="https")
     if lower:
         return f.url.lower().strip("/")
     return f.url.strip("/")

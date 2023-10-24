@@ -556,9 +556,9 @@ async def extract_rss_post(post, blog):
                 "url": AUTHOR_IDS.get(author, None),
             }
         )
-
+    print(post)
     authors = [format_author(i) for i in wrap(post.get("dc:creator", None))]
-    content_html = post.get("description", "")
+    content_html = py_.get(post, "content:encoded", None) or post.get("description", "")
     soup = BeautifulSoup(content_html, "html.parser")
     summary = get_abstract(content_html)
     reference = get_references(content_html)
@@ -590,7 +590,7 @@ async def extract_rss_post(post, blog):
         "tags": tags,
         "title": get_title(post.get("title", None)),
         "url": url,
-        "guid": post.get("guid", None),
+        "guid": py_.get(post, "guid.#text", None) or post.get("guid", None),
     }
 
 
