@@ -20,6 +20,7 @@ from rogue_scholar_api.utils import (
     get_date,
     normalize_url,
     AUTHOR_IDS,
+    AUTHOR_NAMES,
 )
 from rogue_scholar_api.supabase import (
     supabase_admin_client as supabase_admin,
@@ -221,27 +222,18 @@ async def extract_wordpress_post(post, blog):
     """Extract WordPress post from REST API."""
 
     def format_author(author):
-        """Format author."""
-        name = author.get("name", None)
-        url = author.get("url", None)
+        """Format author. Optionally lookup real name from username,
+        and ORCID from name. Ideally this is done in the Wordpress
+        user settings."""
+        name_ = author.get("name", None)
+        name = AUTHOR_NAMES.get(name_, None) or name_
+        url_ = author.get("url", None)
+        url = url_ if url_ and is_orcid(url_) else AUTHOR_IDS.get(name, None)
 
-        # set full name and homepage url in WordPress user profile
-        # fallback for specific users here
-        if name == "davidshotton":
-            name = "David M. Shotton"
-            url = "https://orcid.org/0000-0001-5506-523X"
-        elif name == "meineckei":
-            name = "Isabella Meinecke"
-        elif name == "schradera":
-            name = "Antonia Schrader"
-        elif name == "arningu":
-            name = "Ursula Arning"
-        elif name == "rmounce":
-            name = "Ross Mounce"
         return compact(
             {
                 "name": name,
-                "url": url if url else None,
+                "url": url,
             }
         )
 
@@ -290,55 +282,65 @@ async def extract_wordpress_post(post, blog):
         "tags": terms,
         "title": py_.get(post, "title.rendered", ""),
         "url": url,
-        "guid": py_.get(post, "guid.rendered", None)
+        "guid": py_.get(post, "guid.rendered", None),
     }
 
 
 async def extract_wordpresscom_post(post, blog):
     """Extract WordPress.com post from REST API."""
+    try:
+        def format_author(author):
+            """Format author. Optionally lookup real name from username,
+            and ORCID from name. Ideally this is done in the Wordpress
+            user settings."""
 
-    def format_author(author):
-        """Format author."""
-        url = author.get("URL", None)
-        return compact(
-            {
-                "name": author.get("name", None),
-                "url": url if url else None,
-            }
+            name_ = author.get("name", None)
+            name = AUTHOR_NAMES.get(name_, None) or name_
+            url_ = author.get("URL", None)
+            url = url_ if url_ and is_orcid(url_) else AUTHOR_IDS.get(name, None)
+
+            return compact(
+                {
+                    "name": name,
+                    "url": url,
+                }
+            )
+
+        authors = [format_author(i) for i in wrap(post.get("author", None))]
+        content_html = post.get("content", "")
+        soup = BeautifulSoup(content_html, "html.parser")
+        summary = get_abstract(post.get("excerpt", None)) or get_title(
+            post.get("title", None)
         )
+        reference = get_references(content_html)
+        relationships = get_relationships(content_html)
+        url = normalize_url(post.get("URL", None), secure=blog.get("secure", True))
+        images = get_images(soup, url, blog.get("home_page_url", None))
+        image = images[0].get("src", None) if len(images) > 0 else None
+        tags = [normalize_tag(i) for i in post.get("categories", None).keys()][:5]
 
-    authors = [format_author(i) for i in wrap(post.get("author", None))]
-    content_html = post.get("content", "")
-    soup = BeautifulSoup(content_html, "html.parser")
-    summary = get_abstract(post.get("excerpt", None)) or get_title(
-        post.get("title", None)
-    )
-    reference = get_references(content_html)
-    relationships = get_relationships(content_html)
-    url = normalize_url(post.get("URL", None), secure=blog.get("secure", True))
-    images = get_images(soup, url, blog.get("home_page_url", None))
-    image = images[0].get("src", None) if len(images) > 0 else None
-    tags = [normalize_tag(i) for i in post.get("categories", None).keys()][:5]
-
-    return {
-        "authors": authors,
-        "blog_id": blog.get("id", None),
-        "blog_name": blog.get("title", None),
-        "blog_slug": blog.get("slug", None),
-        "content_html": content_html,
-        "summary": summary,
-        "published_at": unix_timestamp(post.get("date", None)),
-        "updated_at": unix_timestamp(post.get("modified", None)),
-        "image": image,
-        "images": images,
-        "language": blog.get("language", "en"),
-        "reference": reference,
-        "relationships": relationships,
-        "tags": tags,
-        "title": get_title(post.get("title", None)),
-        "url": url,
-        "guid": post.get("guid", None),
-    }
+        return {
+            "authors": authors,
+            "blog_id": blog.get("id", None),
+            "blog_name": blog.get("title", None),
+            "blog_slug": blog.get("slug", None),
+            "content_html": content_html,
+            "summary": summary,
+            "published_at": unix_timestamp(post.get("date", None)),
+            "updated_at": unix_timestamp(post.get("modified", None)),
+            "image": image,
+            "images": images,
+            "language": blog.get("language", "en"),
+            "reference": reference,
+            "relationships": relationships,
+            "tags": tags,
+            "title": get_title(post.get("title", None)),
+            "url": url,
+            "guid": post.get("guid", None),
+        }
+    except Exception as e:
+        print(e, post.get("URL", None))
+        return {}
 
 
 async def extract_ghost_post(post, blog):
@@ -409,7 +411,9 @@ async def extract_substack_post(post, blog):
     published_at = unix_timestamp(post.get("post_date", None))
     reference = get_references(content_html)
     relationships = get_relationships(content_html)
-    url = normalize_url(post.get("canonical_url", None), secure=blog.get("secure", True))
+    url = normalize_url(
+        post.get("canonical_url", None), secure=blog.get("secure", True)
+    )
     images = get_images(soup, url, blog.get("home_page_url", None))
     image = post.get("cover_image", None)
     if not image and len(images) > 0:
@@ -550,13 +554,14 @@ async def extract_rss_post(post, blog):
 
     def format_author(author):
         """Format author."""
+        name = AUTHOR_NAMES.get(author, None) or author
         return compact(
             {
-                "name": author,
+                "name": name,
                 "url": AUTHOR_IDS.get(author, None),
             }
         )
-    print(post)
+
     authors = [format_author(i) for i in wrap(post.get("dc:creator", None))]
     content_html = py_.get(post, "content:encoded", None) or post.get("description", "")
     soup = BeautifulSoup(content_html, "html.parser")
@@ -741,7 +746,7 @@ def get_abstract(content_html: str = None, maxlen: int = 450):
         content_html, tags={"b", "i", "em", "strong", "sub", "sup"}, attributes={}
     )
     truncated = py_.truncate(sanitized, maxlen, omission="", separator=" ")
-    
+
     # remove incomplete last sentence
     if truncated[:-1] not in [".", "!", "?", ":"]:
         sentences = re.split(r"(?<=\w{3}[.!?])\s+", truncated)
