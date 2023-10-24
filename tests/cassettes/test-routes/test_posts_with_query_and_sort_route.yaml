@@ -14,7 +14,117 @@ interactions:
     uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=retraction-watch&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Ccontent_html%2Creference&filter_by=published_at%3A%3E%3D+0&sort_by=published_at%3Adesc&per_page=10&page=1
   response:
     body:
-      string: "{\"facet_counts\":[],\"found\":12,\"hits\":[{\"document\":{\"authors\":[],\"blog_id\":\"med7n78\",\"blog_name\":\"Musings
+      string: "{\"facet_counts\":[],\"found\":21,\"hits\":[{\"document\":{\"authors\":[{\"name\":\"Martin
+        Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_id\":\"f0m0e38\",\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"content_html\":\"<p>On Monday the
+        Rogue Scholar science blog archive <a href=\\\"https://doi.org/10.53731/ar11b-5ea39\\\"
+        rel=\\\"noreferrer\\\">launched a dedicated API</a>. Today I am reporting
+        on the first Jupyter notebook using that API to generate an overlay blog post.</p><blockquote>An&nbsp;<strong>overlay
+        journal</strong>&nbsp;or&nbsp;<strong>overlay ejournal</strong>&nbsp;is a
+        type of&nbsp;open access&nbsp;academic journal, almost always an online&nbsp;electronic
+        journal&nbsp;(ejournal), that does not produce its own content, but selects
+        from texts that are already freely available online.&nbsp;From <a href=\\\"https://en.wikipedia.org/wiki/Overlay_journal\\\"
+        rel=\\\"noreferrer\\\">Wikipedia</a></blockquote><p>An <strong>overlay blog
+        post</strong> applies the idea of an <strong>overlay journal</strong> to science
+        blog posts, and the Rogue Scholar API \u2013 in combination with content that
+        has an open license (<a href=\\\"https://creativecommons.org/licenses/by/4.0/legalcode\\\"
+        rel=\\\"noreferrer\\\">CC-BY</a>) \u2013 makes that easy.</p><p>The Jupyter
+        notebook that I started and <a href=\\\"https://github.com/front-matter/rogue-scholar-notebooks\\\">made
+        available via GitHub</a> and <a href=\\\"https://doi.org/10.5281/zenodo.8433675\\\"
+        rel=\\\"noreferrer\\\">Zenodo</a> fetches all blog posts using a search term
+        and some other conditions (here written in English and published after 2010).
+        I thought a good search term to try out the concept would be <strong>Retraction
+        Watch</strong>, after the <a href=\\\"https://doi.org/10.13003/c23rw1d9\\\"
+        rel=\\\"noreferrer\\\">announcement in September</a> that <em>Crossref has
+        acquired the Retraction Watch database of expressions of concerns and retractions
+        and has made it openly accessible to anyone who wants to use it.</em></p><p>The
+        notebook includes this note:</p><div class=\\\"kg-card kg-callout-card kg-callout-card-blue\\\"><div
+        class=\\\"kg-callout-emoji\\\">\U0001F4A1</div><div class=\\\"kg-callout-text\\\">We
+        use the query&nbsp;retraction watch. We limit results to posts published since&nbsp;2010&nbsp;(the
+        year Retraction Watch launched) and&nbsp;en&nbsp;as language. We retrieve
+        the&nbsp;title,&nbsp;authors,&nbsp;publication date,&nbsp;abstract,&nbsp;blog
+        name,&nbsp;doi&nbsp;and&nbsp;url.We sort the results in reverse chronological
+        order (newest first).</div></div><p>The query for that search term returned
+        17 blog posts included in Rogue Scholar (out of about 9,000 posts), and manual
+        curation narrowed that list further down to 12 posts (visualized with <a href=\\\"https://mermaid.js.org/\\\"
+        rel=\\\"noreferrer\\\">Mermaid</a>):</p><figure class=\\\"kg-card kg-image-card\\\"><img
+        src=\\\"https://blog.front-matter.io/content/images/2023/10/mermaid-figure-1.png\\\"
+        class=\\\"kg-image\\\" alt=\\\"\\\" loading=\\\"lazy\\\" width=\\\"2000\\\"
+        height=\\\"190\\\" srcset=\\\"https://blog.front-matter.io/content/images/size/w600/2023/10/mermaid-figure-1.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2023/10/mermaid-figure-1.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2023/10/mermaid-figure-1.png
+        1600w, https://blog.front-matter.io/content/images/size/w2400/2023/10/mermaid-figure-1.png
+        2400w\\\" sizes=\\\"(min-width: 720px) 720px\\\"></figure><p>The notebook
+        then generates a bibtex file of all 12 blog posts (easy as they all have DOIs)
+        and generates a summary written in markdown using the title, author, blog
+        name, publication date, and abstract.</p><h2 id=\\\"conclusions\\\">Conclusions</h2><p>The
+        notebook needs some more fine-tuning, and I plan to publish the first overlay
+        blog post next week. But notebooks are an interesting approach to automate
+        the generating of overlay blog posts, open to everyone as the content of the
+        Rogue Scholar API is freely available for reuse. I particularly like using
+        both automation and manual curation using open source tools, which is a powerful
+        combination</p><h2 id=\\\"references\\\">References</h2><p>Fenner, M. (2023).
+        <em>Rogue Scholar has an API</em>. <a href=\\\"https://doi.org/10.53731/ar11b-5ea39\\\">https://doi.org/10.53731/ar11b-5ea39</a></p><p>Fenner,
+        M. (2023). <em>front-matter/rogue-scholar-notebooks: Initial public release</em>
+        (0.8) [Computer software]. Zenodo. <a href=\\\"https://doi.org/10.5281/ZENODO.8433675\\\">https://doi.org/10.5281/ZENODO.8433675</a></p><p>Crossref,
+        Hendricks, G., Center for Scientific Integrity, &amp; Lammey, R. (2023). <em>Crossref
+        acquires Retraction Watch data and opens it for the scientific community</em>.
+        <a href=\\\"https://doi.org/10.13003/c23rw1d9\\\">https://doi.org/10.13003/c23rw1d9</a></p>\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.53731/gzrse-p5d35\",\"guid\":\"6526c60bf23c390001a8394c\",\"id\":\"1cc6de6d-9eef-4305-a936-933446c315dd\",\"image\":\"https://images.unsplash.com/flagged/photo-1552425083-0117136f7d67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIxfHxjYW5vcHl8ZW58MHx8fHwxNjk3MDQwMDk1fDA&ixlib=rb-4.0.3&q=80&w=2000\",\"language\":\"en\",\"published_at\":1697042431,\"reference\":[{\"doi\":\"https://doi.org/10.53731/ar11b-5ea39\",\"key\":\"ref1\"},{\"doi\":\"https://doi.org/10.5281/ZENODO.8433675\",\"key\":\"ref2\"},{\"doi\":\"https://doi.org/10.13003/c23rw1d9\",\"key\":\"ref3\"}],\"relationships\":[],\"summary\":\"\",\"tags\":[\"Feature\"],\"title\":\"Generating
+        Overlay blog posts\",\"updated_at\":1698073388,\"url\":\"https://blog.front-matter.io/posts/generating-overlay-blog-posts\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"em>Crossref
+        has acquired the <mark>Retraction</mark> <mark>Watch</mark> database of expressions
+        of\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"em>Crossref
+        has acquired the <mark>Retraction</mark> <mark>Watch</mark> database of expressions
+        of\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Martin
+        Paul Eve\",\"url\":\"https://orcid.org/0000-0002-5589-8511\"}],\"blog_id\":\"z4b9d78\",\"blog_name\":\"Martin
+        Paul Eve\",\"blog_slug\":\"eve\",\"content_html\":\"&lt;p&gt;Today\u2019s
+        big news is that &lt;a href=&quot;https://doi.org/10.13003/c23rw1d9&quot;&gt;Crossref
+        has acquired the Retraction Watch database of expressions of concerns and
+        retractions and has made it openly accessible to anyone who wants to use it&lt;/a&gt;.
+        I\u2019m waiting for full confirmation of the license or public domain dedication
+        under which it will be released, but this is still a great commitment of Crossref
+        to the POSI principles. The liberation of this database is good for science
+        and scholarship in general. It means that Crossref now knows about approximately
+        50,000 retractions.&lt;/p&gt;\\n\\n&lt;p&gt;Access to the database, for now,
+        is via the Crossref Labs API, which I write and maintain. The Crossref Labs
+        API sits in between the user and the Live API to inject new experimental metadata
+        fields. The API can also serve files, so you can get the CSV of the latest
+        Retraction Watch data at https://api.labs.crossref.org/data/retractionwatch?mailto=[YOUR@EMAIL.HERE].&lt;/p&gt;\\n\\n&lt;p&gt;Meanwhile,
+        the Labs API will show you retraction data in the cr-labs-updates entry if
+        you visit a work that has data, e.g. https://api.labs.crossref.org/works/10.2147/CMAR.S324920?mailto=[YOUR@EMAIL.HERE].&lt;/p&gt;\\n\\n&lt;p&gt;The
+        obvious question (and one that &lt;a href=&quot;https://twitter.com/gcabanac/status/1701594642142363877&quot;&gt;was
+        asked within an hour of our launch&lt;/a&gt;) is: how can I retrieve a list
+        of all retractions via the API? This is what we call a \u201Cfilter\u201D
+        in the API and, for Reasons\u2122, it is very difficult to do in the Labs
+        API. The Reasons\xAE that it\u2019s so difficult is because the Labs API gets
+        its data by pulling from the Live API, which knows nothing about retractions,
+        and then injecting the data. So pulling out just the entries that have retractions
+        means building a separate index of all items with retractions, then fetching
+        these, and paging through them with the user\u2019s requests. This gets to
+        be HORRIBLY slow on the performance front with even not much load, and I don\u2019t
+        recommend it. We tried several ways of implementing this but to no avail.
+        So, for now, please download and parse the CSV if you want a full list of
+        retractions. We\u2019ll continue to work on an API solution, but it\u2019s
+        going to take us a bit longer.&lt;/p&gt;\\n\\n&lt;p&gt;In the meantime, publishers:
+        please continue to deposit retractions. It\u2019s really important and we
+        need to end the culture of &lt;em&gt;shame&lt;/em&gt; (at least for publishers)
+        around declaring retractions. It is vital for the progress of science that
+        we accurately mark papers that have been shown to be defective.&lt;/p&gt;\\n\\n&lt;p&gt;The
+        other important thing to note about all this is that, with any luck, it will
+        help to make Retraction Watch itself sustainable. As they say &lt;a href=&quot;https://retractionwatch.com/2023/09/12/the-retraction-watch-database-becomes-completely-open-and-rw-becomes-far-more-sustainable/&quot;&gt;in
+        their announcement&lt;/a&gt;: \u201CThat means we have achieved sustainability
+        \u2013 the highest priority goal for any nonprofit \u2013 for the database
+        side of our operation. And the acquisition fee provides important unrestricted
+        reserves that allow for breathing room and the potential for growth.\u201D
+        It\u2019s really great that Crossref can contribute towards this sustainability,
+        in the spirit of also improving the metadata that we can offer.&lt;/p&gt;\\n\\n
+        \   &lt;p&gt;&lt;a href=&quot;https://eve.gd/2023/09/12/retract-this/&quot;&gt;Retract
+        this!&lt;/a&gt; was originally published by Martin Paul Eve at &lt;a href=&quot;https://eve.gd&quot;&gt;Martin
+        Paul Eve&lt;/a&gt; on September 12, 2023.&lt;/p&gt;\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.59348/9b1f4-29n44\",\"guid\":\"https://eve.gd/2023/09/12/retract-this\",\"id\":\"dbb3d159-4b12-4c31-8666-25316d4d5fdd\",\"language\":\"en\",\"published_at\":1694534158,\"reference\":[],\"relationships\":[],\"summary\":\"\",\"tags\":[],\"title\":\"Retract
+        this!\",\"updated_at\":1694476800,\"url\":\"https://eve.gd/2023/09/12/retract-this\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"c23rw1d9&quot;&gt;Crossref
+        has acquired the <mark>Retraction</mark> <mark>Watch</mark> database of expressions
+        of\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"c23rw1d9&quot;&gt;Crossref
+        has acquired the <mark>Retraction</mark> <mark>Watch</mark> database of expressions
+        of\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[],\"blog_id\":\"med7n78\",\"blog_name\":\"Musings
         about Librarianship - Aaron Tay\",\"blog_slug\":\"musings\",\"content_html\":\"<img
         src=\\\"https://api.follow.it/track-rss-story-loaded/v1/nr_Y2U1XqVqbBpjsJSFRAqCY3L745TL_\\\"
         border=0 width=\\\"1\\\" height=\\\"1\\\" alt=\\\"Two new browser extensions
@@ -278,9 +388,51 @@ interactions:
         signal posting via <mark>Retraction</mark> <mark>Watch</mark> Database data,
         ingested OA\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"retraction
         signal posting via <mark>Retraction</mark> <mark>Watch</mark> Database data,
-        ingested OA\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Adam
-        Day\",\"url\":null}],\"blog_id\":\"ez7c883\",\"blog_name\":\"Stories by Adam
-        Day on Medium\",\"blog_slug\":\"clearskiesadam\",\"content_html\":\"<p>TL;DR:
+        ingested OA\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Martin
+        Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_id\":\"f4wdg32\",\"blog_name\":\"Syldavia
+        Gazette\",\"blog_slug\":\"syldavia_gazette\",\"content_html\":\"<h3 id=\\\"guinea-worm-disease-reaches-all-time-low-only-13-human-cases-reported-in-2022\\\"><a
+        href=\\\"https://www.cartercenter.org/news/pr/2023/2022-guinea-worm-worldwide-cases-announcement.html\\\">Guinea
+        worm disease reaches all-time low: only 13* human cases reported in 2022</a></h3><p>Only
+        13 human cases of Guinea worm disease were reported worldwide in 2022. This
+        Neglected Tropical Disease is on the WHO 2030 roadmap to become only the second
+        human disease in history to be eradicated, after smallpox.</p><h3 id=\\\"chatgpt-is-fun-but-not-an-author\\\"><a
+        href=\\\"https://doi.org/10.1126/science.adg7879\\\">ChatGPT is fun, but not
+        an author</a></h3><p>The Editor-In-Chief of the <em>Science</em> journals
+        explains their updated Editorial Policy specifying that text generated by
+        ChatGPT (or any other AI tools) cannot be used in publications, nor can figures
+        produced by such tools.</p><h3 id=\\\"meet-the-first-neanderthal-family\\\"><a
+        href=\\\"https://leakeyfoundation.org/meet-the-first-neanderthal-family/\\\">Meet
+        the first Neanderthal family</a></h3><p>A study published in October last
+        year retrieved the DNA from 17 Neanderthal remains, for the first time using
+        genetics to study the social organization of a Neanderthal community. </p><h3
+        id=\\\"university-to-investigate-adjunct-professor-after-allegations-of-plagiarism-%E2%80%93-and-legal-threats\\\"><a
+        href=\\\"https://retractionwatch.com/2022/12/30/university-to-investigate-adjunct-professor-after-allegations-of-plagiarism-and-legal-threats/\\\">University
+        to investigate adjunct professor after allegations of plagiarism \u2013 and
+        legal threats</a></h3><p>The University of Z\xFCrich in Switzerland has announced
+        that it had started an investigation into allegations that a researcher used
+        images and other material from a blog without attribution in a published book.</p><h3
+        id=\\\"welcome-to-the-tidyverse\\\"><a href=\\\"https://doi.org/10.21105/joss.01686\\\">Welcome
+        to the tidyverse</a></h3><p>The tidyverse is a language for solving data science
+        challenges with R code. It is also a collection of R packages with a shared
+        high-level design philosophy. This article gives a short introduction to these
+        highly popular software packages.</p><hr><h3 id=\\\"references\\\">References</h3><ol><li>Guinea
+        Worm Disease Reaches All-Time Low: Only 13* Human Cases Reported in 2022.
+        The Carter Center. Accessed March 28, 2023. <a href=\\\"https://www.cartercenter.org/news/pr/2023/2022-guinea-worm-worldwide-cases-announcement.html\\\">https://www.cartercenter.org/news/pr/2023/2022-guinea-worm-worldwide-cases-announcement.html</a></li><li>Thorp
+        HH. ChatGPT is fun, but not an author. <em>Science</em>. 2023;379(6630):313-313.
+        doi:<a href=\\\"https://doi.org/10.1126/science.adg7879\\\">10.1126/science.adg7879</a></li><li>Meet
+        the first Neanderthal family. The Leakey Foundation. Accessed March 28, 2023.
+        <a href=\\\"https://leakeyfoundation.org/meet-the-first-neanderthal-family/\\\">https://leakeyfoundation.org/meet-the-first-neanderthal-family/</a></li><li>Kincaid
+        AE. University to investigate adjunct professor after allegations of plagiarism
+        \u2013 and legal threats. Retraction Watch. Published December 30, 2022. Accessed
+        March 28, 2023. <a href=\\\"https://retractionwatch.com/2022/12/30/university-to-investigate-adjunct-professor-after-allegations-of-plagiarism-and-legal-threats/\\\">https://retractionwatch.com/2022/12/30/university-to-investigate-adjunct-professor-after-allegations-of-plagiarism-and-legal-threats/</a></li><li>Wickham
+        H, Averick M, Bryan J, et al. Welcome to the Tidyverse. <em>Journal of Open
+        Source Software</em>. 2019;4(43):1686. doi:<a href=\\\"https://doi.org/10.21105/joss.01686\\\">10.21105/joss.01686</a></li></ol>\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.53731/ffbx660-083tnag\",\"guid\":\"643582704de88d00019c0902\",\"id\":\"0022b9ef-525a-4a79-81ad-13411697f58a\",\"image\":\"https://digitalpress.fra1.cdn.digitaloceanspaces.com/gtpg506/2023/04/gw-release-2023.jpg\",\"language\":\"en\",\"published_at\":1675263360,\"reference\":[{\"key\":\"ref1\",\"url\":\"https://www.cartercenter.org/news/pr/2023/2022-guinea-worm-worldwide-cases-announcement.html\"},{\"doi\":\"https://doi.org/10.1126/science.adg7879\",\"key\":\"ref2\"},{\"key\":\"ref3\",\"url\":\"https://leakeyfoundation.org/meet-the-first-neanderthal-family\"},{\"key\":\"ref4\",\"url\":\"https://retractionwatch.com/2022/12/30/university-to-investigate-adjunct-professor-after-allegations-of-plagiarism-and-legal-threats\"},{\"doi\":\"https://doi.org/10.21105/joss.01686\",\"key\":\"ref5\"}],\"relationships\":[],\"summary\":\"\",\"tags\":[\"Weekly\"],\"title\":\"Guinea
+        Worms, ChatGPT, Neanderthals, Plagiarism, Tidyverse\",\"updated_at\":1681415899,\"url\":\"https://syldavia-gazette.org/guinea-worms-chatgpt-neanderthals\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"plagiarism
+        \u2013 and legal threats. <mark>Retraction</mark> <mark>Watch</mark>. Published
+        December 30, 2022\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"plagiarism
+        \u2013 and legal threats. <mark>Retraction</mark> <mark>Watch</mark>. Published
+        December 30, 2022\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Adam
+        Day\"}],\"blog_id\":\"ez7c883\",\"blog_name\":\"Stories by Adam Day on Medium\",\"blog_slug\":\"clearskiesadam\",\"content_html\":\"<p>TL;DR:
         Join me at ConTech Live to hear about a recent project with <a href=\\\"https://opencredo.com/\\\">Open
         Credo</a> to see if we could detect unusual co-authorships in a dataset created
         by Anna Abalkina. <a href=\\\"https://www.contech.live/contech2022\\\">Sign
@@ -289,7 +441,7 @@ interactions:
         process\u201D or it might be \u201Cmanufacturing of fraudulent research papers\u201D
         and so\_on.</p><p>I described the general roles involved in papermilling in
         <a href=\\\"https://publisherad.medium.com/how-papermills-work-generally-c080bb9fff43\\\">a
-        previous blog\_post</a>.</p><figure><img src=\\\"https://cdn-images-1.medium.com/max/937/1*OSsajzQlkOFyf_LkQ6lBfw.png\\\"
+        previous blog\_post</a>.</p><figure><img alt=\\\"\\\" src=\\\"https://cdn-images-1.medium.com/max/937/1*OSsajzQlkOFyf_LkQ6lBfw.png\\\"
         /></figure><p>But there\u2019s actually a lot of nuance in how different papermills
         operate. Consider what happens when we have multiple agents, forgers and authors
         operating in a\_network.</p><p>I\u2019m going to describe here 3 quite different
@@ -310,10 +462,10 @@ interactions:
         blog posts</a>, is mostly trained to highlight this kind of papermilling.</p><h3>2.
         Fabrication by plagiarism</h3><p>Fabrication from scratch requires skill.
         What if our forger doesn\u2019t know how to write a fake paper from scratch?
-        This is a <em>sad\_forger:</em></p><figure><img src=\\\"https://cdn-images-1.medium.com/max/250/1*7_PceWGAeLBoczc3dYi2Jg.png\\\"
+        This is a <em>sad\_forger:</em></p><figure><img alt=\\\"\\\" src=\\\"https://cdn-images-1.medium.com/max/250/1*7_PceWGAeLBoczc3dYi2Jg.png\\\"
         /><figcaption>I\u2019ve made him look sad by rotating his mouth 180\xB0. Image
         manipulation is not my\_fort\xE9.</figcaption></figure><p>So what can he do?
-        How can he turn that frown upside-down?</p><figure><img src=\\\"https://cdn-images-1.medium.com/max/363/1*0b31C3OWhZwrtkz9C3Cfww.png\\\"
+        How can he turn that frown upside-down?</p><figure><img alt=\\\"\\\" src=\\\"https://cdn-images-1.medium.com/max/363/1*0b31C3OWhZwrtkz9C3Cfww.png\\\"
         /></figure><p>The idea is simple. If he can\u2019t write a fake paper, <em>he
         can just copy a real one</em>! Or he can get creative and copy several bits
         of papers and paste the bits into a new manuscript. If he\u2019s worried about
@@ -341,15 +493,57 @@ interactions:
         we could detect unusual co-authorships using the dataset created by Anna Abalkina
         in her work. If you\u2019d like to know more, I suggest signing up for <a
         href=\\\"https://www.contech.live/contech2022\\\">our forthcoming ConTech
-        presentation!</a></p><img src=\\\"https://medium.com/_/stat?event=post.clientViewed&amp;referrerSource=full_rss&amp;postId=14993c37ebfa\\\"
-        width=\\\"1\\\" height=\\\"1\\\" />\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.59350/dakrb-j7a75\",\"id\":\"8ec5510e-0bab-40ef-8978-9011f579aeca\",\"image\":\"https://cdn-images-1.medium.com/max/937/1*OSsajzQlkOFyf_LkQ6lBfw.png\",\"language\":\"en\",\"published_at\":1667236116,\"reference\":[],\"relationships\":[],\"summary\":\"TL;DR:
+        presentation!</a></p><img src=\\\"https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=14993c37ebfa\\\"
+        width=\\\"1\\\" height=\\\"1\\\" alt=\\\"\\\">\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.59350/dakrb-j7a75\",\"guid\":\"https://medium.com/p/14993c37ebfa\",\"id\":\"8ec5510e-0bab-40ef-8978-9011f579aeca\",\"language\":\"en\",\"published_at\":1667236116,\"reference\":[],\"relationships\":[],\"summary\":\"TL;DR:
         Join me at ConTech Live to hear about a recent project with Open Credo to
         see if we could detect unusual co-authorships in a dataset created by Anna
-        Abalkina. Sign up\_here! Papermilling has a few definitions which you see
-        here and there.\",\"tags\":[\"Peer Review Journals\",\"Academic Publishing\",\"Research
-        Integrity\"],\"title\":\"(The?) 3 kinds of papermills\",\"updated_at\":1667236116,\"url\":\"https://clearskiesadam.medium.com/3-kinds-of-papermills-14993c37ebfa\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"brought
+        Abalkina. Sign up&nbsp;here!\",\"tags\":[\"Peer-review-journals\",\"Academic-publishing\",\"Research-integrity\"],\"title\":\"(The?)
+        3 kinds of papermills\",\"updated_at\":1667236116,\"url\":\"https://clearskiesadam.medium.com/3-kinds-of-papermills-14993c37ebfa\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"brought
         to light by <mark>Retraction</mark> <mark>Watch</mark> some years ago</a>\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"brought
-        to light by <mark>Retraction</mark> <mark>Watch</mark> some years ago</a>\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Elias
+        to light by <mark>Retraction</mark> <mark>Watch</mark> some years ago</a>\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Martin
+        Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_id\":\"f0m0e38\",\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"content_html\":\"<p>The first post
+        on this blog was published on August 3, 2007 (<a href=\\\"https://doi.org/10.53731/r294649-6f79289-8cw1q\\\">Open
+        access may become mandatory for NIH-funded research</a>). This is post number
+        465, and in the past 15 years the blog has seen changes in technology and
+        hosting location \u2013 but I wrote all posts (with the exception of a few
+        guest posts). The overall theme remained unchanged: technology used in scholarly
+        communication. </p><p>Instead of a detailed analysis of recurring themes,
+        or how scholarly communication has changed in the last 15 years, I want to
+        pick one topic that continues to worry me, and has been the subject of multiple
+        posts on this blog and elsewhere: the over-reliance on PDF as publishing format
+        for scholarly articles.</p><p>This week I read two interesting articles related
+        to climate change. One of them (<a href=\\\"https://doi.org/10.1038/s41558-022-01426-1\\\">Over
+        half of known human pathogenic diseases can be aggravated by climate change</a>)
+        did an impressive systematic review of the literature on the impacts of ten
+        climatic hazards sensitive to greenhouse gas emissions on each known human
+        pathogenic disease (in short: very scary). The second paper (<a href=\\\"https://doi.org/10.1073/pnas.2120584119\\\">Estimating
+        the environmental impacts of 57,000 food products</a>) tried to estimate the
+        environmental impact of more than 50K food products in the United Kingdom
+        and Ireland (no big surprises, but again stressing that meat, fish, and cheese
+        have a significant environmental impact).</p><p>Both articles are available
+        online as full-text, but they come in PDF format. Fine for printing and then
+        reading them (which I did), but in 2022 I expect to read papers on a tablet
+        (which I use for almost all my reading) where the PDF letter or A4 size doesn't
+        quite fit on the 10-inch screen. There are other problems with PDF (e.g. access
+        to metadata such as references and using PDF as submission format, e.g. with
+        preprints). These problems are not new and there are workarounds, but in the
+        15 years of writing this blog \u2013 despite a lot of progress \u2013 scholarly
+        communication continues to have an uneasy relationship with technology and
+        is often stuck in the past. In contrast to many (but of course not all) other
+        sectors.</p><p>This means there are many reasons to continue writing this
+        blog. And since 2012, when I gave up my job as a medical doctor in a university
+        hospital, I am working full-time on scholarly infrastructure, after recovering
+        from the health issues I described in the last post (<a href=\\\"https://blog.front-matter.io/posts/i-spent-the-last-five-months-in-the-hospital\\\">I
+        spent the last five months in the hospital</a>) with a focus on research data
+        management.</p><p>Incidentally, August 3 saw another anniversary as Retraction
+        Watch, the wonderful service tracking paper retractions turned 12 (<a href=\\\"https://retractionwatch.com/2022/08/03/happy-12th-birthday-retraction-watch-and-what-a-year-it-was/\\\">years
+        old</a>). Congratulations Ivan and team!</p>\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.53731/bs60jms-sqaehsk\",\"guid\":\"62f501fa50b5b4004d1dcaca\",\"id\":\"d2098d02-4a1f-4d66-9369-492489e1778b\",\"image\":\"https://images.unsplash.com/photo-1555607124-8531c7c702d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDQzfHxiaXJ0aGRheXxlbnwwfHx8fDE2NjAyMjQwOTA&ixlib=rb-1.2.1&q=80&w=2000\",\"language\":\"en\",\"published_at\":1660227188,\"reference\":[],\"relationships\":[],\"summary\":\"\",\"tags\":[\"Feature\"],\"title\":\"This
+        blog turned 15 (years old) this month\",\"updated_at\":1660486165,\"url\":\"https://blog.front-matter.io/posts/this-blog-turned-15-this-month\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"saw
+        another anniversary as <mark>Retraction</mark> <mark>Watch</mark>, the wonderful
+        service tracking\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"saw
+        another anniversary as <mark>Retraction</mark> <mark>Watch</mark>, the wonderful
+        service tracking\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Elias
         Koch\",\"url\":\"\"}],\"blog_id\":\"526jy42\",\"blog_name\":\"Elephant in
         the Lab\",\"blog_slug\":\"elephantinthelab\",\"content_html\":\"\\n<p></p>\\n\\n\\n\\n<h2>Introduction</h2>\\n\\n\\n\\n<div><figure><img
         loading=\\\"lazy\\\" src=\\\"https://elephantinthelab.org/wp-content/uploads/2021/04/foto2-1024x1024.jpg\\\"
@@ -624,95 +818,133 @@ interactions:
         href=\\\"https://retractionwatch.com/\\\"><mark>Retraction</mark> <mark>Watch</mark></a>,
         is it becoming\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"a
         href=\\\"https://retractionwatch.com/\\\"><mark>Retraction</mark> <mark>Watch</mark></a>,
-        is it becoming\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Ross
-        Mounce\",\"url\":\"\"}],\"blog_id\":\"vbmdy90\",\"blog_name\":\"A blog by
-        Ross Mounce\",\"blog_slug\":\"rossmounce\",\"content_html\":\"\\n<p>On Monday
-        29th June 2020, I learned <a href=\\\"https://retractionwatch.com/2020/06/29/major-indexing-service-sounds-alarm-on-self-citations-by-nearly-50-journals/\\\">from
-        Retraction Watch</a> that Clarivate, the for-profit proprietor of <em>Journal
-        Impact Factor</em> \u2122  has newly \u201Csuppressed\u201D   33 journals
-        from their indexing service. The immediate consequence of this \u201Csuppression\u201D
-        is that these 33 journals do not get assigned an official Clarivate <em>Journal
-        Impact Factor</em> \u2122 .  Clarivate justify this action on the basis of
-        \u201Canomalous citation patterns\u201D but without much further detail given
-        for each of the journals other than the overall \u201C% Self-cites\u201D of
-        the journal, and the effect of those self-cites on Clarivate\u2019s citation-based
-        ranking of journals (% Distortion of category rank).</p>\\n\\n\\n\\n<p>Amongst
-        the 33 journals, I spotted not one but two <a href=\\\"https://en.wikipedia.org/wiki/Systematics\\\">systematics</a>
-        journals that I know very well:</p>\\n\\n\\n\\n<ul><li><a href=\\\"https://www.mapress.com/j/zt/\\\">Zootaxa</a>
-        <ul><li>published by a small independent publisher \u2018Magnolia Press\u2019
-        based in New Zealand</li></ul></li><li><a href=\\\"https://www.microbiologyresearch.org/content/journal/ijsem\\\">International
-        Journal of Systematic and Evolutionary Microbiology</a><ul><li>published by
-        the Microbiology Society</li><li>the official publication of the\_<a href=\\\"https://www.the-icsp.org/\\\"
-        target=\\\"_blank\\\">International Committee on Systematics of Prokaryotes</a>\_and
-        the Bacteriology and Applied Microbiology Division of the\_<a href=\\\"https://www.iums.org/\\\"
-        target=\\\"_blank\\\">International Union of Microbiological Societies</a></li></ul></li></ul>\\n\\n\\n\\n<p>I
-        have read, cited, and analysed (textmining and image analysis) articles from
-        both of these journals extensively. Chapter 6 of my <a href=\\\"https://ethos.bl.uk/OrderDetails.do?uin=uk.bl.ethos.642021\\\">PhD
-        thesis</a> mined over 12,000 <em>Zootaxa</em> articles looking for phylogenetic
-        data. In a more <a href=\\\"https://doi.org/10.3897/rio.3.e13589\\\">recent
-        work published in Research Ideas and Outcomes</a> (RIO Journal), I mined over
-        5,800 <em>IJSEM</em> articles for <a href=\\\"https://en.wikipedia.org/wiki/Phylogenetic_tree\\\">phylogenetic
-        tree</a> data. Of relevance, I should also say I was a council member of the
-        <a href=\\\"https://en.wikipedia.org/wiki/Systematics_Association\\\">Systematics
-        Association</a> for many years.</p>\\n\\n\\n\\n<p>Given the experiences listed
-        above, I am therefore very well placed to say that what Clarivate has done
-        to these two systematics journals is utter brainless idiocy.</p>\\n\\n\\n\\n<p>The
-        reason why <em>Zootaxa</em> articles cite quite a high proportion of other
-        <em>Zootaxa</em> articles is obvious (\u201Cself-citation\u201D at the journal-level
-        from Clarivate\u2019s point-of-view) to anyone in the discipline. <em>Zootaxa</em>
-        is an important \u2018megajournal\u2019 for the zoological systematics community.
-        According to <a href=\\\"https://www.lens.org/lens/search/scholar/list?q=&amp;p=0&amp;n=10&amp;s=_score&amp;d=%2B&amp;f=false&amp;e=false&amp;l=en&amp;authorField=author&amp;dateFilterField=publishedYear&amp;presentation=false&amp;preview=&amp;stemmed=true&amp;useAuthorId=false&amp;sourceTitle.must=Zootaxa&amp;publishedYear.from=2018&amp;publishedYear.to=2019\\\">lens.org
-        data</a> Zootaxa published over 5,000 items (articles and monographs) between
-        2018 and 2019. Clarivate\u2019s own records from another one of their proprietary
-        analytics services called \u2018<a href=\\\"http://www.organismnames.com/metrics.htm?page=tsj\\\">Zoological
-        Record</a>\u2018 indicate that 26.57% of all new zoological taxa are published
-        in <em>Zootaxa</em>. For  many decades descriptive taxonomy has been pushed-out
-        of for-profit journals. <em>Zootaxa</em> is a vital refugia for sound science
-        in a poorly funded discipline.  </p>\\n\\n\\n\\n<p>The case for legitimate
-        \u2018high\u2019 journal-level self-citation at <em>International Journal
-        of Systematic and Evolutionary Microbiology</em> (<em>IJSEM</em>) is even
-        clearer and easier to explain. The <a href=\\\"https://en.wikipedia.org/wiki/International_Code_of_Nomenclature_of_Prokaryotes\\\">International
-        Code of Nomenclature of Prokaryotes</a> (ICNP) <em><strong>requires</strong></em>
-        that all new bacteria names are published in IJSEM and nowhere else (a very
-        sensible idea which the bacteriology community should be commended for). Hence
-        a lot of the systematic and evolutionary microbiology articles in IJSEM will
-        cite prior IJSEM articles.</p>\\n\\n\\n\\n<p> Wayne Maddison has <a href=\\\"https://twitter.com/WayneMaddison/status/1278773935656407040\\\">commented</a>
-        on Twitter that the hardest hit researchers by this action might be those
-        in developing countries. I agree. The problem here is that many institutions
-        and research funders idiotically use the Journal Impact Factor \u2122 to assess
-        the quality of an individual\u2019s research output. In some regimes, if a
-        researcher publishes a paper in a journal that has a Journal Impact Factor
-        \u2122 then it \u2018counts\u2019, whereas if a researcher publishes a paper
-        in a journal that has not been given an official Journal Impact Factor \u2122
-        by Clarivate then that paper may not \u2018count\u2019 towards the assessment
-        of that researcher.</p>\\n\\n\\n\\n<p>The <a href=\\\"https://twitter.com/MoscasFloricola/status/1278515036139520001\\\">zoology
-        section of the Chilean Society of Biology</a> has already petitioned Clarivate
-        to unsuppress Zootaxa, to give it back its Journal Impact Factor \u2122 .
-        I understand why they would do this but I would actually call for something
-        quite different and more far-reaching.</p>\\n\\n\\n\\n<p>I would encourage
-        all systematists, taxonomists, zoologists, microbiologists, and biologists
-        in general to see the real problem here: Clarivate, a for-profit analytics
-        company, should never be so relied-upon by research evaluation committees
-        to arbitrarily decide the value of a research output. Especially given that
-        the Journal Impact Factor \u2122 is untransparent, <a href=\\\"https://dx.doi.org/10.1083%2Fjcb.200801036\\\">irreproducible</a>,
-        and fundamentally <a href=\\\"http://occamstypewriter.org/scurry/2012/08/13/sick-of-impact-factors/\\\">statistically
-        illiterate</a>.</p>\\n\\n\\n\\n<p>Thus to bring us back to my title. I wonder
-        if Clarivate\u2019s wacky \u201Csuppression\u201D might actually be a pathway
-        to liberation from the inappropriate stupidity of using Journal Impact Factor
-        \u2122 to evaluate individual research outputs. Given we have all now witnessed
-        just how brainless some of Clarivate\u2019s decision making is, I would ask
-        Clarivate to please \u201Csuppress\u201D all journals thereby removing the
-        harmful stupidity of Journal Impact Factor \u2122 from the lives of researchers.</p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<p></p>\\n\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.59350/v5rp0-nde12\",\"id\":\"741aaa98-c929-4c12-933c-c09bc151f8e6\",\"image\":\"\",\"language\":\"en\",\"published_at\":1593777776,\"reference\":[],\"relationships\":[],\"summary\":\"On
-        Monday 29th June 2020, I learned from Retraction Watch that Clarivate, the
-        for-profit proprietor of <em>Journal Impact Factor</em> \u2122  has newly
-        \u201Csuppressed\u201D   33 journals from their indexing service.\",\"tags\":[\"Research
-        Assessment\"],\"title\":\"Suppression as a form of liberation?\",\"updated_at\":1593777930,\"url\":\"https://rossmounce.co.uk/2020/07/03/suppression-as-a-form-of-liberation\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"nearly-50-journals/\\\">from
-        <mark>Retraction</mark> <mark>Watch</mark></a> that Clarivate, the\"},\"summary\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"2020,
-        I learned from <mark>Retraction</mark> <mark>Watch</mark> that Clarivate,
-        the for\"}},\"highlights\":[{\"field\":\"summary\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"2020,
-        I learned from <mark>Retraction</mark> <mark>Watch</mark> that Clarivate,
-        the for\"},{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"nearly-50-journals/\\\">from
-        <mark>Retraction</mark> <mark>Watch</mark></a> that Clarivate, the\"}],\"text_match\":1157451471441100882,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":2,\"score\":\"1157451471441100882\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Ross
+        is it becoming\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Mike
+        Taylor\"}],\"blog_id\":\"dkvra02\",\"blog_name\":\"Sauropod Vertebra Picture
+        of the Week\",\"blog_slug\":\"svpow\",\"content_html\":\"<p>Back in March,
+        <em>Nature</em> published &#8220;Hummingbird-sized dinosaur from the Cretaceous
+        period of Myanmar&#8221; by Xing et al. (2020), which described and named
+        a tiny putative bird that was preserved in amber from Myanmar (formerly Burma).
+        It&#8217;s a pretty spectacular find.</p>\\n<p><div data-shortcode=\\\"caption\\\"
+        id=\\\"attachment_17764\\\" style=\\\"width: 490px\\\" class=\\\"wp-caption
+        alignnone\\\"><a href=\\\"https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg\\\"><img
+        aria-describedby=\\\"caption-attachment-17764\\\" loading=\\\"lazy\\\" data-attachment-id=\\\"17764\\\"
+        data-permalink=\\\"http://svpow.com/2020/07/22/whats-going-on-with-oculudentavis/41586_2020_2068_fig1_html/\\\"
+        data-orig-file=\\\"https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg\\\"
+        data-orig-size=\\\"1773,1293\\\" data-comments-opened=\\\"1\\\" data-image-meta=\\\"{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}\\\"
+        data-image-title=\\\"41586_2020_2068_Fig1_HTML\\\" data-image-description=\\\"\\\"
+        data-image-caption=\\\"&lt;p&gt;Xing et al. (2020: figure 1). a, Photograph
+        of the amber piece with skull ventrolaterally exposed. b, c, Scan (b) and
+        drawing (c), left lateral view. d, e, Scan (d) and drawing (e), rostral view.
+        f, g, Scan (f) and drawing (g), occipital view. h, i, Scan (h) and drawing
+        (i), dorsal view. de, dentary; fr, frontal; hy, hyoid bone (or bones); jg,
+        jugal; la, lacrimal; mx, maxilla; pa, parietal; pm, premaxilla; po, postorbital;
+        qd, quadrate; sc, scleral ossicle; so, supraoccipital; sq, squamosal; th,
+        teeth. Scale bars, 5 mm; longer scale bar below b applies to b\u2212i.&lt;/p&gt;\\n\\\"
+        data-medium-file=\\\"https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg?w=300\\\"
+        data-large-file=\\\"https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg?w=1024\\\"
+        class=\\\"size-full wp-image-17764\\\" src=\\\"https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg\\\"
+        alt=\\\"\\\" width=\\\"480\\\" height=\\\"350\\\" srcset=\\\"https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg?w=480&amp;h=350
+        480w, https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg?w=960&amp;h=700
+        960w, https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg?w=150&amp;h=109
+        150w, https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg?w=300&amp;h=219
+        300w, https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg?w=768&amp;h=560
+        768w\\\" sizes=\\\"(max-width: 480px) 100vw, 480px\\\" /></a><p id=\\\"caption-attachment-17764\\\"
+        class=\\\"wp-caption-text\\\"><strong>Xing et al. (2020: figure 1).</strong>
+        <strong>a</strong>, Photograph of the amber piece with skull ventrolaterally
+        exposed. <strong>b</strong>, <strong>c</strong>, Scan (<strong>b</strong>)
+        and drawing (<strong>c</strong>), left lateral view. <strong>d</strong>, <strong>e</strong>,
+        Scan (<strong>d</strong>) and drawing (<strong>e</strong>), rostral view.
+        <strong>f</strong>, <strong>g</strong>, Scan (<strong>f</strong>) and drawing
+        (<strong>g</strong>), occipital view. <strong>h</strong>, <strong>i</strong>,
+        Scan (<strong>h</strong>) and drawing (<strong>i</strong>), dorsal view. de,
+        dentary; fr, frontal; hy, hyoid bone (or bones); jg, jugal; la, lacrimal;
+        mx, maxilla; pa, parietal; pm, premaxilla; po, postorbital; qd, quadrate;
+        sc, scleral ossicle; so, supraoccipital; sq, squamosal; th, teeth. Scale bars,
+        5 mm; longer scale bar below <strong>b</strong> applies to <strong>b</strong>\u2212<strong>i</strong>.</p></div></p>\\n<p>Today,
+        though, that paper <a href=\\\"https://www.nature.com/articles/s41586-020-2553-9\\\">is
+        retracted</a>.</p>\\n<p>That&#8217;s a very rare occurrence for a palaeontology
+        paper. And it raises a lot of questions. The retraction notice reads, in full:</p>\\n<blockquote><p>We,
+        the authors, are retracting this Article to prevent inaccurate information
+        from remaining in the literature. Although the description of <em>Oculudentavis
+        khaungraae</em> remains accurate, a new unpublished specimen casts doubts
+        upon our hypothesis regarding the phylogenetic position of HPG-15-3.</p></blockquote>\\n<p>But
+        we constantly see papers whose phylogenetic hypotheses are overturned by new
+        specimens. We usually deal with this by writing a new paper. Why, in this
+        case, is there a retraction? Something smells wrong here.</p>\\n<p>And the
+        plot thickens in <a href=\\\"https://retractionwatch.com/2020/07/22/a-big-nature-study-on-a-tiny-dinosaur-is-being-retracted/\\\">Retraction
+        Watch&#8217;s account</a>: corresponding author Jingmai O\u2019Connor told
+        them:</p>\\n<blockquote><p>I don\u2019t agree with the retraction but there
+        is no point in fighting it, so we all signed it.</p>\\n<p>I cannot say why
+        <em>Nature</em> chose to retract, I cannot hypothesize on their inner machinations.
+        [&#8230;] It is also not that unusual for paleontologists to misidentify things
+        and for new information to correct previous hypotheses. However, <em>Nature</em>
+        chose not to publish the Matter\u2019s Arising and instead retracts our paper
+        \u2013 they must have their reasons.</p></blockquote>\\n<p>This doesn&#8217;t
+        add up. The retraction notice explictly states that the <em>authors</em> retracted
+        the original paper \u2014 yet the corresponding author says that the journal
+        did it, more or less against the authors&#8217; will.</p>\\n<p>I don&#8217;t
+        know what&#8217;s going on here. I agree with O&#8217;Connor that &#8220;It\u2019s
+        unfortunate because this way science can\u2019t simply correct itself (as
+        it is supposed to do)&#8221;. If, as Li et al. (2000) argue, <em>Oculudentavis</em>
+        is actually a squamate (lizard), well, fine: they can publish their conclusion,
+        and the community will arrive at a consensus as to which identification is
+        correct. That&#8217;s how it works, right? So why the retraction?</p>\\n<p>And
+        there&#8217;s more: what does this mean for zoological nomenclature? Is the
+        name <em>Oculudentavis khaungraae</em> still nomenclaturally valid? Opinions
+        on this seem to vary (see <a href=\\\"http://dinosaurmailinglist.cmnh.org/2020Jul/threads.html#00156\\\">the
+        Dinosaur Mailing List thread beginning with Ben Creisler&#8217;s announcement
+        of the retraction</a>.)</p>\\n<p>I lean to the interpretation that, since
+        the <a href=\\\"https://www.iczn.org/the-code/the-international-code-of-zoological-nomenclature/the-code-online/\\\">International
+        Code on Zoological Nomenclature</a> does not mention retractions, it implicitly
+        takes the position that a paper once published is published forever. On that
+        basis, the name <em>Oculudentavis</em> remains valid and attached to the holoype
+        specimen \u2014 even if that name, with its <em>-avis</em> suffix, proves
+        to have been poorly chosen in pertaining to a non-bird. (After all, there
+        is plenty of precedent for misleading names staying in place: the whale <em>Basilosaurus</em>
+        is not a saurian, and the clade of &#8220;false crocodiles&#8221; Pseudosuchia
+        includes the true crocodiles.)</p>\\n<p>This doesn&#8217;t seem to be what
+        Springer Nature wants: in a Facebook exchange forwarded to me by a friend
+        who I will leave anonymous unless he or she chooses to out him or herself,
+        Henry Gee comments &#8220;The retraction means the paper is erased from the
+        record, and this includes the name&#8221;.</p>\\n<p><a href=\\\"https://svpow.files.wordpress.com/2020/07/screen-shot-2020-07-22-at-5.29.33-pm.png\\\"><img
+        loading=\\\"lazy\\\" data-attachment-id=\\\"17760\\\" data-permalink=\\\"http://svpow.com/2020/07/22/whats-going-on-with-oculudentavis/screen-shot-2020-07-22-at-5-29-33-pm/\\\"
+        data-orig-file=\\\"https://svpow.files.wordpress.com/2020/07/screen-shot-2020-07-22-at-5.29.33-pm.png\\\"
+        data-orig-size=\\\"1024,1014\\\" data-comments-opened=\\\"1\\\" data-image-meta=\\\"{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}\\\"
+        data-image-title=\\\"Screen Shot 2020-07-22 at 5.29.33 PM\\\" data-image-description=\\\"\\\"
+        data-image-caption=\\\"\\\" data-medium-file=\\\"https://svpow.files.wordpress.com/2020/07/screen-shot-2020-07-22-at-5.29.33-pm.png?w=300\\\"
+        data-large-file=\\\"https://svpow.files.wordpress.com/2020/07/screen-shot-2020-07-22-at-5.29.33-pm.png?w=1024\\\"
+        class=\\\"alignnone size-full wp-image-17760\\\" src=\\\"https://svpow.files.wordpress.com/2020/07/screen-shot-2020-07-22-at-5.29.33-pm.png\\\"
+        alt=\\\"\\\" width=\\\"480\\\" height=\\\"475\\\" srcset=\\\"https://svpow.files.wordpress.com/2020/07/screen-shot-2020-07-22-at-5.29.33-pm.png?w=480&amp;h=475
+        480w, https://svpow.files.wordpress.com/2020/07/screen-shot-2020-07-22-at-5.29.33-pm.png?w=960&amp;h=950
+        960w, https://svpow.files.wordpress.com/2020/07/screen-shot-2020-07-22-at-5.29.33-pm.png?w=300&amp;h=297
+        300w, https://svpow.files.wordpress.com/2020/07/screen-shot-2020-07-22-at-5.29.33-pm.png?w=768&amp;h=761
+        768w\\\" sizes=\\\"(max-width: 480px) 100vw, 480px\\\" /></a></p>\\n<p>I think
+        this is simply incorrect. But I am no expert: I await comments from those
+        more versed in the intricacies of the ICZN.</p>\\n<p>At any rate, I can&#8217;t
+        help but suspect that something is going on here that&#8217;s not being clearly
+        stated. Could it be to do with the fact that Myanmar amber is itself controversial,
+        due to the human rights record of the Myanmar regime? Is it even possible
+        that one or more or the authors of the original <em>Oculudentavis</em> colluded
+        in describing it as a bird when they knew it was something else? I don&#8217;t
+        know (and to be 100% clear, I am <em>not</em> accusing anyone of anything).
+        But I do know that <em>Nature</em>&#8216;s vague and possibly misleading retraction
+        notice is not helping, and is not in the spirit of transparency that we aim
+        to cultivate in the sciences.</p>\\n<p>I&#8217;m pretty sure we don&#8217;t
+        yet know the full story.</p>\\n<h1>References</h1>\\n<ul>\\n<li><a href=\\\"https://www.biorxiv.org/content/10.1101/2020.03.16.993949v1?versioned=true\\\">Zhiheng
+        Li, Wei Wang, Han Hu, Min Wang, Hongyu Yi and Jing Lu. 2020. Is <em>Oculudentavis</em>
+        a bird or even archosaur? doi:10.1101/2020.03.16.993949</a></li>\\n<li><a
+        href=\\\"https://www.nature.com/articles/s41586-020-2068-4\\\">Xing, L.; O&#8217;Connor,
+        J. K.; Schmitz, L.; Chiappe, L. M.; McKellar, R. C.; Yi, Q.; Li, G. 2020.
+        Hummingbird-sized dinosaur from the Cretaceous period of Myanmar. <em>Nature</em>
+        <strong>579</strong>(7798):245\u2013249. doi:10.1038/s41586-020-2068-4</a></li>\\n</ul>\\n<p>&nbsp;</p>\\n\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.59350/hk3jx-6sv77\",\"guid\":\"http://svpow.com/?p=17752\",\"id\":\"c556963d-9f80-4798-922b-f77180d3c33b\",\"image\":\"https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg\",\"language\":\"en\",\"published_at\":1595461726,\"reference\":[{\"key\":\"ref1\",\"url\":\"https://www.biorxiv.org/content/10.1101/2020.03.16.993949v1?versioned=true\"},{\"key\":\"ref2\",\"url\":\"https://www.nature.com/articles/s41586-020-2068-4\"}],\"relationships\":[],\"summary\":\"Back
+        in March, Nature published \u201CHummingbird-sized dinosaur from the Cretaceous
+        period of Myanmar\u201D by Xing et al. (2020), which described and named a
+        tiny putative bird that was preserved in amber from Myanmar (formerly Burma).
+        It\u2019s a pretty spectacular find. Today, though, that paper is retracted.\",\"tags\":[\"New
+        Papers\",\"Nomenclature\",\"Paleontologists Behaving Badly\",\"Stinkin' Lizards\",\"Stinkin'
+        Theropods\"],\"title\":\"What\u2019s going on with <i>Oculudentavis</i>?\",\"updated_at\":1595754036,\"url\":\"https://svpow.com/2020/07/22/whats-going-on-with-oculudentavis\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"dinosaur-is-being-retracted/\\\"><mark>Retraction</mark>
+        <mark>Watch</mark>&#8217;s account</a>: corresponding author\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"dinosaur-is-being-retracted/\\\"><mark>Retraction</mark>
+        <mark>Watch</mark>&#8217;s account</a>: corresponding author\"}],\"text_match\":1157451437081362505,\"text_match_info\":{\"best_field_score\":\"2211881091072\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451437081362505\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Ross
         Mounce\"}],\"blog_id\":\"vbmdy90\",\"blog_name\":\"A blog by Ross Mounce\",\"blog_slug\":\"rossmounce\",\"content_html\":\"\\n<p>On
         Monday 29th June 2020, I learned <a href=\\\"https://retractionwatch.com/2020/06/29/major-indexing-service-sounds-alarm-on-self-citations-by-nearly-50-journals/\\\">from
         Retraction Watch</a> that Clarivate, the for-profit proprietor of <em>Journal
@@ -791,8 +1023,8 @@ interactions:
         \u2122 to evaluate individual research outputs. Given we have all now witnessed
         just how brainless some of Clarivate&#8217;s decision making is, I would ask
         Clarivate to please &#8220;suppress&#8221; all journals thereby removing the
-        harmful stupidity of Journal Impact Factor \u2122 from the lives of researchers.</p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<p></p>\\n\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.59350/v5rp0-nde12\",\"id\":\"22226\",\"image\":\"\",\"language\":\"en\",\"published_at\":1593777776,\"reference\":[],\"relationships\":[],\"summary\":\"\",\"tags\":[\"Research
-        Assessment\"],\"title\":\"Suppression as a form of liberation?\",\"updated_at\":1593777930,\"url\":\"https://rossmounce.co.uk/2020/07/03/suppression-as-a-form-of-liberation\",\"uuid\":\"741aaa98-c929-4c12-933c-c09bc151f8e6\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"nearly-50-journals/\\\">from
+        harmful stupidity of Journal Impact Factor \u2122 from the lives of researchers.</p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<p></p>\\n\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.59350/v5rp0-nde12\",\"guid\":\"http://rossmounce.co.uk/?p=2199\",\"id\":\"741aaa98-c929-4c12-933c-c09bc151f8e6\",\"image\":\"\",\"language\":\"en\",\"published_at\":1593777776,\"reference\":[],\"relationships\":[],\"summary\":\"\",\"tags\":[\"Research
+        Assessment\"],\"title\":\"Suppression as a form of liberation?\",\"updated_at\":1593777930,\"url\":\"https://rossmounce.co.uk/2020/07/03/suppression-as-a-form-of-liberation\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"nearly-50-journals/\\\">from
         <mark>Retraction</mark> <mark>Watch</mark></a> that Clarivate, the\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"nearly-50-journals/\\\">from
         <mark>Retraction</mark> <mark>Watch</mark></a> that Clarivate, the\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{}],\"blog_id\":\"gr1by89\",\"blog_name\":\"Samuel
         Moore\",\"blog_slug\":\"samuelmoore\",\"content_html\":\"\\n<p>The term &#8216;predatory
@@ -858,296 +1090,14 @@ interactions:
         in advance &#8212; it is undecidable &#8212; and so is continually open to
         interpretation and shifting context. Either publishing is always-already a
         predatory practice or we have to find a different way of analysing trustworthiness.
-        </p>\\n\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.59350/nev8n-gyt51\",\"id\":\"21538\",\"image\":\"https://www.samuelmoore.org/wp-content/uploads/2020/03/adler-2918835_1920-1024x701-1.jpg\",\"language\":\"en\",\"published_at\":1584022489,\"reference\":[],\"relationships\":[],\"summary\":\"The
+        </p>\\n\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.59350/nev8n-gyt51\",\"guid\":\"https://www.samuelmoore.org/?p=1002\",\"id\":\"6a317bde-5703-4476-9018-b77c181e688a\",\"image\":\"https://www.samuelmoore.org/wp-content/uploads/2020/03/adler-2918835_1920-1024x701-1.jpg\",\"language\":\"en\",\"published_at\":1584022489,\"reference\":[],\"relationships\":[],\"summary\":\"The
         term \u2018predatory publisher\u2019 reveals a limit of language \u2013 or
         rather it asks too much of language.\",\"tags\":[\"Open Access\"],\"title\":\"The
-        undecidable nature of predatory publishing\",\"updated_at\":1594108617,\"url\":\"https://www.samuelmoore.org/2020/03/12/the-undecidable-nature-of-predatory-publishing\",\"uuid\":\"6a317bde-5703-4476-9018-b77c181e688a\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"look
+        undecidable nature of predatory publishing\",\"updated_at\":1594108617,\"url\":\"https://www.samuelmoore.org/2020/03/12/the-undecidable-nature-of-predatory-publishing\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"look
         at websites like <mark>Retraction</mark> <mark>Watch</mark> or various &#8216;sting&#8217;
         articles\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"look
         at websites like <mark>Retraction</mark> <mark>Watch</mark> or various &#8216;sting&#8217;
-        articles\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{}],\"blog_id\":\"gr1by89\",\"blog_name\":\"Samuel
-        Moore\",\"blog_slug\":\"samuelmoore\",\"content_html\":\"\\n<p>The term &#8216;predatory
-        publisher&#8217; reveals a limit of language &#8211; or rather it asks too
-        much of language. It seeks a binary separation between &#8216;predatory&#8217;
-        and &#8216;non-predatory&#8217; where no such separation can exist, ultimately
-        illustrating more about the motivations and hidden biases about the accuser
-        than the supposedly predatory journal at hand. We therefore need another way
-        to conceptualise the practices that predatory publishing seeks to describe.
-        </p>\\n\\n\\n\\n<!--more-->\\n\\n\\n\\n<p>The limitations of the term are
-        on display in a <a href=\\\"https://www.biorxiv.org/content/10.1101/2020.03.09.983155v1\\\">preprint</a>
-        circulated this week by Severin et al, titled &#8216;Who reviews for predatory
-        journals? A study on reviewer characteristics&#8217;. The study used a review
-        tracking service called Publons to identify researchers who have declared
-        to have reviewed for journals the authors consider to be predatory. They conclude:
-        </p>\\n\\n\\n\\n<blockquote class=\\\"wp-block-quote\\\"><p>[T]he  profiles
-        \ of  scholars  who  review  for  predatory journals tend to resemble those
-        scholars who publish their research in these outlets: they tend to be young
-        and inexperienced researchers who are affiliated with institutions in developing
-        regions. </p><cite>https://www.biorxiv.org/content/10.1101/2020.03.09.983155v1.full.pdf
-        </cite></blockquote>\\n\\n\\n\\n<p>According to the analysis, predatory journals
-        both publish the work and rely on the reviewing expertise of the same groups
-        of inexperienced researchers based in &#8216;developing&#8217; regions. This
-        leads the authors to conclude that a possible explanation is that &#8216;predatory
-        journals have become an integral part of the workflow for many scholars in
-        low-and lower-middle income countries&#8217; (p. 8). The kinds of people publishing
-        in these journals are demographically similar to those reviewing for them.
-        </p>\\n\\n\\n\\n<p>The authors base their definition of &#8216;predatory&#8217;
-        on Cabell&#8217;s lists, a proprietary database containing journals identified
-        as &#8216;potentially not following scientific publication standards or expectations
-        on quality, peer reviewing, or proper metrics&#8217; (p. 4). The authors make
-        it clear that predation is not a &#8216;simple binary phenomenon&#8217; and
-        that some classified journals may exist in a &#8216;grey zone&#8217; between
-        predatory and legitimate. As with much humanities/social science research,
-        when something isn&#8217;t a binary then it is often conceived as a spectrum.
-        \  </p>\\n\\n\\n\\n<p>But the problem with the authors&#8217; strategy is
-        that their analysis is still conducted on a binary between predatory and non-predatory,
-        rather than a spectrum of questionable practices. Because of course, if the
-        authors were to analyse journals along this spectrum, then they would have
-        to move outside the list provided by Cabell&#8217;s towards all journals too.
-        We only have to look at websites like Retraction Watch or various &#8216;sting&#8217;
-        articles to know that bad practice occurs across all forms of publishing,
-        not just those identified by Cabell&#8217;s, Jeffrey Beall or whoever else
-        may have a financial or ideological interest in accusations of predation.
-        We may also consider the extractive nature of <a href=\\\"https://www.timeshighereducation.com/news/uk-universities-paid-big-publishers-ps1billion-past-decade\\\">publisher
-        profiteering</a> to be a similar kind of bad practice that impacts on the
-        quality of the research published. </p>\\n\\n\\n\\n<p>I&#8217;m not in any
-        way questioning the author&#8217;s motivations with this study (and they recognise
-        some of these concerns in a <a href=\\\"https://www.nature.com/articles/d41586-020-00709-x\\\"><em>Nature</em>
-        story</a> about the article), but just highlighting that the study of bad
-        publishing practice cannot be conducted according to whether or not a journal
-        is &#8216;predatory&#8217;. This is especially important as the journals that
-        are identified as predatory are most often those from outside the Global North.
-        There are always colonial and racial overtones to the analysis of predatory
-        publishers that &#8212; consciously or not &#8212; separate them from the
-        &#8216;trustworthy&#8217; outlets in Europe and North America. When, in fact,
-        any study of trustworthiness in publishing should not be limited to publishers
-        already identified as &#8216;predatory&#8217;. </p>\\n\\n\\n\\n<p>So the term
-        &#8216;predatory publisher&#8217; is an aporia: the moment you define an organisation
-        as &#8216;predatory&#8217; is the moment the term collapses and reveals the
-        motivation to decide in advance which publishers are good and which are bad
-        (often according to geographical boundaries). But this issue cannot be decided
-        in advance &#8212; it is undecidable &#8212; and so is continually open to
-        interpretation and shifting context. Either publishing is always-already a
-        predatory practice or we have to find a different way of analysing trustworthiness.
-        </p>\\n\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.59350/nev8n-gyt51\",\"id\":\"21215\",\"image\":\"https://www.samuelmoore.org/wp-content/uploads/2020/03/adler-2918835_1920-1024x701-1.jpg\",\"language\":\"en\",\"published_at\":1584022489,\"reference\":[],\"relationships\":[],\"summary\":\"The
-        term \u2018predatory publisher\u2019 reveals a limit of language \u2013 or
-        rather it asks too much of language.\",\"tags\":[\"Open Access\"],\"title\":\"The
-        undecidable nature of predatory publishing\",\"updated_at\":1594108617,\"url\":\"https://www.samuelmoore.org/2020/03/12/the-undecidable-nature-of-predatory-publishing\",\"uuid\":\"6a317bde-5703-4476-9018-b77c181e688a\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"look
-        at websites like <mark>Retraction</mark> <mark>Watch</mark> or various &#8216;sting&#8217;
-        articles\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"look
-        at websites like <mark>Retraction</mark> <mark>Watch</mark> or various &#8216;sting&#8217;
-        articles\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Samuel
-        Moore\"}],\"blog_id\":\"gr1by89\",\"blog_name\":\"Samuel Moore\",\"blog_slug\":\"samuelmoore\",\"content_html\":\"\\n<p>The
-        term \u2018predatory publisher\u2019 reveals a limit of language \u2013 or
-        rather it asks too much of language. It seeks a binary separation between
-        \u2018predatory\u2019 and \u2018non-predatory\u2019 where no such separation
-        can exist, ultimately illustrating more about the motivations and hidden biases
-        about the accuser than the supposedly predatory journal at hand. We therefore
-        need another way to conceptualise the practices that predatory publishing
-        seeks to describe. </p>\\n\\n\\n\\n\\n\\n\\n\\n<p>The limitations of the term
-        are on display in a <a href=\\\"https://www.biorxiv.org/content/10.1101/2020.03.09.983155v1\\\">preprint</a>
-        circulated this week by Severin et al, titled \u2018Who reviews for predatory
-        journals? A study on reviewer characteristics\u2019. The study used a review
-        tracking service called Publons to identify researchers who have declared
-        to have reviewed for journals the authors consider to be predatory. They conclude:
-        </p>\\n\\n\\n\\n<blockquote><p>[T]he  profiles  of  scholars  who  review
-        \ for  predatory journals tend to resemble those scholars who publish their
-        research in these outlets: they tend to be young and inexperienced researchers
-        who are affiliated with institutions in developing regions. </p><cite>https://www.biorxiv.org/content/10.1101/2020.03.09.983155v1.full.pdf
-        </cite></blockquote>\\n\\n\\n\\n<p>According to the analysis, predatory journals
-        both publish the work and rely on the reviewing expertise of the same groups
-        of inexperienced researchers based in \u2018developing\u2019 regions. This
-        leads the authors to conclude that a possible explanation is that \u2018predatory
-        journals have become an integral part of the workflow for many scholars in
-        low-and lower-middle income countries\u2019 (p. 8). The kinds of people publishing
-        in these journals are demographically similar to those reviewing for them.
-        </p>\\n\\n\\n\\n<p>The authors base their definition of \u2018predatory\u2019
-        on Cabell\u2019s lists, a proprietary database containing journals identified
-        as \u2018potentially not following scientific publication standards or expectations
-        on quality, peer reviewing, or proper metrics\u2019 (p. 4). The authors make
-        it clear that predation is not a \u2018simple binary phenomenon\u2019 and
-        that some classified journals may exist in a \u2018grey zone\u2019 between
-        predatory and legitimate. As with much humanities/social science research,
-        when something isn\u2019t a binary then it is often conceived as a spectrum.
-        \  </p>\\n\\n\\n\\n<p>But the problem with the authors\u2019 strategy is that
-        their analysis is still conducted on a binary between predatory and non-predatory,
-        rather than a spectrum of questionable practices. Because of course, if the
-        authors were to analyse journals along this spectrum, then they would have
-        to move outside the list provided by Cabell\u2019s towards all journals too.
-        We only have to look at websites like Retraction Watch or various \u2018sting\u2019
-        articles to know that bad practice occurs across all forms of publishing,
-        not just those identified by Cabell\u2019s, Jeffrey Beall or whoever else
-        may have a financial or ideological interest in accusations of predation.
-        We may also consider the extractive nature of <a href=\\\"https://www.timeshighereducation.com/news/uk-universities-paid-big-publishers-ps1billion-past-decade\\\">publisher
-        profiteering</a> to be a similar kind of bad practice that impacts on the
-        quality of the research published. </p>\\n\\n\\n\\n<p>I\u2019m not in any
-        way questioning the author\u2019s motivations with this study (and they recognise
-        some of these concerns in a <a href=\\\"https://www.nature.com/articles/d41586-020-00709-x\\\"><em>Nature</em>
-        story</a> about the article), but just highlighting that the study of bad
-        publishing practice cannot be conducted according to whether or not a journal
-        is \u2018predatory\u2019. This is especially important as the journals that
-        are identified as predatory are most often those from outside the Global North.
-        There are always colonial and racial overtones to the analysis of predatory
-        publishers that \u2014 consciously or not \u2014 separate them from the \u2018trustworthy\u2019
-        outlets in Europe and North America. When, in fact, any study of trustworthiness
-        in publishing should not be limited to publishers already identified as \u2018predatory\u2019.
-        </p>\\n\\n\\n\\n<p>So the term \u2018predatory publisher\u2019 is an aporia:
-        the moment you define an organisation as \u2018predatory\u2019 is the moment
-        the term collapses and reveals the motivation to decide in advance which publishers
-        are good and which are bad (often according to geographical boundaries). But
-        this issue cannot be decided in advance \u2014 it is undecidable \u2014 and
-        so is continually open to interpretation and shifting context. Either publishing
-        is always-already a predatory practice or we have to find a different way
-        of analysing trustworthiness. </p>\\n\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.59350/nev8n-gyt51\",\"id\":\"6a317bde-5703-4476-9018-b77c181e688a\",\"image\":\"https://www.samuelmoore.org/wp-content/uploads/2020/03/adler-2918835_1920-1024x701-1.jpg\",\"language\":\"en\",\"published_at\":1584022489,\"reference\":[],\"relationships\":[],\"summary\":\"The
-        term \u2018predatory publisher\u2019 reveals a limit of language \u2013 or
-        rather it asks too much of language. It seeks a binary separation between
-        \u2018predatory\u2019 and \u2018non-predatory\u2019 where no such separation
-        can exist, ultimately illustrating more about the motivations and hidden biases
-        about the accuser than the supposedly predatory journal at hand. We therefore
-        need another way to conceptualise the practices that predatory publishing
-        seeks to describe.\",\"tags\":[\"Open Access\"],\"title\":\"The undecidable
-        nature of predatory publishing\",\"updated_at\":1594108617,\"url\":\"https://www.samuelmoore.org/2020/03/12/the-undecidable-nature-of-predatory-publishing\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"look
-        at websites like <mark>Retraction</mark> <mark>Watch</mark> or various \u2018sting\u2019
-        articles\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"look
-        at websites like <mark>Retraction</mark> <mark>Watch</mark> or various \u2018sting\u2019
-        articles\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Martin
-        Schmidt\",\"url\":\"\"}],\"blog_id\":\"526jy42\",\"blog_name\":\"Elephant
-        in the Lab\",\"blog_slug\":\"elephantinthelab\",\"content_html\":\"<p></p>\\n<h3></h3>\\n<p><strong>Retraction
-        Watch was launched to provide insights into cases of scientific fraud and
-        grant a window on the retraction process. How does the scientific community
-        react when you publicly report on retractions of scientific papers? How should
-        retractions be received by the scientific community?</strong></p>\\n<p><span>While
-        there are some scientists who are concerned that publicizing retractions \u2014
-        \u201Cairing science\u2019s dirty laundry,\u201D so to speak \u2014 could
-        give ammunition to those who want to defund research, most are very supportive.
-        They realize that the best way to build trust is to acknowledge that errors
-        and misconduct exist, and to show the world how science corrects itself. In
-        other words, the growth in retractions </span><a href=\\\"https://www.thenewatlantis.com/publications/two-cheers-for-the-retraction-boom\\\"><span>is
-        a good thing</span></a><span>.</span></p>\\n<p><span>There\u2019s even evidence
-        that scientists who \u201Cdo the right thing\u201D </span><a href=\\\"https://retractionwatch.com/2015/06/16/life-after-retraction-in-many-cases-its-forgive-and-forget/\\\"><span>won\u2019t
-        see a decline in their career prospects</span></a><span>. But that depends
-        on retraction notices that provide the entire story: It\u2019s only true when
-        those notices make it clear there wasn\u2019t fraud or misconduct involved.
-        We\u2019ve of course argued for detailed notices since we launched Retraction
-        Watch.</span></p>\\n<p><strong>How have digital platforms and tools changed
-        the way erroneous results are uncovered/discovered? How have they enabled
-        Retraction Watch?</strong></p>\\n<p><span>The simple fact that the vast majority
-        of scholarly papers are online today means that more people can read \u2014
-        and scrutinize \u2014 them. Using a program like Photoshop, a scientist or
-        layperson can reverse engineer the manipulation that created a problematic
-        image. As I write this, a team has just </span><a href=\\\"https://www.nature.com/articles/d41586-018-02421-3\\\"><span>announced</span></a><span>
-        a way to find duplicated images that authors claim represent different results,
-        but clearly can\u2019t. And plagiarism detection software is of course a good
-        tool to screen for plagiarism and duplication \u2014 aka \u201Cself-plagiarism\u201D
-        \u2014 of text.</span></p>\\n<p><span>What has really moved the field forward,
-        however, are platforms such as PubPeer, an \u201Conline journal club\u201D
-        where scientists share critiques of papers. A number of corrections and retractions
-        have </span><a href=\\\"https://www.statnews.com/2018/01/30/pubpeer-biotech-investors/\\\"><span>flowed
-        from those discussions</span></a><span>. (PubMed Commons was another such
-        tool, although discussions were not as critical, and the National Library
-        of Medicine </span><a href=\\\"https://retractionwatch.com/2018/02/02/pubmed-shuts-comments-feature-pubmed-commons/\\\"><span>recently
-        decided to shut it down</span></a><span>.) Moving forward, the growth of preprints
-        in biology and related fields could allow detection of errors before papers
-        are even officially peer-reviewed.</span></p>\\n<p><strong>Solely by control
-        or active watching the problem of intransparency of the retraction process
-        cannot be solved. In this context, research ethics matter a lot. How could
-        \_better research ethics evolve?</strong></p>\\n<p><span>I would argue that
-        sustained attention to the retraction process has already led to some changes.
-        Take the Journal of Biological Chemistry (JBC), for example. For the first
-        five years of Retraction Watch, the JBC\u2019s retraction notices were bereft
-        of content, noting simply that the article in question had been retracted
-        at the request of the authors or the editors. In 2015, </span><a href=\\\"https://retractionwatch.com/2015/11/25/now-this-is-good-news-in-policy-change-jbc-will-now-make-retraction-notices-informative/\\\"><span>that
-        changed</span></a><span>, and today the JBC is one of the most aggressive
-        journals when it comes to policing the papers it publishers.</span></p>\\n<p><span>In
-        a larger sense, however, it\u2019s true that preventing all misconduct is
-        impossible, just as expecting to prevent all theft or violence is a fool\u2019s
-        errand. Just as for crimes, the best approach is one that combines prevention,
-        detection, deterrence, and rewards for the kind of behavior we want to promote.</span></p>\\n<p><strong>In
-        your opinion: What should academia change in the way it publishes and reviews
-        results? What role should academic and professional education play?</strong></p>\\n<p><span>As
-        others have noted, the \u201C</span><a href=\\\"https://www.scientificamerican.com/article/intense-competition-among-scientists-gotten-out-of-hand/\\\"><span>winner
-        takes all</span></a><span>\u201D approach to credit in science \u2014 and
-        therefore to doling out grants and jobs \u2014 has created enormous pressure
-        and forces researchers to publish in only a handful of \u201Cprestigious\u201D
-        journals. That means everyone is always striving for perfect and earth-shattering
-        results, and that there is little incentive to repeat experiments or admit
-        error.</span></p>\\n<p><span>It sounds simplistic and perhaps even naive,
-        but we all need to remember how to read papers, instead of judging them by
-        metrics. That\u2019s where initiatives such as DORA \u2014 the </span><a href=\\\"https://www.nature.com/articles/d41586-018-01642-w\\\"><span>Declaration
-        on Research Assessment</span></a><span> \u2014 come in. We need to create
-        incentives for replication, for open data, and even for openly critiquing
-        others\u2019 work if we want to see changes.</span></p>\\n\",\"content_text\":\"content_text\",\"id\":\"45ac386b-7ae0-46fe-95a0-f05578391532\",\"image\":\"https://elephantinthelab.org/wp-content/uploads/2018/03/d23d30480f358b5c72c90c39fca4a01742dacb6e_800x600.jpg\",\"language\":\"en\",\"published_at\":1522050451,\"reference\":[],\"relationships\":[],\"summary\":\"<strong></strong>
-        \ <strong>Retraction Watch was launched to provide insights into cases of
-        scientific fraud and grant a window on the retraction process. How does the
-        scientific community react when you publicly report on retractions of scientific
-        papers?\",\"tags\":[\"Impact\",\"Interview\"],\"title\":\"What is the impact
-        of retractions in science?\",\"updated_at\":1556038893,\"url\":\"https://elephantinthelab.org/what-is-the-impact-of-retractions-in-science\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"notices
-        since we launched <mark>Retraction</mark> <mark>Watch</mark>.</span></p>\\n<p><strong>How
-        have\"},\"summary\":{\"matched_tokens\":[\"Watch\"],\"snippet\":\"strong></strong>
-        \ <strong>Retraction <mark>Watch</mark> was launched to provide\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"notices
-        since we launched <mark>Retraction</mark> <mark>Watch</mark>.</span></p>\\n<p><strong>How
-        have\"},{\"field\":\"summary\",\"matched_tokens\":[\"Watch\"],\"snippet\":\"strong></strong>
-        \ <strong>Retraction <mark>Watch</mark> was launched to provide\"}],\"text_match\":1157451471441100874,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":2,\"score\":\"1157451471441100874\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Stephen
-        Royle\",\"url\":\"https://orcid.org/0000-0001-8927-6967\"}],\"blog_id\":\"s1e9w75\",\"blog_name\":\"quantixed\",\"blog_slug\":\"quantixed\",\"content_html\":\"<p><strong>Raw
-        Data: A novel on Life in Science</strong> by <strong>Pernille R\xF8rth</strong>
-        (Springer, 2016)</p>\\n<p><a href=\\\"https://quantixed.org/2016/03/31/my-blank-pages-v-raw-data/41txjjrwibl-_sx328_bo1204203200_/\\\"></a></p>\\n<p>I
-        was keen to read this \u201Clab lit\u201D novel written by renowned cell biologist
-        Pernille R\xF8rth.\_I\u2019d seen\_lots of enthusiastic comments about the
-        book, and it didn\u2019t disappoint.</p>\\n<p>I was frustrated to read two
-        pieces about <em>Raw Data</em>\_on <a href=\\\"http://retractionwatch.com/2016/03/04/when-misconduct-strikes-a-fictional-tale/\\\">Retraction
-        Watch</a> and <a href=\\\"http://thenode.biologists.com/raw-data-cautionary-tale/bookreviews/\\\">The
-        Node</a>, both of which gave the plot away with no warning, so if you haven\u2019t
-        read it and want to enjoy the suspense while you read, look away now.</p>\\n<p>The
-        story\_is set in a high flying cancer cell biology lab in Boston. Postdocs
-        are working night and day to try and land a paper in <em>Nature</em> and to
-        become an independent PI. Chloe manages it, while Karen is struggling, despite
-        her best efforts. Karen accidentally uncovers that Chloe may have cut some
-        corners to get her paper into <em>Nature</em> and this sets off a cascade
-        of events, leading to the retraction of the paper. It\u2019s a fascinating
-        tale, well-written and completely absorbing. I recommend\_it for anyone working
-        in science. You will smile at the references to conference coffee, failed
-        scientists and more.</p>\\n<p>The plotline is highly reminiscent of <em>Intuition</em>
-        by Allegra Goodman, even down to the tumours growing in the mice. Both stories
-        echo the real-life events of <a href=\\\"https://en.wikipedia.org/wiki/Thereza_Imanishi-Kari\\\">Thereza
-        Imanishi-Kari</a> which are detailed in the overlong but comprehensive <em>The
-        Baltimore Case</em> by Daniel J. Kevles. R\xF8rth\u2019s retelling of the
-        science world is more convincing that Goodman\u2019s, due in part to her 25
-        years as a scientist. Nonetheless,\_<em>Intuition</em> is a great book that
-        I\u2019d also recommend in this genre.</p>\\n<p><em>Raw Data</em>\_is thought-provoking.
-        You can ponder the role of Tom, the PI who has cultivated a certain atmosphere
-        in the lab. What about the pressure to publish? How about the\_peer reviewers
-        who dangle the carrot of \u201Cget this result and you can have a Nature paper\u201D
-        in front of Chloe? It\u2019s a toxic mix and it\u2019s happening in labs all
-        over the world. A terrifying thought.</p>\\n<p>On the role of Tom: one thing
-        that is slightly underexplored is the fact that Tom tells Chloe that there
-        is a competing group that could \u2018scoop\u2019 her while she is rushing
-        to finish her paper. It isn\u2019t clear whether this group actually\_exists
-        and if this was a tactic to gee her along. Either way it is another bit\_of
-        pressure which goes on to\_create the misconduct.</p>\\n<p>Not so long ago
-        a high profile research institute in the UK announced that it was recruiting
-        PIs by looking\_for the \u201Cbest scientific athlete\u201D. I read last week
-        that so far from the London 2012 Olympics, 37 track-and-field sportspeople
-        have had their results disqualified\_by the IAAF for doping. The parallels
-        are interesting. Science, like sport, is run with\_winner-takes-all rules
-        and the high stakes and pressure that go along with it. The incentives are
-        dangerous and I wonder what we are creating with this atmosphere. Certainly,
-        as PIs we have a real responsibility, just as coaches do in sport, to ensure
-        our trainees make the right choices in their career.</p>\\n<p>I\u2019ve seen
-        nothing but recommendations for this book so far and mine is another one.</p>\\n<p>Here\u2019s
-        Matthew Freeman\_saying\_that it would be required reading for everyone in
-        his lab:</p>\\n<blockquote>\\n<p>Pernille R\xF8rth\u2019s novel bought in
-        bulk: now a set text for my group. Careers, fraud, publishing\u2026food for
-        thought <a href=\\\"https://t.co/zjfqE1wvp9\\\">pic.twitter.com/zjfqE1wvp9</a></p>\\n<p>\u2014
-        Matthew Freeman (@mjafreeman) <a href=\\\"https://twitter.com/mjafreeman/status/702508608718839808?ref_src=twsrc%5Etfw\\\">February
-        24, 2016</a></p></blockquote>\\n<p></p>\\n<p>\u2014</p>\\n<p>My Blank Pages
-        is a track by Velvet Crush. This is an occasional series of book reviews.</p>\\n\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.59350/j2nba-89g15\",\"id\":\"fdb6ca52-480a-4325-9d8b-8219ac26522c\",\"language\":\"en\",\"published_at\":1459440367,\"reference\":[],\"relationships\":[],\"summary\":\"<strong>Raw
-        Data: A novel on Life in Science</strong> by <strong>Pernille R\xF8rth</strong>
-        (Springer, 2016)    I was keen to read this \u201Clab lit\u201D novel written
-        by renowned cell biologist Pernille R\xF8rth.\_I\u2019d seen\_lots of enthusiastic
-        comments about the book, and it didn\u2019t disappoint.\",\"tags\":[\"Reading\"],\"title\":\"My
-        Blank Pages V: Raw Data\",\"updated_at\":1459440367,\"url\":\"https://quantixed.org/2016/03/31/my-blank-pages-v-raw-data\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"strikes-a-fictional-tale/\\\"><mark>Retraction</mark>
-        <mark>Watch</mark></a> and <a href=\\\"http:\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"strikes-a-fictional-tale/\\\"><mark>Retraction</mark>
-        <mark>Watch</mark></a> and <a href=\\\"http:\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}}],\"out_of\":5205,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"retraction-watch\"},\"search_cutoff\":false,\"search_time_ms\":9}"
+        articles\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}}],\"out_of\":9512,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"retraction-watch\"},\"search_cutoff\":false,\"search_time_ms\":11}"
     headers:
       Connection:
       - keep-alive

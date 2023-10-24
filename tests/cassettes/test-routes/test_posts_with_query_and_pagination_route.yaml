@@ -14,7 +14,7 @@ interactions:
     uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=retraction-watch&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Ccontent_html%2Creference&filter_by=published_at%3A%3E%3D+0&sort_by=_text_match%3Adesc&per_page=10&page=2
   response:
     body:
-      string: "{\"facet_counts\":[],\"found\":12,\"hits\":[{\"document\":{\"authors\":[{\"name\":\"Elias
+      string: "{\"facet_counts\":[],\"found\":21,\"hits\":[{\"document\":{\"authors\":[{\"name\":\"Elias
         Koch\",\"url\":\"\"}],\"blog_id\":\"526jy42\",\"blog_name\":\"Elephant in
         the Lab\",\"blog_slug\":\"elephantinthelab\",\"content_html\":\"\\n<p></p>\\n\\n\\n\\n<h2>Introduction</h2>\\n\\n\\n\\n<div><figure><img
         loading=\\\"lazy\\\" src=\\\"https://elephantinthelab.org/wp-content/uploads/2021/04/foto2-1024x1024.jpg\\\"
@@ -289,9 +289,619 @@ interactions:
         href=\\\"https://retractionwatch.com/\\\"><mark>Retraction</mark> <mark>Watch</mark></a>,
         is it becoming\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"a
         href=\\\"https://retractionwatch.com/\\\"><mark>Retraction</mark> <mark>Watch</mark></a>,
-        is it becoming\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Adam
-        Day\",\"url\":null}],\"blog_id\":\"ez7c883\",\"blog_name\":\"Stories by Adam
-        Day on Medium\",\"blog_slug\":\"clearskiesadam\",\"content_html\":\"<p>TL;DR:
+        is it becoming\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Ross
+        Mounce\"}],\"blog_id\":\"vbmdy90\",\"blog_name\":\"A blog by Ross Mounce\",\"blog_slug\":\"rossmounce\",\"content_html\":\"\\n<p>On
+        Monday 29th June 2020, I learned <a href=\\\"https://retractionwatch.com/2020/06/29/major-indexing-service-sounds-alarm-on-self-citations-by-nearly-50-journals/\\\">from
+        Retraction Watch</a> that Clarivate, the for-profit proprietor of <em>Journal
+        Impact Factor</em> \u2122  has newly &#8220;suppressed&#8221;   33 journals
+        from their indexing service. The immediate consequence of this &#8220;suppression&#8221;
+        is that these 33 journals do not get assigned an official Clarivate <em>Journal
+        Impact Factor</em> \u2122 .  Clarivate justify this action on the basis of
+        &#8220;anomalous citation patterns&#8221; but without much further detail
+        given for each of the journals other than the overall &#8220;% Self-cites&#8221;
+        of the journal, and the effect of those self-cites on Clarivate&#8217;s citation-based
+        ranking of journals (% Distortion of category rank).</p>\\n\\n\\n\\n<p>Amongst
+        the 33 journals, I spotted not one but two <a href=\\\"https://en.wikipedia.org/wiki/Systematics\\\">systematics</a>
+        journals that I know very well:</p>\\n\\n\\n\\n<ul><li><a href=\\\"https://www.mapress.com/j/zt/\\\">Zootaxa</a>
+        <ul><li>published by a small independent publisher &#8216;Magnolia Press&#8217;
+        based in New Zealand</li></ul></li><li><a href=\\\"https://www.microbiologyresearch.org/content/journal/ijsem\\\">International
+        Journal of Systematic and Evolutionary Microbiology</a><ul><li>published by
+        the Microbiology Society</li><li>the official publication of the&nbsp;<a rel=\\\"noreferrer
+        noopener\\\" href=\\\"https://www.the-icsp.org/\\\" target=\\\"_blank\\\">International
+        Committee on Systematics of Prokaryotes</a>&nbsp;and the Bacteriology and
+        Applied Microbiology Division of the&nbsp;<a rel=\\\"noreferrer noopener\\\"
+        href=\\\"https://www.iums.org/\\\" target=\\\"_blank\\\">International Union
+        of Microbiological Societies</a></li></ul></li></ul>\\n\\n\\n\\n<p>I have
+        read, cited, and analysed (textmining and image analysis) articles from both
+        of these journals extensively. Chapter 6 of my <a href=\\\"https://ethos.bl.uk/OrderDetails.do?uin=uk.bl.ethos.642021\\\">PhD
+        thesis</a> mined over 12,000 <em>Zootaxa</em> articles looking for phylogenetic
+        data. In a more <a href=\\\"https://doi.org/10.3897/rio.3.e13589\\\">recent
+        work published in Research Ideas and Outcomes</a> (RIO Journal), I mined over
+        5,800 <em>IJSEM</em> articles for <a href=\\\"https://en.wikipedia.org/wiki/Phylogenetic_tree\\\">phylogenetic
+        tree</a> data. Of relevance, I should also say I was a council member of the
+        <a href=\\\"https://en.wikipedia.org/wiki/Systematics_Association\\\">Systematics
+        Association</a> for many years.</p>\\n\\n\\n\\n<p>Given the experiences listed
+        above, I am therefore very well placed to say that what Clarivate has done
+        to these two systematics journals is utter brainless idiocy.</p>\\n\\n\\n\\n<p>The
+        reason why <em>Zootaxa</em> articles cite quite a high proportion of other
+        <em>Zootaxa</em> articles is obvious (&#8220;self-citation&#8221; at the journal-level
+        from Clarivate&#8217;s point-of-view) to anyone in the discipline. <em>Zootaxa</em>
+        is an important &#8216;megajournal&#8217; for the zoological systematics community.
+        According to <a href=\\\"https://www.lens.org/lens/search/scholar/list?q=&amp;p=0&amp;n=10&amp;s=_score&amp;d=%2B&amp;f=false&amp;e=false&amp;l=en&amp;authorField=author&amp;dateFilterField=publishedYear&amp;presentation=false&amp;preview=&amp;stemmed=true&amp;useAuthorId=false&amp;sourceTitle.must=Zootaxa&amp;publishedYear.from=2018&amp;publishedYear.to=2019\\\">lens.org
+        data</a> Zootaxa published over 5,000 items (articles and monographs) between
+        2018 and 2019. Clarivate&#8217;s own records from another one of their proprietary
+        analytics services called &#8216;<a href=\\\"http://www.organismnames.com/metrics.htm?page=tsj\\\">Zoological
+        Record</a>&#8216; indicate that 26.57% of all new zoological taxa are published
+        in <em>Zootaxa</em>. For  many decades descriptive taxonomy has been pushed-out
+        of for-profit journals. <em>Zootaxa</em> is a vital refugia for sound science
+        in a poorly funded discipline.  </p>\\n\\n\\n\\n<p>The case for legitimate
+        &#8216;high&#8217; journal-level self-citation at <em>International Journal
+        of Systematic and Evolutionary Microbiology</em> (<em>IJSEM</em>) is even
+        clearer and easier to explain. The <a href=\\\"https://en.wikipedia.org/wiki/International_Code_of_Nomenclature_of_Prokaryotes\\\">International
+        Code of Nomenclature of Prokaryotes</a> (ICNP) <em><strong>requires</strong></em>
+        that all new bacteria names are published in IJSEM and nowhere else (a very
+        sensible idea which the bacteriology community should be commended for). Hence
+        a lot of the systematic and evolutionary microbiology articles in IJSEM will
+        cite prior IJSEM articles.</p>\\n\\n\\n\\n<p> Wayne Maddison has <a href=\\\"https://twitter.com/WayneMaddison/status/1278773935656407040\\\">commented</a>
+        on Twitter that the hardest hit researchers by this action might be those
+        in developing countries. I agree. The problem here is that many institutions
+        and research funders idiotically use the Journal Impact Factor \u2122 to assess
+        the quality of an individual&#8217;s research output. In some regimes, if
+        a researcher publishes a paper in a journal that has a Journal Impact Factor
+        \u2122 then it &#8216;counts&#8217;, whereas if a researcher publishes a paper
+        in a journal that has not been given an official Journal Impact Factor \u2122
+        by Clarivate then that paper may not &#8216;count&#8217; towards the assessment
+        of that researcher.</p>\\n\\n\\n\\n<p>The <a href=\\\"https://twitter.com/MoscasFloricola/status/1278515036139520001\\\">zoology
+        section of the Chilean Society of Biology</a> has already petitioned Clarivate
+        to unsuppress Zootaxa, to give it back its Journal Impact Factor \u2122 .
+        I understand why they would do this but I would actually call for something
+        quite different and more far-reaching.</p>\\n\\n\\n\\n<p>I would encourage
+        all systematists, taxonomists, zoologists, microbiologists, and biologists
+        in general to see the real problem here: Clarivate, a for-profit analytics
+        company, should never be so relied-upon by research evaluation committees
+        to arbitrarily decide the value of a research output. Especially given that
+        the Journal Impact Factor \u2122 is untransparent, <a href=\\\"https://dx.doi.org/10.1083%2Fjcb.200801036\\\">irreproducible</a>,
+        and fundamentally <a href=\\\"http://occamstypewriter.org/scurry/2012/08/13/sick-of-impact-factors/\\\">statistically
+        illiterate</a>.</p>\\n\\n\\n\\n<p>Thus to bring us back to my title. I wonder
+        if Clarivate&#8217;s wacky &#8220;suppression&#8221; might actually be a pathway
+        to liberation from the inappropriate stupidity of using Journal Impact Factor
+        \u2122 to evaluate individual research outputs. Given we have all now witnessed
+        just how brainless some of Clarivate&#8217;s decision making is, I would ask
+        Clarivate to please &#8220;suppress&#8221; all journals thereby removing the
+        harmful stupidity of Journal Impact Factor \u2122 from the lives of researchers.</p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<p></p>\\n\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.59350/v5rp0-nde12\",\"guid\":\"http://rossmounce.co.uk/?p=2199\",\"id\":\"741aaa98-c929-4c12-933c-c09bc151f8e6\",\"image\":\"\",\"language\":\"en\",\"published_at\":1593777776,\"reference\":[],\"relationships\":[],\"summary\":\"\",\"tags\":[\"Research
+        Assessment\"],\"title\":\"Suppression as a form of liberation?\",\"updated_at\":1593777930,\"url\":\"https://rossmounce.co.uk/2020/07/03/suppression-as-a-form-of-liberation\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"nearly-50-journals/\\\">from
+        <mark>Retraction</mark> <mark>Watch</mark></a> that Clarivate, the\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"nearly-50-journals/\\\">from
+        <mark>Retraction</mark> <mark>Watch</mark></a> that Clarivate, the\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Scott
+        Edmunds\",\"url\":\"http://orcid.org/0000-0001-6444-1436\"}],\"blog_id\":\"3ffcd46\",\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"content_html\":\"<p><strong>Shallow
+        Impact. Tis the season.<br />\\n</strong>In case people didn\u2019t know\u2014
+        the world of scientific publishing has seasons: There is the Inundation season,
+        which starts in November as authors rush to submit their papers before the
+        end of year. Then there is the Recovery season beginning in January as editors
+        come back from holidays to tackle the glut. The season of Absence hits in
+        mid-July, as all of Europe prepares to go on a month-long vacation\u2014 and
+        every editor scrambles to find just one reviewer.</p>\\n<p>But the most magical
+        season of all happens in June: the season of Journal Impact Factor (jIF).
+        At this mystical time of year, every editor and publisher and their marketing
+        team wonders <em>Oh, what will The Web of Science bring us this year?</em></p>\\n<p>All
+        joking aside, it is hard to ignore jIF because they have a huge <em>impact</em>
+        on researchers\u2019 careers and on journal success. Still, we all can\u2019t
+        help but notice that this all-powerful number is very much like the Wizard
+        of Oz\u2026 what is really going on behind the curtain and should the wizard
+        be invested with that much power?</p>\\n<p>The clear answer is, well, <em>no</em>.</p>\\n<p>Journal
+        IF wasn\u2019t developed to do what people <a href=\\\"http://www.garfield.library.upenn.edu/papers/jifchicago2005.pdf?wa=IPEMBI14\\\">now
+        use it for</a>. It doesn\u2019t actually inform which scientists are doing
+        good research and certainly doesn\u2019t measure the long-term impact of findings.
+        It is a number based on a single parameter. By focussing purely on short term
+        citations it incentivises short term citations over everything else, leading
+        to higher ranked journals <a href=\\\"http://bjoern.brembs.net/2016/01/even-without-retractions-top-journals-publish-the-least-reliable-science/\\\">publishing
+        the most unreliable science</a> and having the <a href=\\\"http://iai.asm.org/content/79/10/3855.full\\\">highest
+        retraction rates</a>. No one knows exactly how it is <a href=\\\"https://scholarlykitchen.sspnet.org/2016/02/10/citable-items-the-contested-impact-factor-denominator/\\\">calculated</a>.
+        And it can shamelessly be <a href=\\\"http://link.springer.com/article/10.1007/s00005-008-0024-5#/page-1\\\">manipulated</a>
+        by journals.</p>\\n<p><img src=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2016/07/jIFBlogImage2-300x238.jpg\\\"
+        alt=\\\"jIFBlogImage2\\\" width=\\\"300\\\" height=\\\"238\\\" srcset=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2016/07/jIFBlogImage2-300x238.jpg
+        300w, http://gigasciencejournal.com/blog/wp-content/uploads/2016/07/jIFBlogImage2-768x609.jpg
+        768w, http://gigasciencejournal.com/blog/wp-content/uploads/2016/07/jIFBlogImage2-1024x812.jpg
+        1024w, http://gigasciencejournal.com/blog/wp-content/uploads/2016/07/jIFBlogImage2.jpg
+        1498w\\\" />At the same time it takes a heavy toll on the length of time researchers
+        take to share information to make sure they can publish in the highest IF
+        journals. It can add up to years if they submit to one after another journal
+        with a successively lower jIF to get into the highest jIF journal possible.
+        Though, I seriously doubt the <a href=\\\"http://www.who.int/mediacentre/factsheets/fs297/en\\\">~22,000
+        people</a> dying from, for example, cancer every DAY, care where it is published.</p>\\n<p>A
+        fair amount of work has gone into creating new/modified metrics for measuring
+        \u2018true\u2019 impact, but each have drawbacks and can also be manipulated.
+        More, most focus on publication rather than including things like sharing
+        information prior to publication, putting things in preprint servers, freely
+        sharing data and source code, writing complete methods, collaborating, educating
+        young researchers, reproducible research and more: you know, the things that
+        actually promote rapid communication, learning best-practices, and broadly
+        advancing science.</p>\\n<p>Being a journal published by a scientific institution
+        in China, we see the glaring negative impact on research and scientific communication.
+        Here jIF has been taken to an extreme. For example: many universities require
+        that in order to graduate, students must publish in a journal with an IF of
+        2 or more. One-upsmanship has led to institutions now requiring publication
+        in a journal with an IF of 6 or higher!</p>\\n<p>Worse is that the Chinese
+        government formally acknowledges the importance of jIF with monetary rewards.
+        This mechanism, of course, can only beget institutionalized ways to promote
+        unethical behavior or out right fraud. When academic salaries can be proportionally
+        low, this is potentially big money, with institutions such as Zhejiang University
+        <a href=\\\"http://dx.doi.org/10.1087/20110203\\\">being open about author
+        payments</a> of over $30,000 for articles published in the top impact factor
+        journals (anecdotal stories indicate the amount can be even higher).</p>\\n<p>So
+        what is the ultimate cost of the impact factor? Well according to investigations
+        from <a href=\\\"https://plus.google.com/102441667247494916086?rel=author\\\">Guillaume
+        Filion</a>, about $10,000. At least for a ready-written publication in an
+        impact factor 2 journal. And Mara Hvistendahl in <em>Science</em> uncovered
+        <a href=\\\"http://science.sciencemag.org/content/342/6162/1035\\\">a \u201Cpublication
+        bazaar\u201D</a> of companies adding last minute authorship to in-press papers
+        in supposedly \u201Chigh impact\u201D journals. The issue of <a href=\\\"http://www.scientificamerican.com/article/for-sale-your-name-here-in-a-prestigious-science-journal/\\\">\u201Cpaper
+        mills \u201D</a> ghost-writing publications to order, and guaranteeing publication
+        in impact factor journals through peer-review fraud, is a dirty secret of
+        the publishing industry. Carried out near-industrial scale from a number of
+        companies in China, the several hundred papers <a href=\\\"http://retractionwatch.com/category/by-reason-for-retraction/faked-emails/\\\">highlighted
+        in Retraction Watch for peer-review</a> fraud is likely just the tip of the
+        iceberg. We <a href=\\\"http://www.scmp.com/comment/insight-opinion/article/1758662/china-must-restructure-its-academic-incentives-curb-research\\\">have
+        written</a> Op-eds about the same skewed incentive systems potentially spreading
+        to Hong Kong, and have subsequently uncovered companies in Hong Kong offering
+        similar ghost writing and \u201Cguaranteed jIF publication\u201D services
+        for even cheaper than those offered in mainland China.</p>\\n<p>While researchers
+        in other countries can shake their heads in astonishment at these overt activities:
+        is the push in these countries to be published in these same journals really,
+        other than the formality, any different? And by its very obscurity, is it
+        harder to root out. For example, you can\u2019t see or quantitate where, or
+        how often, a Dean of a department quietly suggests to their researchers to
+        try to publish in higher jIF journals, or places where advisors tell students
+        not to share information to make sure they can get published in high jIF places.
+        Plus, it is hard to truly ignore jIF and reduce any inherent prejudice when
+        jIFs are announced and published and highlighted everywhere\u2014 Coming to
+        a billboard near you\u2026</p>\\n<p>Okay\u2014 yes, jIF is bad when there
+        is too much focus on it for researcher success, and its importance is hard
+        to weed out. (Why it is bad has been written about <em>ad nauseum</em> too
+        many times to reference: just Google <em>journal impact factor bad</em>.)<em>.</em></p>\\n<p>So,
+        why am I writing about this?</p>\\n<p>Because hooray- <em>GigaScience</em>
+        obtained its first impact factor last month: sigh of relief\u2026 but mostly
+        a feeling of rage.</p>\\n<p>The entire process of jumping through hoops trying
+        to get tracked leaves far more than just bad taste in one\u2019s mouth. Knowing
+        it matters when it shouldn\u2019t; being told how many of certain article
+        \u2018types\u2019 should be published; limiting reference numbers in certain
+        article types because this might affect the denominator in the jIF ratio of
+        citation to article; trying to estimate the jIF before it comes out and realizing
+        how very non-transparent that calculation is; and telling people jIF isn\u2019t
+        a good metric when a journal doesn\u2019t have one\u2014 then trumpeting it
+        to the heavens once it does\u2026.</p>\\n<p>The discussion groups about the
+        problems of jIF often indicate that the easiest way to reduce <em>the jIF
+        effect</em> is by having funding agencies and research institutions stop including
+        jIF in making financial decisions (and many have). However, this isn\u2019t
+        so simple: funding agencies, research institutions, and universities can use
+        how often their researchers publish in high jIF journals as part of their
+        fund raising and in increasing student applications\u2026 So\u2026 who really
+        can we target as the main player to stop the cycle?</p>\\n<p>Obviously this
+        needs to be multi-pronged, and this idea isn\u2019t new, but it isn\u2019t
+        easy to implement. But one place that can, in one globally-agreed-on sweeping
+        move, both reduce the ease of finding jIFs and make it less \u201Cin your
+        face\u201D, is by all publishers agreeing to remove this number from their
+        websites, from their marketing flyers, from their emails.</p>\\n<p>Several
+        publishers and journals (e.g., eLife and PLOS journals) do this, but, in just
+        the three weeks since the latest jIFs came out, I have received a bonanza
+        of myriad emails announcing: first jIFs; increased jIFs, established jIFs;
+        and \u201Chere are all of our journals\u2019 jIFs\u201D. I almost feel that
+        some deranged used-car salesman has taken up permanent residence in my inbox.
+        But a real indication of how embedded the use of jIF has become in the publishing
+        industry is that even though our publisher has firmly supported us when we
+        requested that our jIF not be posted on our or their website, in marketing
+        flyers, or in emails, it never-the-less appeared up front, top, and bolded
+        in our most recent article alert e-mail. This was not because our publisher
+        decided to ignore how seriously we felt about this; it was simply that the
+        publisher\u2019s auto-alert emails for journals have a standard template that
+        includes jIFs for any journal that has one. No one sees these emails before
+        they go out, and thus it was missed. That is how hard-wired jIF use has become
+        in journal marketing: it is an auto-include.</p>\\n<p>Yes\u2014 I understand,
+        the researchers want to know it, but we\u2019re not using it to give researchers
+        what they want: we\u2019re using it to sell journals. Which is a shame, when
+        we, like everyone else, know it does more harm than good.</p>\\n<p>Reducing
+        the apparent importance of this number is something we as journals and publishers
+        can actually do quite easily (once auto emails are updated, of course).</p>\\n<p>So,
+        Springer-Nature BMC, while I thank you for being on board with our wanting
+        to eliminate the use of jIF for our marketing\u2014 I implore you to remove
+        jIF from every one of your journals\u2019 websites, flyers, and emails.</p>\\n<p>At
+        the very least, sign DORA (Declaration of Research Assessment) (<a href=\\\"http://www.ascb.org/dora\\\">http://www.ascb.org/dora</a>)
+        and follow their recommendations for <a href=\\\"http://www.ascb.org/files/SFDeclarationFINAL.pdf\\\">reducing
+        the use of jIF</a>, Though, better would be to take a stand with the other
+        publishers who have already done so and simply eliminate it completely.</p>\\n<p>I
+        also appeal to other publishers to do the same. Editors, you can push this
+        yourselves by telling your publisher you do not want it used for your journal.
+        (And if you are thinking\u2014 but we need it for people to submit articles
+        to us\u2026 then you are using it for marketing.)</p>\\n<p>Will this solve
+        the jIF problem? No. But it is a straightforward, easy step to take (when
+        willing). It will ultimately mean that those who really care about jIF will
+        have to take that extra step to look it up (or pay Thomson Reuters). Making
+        jIF less readily available will make it harder for it to be so easily used
+        in inappropriate ways. Tell researchers what your journal does to improve
+        scientific communication instead of using a one dimensional, non-transparent,
+        readily gameable, two-years past indication as a stand-in that, <a href=\\\"http://bjoern.brembs.net/2016/01/even-without-retractions-top-journals-publish-the-least-reliable-science/\\\">more
+        often than not, promotes bad scientific practices</a>.</p>\\n<p>At the very
+        least, it will reduce the sense that we are selling science.</p>\\n<p>Laurie
+        Goodman<br />\\nEditor in Chief, <em>GigaScience</em></p>\\n<p>The post <a
+        href=\\\"http://gigasciencejournal.com/blog/jif_problems/\\\">The lowest common
+        denominator: marketing science with jIF</a> appeared first on <a href=\\\"http://gigasciencejournal.com/blog\\\">GigaBlog</a>.</p>\\n\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.59350/8wafm-6yc04\",\"id\":\"d565e7fe-4d6f-4bc4-9e8a-d8e8e99be499\",\"image\":\"http://gigasciencejournal.com/blog/wp-content/uploads/2016/07/jIFBlogImage2-300x238.jpg\",\"language\":\"en\",\"published_at\":1467936243,\"reference\":[],\"relationships\":[],\"summary\":\"<strong>Shallow
+        Impact. Tis the season. </strong>In case people didn\u2019t know\u2014 the
+        world of scientific publishing has seasons: There is the Inundation season,
+        which starts in November as authors rush to submit their papers before the
+        end of year. Then there is the Recovery season beginning in January as editors
+        come back from holidays to tackle the glut.\",\"tags\":[\"Open Access\",\"Publishing\",\"Impact
+        Factor\",\"Metrics\",\"Publishing\"],\"title\":\"The lowest common denominator:
+        marketing science with jIF\",\"updated_at\":1692702607,\"url\":\"http://gigasciencejournal.com/blog/jif_problems\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"faked-emails/\\\">highlighted
+        in <mark>Retraction</mark> <mark>Watch</mark> for peer-review</a>\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"faked-emails/\\\">highlighted
+        in <mark>Retraction</mark> <mark>Watch</mark> for peer-review</a>\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Heinz
+        Pampel\",\"url\":\"https://orcid.org/0000-0003-3334-2771\"}],\"blog_id\":\"34zkv26\",\"blog_name\":\"wisspub.net\",\"blog_slug\":\"wisspub\",\"content_html\":\"<p>Urheberrechtsreform
+        gefordert: Das Aktionsb\xFCndnis Urheberrecht f\xFCr Bildung und Wissenschaft
+        hat Anfang der Woche das Ergebnis einer <a href=\\\"http://wisspub.net/2011/08/11/interview-mit-lars-fischer-zur-open-access-petition-teil-2/\\\">Erhebung</a>
+        zu Anforderungen von Wissenschaft und Bildung an das Urherbrecht ver\xF6ffentlicht.
+        \xDCber 2.500 Personen haben sich an der Umfrage beteiligt und sich in ihren
+        Antworten f\xFCr eine umfassende Reform des Urheberrechts ausgesprochen. In
+        der Umfrage wird auch die Forderung nach einem <a href=\\\"http://wisspub.net/?s=Zweitver%C3%B6ffentlichungsrecht\\\">Zweitverwertungsrecht</a>
+        deutlich. Auszug aus der <a href=\\\"http://www.urheberrechtsbuendnis.de/pressemitteilung0711.html.de\\\">Pressemitteilung</a>:</p>\\n<blockquote><p>\u201EBesonders
+        deutlich (n\xE4mlich zu 91,7 % ) fordern die Befragten, dass zumindest das
+        mit \xF6ffentlichen Mitteln gef\xF6rderte Wissen frei \xF6ffentlich zug\xE4nglich
+        gemacht wird \u2013 wie bereits in entsprechenden Petitionen an den Petitionsausschuss
+        des Deutschen Bundestag verlangt. Um dies zu erreichen, sollte der Gesetzgeber
+        \xFCber Gutachten kl\xE4ren lassen, ob das Zweitverwertungsrecht auch den
+        Institutionen der AutorInnen verbindlich zugesprochen werden darf: Einer solchen
+        L\xF6sung stimmen 80,3% der in Bildung und Wissenschaft Arbeitenden und Publizierenden
+        zu.\u201C</p></blockquote>\\n<p>CDU: Auf ScienceBlogs <a href=\\\"http://www.scienceblogs.de/frischer-wind/2011/09/bitte-an-alle-cdumitglieder-helft-mit-open-access-auf-die-agenda-zu-setzen.php\\\">berichtet</a>
+        Christian Reinboth \xFCber seinen Antrag zur F\xF6rderung von Open Access
+        im Rahmen des bildungspolitischen Strategiepapiers \u201EBildungsrepublik
+        Deutschland\u201C der CDU. (Via <a href=\\\"http://oad.simmons.edu/oadwiki/OA_tracking_project\\\">OATP</a>)</p>\\n<p>Forschungsdaten
+        klinischer Studien: Die Cochrane Collaboration spricht sich in einem <a href=\\\"http://www.cochrane.org/features/clinical-trials-statement-press-release\\\">Statement</a>
+        f\xFCr eine bessere Zug\xE4nglichkeit von Forschungsdaten aus, die im Rahmen
+        von klinischen Studien erhoben werden: (Via <a href=\\\"http://oad.simmons.edu/oadwiki/OA_tracking_project\\\">OATP</a>)</p>\\n<blockquote><p>\u201C[A]ll
+        data from all randomised clinical trials, including raw anonymised individual
+        participant data that do not allow identification of individual participants,
+        and the corresponding trial protocols to become publicly available free of
+        charge and in easily accessible electronic formats\u201C.</p></blockquote>\\n<p>Umgang
+        mit zur\xFCckgezogenen Artikeln: In der aktuellen Ausgabe der Nature <a href=\\\"http://www.nature.com/news/2011/111005/full/478026a.html\\\">befasst</a>
+        sich Richard Van Noorden mit den Problematiken zur\xFCckgezogener wissenschaftlicher
+        Artikel. In dem lesenswerten Aufsatz findet sich der Hinweis auf das interessante
+        Blog \u201E<a href=\\\"http://retractionwatch.wordpress.com/\\\">Retraction
+        Watch</a>\u201C.</p>\\n<p>Nanopublikationen in der Pharmazie: Veronika Schmidt
+        berichtet auf <a href=\\\"http://diepresse.com/home/gesundheit/690539/Pharma_Zugang-zu-ArzneiInfos?_vl_backlink=/home/gesundheit/index.do\\\">Die
+        Presse.com</a> \xFCber das EU-Projekt <a href=\\\"http://www.openphacts.org/\\\">Open
+        PHACTS</a> (Open Pharmacological Concepts Triple Store). Das Projekt widmet
+        sich u.a. dem Konzept der Nanopublikation im Bereich der Pharmazie.</p>\\n\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.59350/h0rcf-t4b66\",\"id\":\"25389\",\"language\":\"de\",\"published_at\":1318102994,\"reference\":[],\"relationships\":[],\"summary\":\"Urheberrechtsreform
+        gefordert: Das Aktionsb\xFCndnis Urheberrecht f\xFCr Bildung und Wissenschaft
+        hat Anfang der Woche das Ergebnis einer Erhebung zu Anforderungen von Wissenschaft
+        und Bildung an das Urherbrecht ver\xF6ffentlicht.\",\"tags\":[\"Forschungsdaten\",\"Open
+        Access\",\"Publikationsverhalten\",\"Urheberrecht\",\"Virtuelle Forschungsumgebungen\"],\"title\":\"Kurz:
+        Urheberrechtsreform gefordert; Freier Zugang zu Forschungsdaten klinischer
+        Studien; Umgang mit zur\xFCckgezogenen Artikeln; Nanopublikationen in der
+        Pharmazie\",\"updated_at\":1318102994,\"url\":\"https://wisspub.net/2011/10/08/kurz-6\",\"uuid\":\"55f4a122-780c-43e1-9012-63842d2e7062\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"href=\\\"http://retractionwatch.wordpress.com/\\\"><mark>Retraction</mark>
+        <mark>Watch</mark></a>\u201C.</p>\\n<p>Nanopublikationen in\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"href=\\\"http://retractionwatch.wordpress.com/\\\"><mark>Retraction</mark>
+        <mark>Watch</mark></a>\u201C.</p>\\n<p>Nanopublikationen in\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[],\"blog_id\":\"med7n78\",\"blog_name\":\"Musings
+        about Librarianship - Aaron Tay\",\"blog_slug\":\"musings\",\"content_html\":\"<img
+        src=\\\"https://api.follow.it/track-rss-story-loaded/v1/nr_Y2U1XqVqbBpjsJSFRAqCY3L745TL_\\\"
+        border=0 width=\\\"1\\\" height=\\\"1\\\" alt=\\\"Two new browser extensions
+        that help with delivery or access - ebsco passport and GetFTR browser extension
+        and other developments\\\" title=\\\"Two new browser extensions that help
+        with delivery or access - ebsco passport and GetFTR browser extension and
+        other developments\\\"> <p>One of the earliest themes of this blog was to
+        track tools that not only helped with discovery but <a href=\\\"https://musingsaboutlibrarianship.blogspot.com/search/label/delivery\\\">also
+        with delivery</a>, <a href=\\\"https://musingsaboutlibrarianship.blogspot.com/search/label/delivery\\\">helping
+        users to gain access to full-text via institution subscriptions (and of course
+        via Open Access) even if they did not start off the library homepage</a>.</p><p><a
+        href=\\\"https://musingsaboutlibrarianship.blogspot.com/2020/08/improving-access-and-delivery-of.html\\\">Solving
+        this access or delivery issue had many solutions </a>(I even wrote a whole
+        Library Technology Report on this, or <a href=\\\"https://musingsaboutlibrarianship.blogspot.com/2020/08/improving-access-and-delivery-of.html\\\">see
+        this blog post</a>) but one of the methods that took off the fastest was providing
+        access via Browser extensions (which was <a href=\\\"https://musingsaboutlibrarianship.blogspot.com/2018/08/the-rise-of-access-brokers-why-now-and.html\\\">dubbed
+        as Access Brokers by RA21/SeamlessAccess</a>)</p><p>Here is some past coverage
+        for context on such browser extensions</p><p></p><ol style=\\\"text-align:
+        left;\\\"><li><a href=\\\"https://musingsaboutlibrarianship.blogspot.com/2022/08/library-extension-and-open-access.html\\\">Library
+        Extension and Open Access Helper - Two unique 'new' extensions that help with
+        checking library book and article collections</a></li><li><a href=\\\"https://musingsaboutlibrarianship.blogspot.com/2019/07/a-comparison-of-6-access-broker-browser.html\\\">A
+        comparison of 6 Access Broker browser extensions Lean Library, Kopernio, Anywhere
+        Access, Libkey Nomad & more</a></li><li><a href=\\\"https://musingsaboutlibrarianship.blogspot.com/2019/05/kopernio-lean-library-anywhere-access.html\\\">Kopernio,
+        Lean Library, Anywhere Access & other \\\"Access Broker\\\" browser extensions
+        - a roundup & update of current state of play</a></li><li><a href=\\\"https://musingsaboutlibrarianship.blogspot.com/search/label/browser%20extension\\\">More</a></li></ol><p></p><p>In
+        this post, we are going to update the state of play of this area by covering\_</p><p></p><ul><li>Major
+        changes to existing players particularly Lean Library and Libkey Nomad</li><li>Cover
+        briefly the new Ebscohost Passport browser extension\_\_</li><li>Cover briefly
+        the new beta GetFTR browser extension\_\_</li></ul><p><br /></p><h2 style=\\\"text-align:
+        left;\\\">Major changes to the two main existing players - Lean Library and
+        Libkey Nomad</h2><div>It is interesting to revisit the installation numbers
+        of the various access broker browser extensions. As of Aug 2023, these are
+        the numbers from the Chrome Store.</div><p></p><ol style=\\\"text-align: left;\\\"><li><a
+        href=\\\"https://chrome.google.com/webstore/detail/google-scholar-button/ldipcbpaocekfooobnbcddclnhejkcpn\\\">Google
+        Scholar button </a>- 3,000,000+ users (free)</li><li><a href=\\\"https://chrome.google.com/webstore/detail/endnote-click-formerly-ko/fjgncogppolhfdpijihbpfmeohpaadpc\\\">EndNote
+        Click - Formerly Kopernio </a>- 2,000,000+ users (free)</li><li><a href=\\\"https://chrome.google.com/webstore/detail/libkey-nomad/lkoeejijapdihgbegpljiehpnlkadljb\\\">Libkey
+        Nomad</a> - 600,000+ users</li><li><a href=\\\"https://chrome.google.com/webstore/detail/lean-library/hghakoefmnkhamdhenpbogkeopjlkpoa\\\">Lean
+        Library </a>- 200,000+ users</li><li><a href=\\\"https://chrome.google.com/webstore/detail/lazy-scholar/fpbdcofpbclblalghaepibbagkkgpkak\\\">Lazy
+        Scholar </a>- 10,000+ users (free)\_\_</li><li><a href=\\\"https://chrome.google.com/webstore/detail/open-access-helper-web/jonkgaipjeenhoccenhhccmofokbpanl\\\">OA
+        helper </a>- 3,000+ users (free)</li><li><a href=\\\"https://chrome.google.com/webstore/detail/endnote-click-formerly-ko/fjgncogppolhfdpijihbpfmeohpaadpc\\\">Library
+        Extension </a>- 2,000,000+ users (free)- this one unlike the other\_ focuses
+        only on books.</li></ol><div>These six extensions (with the 7th focusing on
+        books) help you find not only free to read papers but also ones behind paywall
+        that you can access via institutional subscriptions.\_\_</div><blockquote><div>There
+        are more of course, but these six are the most established and fully featured
+        ones. We also exclude extensions that provide illegal access, typically via
+        sci-hub</div></blockquote><div>Of course, there are other extensions that
+        focus only on free to read articles including <a href=\\\"https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha\\\">Unpaywall
+        (600,000+ users)</a>\_, <a href=\\\"https://chrome.google.com/webstore/detail/open-access-button/gknkbkaapnhpmkcgkmdekdffgcddoiel\\\">Open
+        Access Button (40,000+ users)\_</a> and lesser known ones like C<a href=\\\"https://chrome.google.com/webstore/detail/core-discovery/ockidfiihjhkngdalfnbeeepgfbmkmlh\\\">ORE
+        Discovery (5,000+ users)</a>,\_\_<a href=\\\"http://OA.mg\\\">OA.mg (30,000+
+        users)</a>\_,\_\_<a href=\\\"https://chrome.google.com/webstore/detail/paperpanda-%E2%80%94-get-millions/ggjlkinaanncojaippgbndimlhcdlohf\\\">PaperPanda(100,000+
+        users)</a>\_and more.</div><div><br /></div><div>In terms of the six extensions
+        above, the free Google Scholar button remains top with three million users
+        which is not surprising.</div><div><br /></div><div>Kopernio which was one
+        of the pioneers of this space, is now owned by Clarivate, who have integrated
+        and renamed Kopernio to <a href=\\\"https://click.endnote.com/\\\">Endnote
+        Click with their Endnote product</a>. Following the footsteps of Kopernio,
+        Endnote Click is free to use, but like most of its competitors it <a href=\\\"https://support.clarivate.com/Endnote/s/article/EndNote-Click-Does-EndNote-Click-support-library-link-resolvers?language=en_US\\\">works
+        better if libraries work with them to set up connections to aggregator content
+        via institutional link resolvers</a>.\_</div><div><br /></div><div>For institutions
+        that are Web of Science customers, librarian can offer access to <a href=\\\"https://support.clarivate.com/Endnote/s/article/EndNote-Click-I-have-received-a-premium-referral-link-from-my-institutional-library-What-is-this-and-how-does-it-work?language=en_US\\\">Endnote
+        Click Premium</a>, which gives users a <a href=\\\"https://click.endnote.com/premium\\\">2
+        GB locker space and Dropbox integration</a>.</div><p></p><p>\_</p><h2 style=\\\"text-align:
+        left;\\\">Evolution of Third Iron Libkey Nomad & Sage's Lean Library</h2><p><a
+        href=\\\"https://chrome.google.com/webstore/detail/google-scholar-button/ldipcbpaocekfooobnbcddclnhejkcpn\\\">Google
+        Scholar button\_</a>and\_<a href=\\\"https://chrome.google.com/webstore/detail/endnote-click-formerly-ko/fjgncogppolhfdpijihbpfmeohpaadpc\\\">EndNote
+        Click - Formerly Kopernio\_</a>\_have huge installation numbers basically
+        because they are free and work well without much library support.</p><p>However,
+        academic libraries of today mostly pay for and publicize their support for
+        either</p><p>a) Third Iron's\_<a href=\\\"https://chrome.google.com/webstore/detail/libkey-nomad/lkoeejijapdihgbegpljiehpnlkadljb\\\">Libkey
+        Nomad</a>\_or b) Sage's\_<a href=\\\"https://chrome.google.com/webstore/detail/lean-library/hghakoefmnkhamdhenpbogkeopjlkpoa\\\">Lean
+        Library</a>, and these two tools have developed and evolved the fastest.</p><p><a
+        href=\\\"https://chrome.google.com/webstore/detail/lean-library/hghakoefmnkhamdhenpbogkeopjlkpoa\\\">Lean
+        Library</a>\_which was eventually acquired by Sage, was one of the first access
+        broker browser extensions to go beyond simply support of access.\_</p><p>As
+        of Aug 2023, the solution is broken into three main modules</p><p></p><ul
+        style=\\\"text-align: left;\\\"><li><a href=\\\"https://leanlibrary.com/lean-library-access/\\\">Lean
+        Library Access</a>\_- which covers the traditional functions of an access
+        broker extension. But even then, it <a href=\\\"http://musingsaboutlibrarianship.blogspot.com/2019/10/some-ideas-for-lean-librarys-library.html\\\">allows
+        librarians to add customizable popup messages as users visit particular domains
+        or even URLs, supporting communication and marketing tasks.</a>\_\_</li></ul><p></p><ul
+        style=\\\"text-align: left;\\\"><li><a href=\\\"http://musingsaboutlibrarianship.blogspot.com/2019/10/some-ideas-for-lean-librarys-library.html\\\">Lean
+        Library Workflow for Libguides</a>- An add-on to the\_<a href=\\\"https://leanlibrary.com/lean-library-access/\\\">Lean
+        Library Access</a>\_, this allows you to integrate LibGuides content into
+        the extension</li></ul><div><ul style=\\\"text-align: left;\\\"><li><a href=\\\"https://leanlibrary.com/lean-library-futures/\\\">Lean
+        Library Futures</a>\_- This provides even more Intergrations, including <a
+        href=\\\"https://leanlibrary.com/blog/lean-library-partners-with-ex-libris/\\\">integrations
+        with discovery services such as Primo\_, Summon</a>, <a href=\\\"https://leanlibrary.com/blog/lean-library-partners-with-ebsco-to-bring-library-search-into-google-scholar-and-other-parts-of-the-patron-workflow/\\\">EDS</a>,
+        support for user feedback of resources (NetPromoter Score), content intergration
+        (hot linking text in Wikipedia with links to Sage Research Methods, Statista
+        etc), chatbot intergation and more</li></ul></div><p></p><p><br /></p><p><iframe
+        allow=\\\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;
+        picture-in-picture; web-share\\\" allowfullscreen=\\\"\\\" frameborder=\\\"0\\\"
+        height=\\\"315\\\" src=\\\"https://www.youtube.com/embed/34T10zmXLPM\\\" title=\\\"YouTube
+        video player\\\" width=\\\"560\\\"></iframe></p><p><br /></p><p>Meanwhile
+        Third Iron's\_<a href=\\\"https://chrome.google.com/webstore/detail/libkey-nomad/lkoeejijapdihgbegpljiehpnlkadljb\\\">Libkey
+        Nomad</a>\_\_continued to evolve as well. The browser extension which launched
+        in 2019, basically added retraction signal posting via Retraction Watch Database
+        data, ingested OA data from Unpaywall.This eventually lead to <a href=\\\"https://www.google.com/search?q=libkey+2022+oadmap&sca_esv=559122478&rlz=1C1ONGR_enSG1005SG1005&sxsrf=AB5stBgme0F0eGgE3ffO7x4bCj-wbu-JBw%3A1692728002567&ei=wvrkZJyiIoe9seMPyL-ssAc&ved=0ahUKEwici62a7_CAAxWHXmwGHcgfC3YQ4dUDCA8&uact=5&oq=libkey+2022+oadmap&gs_lp=Egxnd3Mtd2l6LXNlcnAiEmxpYmtleSAyMDIyIG9hZG1hcEjgDVCmBVjxC3ABeACQAQCYAVSgAbcCqgEBNbgBA8gBAPgBAcICBxAjGLACGCfiAwQYASBBiAYB&sclient=gws-wiz-serp#fpstate=ive&vld=cid:167feea9,vid:zt9Nz5kDT34\\\">ThirdIron
+        hosting information of Unpaywall and OA availability data themselves locally
+        so libraries could collectively report and correct incorrect OA availabilty
+        information.</a></p><p>It is fair to say that up to 2023 compared to Lean
+        Library, Libkey Nomad even the Libkey Suite (that includes Libkey Discovery,
+        Libkey Link and Libkey.io) focused mainly on delivery or providing access
+        to things users wanted without going out to helping with the discovery aspect.</p><p>There
+        was one exception, support of linking to ebooks. This was a feature long available
+        in Lean Library (with varying degree of comprehensiveness) and Libkey finally
+        did the same with<a href=\\\"https://support.thirdiron.com/support/solutions/articles/72000594927-libkey-nomad-e-books-linking\\\">\_LibKey
+        Nomad E-Books Linking, first supporting Alma libraries in March 2023.</a></p><p>Also
+        in 2023, <a href=\\\"https://thirdiron-assets.s3.amazonaws.com/webassets/Third+Iron+2023+Product+Roadmap+Recap.pdf\\\">Third
+        Iron launched a new product -\_LibKey Nomad++</a>. It added the \\\"domain
+        intelligent messaging and custom linking, LibChat integration,, integration
+        with popular bibliographic management tools, and options to customize and
+        brand the extension\\\"</p><p>Some of it like domain intelligent messaging
+        and custom linking, LibChat Integration look very similar to existing features
+        in Lean Library and seems to signal Third Iron moving away from just focusing
+        on linking to content but to allow other types of library intergration.....</p><p><br
+        /></p><p>\_</p><p><br /></p><h2 style=\\\"text-align: left;\\\">Ebscohost
+        Passport</h2><div><br /></div><div><iframe allow=\\\"accelerometer; autoplay;
+        clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\\\"
+        allowfullscreen=\\\"\\\" frameborder=\\\"0\\\" height=\\\"315\\\" src=\\\"https://www.youtube.com/embed/wGi6BoD3pwk\\\"
+        title=\\\"YouTube video player\\\" width=\\\"560\\\"></iframe><br /></div><div><br
+        /></div><div>This is a<a href=\\\"https://connect.ebsco.com/s/article/EBSCOhost-Passport-Browser-Extension?language=en_US\\\">
+        new free browser plugin from Ebsco</a>\_launched in June 2023 that aims to</div><div><blockquote>makes
+        research simpler and more efficient for end users by dynamically inserting
+        links to full text in virtually any webpage where the DOIs are present.</blockquote><p>How
+        is this done?</p><p></p><blockquote>Ebscohost passport checks to see if the
+        user has access to linked articles either in an EBSCOhost full text database,
+        through a subscribed journal at the publisher site or through open access
+        sources. It even honours the authentication preferences of the user's institution
+        and adjusts the links accordingly.</blockquote><p></p></div><p>This sounds
+        very similar to what Libkey Nomad does of course.</p><p>Below shows the extension
+        in action on Google Scholar</p><div class=\\\"separator\\\" style=\\\"clear:
+        both; text-align: center;\\\"><a href=\\\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivwMzATNSS-Qz1ouR3ZebLJaiXlD350AlU46eF3yfQTNr9rrsIbwDvNSjgh0KDbJH90Jz2NV0XNsy7b-F-DnX5pI4-c8rWHauOPpz2bsClh4GmJogqnCYbOM462R6Jb83A1wg1WWGXvqHn8Z-uDmczcguX2glPL8b2JWvOXN97E0ZWSOl37swUh1K4koSw/s1863/ebscopassport1.png\\\"
+        style=\\\"margin-left: 1em; margin-right: 1em;\\\"><img border=\\\"0\\\" data-original-height=\\\"707\\\"
+        data-original-width=\\\"1863\\\" height=\\\"242\\\" src=\\\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivwMzATNSS-Qz1ouR3ZebLJaiXlD350AlU46eF3yfQTNr9rrsIbwDvNSjgh0KDbJH90Jz2NV0XNsy7b-F-DnX5pI4-c8rWHauOPpz2bsClh4GmJogqnCYbOM462R6Jb83A1wg1WWGXvqHn8Z-uDmczcguX2glPL8b2JWvOXN97E0ZWSOl37swUh1K4koSw/w640-h242/ebscopassport1.png\\\"
+        width=\\\"640\\\" /></a></div><br /><p>Below shows the extension in action
+        in Wikipedia references.</p><div class=\\\"separator\\\" style=\\\"clear:
+        both; text-align: center;\\\"><a href=\\\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-7bdT-2Q-rmGkwLCdgOowhW87EY6MRELe0VuV8IyNDbl5W-QBEA3kq732FWzy3EncTMDi3Hd3Ac7PX4YdDwDV3Al3f1aIoorXQCjxrIbUru4VqEJNtPRrmJGJMazBkXOVEL121jmFOQ9z70AQSKmuZW-dzn_WA1AkmSwvE-JeNeUQYjuZrLedjJAbDOrg/s1337/ebscopassport2.png\\\"
+        style=\\\"margin-left: 1em; margin-right: 1em;\\\"><img border=\\\"0\\\" data-original-height=\\\"707\\\"
+        data-original-width=\\\"1337\\\" height=\\\"338\\\" src=\\\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-7bdT-2Q-rmGkwLCdgOowhW87EY6MRELe0VuV8IyNDbl5W-QBEA3kq732FWzy3EncTMDi3Hd3Ac7PX4YdDwDV3Al3f1aIoorXQCjxrIbUru4VqEJNtPRrmJGJMazBkXOVEL121jmFOQ9z70AQSKmuZW-dzn_WA1AkmSwvE-JeNeUQYjuZrLedjJAbDOrg/w640-h338/ebscopassport2.png\\\"
+        width=\\\"640\\\" /></a></div><div class=\\\"separator\\\" style=\\\"clear:
+        both; text-align: center;\\\"><br /></div><div class=\\\"separator\\\" style=\\\"clear:
+        both; text-align: center;\\\"><br /></div><div class=\\\"separator\\\" style=\\\"clear:
+        both; text-align: center;\\\"><br /></div><div class=\\\"separator\\\" style=\\\"clear:
+        both; text-align: left;\\\">There are <a href=\\\"https://connect.ebsco.com/s/article/EBSCOhost-Passport-Browser-Extension?language=en_US\\\">three
+        main type of icons</a> you will see.\_</div><div class=\\\"separator\\\" style=\\\"clear:
+        both; text-align: center;\\\"><br /></div><div class=\\\"separator\\\" style=\\\"clear:
+        both; text-align: center;\\\"><a href=\\\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEignrYrNrT2nvvgQkWha4uwEP7iI5w0Hy9ajL0OVJi3dAa91fPJVBJnwWJj-hDiQxq5Z-i1fV733pMg0p2glZ3lFyFuYdcE2XE77-zju6bwMf6zKtXRzUM9UVlXJwgOcVRtwzxURFxXMHoE5ReNO0WeLTjBnmzApZlYUJRc9eVPW3hJW7GlDmXia3fJ28Lj/s1178/ebscopassport3.png\\\"
+        style=\\\"margin-left: 1em; margin-right: 1em;\\\"><img border=\\\"0\\\" data-original-height=\\\"418\\\"
+        data-original-width=\\\"1178\\\" height=\\\"228\\\" src=\\\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEignrYrNrT2nvvgQkWha4uwEP7iI5w0Hy9ajL0OVJi3dAa91fPJVBJnwWJj-hDiQxq5Z-i1fV733pMg0p2glZ3lFyFuYdcE2XE77-zju6bwMf6zKtXRzUM9UVlXJwgOcVRtwzxURFxXMHoE5ReNO0WeLTjBnmzApZlYUJRc9eVPW3hJW7GlDmXia3fJ28Lj/w640-h228/ebscopassport3.png\\\"
+        width=\\\"640\\\" /></a></div><div class=\\\"separator\\\" style=\\\"clear:
+        both; text-align: center;\\\"><br /></div><div class=\\\"separator\\\" style=\\\"clear:
+        both; text-align: center;\\\"><br /></div><div class=\\\"separator\\\" style=\\\"clear:
+        both; text-align: left;\\\">Firstly, you will see an icon that indicates you
+        have access from your institution via a subscribed EBSCO Database.</div><div
+        class=\\\"separator\\\" style=\\\"clear: both; text-align: left;\\\"><br /></div><div
+        class=\\\"separator\\\" style=\\\"clear: both; text-align: left;\\\">Secondly,
+        you may see an icon that indicates you have access from other publisher subscribed
+        content via your institution.</div><div class=\\\"separator\\\" style=\\\"clear:
+        both; text-align: left;\\\"><br /></div><div class=\\\"separator\\\" style=\\\"clear:
+        both; text-align: left;\\\">Lastly, you may see an icon that indicates you
+        have access via Open Access copy (found via paywall).</div><div class=\\\"separator\\\"
+        style=\\\"clear: both; text-align: left;\\\"><br /></div>All this seems fine
+        and dandy but how does this browser extension know what your institution has?
+        According<a href=\\\"https://www.johila.org/index.php/Johila/article/view/143/212\\\">
+        to this article</a>, \\\"the access to subscribed content only works for libraries
+        using EBSCO's Holdings Management tool\\\".<p><br /></p><p><a href=\\\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKYUa5duJstn5DRBN-5SaTkx9buVgIAtWTYQrK3ofT-oQoSYWNS7mO-jDtGzPiG5BykdVA7hHLou9W_mhTxJAvlObm7o8Rig4_LUgaNh1rdqaocd4WBabUwzVX3QCxVxOHScwSyihn3AnYNNcRYV2jIRRxSeVYUPwJWD7kizKSfEQIqjh3aCJwmpw3EErV/s524/ebscopassport4.png\\\"
+        style=\\\"margin-left: 1em; margin-right: 1em; text-align: center;\\\"><img
+        border=\\\"0\\\" data-original-height=\\\"234\\\" data-original-width=\\\"524\\\"
+        height=\\\"286\\\" src=\\\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKYUa5duJstn5DRBN-5SaTkx9buVgIAtWTYQrK3ofT-oQoSYWNS7mO-jDtGzPiG5BykdVA7hHLou9W_mhTxJAvlObm7o8Rig4_LUgaNh1rdqaocd4WBabUwzVX3QCxVxOHScwSyihn3AnYNNcRYV2jIRRxSeVYUPwJWD7kizKSfEQIqjh3aCJwmpw3EErV/w640-h286/ebscopassport4.png\\\"
+        width=\\\"640\\\" /></a></p><p><br /></p><p>Quick tests using my institution
+        find that this is true. For my institution, it works okay if the content is
+        in one of our subscribed databases on ebscohost but it does not seem to know
+        about holdings on other platforms.\_</p><p>This fits, given that while we
+        used to once have EDS (Ebsco discovery services), we have since moved to Alma/Primo
+        and no longer have our holdings in the Ebsco systems. But presumably Ebsco
+        still knows what Ebsco databases we have and the holding in those.</p><p>\_</p><h2
+        style=\\\"text-align: left;\\\">GetFTR plugin</h2><p>GetFTR is something I
+        have written about in the past for example <a href=\\\"https://musingsaboutlibrarianship.blogspot.com/2020/08/improving-access-and-delivery-of.html\\\">here
+        </a>and <a href=\\\"https://musingsaboutlibrarianship.blogspot.com/2020/08/improving-access-and-delivery-of.html\\\">here\_</a>\_but
+        here's a perhaps overly simplified way of explaining it is as follows.</p><p>If
+        you look at the various solutions whether Libkey Nomad, Lean Library or even
+        link resolvers in general, the library either needs to maintain a listing
+        of holdings or provide that to third parties like Third Iron (for Libkey)
+        , Sage (for Lean Library) for the system to work.</p><p>GetFTR turns this
+        on it's head, and instead the publisher/content owners maintain the list of
+        holdings.</p><p>Roughly speaking the GetFTR workflow involves</p><p>1. System
+        authenticates to confirm which institution you are from (technically this
+        can happen later as well)</p><p>2. System then determines from the DOI which
+        publisher has that article and queries that publisher asking if the user's
+        institution allows access to the article</p><p>3. The publisher (which hopefully
+        supports GetFTR) will respond with a yes/no and a link to the full-text</p><p>4.
+        Profit!</p><p>The issue here is for the whole GetFTR to get off the ground
+        at step 1, it needs to be done on a discovery platform that supports GetFTR
+        and currently there are not that many of those (e.g.\_\_<a href=\\\"https://www.getfulltextresearch.com/researchgate-integrates-with-getftr\\\">One
+        platform that supports GetFTR checks is ResearchGate</a>, also <a href=\\\"https://www.digital-science.com/blog/2020/03/dimensions-and-papers-are-among-first-scholarly-platforms-to-join-new-service-get-full-text-research/\\\">Dimensions
+        & Papers</a>).\_</p><p>One way around the problem is to install <a href=\\\"https://www.getfulltextresearch.com/chrome-browser-extension\\\">the
+        GetFTR browser extension</a> that will act as a GetFTR enabled platform to
+        do the checks as you browse across the web!\_</p><p>This is a very new beta
+        browser extension made available June 2023, so this is a preliminary look!</p><p><br
+        /></p><p>Installing the browser plugin will get you the usual popup asking
+        you to add your institution. I was half expecting my institution not to appear
+        on the list because we do not do federated access generally for access to
+        electronic resources and I understand while GetFTR in theory can work with
+        any authentication method, they are most closely associated with using Seamless
+        Access.\_</p><p>Instead, I noticed all the Singapore institutions do appear,
+        even ones that don't do OpenAthens etc.</p><div class=\\\"separator\\\" style=\\\"clear:
+        both; text-align: center;\\\"><a href=\\\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJ98jukgPQv9Q6GXQ_0SpQTf16lHyZMt_np_YKV5uIgfkgO_f1llVr1T-2WtpJBoeoXTegbj8uCwgYzSesJ2w0SA_yJXOSuJxy9RInuEdBZIK2HBbazhlu5mPuBPg26rZSUXPm1_xLB_PP23MI66NC1yVPam6rGp3WvAdVSzO8_PKogAa9AyxK2jbsnjVB/s779/getftrbrowser1.png\\\"
+        style=\\\"margin-left: 1em; margin-right: 1em;\\\"><img border=\\\"0\\\" data-original-height=\\\"725\\\"
+        data-original-width=\\\"779\\\" height=\\\"596\\\" src=\\\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJ98jukgPQv9Q6GXQ_0SpQTf16lHyZMt_np_YKV5uIgfkgO_f1llVr1T-2WtpJBoeoXTegbj8uCwgYzSesJ2w0SA_yJXOSuJxy9RInuEdBZIK2HBbazhlu5mPuBPg26rZSUXPm1_xLB_PP23MI66NC1yVPam6rGp3WvAdVSzO8_PKogAa9AyxK2jbsnjVB/w640-h596/getftrbrowser1.png\\\"
+        width=\\\"640\\\" /></a></div><br /><p>But what are the platforms supported
+        for this browser extension where they will activate and display a GetFTR button?</p><p>Currently,
+        they support seven sites including the popular Google Scholar and PubMed.
+        They also work on Two popular academic discovery services - Summon and EDS
+        (but not Primo it seems), Web of Science and the lesser known Lens.org</p><div
+        class=\\\"separator\\\" style=\\\"clear: both; text-align: center;\\\"><a
+        href=\\\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZuIkwREcIXOCpw79Tht7amMUL2PQ5Q1oTduvuXNTW46Bw3SelcDmIeJytl8NK4hTI4BjqSQToIAutRvWImLhOg4uvCTQM0-rGj9pzkpQG9eKFuOYNfE6JXWOVFs7AUS5dCfEPGc03nbFmbgoFASeo_8dZdZhGV9VgG1HeqnY5fAHzOVk_oHmVplKoVnYo/s889/getftrbrowser2.png\\\"
+        style=\\\"margin-left: 1em; margin-right: 1em;\\\"><img border=\\\"0\\\" data-original-height=\\\"889\\\"
+        data-original-width=\\\"781\\\" height=\\\"640\\\" src=\\\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZuIkwREcIXOCpw79Tht7amMUL2PQ5Q1oTduvuXNTW46Bw3SelcDmIeJytl8NK4hTI4BjqSQToIAutRvWImLhOg4uvCTQM0-rGj9pzkpQG9eKFuOYNfE6JXWOVFs7AUS5dCfEPGc03nbFmbgoFASeo_8dZdZhGV9VgG1HeqnY5fAHzOVk_oHmVplKoVnYo/w562-h640/getftrbrowser2.png\\\"
+        width=\\\"562\\\" /></a></div><br /><p>Lastly, there is an interesting <a
+        href=\\\"https://support.crossref.org/hc/en-us/articles/115003688983-Co-access-\\\">CrossRef
+        Co-access</a>. The website says</p><p></p><blockquote><p><i>Co-access allows
+        members to register multiple records and DOIs for the same book content item.
+        This option is provided to support members who publish book content on multiple
+        platforms</i></p><p></p></blockquote><p>Fascinating, yet another wrinkle this
+        time relating to registering dois for book content that I was unaware of.
+        It's unclear to me how often this done in practice.\_</p><p><br /></p><p>What
+        type of buttons will the GetFTR browser extension produce?</p><p>All buttons
+        produced I believe will have the same icon and label \\\"View PDF\\\", however
+        mousing over the button you may see\_</p><p></p><ul style=\\\"text-align:
+        left;\\\"><li>\\\"full-text is open access\\\"</li><li>\\\"full-text available
+        through - <institution>\\\"</li></ul><p></p><p><br /></p><div class=\\\"separator\\\"
+        style=\\\"clear: both; text-align: center;\\\"><a href=\\\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAEJumwfRmBjhmQ-1SeMO2JwcnPGKiwbCiQsothq2ZNNdnao99zVcB05Ew7vIb5irbu8SuLF7qp9TOAd58U3xCGmleMGq8i5gP7hiiZo20RBcXvpLPtGLc4sdtPvMbBzUPn5a8C9zwXbX_oOIgWkrlUanQi0843xrZD5ehqJoQFOgweSSWFNHhV-1za-r_/s1029/getftrbrowser3.png\\\"
+        style=\\\"margin-left: 1em; margin-right: 1em;\\\"><img border=\\\"0\\\" data-original-height=\\\"516\\\"
+        data-original-width=\\\"1029\\\" height=\\\"320\\\" src=\\\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAEJumwfRmBjhmQ-1SeMO2JwcnPGKiwbCiQsothq2ZNNdnao99zVcB05Ew7vIb5irbu8SuLF7qp9TOAd58U3xCGmleMGq8i5gP7hiiZo20RBcXvpLPtGLc4sdtPvMbBzUPn5a8C9zwXbX_oOIgWkrlUanQi0843xrZD5ehqJoQFOgweSSWFNHhV-1za-r_/w640-h320/getftrbrowser3.png\\\"
+        width=\\\"640\\\" /></a></div><br /><p><br /></p><p>There is a third label
+        - \\\"full-text is freely available\\\". I am not quite sure how this differs
+        from the \\\"full-text is open access\\\", except maybe one is temporarily
+        made available via the content owner.</p><p><br /></p><div class=\\\"separator\\\"
+        style=\\\"clear: both; text-align: center;\\\"><a href=\\\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilz9jyIJIXtDRgyeHyfBB0Lj5zpzBkBdfdR4ZVNJbfh1neQZoOImSsROPsozu-J-nEGmauylK0NbauQfDJJG50BRMoINSnT274iUnKygsUzyNjNf45Xi27LhGyItuUDCjVY92pixxEZ9oW8xxp5GLKK3_XkpT-iE_PWKL3qNVstpNp7c7XjaLgtUmI9N3T/s910/getftrbrowser4.png\\\"
+        style=\\\"margin-left: 1em; margin-right: 1em;\\\"><img border=\\\"0\\\" data-original-height=\\\"326\\\"
+        data-original-width=\\\"910\\\" height=\\\"230\\\" src=\\\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilz9jyIJIXtDRgyeHyfBB0Lj5zpzBkBdfdR4ZVNJbfh1neQZoOImSsROPsozu-J-nEGmauylK0NbauQfDJJG50BRMoINSnT274iUnKygsUzyNjNf45Xi27LhGyItuUDCjVY92pixxEZ9oW8xxp5GLKK3_XkpT-iE_PWKL3qNVstpNp7c7XjaLgtUmI9N3T/w640-h230/getftrbrowser4.png\\\"
+        width=\\\"640\\\" /></a></div><br /><p><br /></p><p>Playing around with my
+        institution, I get mostly buttons on content from Elsevier which was one of
+        the earliest supporters of GetFTR.</p><p>Interestingly there were some buttons
+        that stated \\\"full-text available through - Singapore Management University\\\"
+        which indicated that it was in theory capable of bringing users to content
+        behind paywall even for us.\_</p><p>But when I clicked on the button , I was
+        not asked to authenticate but most were not behind paywall anyway. No doubt
+        this was something to do with our setup (or lack there of).</p><p><br /></p><h2
+        style=\\\"text-align: left;\\\">Conclusion</h2><p>Looks like there is still
+        some life in this area! Particularly curious to see how GetFTR browser extension
+        develops. Also makes me wonder if some of the existing browser extensions
+        like Libkey Nomad or Lean Library might bring in GetFTR technology as an additional/secondary
+        way to check for access.</p><p><br /></p><p><br /></p><p><br /></p><p><br
+        /></p><p><br /></p>\",\"content_text\":\"content_text\",\"id\":\"9c77d5d0-d3d2-4d0c-80d1-14db6dd52d96\",\"language\":\"en\",\"published_at\":1693852424,\"reference\":[],\"relationships\":[],\"summary\":\"\",\"tags\":[],\"title\":\"Two
+        new browser extensions that help with delivery or access - ebsco passport
+        and GetFTR browser extension and other developments\",\"updated_at\":1693852424,\"url\":\"https://api.follow.it/track-rss-story-click/v3/seIFwoSimx5_rT3db7hkaYMOI2eu70Rg\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"retraction
+        signal posting via <mark>Retraction</mark> <mark>Watch</mark> Database data,
+        ingested OA\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"retraction
+        signal posting via <mark>Retraction</mark> <mark>Watch</mark> Database data,
+        ingested OA\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Stephen
+        Royle\",\"url\":\"https://orcid.org/0000-0001-8927-6967\"}],\"blog_id\":\"s1e9w75\",\"blog_name\":\"quantixed\",\"blog_slug\":\"quantixed\",\"content_html\":\"<p><strong>Raw
+        Data: A novel on Life in Science</strong> by <strong>Pernille R\xF8rth</strong>
+        (Springer, 2016)</p>\\n<p><a href=\\\"https://quantixed.org/2016/03/31/my-blank-pages-v-raw-data/41txjjrwibl-_sx328_bo1204203200_/\\\"></a></p>\\n<p>I
+        was keen to read this \u201Clab lit\u201D novel written by renowned cell biologist
+        Pernille R\xF8rth.\_I\u2019d seen\_lots of enthusiastic comments about the
+        book, and it didn\u2019t disappoint.</p>\\n<p>I was frustrated to read two
+        pieces about <em>Raw Data</em>\_on <a href=\\\"http://retractionwatch.com/2016/03/04/when-misconduct-strikes-a-fictional-tale/\\\">Retraction
+        Watch</a> and <a href=\\\"http://thenode.biologists.com/raw-data-cautionary-tale/bookreviews/\\\">The
+        Node</a>, both of which gave the plot away with no warning, so if you haven\u2019t
+        read it and want to enjoy the suspense while you read, look away now.</p>\\n<p>The
+        story\_is set in a high flying cancer cell biology lab in Boston. Postdocs
+        are working night and day to try and land a paper in <em>Nature</em> and to
+        become an independent PI. Chloe manages it, while Karen is struggling, despite
+        her best efforts. Karen accidentally uncovers that Chloe may have cut some
+        corners to get her paper into <em>Nature</em> and this sets off a cascade
+        of events, leading to the retraction of the paper. It\u2019s a fascinating
+        tale, well-written and completely absorbing. I recommend\_it for anyone working
+        in science. You will smile at the references to conference coffee, failed
+        scientists and more.</p>\\n<p>The plotline is highly reminiscent of <em>Intuition</em>
+        by Allegra Goodman, even down to the tumours growing in the mice. Both stories
+        echo the real-life events of <a href=\\\"https://en.wikipedia.org/wiki/Thereza_Imanishi-Kari\\\">Thereza
+        Imanishi-Kari</a> which are detailed in the overlong but comprehensive <em>The
+        Baltimore Case</em> by Daniel J. Kevles. R\xF8rth\u2019s retelling of the
+        science world is more convincing that Goodman\u2019s, due in part to her 25
+        years as a scientist. Nonetheless,\_<em>Intuition</em> is a great book that
+        I\u2019d also recommend in this genre.</p>\\n<p><em>Raw Data</em>\_is thought-provoking.
+        You can ponder the role of Tom, the PI who has cultivated a certain atmosphere
+        in the lab. What about the pressure to publish? How about the\_peer reviewers
+        who dangle the carrot of \u201Cget this result and you can have a Nature paper\u201D
+        in front of Chloe? It\u2019s a toxic mix and it\u2019s happening in labs all
+        over the world. A terrifying thought.</p>\\n<p>On the role of Tom: one thing
+        that is slightly underexplored is the fact that Tom tells Chloe that there
+        is a competing group that could \u2018scoop\u2019 her while she is rushing
+        to finish her paper. It isn\u2019t clear whether this group actually\_exists
+        and if this was a tactic to gee her along. Either way it is another bit\_of
+        pressure which goes on to\_create the misconduct.</p>\\n<p>Not so long ago
+        a high profile research institute in the UK announced that it was recruiting
+        PIs by looking\_for the \u201Cbest scientific athlete\u201D. I read last week
+        that so far from the London 2012 Olympics, 37 track-and-field sportspeople
+        have had their results disqualified\_by the IAAF for doping. The parallels
+        are interesting. Science, like sport, is run with\_winner-takes-all rules
+        and the high stakes and pressure that go along with it. The incentives are
+        dangerous and I wonder what we are creating with this atmosphere. Certainly,
+        as PIs we have a real responsibility, just as coaches do in sport, to ensure
+        our trainees make the right choices in their career.</p>\\n<p>I\u2019ve seen
+        nothing but recommendations for this book so far and mine is another one.</p>\\n<p>Here\u2019s
+        Matthew Freeman\_saying\_that it would be required reading for everyone in
+        his lab:</p>\\n<blockquote>\\n<p>Pernille R\xF8rth\u2019s novel bought in
+        bulk: now a set text for my group. Careers, fraud, publishing\u2026food for
+        thought <a href=\\\"https://t.co/zjfqE1wvp9\\\">pic.twitter.com/zjfqE1wvp9</a></p>\\n<p>\u2014
+        Matthew Freeman (@mjafreeman) <a href=\\\"https://twitter.com/mjafreeman/status/702508608718839808?ref_src=twsrc%5Etfw\\\">February
+        24, 2016</a></p></blockquote>\\n<p></p>\\n<p>\u2014</p>\\n<p>My Blank Pages
+        is a track by Velvet Crush. This is an occasional series of book reviews.</p>\\n\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.59350/j2nba-89g15\",\"id\":\"fdb6ca52-480a-4325-9d8b-8219ac26522c\",\"language\":\"en\",\"published_at\":1459440367,\"reference\":[],\"relationships\":[],\"summary\":\"<strong>Raw
+        Data: A novel on Life in Science</strong> by <strong>Pernille R\xF8rth</strong>
+        (Springer, 2016)    I was keen to read this \u201Clab lit\u201D novel written
+        by renowned cell biologist Pernille R\xF8rth.\_I\u2019d seen\_lots of enthusiastic
+        comments about the book, and it didn\u2019t disappoint.\",\"tags\":[\"Reading\"],\"title\":\"My
+        Blank Pages V: Raw Data\",\"updated_at\":1459440367,\"url\":\"https://quantixed.org/2016/03/31/my-blank-pages-v-raw-data\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"strikes-a-fictional-tale/\\\"><mark>Retraction</mark>
+        <mark>Watch</mark></a> and <a href=\\\"http:\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"strikes-a-fictional-tale/\\\"><mark>Retraction</mark>
+        <mark>Watch</mark></a> and <a href=\\\"http:\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Adam
+        Day\"}],\"blog_id\":\"ez7c883\",\"blog_name\":\"Stories by Adam Day on Medium\",\"blog_slug\":\"clearskiesadam\",\"content_html\":\"<p>TL;DR:
         Join me at ConTech Live to hear about a recent project with <a href=\\\"https://opencredo.com/\\\">Open
         Credo</a> to see if we could detect unusual co-authorships in a dataset created
         by Anna Abalkina. <a href=\\\"https://www.contech.live/contech2022\\\">Sign
@@ -300,7 +910,7 @@ interactions:
         process\u201D or it might be \u201Cmanufacturing of fraudulent research papers\u201D
         and so\_on.</p><p>I described the general roles involved in papermilling in
         <a href=\\\"https://publisherad.medium.com/how-papermills-work-generally-c080bb9fff43\\\">a
-        previous blog\_post</a>.</p><figure><img src=\\\"https://cdn-images-1.medium.com/max/937/1*OSsajzQlkOFyf_LkQ6lBfw.png\\\"
+        previous blog\_post</a>.</p><figure><img alt=\\\"\\\" src=\\\"https://cdn-images-1.medium.com/max/937/1*OSsajzQlkOFyf_LkQ6lBfw.png\\\"
         /></figure><p>But there\u2019s actually a lot of nuance in how different papermills
         operate. Consider what happens when we have multiple agents, forgers and authors
         operating in a\_network.</p><p>I\u2019m going to describe here 3 quite different
@@ -321,10 +931,10 @@ interactions:
         blog posts</a>, is mostly trained to highlight this kind of papermilling.</p><h3>2.
         Fabrication by plagiarism</h3><p>Fabrication from scratch requires skill.
         What if our forger doesn\u2019t know how to write a fake paper from scratch?
-        This is a <em>sad\_forger:</em></p><figure><img src=\\\"https://cdn-images-1.medium.com/max/250/1*7_PceWGAeLBoczc3dYi2Jg.png\\\"
+        This is a <em>sad\_forger:</em></p><figure><img alt=\\\"\\\" src=\\\"https://cdn-images-1.medium.com/max/250/1*7_PceWGAeLBoczc3dYi2Jg.png\\\"
         /><figcaption>I\u2019ve made him look sad by rotating his mouth 180\xB0. Image
         manipulation is not my\_fort\xE9.</figcaption></figure><p>So what can he do?
-        How can he turn that frown upside-down?</p><figure><img src=\\\"https://cdn-images-1.medium.com/max/363/1*0b31C3OWhZwrtkz9C3Cfww.png\\\"
+        How can he turn that frown upside-down?</p><figure><img alt=\\\"\\\" src=\\\"https://cdn-images-1.medium.com/max/363/1*0b31C3OWhZwrtkz9C3Cfww.png\\\"
         /></figure><p>The idea is simple. If he can\u2019t write a fake paper, <em>he
         can just copy a real one</em>! Or he can get creative and copy several bits
         of papers and paste the bits into a new manuscript. If he\u2019s worried about
@@ -352,15 +962,499 @@ interactions:
         we could detect unusual co-authorships using the dataset created by Anna Abalkina
         in her work. If you\u2019d like to know more, I suggest signing up for <a
         href=\\\"https://www.contech.live/contech2022\\\">our forthcoming ConTech
-        presentation!</a></p><img src=\\\"https://medium.com/_/stat?event=post.clientViewed&amp;referrerSource=full_rss&amp;postId=14993c37ebfa\\\"
-        width=\\\"1\\\" height=\\\"1\\\" />\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.59350/dakrb-j7a75\",\"id\":\"8ec5510e-0bab-40ef-8978-9011f579aeca\",\"image\":\"https://cdn-images-1.medium.com/max/937/1*OSsajzQlkOFyf_LkQ6lBfw.png\",\"language\":\"en\",\"published_at\":1667236116,\"reference\":[],\"relationships\":[],\"summary\":\"TL;DR:
+        presentation!</a></p><img src=\\\"https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=14993c37ebfa\\\"
+        width=\\\"1\\\" height=\\\"1\\\" alt=\\\"\\\">\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.59350/dakrb-j7a75\",\"guid\":\"https://medium.com/p/14993c37ebfa\",\"id\":\"8ec5510e-0bab-40ef-8978-9011f579aeca\",\"language\":\"en\",\"published_at\":1667236116,\"reference\":[],\"relationships\":[],\"summary\":\"TL;DR:
         Join me at ConTech Live to hear about a recent project with Open Credo to
         see if we could detect unusual co-authorships in a dataset created by Anna
-        Abalkina. Sign up\_here! Papermilling has a few definitions which you see
-        here and there.\",\"tags\":[\"Peer Review Journals\",\"Academic Publishing\",\"Research
-        Integrity\"],\"title\":\"(The?) 3 kinds of papermills\",\"updated_at\":1667236116,\"url\":\"https://clearskiesadam.medium.com/3-kinds-of-papermills-14993c37ebfa\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"brought
+        Abalkina. Sign up&nbsp;here!\",\"tags\":[\"Peer-review-journals\",\"Academic-publishing\",\"Research-integrity\"],\"title\":\"(The?)
+        3 kinds of papermills\",\"updated_at\":1667236116,\"url\":\"https://clearskiesadam.medium.com/3-kinds-of-papermills-14993c37ebfa\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"brought
         to light by <mark>Retraction</mark> <mark>Watch</mark> some years ago</a>\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"brought
-        to light by <mark>Retraction</mark> <mark>Watch</mark> some years ago</a>\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}}],\"out_of\":5205,\"page\":2,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"retraction-watch\"},\"search_cutoff\":false,\"search_time_ms\":9}"
+        to light by <mark>Retraction</mark> <mark>Watch</mark> some years ago</a>\"}],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Mike
+        Taylor\"}],\"blog_id\":\"dkvra02\",\"blog_name\":\"Sauropod Vertebra Picture
+        of the Week\",\"blog_slug\":\"svpow\",\"content_html\":\"<p>Back in March,
+        <em>Nature</em> published &#8220;Hummingbird-sized dinosaur from the Cretaceous
+        period of Myanmar&#8221; by Xing et al. (2020), which described and named
+        a tiny putative bird that was preserved in amber from Myanmar (formerly Burma).
+        It&#8217;s a pretty spectacular find.</p>\\n<p><div data-shortcode=\\\"caption\\\"
+        id=\\\"attachment_17764\\\" style=\\\"width: 490px\\\" class=\\\"wp-caption
+        alignnone\\\"><a href=\\\"https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg\\\"><img
+        aria-describedby=\\\"caption-attachment-17764\\\" loading=\\\"lazy\\\" data-attachment-id=\\\"17764\\\"
+        data-permalink=\\\"http://svpow.com/2020/07/22/whats-going-on-with-oculudentavis/41586_2020_2068_fig1_html/\\\"
+        data-orig-file=\\\"https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg\\\"
+        data-orig-size=\\\"1773,1293\\\" data-comments-opened=\\\"1\\\" data-image-meta=\\\"{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}\\\"
+        data-image-title=\\\"41586_2020_2068_Fig1_HTML\\\" data-image-description=\\\"\\\"
+        data-image-caption=\\\"&lt;p&gt;Xing et al. (2020: figure 1). a, Photograph
+        of the amber piece with skull ventrolaterally exposed. b, c, Scan (b) and
+        drawing (c), left lateral view. d, e, Scan (d) and drawing (e), rostral view.
+        f, g, Scan (f) and drawing (g), occipital view. h, i, Scan (h) and drawing
+        (i), dorsal view. de, dentary; fr, frontal; hy, hyoid bone (or bones); jg,
+        jugal; la, lacrimal; mx, maxilla; pa, parietal; pm, premaxilla; po, postorbital;
+        qd, quadrate; sc, scleral ossicle; so, supraoccipital; sq, squamosal; th,
+        teeth. Scale bars, 5 mm; longer scale bar below b applies to b\u2212i.&lt;/p&gt;\\n\\\"
+        data-medium-file=\\\"https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg?w=300\\\"
+        data-large-file=\\\"https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg?w=1024\\\"
+        class=\\\"size-full wp-image-17764\\\" src=\\\"https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg\\\"
+        alt=\\\"\\\" width=\\\"480\\\" height=\\\"350\\\" srcset=\\\"https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg?w=480&amp;h=350
+        480w, https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg?w=960&amp;h=700
+        960w, https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg?w=150&amp;h=109
+        150w, https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg?w=300&amp;h=219
+        300w, https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg?w=768&amp;h=560
+        768w\\\" sizes=\\\"(max-width: 480px) 100vw, 480px\\\" /></a><p id=\\\"caption-attachment-17764\\\"
+        class=\\\"wp-caption-text\\\"><strong>Xing et al. (2020: figure 1).</strong>
+        <strong>a</strong>, Photograph of the amber piece with skull ventrolaterally
+        exposed. <strong>b</strong>, <strong>c</strong>, Scan (<strong>b</strong>)
+        and drawing (<strong>c</strong>), left lateral view. <strong>d</strong>, <strong>e</strong>,
+        Scan (<strong>d</strong>) and drawing (<strong>e</strong>), rostral view.
+        <strong>f</strong>, <strong>g</strong>, Scan (<strong>f</strong>) and drawing
+        (<strong>g</strong>), occipital view. <strong>h</strong>, <strong>i</strong>,
+        Scan (<strong>h</strong>) and drawing (<strong>i</strong>), dorsal view. de,
+        dentary; fr, frontal; hy, hyoid bone (or bones); jg, jugal; la, lacrimal;
+        mx, maxilla; pa, parietal; pm, premaxilla; po, postorbital; qd, quadrate;
+        sc, scleral ossicle; so, supraoccipital; sq, squamosal; th, teeth. Scale bars,
+        5 mm; longer scale bar below <strong>b</strong> applies to <strong>b</strong>\u2212<strong>i</strong>.</p></div></p>\\n<p>Today,
+        though, that paper <a href=\\\"https://www.nature.com/articles/s41586-020-2553-9\\\">is
+        retracted</a>.</p>\\n<p>That&#8217;s a very rare occurrence for a palaeontology
+        paper. And it raises a lot of questions. The retraction notice reads, in full:</p>\\n<blockquote><p>We,
+        the authors, are retracting this Article to prevent inaccurate information
+        from remaining in the literature. Although the description of <em>Oculudentavis
+        khaungraae</em> remains accurate, a new unpublished specimen casts doubts
+        upon our hypothesis regarding the phylogenetic position of HPG-15-3.</p></blockquote>\\n<p>But
+        we constantly see papers whose phylogenetic hypotheses are overturned by new
+        specimens. We usually deal with this by writing a new paper. Why, in this
+        case, is there a retraction? Something smells wrong here.</p>\\n<p>And the
+        plot thickens in <a href=\\\"https://retractionwatch.com/2020/07/22/a-big-nature-study-on-a-tiny-dinosaur-is-being-retracted/\\\">Retraction
+        Watch&#8217;s account</a>: corresponding author Jingmai O\u2019Connor told
+        them:</p>\\n<blockquote><p>I don\u2019t agree with the retraction but there
+        is no point in fighting it, so we all signed it.</p>\\n<p>I cannot say why
+        <em>Nature</em> chose to retract, I cannot hypothesize on their inner machinations.
+        [&#8230;] It is also not that unusual for paleontologists to misidentify things
+        and for new information to correct previous hypotheses. However, <em>Nature</em>
+        chose not to publish the Matter\u2019s Arising and instead retracts our paper
+        \u2013 they must have their reasons.</p></blockquote>\\n<p>This doesn&#8217;t
+        add up. The retraction notice explictly states that the <em>authors</em> retracted
+        the original paper \u2014 yet the corresponding author says that the journal
+        did it, more or less against the authors&#8217; will.</p>\\n<p>I don&#8217;t
+        know what&#8217;s going on here. I agree with O&#8217;Connor that &#8220;It\u2019s
+        unfortunate because this way science can\u2019t simply correct itself (as
+        it is supposed to do)&#8221;. If, as Li et al. (2000) argue, <em>Oculudentavis</em>
+        is actually a squamate (lizard), well, fine: they can publish their conclusion,
+        and the community will arrive at a consensus as to which identification is
+        correct. That&#8217;s how it works, right? So why the retraction?</p>\\n<p>And
+        there&#8217;s more: what does this mean for zoological nomenclature? Is the
+        name <em>Oculudentavis khaungraae</em> still nomenclaturally valid? Opinions
+        on this seem to vary (see <a href=\\\"http://dinosaurmailinglist.cmnh.org/2020Jul/threads.html#00156\\\">the
+        Dinosaur Mailing List thread beginning with Ben Creisler&#8217;s announcement
+        of the retraction</a>.)</p>\\n<p>I lean to the interpretation that, since
+        the <a href=\\\"https://www.iczn.org/the-code/the-international-code-of-zoological-nomenclature/the-code-online/\\\">International
+        Code on Zoological Nomenclature</a> does not mention retractions, it implicitly
+        takes the position that a paper once published is published forever. On that
+        basis, the name <em>Oculudentavis</em> remains valid and attached to the holoype
+        specimen \u2014 even if that name, with its <em>-avis</em> suffix, proves
+        to have been poorly chosen in pertaining to a non-bird. (After all, there
+        is plenty of precedent for misleading names staying in place: the whale <em>Basilosaurus</em>
+        is not a saurian, and the clade of &#8220;false crocodiles&#8221; Pseudosuchia
+        includes the true crocodiles.)</p>\\n<p>This doesn&#8217;t seem to be what
+        Springer Nature wants: in a Facebook exchange forwarded to me by a friend
+        who I will leave anonymous unless he or she chooses to out him or herself,
+        Henry Gee comments &#8220;The retraction means the paper is erased from the
+        record, and this includes the name&#8221;.</p>\\n<p><a href=\\\"https://svpow.files.wordpress.com/2020/07/screen-shot-2020-07-22-at-5.29.33-pm.png\\\"><img
+        loading=\\\"lazy\\\" data-attachment-id=\\\"17760\\\" data-permalink=\\\"http://svpow.com/2020/07/22/whats-going-on-with-oculudentavis/screen-shot-2020-07-22-at-5-29-33-pm/\\\"
+        data-orig-file=\\\"https://svpow.files.wordpress.com/2020/07/screen-shot-2020-07-22-at-5.29.33-pm.png\\\"
+        data-orig-size=\\\"1024,1014\\\" data-comments-opened=\\\"1\\\" data-image-meta=\\\"{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}\\\"
+        data-image-title=\\\"Screen Shot 2020-07-22 at 5.29.33 PM\\\" data-image-description=\\\"\\\"
+        data-image-caption=\\\"\\\" data-medium-file=\\\"https://svpow.files.wordpress.com/2020/07/screen-shot-2020-07-22-at-5.29.33-pm.png?w=300\\\"
+        data-large-file=\\\"https://svpow.files.wordpress.com/2020/07/screen-shot-2020-07-22-at-5.29.33-pm.png?w=1024\\\"
+        class=\\\"alignnone size-full wp-image-17760\\\" src=\\\"https://svpow.files.wordpress.com/2020/07/screen-shot-2020-07-22-at-5.29.33-pm.png\\\"
+        alt=\\\"\\\" width=\\\"480\\\" height=\\\"475\\\" srcset=\\\"https://svpow.files.wordpress.com/2020/07/screen-shot-2020-07-22-at-5.29.33-pm.png?w=480&amp;h=475
+        480w, https://svpow.files.wordpress.com/2020/07/screen-shot-2020-07-22-at-5.29.33-pm.png?w=960&amp;h=950
+        960w, https://svpow.files.wordpress.com/2020/07/screen-shot-2020-07-22-at-5.29.33-pm.png?w=300&amp;h=297
+        300w, https://svpow.files.wordpress.com/2020/07/screen-shot-2020-07-22-at-5.29.33-pm.png?w=768&amp;h=761
+        768w\\\" sizes=\\\"(max-width: 480px) 100vw, 480px\\\" /></a></p>\\n<p>I think
+        this is simply incorrect. But I am no expert: I await comments from those
+        more versed in the intricacies of the ICZN.</p>\\n<p>At any rate, I can&#8217;t
+        help but suspect that something is going on here that&#8217;s not being clearly
+        stated. Could it be to do with the fact that Myanmar amber is itself controversial,
+        due to the human rights record of the Myanmar regime? Is it even possible
+        that one or more or the authors of the original <em>Oculudentavis</em> colluded
+        in describing it as a bird when they knew it was something else? I don&#8217;t
+        know (and to be 100% clear, I am <em>not</em> accusing anyone of anything).
+        But I do know that <em>Nature</em>&#8216;s vague and possibly misleading retraction
+        notice is not helping, and is not in the spirit of transparency that we aim
+        to cultivate in the sciences.</p>\\n<p>I&#8217;m pretty sure we don&#8217;t
+        yet know the full story.</p>\\n<h1>References</h1>\\n<ul>\\n<li><a href=\\\"https://www.biorxiv.org/content/10.1101/2020.03.16.993949v1?versioned=true\\\">Zhiheng
+        Li, Wei Wang, Han Hu, Min Wang, Hongyu Yi and Jing Lu. 2020. Is <em>Oculudentavis</em>
+        a bird or even archosaur? doi:10.1101/2020.03.16.993949</a></li>\\n<li><a
+        href=\\\"https://www.nature.com/articles/s41586-020-2068-4\\\">Xing, L.; O&#8217;Connor,
+        J. K.; Schmitz, L.; Chiappe, L. M.; McKellar, R. C.; Yi, Q.; Li, G. 2020.
+        Hummingbird-sized dinosaur from the Cretaceous period of Myanmar. <em>Nature</em>
+        <strong>579</strong>(7798):245\u2013249. doi:10.1038/s41586-020-2068-4</a></li>\\n</ul>\\n<p>&nbsp;</p>\\n\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.59350/hk3jx-6sv77\",\"guid\":\"http://svpow.com/?p=17752\",\"id\":\"c556963d-9f80-4798-922b-f77180d3c33b\",\"image\":\"https://svpow.files.wordpress.com/2020/07/41586_2020_2068_fig1_html.jpeg\",\"language\":\"en\",\"published_at\":1595461726,\"reference\":[{\"key\":\"ref1\",\"url\":\"https://www.biorxiv.org/content/10.1101/2020.03.16.993949v1?versioned=true\"},{\"key\":\"ref2\",\"url\":\"https://www.nature.com/articles/s41586-020-2068-4\"}],\"relationships\":[],\"summary\":\"Back
+        in March, Nature published \u201CHummingbird-sized dinosaur from the Cretaceous
+        period of Myanmar\u201D by Xing et al. (2020), which described and named a
+        tiny putative bird that was preserved in amber from Myanmar (formerly Burma).
+        It\u2019s a pretty spectacular find. Today, though, that paper is retracted.\",\"tags\":[\"New
+        Papers\",\"Nomenclature\",\"Paleontologists Behaving Badly\",\"Stinkin' Lizards\",\"Stinkin'
+        Theropods\"],\"title\":\"What\u2019s going on with <i>Oculudentavis</i>?\",\"updated_at\":1595754036,\"url\":\"https://svpow.com/2020/07/22/whats-going-on-with-oculudentavis\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"dinosaur-is-being-retracted/\\\"><mark>Retraction</mark>
+        <mark>Watch</mark>&#8217;s account</a>: corresponding author\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"dinosaur-is-being-retracted/\\\"><mark>Retraction</mark>
+        <mark>Watch</mark>&#8217;s account</a>: corresponding author\"}],\"text_match\":1157451437081362505,\"text_match_info\":{\"best_field_score\":\"2211881091072\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451437081362505\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Mike
+        Taylor\"}],\"blog_id\":\"dkvra02\",\"blog_name\":\"Sauropod Vertebra Picture
+        of the Week\",\"blog_slug\":\"svpow\",\"content_html\":\"<p>This Monday and
+        Tuesday, I was at <a href=\\\"https://r2rconf.com/\\\">the R2R (Researcher
+        to Reader) conference</a> at BMA House in London. It&#8217;s the first time
+        I&#8217;ve been to this, and I was there at the invitation of my old sparring
+        partner <a href=\\\"https://twitter.com/Looptopper\\\">Rick Anderson</a>,
+        who was organizing <a href=\\\"https://r2rconf.com/2020/01/21/r2r-debate-teams-announced/\\\">this
+        year&#8217;s debate</a>, on the proposition &#8220;The venue of its publication
+        tells us nothing useful about the quality of a paper&#8221;.</p>\\n<p>I was
+        one half of the team arguing in favour of the proposition, along with <a href=\\\"https://twitter.com/TobyABGreen\\\">Toby
+        Green</a>, currently managing director at Coherent Digital and prevously head
+        of publishing at the OECD for twenty years. Our opponents were <a href=\\\"https://twitter.com/LearnedPublish\\\">Pippa
+        Smart</a>, publishing consultant and editor of <em>Learned Publishing</em>;
+        and Niall Boyce, editor of <em>The Lancet Psychiatry</em>.</p>\\n<p>I&#8217;m
+        going to blog three of the four statements that were made. (The fourth, that
+        of Niall Boyce, is not available, as he spoke from handwritten notes.) I&#8217;ll
+        finish this series with a fourth post summarising how the debate went, and
+        discussing what I now think about the proposition.</p>\\n<p>But now, here
+        is the opening statement for the proposition, co-written by Toby and me, and
+        delivered by him.</p>\\n<p><div data-shortcode=\\\"caption\\\" id=\\\"attachment_17428\\\"
+        style=\\\"width: 490px\\\" class=\\\"wp-caption alignnone\\\"><a href=\\\"https://svpow.files.wordpress.com/2020/02/r2r-debate.jpg\\\"><img
+        aria-describedby=\\\"caption-attachment-17428\\\" loading=\\\"lazy\\\" data-attachment-id=\\\"17428\\\"
+        data-permalink=\\\"http://svpow.com/2020/02/27/the-r2r-debate-part-1-opening-statement-in-support/r2r-debate/\\\"
+        data-orig-file=\\\"https://svpow.files.wordpress.com/2020/02/r2r-debate.jpg\\\"
+        data-orig-size=\\\"2048,1536\\\" data-comments-opened=\\\"1\\\" data-image-meta=\\\"{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}\\\"
+        data-image-title=\\\"r2r-debate\\\" data-image-description=\\\"\\\" data-image-caption=\\\"&lt;p&gt;The
+        backs of the heads of the four R2R debaters as we watch the initial polling
+        on the proposition. From left to right: me, Toby, Pippa, Niall.&lt;/p&gt;\\n\\\"
+        data-medium-file=\\\"https://svpow.files.wordpress.com/2020/02/r2r-debate.jpg?w=300\\\"
+        data-large-file=\\\"https://svpow.files.wordpress.com/2020/02/r2r-debate.jpg?w=1024\\\"
+        class=\\\"size-full wp-image-17428\\\" src=\\\"https://svpow.files.wordpress.com/2020/02/r2r-debate.jpg\\\"
+        alt=\\\"\\\" width=\\\"480\\\" height=\\\"360\\\" srcset=\\\"https://svpow.files.wordpress.com/2020/02/r2r-debate.jpg?w=480&amp;h=360
+        480w, https://svpow.files.wordpress.com/2020/02/r2r-debate.jpg?w=960&amp;h=720
+        960w, https://svpow.files.wordpress.com/2020/02/r2r-debate.jpg?w=150&amp;h=113
+        150w, https://svpow.files.wordpress.com/2020/02/r2r-debate.jpg?w=300&amp;h=225
+        300w, https://svpow.files.wordpress.com/2020/02/r2r-debate.jpg?w=768&amp;h=576
+        768w\\\" sizes=\\\"(max-width: 480px) 100vw, 480px\\\" /></a><p id=\\\"caption-attachment-17428\\\"
+        class=\\\"wp-caption-text\\\">The backs of the heads of the four R2R debaters
+        as we watch the initial polling on the proposition. From left to right: me,
+        Toby, Pippa, Niall.</p></div></p>\\n<hr />\\n<p>&nbsp;</p>\\n<p>What is the
+        most significant piece of published research in recent history? One strong
+        candidate is a paper called \u201CIleal-lymphoid-nodular hyperplasia, non-specific
+        colitis, and pervasive developmental disorder in children\u201D published
+        in 1998. It was written by Andrew Wakefield et al., and postulated a link
+        between the MMR vaccine and autism. This article became the launching point
+        for the anti-vax movement, which has resulted in (among other things) 142,000
+        deaths from measles in 2019 alone. It has also contributed to the general
+        decline of trust in expertise and the rise of fake news.</p>\\n<p>This article
+        is now recognised as \u201Cnot just poor science, [but] outright fraud\u201D
+        (BMJ). It was eventually retracted \u2014 but it did take its venue of publication
+        12 years to do so. Where did it appear? In <em>The Lancet</em>, one of the
+        world&#8217;s most established and prestigious medical journals, its prestige
+        quantified by a stellar Impact Factor of 59.1.</p>\\n<p>How could such a terrible
+        paper be published by such a respected journal? Because the venue of its publication
+        tells us nothing useful about the quality of a paper.</p>\\n<p>Retractions
+        from prestigious venues are not restricted to rogues like Wakefield. Last
+        month, Nobel Prize winner Frances Arnold said she was \u201Cbummed\u201D to
+        have to retract her 2019 paper on enzymatic synthesis of beta-lactams because
+        the results were not reproducible. \u201CCareful examination of the first
+        author&#8217;s lab notebook then revealed missing contemporaneous entries
+        and raw data for key experiments.\u201D she explained. I.e. \u201Coops, we
+        prepared the paper sloppily, sooorry!\u201D</p>\\n<p>Prof. Arnold is the first
+        woman to be elected to all three National Academies in the USA and has been
+        lauded by institutions as diverse as the White House, BBC and the Vatican.
+        She even appeared as herself in the TV series, Big Bang Theory. She received
+        widespread praise for being so open about having to retract this work \u2014
+        yet what does it say of the paper\u2019s venue of publication, <em>Science</em>?
+        Plainly the quality of this paper was not in the least assured by its venue
+        of publication. Or to put it another way, the venue of its publication tells
+        us nothing useful about the quality of a paper.</p>\\n<p>If we\u2019re going
+        to talk about high- and low-prestige venues, we\u2019ll need a ranking system
+        of some sort. The obvious ranking system is the Impact Factor \u2014 which,
+        as Clarivate says \u201Ccan be used to provide a gross approximation of the
+        prestige of journals\u201D. Love it or hate it, the IF has become ubiquitous,
+        and we will reluctantly use it here as a proxy for journal prestige.</p>\\n<p>So,
+        then: what does \u201Cquality\u201D really mean for a research paper? And
+        how does it relate to journal prestige?</p>\\n<p>One answer would be that
+        a paper\u2019s quality is to do with its methodological soundness: adherence
+        to best practices that make its findings reliable and reproducible. One important
+        aspect of this is statistical power: are enough observations made, and are
+        the correlations significant enough and strong enough for the results to carry
+        weight? We would hope that all reputable journals would consider this crucially
+        important. Yet Brembs et al. (2013) found no association between statistical
+        power and journal impact factor. So it seems the venue of its publication
+        tells us nothing useful about the quality of a paper.</p>\\n<p>Or perhaps
+        we can define \u201Cquality\u201D operationally, something like how frequently
+        a paper is cited \u2014 more being good, less being less good, right?. Astonishingly,
+        given that Impact Factor is derived from citation counts, Lozano et al. (2012)
+        showed that citation count of an individual paper is correlated only very
+        weakly with the Impact Factor of the journal it\u2019s published in \u2014
+        and that correlation has been growing yet weaker since 1990, as the rise of
+        the WWW has made discovery of papers easier irrespective of their venue. In
+        other words, the venue of its publication tells us nothing useful about the
+        quality of a paper.</p>\\n<p>We might at this point ask ourselves whether
+        there is <em>any</em> measurable aspect of individual papers that correlates
+        strongly with the Impact Factor of the journal they appear in. There is: Fang
+        et al. (2012) showed that Impact Factor has a highly significant correlation
+        with the number of retractions for fraud or suspected fraud. Wakefield\u2019s
+        paper has been cited 3336 times \u2014 did the Lancet know what it was doing
+        by delaying this paper\u2019s retraction for so long?<sup>[1]</sup> So maybe
+        the venue of its publication does tell us something about the quality of a
+        paper!</p>\\n<p>Imagine if we asked 1000 random scholars to rank journals
+        on an \u201Cdegree of excellence\u201D scale. <em>Science</em> and <em>The
+        Lancet</em> would, I\u2019m sure you\u2019ll agree \u2014 like Liverpool\u2019s
+        football team or that one from the \u201Cgreat state of Kansas\u201D recently
+        celebrated by Trump \u2014 be placed in the journal Premier League. Yet the
+        evidence shows \u2014 both from anecdote and hard data \u2014 that papers
+        published in these venues are at least as vulnerable to error, poor experimental
+        design and even outright fraud as those in less exalted venues.</p>\\n<p>But
+        let\u2019s look beyond journals \u2014 perhaps we\u2019ll find a link between
+        quality and venue elsewhere.</p>\\n<p>I\u2019d like to tell you two stories
+        about another venue of publication, this time, the World Bank.</p>\\n<p>In
+        2016, the Bill &amp; Melinda Gates Foundation pledged $5BN to fight AIDS in
+        Africa. Why? Well, it was all down to someone at the World Bank having the
+        bright idea to take a copy of their latest report on AIDS in Africa to Seattle
+        and pitch the findings and recommendations directly to Mr Gates. I often tell
+        this story as an example of impact. I think we can agree that the quality
+        of this report must have been pretty high. After all, it unlocked $5BN for
+        a good cause. But, of course, you\u2019re thinking \u2014 D&#8217;oh! It\u2019s
+        a World Bank report, it must be high-quality. Really?</p>\\n<p>Consider also
+        this story: in 2014, headlines like this lit up around the world: \u201CLiterally
+        a Third of World Bank Policy Reports Have Never, Ever Been Read Online, By
+        Anyone\u201D (<em>Slate</em>) and \u201CWorld Bank learns most PDFs it produces
+        go unread\u201D (<em>Sydney Morning Herald</em>). These headlines were triggered
+        by a working paper, written by two economists from the World Bank and published
+        on its website. The punchline? They were wrong, the paper was very wrong.
+        Like Prof. Arnold\u2019s paper they were \u201Cmissing contemporaneous entries
+        and raw data\u201D, in this case data from the World Bank\u2019s official
+        repository. They\u2019d pulled the data from an old repository. If they had
+        also used data from the Bank\u2019s new repository they\u2019d have found
+        that every Bank report, however niche, had been downloaded many times. How
+        do I know? Because I called the one guy who would know the truth, the Bank\u2019s
+        Publisher, Carlos Rossel, and once he\u2019d calmed down, he told me.</p>\\n<p>So,
+        we have two reports from the same venue: one plainly exhibiting a degree of
+        excellence, the other painfully embarrassing (and, by the way, it still hasn\u2019t
+        been retracted).</p>\\n<p>Now, I bet you\u2019re thinking, the latter is a
+        working paper, therefore it hasn\u2019t been peer-reviewed and so it doesn\u2019t
+        count. Well, the Aids in Africa report wasn\u2019t &#8220;peer reviewed&#8221;
+        either \u2014 in the sense we all understand \u2014 but that didn\u2019t stop
+        Gates reaching for his Foundation\u2019s wallet. What about all the preprints
+        being posted on BiorXiv and elsewhere about the Coronavirus: do they \u201Cnot
+        count\u201D? This reminds me of a lovely headline when Cern\u2019s paper on
+        the discovery of the Higgs Boson finally made it into a journal some months
+        after the results had been revealed at a packed seminar, and weeks after the
+        paper had been posted on arXiv: \u201CHiggs boson discovery passes peer review,
+        becomes actual science\u201D. Quite apart from the irony expressed by the
+        headline writer, here\u2019s a puzzler for you. Was the quality of this paper
+        assured by finally being published in a journal (with an impact factor one-tenth
+        of <em>Science</em>\u2019s), or when it was posted in arXiv, or when it was
+        presented at a seminar? Which venue assured the quality of this work?</p>\\n<p>Of
+        course, none of them did because the venue of its publication tells us nothing
+        about the quality of the paper. The quality is inherent in the paper itself,
+        not in the venue where it is made public.</p>\\n<p>Wakefield paper\u2019s
+        lack of quality was also inherent in the paper itself and that it was published
+        in <em>The Lancet</em> (and is still available on more than seventy websites)
+        did not mean it was high quality. Or to put it another way, the venue of its
+        publication tells us nothing useful about the quality of a paper.</p>\\n<p>So
+        what are different venues good for? Today\u2019s scholarly publishing system
+        is still essentially the same as the one that Oldenburg et al started in the
+        17th Century. This system evolved in an environment when publishing costs
+        were significant and grew with increased dissemination (increased demand meant
+        higher print and delivery costs). This meant that editors had to make choices
+        to keep costs under control \u2014 to select what to publish and what to reject.
+        The selection criteria varied: some used geography to segment the market (<em>The
+        Chinese Journal of X</em>, <em>The European Journal of Y</em>); some set up
+        societies (<em>Operational Research Society Journal</em>) and others segmented
+        the market by discipline (<em>The International Journal of Neurology</em>).
+        These were genuinely useful distinctions to make, helping guide authors, readers
+        and librarians to solutions for their authoring, reading and archiving needs.</p>\\n<p>Most
+        journals pretend to use quality as a criterion to select within their niche
+        \u2014 but isn\u2019t it funny that there isn\u2019t a <em>Quality Journal
+        of Chemistry</em> or a <em>Higher-Quality Journal of Physics</em>? The real
+        reasons for selection and rejection are of course to do with building brands
+        and meeting business targets in terms of the number of pages published. If
+        quality was the overarching criteria, why, like the wine harvest, don\u2019t
+        journals fluctuate in output each year? Down when there\u2019s a poor-season
+        and up when the sun shines?</p>\\n<p>If quality was the principle reason for
+        acceptance and rejection, why is it absent from the list of most common reasons
+        for rejection? According to Editage one of the most common reasons is because
+        the paper didn\u2019t fit the aims and scope of the journal. Not because the
+        paper is of poor quality. The current publishing process isn\u2019t a system
+        for weeding out weak papers from prestige journals, leaving them with only
+        the best. It\u2019s a system for sorting stuff into &#8220;houses&#8221; which
+        is as opaque, unaccountable and random as the Sorting Hat which confronted
+        Harry Potter at Hogwarts. This paper to the <em>Journal of Hufflepuff</em>;
+        that one to the <em>Journal of Slytherin</em>!</p>\\n<p>So the venue of its
+        publication can tell us useful things about a paper: its geographical origin,
+        its field of study, the society that endorses it. The one thing it can\u2019t
+        tell us is anything useful about the quality of a paper.</p>\\n<h1>Note</h1>\\n<p>[1]
+        We regret this phrasing. We asked &#8220;did the Lancet know what it was doing&#8221;
+        in the usual colloquial sense of implying a lack of competence (&#8220;he
+        doesn&#8217;t know what he&#8217;s doing&#8221;); but as Niall Boyce rightly
+        pointed out, it can be read as snidely implying that <em>The Lancet</em> knew
+        <em>exactly</em> what it was doing, and deliberately delayed the retraction
+        in order to accumulate more citations. For avoidance of doubt, that is not
+        what we meant; we apologise for not having written more clearly.</p>\\n<h1>References</h1>\\n<p>We
+        were of course not able to give references during the debate. But since our
+        statement included several citations, we can remedy that deficiency here.</p>\\n<ul>\\n<li><a
+        href=\\\"https://www.frontiersin.org/articles/10.3389/fnhum.2013.00291/full\\\">Brembs,
+        Bj\xF6rn, Katherine Button and Marcus Munaf\xF2. 2013. Deep impact: unintended
+        consequences of journal rank. <em>Frontiers in Human Neuroscience</em>, 24
+        June 2013.</a> doi:10.3389/fnhum.2013.00291</li>\\n<li><a href=\\\"https://science.sciencemag.org/content/364/6440/575?ijkey=f10fdfb89239f0f5a88dec146188a2b98ebee782&amp;keytype2=tf_ipsecsha\\\">Cho,
+        Inha, Zhi-Jun Jia and Frances H. Arnold. 2019. Site-selective enzymatic C\u2012H
+        amidation for synthesis of diverse lactams. <em>Science</em> <strong>364(6440)</strong>:575-578.</a>
+        doi:10.1126/science.aaw9068</li>\\n<li><a href=\\\"https://www.pnas.org/content/109/42/17028.long\\\">Fang,
+        F. C., R. G. Steen and A. Casadevall. 2012. Misconduct accounts for the majority
+        of retracted scientific publications. <em>Proceedings of the National Academy
+        of Sciences</em> <strong>109</strong>:17028\u201317033.</a> doi:10.1073/pnas.1212247109</li>\\n<li><a
+        href=\\\"https://onlinelibrary.wiley.com/doi/abs/10.1002/asi.22731\\\">Lozano,
+        G. A., V. Larivi\xE8re and Y. Gingras. 2012. The weakening relationship between
+        the impact factor and papers&#8217; citations in the digital age. <em>Journal
+        of the American Society for Information Science and Technology</em> <strong>63(11)</strong>:2140\u20132145.</a>
+        doi:10.1002/asi.22731</li>\\n<li><a href=\\\"https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(97)11096-0/fulltext\\\">Wakefield,
+        A. J., S. H. Murch, A. Anthony, J. Linnell, D. M. Casson, M. Malik, M. Berelowitz
+        and A. P. Dhillon. 1998. Ileal-lymphoid-nodular hyperplasia, non-specific
+        colitis, and pervasive developmental disorder in children. <em>The Lancet</em>
+        <strong>351(9103)</strong>:637\u2013641.</a> doi:10.1016/S0140-6736(97)11096-0
+        <strong>[RETRACTED]</strong></li>\\n</ul>\\n\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.59350/c8fz7-kyc20\",\"guid\":\"http://svpow.com/?p=17423\",\"id\":\"66182581-1ee5-4d81-9aeb-087eaf5aeec8\",\"image\":\"https://svpow.files.wordpress.com/2020/02/r2r-debate.jpg\",\"language\":\"en\",\"published_at\":1582843201,\"reference\":[{\"key\":\"ref1\",\"url\":\"https://www.frontiersin.org/articles/10.3389/fnhum.2013.00291/full\"},{\"key\":\"ref2\",\"url\":\"https://science.sciencemag.org/content/364/6440/575?ijkey=f10fdfb89239f0f5a88dec146188a2b98ebee782&keytype2=tf_ipsecsha\"},{\"key\":\"ref3\",\"url\":\"https://www.pnas.org/content/109/42/17028.long\"},{\"key\":\"ref4\",\"url\":\"https://onlinelibrary.wiley.com/doi/abs/10.1002/asi.22731\"},{\"key\":\"ref5\",\"url\":\"https://www.thelancet.com/journals/lancet/article/piis0140-6736(97)11096-0/fulltext\"}],\"relationships\":[],\"summary\":\"The
+        R2R debate, part 1: opening statement in support\",\"tags\":[\"Conferences\",\"R2R\"],\"title\":\"The
+        R2R debate, part 1: opening statement in support\",\"updated_at\":1582843202,\"url\":\"https://svpow.com/2020/02/27/the-r2r-debate-part-1-opening-statement-in-support\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"watch\"],\"snippet\":\"R2R
+        debaters as we <mark>watch</mark> the initial polling on\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"watch\"],\"snippet\":\"R2R
+        debaters as we <mark>watch</mark> the initial polling on\"}],\"text_match\":1155199671761633353,\"text_match_info\":{\"best_field_score\":\"1112386306048\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1155199671761633353\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Scott
+        Edmunds\",\"url\":\"http://orcid.org/0000-0001-6444-1436\"}],\"blog_id\":\"3ffcd46\",\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"content_html\":\"<p><strong>Push
+        the button! <em>GigaScience</em> moves toward more interactive articles</strong><br
+        />\\n<a href=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2014/02/bgi-galaxy-21.png\\\"><img
+        loading=\\\"lazy\\\" src=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2014/02/bgi-galaxy-21-300x257.png\\\"
+        width=\\\"300\\\" height=\\\"257\\\" srcset=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2014/02/bgi-galaxy-21-300x257.png
+        300w, http://gigasciencejournal.com/blog/wp-content/uploads/2014/02/bgi-galaxy-21-768x658.png
+        768w, http://gigasciencejournal.com/blog/wp-content/uploads/2014/02/bgi-galaxy-21.png
+        783w\\\" /></a><br />\\nResearch articles are being published with increasingly
+        large and complicated supporting datasets, together with the software code
+        used in analyses of the data. However, there is a <a href=\\\"http://www.plosmedicine.org/article/info:doi/10.1371/journal.pmed.0020124\\\"
+        target=\\\"_blank\\\">growing</a> <a href=\\\"http://www.nature.com/ng/journal/v41/n2/full/ng.295.html\\\"
+        target=\\\"_blank\\\">number</a> of studies reporting the inability to reproduce
+        previously published findings which may, at least in part, be responsible
+        for the increasing rate of retractions that <a href=\\\"http://bjoern.brembs.net/2013/07/the-looming-crisis-in-science/\\\"
+        target=\\\"_blank\\\">Bjorn Brembs has calculated</a> will overtake the number
+        of papers published some time in the mid-2040s. Furthermore, there is an awareness
+        of the \u201Creproducibility gap\u201D within the scientific community, with
+        Francis Collins of the NIH <a href=\\\"http://www.nature.com/news/policy-nih-plans-to-enhance-reproducibility-1.14586\\\"
+        target=\\\"_blank\\\">just publishing</a> a statement expressing concern about
+        this issue. Whilst this has provoked <a href=\\\"http://news.cell.com/cellreports/cell-reports/in-defense-of-science\\\"
+        target=\\\"_blank\\\">some</a> <a href=\\\"http://www.nature.com/news/reproducibility-the-risks-of-the-replication-drive-1.14184\\\"
+        target=\\\"_blank\\\">to deny</a> this is a serious issue (ironically in journals
+        with the <a href=\\\"http://iai.asm.org/content/79/10/3855.abstract\\\" target=\\\"_blank\\\">highest
+        retraction rates</a>), <em><a href=\\\"http://www.gigasciencejournal.com/\\\"
+        target=\\\"_blank\\\">GigaScience</a></em> has joined initiatives such as
+        <a href=\\\"https://www.synapse.org/\\\" target=\\\"_blank\\\">Sage Bionetworks
+        Synapse</a> and <a href=\\\"https://www.scienceexchange.com/\\\" target=\\\"_blank\\\">Science
+        Exchange</a> <a href=\\\"http://reproducibilityinitiative.org/\\\" target=\\\"_blank\\\">reproducibility
+        initiative</a> in attempting to do something about this through building platforms
+        and procedures to assist and reward authors who are keen on their work being
+        reproducible and actually used. The <a href=\\\"http://usegalaxy.org/\\\"
+        target=\\\"_blank\\\">Galaxy community</a> is one that shares similar goals,
+        with a computational platform which allows users to share workflows, histories
+        and wrapped tools in an easy-to-use and open source interface that even people
+        without coding experience can use. On top of our <a href=\\\"gigadb.org/\\\"
+        target=\\\"_blank\\\">GigaDB repository</a> to host large scale datasets,
+        we have also set up our own Galaxy server called <a href=\\\"http://galaxy.cbiit.cuhk.edu.hk/\\\"
+        target=\\\"_blank\\\">GigaGalaxy</a> to similarly present and host the computational
+        outputs and methods of studies published in <em>GigaScience</em>.</p>\\n<p>Attending
+        the <a href=\\\"https://wiki.galaxyproject.org/Events/GCC2013\\\" target=\\\"_blank\\\">Galaxy
+        Community Conference in Oslo</a> last summer (see the write-up <a href=\\\"http://blogs.biomedcentral.com/gigablog/2013/07/09/usegalaxy-lights-up-northern-skies/\\\"
+        target=\\\"_blank\\\">here</a>), we and the conference committee announced
+        a <a href=\\\"http://blogs.biomedcentral.com/gigablog/2013/04/05/call-for-papers-for-a-special-gcc2013-galaxy-series/\\\"
+        target=\\\"_blank\\\">call for papers</a> for a special thematic focused series
+        on studies utilizing large-scale datasets and workflows. The initial results
+        of this are now available, with the first two papers just out and available
+        from the <a href=\\\"http://www.gigasciencejournal.com/series/Galaxy\\\" target=\\\"_blank\\\">new
+        series page</a>. Whilst the series considers best practice papers, discussion,
+        as well as novel uses of Galaxy, these first papers are examples of Galaxy
+        toolkits, with a <a href=\\\"http://dx.doi.org/10.1186/2047-217X-2-17\\\"
+        target=\\\"_blank\\\">genome diversity tool collection</a> presented from
+        the Webb Miller lab at Pennsylvania State, and a <a href=\\\"http://dx.doi.org/10.1186/2047-217X-3-1\\\"
+        target=\\\"_blank\\\">set of analytical and visualisation tools for Complete
+        Genomics sequencing data</a> from the Stubbs lab at Erasmus Medical College.
+        What differentiates this series from other traditional journals are doing
+        is the focus on reproducibility, and the use of permanent DOIs and our own
+        Galaxy server that can archive and present wrapped tools and workflows and
+        histories from the papers.</p>\\n<p><strong>DOIs for workflows</strong><br
+        />\\nFollowing on from our experiences allocating <a href=\\\"http://en.wikipedia.org/wiki/Digital_object_identifier\\\"
+        target=\\\"_blank\\\">DOIs</a> to software from papers, we helped lobby <a
+        href=\\\"http://www.datacite.org/\\\" target=\\\"_blank\\\">DataCite</a> to
+        include \u201Cworkflow\u201D as a similar resource type, and they have now
+        <a href=\\\"http://schema.datacite.org/meta/kernel-3/example/datacite-example-workflow-v3.0.xml\\\"
+        target=\\\"_blank\\\">included this</a> in the release of their latest <a
+        href=\\\"http://schema.datacite.org/\\\" target=\\\"_blank\\\">metadata schema</a>.
+        We have been testing our GigaGalaxy platform by <a href=\\\"galaxy.cbiit.cuhk.edu.hk/galaxy/u/peter/p/soapdenovo2-tutorial-1\\\"
+        target=\\\"_blank\\\">implementing workflows</a> from our <a href=\\\"http://www.gigasciencejournal.com/content/1/1/18\\\"
+        target=\\\"_blank\\\">SOAPdenovo2 publication</a>, and we presented much of
+        this work at our \u201C<a href=\\\"http://blogs.biomedcentral.com/gigablog/2013/08/09/more-on-our-ismb-workshop-what-bioinformaticians-need-to-know-about-digital-publishing-beyond-the-pdf/\\\"
+        target=\\\"_blank\\\">What Bioinformaticians need to know Beyond the PDF</a>\u201D
+        workshop at ISMB (which incidentally will be <a href=\\\"http://www.researchobject.org/news/\\\"
+        target=\\\"_blank\\\">continued again</a> at the 2014 meeting). The genome
+        diversity toolkit is our first example of a DOI that resolves purely to a
+        workflow. From the landing page in GigaDB, you can download the Galaxy XML
+        files, or click the link to appropriate part in the <a href=\\\"http://galaxy.cbiit.cuhk.edu.hk/paper/list_published\\\"
+        target=\\\"_blank\\\">\u201CPapers\u201D section of our GigaGalaxy server</a>
+        to <a href=\\\"http://galaxy.cbiit.cuhk.edu.hk/u/gigascience/g/obedoyareina2013\\\"
+        target=\\\"_blank\\\">browse and run the workflows discussed in the paper</a>.
+        Presenting a handy toolkit covering a number of popular population genetics
+        tools, the paper provides diverse examples of their application on the genetics
+        of Lemurs, and Canines and Cave Bears (oh my!). Seven of these examples are
+        viewable on our <a href=\\\"http://galaxy.cbiit.cuhk.edu.hk/u/gigascience/g/obedoyareina2013\\\"
+        target=\\\"_blank\\\">GigaGalaxy page</a>. Whilst the latest versions of the
+        tools and further examples are available from the <a href=\\\"http://usegalaxy.org/\\\"
+        target=\\\"_blank\\\">main Galaxy server</a> and the authors website, the
+        <em>GigaScience</em> Galaxy server provides access to static versions of the
+        tools used within the examples of the paper. To make it a little more interactive
+        and understandable for users, we have produced SVG graphs to help visualize
+        how input datasets, workflows and histories are related to each example analysis.</p>\\n<p><a
+        href=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2014/02/Screen-shot-2014-02-05-at-4.31.52-PM.png\\\"><img
+        loading=\\\"lazy\\\" src=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2014/02/Screen-shot-2014-02-05-at-4.31.52-PM.png\\\"
+        width=\\\"744\\\" height=\\\"588\\\" srcset=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2014/02/Screen-shot-2014-02-05-at-4.31.52-PM.png
+        744w, http://gigasciencejournal.com/blog/wp-content/uploads/2014/02/Screen-shot-2014-02-05-at-4.31.52-PM-300x237.png
+        300w\\\" /></a></p>\\n<p>As a step on the road to executable papers, this
+        is aiming to be a more interactive and two-way experience than traditional
+        publication models still rooted in the print era, so please feedback to us
+        at editorial@gigasciencejournal.com on on any bugs or features you would like
+        to see. We would like to thank our collaborators at <a href=\\\"http://www.cuhk.edu.hk/cbiit/research.html\\\"
+        target=\\\"_blank\\\">CBIIT (the CUHK-BGI Innovation Institute of Trans-omics)</a>
+        who helped us set up our Galaxy server, <a href=\\\"http://www.biomedcentral.com/\\\"
+        target=\\\"_blank\\\">BioMed Central</a>, <a href=\\\"http://www.datacite.org/\\\"
+        target=\\\"_blank\\\">DataCite</a>, as well as the authors and reviewers for
+        working with us to get these examples out and online. The <a href=\\\"http://www.gigasciencejournal.com/series/Galaxy\\\"
+        target=\\\"_blank\\\">series</a> is still open and we are continuing to take
+        and review submissions, so watch the series page for future additions. Please
+        contact us if you are interested in submitting your work or submit through
+        our submission system <a href=\\\"http://www.gigasciencejournal.com/manuscript\\\"
+        target=\\\"_blank\\\">here</a>. Thanks to support from the <a href=\\\"http://www.genomics.cn/en/index\\\"
+        target=\\\"_blank\\\">BGI</a> our article processing charges are still currently
+        free and, as we are again silver sponsors of the <a href=\\\"https://wiki.galaxyproject.org/Events/GCC2014\\\"
+        target=\\\"_blank\\\">2014 Galaxy Community Conference</a>, we hope to meet
+        many of you there.</p>\\n<h3><strong>References</strong></h3>\\n<p><a href=\\\"http://dx.doi.org/10.1186/2047-217X-2-17\\\"
+        target=\\\"_blank\\\">1.</a> Bedoya-Reina et al.: Galaxy tools to study genome
+        diversity. GigaScience 2:17 <a href=\\\"http://dx.doi.org/10.1186/2047-217X-2-17\\\"
+        target=\\\"_blank\\\">http://dx.doi.org/10.1186/2047-217X-2-17</a></p>\\n<p><a
+        href=\\\"http://dx.doi.org/10.1186/2047-217X-3-1\\\" target=\\\"_blank\\\">2.</a>
+        Hiltemann et al.: CGtag: complete genomics toolkit and annotation in a cloud-based
+        Galaxy. GigaScience 2014 3:1 <a href=\\\"http://dx.doi.org/10.1186/2047-217X-3-1\\\"
+        target=\\\"_blank\\\">http://dx.doi.org/10.1186/2047-217X-3-1</a></p>\\n<p><a
+        href=\\\"http://dx.doi.org/10.5524/100069\\\" target=\\\"_blank\\\">3.</a>
+        Bedoya-Reina, OC; Ratan, A; Burhans, R; Kim, HL; Giardine, B; Riemer, C; Li,
+        Q; Olson, TL; Loughran Jr, TP; vonHoldt, BM; Perry, GH; Schuster, SC; Miller,
+        W (2013): GigaGalaxy workflows and histories from \u201CGalaxy tools to study
+        genome diversity\u201D GigaScience Database. <a href=\\\"http://dx.doi.org/10.5524/100069\\\"
+        target=\\\"_blank\\\">http://dx.doi.org/10.5524/100069</a></p>\\n<p><a href=\\\"http://www.gigasciencejournal.com/series/Galaxy\\\"
+        target=\\\"_blank\\\">4.</a> GigaScience Galaxy Series Page https://academic.oup.com/gigascience/pages/galaxy_series_data_intensive_reproducible_research</p>\\n<p>The
+        post <a href=\\\"http://gigasciencejournal.com/blog/rewarding-reproducibility-first-papers-in-our-galaxy-series-utilizing-our-gigagalaxy-platform/\\\">Rewarding
+        Reproducibility: First Papers in our Galaxy Series utilizing our GigaGalaxy
+        platform</a> appeared first on <a href=\\\"http://gigasciencejournal.com/blog\\\">GigaBlog</a>.</p>\\n\",\"content_text\":\"content_text\",\"doi\":\"https://doi.org/10.59350/w8kyr-0e629\",\"id\":\"f312e680-13a8-4720-a5ee-61a449410a58\",\"image\":\"http://gigasciencejournal.com/blog/wp-content/uploads/2014/02/bgi-galaxy-21-300x257.png\",\"language\":\"en\",\"published_at\":1391676080,\"reference\":[],\"relationships\":[],\"summary\":\"<strong>Push
+        the button! <em>GigaScience</em> moves toward more interactive articles</strong>
+        Research articles are being published with increasingly large and complicated
+        supporting datasets, together with the software code used in analyses of the
+        data.\",\"tags\":[\"Publishing\",\"Technology\",\"Usegalaxy\",\"Conferences\",\"Galaxy\"],\"title\":\"Rewarding
+        Reproducibility: First Papers in our Galaxy Series utilizing our GigaGalaxy
+        platform\",\"updated_at\":1692724775,\"url\":\"http://gigasciencejournal.com/blog/rewarding-reproducibility-first-papers-in-our-galaxy-series-utilizing-our-gigagalaxy-platform\"},\"highlight\":{\"content_html\":{\"matched_tokens\":[\"retraction\"],\"snippet\":\"10/3855.abstract\\\"
+        target=\\\"_blank\\\">highest <mark>retraction</mark> rates</a>), <em><a href=\\\"http:\"}},\"highlights\":[{\"field\":\"content_html\",\"matched_tokens\":[\"retraction\"],\"snippet\":\"10/3855.abstract\\\"
+        target=\\\"_blank\\\">highest <mark>retraction</mark> rates</a>), <em><a href=\\\"http:\"}],\"text_match\":1155199671761633353,\"text_match_info\":{\"best_field_score\":\"1112386306048\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1155199671761633353\",\"tokens_matched\":2}}],\"out_of\":9512,\"page\":2,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"retraction-watch\"},\"search_cutoff\":false,\"search_time_ms\":47}"
     headers:
       Connection:
       - keep-alive

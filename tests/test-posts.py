@@ -23,14 +23,14 @@ def vcr_config():
 async def test_extract_all_posts():
     """Extract all posts"""
     result = await extract_all_posts()
-    assert len(result) == 1
+    assert len(result) == 3
     post = result[0]
-    assert post["title"] == "Creating a voice-activated AI responder in Python"
+    assert post["title"] == "The Open Access Week in the Scholarly Blogosphere"
     assert post["authors"][0] == {
-        "name": "Martin Paul Eve",
-        "url": "https://orcid.org/0000-0002-5589-8511",
+        "name": "Heinz Pampel",
+        "url": "https://orcid.org/0000-0003-3334-2771",
     }
-    assert post["tags"] == []
+    assert post["tags"] == ['Special Issue']
 
 
 @pytest.mark.vcr

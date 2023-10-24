@@ -45,7 +45,7 @@ async def test_blogs_route():
     response = await test_client.get("/blogs")
     assert response.status_code == 200
     result = await response.get_json()
-    assert len(result) == 63
+    assert len(result) == 65
     assert result[0]["title"] == "A blog by Ross Mounce"
     assert result[0]["slug"] == "rossmounce"
 
@@ -138,9 +138,9 @@ async def test_posts_with_query_and_pagination_route():
     response = await test_client.get("/posts?query=retraction-watch&page=2&per_page=10")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] == 20
+    assert result["found"] == 21
     post = py_.get(result, "hits[0].document")
-    assert post["title"] == "The lowest common denominator: marketing science with jIF"
+    assert post["title"] == "When your journal reads you"
 
 
 @pytest.mark.vcr
@@ -164,7 +164,7 @@ async def test_posts_with_query_and_include_fields_route():
     )
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] == 20
+    assert result["found"] == 21
     post = py_.get(result, "hits[0].document")
     assert "doi" in post.keys()
     assert "summary" not in post.keys()
@@ -177,7 +177,7 @@ async def test_posts_with_query_and_sort_route():
     response = await test_client.get("/posts?query=retraction-watch&sort=published_at")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] == 20
+    assert result["found"] == 21
     post0 = py_.get(result, "hits[0].document")
     post1 = py_.get(result, "hits[1].document")
     assert post0["published_at"] > post1["published_at"]
@@ -190,7 +190,7 @@ async def test_posts_not_indexed_route():
     response = await test_client.get("/posts/not_indexed")
     assert response.status_code == 200
     result = await response.get_json()
-    assert len(result) == 0
+    assert len(result) == 15
 
 
 @pytest.mark.vcr
@@ -210,7 +210,7 @@ async def test_posts_filter_by_published_since_route():
     response = await test_client.get("/posts?published_since=2023-10-06")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] == 22
+    assert result["found"] == 38
     post = py_.get(result, "hits[0].document")
     assert post["title"] is not None
 
@@ -222,7 +222,7 @@ async def test_posts_filter_by_tags_route():
     response = await test_client.get("/posts?tags=open+access")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] == 616
+    assert result["found"] == 730
     post = py_.get(result, "hits[0].document")
     assert (
         post["title"]

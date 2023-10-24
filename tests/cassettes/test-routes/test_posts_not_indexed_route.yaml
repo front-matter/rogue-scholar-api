@@ -25,159 +25,143 @@ interactions:
     method: GET
     uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%29&blogs.prefix=not.is.null&indexed=is.null&doi=not.is.null&order=published_at.desc&limit=15
   response:
-    content: "[{\"id\":\"35bea8e0-7c8d-475c-83b0-c9c10b96f468\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/c6935-n5w84\",\"url\":\"https://ropensci.org/blog/2023/10/20/news-october-2023\",\"archive_url\":null,\"title\":\"rOpenSci
-      News Digest, October 2023\",\"summary\":\"Dear rOpenSci friends, it\u2019s time
-      for our monthly news roundup!\",\"published_at\":1697760000,\"updated_at\":1697788477,\"indexed_at\":1697790900,\"indexed\":null,\"authors\":[{\"name\":
-      \"The rOpenSci Team\"}],\"image\":null,\"tags\":[\"Newsletter\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"rOpenSci
-      - open tools for open science\",\"blog_slug\":\"ropensci\",\"blog\":{\"slug\":\"ropensci\",\"title\":\"rOpenSci
-      - open tools for open science\",\"description\":\"Open Tools and R Packages
-      for Open Science\",\"feed_url\":\"https://ropensci.org/blog/index.json\",\"home_page_url\":\"https://ropensci.org/blog\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Hugo
-      -- gohugo.io\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697790198}},
-      \n {\"id\":\"3f6ae6d1-d797-485d-8605-a28e95797d89\",\"guid\":\"6529e3004e902104cd51d4e3\",\"doi\":\"https://doi.org/10.54900/g4928-wva21\",\"url\":\"https://upstream.force11.org/building-a-community-of-practice\",\"archive_url\":null,\"title\":\"Building
-      a Community of Practice: Observations of the Current Use of DataCite DOIs as
-      Project IDs\",\"summary\":\"Project identifiers have been used in DataCite for
-      nearly a decade.\",\"published_at\":1697531478,\"updated_at\":1697753088,\"indexed_at\":1697753527,\"indexed\":null,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0001-9998-0114\", \"name\": \"Erin Robinson\"}, {\"url\":
-      \"https://orcid.org/0000-0003-3585-6733\", \"name\": \"Ted Habermann\"}],\"image\":\"https://images.unsplash.com/photo-1572177812156-58036aae439c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDR8fHByb2plY3R8ZW58MHx8fHwxNjk3MzQwODQ2fDA&ixlib=rb-4.0.3&q=80&w=2000\",\"tags\":[\"Original
-      Research\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Upstream\",\"blog_slug\":\"upstream\",\"blog\":{\"slug\":\"upstream\",\"title\":\"Upstream\",\"description\":\"The
-      community blog for all things Open Research.\",\"feed_url\":\"https://upstream.force11.org/atom-complete/\",\"home_page_url\":\"https://upstream.force11.org\",\"language\":\"en\",\"category\":\"humanities\",\"status\":\"active\",\"generator\":\"Ghost
-      5.25\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697753088}},
-      \n {\"id\":\"1cc6de6d-9eef-4305-a936-933446c315dd\",\"guid\":\"6526c60bf23c390001a8394c\",\"doi\":\"https://doi.org/10.53731/gzrse-p5d35\",\"url\":\"https://blog.front-matter.io/posts/generating-overlay-blog-posts\",\"archive_url\":null,\"title\":\"Generating
-      Overlay blog posts\",\"summary\":\"\",\"published_at\":1697042431,\"updated_at\":1698073388,\"indexed_at\":1697988317,\"indexed\":null,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":\"https://images.unsplash.com/flagged/photo-1552425083-0117136f7d67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIxfHxjYW5vcHl8ZW58MHx8fHwxNjk3MDQwMDk1fDA&ixlib=rb-4.0.3&q=80&w=2000\",\"tags\":[\"Feature\"],\"language\":\"en\",\"reference\":[{\"doi\":
-      \"https://doi.org/10.53731/ar11b-5ea39\", \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.5281/ZENODO.8433675\",
-      \"key\": \"ref2\"}, {\"doi\": \"https://doi.org/10.13003/c23rw1d9\", \"key\":
-      \"ref3\"}],\"relationships\":[],\"blog_name\":\"Front Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
-      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
-      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost
-      5.52\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1698073841}},
-      \n {\"id\":\"658f301f-1e22-4b45-8b69-6c5414745001\",\"guid\":\"652689904e902104cd51d1c9\",\"doi\":\"https://doi.org/10.54900/6sz4q-47185\",\"url\":\"https://upstream.force11.org/working-for-global-equity-through-digital-object-identifiers\",\"archive_url\":null,\"title\":\"Working
-      for Global Equity through Digital Object Identifiers\",\"summary\":\"Persistent
-      Identifiers, or \u201CPIDs\u201D, have become a popular topic for anyone involved
-      in the research communications world. PIDs play a crucial role in the scholarly
-      ecosystem by providing long-lasting references to and between all kinds of digital
-      resources.\",\"published_at\":1697038421,\"updated_at\":1697449360,\"indexed_at\":1697805687,\"indexed\":null,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0001-7234-3684\", \"name\": \"Matt Buys\"}, {\"url\":
-      \"https://orcid.org/0000-0002-0353-2702\", \"name\": \"Ginny Hendricks\"}],\"image\":\"https://upstream.force11.org/content/images/2023/10/pexels-monstera-production-7412043.jpg\",\"tags\":[\"Thought
-      Pieces\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Upstream\",\"blog_slug\":\"upstream\",\"blog\":{\"slug\":\"upstream\",\"title\":\"Upstream\",\"description\":\"The
-      community blog for all things Open Research.\",\"feed_url\":\"https://upstream.force11.org/atom-complete/\",\"home_page_url\":\"https://upstream.force11.org\",\"language\":\"en\",\"category\":\"humanities\",\"status\":\"active\",\"generator\":\"Ghost
-      5.25\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697753088}},
-      \n {\"id\":\"cc25062b-cf1c-4077-9559-a703acc19a00\",\"guid\":\"652500eff224a54ca047d3e8\",\"doi\":\"https://doi.org/10.59350/wk19c-zqs88\",\"url\":\"https://libscie.org/onboarding-with-confidence-in-open-science-s03e16\",\"archive_url\":null,\"title\":\"Onboarding
-      with confidence in open research (s03e16)\",\"summary\":\"\U0001F508This is
-      a transcript of the Open Update podcast. Listen to the original audio on Anchor.fm.
-      [00:00:00] <strong>Chris Hartgerink:</strong> Welcome back to the Open Update.\",\"published_at\":1696929637,\"updated_at\":1696929637,\"indexed_at\":1696951516,\"indexed\":null,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1050-6809\", \"name\": \"Chris Hartgerink\"},
-      {\"url\": \"http://www.sarahannemfield.com\", \"name\": \"Sarahanne Field\"}],\"image\":\"https://images.unsplash.com/photo-1593435221376-379aaae1a26c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDMzfHxyYW1wfGVufDB8fHx8MTY5NjkyMzk0OHww&ixlib=rb-4.0.3&q=80&w=2000\",\"tags\":[\"Open
-      Update\",\"Labs\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Liberate
-      Science\",\"blog_slug\":\"libscie\",\"blog\":{\"slug\":\"libscie\",\"title\":\"Liberate
-      Science\",\"description\":\"Research as a commons\",\"feed_url\":\"https://libscie.org/rss/\",\"home_page_url\":\"https://libscie.org\",\"language\":\"en\",\"category\":\"socialSciences\",\"status\":\"active\",\"generator\":\"Ghost
-      5.49\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1696947067}},
-      \n {\"id\":\"54eb2ba9-ddc4-4132-9114-439ad52a04ad\",\"guid\":\"https://stasis.hypotheses.org/?p=896\",\"doi\":\"https://doi.org/10.59350/5b9hv-1xz57\",\"url\":\"https://stasis.hypotheses.org/896\",\"archive_url\":null,\"title\":\"Civil
-      War Seen Through the Lens of Ancient History\",\"summary\":\"The words and concepts
-      we use to describe a particular war speak volumes about who we are as individuals
-      and as a community, and where we stand in an unfolding conflict. Concepts have
-      always been used to occupy the moral high ground.\",\"published_at\":1696927158,\"updated_at\":1696930192,\"indexed_at\":1697806638,\"indexed\":null,\"authors\":[{\"url\":
-      \"https://vbn.aau.dk/en/persons/131743\", \"name\": \"Carsten Hjort Lange\"}],\"image\":\"https://stasis.hypotheses.org/files/2023/09/feature-image-lange_2023.png\",\"tags\":[\"Book
-      Launch\",\"Adolf Hitler\",\"Ancient History\",\"Antebellum\",\"Bellum Civile\"],\"language\":\"en\",\"reference\":[{\"key\":
-      \"ref1\", \"url\": \"https://www.degruyter.com/document/isbn/9783111335216/html\"},
-      {\"key\": \"ref2\", \"url\": \"https://www.flickr.com/photos/37527185@n05/50820534063\"},
-      {\"key\": \"ref3\", \"url\": \"https://creativecommons.org/licenses/by/2.0\"},
-      {\"doi\": \"https://doi.org/10.59350/5b9hv-1xz57\", \"key\": \"ref4\"}, {\"key\":
-      \"ref5\", \"url\": \"https://stasis.hypotheses.org/896\"}],\"relationships\":[],\"blog_name\":\"Stasis\",\"blog_slug\":\"stasis\",\"blog\":{\"slug\":\"stasis\",\"title\":\"Stasis\",\"description\":\"Avenues
-      to Ancient Civil War\",\"feed_url\":\"https://stasis.hypotheses.org/feed/atom\",\"home_page_url\":\"https://stasis.hypotheses.org\",\"language\":\"en\",\"category\":\"historyAndArchaeology\",\"status\":\"active\",\"generator\":\"WordPress
-      6.2\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1696930321}},
-      \n {\"id\":\"63235dbd-05a6-4ab1-b870-f07f9b3f6ad7\",\"guid\":\"6524026b509bba0001454cd2\",\"doi\":\"https://doi.org/10.53731/ar11b-5ea39\",\"url\":\"https://blog.front-matter.io/posts/rogue-scholar-has-an-api\",\"archive_url\":null,\"title\":\"Rogue
-      Scholar has an API\",\"summary\":\"The Rogue Scholar science blog archive has
-      launched a dedicated API today, publicly available at https://api.rogue-scholar.org
-      and complementing the website.\",\"published_at\":1696864797,\"updated_at\":1698073841,\"indexed_at\":1697988837,\"indexed\":null,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":\"https://images.unsplash.com/photo-1555952494-efd681c7e3f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDM0fHxweXRob258ZW58MHx8fHwxNjk2ODU4Nzc5fDA&ixlib=rb-4.0.3&q=80&w=2000\",\"tags\":[\"Feature\"],\"language\":\"en\",\"reference\":[{\"doi\":
-      \"https://doi.org/10.5281/ZENODO.8433679\", \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.59349/zh4g1-q7e26\",
-      \"key\": \"ref2\"}],\"relationships\":[],\"blog_name\":\"Front Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
-      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
-      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost
-      5.52\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1698073841}},
-      \n {\"id\":\"e8fabcb0-5df4-4eb2-9578-40377e006490\",\"guid\":\"https://stasis.hypotheses.org/?p=1\",\"doi\":\"https://doi.org/10.59350/377m7-vkt78\",\"url\":\"https://stasis.hypotheses.org/1\",\"archive_url\":null,\"title\":\"Stasis.
-      An Academic Blog on Ancient Civil War\",\"summary\":\"Welcome to <strong>Stasis
-      \u2013 Avenues to Ancient Civil War</strong>, an academic blog on polarization,
-      internal conflict, and reconciliation in antiquity.\",\"published_at\":1696836362,\"updated_at\":1696930321,\"indexed_at\":1697807290,\"indexed\":null,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-5589-8634\", \"name\": \"Johannes Wienand\"}],\"image\":\"https://stasis.hypotheses.org/files/2023/09/L515mont-trans-small.png\",\"tags\":[\"From
-      The Editors\",\"Ancient History\",\"Archaeology\",\"Civil War\",\"Classical
-      Philology\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Stasis\",\"blog_slug\":\"stasis\",\"blog\":{\"slug\":\"stasis\",\"title\":\"Stasis\",\"description\":\"Avenues
-      to Ancient Civil War\",\"feed_url\":\"https://stasis.hypotheses.org/feed/atom\",\"home_page_url\":\"https://stasis.hypotheses.org\",\"language\":\"en\",\"category\":\"historyAndArchaeology\",\"status\":\"active\",\"generator\":\"WordPress
-      6.2\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1696930321}},
-      \n {\"id\":\"4478bd32-3f2c-4f3a-bed7-b01813d2896c\",\"guid\":\"https://irishplants.org/blog/?p=550\",\"doi\":\"https://doi.org/10.59350/trmdy-rqh50\",\"url\":\"https://irishplants.org/blog/2023/10/07/plasmopara-euphrasiae\",\"archive_url\":null,\"title\":\"<i>Plasmopara
-      euphrasiae</i>: a downy mildew species new to Ireland\",\"summary\":\"Slievenacloy
-      Nature Reserve is an Ulster Wildlife reserve in Antrim.\",\"published_at\":1696690840,\"updated_at\":1696691765,\"indexed_at\":1697659465,\"indexed\":null,\"authors\":[{\"url\":
-      \"https://irishplants.org/\", \"name\": \"Jake Dalzell\"}],\"image\":\"https://irishplants.org/blog/wp-content/uploads/2023/10/PXL_20230813_1308594122-scaled.jpg\",\"tags\":[\"Ecology\",\"Fieldwork\",\"Plant
-      Parasites\",\"Plants\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Irish
+    content: "[{\"id\":\"77e770e0-74be-46f4-b800-9f8dc6435741\",\"guid\":\"https://opencitations.hypotheses.org/?p=3488\",\"doi\":\"https://doi.org/10.59350/canw4-3xd10\",\"url\":\"https://opencitations.hypotheses.org/3488\",\"archive_url\":null,\"title\":\"OpenCitations
+      needs you: support the change in research practices\",\"summary\":\"\",\"published_at\":1697558939,\"updated_at\":1697559017,\"indexed_at\":1698147836,\"indexed\":null,\"authors\":[{\"name\":
+      \"Chiara Di Giambattista\"}],\"image\":null,\"tags\":[\"Open Abstracts\",\"Open
+      Access\",\"Open Citations\",\"Open Scholarship\",\"Open Science\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"OpenCitations
+      blog\",\"blog_slug\":\"opencitations\",\"blog\":{\"slug\":\"opencitations\",\"title\":\"OpenCitations
+      blog\",\"description\":\"The blog of the OpenCitations Infrastructure\",\"feed_url\":\"https://opencitations.hypotheses.org/feed/atom/\",\"home_page_url\":\"https://opencitations.hypotheses.org\",\"language\":\"en\",\"category\":\"socialSciences\",\"status\":\"active\",\"generator\":\"WordPress
+      6.2\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697559017}},
+      \n {\"id\":\"0fbfda1d-2d16-4375-a9db-2b8c9afcc1f4\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/z574z-dcw92\",\"url\":\"https://iphylo.blogspot.com/2023/08/document-layout-analysis.html\",\"archive_url\":null,\"title\":\"Document
+      layout analysis\",\"summary\":\"Some notes to self on document layout analysis.
+      \ I\u2019m revisiting the problem of taking a PDF or a scanned document and
+      determining its structure (for example, where is the title, abstract, bibliography,
+      where are the figures and their captions, etc.). There are lots of papers on
+      this topic, and lots of tools.\",\"published_at\":1693485180,\"updated_at\":1693485393,\"indexed_at\":1693739371,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-7101-9767\", \"name\": \"Roderic Page\"}],\"image\":\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi02en_43jWD45tsJ9bVqrJFcVG_NYr_obOmFGzT2PuW-3AbvwMbtt7y43TaGYqaQL4tURGVA0Bm_e6DvmN6kGiROtqFYj_Tjco0KeXnCwUr2ASqewCNjbunTa7nmMVp8jKPWk0B6BHLSbZrz85mzq6d78XNRgG1G3g9MupScfxBbO14B89kfMS/s400/Screenshot%202023-08-31%20at%2011.54.13.png\",\"tags\":[\"ABBYY\",\"CRF\",\"Dj
+      Vu\",\"Document Layout\",\"H OCR\"],\"language\":\"en\",\"reference\":[{\"doi\":
+      \"https://doi.org/10.1007/11669487_12\", \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.1007/s00799-014-0115-1\",
+      \"key\": \"ref2\"}, {\"doi\": \"https://doi.org/10.1117/12.472833\", \"key\":
+      \"ref3\"}, {\"doi\": \"https://doi.org/10.1087/20110309\", \"key\": \"ref4\"},
+      {\"doi\": \"https://doi.org/10.1186/1751-0473-7-7\", \"key\": \"ref5\"}, {\"doi\":
+      \"https://doi.org/10.1162/tacl_a_00466\", \"key\": \"ref6\"}, {\"key\": \"ref7\",
+      \"url\": \"https://stackedit.io\"}],\"relationships\":[],\"blog_name\":\"iPhylo\",\"blog_slug\":\"iphylo\",\"blog\":{\"slug\":\"iphylo\",\"title\":\"iPhylo\",\"description\":\"Rants,
+      raves (and occasionally considered opinions) on phyloinformatics, taxonomy,
+      and biodiversity informatics.  For more ranty and less considered opinions,
+      see my <a href=\\\"https://twitter.com/rdmpage\\\">Twitter feed</a>.<br />ISSN
+      2051-8188. Written content on this site is licensed under a <a href=\\\"https://creativecommons.org/licenses/by/4.0/\\\">Creative
+      Commons Attribution 4.0 International license</a>.\",\"feed_url\":\"https://iphylo.blogspot.com/feeds/posts/default\",\"home_page_url\":\"https://iphylo.blogspot.com/\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Blogger
+      7.00\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1693485393}},
+      \n {\"id\":\"f9e29454-f770-4703-9562-6f3263258962\",\"guid\":\"https://norbisley.wordpress.com/?p=378\",\"doi\":\"https://doi.org/10.59350/bykw6-4qx11\",\"url\":\"https://norbisley.wordpress.com/2023/08/31/edicion-y-comunicacion-de-la-ciencia-esta-en-rouge-scholar\",\"archive_url\":null,\"title\":\"Edici\xF3n
+      y comunicaci\xF3n de la ciencia est\xE1 en Rouge Scholar\",\"summary\":\"Hablemos
+      de visibilidad real En otros posts he abordado la importancia de publicar con
+      DOI y las formas de obtenerlo.\",\"published_at\":1693477716,\"updated_at\":1693488682,\"indexed_at\":1693739645,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-9373-4622\", \"name\": \"NFernan\"}],\"image\":\"https://norbisley.files.wordpress.com/2023/08/2.png\",\"tags\":[\"Financiamiento
+      Y Convocatorias\",\"Sin Categor\xEDa\"],\"language\":\"es\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Edici\xF3n
+      y comunicaci\xF3n de la Ciencia\",\"blog_slug\":\"norbisley\",\"blog\":{\"slug\":\"norbisley\",\"title\":\"Edici\xF3n
+      y comunicaci\xF3n de la Ciencia\",\"description\":null,\"feed_url\":\"https://norbisley.wordpress.com/feed/atom/\",\"home_page_url\":\"https://norbisley.wordpress.com\",\"language\":\"es\",\"category\":\"mediaAndCommunications\",\"status\":\"active\",\"generator\":\"WordPress.com\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1696673881}},
+      \n {\"id\":\"9d51c51b-e7ab-442b-ab6a-4403461c52b5\",\"guid\":\"{\\\"@isPermaLink\\\":
+      \\\"false\\\", \\\"#text\\\": \\\"64edab4ce61bd90001171743\\\"}\",\"doi\":\"https://doi.org/10.59350/vja6h-j0847\",\"url\":\"https://www.chjh.nl/candidacy-for-parliament\",\"archive_url\":null,\"title\":\"Applying
+      as a parliamentary candidate\",\"summary\":\"\",\"published_at\":1693387575,\"updated_at\":1693387575,\"indexed_at\":1693405993,\"indexed\":null,\"authors\":[{\"name\":
+      \"Chris Hartgerink\"}],\"image\":\"https://images.unsplash.com/photo-1595126731003-755959b6baf8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fGJhbGxvdHxlbnwwfHx8fDE2OTMyOTczODh8MA&ixlib=rb-4.0.3&q=80&w=2000\",\"tags\":[\"Personal\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Chris
+      Hartgerink\",\"blog_slug\":\"chjh\",\"blog\":{\"slug\":\"chjh\",\"title\":\"Chris
+      Hartgerink\",\"description\":\"Chris Hartgerink\",\"feed_url\":\"https://www.chjh.nl/rss/\",\"home_page_url\":\"https://www.chjh.nl/\",\"language\":\"en\",\"category\":\"socialSciences\",\"status\":\"active\",\"generator\":\"Ghost
+      5.70\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697725881}},
+      \n {\"id\":\"95edb609-b0f4-4d13-8742-c4108971401c\",\"guid\":\"https://irishplants.org/blog/?p=523\",\"doi\":\"https://doi.org/10.59350/67z4n-k8h58\",\"url\":\"https://irishplants.org/blog/2023/08/29/modelling-yellow-rattle-in-a-simulated-grassland\",\"archive_url\":null,\"title\":\"Modelling
+      Yellow Rattle in a simulated grassland\",\"summary\":\"<em>The model in this
+      post is based on the one in Cameron et al. (2009), improving how seed dispersal
+      is modelled and the dynamics are visualised.</em>  I have become a bit obsessed
+      with hemiparasitic plants recently.\",\"published_at\":1693312760,\"updated_at\":1693389806,\"indexed_at\":1693739802,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://irishplants.org/\", \"name\": \"Jake Dalzell\"}],\"image\":\"https://irishplants.org/blog/wp-content/uploads/2023/08/timeline.png\",\"tags\":[\"Plants\",\"Ecology\",\"Modelling\",\"Parasitic
+      Plants\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Irish
       Plants\",\"blog_slug\":\"irishplants\",\"blog\":{\"slug\":\"irishplants\",\"title\":\"Irish
       Plants\",\"description\":\"Jake's blog\",\"feed_url\":\"http://irishplants.org/blog/feed/atom/\",\"home_page_url\":\"https://irishplants.org/blog\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress
       6.3.2\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1696691878}},
-      \n {\"id\":\"5445be3e-02ea-41a9-9bbb-551678bff69f\",\"guid\":\"https://irishplants.org/blog/?p=543\",\"doi\":\"https://doi.org/10.59350/s4z64-azn42\",\"url\":\"https://irishplants.org/blog/2023/10/07/autumn-ladys-tresses\",\"archive_url\":null,\"title\":\"Autumn
-      Lady&#8217;s Tresses: an orchid species new to Ulster\",\"summary\":\"On the
-      thirteenth of August, I was at Killard National Nature Reserve, Co. Down, with
-      my mum. We were looking for Frog Orchids and other species rare in the county
-      like Quaking Grass and Field Scabious. She found a plant she didn\u2019t recognise
-      and asked me what it was, and it was Autumn Lady\u2019s Tresses.\",\"published_at\":1696689687,\"updated_at\":1696691800,\"indexed_at\":1697660186,\"indexed\":null,\"authors\":[{\"url\":
-      \"https://irishplants.org/\", \"name\": \"Jake Dalzell\"}],\"image\":\"https://irishplants.org/blog/wp-content/uploads/2023/10/DSC_0592-2-scaled.jpg\",\"tags\":[\"Plants\",\"Conservation\",\"Ecology\",\"Fieldwork\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Irish
-      Plants\",\"blog_slug\":\"irishplants\",\"blog\":{\"slug\":\"irishplants\",\"title\":\"Irish
-      Plants\",\"description\":\"Jake's blog\",\"feed_url\":\"http://irishplants.org/blog/feed/atom/\",\"home_page_url\":\"https://irishplants.org/blog\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress
-      6.3.2\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1696691878}},
-      \n {\"id\":\"4ede6374-6ba8-436f-81e6-4504fd70441a\",\"guid\":\"651d174894e4e100013aeebf\",\"doi\":\"https://doi.org/10.53731/ybhah-9jy85\",\"url\":\"https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter\",\"archive_url\":null,\"title\":\"The
-      rise of the (science) newsletter\",\"summary\":\"Newsletters have been around
-      forever, but their popularity has significantly increased in the past few years,
-      also thanks to platforms such as Ghost, Medium, and Substack.\",\"published_at\":1696415792,\"updated_at\":1696441214,\"indexed_at\":1696673135,\"indexed\":null,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":\"https://images.unsplash.com/photo-1518546488314-6ed28acc48e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDI1fHxyaXNlfGVufDB8fHx8MTY5NjQwNTMyNnww&ixlib=rb-4.0.3&q=80&w=2000\",\"tags\":[\"Feature\"],\"language\":\"en\",\"reference\":[{\"doi\":
-      \"https://doi.org/10.1038/d41586-023-02554-0\", \"key\": \"ref1\"}, {\"doi\":
-      \"https://doi.org/10.24343/C34W2H\", \"key\": \"ref2\"}, {\"doi\": \"https://doi.org/10.53731/9cdnt-2k006\",
-      \"key\": \"ref3\"}],\"relationships\":[],\"blog_name\":\"Front Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
-      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
-      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost
-      5.52\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1698073841}},
-      \n {\"id\":\"3a14093c-03f8-4a66-8512-47266b2e5759\",\"guid\":\"651aebc3bdc3b90001605e56\",\"doi\":\"https://doi.org/10.53731/yaws9-eyt23\",\"url\":\"https://blog.front-matter.io/posts/collecting-metadata\",\"archive_url\":null,\"title\":\"Collecting
-      metadata for science blog posts\",\"summary\":\"Metadata are an important feature
-      of every scholarly resource.\",\"published_at\":1696276976,\"updated_at\":1696276976,\"indexed_at\":1696277535,\"indexed\":null,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":\"https://blog.front-matter.io/content/images/2023/10/8071729256_19fe2e444c.jpg\",\"tags\":[\"Feature\"],\"language\":\"en\",\"reference\":[{\"doi\":
-      \"https://doi.org/10.1038/s41597-019-0031-8\", \"key\": \"ref1\"}, {\"doi\":
-      \"https://doi.org/10.53731/6mkrk-dzh02\", \"key\": \"ref2\"}],\"relationships\":[],\"blog_name\":\"Front
-      Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
-      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
-      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost
-      5.52\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1698073841}},
-      \n {\"id\":\"d9dc091e-d740-4fdf-ba67-0aae45325399\",\"guid\":\"https://bjoern.brembs.net/?p=2710\",\"doi\":\"https://doi.org/10.59350/s2frx-79339\",\"url\":\"https://bjoern.brembs.net/2023/09/no-evilsevier-deal\",\"archive_url\":null,\"title\":\"No
-      Evilsevier DEAL!\",\"summary\":\"\",\"published_at\":1695912169,\"updated_at\":1695914704,\"indexed_at\":1696087377,\"indexed\":null,\"authors\":[{\"name\":
-      \"Bj\xF6rn Brembs\"}],\"image\":null,\"tags\":[\"Science Politics\",\"DEAL\",\"Elsevier\",\"Infrastructure\",\"Transformative
-      Agreements\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"bjoern.brembs.blog\",\"blog_slug\":\"brembs\",\"blog\":{\"slug\":\"brembs\",\"title\":\"bjoern.brembs.blog\",\"description\":\"The
-      blog of neurobiologist Bj\xF6rn Brembs\",\"feed_url\":\"https://bjoern.brembs.net/feed/atom/\",\"home_page_url\":\"https://bjoern.brembs.net\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695914704}},
-      \n {\"id\":\"8dd4d8bd-98b8-487b-b37f-4fa1ff0dead6\",\"guid\":\"650164b9f224a54ca047d11b\",\"doi\":\"https://doi.org/10.59350/mcssw-16w57\",\"url\":\"https://libscie.org/s03e15\",\"archive_url\":null,\"title\":\"Stagnation
-      or solidification of open science? (s03e15)\",\"summary\":\"\U0001F508This is
-      a transcript of the Open Update podcast. Listen to the original audio on Anchor.fm.
-      [00:00:00] <strong>Chris Hartgerink:</strong> Welcome back to the Open Update.\",\"published_at\":1695711612,\"updated_at\":1695711612,\"indexed_at\":1695738887,\"indexed\":null,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1050-6809\", \"name\": \"Chris Hartgerink\"}],\"image\":\"https://images.unsplash.com/photo-1598763555653-573648fbd120?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDgzfHxzb2xpZHN8ZW58MHx8fHwxNjk0NTkwMzIxfDA&ixlib=rb-4.0.3&q=80&w=2000\",\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Liberate
+      \n {\"id\":\"8713c877-0b65-4a87-9bf1-07c5ac56c35f\",\"guid\":\"135768325\",\"doi\":\"https://doi.org/10.59350/s38p7-bjf11\",\"url\":\"https://fairdata.substack.com/p/fair-data-digest-13\",\"archive_url\":null,\"title\":\"FAIR
+      Data Digest #13\",\"summary\":\"\",\"published_at\":1693296012,\"updated_at\":1693296012,\"indexed_at\":1696262684,\"indexed\":null,\"authors\":[{\"name\":
+      \"Sven Lieber, PhD\"}],\"image\":\"https://substack-post-media.s3.amazonaws.com/public/images/046b89ba-b31d-4f78-8400-e3f8aba88669_600x200.png\",\"tags\":[\"Microsoft
+      Academic Graph\",\"Graph Embeddings\",\"International Semantic Web Conference\",\"Benchmarking\",\"SEMANTiCS\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"FAIR
+      Data Digest\",\"blog_slug\":\"fairdata\",\"blog\":{\"slug\":\"fairdata\",\"title\":\"FAIR
+      Data Digest\",\"description\":\"Notes on my work with (cultural heritage) FAIR
+      data. Topics cover Programming, Open Science, Digital Humanities, Knowledge
+      Graphs, Linked Data, Metadata, data catalogs, Wikidata, RDF, SPARQL and the
+      Semantic Web as well as personal interests.\",\"feed_url\":\"https://fairdata.substack.com/feed\",\"home_page_url\":\"https://fairdata.substack.com\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Substack\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697529675}},
+      \n {\"id\":\"c2747bf0-28c4-4f0c-826b-78cefb807821\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/chr9z-90t95\",\"url\":\"https://libscie.org/announcement-assembly-12\",\"archive_url\":null,\"title\":\"Announcement
+      Assembly #12\",\"summary\":\"We are announcing our twelth General Assembly.
+      All ResearchEquals supporting members are invited \U0001F60D\",\"published_at\":1693292456,\"updated_at\":1693292456,\"indexed_at\":1693361383,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://ror.org/0342dzm54\", \"name\": \"Liberate Science\"}],\"image\":\"https://images.unsplash.com/photo-1574267432553-4b4628081c31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDEyfHx0aGVhdGVyfGVufDB8fHx8MTY5MzIwOTIzMXww&ixlib=rb-4.0.3&q=80&w=2000\",\"tags\":[\"Research
+      Equals\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Liberate
       Science\",\"blog_slug\":\"libscie\",\"blog\":{\"slug\":\"libscie\",\"title\":\"Liberate
       Science\",\"description\":\"Research as a commons\",\"feed_url\":\"https://libscie.org/rss/\",\"home_page_url\":\"https://libscie.org\",\"language\":\"en\",\"category\":\"socialSciences\",\"status\":\"active\",\"generator\":\"Ghost
-      5.49\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1696947067}},
-      \n {\"id\":\"78af77d1-72ba-4d9d-92aa-9dc258bbf00a\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/evaf9-2qf48\",\"url\":\"https://ropensci.org/blog/2023/09/26/how-to-translate-a-hugo-blog-post-with-babeldown\",\"archive_url\":null,\"title\":\"How
-      to Translate a Hugo Blog Post with Babeldown\",\"summary\":\"<p>As part of our
-      <a href=\\\"/multilingual-publishing/\\\">multilingual publishing project</a>,
-      and with <a href=\\\"https://www.r-consortium.org/all-projects/awarded-projects/2022-group-2\\\">funding
-      from the R Consortium</a>, we&rsquo;ve worked on the R package <a href=\\\"https://docs.ropensci.org/babeldown/\\\">babeldown</a>
-      for translating Markdown-based content using the DeepL API.In this tech note,
-      we&rsquo;ll show how you can use babeldown to translate a Hugo blog post!\",\"published_at\":1695686400,\"updated_at\":1695713432,\"indexed_at\":1696161190,\"indexed\":null,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-2815-0399\", \"name\": \"Ma\xEBlle Salmon\"},
-      {\"url\": \"https://orcid.org/0000-0002-4522-7466\", \"name\": \"Yanina Bellini
-      Saibene\"}],\"image\":\"placeholder.png\",\"tags\":[\"Tech Notes\",\"Multilingual\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"rOpenSci
-      - open tools for open science\",\"blog_slug\":\"ropensci\",\"blog\":{\"slug\":\"ropensci\",\"title\":\"rOpenSci
-      - open tools for open science\",\"description\":\"Open Tools and R Packages
-      for Open Science\",\"feed_url\":\"https://ropensci.org/blog/index.json\",\"home_page_url\":\"https://ropensci.org/blog\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Hugo
-      -- gohugo.io\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697790198}}]"
+      5.49\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1698130847}},
+      \n {\"id\":\"b16c08bd-aac6-40b6-8ef6-d630dbef62d0\",\"guid\":\"https://norbisley.wordpress.com/?p=322\",\"doi\":\"https://doi.org/10.59350/t8n9h-kz230\",\"url\":\"https://norbisley.wordpress.com/2023/08/26/doi\",\"archive_url\":null,\"title\":\"Obtener
+      un DOI\",\"summary\":\"Obtener un DOI\",\"published_at\":1693050885,\"updated_at\":1693053507,\"indexed_at\":1693739696,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-9373-4622\", \"name\": \"NFernan\"}],\"image\":\"https://norbisley.files.wordpress.com/2023/08/r.png\",\"tags\":[\"Sin
+      Categor\xEDa\"],\"language\":\"es\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Edici\xF3n
+      y comunicaci\xF3n de la Ciencia\",\"blog_slug\":\"norbisley\",\"blog\":{\"slug\":\"norbisley\",\"title\":\"Edici\xF3n
+      y comunicaci\xF3n de la Ciencia\",\"description\":null,\"feed_url\":\"https://norbisley.wordpress.com/feed/atom/\",\"home_page_url\":\"https://norbisley.wordpress.com\",\"language\":\"es\",\"category\":\"mediaAndCommunications\",\"status\":\"active\",\"generator\":\"WordPress.com\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1696673881}},
+      \n {\"id\":\"4e28cc69-c253-4c06-8925-e80bdc2dbd55\",\"guid\":\"https://irights.info/?post_type=custom_artikel&p=32003\",\"doi\":\"https://doi.org/10.59350/27wky-wpg41\",\"url\":\"https://irights.info/artikel/zugang-gestalten-2023/32003\",\"archive_url\":null,\"title\":\"\u201EZugang
+      gestalten!\u201C 2023 in M\xFCnster: Programm ver\xF6ffentlicht, kostenlose
+      Anmeldung m\xF6glich\",\"summary\":\"In eigener Sache: \u201EZugang gestalten!\u201C,
+      die j\xE4hrliche Konferenz zum kulturellen Erbe in der digitalen Welt, tagt
+      diesen Herbst in M\xFCnster.\",\"published_at\":1692802055,\"updated_at\":1695381557,\"indexed_at\":1695383657,\"indexed\":null,\"authors\":[{\"name\":
+      \"Peggy Fiebig\"}],\"image\":\"https://irights.info/wp-content/uploads/2023/08/ZG_2019-490x327.jpg\",\"tags\":[\"Gesellschaft
+      + Kunst\",\"Museen + Archive\",\"Urheberrecht\",\"Veranstaltungshinweise\",\"Wissenschaft\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
+      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info/\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1698071084}},
+      \n {\"id\":\"87f82ac2-3f23-4a80-bc6e-43c522b15c52\",\"guid\":\"https://opencitations.hypotheses.org/?p=3436\",\"doi\":\"https://doi.org/10.59350/vwajv-ym488\",\"url\":\"https://opencitations.hypotheses.org/3436\",\"archive_url\":null,\"title\":\"The
+      OpenCitations blog posts are now archived on Rogue Scholar with DOIs\",\"summary\":\"\",\"published_at\":1692712885,\"updated_at\":1693479885,\"indexed_at\":1693664162,\"indexed\":null,\"authors\":[{\"name\":
+      \"Chiara Di Giambattista\"}],\"image\":\"https://opencitations.hypotheses.org/files/2023/08/Screenshot-14-1-500x259.png\",\"tags\":[\"Open
+      Access\",\"Open Citations\",\"Open Scholarship\",\"Open Science\",\"OpenCitations\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"OpenCitations
+      blog\",\"blog_slug\":\"opencitations\",\"blog\":{\"slug\":\"opencitations\",\"title\":\"OpenCitations
+      blog\",\"description\":\"The blog of the OpenCitations Infrastructure\",\"feed_url\":\"https://opencitations.hypotheses.org/feed/atom/\",\"home_page_url\":\"https://opencitations.hypotheses.org\",\"language\":\"en\",\"category\":\"socialSciences\",\"status\":\"active\",\"generator\":\"WordPress
+      6.2\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697559017}},
+      \n {\"id\":\"fa3836aa-ab99-4065-ab25-b24d8d670ea1\",\"guid\":\"136041092\",\"doi\":\"https://doi.org/10.59350/12tvf-nah74\",\"url\":\"https://fairdata.substack.com/p/fair-data-digest-12\",\"archive_url\":null,\"title\":\"FAIR
+      Data Digest #12\",\"summary\":\"\",\"published_at\":1692691215,\"updated_at\":1692691215,\"indexed_at\":1696263419,\"indexed\":null,\"authors\":[{\"name\":
+      \"Sven Lieber, PhD\"}],\"image\":\"https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9b397dbf-ba7e-4b19-991e-e094d6d75236_1343x827.png\",\"tags\":[\"Conference
+      Proceedings\",\"Wikidata\",\"Academic Conferences\",\"SPARQL\",\"Wikimedia Foundation\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"FAIR
+      Data Digest\",\"blog_slug\":\"fairdata\",\"blog\":{\"slug\":\"fairdata\",\"title\":\"FAIR
+      Data Digest\",\"description\":\"Notes on my work with (cultural heritage) FAIR
+      data. Topics cover Programming, Open Science, Digital Humanities, Knowledge
+      Graphs, Linked Data, Metadata, data catalogs, Wikidata, RDF, SPARQL and the
+      Semantic Web as well as personal interests.\",\"feed_url\":\"https://fairdata.substack.com/feed\",\"home_page_url\":\"https://fairdata.substack.com\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Substack\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697529675}},
+      \n {\"id\":\"c9994d6b-84ed-4daf-93bf-c2deb9a85c0c\",\"guid\":\"https://norbisley.wordpress.com/?p=288\",\"doi\":\"https://doi.org/10.59350/m6690-fs737\",\"url\":\"https://norbisley.wordpress.com/2023/08/22/yo-te-cito-tu-me-citas-a-bailar-el-cita-cita\",\"archive_url\":null,\"title\":\"Yo
+      te cito, t\xFA me citas: a bailar el cita cita\",\"summary\":\"Todos sabemos
+      (en mayor o menor medida) que el criterio de la calidad de la ciencia es la
+      publicaci\xF3n, y \xFAltimamente, la citaci\xF3n.\",\"published_at\":1692672980,\"updated_at\":1692896147,\"indexed_at\":1693747604,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-9373-4622\", \"name\": \"NFernan\"}],\"image\":\"https://static.xx.fbcdn.net/images/emoji.php/v9/t2c/1/16/1f631.png\",\"tags\":[\"Publicaciones
+      Cient\xEDficas\"],\"language\":\"es\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Edici\xF3n
+      y comunicaci\xF3n de la Ciencia\",\"blog_slug\":\"norbisley\",\"blog\":{\"slug\":\"norbisley\",\"title\":\"Edici\xF3n
+      y comunicaci\xF3n de la Ciencia\",\"description\":null,\"feed_url\":\"https://norbisley.wordpress.com/feed/atom/\",\"home_page_url\":\"https://norbisley.wordpress.com\",\"language\":\"es\",\"category\":\"mediaAndCommunications\",\"status\":\"active\",\"generator\":\"WordPress.com\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1696673881}},
+      \n {\"id\":\"88869f00-8f46-4331-b102-d25c317fad22\",\"guid\":\"https://norbisley.wordpress.com/?p=278\",\"doi\":\"https://doi.org/10.59350/cszbq-xe191\",\"url\":\"https://norbisley.wordpress.com/2023/08/18/fuentes-para-cargos-por-procesamiento-de-articulos-apc\",\"archive_url\":null,\"title\":\"Fuentes
+      para cargos por procesamiento de art\xEDculos (APC)\",\"summary\":\"Fuentes
+      para cargos por procesamiento de art\xEDculos (APC)\",\"published_at\":1692368611,\"updated_at\":1692896091,\"indexed_at\":1693748124,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-9373-4622\", \"name\": \"NFernan\"}],\"image\":\"https://norbisley.files.wordpress.com/2023/08/oip-1.jpg?w=1000\",\"tags\":[\"Financiamiento
+      Y Convocatorias\"],\"language\":\"es\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Edici\xF3n
+      y comunicaci\xF3n de la Ciencia\",\"blog_slug\":\"norbisley\",\"blog\":{\"slug\":\"norbisley\",\"title\":\"Edici\xF3n
+      y comunicaci\xF3n de la Ciencia\",\"description\":null,\"feed_url\":\"https://norbisley.wordpress.com/feed/atom/\",\"home_page_url\":\"https://norbisley.wordpress.com\",\"language\":\"es\",\"category\":\"mediaAndCommunications\",\"status\":\"active\",\"generator\":\"WordPress.com\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1696673881}},
+      \n {\"id\":\"984fb023-ab2d-4af7-811b-f1ab0395efc2\",\"guid\":\"https://irights.info/?post_type=custom_artikel&p=31993\",\"doi\":\"https://doi.org/10.59350/mcpt5-k2y24\",\"url\":\"https://irights.info/artikel/audiovisuelle-medien-forschung-lehre/31993\",\"archive_url\":null,\"title\":\"Handreichung
+      neu aufgelegt: Audiovisuelle Medien rechtssicher in Forschung und Lehre nutzen\",\"summary\":\"Vor
+      acht Jahren erschien die Handreichung zu urheberrechtlichen Fragen bei der Nutzung
+      von audiovisuellen Materialien in Forschung und Lehre erstmals.\",\"published_at\":1692196058,\"updated_at\":1692802071,\"indexed_at\":1694963040,\"indexed\":null,\"authors\":[{\"name\":
+      \"Peggy Fiebig\"}],\"image\":null,\"tags\":[\"In Eigener Sache\",\"Musik + MP3\",\"Urheberrecht\",\"Wissen
+      + Open Access\",\"Wissenschaft\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
+      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info/\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1698071084}},
+      \n {\"id\":\"5fbe682e-48e8-4af1-9aa5-e78d49d0c7a0\",\"guid\":\"135768278\",\"doi\":\"https://doi.org/10.59350/t7ppt-j0z43\",\"url\":\"https://fairdata.substack.com/p/fair-data-digest-11\",\"archive_url\":null,\"title\":\"FAIR
+      Data Digest #11\",\"summary\":\"\",\"published_at\":1692086425,\"updated_at\":1692086425,\"indexed_at\":1696264120,\"indexed\":null,\"authors\":[{\"name\":
+      \"Sven Lieber, PhD\"}],\"image\":\"https://substackcdn.com/image/youtube/w_728,c_limit/bHy63VOp0RQ\",\"tags\":[\"VIAF\",\"Wikidata\",\"Functions\",\"International
+      Standard Name Identifier\",\"S+c\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"FAIR
+      Data Digest\",\"blog_slug\":\"fairdata\",\"blog\":{\"slug\":\"fairdata\",\"title\":\"FAIR
+      Data Digest\",\"description\":\"Notes on my work with (cultural heritage) FAIR
+      data. Topics cover Programming, Open Science, Digital Humanities, Knowledge
+      Graphs, Linked Data, Metadata, data catalogs, Wikidata, RDF, SPARQL and the
+      Semantic Web as well as personal interests.\",\"feed_url\":\"https://fairdata.substack.com/feed\",\"home_page_url\":\"https://fairdata.substack.com\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Substack\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697529675}}]"
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 81ad9ceb5de66a85-DUS
+      - 81b353ec184c717a-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -191,7 +175,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 23 Oct 2023 23:03:22 GMT
+      - Tue, 24 Oct 2023 15:42:06 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -205,7 +189,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '32'
+      - '41'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
