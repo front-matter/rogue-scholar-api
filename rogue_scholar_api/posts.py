@@ -221,69 +221,74 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
 async def extract_wordpress_post(post, blog):
     """Extract WordPress post from REST API."""
 
-    def format_author(author):
-        """Format author. Optionally lookup real name from username,
-        and ORCID from name. Ideally this is done in the Wordpress
-        user settings."""
-        name_ = author.get("name", None)
-        name = AUTHOR_NAMES.get(name_, None) or name_
-        url_ = author.get("url", None)
-        url = url_ if url_ and is_orcid(url_) else AUTHOR_IDS.get(name, None)
+    try:
+        def format_author(author):
+            """Format author. Optionally lookup real name from username,
+            and ORCID from name. Ideally this is done in the Wordpress
+            user settings."""
+            name_ = author.get("name", None)
+            name = AUTHOR_NAMES.get(name_, None) or name_
+            url_ = author.get("url", None)
+            url = url_ if url_ and is_orcid(url_) else AUTHOR_IDS.get(name, None)
 
-        return compact(
-            {
-                "name": name,
-                "url": url,
-            }
+            return compact(
+                {
+                    "name": name,
+                    "url": url,
+                }
+            )
+
+        # use default author for blog if no post author found
+        authors_ = wrap(py_.get(post, "_embedded.author", None))
+        if len(authors_) == 0 or authors_[0].get("name", None) is None:
+            authors_ = wrap(blog.get("authors", None))
+        authors = [format_author(i) for i in authors_]
+        content_html = py_.get(post, "content.rendered", "")
+        soup = BeautifulSoup(content_html, "html.parser")
+        reference = get_references(content_html)
+        relationships = get_relationships(content_html)
+        url = normalize_url(post.get("link", None), secure=blog.get("secure", True))
+        images = get_images(soup, url, blog["home_page_url"])
+        image = (
+            py_.get(post, "_embedded.wp:featuredmedia[0].source_url", None)
+            or py_.get(post, "yoast_head_json.og_image[0].url", None)
+            or post.get("jetpack_featured_media_url", None)
         )
+        if not image and len(images) > 0:
+            image = images[0].get("src", None)
+        categories = [
+            normalize_tag(i.get("name", None))
+            for i in wrap(py_.get(post, "_embedded.wp:term.0", None))
+        ]
+        tags = [
+            normalize_tag(i.get("name", None))
+            for i in wrap(py_.get(post, "_embedded.wp:term.1", None))
+        ]
+        terms = categories + tags
+        terms = py_.uniq(terms)[:5]
 
-    # use default author for blog if no post author found
-    # if not author"name"] && blog.authors) {
-    #     author = blog.authors && blog.authors[0]
-    authors = [format_author(i) for i in wrap(py_.get(post, "_embedded.author", None))]
-    content_html = py_.get(post, "content.rendered", "")
-    soup = BeautifulSoup(content_html, "html.parser")
-    reference = get_references(content_html)
-    relationships = get_relationships(content_html)
-    url = normalize_url(post.get("link", None), secure=blog.get("secure", True))
-    images = get_images(soup, url, blog["home_page_url"])
-    image = (
-        py_.get(post, "_embedded.wp:featuredmedia[0].source_url", None)
-        or py_.get(post, "yoast_head_json.og_image[0].url", None)
-        or post.get("jetpack_featured_media_url", None)
-    )
-    if not image and len(images) > 0:
-        image = images[0].get("src", None)
-    categories = [
-        normalize_tag(i.get("name", None))
-        for i in wrap(py_.get(post, "_embedded.wp:term.0", None))
-    ]
-    tags = [
-        normalize_tag(i.get("name", None))
-        for i in wrap(py_.get(post, "_embedded.wp:term.1", None))
-    ]
-    terms = categories + tags
-    terms = py_.uniq(terms)[:5]
-
-    return {
-        "authors": authors,
-        "blog_id": blog.get("id", None),
-        "blog_name": blog.get("title", None),
-        "blog_slug": blog.get("slug", None),
-        "content_html": content_html,
-        "summary": get_abstract(content_html),
-        "published_at": unix_timestamp(post.get("date_gmt", None)),
-        "updated_at": unix_timestamp(post.get("modified_gmt", None)),
-        "image": image,
-        "images": images,
-        "language": blog.get("language", "en"),
-        "reference": reference,
-        "relationships": relationships,
-        "tags": terms,
-        "title": py_.get(post, "title.rendered", ""),
-        "url": url,
-        "guid": py_.get(post, "guid.rendered", None),
-    }
+        return {
+            "authors": authors,
+            "blog_id": blog.get("id", None),
+            "blog_name": blog.get("title", None),
+            "blog_slug": blog.get("slug", None),
+            "content_html": content_html,
+            "summary": get_abstract(content_html),
+            "published_at": unix_timestamp(post.get("date_gmt", None)),
+            "updated_at": unix_timestamp(post.get("modified_gmt", None)),
+            "image": image,
+            "images": images,
+            "language": blog.get("language", "en"),
+            "reference": reference,
+            "relationships": relationships,
+            "tags": terms,
+            "title": py_.get(post, "title.rendered", ""),
+            "url": url,
+            "guid": py_.get(post, "guid.rendered", None),
+        }
+    except Exception as e:
+        print(e, post.get("link", None))
+        return {}
 
 
 async def extract_wordpresscom_post(post, blog):
@@ -346,99 +351,107 @@ async def extract_wordpresscom_post(post, blog):
 async def extract_ghost_post(post, blog):
     """Extract Ghost post from REST API."""
 
-    def format_author(author):
-        """Format author."""
-        return compact(
-            {
-                "name": author.get("name", None),
-                "url": author.get("website", None),
-            }
-        )
+    try:
+        def format_author(author):
+            """Format author."""
+            return compact(
+                {
+                    "name": author.get("name", None),
+                    "url": author.get("website", None),
+                }
+            )
 
-    authors = [format_author(i) for i in wrap(post.get("authors", None))]
-    content_html = post.get("html", "")
-    soup = BeautifulSoup(content_html, "html.parser")
+        authors = [format_author(i) for i in wrap(post.get("authors", None))]
+        content_html = post.get("html", "")
+        soup = BeautifulSoup(content_html, "html.parser")
 
-    # don't use excerpt as summary, because it's not html
-    summary = get_abstract(content_html)
-    reference = get_references(content_html)
-    relationships = get_relationships(content_html)
-    url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
-    images = get_images(soup, url, blog.get("home_page_url", None))
-    image = post.get("feature_image", None)
-    if not image and len(images) > 0:
-        image = images[0].get("src", None)
-    tags = [normalize_tag(i.get("name", None)) for i in post.get("tags", None)][:5]
+        # don't use excerpt as summary, because it's not html
+        summary = get_abstract(content_html)
+        reference = get_references(content_html)
+        relationships = get_relationships(content_html)
+        url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
+        images = get_images(soup, url, blog.get("home_page_url", None))
+        image = post.get("feature_image", None)
+        if not image and len(images) > 0:
+            image = images[0].get("src", None)
+        tags = [normalize_tag(i.get("name", None)) for i in post.get("tags", None)][:5]
 
-    return {
-        "authors": authors,
-        "blog_id": blog.get("id", None),
-        "blog_name": blog.get("title", None),
-        "blog_slug": blog.get("slug", None),
-        "content_html": content_html,
-        "summary": summary,
-        "published_at": unix_timestamp(post.get("published_at", None)),
-        "updated_at": unix_timestamp(post.get("updated_at", None)),
-        "image": image,
-        "images": images,
-        "language": blog.get("language", "en"),
-        "reference": reference,
-        "relationships": relationships,
-        "tags": tags,
-        "title": get_title(post.get("title", None)),
-        "url": url,
-        "guid": post.get("id", None),
-    }
+        return {
+            "authors": authors,
+            "blog_id": blog.get("id", None),
+            "blog_name": blog.get("title", None),
+            "blog_slug": blog.get("slug", None),
+            "content_html": content_html,
+            "summary": summary,
+            "published_at": unix_timestamp(post.get("published_at", None)),
+            "updated_at": unix_timestamp(post.get("updated_at", None)),
+            "image": image,
+            "images": images,
+            "language": blog.get("language", "en"),
+            "reference": reference,
+            "relationships": relationships,
+            "tags": tags,
+            "title": get_title(post.get("title", None)),
+            "url": url,
+            "guid": post.get("id", None),
+        }
+    except Exception as e:
+        print(e, post.get("url", None))
+        return {}
 
 
 async def extract_substack_post(post, blog):
     """Extract Substack post from REST API."""
 
-    def format_author(author):
-        """Format author."""
-        name = author.get("name", None)
-        return compact(
-            {
-                "name": name,
-                "url": AUTHOR_IDS.get(name, None),
-            }
+    try:
+        def format_author(author):
+            """Format author."""
+            name = author.get("name", None)
+            return compact(
+                {
+                    "name": name,
+                    "url": AUTHOR_IDS.get(name, None),
+                }
+            )
+
+        authors = [format_author(i) for i in wrap(post.get("publishedBylines", None))]
+        content_html = post.get("body_html", "")
+        soup = BeautifulSoup(content_html, "html.parser")
+        summary = get_abstract(post.get("description", None))
+        published_at = unix_timestamp(post.get("post_date", None))
+        reference = get_references(content_html)
+        relationships = get_relationships(content_html)
+        url = normalize_url(
+            post.get("canonical_url", None), secure=blog.get("secure", True)
         )
+        images = get_images(soup, url, blog.get("home_page_url", None))
+        image = post.get("cover_image", None)
+        if not image and len(images) > 0:
+            image = images[0].get("src", None)
+        tags = [normalize_tag(i.get("name")) for i in wrap(post.get("postTags", None))][:5]
 
-    authors = [format_author(i) for i in wrap(post.get("publishedBylines", None))]
-    content_html = post.get("body_html", "")
-    soup = BeautifulSoup(content_html, "html.parser")
-    summary = get_abstract(post.get("description", None))
-    published_at = unix_timestamp(post.get("post_date", None))
-    reference = get_references(content_html)
-    relationships = get_relationships(content_html)
-    url = normalize_url(
-        post.get("canonical_url", None), secure=blog.get("secure", True)
-    )
-    images = get_images(soup, url, blog.get("home_page_url", None))
-    image = post.get("cover_image", None)
-    if not image and len(images) > 0:
-        image = images[0].get("src", None)
-    tags = [normalize_tag(i.get("name")) for i in wrap(post.get("postTags", None))][:5]
-
-    return {
-        "authors": authors,
-        "blog_id": blog.get("id", None),
-        "blog_name": blog.get("title", None),
-        "blog_slug": blog.get("slug", None),
-        "content_html": content_html,
-        "summary": summary,
-        "published_at": published_at,
-        "updated_at": published_at,
-        "image": image,
-        "images": images,
-        "language": blog.get("language", "en"),
-        "reference": reference,
-        "relationships": relationships,
-        "tags": tags,
-        "title": get_title(post.get("title", None)),
-        "url": url,
-        "guid": post.get("id", None),
-    }
+        return {
+            "authors": authors,
+            "blog_id": blog.get("id", None),
+            "blog_name": blog.get("title", None),
+            "blog_slug": blog.get("slug", None),
+            "content_html": content_html,
+            "summary": summary,
+            "published_at": published_at,
+            "updated_at": published_at,
+            "image": image,
+            "images": images,
+            "language": blog.get("language", "en"),
+            "reference": reference,
+            "relationships": relationships,
+            "tags": tags,
+            "title": get_title(post.get("title", None)),
+            "url": url,
+            "guid": post.get("id", None),
+        }
+    except Exception as e:
+        print(e, post.get("canonical_url", None))
+        return {}
 
 
 async def extract_json_feed_post(post, blog):
@@ -511,7 +524,7 @@ async def extract_atom_post(post, blog):
 
         # use default authors for blog if no post authors found
         authors_ = wrap(post.get("author", None))
-        if len(authors_) == 0:
+        if len(authors_) == 0 or authors_[0].get("name", None) is None:
             authors_ = wrap(blog.get("authors", None))
         authors = [format_author(i) for i in authors_]
         content_html = py_.get(post, "content.#text", "")
