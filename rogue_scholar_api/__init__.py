@@ -5,6 +5,7 @@ from datetime import timedelta
 from commonmeta.utils import compact, wrap
 from os import environ
 import asyncio
+import pydash as py_
 from dotenv import load_dotenv
 import sentry_sdk
 
@@ -211,7 +212,7 @@ async def posts():
     )
     try:
         response = typesense.collections["posts"].documents.search(search_parameters)
-        return jsonify(response)
+        return jsonify(py_.omit(response, ["hits.highlight"]))
     except Exception as e:
         logger.warning(e.args[0])
         return {"error": "An error occured."}, 400
