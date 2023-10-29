@@ -222,6 +222,7 @@ async def extract_wordpress_post(post, blog):
     """Extract WordPress post from REST API."""
 
     try:
+
         def format_author(author):
             """Format author. Optionally lookup real name from username,
             and ORCID from name. Ideally this is done in the Wordpress
@@ -294,6 +295,7 @@ async def extract_wordpress_post(post, blog):
 async def extract_wordpresscom_post(post, blog):
     """Extract WordPress.com post from REST API."""
     try:
+
         def format_author(author):
             """Format author. Optionally lookup real name from username,
             and ORCID from name. Ideally this is done in the Wordpress
@@ -352,6 +354,7 @@ async def extract_ghost_post(post, blog):
     """Extract Ghost post from REST API."""
 
     try:
+
         def format_author(author):
             """Format author."""
             return compact(
@@ -404,6 +407,7 @@ async def extract_substack_post(post, blog):
     """Extract Substack post from REST API."""
 
     try:
+
         def format_author(author):
             """Format author."""
             name = author.get("name", None)
@@ -428,7 +432,9 @@ async def extract_substack_post(post, blog):
         image = post.get("cover_image", None)
         if not image and len(images) > 0:
             image = images[0].get("src", None)
-        tags = [normalize_tag(i.get("name")) for i in wrap(post.get("postTags", None))][:5]
+        tags = [normalize_tag(i.get("name")) for i in wrap(post.get("postTags", None))][
+            :5
+        ]
 
         return {
             "authors": authors,
@@ -458,6 +464,7 @@ async def extract_json_feed_post(post, blog):
     """Extract JSON Feed post."""
 
     try:
+
         def format_author(author):
             """Format author."""
             name = author.get("name", None)
@@ -510,6 +517,7 @@ async def extract_atom_post(post, blog):
     """Extract Atom post."""
 
     try:
+
         def format_author(author):
             """Format author."""
             name = author.get("name", None)
@@ -529,6 +537,9 @@ async def extract_atom_post(post, blog):
         authors = [format_author(i) for i in authors_]
         content_html = py_.get(post, "content.#text", "")
         soup = BeautifulSoup(content_html, "html.parser")
+        title = get_title(py_.get(post, "title.#text", None)) or get_title(
+            post.get("title", None)
+        )
         summary = get_abstract(content_html)
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
@@ -539,7 +550,11 @@ async def extract_atom_post(post, blog):
             """Get url."""
             return normalize_url(
                 next(
-                    (link["@href"] for link in wrap(links) if link["@rel"] == "alternate"),
+                    (
+                        link["@href"]
+                        for link in wrap(links)
+                        if link["@rel"] == "alternate"
+                    ),
                     None,
                 ),
                 secure=blog.get("secure", True),
@@ -551,7 +566,8 @@ async def extract_atom_post(post, blog):
         if not image and len(images) > 0:
             image = images[0].get("src", None)
         tags = [
-            normalize_tag(i.get("@term", None)) for i in wrap(post.get("category", None))
+            normalize_tag(i.get("@term", None))
+            for i in wrap(post.get("category", None))
         ][:5]
 
         return {
@@ -569,7 +585,7 @@ async def extract_atom_post(post, blog):
             "reference": reference,
             "relationships": relationships,
             "tags": tags,
-            "title": get_title(py_.get(post, "title.#text", "")),
+            "title": title,
             "url": url,
             "guid": post.get("id", None),
         }
@@ -582,6 +598,7 @@ async def extract_rss_post(post, blog):
     """Extract RSS post."""
 
     try:
+
         def format_author(author):
             """Format author."""
             name_ = author.get("name", None)
@@ -602,7 +619,9 @@ async def extract_rss_post(post, blog):
         else:
             authors_ = wrap(blog.get("authors", None))
         authors = [format_author(i) for i in authors_]
-        content_html = py_.get(post, "content:encoded", None) or post.get("description", "")
+        content_html = py_.get(post, "content:encoded", None) or post.get(
+            "description", ""
+        )
         soup = BeautifulSoup(content_html, "html.parser")
         summary = get_abstract(content_html)
         reference = get_references(content_html)
