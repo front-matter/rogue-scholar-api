@@ -806,14 +806,17 @@ def get_abstract(content_html: str = None, maxlen: int = 450):
     sanitized = nh3.clean(
         content_html, tags={"b", "i", "em", "strong", "sub", "sup"}, attributes={}
     )
+    sanitized = re.sub(r"\n+", " ", sanitized).strip()
     truncated = py_.truncate(sanitized, maxlen, omission="", separator=" ")
-
+    
     # remove incomplete last sentence
-    if truncated[:-1] not in [".", "!", "?", ":"]:
-        sentences = re.split(r"(?<=\w{3}[.!?])\s+", truncated)
-        truncated = " ".join(sentences[:-2])
-    truncated = re.sub(r"\n+", " ", truncated).strip()
-    return truncated or ""
+    if truncated[-1] not in [".", "!", "?", ";", ","]:
+        sentences = re.split(r"(?<=\w{3}[.!?;,])\s+", truncated)
+        if len(sentences) > 1:
+            truncated = " ".join(sentences[:-1])
+        else:
+            truncated = sentences[0]
+    return truncated
 
 
 def get_relationships(content_html: str):
