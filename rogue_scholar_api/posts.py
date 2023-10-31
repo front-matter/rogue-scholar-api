@@ -847,14 +847,16 @@ def get_relationships(content_html: str):
         urls = get_urls(sentence)
         if not urls or len(urls) == 0:
             return None
-        # detect type of relationship, default is generic relationship
-        type_ = "IsRelatedTo"
+        # detect type of relationship
+        type_ = None
         if re.search("(originally published|cross-posted)", sentence):
             type_ = "IsIdenticalTo"
         elif re.search("peer-reviewed version", sentence):
             type_ = "IsPreprintOf"
         elif re.search("work was funded", sentence):
             type_ = "HasAward"
+        if type_ is None:
+            return None
         return {"type": type_, "url": urls[0]}
 
     relationships = [extract_url(i) for i in sentences]
