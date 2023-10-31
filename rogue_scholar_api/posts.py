@@ -633,8 +633,12 @@ async def extract_rss_post(post, blog):
         image = py_.get(post, "media:content.@url", None) or py_.get(
             post, "media:thumbnail.@url", None
         )
-        # if not image and len(images) > 0:
-        #     image = images[0].get("src", None)
+        if (
+            not image
+            and len(images) > 0
+            and furl(images[0].get("src", None)).host not in ["latex.codecogs.com"]
+        ):
+            image = images[0].get("src", None)
         tags = [normalize_tag(i) for i in wrap(post.get("category", None))][:5]
 
         return {
