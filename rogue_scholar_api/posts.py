@@ -19,6 +19,7 @@ from rogue_scholar_api.utils import (
     normalize_tag,
     get_date,
     normalize_url,
+    get_src_url,
     AUTHOR_IDS,
     AUTHOR_NAMES,
 )
@@ -854,12 +855,10 @@ def get_relationships(content_html: str):
             type_ = "IsPreprintOf"
         elif re.search("work was funded", sentence):
             type_ = "HasAward"
-        else:
-            print(sentence)
         return {"type": type_, "url": urls[0]}
 
     relationships = [extract_url(i) for i in sentences]
-    return [ i for i in relationships if i is not None ]
+    return [i for i in relationships if i is not None]
 
 
 def get_images(soup, url: str, home_page_url: str):
@@ -869,16 +868,14 @@ def get_images(soup, url: str, home_page_url: str):
         """Extract url from link."""
         src = image.attrs.get("src", None)
 
-        # src = getSrcUrl(src, url, home_page_url)
+        src = get_src_url(src, url, home_page_url)
         srcset = image.attrs.get("srcset", None)
 
-        # TODO: relative urls
-        # if (isString(srcset)) {
-        #     srcset = srcset
-        #     .split(", ")
-        #     .map((src) => getSrcUrl(src, url, home_page_url))
-        #     .join(", ")
-        # }
+        if isinstance(srcset, str):
+            srcset = srcset.split(", ")
+            srcset = [i.split(" ")[0] for i in srcset]
+            srcset = [get_src_url(i, url, home_page_url) for i in srcset]
+            srcset = ", ".join(srcset)
         alt = image.attrs.get("alt", None)
 
         if alt:

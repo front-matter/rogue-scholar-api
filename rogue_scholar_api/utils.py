@@ -233,3 +233,27 @@ def normalize_url(url: Optional[str], secure=False, lower=False) -> Optional[str
     if lower:
         return f.url.lower().strip("/")
     return f.url.strip("/")
+
+
+def get_src_url(src: str, url: str, home_page_url: str):
+    """Get src url"""
+
+    if is_valid_url(src):
+        return src
+
+    if src and src.startswith("/"):
+        f = furl(home_page_url)
+        f.path = ""
+        url = f.url
+    else:
+        url = url + "/"
+    return url + src
+
+
+def is_valid_url(url: str) -> bool:
+    """Check if url is valid"""
+    try:
+        f = furl(url)
+        return f.scheme in ["http", "https", "data", "mailto"]
+    except Exception:
+        return False
