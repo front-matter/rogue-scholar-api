@@ -7,6 +7,7 @@ from rogue_scholar_api.posts import (
     upsert_single_post,
     get_urls,
     get_references,
+    get_relationships,
     # get_title,
     get_abstract,
 )
@@ -327,6 +328,30 @@ def test_get_references():
     assert result[0] == {"doi": "https://doi.org/10.53731/ar11b-5ea39", "key": "ref1"}
 
 
+def test_get_relationships():
+    """Extract relationships"""
+    html = """Bla. <h2>Acknowledgments</h2><p>This blog post was originally published on the <a href="https://doi.org/10.5438/3dfw-z4kq">DataCite Blog</a>.</p>"""
+
+    result = get_relationships(html)
+    assert len(result) == 1
+    assert result[0] == {
+        "url": "https://doi.org/10.5438/3dfw-z4kq",
+        "type": "IsIdenticalTo",
+    }
+
+
+def test_get_relationships_funding():
+    """Extract funding relationships"""
+    html = """Bla. <h2>Acknowledgments</h2><p>This work was funded by the European Union’s Horizon 2020 research and innovation programme under <a href="https://doi.org/10.3030/654039">grant agreement No. 654039</a>.</p>"""
+
+    result = get_relationships(html)
+    assert len(result) == 1
+    assert result[0] == {
+        "url": "https://doi.org/10.3030/654039",
+        "type": "HasAward",
+    }
+
+
 # def test_get_title():
 #     """Sanitize title with spaces."""
 #     title = "  <h2>Bla</h2/><i>bla</i>"
@@ -340,4 +365,4 @@ def test_get_abstract():
     There’s something special about language. It is ‘our own’, it is ‘us’, in a profound way, and quite surprisingly, more so than art. I was deeply struck by this when I first saw reactions to large generative language models that created realistic, human-ish prose. Notably, those mature enough to reach a non-professional audience – ChatGPT based on GPT-3 and later GPT-4 – came quite some time after models that could create fairly acceptable visual ‘art’.1 The appearance of synthetic language-like products (SLLPs), as I like to call the output of such generative models, came well after the appearance of synthetic simulacra of visual art,2 yet elicited much less fervent responses."""
     result = get_abstract(abstract)
     assert len(result) <= 450
-    assert result.endswith("Notably,")
+    assert result.endswith("human-ish prose.")

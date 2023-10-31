@@ -590,7 +590,7 @@ async def extract_atom_post(post, blog):
             "guid": post.get("id", None),
         }
     except Exception as e:
-        print(e, url)
+        print(e, post.get("link", None))
         return {}
 
 
@@ -808,10 +808,10 @@ def get_abstract(content_html: str = None, maxlen: int = 450):
     )
     sanitized = re.sub(r"\n+", " ", sanitized).strip()
     truncated = py_.truncate(sanitized, maxlen, omission="", separator=" ")
-    
+
     # remove incomplete last sentence
-    if truncated[-1] not in [".", "!", "?", ";", ","]:
-        sentences = re.split(r"(?<=\w{3}[.!?;,])\s+", truncated)
+    if truncated[-1] not in [".", "!", "?", ";"]:
+        sentences = re.split(r"(?<=\w{3}[.!?;])\s+", truncated)
         if len(sentences) > 1:
             truncated = " ".join(sentences[:-1])
         else:
@@ -824,56 +824,42 @@ def get_relationships(content_html: str):
     Acknowledgments section,defined as the text after the tag
     "Acknowledgments</h2>", "Acknowledgments</h3>" or "Acknowledgments</h4>"""
 
-    # const relationships_html = content_html.split(
-    #     /(?:Acknowledgments)<\/(?:h2|h3|h4)>/,
-    #     2
-    # )
+    relationships_html = re.split(
+        r"Acknowledgments<\/(?:h1|h2|h3|h4)>",
+        content_html,
+        maxsplit=2,
+    )
+    if len(relationships_html) == 1:
+        return []
 
-    # if (relationships_html.length == 1) {
-    #     return []
-    # }
+    # strip optional text after notes, using <hr>, <hr />, <h2, <h3, <h4 as tag
+    relationships_html[1] = re.split(
+        r"(?:<hr \/>|<hr>|<h2|<h3|<h4)", relationships_html[1], maxsplit=2
+    )[0]
 
-    # // strip optional text after notes, using <hr>, <hr />, <h2, <h3, <h4 as tag
-    # relationships_html[1] = relationships_html[1].split(
-    #     /(?:<hr \/>|<hr>|<h2|<h3|<h4)/,
-    #     2
-    # )[0]
+    # split notes into sentences and classify relationship type for each sentence
+    sentences = re.split(r"(?<=\w{3}[.!?;])\s+", relationships_html[1])
 
-    # // split notes into sentences and classify relationship type for each sentence
-    # const sentences = relationships_html[1].split(/(?<=\w{3}[.!?])\s+/)
+    def extract_url(sentence):
+        """Extract url from sentence."""
+        sentence = sentence.strip()
+        urls = get_urls(sentence)
+        if not urls or len(urls) == 0:
+            return None
+        # detect type of relationship, default is generic relationship
+        type_ = "IsRelatedTo"
+        if re.search("(originally published|cross-posted)", sentence):
+            type_ = "IsIdenticalTo"
+        elif re.search("peer-reviewed version", sentence):
+            type_ = "IsPreprintOf"
+        elif re.search("work was funded", sentence):
+            type_ = "HasAward"
+        else:
+            print(sentence)
+        return {"type": type_, "url": urls[0]}
 
-    # const relationships = sentences
-    #     .map((sentence) => {
-    #     sentence = sentence.trim()
-    #     const urls = getUrls(sentence).filter((url) => {
-    #         const uri = new URL(url)
-
-    #         return uri.host !== "orcid.org"
-    #     })
-
-    #     // detect type of relationship, default is generic relationship
-    #     let type = "IsRelatedTo"
-
-    #     if (sentence.search(/(originally published|cross-posted)/i) > -1) {
-    #         type = "IsIdenticalTo"
-    #     } else if (sentence.search(/peer-reviewed version/i) > -1) {
-    #         type = "IsPreprintOf"
-    #     } else if (sentence.search(/work was funded/i) > -1) {
-    #         type = "HasAward"
-    #     } else {
-    #         // console.log(sentence)
-    #     }
-    #     return urls.map((url) => {
-    #         return {
-    #         type: type,
-    #         url: url,
-    #         }
-    #     })
-    #     })
-    #     .flat()
-    relationships = []
-
-    return relationships
+    relationships = [extract_url(i) for i in sentences]
+    return [ i for i in relationships if i is not None ]
 
 
 def get_images(soup, url: str, home_page_url: str):
