@@ -102,6 +102,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                 site = furl(blog.get("home_page_url", None)).host
                 url = url.set(
                     host="public-api.wordpress.com",
+                    scheme="https" if blog.get("secure", True) else "http",
                     path="/rest/v1.1/sites/" + site + "/posts/",
                 )
                 params = {"page": page, "number": 50}
@@ -324,7 +325,8 @@ async def extract_wordpresscom_post(post, blog):
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("URL", None), secure=blog.get("secure", True))
         images = get_images(soup, url, blog.get("home_page_url", None))
-        image = images[0].get("src", None) if len(images) > 0 else None
+        if len(images) > 0 and int(images[0].get("width", 200)) >= 200:
+            image = images[0].get("src", None)
         tags = [normalize_tag(i) for i in post.get("categories", None).keys()][:5]
 
         return {
