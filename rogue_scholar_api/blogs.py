@@ -2,6 +2,7 @@
 import socket
 import asyncio
 import feedparser
+import re
 from commonmeta.utils import wrap
 
 from rogue_scholar_api.supabase import (
@@ -35,7 +36,7 @@ async def extract_single_blog(slug: str):
     response = (
         supabase.table("blogs")
         .select(
-            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, use_mastodon, generator, language, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter, secure"
+            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, use_mastodon, generator_raw, language, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter, secure"
         )
         .eq("slug", slug)
         .maybe_single()
@@ -54,10 +55,11 @@ async def extract_single_blog(slug: str):
 
     feed_format = parse_feed_format(feed) or config["feed_format"]
     title = feed.get("title", None) or config["title"]
-    generator = (
+    generator_raw = (
         parse_generator(feed.get("generator_detail", None) or feed.get("generator"))
-        or config["generator"]
+        or config["generator_raw"]
     )
+    generator = re.split(r"[\s/.]", generator_raw)[0]
     description = feed.get("subtitle", None) or config["description"]
     favicon = feed.get("icon", None) or config["favicon"]
 
@@ -81,6 +83,7 @@ async def extract_single_blog(slug: str):
         "feed_format": feed_format,
         "title": title,
         "generator": generator,
+        "generator_raw": generator_raw,
         "description": description,
         "favicon": favicon,
         "language": language,
@@ -123,13 +126,13 @@ def parse_generator(generator):
         # versions prior to 6.1
         if name == "Wordpress":
             name = "WordPress"
-
+        
+        if name == "Wowchemy (https://wowchemy.com)":
+            name = "Hugo"
         if name == "Site Server":
             name = "Squarespace"
 
         return name + f" {version}" if version else name
-    if generator == "Wowchemy (https://wowchemy.com)":
-        return "Hugo"
     return generator.capitalize()
 
 
@@ -181,6 +184,7 @@ def update_single_blog(blog):
                     "favicon": blog.get("favicon", None),
                     "license": blog.get("license", None),
                     "generator": blog.get("generator", None),
+                    "generator_raw": blog.get("generator_raw", None),
                     "status": blog.get("status", None),
                     "user_id": blog.get("user_id", None),
                     "use_mastodon": blog.get("use_mastodon", None),
