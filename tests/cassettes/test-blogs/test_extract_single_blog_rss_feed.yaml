@@ -23,9 +23,9 @@ interactions:
       x-client-info:
       - supabase-py/1.2.0
     method: GET
-    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20language%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.andrewheiss
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator_raw%2C%20language%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.andrewheiss
   response:
-    content: '{"id":"tcw6w29","slug":"andrewheiss","feed_url":"https://www.andrewheiss.com/atom.xml","current_feed_url":null,"home_page_url":"https://www.andrewheiss.com","archive_prefix":null,"feed_format":"application/rss+xml","created_at":"2023-08-22","updated_at":1695009600,"use_mastodon":true,"generator":"Quarto
+    content: '{"id":"tcw6w29","slug":"andrewheiss","feed_url":"https://www.andrewheiss.com/atom.xml","current_feed_url":null,"home_page_url":"https://www.andrewheiss.com","archive_prefix":null,"feed_format":"application/rss+xml","created_at":1692662400,"updated_at":1695009600,"use_mastodon":true,"generator_raw":"Quarto
       1.4.385","language":"en","favicon":null,"title":"Andrew Heiss''s blog","description":"Andrew
       Heiss''s blog","category":"politicalScience","status":"active","user_id":"7e027f20-14b4-4d41-b547-a5dc12ae3ea4","authors":null,"plan":"Starter","use_api":null,"relative_url":null,"filter":null,"secure":true}'
     headers:
@@ -34,11 +34,11 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 81b34f5b092c6a83-DUS
+      - 81ff12aaef1b7a58-DUS
       Connection:
       - keep-alive
       Content-Location:
-      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20language%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.andrewheiss
+      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator_raw%2C%20language%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.andrewheiss
       Content-Profile:
       - public
       Content-Range:
@@ -46,7 +46,7 @@ interactions:
       Content-Type:
       - application/vnd.pgrst.object+json; charset=utf-8
       Date:
-      - Tue, 24 Oct 2023 15:38:59 GMT
+      - Thu, 02 Nov 2023 20:19:31 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -58,9 +58,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '5'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -17561,7 +17561,7 @@ interactions:
       Content-Type:
       - application/xml
       Date:
-      - Tue, 24 Oct 2023 15:39:00 GMT
+      - Thu, 02 Nov 2023 20:19:32 GMT
       ETag:
       - '"b0ee0e-60762260d1722-gzip"'
       Last-Modified:
@@ -17612,7 +17612,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 81b34f797c996a83-DUS
+      - 81ff12c7e9567a58-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -17626,7 +17626,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 24 Oct 2023 15:39:04 GMT
+      - Thu, 02 Nov 2023 20:19:36 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -17638,9 +17638,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '8'
+      - '9'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -17653,8 +17653,9 @@ interactions:
       "home_page_url": "https://www.andrewheiss.com", "feed_format": "application/rss+xml",
       "updated_at": 1695009600, "language": "en", "category": "politicalScience",
       "favicon": null, "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
-      "generator": "Quarto 1.4.385", "status": "active", "user_id": "7e027f20-14b4-4d41-b547-a5dc12ae3ea4",
-      "use_mastodon": true, "secure": true}'
+      "generator": "Quarto", "generator_raw": "Quarto 1.4.385", "status": "active",
+      "user_id": "7e027f20-14b4-4d41-b547-a5dc12ae3ea4", "use_mastodon": true, "secure":
+      true}'
     headers:
       accept:
       - '*/*'
@@ -17665,7 +17666,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '535'
+      - '562'
       content-profile:
       - public
       content-type:
@@ -17682,15 +17683,15 @@ interactions:
     uri: https://db.rogue-scholar.org/rest/v1/blogs?slug=eq.andrewheiss
   response:
     content: '[{"id":"tcw6w29","title":"Andrew Heiss''s blog","description":"Andrew
-      Heiss''s blog","language":"en","favicon":null,"feed_url":"https://www.andrewheiss.com/atom.xml","home_page_url":"https://www.andrewheiss.com","user_id":"7e027f20-14b4-4d41-b547-a5dc12ae3ea4","created_at":"2023-08-22","feed_format":"application/rss+xml","license":"https://creativecommons.org/licenses/by/4.0/legalcode","generator":"Quarto
-      1.4.385","category":"politicalScience","prefix":null,"version":"https://jsonfeed.org/version/1.1","current_feed_url":null,"status":"active","issn":null,"backlog":0,"authors":null,"plan":"Starter","slug":"andrewheiss","use_mastodon":true,"api":false,"funding":null,"archive_prefix":null,"use_api":null,"relative_url":null,"canonical_url":null,"filter":null,"updated_at":1695009600,"secure":true}]'
+      Heiss''s blog","language":"en","favicon":null,"feed_url":"https://www.andrewheiss.com/atom.xml","home_page_url":"https://www.andrewheiss.com","user_id":"7e027f20-14b4-4d41-b547-a5dc12ae3ea4","feed_format":"application/rss+xml","license":"https://creativecommons.org/licenses/by/4.0/legalcode","generator":"Quarto","category":"politicalScience","prefix":null,"version":"https://jsonfeed.org/version/1.1","current_feed_url":null,"status":"active","issn":null,"backlog":0,"authors":null,"plan":"Starter","slug":"andrewheiss","use_mastodon":true,"api":false,"funding":null,"archive_prefix":null,"use_api":null,"relative_url":null,"canonical_url":null,"filter":null,"updated_at":1695009600,"secure":true,"created_at":1692662400,"indexed":false,"generator_raw":"Quarto
+      1.4.385"}]'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 81b34f79fab5160d-DUS
+      - 81ff12c86c60cb2b-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -17702,7 +17703,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 24 Oct 2023 15:39:04 GMT
+      - Thu, 02 Nov 2023 20:19:36 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -17714,9 +17715,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '2'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:

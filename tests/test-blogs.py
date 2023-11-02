@@ -20,7 +20,7 @@ def vcr_config():
 async def test_extract_all_blogs():
     "extract all blogs"
     result = await extract_all_blogs()
-    assert len(result) == 64
+    assert len(result) == 65
     blog = result[0]
     assert blog["slug"] == "rossmounce"
     assert blog["feed_url"] == "https://rossmounce.co.uk/feed/atom"
@@ -36,8 +36,8 @@ async def test_extract_single_blog_atom_feed():
     assert result["title"] == "FIS & EPub"
     assert result["feed_url"] == "https://blog.dini.de/EPub_FIS/feed/atom/"
     assert result["home_page_url"] == "https://blog.dini.de/EPub_FIS"
-    assert result["generator"] == "WordPress 6.3.2"
-    assert result["created_at"] == "2023-07-21"
+    assert result["generator"] == "WordPress"
+    assert result["created_at"] == 1689897600
     assert result["updated_at"] > 0
     assert (
         result["favicon"]
@@ -55,8 +55,8 @@ async def test_extract_single_blog_json_feed():
     assert result["title"] == "rOpenSci - open tools for open science"
     assert result["feed_url"] == "https://ropensci.org/blog/index.json"
     assert result["home_page_url"] == "https://ropensci.org/blog"
-    assert result["generator"] == "Hugo -- gohugo.io"
-    assert result["created_at"] == "2023-08-31"
+    assert result["generator"] == "Hugo"
+    assert result["created_at"] == 1693440000
     assert result["updated_at"] > 0
     assert result["favicon"] == "https://ropensci.org/apple-touch-icon.png"
 
@@ -71,8 +71,8 @@ async def test_extract_single_blog_rss_feed():
     assert result["title"] == "Andrew Heiss's blog"
     assert result["feed_url"] == "https://www.andrewheiss.com/atom.xml"
     assert result["home_page_url"] == "https://www.andrewheiss.com"
-    assert result["generator"] == "Quarto 1.4.385"
-    assert result["created_at"] == "2023-08-22"
+    assert result["generator"] == "Quarto"
+    assert result["created_at"] == 1692662400
     assert result["updated_at"] > 0
     assert result["favicon"] is None
 

@@ -84,19 +84,44 @@ async def blogs_redirect():
 @validate_response(Blog)
 @app.route("/blogs")
 async def blogs():
-    """Get all blogs."""
+    """Search blogs by query, category, generator, language. 
+    Options to change page, per_page and include fields."""
+    query = request.args.get("query") or ""
+    category = request.args.get("category")
+    generator = request.args.get("generator")
+    language = request.args.get("language")
     page = int(request.args.get("page") or "1")
-    start_page = (page - 1) * 100 if page > 0 else 0
-    end_page = start_page + 100
-    response = (
-        supabase.table("blogs")
-        .select(blogsSelect)
-        .in_("status", ["approved", "active", "archived"])
-        .order("title", desc=False)
-        .range(start_page, end_page)
-        .execute()
+    per_page = int(request.args.get("per_page") or "10")
+    # default sort depends on whether a query is provided
+    _text_match = request.args.get("query") and "_text_match" or "created_at"
+    sort = request.args.get("sort") or _text_match
+    order = request.args.get("order") == "asc" and "asc" or "desc"
+    include_fields = request.args.get("include_fields")
+    
+    # filter blogs by category, generator, and/or language
+    filter_by = "status:!=[submitted]"
+    filter_by = f"category:>= {category}" if category else filter_by
+    filter_by = filter_by + f" && generator:=[{generator}]" if generator else filter_by
+    filter_by = filter_by + f" && language:=[{language}]" if language else filter_by
+    search_parameters = compact(
+        {
+            "q": query,
+            "query_by": "slug,title,description,category,language,generator,prefix,funding",
+            "filter_by": filter_by,
+            "sort_by": f"{sort}:{order}"
+            if request.args.get("query")
+            else "created_at:desc",
+            "per_page": min(per_page, 50),
+            "page": page if page and page > 0 else 1,
+            "include_fields": include_fields,
+        }
     )
-    return jsonify(response.data)
+    try:
+        response = typesense.collections["blogs"].documents.search(search_parameters)
+        return jsonify(py_.omit(response, ["hits.highlight"]))
+    except Exception as e:
+        logger.warning(e.args[0])
+        return {"error": "An error occured."}, 400
 
 
 @validate_response(Blog)
@@ -162,7 +187,7 @@ async def post_blog_posts(slug: str, suffix: Optional[str] = None):
             return {"error": "An error occured."}, 400
     else:
         return {"error": "An error occured."}, 400
-        
+
 
 @app.route("/posts/")
 @hide
@@ -224,7 +249,7 @@ async def post_posts():
 
     page = int(request.args.get("page") or "1")
     update = request.args.get("update")
-    
+
     if (
         request.headers.get("Authorization", None) is None
         or request.headers.get("Authorization").split(" ")[1]
@@ -233,10 +258,12 @@ async def post_posts():
         return {"error": "Unauthorized."}, 401
     else:
         try:
-            extracted_posts = await extract_all_posts(page=page, update_all=(update == "all"))
+            extracted_posts = await extract_all_posts(
+                page=page, update_all=(update == "all")
+            )
             return jsonify(extracted_posts)
         except Exception as e:
-            logger.warning(e) # .args[0])
+            logger.warning(e)  # .args[0])
             return {"error": "An error occured."}, 400
 
 

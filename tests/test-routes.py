@@ -45,9 +45,49 @@ async def test_blogs_route():
     response = await test_client.get("/blogs")
     assert response.status_code == 200
     result = await response.get_json()
-    assert len(result) == 65
-    assert result[0]["title"] == "A blog by Ross Mounce"
-    assert result[0]["slug"] == "rossmounce"
+    assert result["found"] > 65
+    post = py_.get(result, "hits[0].document")
+    assert post["title"] is not None
+
+
+@pytest.mark.vcr
+async def test_blogs_with_query_and_pagination_route():
+    """Test blogs route with query and pagination."""
+    test_client = app.test_client()
+    response = await test_client.get("/blogs?query=wordpress&page=2&per_page=10")
+    assert response.status_code == 200
+    result = await response.get_json()
+    assert result["found"] == 25
+    post = py_.get(result, "hits[0].document")
+    assert post["title"] == "Edición y comunicación de la Ciencia"
+
+
+@pytest.mark.vcr
+async def test_blogs_with_include_fields_route():
+    """Test blogs route with include fields."""
+    test_client = app.test_client()
+    response = await test_client.get(
+        "/blogs?include_fields=slug,title"
+    )
+    assert response.status_code == 200
+    result = await response.get_json()
+    assert result["found"] == 66
+    post = py_.get(result, "hits[0].document")
+    assert "slug" in post.keys()
+    assert "description" not in post.keys()
+
+
+@pytest.mark.vcr
+async def test_blogs_sort_route():
+    """Test blogs route with sort."""
+    test_client = app.test_client()
+    response = await test_client.get("/blogs?sort=title")
+    assert response.status_code == 200
+    result = await response.get_json()
+    assert result["found"] == 66
+    post0 = py_.get(result, "hits[0].document")
+    post1 = py_.get(result, "hits[1].document")
+    assert post0["title"] < post1["title"]
 
 
 @pytest.mark.vcr
@@ -59,7 +99,7 @@ async def test_blogs_post_route():
     response = await test_client.post("/blogs", headers=headers)
     assert response.status_code == 200
     result = await response.get_json()
-    assert len(result) == 64
+    assert len(result) == 65
     assert result[0]["title"] == "A blog by Ross Mounce"
     assert result[0]["slug"] == "rossmounce"
 
