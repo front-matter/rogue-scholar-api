@@ -50,6 +50,7 @@ async def test_extract_posts_by_blog_wordpressorg():
         "Projekt",
         "OpenAIRE",
     ]
+    assert post["language"] == "de"
 
 
 @pytest.mark.vcr
@@ -75,6 +76,7 @@ async def test_extract_posts_by_blog_wordpresscom():
         "Web 2.0",
         "Wissenschaftskommunikation",
     ]
+    assert post["language"] == "de"
 
 
 @pytest.mark.vcr
@@ -116,6 +118,7 @@ async def test_extract_posts_by_blog_ghost():
         "key": "ref1",
     }
     assert post["tags"] == ["Feature"]
+    assert post["language"] == "en"
 
 
 @pytest.mark.vcr

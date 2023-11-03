@@ -8,6 +8,7 @@ from rogue_scholar_api.utils import (
     unix_timestamp,
     start_case,
     normalize_tag,
+    detect_language,
 )
 
 
@@ -94,6 +95,30 @@ def test_normalize_tag_fixed():
     """normalize tag fixed"""
     tag = "#OSTP"
     assert normalize_tag(tag) == "OSTP"
+
+
+def test_detect_language_english():
+    """detect language english"""
+    text = "This is a test"
+    assert detect_language(text) == "en"
+
+
+def test_detect_language_german():
+    """detect language german"""
+    text = "Dies ist ein Test"
+    assert detect_language(text) == "de"
+
+
+def test_detect_language_french():
+    """detect language french"""
+    text = "Ceci est un test"
+    assert detect_language(text) == "fr"
+
+
+def test_detect_language_spanish():
+    """detect language spanish"""
+    text = "Esto es una prueba"
+    assert detect_language(text) == "es"  
 
 
 # def test_sanitize_cool_suffix():

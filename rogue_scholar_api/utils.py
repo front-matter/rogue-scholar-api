@@ -5,6 +5,7 @@ import requests
 import iso8601
 from dateutil import parser
 from furl import furl
+from langdetect import detect
 
 from commonmeta.doi_utils import doi_from_url
 
@@ -257,3 +258,8 @@ def is_valid_url(url: str) -> bool:
         return f.scheme in ["http", "https", "data", "mailto"]
     except Exception:
         return False
+
+
+def detect_language(text: str) -> str:
+    """Detect language"""
+    return detect(text)

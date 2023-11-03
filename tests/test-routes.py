@@ -280,6 +280,7 @@ async def test_posts_filter_by_language_route():
     assert result["found"] == 27
     post = py_.get(result, "hits[0].document")
     assert post["title"] == "¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?"
+    assert post["language"] == "es"
 
 
 @pytest.mark.vcr
@@ -299,6 +300,7 @@ async def test_posts_post_route():
         "url": "https://orcid.org/0000-0002-5589-8511",
     }
     assert post["tags"] == []
+    assert post["language"] == "en"
 
 
 @pytest.mark.vcr
@@ -310,6 +312,7 @@ async def test_post_route():
     result = await response.get_json()
     assert result["title"] == "¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?"
     assert result["doi"] == "https://doi.org/10.59350/sfzv4-xdb68"
+    assert result["language"] == "es"
 
 
 async def test_post_invalid_uuid_route():
