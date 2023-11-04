@@ -2,9 +2,8 @@
 import logging
 from typing import Optional
 from datetime import timedelta
-from commonmeta.utils import compact, wrap
+from commonmeta.utils import compact
 from os import environ
-import asyncio
 import pydash as py_
 from dotenv import load_dotenv
 import sentry_sdk
@@ -24,7 +23,6 @@ from quart_rate_limiter import RateLimiter, RateLimit
 from rogue_scholar_api.supabase import (
     supabase_client as supabase,
     # supabase_admin_client as supabase_admin,
-    blogsSelect,
     blogWithPostsSelect,
     postsWithConfigSelect,
     postsWithContentSelect,
