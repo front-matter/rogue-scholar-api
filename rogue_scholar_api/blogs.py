@@ -126,14 +126,12 @@ def parse_generator(generator):
         # versions prior to 6.1
         if name == "Wordpress":
             name = "WordPress"
-        
-        if name == "Wowchemy (https://wowchemy.com)":
+        elif name == "Wowchemy":
             name = "Hugo"
-        if name == "Site Server":
+        elif name == "Site Server":
             name = "Squarespace"
 
         return name + f" {version}" if version else name
-    return generator.capitalize()
 
 
 def parse_feed_format(feed):

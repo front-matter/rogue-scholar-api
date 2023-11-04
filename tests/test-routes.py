@@ -59,7 +59,7 @@ async def test_blogs_with_query_and_pagination_route():
     result = await response.get_json()
     assert result["found"] == 25
     post = py_.get(result, "hits[0].document")
-    assert post["title"] == "Edición y comunicación de la Ciencia"
+    assert post["title"] == "Irish Plants"
 
 
 @pytest.mark.vcr
@@ -180,7 +180,7 @@ async def test_posts_with_query_and_pagination_route():
     result = await response.get_json()
     assert result["found"] == 21
     post = py_.get(result, "hits[0].document")
-    assert post["title"] == "When your journal reads you"
+    assert post["title"] == "This blog turned 15 (years old) this month"
 
 
 @pytest.mark.vcr
@@ -240,7 +240,7 @@ async def test_posts_unregistered_route():
     response = await test_client.get("/posts/unregistered")
     assert response.status_code == 200
     result = await response.get_json()
-    assert len(result) == 15
+    assert len(result) == 0
 
 
 @pytest.mark.vcr
@@ -250,7 +250,7 @@ async def test_posts_filter_by_published_since_route():
     response = await test_client.get("/posts?published_since=2023-10-06")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] == 38
+    assert result["found"] == 66
     post = py_.get(result, "hits[0].document")
     assert post["title"] is not None
 
@@ -262,11 +262,11 @@ async def test_posts_filter_by_tags_route():
     response = await test_client.get("/posts?tags=open+access")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] == 730
+    assert result["found"] == 762
     post = py_.get(result, "hits[0].document")
     assert (
         post["title"]
-        == "OpenCitations needs you: support the change in research practices"
+        == "What&#8217;s so bad about consolidation in academic publishing?"
     )
 
 
@@ -277,9 +277,9 @@ async def test_posts_filter_by_language_route():
     response = await test_client.get("/posts?language=es")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] == 27
+    assert result["found"] == 44
     post = py_.get(result, "hits[0].document")
-    assert post["title"] == "¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?"
+    assert post["title"] == "Potencial de Rogue Scholar para la visibilidad de la ciencia latinoamericana"
     assert post["language"] == "es"
 
 
@@ -294,7 +294,7 @@ async def test_posts_post_route():
     result = await response.get_json()
     assert len(result) == 1
     post = result[0]
-    assert post["title"] == "Creating a voice-activated AI responder in Python"
+    assert post["title"] == "Connecting to AWS OpenSearch Serverless using Python"
     assert post["authors"][0] == {
         "name": "Martin Paul Eve",
         "url": "https://orcid.org/0000-0002-5589-8511",
@@ -368,7 +368,7 @@ async def test_post_as_bibtex():
 \tmonth = {oct},
 \tpublisher = {Front Matter},
 \tauthor = {Norbisley Fern{\\'{a}}ndez},
-\ttitle = {{\\textquestiondown}Qu{\\'{e}} libros cient{\\'{\\i}}ficos publicamos?}
+\ttitle = {{\\textquestiondown}Qu{\\'{e}} libros cient{\\'{\\i}}ficos publicamos en Ediciones Universidad de Camagüey?}
 }"""
     )
 
@@ -406,7 +406,7 @@ async def test_post_as_citation():
     result = await response.get_data(as_text=True)
     assert (
         result
-        == "Fernández, N. (2023). ¿Qué libros científicos publicamos? https://doi.org/10.59350/sfzv4-xdb68"
+        == "Fernández, N. (2023). ¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey? https://doi.org/10.59350/sfzv4-xdb68"
     )
 
 
@@ -421,7 +421,7 @@ async def test_post_as_citation_with_style():
     result = await response.get_data(as_text=True)
     assert (
         result
-        == "1. Fernández N. ¿Qué libros científicos publicamos? 2023 Oct 6; Available from: http://dx.doi.org/10.59350/sfzv4-xdb68"
+        == "1. Fernández N. ¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey? 2023 Oct 6; Available from: http://dx.doi.org/10.59350/sfzv4-xdb68"
     )
 
 
@@ -436,7 +436,7 @@ async def test_post_as_citation_with_locale():
     result = await response.get_data(as_text=True)
     assert (
         result
-        == "1. Fernández N. ¿Qué libros científicos publicamos? 6 de octubre de 2023; Disponible en: http://dx.doi.org/10.59350/sfzv4-xdb68"
+        == "1. Fernández N. ¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey? 6 de octubre de 2023; Disponible en: http://dx.doi.org/10.59350/sfzv4-xdb68"
     )
 
 

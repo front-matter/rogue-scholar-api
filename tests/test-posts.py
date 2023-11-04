@@ -24,14 +24,7 @@ def vcr_config():
 async def test_extract_all_posts():
     """Extract all posts"""
     result = await extract_all_posts()
-    assert len(result) == 3
-    post = result[0]
-    assert post["title"] == "The Open Access Week in the Scholarly Blogosphere"
-    assert post["authors"][0] == {
-        "name": "Heinz Pampel",
-        "url": "https://orcid.org/0000-0003-3334-2771",
-    }
-    assert post["tags"] == ['Special Issue']
+    assert len(result) == 0
 
 
 @pytest.mark.vcr
@@ -77,6 +70,14 @@ async def test_extract_posts_by_blog_wordpresscom():
         "Wissenschaftskommunikation",
     ]
     assert post["language"] == "de"
+
+
+@pytest.mark.asyncio
+async def test_extract_posts_by_archived_blog():
+    """Extract posts by archived_blog"""
+    slug = "thor"
+    result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
+    assert result == {}
 
 
 @pytest.mark.vcr

@@ -66,14 +66,14 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
     response = (
         supabase.table("blogs")
         .select(
-            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, use_mastodon, generator, language, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter, secure"
+            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, use_mastodon, generator, generator_raw, language, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter, secure"
         )
         .eq("slug", slug)
         .maybe_single()
         .execute()
     )
     blog = response.data
-    if not blog:
+    if not blog or blog.get("status", None) != "active":
         return {}
     url = furl(blog.get("feed_url", None))
     generator = (
@@ -252,6 +252,7 @@ async def extract_wordpress_post(post, blog):
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("link", None), secure=blog.get("secure", True))
+        archive_url = blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         images = get_images(soup, url, blog["home_page_url"])
         image = (
             py_.get(post, "_embedded.wp:featuredmedia[0].source_url", None)
@@ -288,6 +289,7 @@ async def extract_wordpress_post(post, blog):
             "tags": terms,
             "title": py_.get(post, "title.rendered", ""),
             "url": url,
+            "archive_url": None,
             "guid": py_.get(post, "guid.rendered", None),
         }
     except Exception as e:
@@ -325,6 +327,7 @@ async def extract_wordpresscom_post(post, blog):
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("URL", None), secure=blog.get("secure", True))
+        archive_url = blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         images = get_images(soup, url, blog.get("home_page_url", None))
         if len(images) > 0 and int(images[0].get("width", 200)) >= 200:
             image = images[0].get("src", None)
@@ -347,6 +350,7 @@ async def extract_wordpresscom_post(post, blog):
             "tags": tags,
             "title": get_title(post.get("title", None)),
             "url": url,
+            "archive_url": archive_url,
             "guid": post.get("guid", None),
         }
     except Exception as e:
@@ -377,6 +381,7 @@ async def extract_ghost_post(post, blog):
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
+        archive_url = blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         images = get_images(soup, url, blog.get("home_page_url", None))
         image = post.get("feature_image", None)
         if not image and len(images) > 0:
@@ -400,6 +405,7 @@ async def extract_ghost_post(post, blog):
             "tags": tags,
             "title": get_title(post.get("title", None)),
             "url": url,
+            "archive_url": archive_url,
             "guid": post.get("id", None),
         }
     except Exception as e:
@@ -432,6 +438,7 @@ async def extract_substack_post(post, blog):
         url = normalize_url(
             post.get("canonical_url", None), secure=blog.get("secure", True)
         )
+        archive_url = blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         images = get_images(soup, url, blog.get("home_page_url", None))
         image = post.get("cover_image", None)
         if not image and len(images) > 0:
@@ -457,6 +464,7 @@ async def extract_substack_post(post, blog):
             "tags": tags,
             "title": get_title(post.get("title", None)),
             "url": url,
+            "archive_url": archive_url,
             "guid": post.get("id", None),
         }
     except Exception as e:
@@ -487,6 +495,7 @@ async def extract_json_feed_post(post, blog):
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
+        archive_url = blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         images = get_images(soup, url, blog.get("home_page_url", None))
         image = py_.get(post, "media:thumbnail.@url", None)
         if not image and len(images) > 0:
@@ -510,6 +519,7 @@ async def extract_json_feed_post(post, blog):
             "tags": tags,
             "title": get_title(post.get("title", None)),
             "url": url,
+            "archive_url": archive_url,
             "guid": post.get("id", None),
         }
     except Exception as e:
@@ -565,6 +575,7 @@ async def extract_atom_post(post, blog):
             )
 
         url = get_url(post.get("link", None))
+        archive_url = blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         images = get_images(soup, url, blog.get("home_page_url", None))
         image = py_.get(post, "media:thumbnail.@url", None)
         if not image and len(images) > 0:
@@ -591,6 +602,7 @@ async def extract_atom_post(post, blog):
             "tags": tags,
             "title": title,
             "url": url,
+            "archive_url": archive_url,
             "guid": post.get("id", None),
         }
     except Exception as e:
@@ -631,6 +643,7 @@ async def extract_rss_post(post, blog):
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("link", None), secure=blog.get("secure", True))
+        archive_url = blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         published_at = get_date(post.get("pubDate", None))
         images = get_images(soup, url, blog.get("home_page_url", None))
         image = py_.get(post, "media:content.@url", None) or py_.get(
@@ -661,6 +674,7 @@ async def extract_rss_post(post, blog):
             "tags": tags,
             "title": get_title(post.get("title", None)),
             "url": url,
+            "archive_url": archive_url,
             "guid": py_.get(post, "guid.#text", None) or post.get("guid", None),
         }
     except Exception as e:

@@ -25,143 +25,157 @@ interactions:
     method: GET
     uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%29&blogs.prefix=not.is.null&indexed=is.null&doi=not.is.null&order=published_at.desc&limit=15
   response:
-    content: "[{\"id\":\"77e770e0-74be-46f4-b800-9f8dc6435741\",\"guid\":\"https://opencitations.hypotheses.org/?p=3488\",\"doi\":\"https://doi.org/10.59350/canw4-3xd10\",\"url\":\"https://opencitations.hypotheses.org/3488\",\"archive_url\":null,\"title\":\"OpenCitations
-      needs you: support the change in research practices\",\"summary\":\"\",\"published_at\":1697558939,\"updated_at\":1697559017,\"indexed_at\":1698147836,\"indexed\":null,\"authors\":[{\"name\":
-      \"Chiara Di Giambattista\"}],\"image\":null,\"tags\":[\"Open Abstracts\",\"Open
-      Access\",\"Open Citations\",\"Open Scholarship\",\"Open Science\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"OpenCitations
-      blog\",\"blog_slug\":\"opencitations\",\"blog\":{\"slug\":\"opencitations\",\"title\":\"OpenCitations
-      blog\",\"description\":\"The blog of the OpenCitations Infrastructure\",\"feed_url\":\"https://opencitations.hypotheses.org/feed/atom/\",\"home_page_url\":\"https://opencitations.hypotheses.org\",\"language\":\"en\",\"category\":\"socialSciences\",\"status\":\"active\",\"generator\":\"WordPress
-      6.2\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697559017}},
-      \n {\"id\":\"0fbfda1d-2d16-4375-a9db-2b8c9afcc1f4\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/z574z-dcw92\",\"url\":\"https://iphylo.blogspot.com/2023/08/document-layout-analysis.html\",\"archive_url\":null,\"title\":\"Document
-      layout analysis\",\"summary\":\"Some notes to self on document layout analysis.
-      \ I\u2019m revisiting the problem of taking a PDF or a scanned document and
-      determining its structure (for example, where is the title, abstract, bibliography,
-      where are the figures and their captions, etc.). There are lots of papers on
-      this topic, and lots of tools.\",\"published_at\":1693485180,\"updated_at\":1693485393,\"indexed_at\":1693739371,\"indexed\":null,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-7101-9767\", \"name\": \"Roderic Page\"}],\"image\":\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi02en_43jWD45tsJ9bVqrJFcVG_NYr_obOmFGzT2PuW-3AbvwMbtt7y43TaGYqaQL4tURGVA0Bm_e6DvmN6kGiROtqFYj_Tjco0KeXnCwUr2ASqewCNjbunTa7nmMVp8jKPWk0B6BHLSbZrz85mzq6d78XNRgG1G3g9MupScfxBbO14B89kfMS/s400/Screenshot%202023-08-31%20at%2011.54.13.png\",\"tags\":[\"ABBYY\",\"CRF\",\"Dj
-      Vu\",\"Document Layout\",\"H OCR\"],\"language\":\"en\",\"reference\":[{\"doi\":
-      \"https://doi.org/10.1007/11669487_12\", \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.1007/s00799-014-0115-1\",
-      \"key\": \"ref2\"}, {\"doi\": \"https://doi.org/10.1117/12.472833\", \"key\":
-      \"ref3\"}, {\"doi\": \"https://doi.org/10.1087/20110309\", \"key\": \"ref4\"},
-      {\"doi\": \"https://doi.org/10.1186/1751-0473-7-7\", \"key\": \"ref5\"}, {\"doi\":
-      \"https://doi.org/10.1162/tacl_a_00466\", \"key\": \"ref6\"}, {\"key\": \"ref7\",
-      \"url\": \"https://stackedit.io\"}],\"relationships\":[],\"blog_name\":\"iPhylo\",\"blog_slug\":\"iphylo\",\"blog\":{\"slug\":\"iphylo\",\"title\":\"iPhylo\",\"description\":\"Rants,
-      raves (and occasionally considered opinions) on phyloinformatics, taxonomy,
-      and biodiversity informatics.  For more ranty and less considered opinions,
-      see my <a href=\\\"https://twitter.com/rdmpage\\\">Twitter feed</a>.<br />ISSN
-      2051-8188. Written content on this site is licensed under a <a href=\\\"https://creativecommons.org/licenses/by/4.0/\\\">Creative
-      Commons Attribution 4.0 International license</a>.\",\"feed_url\":\"https://iphylo.blogspot.com/feeds/posts/default\",\"home_page_url\":\"https://iphylo.blogspot.com/\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Blogger
-      7.00\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1693485393}},
-      \n {\"id\":\"f9e29454-f770-4703-9562-6f3263258962\",\"guid\":\"https://norbisley.wordpress.com/?p=378\",\"doi\":\"https://doi.org/10.59350/bykw6-4qx11\",\"url\":\"https://norbisley.wordpress.com/2023/08/31/edicion-y-comunicacion-de-la-ciencia-esta-en-rouge-scholar\",\"archive_url\":null,\"title\":\"Edici\xF3n
-      y comunicaci\xF3n de la ciencia est\xE1 en Rouge Scholar\",\"summary\":\"Hablemos
-      de visibilidad real En otros posts he abordado la importancia de publicar con
-      DOI y las formas de obtenerlo.\",\"published_at\":1693477716,\"updated_at\":1693488682,\"indexed_at\":1693739645,\"indexed\":null,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-9373-4622\", \"name\": \"NFernan\"}],\"image\":\"https://norbisley.files.wordpress.com/2023/08/2.png\",\"tags\":[\"Financiamiento
-      Y Convocatorias\",\"Sin Categor\xEDa\"],\"language\":\"es\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Edici\xF3n
-      y comunicaci\xF3n de la Ciencia\",\"blog_slug\":\"norbisley\",\"blog\":{\"slug\":\"norbisley\",\"title\":\"Edici\xF3n
-      y comunicaci\xF3n de la Ciencia\",\"description\":null,\"feed_url\":\"https://norbisley.wordpress.com/feed/atom/\",\"home_page_url\":\"https://norbisley.wordpress.com\",\"language\":\"es\",\"category\":\"mediaAndCommunications\",\"status\":\"active\",\"generator\":\"WordPress.com\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1696673881}},
-      \n {\"id\":\"9d51c51b-e7ab-442b-ab6a-4403461c52b5\",\"guid\":\"{\\\"@isPermaLink\\\":
-      \\\"false\\\", \\\"#text\\\": \\\"64edab4ce61bd90001171743\\\"}\",\"doi\":\"https://doi.org/10.59350/vja6h-j0847\",\"url\":\"https://www.chjh.nl/candidacy-for-parliament\",\"archive_url\":null,\"title\":\"Applying
-      as a parliamentary candidate\",\"summary\":\"\",\"published_at\":1693387575,\"updated_at\":1693387575,\"indexed_at\":1693405993,\"indexed\":null,\"authors\":[{\"name\":
-      \"Chris Hartgerink\"}],\"image\":\"https://images.unsplash.com/photo-1595126731003-755959b6baf8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDN8fGJhbGxvdHxlbnwwfHx8fDE2OTMyOTczODh8MA&ixlib=rb-4.0.3&q=80&w=2000\",\"tags\":[\"Personal\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Chris
-      Hartgerink\",\"blog_slug\":\"chjh\",\"blog\":{\"slug\":\"chjh\",\"title\":\"Chris
-      Hartgerink\",\"description\":\"Chris Hartgerink\",\"feed_url\":\"https://www.chjh.nl/rss/\",\"home_page_url\":\"https://www.chjh.nl/\",\"language\":\"en\",\"category\":\"socialSciences\",\"status\":\"active\",\"generator\":\"Ghost
-      5.70\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697725881}},
-      \n {\"id\":\"95edb609-b0f4-4d13-8742-c4108971401c\",\"guid\":\"https://irishplants.org/blog/?p=523\",\"doi\":\"https://doi.org/10.59350/67z4n-k8h58\",\"url\":\"https://irishplants.org/blog/2023/08/29/modelling-yellow-rattle-in-a-simulated-grassland\",\"archive_url\":null,\"title\":\"Modelling
-      Yellow Rattle in a simulated grassland\",\"summary\":\"<em>The model in this
-      post is based on the one in Cameron et al. (2009), improving how seed dispersal
-      is modelled and the dynamics are visualised.</em>  I have become a bit obsessed
-      with hemiparasitic plants recently.\",\"published_at\":1693312760,\"updated_at\":1693389806,\"indexed_at\":1693739802,\"indexed\":null,\"authors\":[{\"url\":
-      \"https://irishplants.org/\", \"name\": \"Jake Dalzell\"}],\"image\":\"https://irishplants.org/blog/wp-content/uploads/2023/08/timeline.png\",\"tags\":[\"Plants\",\"Ecology\",\"Modelling\",\"Parasitic
-      Plants\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Irish
-      Plants\",\"blog_slug\":\"irishplants\",\"blog\":{\"slug\":\"irishplants\",\"title\":\"Irish
-      Plants\",\"description\":\"Jake's blog\",\"feed_url\":\"http://irishplants.org/blog/feed/atom/\",\"home_page_url\":\"https://irishplants.org/blog\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress
-      6.3.2\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1696691878}},
-      \n {\"id\":\"8713c877-0b65-4a87-9bf1-07c5ac56c35f\",\"guid\":\"135768325\",\"doi\":\"https://doi.org/10.59350/s38p7-bjf11\",\"url\":\"https://fairdata.substack.com/p/fair-data-digest-13\",\"archive_url\":null,\"title\":\"FAIR
-      Data Digest #13\",\"summary\":\"\",\"published_at\":1693296012,\"updated_at\":1693296012,\"indexed_at\":1696262684,\"indexed\":null,\"authors\":[{\"name\":
-      \"Sven Lieber, PhD\"}],\"image\":\"https://substack-post-media.s3.amazonaws.com/public/images/046b89ba-b31d-4f78-8400-e3f8aba88669_600x200.png\",\"tags\":[\"Microsoft
-      Academic Graph\",\"Graph Embeddings\",\"International Semantic Web Conference\",\"Benchmarking\",\"SEMANTiCS\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"FAIR
-      Data Digest\",\"blog_slug\":\"fairdata\",\"blog\":{\"slug\":\"fairdata\",\"title\":\"FAIR
-      Data Digest\",\"description\":\"Notes on my work with (cultural heritage) FAIR
-      data. Topics cover Programming, Open Science, Digital Humanities, Knowledge
-      Graphs, Linked Data, Metadata, data catalogs, Wikidata, RDF, SPARQL and the
-      Semantic Web as well as personal interests.\",\"feed_url\":\"https://fairdata.substack.com/feed\",\"home_page_url\":\"https://fairdata.substack.com\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Substack\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697529675}},
-      \n {\"id\":\"c2747bf0-28c4-4f0c-826b-78cefb807821\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/chr9z-90t95\",\"url\":\"https://libscie.org/announcement-assembly-12\",\"archive_url\":null,\"title\":\"Announcement
-      Assembly #12\",\"summary\":\"We are announcing our twelth General Assembly.
-      All ResearchEquals supporting members are invited \U0001F60D\",\"published_at\":1693292456,\"updated_at\":1693292456,\"indexed_at\":1693361383,\"indexed\":null,\"authors\":[{\"url\":
-      \"https://ror.org/0342dzm54\", \"name\": \"Liberate Science\"}],\"image\":\"https://images.unsplash.com/photo-1574267432553-4b4628081c31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDEyfHx0aGVhdGVyfGVufDB8fHx8MTY5MzIwOTIzMXww&ixlib=rb-4.0.3&q=80&w=2000\",\"tags\":[\"Research
-      Equals\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Liberate
-      Science\",\"blog_slug\":\"libscie\",\"blog\":{\"slug\":\"libscie\",\"title\":\"Liberate
-      Science\",\"description\":\"Research as a commons\",\"feed_url\":\"https://libscie.org/rss/\",\"home_page_url\":\"https://libscie.org\",\"language\":\"en\",\"category\":\"socialSciences\",\"status\":\"active\",\"generator\":\"Ghost
-      5.49\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1698130847}},
-      \n {\"id\":\"b16c08bd-aac6-40b6-8ef6-d630dbef62d0\",\"guid\":\"https://norbisley.wordpress.com/?p=322\",\"doi\":\"https://doi.org/10.59350/t8n9h-kz230\",\"url\":\"https://norbisley.wordpress.com/2023/08/26/doi\",\"archive_url\":null,\"title\":\"Obtener
-      un DOI\",\"summary\":\"Obtener un DOI\",\"published_at\":1693050885,\"updated_at\":1693053507,\"indexed_at\":1693739696,\"indexed\":null,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-9373-4622\", \"name\": \"NFernan\"}],\"image\":\"https://norbisley.files.wordpress.com/2023/08/r.png\",\"tags\":[\"Sin
-      Categor\xEDa\"],\"language\":\"es\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Edici\xF3n
-      y comunicaci\xF3n de la Ciencia\",\"blog_slug\":\"norbisley\",\"blog\":{\"slug\":\"norbisley\",\"title\":\"Edici\xF3n
-      y comunicaci\xF3n de la Ciencia\",\"description\":null,\"feed_url\":\"https://norbisley.wordpress.com/feed/atom/\",\"home_page_url\":\"https://norbisley.wordpress.com\",\"language\":\"es\",\"category\":\"mediaAndCommunications\",\"status\":\"active\",\"generator\":\"WordPress.com\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1696673881}},
-      \n {\"id\":\"4e28cc69-c253-4c06-8925-e80bdc2dbd55\",\"guid\":\"https://irights.info/?post_type=custom_artikel&p=32003\",\"doi\":\"https://doi.org/10.59350/27wky-wpg41\",\"url\":\"https://irights.info/artikel/zugang-gestalten-2023/32003\",\"archive_url\":null,\"title\":\"\u201EZugang
-      gestalten!\u201C 2023 in M\xFCnster: Programm ver\xF6ffentlicht, kostenlose
-      Anmeldung m\xF6glich\",\"summary\":\"In eigener Sache: \u201EZugang gestalten!\u201C,
-      die j\xE4hrliche Konferenz zum kulturellen Erbe in der digitalen Welt, tagt
-      diesen Herbst in M\xFCnster.\",\"published_at\":1692802055,\"updated_at\":1695381557,\"indexed_at\":1695383657,\"indexed\":null,\"authors\":[{\"name\":
-      \"Peggy Fiebig\"}],\"image\":\"https://irights.info/wp-content/uploads/2023/08/ZG_2019-490x327.jpg\",\"tags\":[\"Gesellschaft
-      + Kunst\",\"Museen + Archive\",\"Urheberrecht\",\"Veranstaltungshinweise\",\"Wissenschaft\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
-      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info/\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1698071084}},
-      \n {\"id\":\"87f82ac2-3f23-4a80-bc6e-43c522b15c52\",\"guid\":\"https://opencitations.hypotheses.org/?p=3436\",\"doi\":\"https://doi.org/10.59350/vwajv-ym488\",\"url\":\"https://opencitations.hypotheses.org/3436\",\"archive_url\":null,\"title\":\"The
-      OpenCitations blog posts are now archived on Rogue Scholar with DOIs\",\"summary\":\"\",\"published_at\":1692712885,\"updated_at\":1693479885,\"indexed_at\":1693664162,\"indexed\":null,\"authors\":[{\"name\":
-      \"Chiara Di Giambattista\"}],\"image\":\"https://opencitations.hypotheses.org/files/2023/08/Screenshot-14-1-500x259.png\",\"tags\":[\"Open
-      Access\",\"Open Citations\",\"Open Scholarship\",\"Open Science\",\"OpenCitations\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"OpenCitations
-      blog\",\"blog_slug\":\"opencitations\",\"blog\":{\"slug\":\"opencitations\",\"title\":\"OpenCitations
-      blog\",\"description\":\"The blog of the OpenCitations Infrastructure\",\"feed_url\":\"https://opencitations.hypotheses.org/feed/atom/\",\"home_page_url\":\"https://opencitations.hypotheses.org\",\"language\":\"en\",\"category\":\"socialSciences\",\"status\":\"active\",\"generator\":\"WordPress
-      6.2\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697559017}},
-      \n {\"id\":\"fa3836aa-ab99-4065-ab25-b24d8d670ea1\",\"guid\":\"136041092\",\"doi\":\"https://doi.org/10.59350/12tvf-nah74\",\"url\":\"https://fairdata.substack.com/p/fair-data-digest-12\",\"archive_url\":null,\"title\":\"FAIR
-      Data Digest #12\",\"summary\":\"\",\"published_at\":1692691215,\"updated_at\":1692691215,\"indexed_at\":1696263419,\"indexed\":null,\"authors\":[{\"name\":
-      \"Sven Lieber, PhD\"}],\"image\":\"https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9b397dbf-ba7e-4b19-991e-e094d6d75236_1343x827.png\",\"tags\":[\"Conference
-      Proceedings\",\"Wikidata\",\"Academic Conferences\",\"SPARQL\",\"Wikimedia Foundation\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"FAIR
-      Data Digest\",\"blog_slug\":\"fairdata\",\"blog\":{\"slug\":\"fairdata\",\"title\":\"FAIR
-      Data Digest\",\"description\":\"Notes on my work with (cultural heritage) FAIR
-      data. Topics cover Programming, Open Science, Digital Humanities, Knowledge
-      Graphs, Linked Data, Metadata, data catalogs, Wikidata, RDF, SPARQL and the
-      Semantic Web as well as personal interests.\",\"feed_url\":\"https://fairdata.substack.com/feed\",\"home_page_url\":\"https://fairdata.substack.com\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Substack\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697529675}},
-      \n {\"id\":\"c9994d6b-84ed-4daf-93bf-c2deb9a85c0c\",\"guid\":\"https://norbisley.wordpress.com/?p=288\",\"doi\":\"https://doi.org/10.59350/m6690-fs737\",\"url\":\"https://norbisley.wordpress.com/2023/08/22/yo-te-cito-tu-me-citas-a-bailar-el-cita-cita\",\"archive_url\":null,\"title\":\"Yo
-      te cito, t\xFA me citas: a bailar el cita cita\",\"summary\":\"Todos sabemos
-      (en mayor o menor medida) que el criterio de la calidad de la ciencia es la
-      publicaci\xF3n, y \xFAltimamente, la citaci\xF3n.\",\"published_at\":1692672980,\"updated_at\":1692896147,\"indexed_at\":1693747604,\"indexed\":null,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-9373-4622\", \"name\": \"NFernan\"}],\"image\":\"https://static.xx.fbcdn.net/images/emoji.php/v9/t2c/1/16/1f631.png\",\"tags\":[\"Publicaciones
-      Cient\xEDficas\"],\"language\":\"es\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Edici\xF3n
-      y comunicaci\xF3n de la Ciencia\",\"blog_slug\":\"norbisley\",\"blog\":{\"slug\":\"norbisley\",\"title\":\"Edici\xF3n
-      y comunicaci\xF3n de la Ciencia\",\"description\":null,\"feed_url\":\"https://norbisley.wordpress.com/feed/atom/\",\"home_page_url\":\"https://norbisley.wordpress.com\",\"language\":\"es\",\"category\":\"mediaAndCommunications\",\"status\":\"active\",\"generator\":\"WordPress.com\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1696673881}},
-      \n {\"id\":\"88869f00-8f46-4331-b102-d25c317fad22\",\"guid\":\"https://norbisley.wordpress.com/?p=278\",\"doi\":\"https://doi.org/10.59350/cszbq-xe191\",\"url\":\"https://norbisley.wordpress.com/2023/08/18/fuentes-para-cargos-por-procesamiento-de-articulos-apc\",\"archive_url\":null,\"title\":\"Fuentes
-      para cargos por procesamiento de art\xEDculos (APC)\",\"summary\":\"Fuentes
-      para cargos por procesamiento de art\xEDculos (APC)\",\"published_at\":1692368611,\"updated_at\":1692896091,\"indexed_at\":1693748124,\"indexed\":null,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-9373-4622\", \"name\": \"NFernan\"}],\"image\":\"https://norbisley.files.wordpress.com/2023/08/oip-1.jpg?w=1000\",\"tags\":[\"Financiamiento
-      Y Convocatorias\"],\"language\":\"es\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Edici\xF3n
-      y comunicaci\xF3n de la Ciencia\",\"blog_slug\":\"norbisley\",\"blog\":{\"slug\":\"norbisley\",\"title\":\"Edici\xF3n
-      y comunicaci\xF3n de la Ciencia\",\"description\":null,\"feed_url\":\"https://norbisley.wordpress.com/feed/atom/\",\"home_page_url\":\"https://norbisley.wordpress.com\",\"language\":\"es\",\"category\":\"mediaAndCommunications\",\"status\":\"active\",\"generator\":\"WordPress.com\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1696673881}},
-      \n {\"id\":\"984fb023-ab2d-4af7-811b-f1ab0395efc2\",\"guid\":\"https://irights.info/?post_type=custom_artikel&p=31993\",\"doi\":\"https://doi.org/10.59350/mcpt5-k2y24\",\"url\":\"https://irights.info/artikel/audiovisuelle-medien-forschung-lehre/31993\",\"archive_url\":null,\"title\":\"Handreichung
-      neu aufgelegt: Audiovisuelle Medien rechtssicher in Forschung und Lehre nutzen\",\"summary\":\"Vor
-      acht Jahren erschien die Handreichung zu urheberrechtlichen Fragen bei der Nutzung
-      von audiovisuellen Materialien in Forschung und Lehre erstmals.\",\"published_at\":1692196058,\"updated_at\":1692802071,\"indexed_at\":1694963040,\"indexed\":null,\"authors\":[{\"name\":
-      \"Peggy Fiebig\"}],\"image\":null,\"tags\":[\"In Eigener Sache\",\"Musik + MP3\",\"Urheberrecht\",\"Wissen
-      + Open Access\",\"Wissenschaft\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
-      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info/\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1698071084}},
-      \n {\"id\":\"5fbe682e-48e8-4af1-9aa5-e78d49d0c7a0\",\"guid\":\"135768278\",\"doi\":\"https://doi.org/10.59350/t7ppt-j0z43\",\"url\":\"https://fairdata.substack.com/p/fair-data-digest-11\",\"archive_url\":null,\"title\":\"FAIR
-      Data Digest #11\",\"summary\":\"\",\"published_at\":1692086425,\"updated_at\":1692086425,\"indexed_at\":1696264120,\"indexed\":null,\"authors\":[{\"name\":
-      \"Sven Lieber, PhD\"}],\"image\":\"https://substackcdn.com/image/youtube/w_728,c_limit/bHy63VOp0RQ\",\"tags\":[\"VIAF\",\"Wikidata\",\"Functions\",\"International
-      Standard Name Identifier\",\"S+c\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"FAIR
-      Data Digest\",\"blog_slug\":\"fairdata\",\"blog\":{\"slug\":\"fairdata\",\"title\":\"FAIR
-      Data Digest\",\"description\":\"Notes on my work with (cultural heritage) FAIR
-      data. Topics cover Programming, Open Science, Digital Humanities, Knowledge
-      Graphs, Linked Data, Metadata, data catalogs, Wikidata, RDF, SPARQL and the
-      Semantic Web as well as personal interests.\",\"feed_url\":\"https://fairdata.substack.com/feed\",\"home_page_url\":\"https://fairdata.substack.com\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Substack\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1697529675}}]"
+    content: "[{\"id\":\"b3657c9c-482c-4bfc-8fb8-c59d951f3dfe\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/kpzx0-08062\",\"url\":\"http://gigasciencejournal.com/blog/basel-ismbeccb-and-bosc-2019\",\"archive_url\":null,\"title\":\"Bioinformaticians
+      Baking in Blazing Basel: ISMBECCB and BOSC 2019\",\"summary\":\"<strong>In Sultry
+      Switzerland, Bioinformatics is Radiant at ISMBECCB </strong>  Water cooling
+      of our datacenter (& friends)  Regular readers will know<em> GigaScience</em>
+      originally launched at the 2012 ISMB (Intelligent Systems of Molecular Biology)
+      meeting in Long Beach, and every subsequent year the conference has held a special
+      place in our hearts as the place where we celebrate our birthday (see all the
+      previous write-ups in GigaBlog).\",\"published_at\":1565234656,\"updated_at\":1565324398,\"indexed_at\":1692862389,\"indexed\":null,\"authors\":[{\"url\":
+      \"http://orcid.org/0000-0001-6444-1436\", \"name\": \"Scott Edmunds\"}],\"image\":\"http://gigasciencejournal.com/blog/wp-content/uploads/2019/08/IMG_0305-300x200.jpg\",\"tags\":[\"Biology\",\"Bioinformatics\",\"BOSC\",\"Conference\",\"Conferences\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"blog\":{\"slug\":\"gigablog\",\"title\":\"GigaBlog\",\"description\":\"Data
+      driven blogging from the GigaScience editors\",\"feed_url\":\"http://gigasciencejournal.com/blog/feed/atom/\",\"home_page_url\":\"http://gigasciencejournal.com/blog\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695805059}},
+      \n {\"id\":\"f4ff43e7-1530-4b2a-86dc-ff23e9e560d1\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/67gwy-03236\",\"url\":\"http://gigasciencejournal.com/blog/imicrobe-qa-bonnie-hurwitz\",\"archive_url\":null,\"title\":\"iMicrobe:
+      Fostering Community-Driven Science and Data Discovery. Q&A with Bonnie Hurwitz\",\"summary\":\"In
+      this data-driven era, research is faced with new challenges, from sharing, storing
+      and accessing data, including how to better integrate data to answer big questions
+      in science. With many data repositories available, it is hard to maintain them
+      all \u2013 some repositories are forced to close \u2013 meaning loss of access
+      to invaluable datasets.\",\"published_at\":1564711232,\"updated_at\":1692802160,\"indexed_at\":1692870772,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5192-9835\", \"name\": \"Nicole Nogoy\"}],\"image\":\"http://gigasciencejournal.com/blog/wp-content/uploads/2019/08/Hurwitz-4-240x300.jpeg\",\"tags\":[\"Technology\",\"Big
+      Data\",\"Data\",\"Imicrobe\",\"Metagenomics\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"blog\":{\"slug\":\"gigablog\",\"title\":\"GigaBlog\",\"description\":\"Data
+      driven blogging from the GigaScience editors\",\"feed_url\":\"http://gigasciencejournal.com/blog/feed/atom/\",\"home_page_url\":\"http://gigasciencejournal.com/blog\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695805059}},
+      \n {\"id\":\"c0908b6e-8a0f-4641-89f9-91838e72a3ca\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/7dd55-0c961\",\"url\":\"http://gigasciencejournal.com/blog/func-in-the-fjords-functional-metagenomics-2019\",\"archive_url\":null,\"title\":\"FUNC
+      in the Fjords: Functional Metagenomics 2019 in Trondheim\",\"summary\":\"Photograph
+      by Giang-Son Nguyen (SINTEF)  The Norwegian city of Trondheim seemed the place
+      to be this June \u2013 with hotels in high demand\_ due to the BarCode Of Life
+      conference, The Big Challenge Science Festival (including a concert by that
+      famous science communicator Sting), and the Functional Metagenomics 2019 conference
+      (#FMG2019) all taking place over the same period (June 16-19th). Moreover, all
+      three events were, in part, organised by the No\",\"published_at\":1564170105,\"updated_at\":1564170105,\"indexed_at\":1692869584,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5192-9835\", \"name\": \"Nicole Nogoy\"}],\"image\":\"http://gigasciencejournal.com/blog/wp-content/uploads/2019/07/group-photo-2019-1024x683.jpg\",\"tags\":[\"Biology\",\"Conferences\",\"Genomics\",\"Metagenomics\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"blog\":{\"slug\":\"gigablog\",\"title\":\"GigaBlog\",\"description\":\"Data
+      driven blogging from the GigaScience editors\",\"feed_url\":\"http://gigasciencejournal.com/blog/feed/atom/\",\"home_page_url\":\"http://gigasciencejournal.com/blog\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695805059}},
+      \n {\"id\":\"ac0b6063-c17f-43d1-b92e-a0693508b75d\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/26n5z-8j681\",\"url\":\"http://gigasciencejournal.com/blog/jellyfish-genomes\",\"archive_url\":null,\"title\":\"Genomic
+      Warning Flag Just in Time for Beach Season: Jellyfish Toxins\",\"summary\":\"Adapted
+      from Ohdera A et al.  <strong>Three jellyfish genomes are better than one</strong>
+      A new article in <i>GigaScience\_\_</i>might make you squirm if you plan to
+      hit the beach this summer. The published work presents the draft genomes of
+      three different jellyfish species.\",\"published_at\":1562195127,\"updated_at\":1562239420,\"indexed_at\":1692912183,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5192-9835\", \"name\": \"Nicole Nogoy\"}],\"image\":\"http://gigasciencejournal.com/blog/wp-content/uploads/2019/07/Fig-1.jpeg\",\"tags\":[\"Biology\",\"Big
+      Data\",\"Biology\",\"Box Jellyfish\",\"Cnidaria\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"blog\":{\"slug\":\"gigablog\",\"title\":\"GigaBlog\",\"description\":\"Data
+      driven blogging from the GigaScience editors\",\"feed_url\":\"http://gigasciencejournal.com/blog/feed/atom/\",\"home_page_url\":\"http://gigasciencejournal.com/blog\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695805059}},
+      \n {\"id\":\"1f2ad9a4-6e27-40f0-bd16-d17a3190e7d9\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/f7g1x-bdj12\",\"url\":\"http://gigasciencejournal.com/blog/pag-asia-2019\",\"archive_url\":null,\"title\":\"PAG
+      Asia 2019: Plant and Animal Genomes (with Chinese Characteristics)\",\"summary\":\"Regular
+      readers will know <em>GigaScience</em> has published a lot of plant and animal
+      genomes, and the biggest conference for this research community is the appropriately
+      named Plant & Animal Genome Conference (PAG). We\u2019ve attended a number of
+      these giant meetings at their San Diego base, and in recent years they have
+      been branching out to host more convenient satellites in Asia (PAG Asia). Initially
+      organised in Singapore, last month we we\",\"published_at\":1562164125,\"updated_at\":1562164457,\"indexed_at\":1692857060,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-9952-8141\", \"name\": \"Chris Armit\"}],\"image\":\"http://gigasciencejournal.com/blog/wp-content/uploads/2019/06/PAG_Asia_ii.png\",\"tags\":[\"Biology\",\"Conferences\",\"Conservation\",\"DNA
+      Zoo\",\"G 10 K\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"blog\":{\"slug\":\"gigablog\",\"title\":\"GigaBlog\",\"description\":\"Data
+      driven blogging from the GigaScience editors\",\"feed_url\":\"http://gigasciencejournal.com/blog/feed/atom/\",\"home_page_url\":\"http://gigasciencejournal.com/blog\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695805059}},
+      \n {\"id\":\"9be21455-97a7-46d4-95a3-caa3ae75f151\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/ejp1v-94f15\",\"url\":\"http://gigasciencejournal.com/blog/open-humans-qa\",\"archive_url\":null,\"title\":\"Power
+      to the People and Their Data \u2013 The Open Humans Way. Q&A with Bastian Greshake
+      Tzovaras and Mad Price Ball\",\"summary\":\"In the data driven era, not only
+      in research but in our day-to-day lives, people are creating more and more personal
+      digitized data that enables human-participant research in social sciences and
+      personalized medicine. However, with numerous data streams and types this raises
+      concerns such as how to merge and share such data, as well as ethical problems.\",\"published_at\":1561596305,\"updated_at\":1692802796,\"indexed_at\":1692861779,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5192-9835\", \"name\": \"Nicole Nogoy\"}],\"image\":\"http://gigasciencejournal.com/blog/wp-content/uploads/2019/06/IMG_9708-5-copy-300x149.jpg\",\"tags\":[\"Health\",\"Citizen
+      Science\",\"Crowd Sourcing\",\"Human\",\"Open Data\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"blog\":{\"slug\":\"gigablog\",\"title\":\"GigaBlog\",\"description\":\"Data
+      driven blogging from the GigaScience editors\",\"feed_url\":\"http://gigasciencejournal.com/blog/feed/atom/\",\"home_page_url\":\"http://gigasciencejournal.com/blog\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695805059}},
+      \n {\"id\":\"2741921d-9c79-45f0-8afb-214e385c98bc\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/9fkaj-c1p38\",\"url\":\"http://gigasciencejournal.com/blog/gigablog-meets-gigantum-guest-post-from-tyler-whitehouse-dean-kleissas-and-dav-clark\",\"archive_url\":null,\"title\":\"GigaBlog
+      meets Gigantum: Guest Post from Tyler Whitehouse, Dean Kleissas and Dav Clark\",\"summary\":\"At
+      <i>GigaScience </i>as our focus is on reproducibility rather than subjective
+      impact, it can be challenging at times to judge this in our papers. Targeting
+      the \u201Cbleeding edge\u201D of data-driven research, more and more of our
+      papers utilise technologies, such as Jupyter notebooks, Virtual Machines, and
+      Containers such as Docker.\",\"published_at\":1561004237,\"updated_at\":1562194952,\"indexed_at\":1692862991,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-5192-9835\", \"name\": \"Nicole Nogoy\"}],\"image\":\"http://gigasciencejournal.com/blog/wp-content/uploads/2019/06/muggle_problems-300x152.png\",\"tags\":[\"Publishing\",\"Technology\",\"Big
+      Data\",\"Open Data\",\"Open Science\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"blog\":{\"slug\":\"gigablog\",\"title\":\"GigaBlog\",\"description\":\"Data
+      driven blogging from the GigaScience editors\",\"feed_url\":\"http://gigasciencejournal.com/blog/feed/atom/\",\"home_page_url\":\"http://gigasciencejournal.com/blog\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695805059}},
+      \n {\"id\":\"4997788c-8271-47a0-a674-c163d6222e40\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/r16w7-y1110\",\"url\":\"http://gigasciencejournal.com/blog/gsc21-genomics-standards-danube\",\"archive_url\":null,\"title\":\"Genomics
+      Standards on the Danube. GigaScience at GSC21 in Vienna\",\"summary\":\"The
+      21st meeting of the Genomics Standards Consortium (GSC21) took place last week
+      in Vienna at one of the oldest universities in the world \u2013 the University
+      of Vienna \u2013 from May 20th-23rd. \_We\u2019ve been long time supporters
+      and participants of the Genomics Standards Consortium meetings going back to
+      2012\u2019s GSC13 in Shenzhen, and have also published a special series of GSC
+      \u201CBest Practice in Genomics Research\u201D papers.\",\"published_at\":1559536602,\"updated_at\":1559721599,\"indexed_at\":1692913986,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-9952-8141\", \"name\": \"Chris Armit\"}],\"image\":\"http://gigasciencejournal.com/blog/wp-content/uploads/2019/05/conference_attendees-1024x682.jpg\",\"tags\":[\"Biology\",\"Conferences\",\"FAIR
+      Data\",\"Genomics\",\"GSC\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"blog\":{\"slug\":\"gigablog\",\"title\":\"GigaBlog\",\"description\":\"Data
+      driven blogging from the GigaScience editors\",\"feed_url\":\"http://gigasciencejournal.com/blog/feed/atom/\",\"home_page_url\":\"http://gigasciencejournal.com/blog\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695805059}},
+      \n {\"id\":\"b3ce18d4-bd90-40e6-bf04-5229da6decd9\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/ys6ft-efy59\",\"url\":\"http://gigasciencejournal.com/blog/icg13-prize-winners-on-gigatv\",\"archive_url\":null,\"title\":\"And
+      the winner is\u2026volume 2. ICG13 prize winners on GigaTV\",\"summary\":\"Just
+      out in <em>GigaScience</em> is a new paper presenting Rice Galaxy, an open resource
+      for plant science using the Galaxy workflow management system we are so fond
+      of. The authors from the International Rice Research Institute in the Phillipines
+      are winners of our 2018 ICG13 Prize, and as this is the final paper to be published
+      we can now present a summary of the\_ competition.\",\"published_at\":1558428669,\"updated_at\":1558428804,\"indexed_at\":1692919992,\"indexed\":null,\"authors\":[{\"url\":
+      \"http://orcid.org/0000-0001-6444-1436\", \"name\": \"Scott Edmunds\"}],\"image\":\"http://gigasciencejournal.com/blog/wp-content/uploads/2018/05/ICG13_prizelogo-1024x357.jpg\",\"tags\":[\"Biology\",\"Usegalaxy\",\"Conferences\",\"Galaxy\",\"ICG\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"blog\":{\"slug\":\"gigablog\",\"title\":\"GigaBlog\",\"description\":\"Data
+      driven blogging from the GigaScience editors\",\"feed_url\":\"http://gigasciencejournal.com/blog/feed/atom/\",\"home_page_url\":\"http://gigasciencejournal.com/blog\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695805059}},
+      \n {\"id\":\"99c2f9b0-a819-481e-a630-915e9d62a196\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/e8h7d-97c26\",\"url\":\"http://gigasciencejournal.com/blog/mock-metagenome\",\"archive_url\":null,\"title\":\"Mock
+      the Metagenome. Author Q&A with Nick Loman & Sam Nicholls\",\"summary\":\"<strong>The
+      mock metagenome, MAGs and breaking the first rule of Long Read Club</strong>
+      \ Nick showing us some of his experiments with an early antecedent Short Read
+      Club\u2026  Out today in <em>GigaScience</em> is a new \u201Cmock metagenome\u201D
+      Data Note from the Nick Loman lab in Birmingham showcasing the latest long-read
+      sequencing technologies from Oxford Nanopore.\",\"published_at\":1557894978,\"updated_at\":1558014621,\"indexed_at\":1692916379,\"indexed\":null,\"authors\":[{\"url\":
+      \"http://orcid.org/0000-0001-6444-1436\", \"name\": \"Scott Edmunds\"}],\"image\":\"http://gigasciencejournal.com/blog/wp-content/uploads/2019/05/NickLoman-300x225.jpg\",\"tags\":[\"Technology\",\"Genomics\",\"Metagenome\",\"Metagenomics\",\"Microbial
+      Genomics\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"blog\":{\"slug\":\"gigablog\",\"title\":\"GigaBlog\",\"description\":\"Data
+      driven blogging from the GigaScience editors\",\"feed_url\":\"http://gigasciencejournal.com/blog/feed/atom/\",\"home_page_url\":\"http://gigasciencejournal.com/blog\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695805059}},
+      \n {\"id\":\"edf1f28d-cf91-4612-b42c-6cb9ed7d16db\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/cavx3-kn129\",\"url\":\"http://gigasciencejournal.com/blog/biocuration-2019-cambridge\",\"archive_url\":null,\"title\":\"Curators
+      Capture Cambridge. Biocuration 2019\",\"summary\":\"The 12th International <i>Biocuration</i>
+      Conference was held in Cambridge, UK from April 7-10th 2019. As regular participants
+      of the meeting you can read our write-ups of the meeting going back to 2012.
+      This is a forum for biocurators and developers to discuss their work and to
+      promote collaboration.\",\"published_at\":1557138195,\"updated_at\":1557417530,\"indexed_at\":1692915917,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-9952-8141\", \"name\": \"Chris Armit\"}],\"image\":\"http://gigasciencejournal.com/blog/wp-content/uploads/2019/05/Screenshot_2019-05-06-Scott-Edmunds-on-Instagram-\u201CCambridge-cliche-shot\u201D-300x286.jpg\",\"tags\":[\"Technology\",\"Biocuration\",\"Conferences\",\"FAIR\",\"GigaDB\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"blog\":{\"slug\":\"gigablog\",\"title\":\"GigaBlog\",\"description\":\"Data
+      driven blogging from the GigaScience editors\",\"feed_url\":\"http://gigasciencejournal.com/blog/feed/atom/\",\"home_page_url\":\"http://gigasciencejournal.com/blog\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695805059}},
+      \n {\"id\":\"f5a92034-6b10-4853-a8bd-7592d5e8aad4\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/7x637-mb215\",\"url\":\"http://gigasciencejournal.com/blog/dna-day-2019-how-to-sequence-non-model-organism\",\"archive_url\":null,\"title\":\"DNA
+      Day 2019: How to sequence the genomes of the weird and wonderful\",\"summary\":\"<strong>It\u2019s
+      DNA day, commemorating the publication of the structure of DNA in 1953, as well
+      as the completion of the Human Genome Project in 2003. Genomics has come a long
+      way since then. Today it is possible to sequence whole genomes with a very reasonable
+      investment of time and money. What an amazing time for scientists who are working
+      with non-model organisms.\",\"published_at\":1556144074,\"updated_at\":1556192608,\"indexed_at\":1692872170,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0001-6119-6113\", \"name\": \"Hans Zauner\"}],\"image\":\"http://gigasciencejournal.com/blog/wp-content/uploads/2019/04/DarwinBirds-1.jpg\",\"tags\":[\"Technology\",\"Big
+      Data\",\"DNA Day\",\"Guest Post\",\"Third Generation Sequencing\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"blog\":{\"slug\":\"gigablog\",\"title\":\"GigaBlog\",\"description\":\"Data
+      driven blogging from the GigaScience editors\",\"feed_url\":\"http://gigasciencejournal.com/blog/feed/atom/\",\"home_page_url\":\"http://gigasciencejournal.com/blog\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695805059}},
+      \n {\"id\":\"ef1e8820-8cb8-4dab-a984-8e93da868f3b\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/wyw1m-9bb33\",\"url\":\"http://gigasciencejournal.com/blog/presenting-the-fairsharing-community-network\",\"archive_url\":null,\"title\":\"Presenting
+      the FAIRsharing community network\",\"summary\":\"<strong>FAIRer Sharing via
+      FAIRsharing</strong>  Image from FAIRsharing.org.  Our aim at <em>GigaScience</em>
+      is to provide the means to open up and share research data. On top of just making
+      these available via our (new look) GigaDB database, we\u2019ve been involved
+      with communities that wants to maximize the utility of these research outputs
+      by making them FAIR: Findable, Accessible, Interoperable and Reusable.\",\"published_at\":1554268328,\"updated_at\":1554268328,\"indexed_at\":1692915340,\"indexed\":null,\"authors\":[{\"url\":
+      \"http://orcid.org/0000-0001-6444-1436\", \"name\": \"Scott Edmunds\"}],\"image\":\"http://gigasciencejournal.com/blog/wp-content/uploads/2019/03/HowFAIRsharingHelpsYou-300x287.png\",\"tags\":[\"Publishing\",\"Database\",\"FAIR\",\"FAIR
+      Data\",\"GigaDB\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"blog\":{\"slug\":\"gigablog\",\"title\":\"GigaBlog\",\"description\":\"Data
+      driven blogging from the GigaScience editors\",\"feed_url\":\"http://gigasciencejournal.com/blog/feed/atom/\",\"home_page_url\":\"http://gigasciencejournal.com/blog\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695805059}},
+      \n {\"id\":\"da1829ee-7982-44d8-849e-78444fdc4553\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/fbw0f-jwj62\",\"url\":\"http://gigasciencejournal.com/blog/sketchfab-3d-fossil-seabed\",\"archive_url\":null,\"title\":\"Lost
+      worlds: via Sketchfab a 3D fossil offers a glimpse of prehistoric marine life\",\"summary\":\"Just
+      out in full text is a our first paper showcasing our latest complete integration
+      with the Sketchfab 3D viewer. In this a 3D fossil seabed from the lower Devonian
+      geologic period has been digitally reconstructed using micro X-ray computed
+      tomography (microCT) imaging.\",\"published_at\":1554114118,\"updated_at\":1554114118,\"indexed_at\":1692918245,\"indexed\":null,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-9952-8141\", \"name\": \"Chris Armit\"}],\"image\":\"http://gigasciencejournal.com/blog/wp-content/uploads/2019/04/Screen-Shot-2019-04-01-at-18.04.20-188x300.png\",\"tags\":[\"Biology\",\"Devonian\",\"Echinoderm\",\"Fossil\",\"Imaging\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"blog\":{\"slug\":\"gigablog\",\"title\":\"GigaBlog\",\"description\":\"Data
+      driven blogging from the GigaScience editors\",\"feed_url\":\"http://gigasciencejournal.com/blog/feed/atom/\",\"home_page_url\":\"http://gigasciencejournal.com/blog\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695805059}},
+      \n {\"id\":\"7c221b75-b0ab-4858-9548-3466575139e1\",\"guid\":null,\"doi\":\"https://doi.org/10.59350/bqmje-6ka81\",\"url\":\"http://gigasciencejournal.com/blog/citizen-science-at-unea4\",\"archive_url\":null,\"title\":\"Citizen
+      Science goes mainstream. Back at the UN with the Citizen Science Global Partnership.\",\"summary\":\"<strong>Citizen
+      Science at UNEA4</strong> As <em>GigaScience</em> has the aim of opening and
+      democratising science as far as it can go, we even work towards the involvement
+      of non-professional \u201Ccitizen scientists\u201D in the scientific process.\",\"published_at\":1553848286,\"updated_at\":1554090449,\"indexed_at\":1692920579,\"indexed\":null,\"authors\":[{\"url\":
+      \"http://orcid.org/0000-0001-6444-1436\", \"name\": \"Scott Edmunds\"}],\"image\":\"http://gigasciencejournal.com/blog/wp-content/uploads/2019/03/IMG_7891-300x225.jpg\",\"tags\":[\"Developing
+      World\",\"Citizen Science\",\"Earth Observations\",\"Open Data\",\"Open Science\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"blog\":{\"slug\":\"gigablog\",\"title\":\"GigaBlog\",\"description\":\"Data
+      driven blogging from the GigaScience editors\",\"feed_url\":\"http://gigasciencejournal.com/blog/feed/atom/\",\"home_page_url\":\"http://gigasciencejournal.com/blog\",\"language\":\"en\",\"category\":\"biologicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1695805059}}]"
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 81b353ec184c717a-DUS
+      - 820c1a5aba206a9b-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -175,7 +189,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 24 Oct 2023 15:42:06 GMT
+      - Sat, 04 Nov 2023 10:16:41 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -187,9 +201,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '41'
+      - '17'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
