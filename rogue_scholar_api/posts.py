@@ -3,7 +3,6 @@ from os import environ
 from furl import furl
 import aiohttp
 import asyncio
-from bs4 import BeautifulSoup
 import re
 import pydash as py_
 import nh3
@@ -11,6 +10,7 @@ import html
 import json as jsn
 import xmltodict
 import time
+import traceback
 from idutils import is_doi, is_orcid
 from commonmeta.base_utils import wrap, compact
 
@@ -20,6 +20,7 @@ from rogue_scholar_api.utils import (
     get_date,
     normalize_url,
     get_src_url,
+    get_soup,
     detect_language,
     AUTHOR_IDS,
     AUTHOR_NAMES,
@@ -248,7 +249,7 @@ async def extract_wordpress_post(post, blog):
             authors_ = wrap(blog.get("authors", None))
         authors = [format_author(i) for i in authors_]
         content_html = py_.get(post, "content.rendered", "")
-        soup = BeautifulSoup(content_html, "html.parser")
+        soup = get_soup(content_html)
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("link", None), secure=blog.get("secure", True))
@@ -292,8 +293,8 @@ async def extract_wordpress_post(post, blog):
             "archive_url": archive_url,
             "guid": py_.get(post, "guid.rendered", None),
         }
-    except Exception as e:
-        print(e, post.get("link", None))
+    except Exception:
+        print(traceback.format_exc())
         return {}
 
 
@@ -320,7 +321,7 @@ async def extract_wordpresscom_post(post, blog):
 
         authors = [format_author(i) for i in wrap(post.get("author", None))]
         content_html = post.get("content", "")
-        soup = BeautifulSoup(content_html, "html.parser")
+        soup = get_soup(content_html)
         summary = get_abstract(post.get("excerpt", None)) or get_title(
             post.get("title", None)
         )
@@ -354,8 +355,8 @@ async def extract_wordpresscom_post(post, blog):
             "archive_url": archive_url,
             "guid": post.get("guid", None),
         }
-    except Exception as e:
-        print(e, post.get("URL", None))
+    except Exception:
+        print(traceback.format_exc())
         return {}
 
 
@@ -375,7 +376,7 @@ async def extract_ghost_post(post, blog):
 
         authors = [format_author(i) for i in wrap(post.get("authors", None))]
         content_html = post.get("html", "")
-        soup = BeautifulSoup(content_html, "html.parser")
+        soup = get_soup(content_html)
 
         # don't use excerpt as summary, because it's not html
         summary = get_abstract(content_html)
@@ -409,8 +410,8 @@ async def extract_ghost_post(post, blog):
             "archive_url": archive_url,
             "guid": post.get("id", None),
         }
-    except Exception as e:
-        print(e, post.get("url", None))
+    except Exception:
+        print(traceback.format_exc())
         return {}
 
 
@@ -431,7 +432,7 @@ async def extract_substack_post(post, blog):
 
         authors = [format_author(i) for i in wrap(post.get("publishedBylines", None))]
         content_html = post.get("body_html", "")
-        soup = BeautifulSoup(content_html, "html.parser")
+        soup = get_soup(content_html)
         summary = get_abstract(post.get("description", None))
         published_at = unix_timestamp(post.get("post_date", None))
         reference = get_references(content_html)
@@ -468,8 +469,8 @@ async def extract_substack_post(post, blog):
             "archive_url": archive_url,
             "guid": post.get("id", None),
         }
-    except Exception as e:
-        print(e, post.get("canonical_url", None))
+    except Exception:
+        print(traceback.format_exc())
         return {}
 
 
@@ -491,7 +492,7 @@ async def extract_json_feed_post(post, blog):
             authors_ = wrap(blog.get("authors", None))
         authors = [format_author(i) for i in authors_]
         content_html = post.get("content_html", "")
-        soup = BeautifulSoup(content_html, "html.parser")
+        soup = get_soup(content_html)
         summary = get_abstract(content_html)
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
@@ -523,8 +524,8 @@ async def extract_json_feed_post(post, blog):
             "archive_url": archive_url,
             "guid": post.get("id", None),
         }
-    except Exception as e:
-        print(e, post.get("url", None))
+    except Exception:
+        print(traceback.format_exc())
         return {}
 
 
@@ -551,7 +552,7 @@ async def extract_atom_post(post, blog):
             authors_ = wrap(blog.get("authors", None))
         authors = [format_author(i) for i in authors_]
         content_html = py_.get(post, "content.#text", "")
-        soup = BeautifulSoup(content_html, "html.parser")
+        soup = get_soup(content_html)
         title = get_title(py_.get(post, "title.#text", None)) or get_title(
             post.get("title", None)
         )
@@ -606,8 +607,8 @@ async def extract_atom_post(post, blog):
             "archive_url": archive_url,
             "guid": post.get("id", None),
         }
-    except Exception as e:
-        print(e, post.get("link", None))
+    except Exception:
+        print(traceback.format_exc())
         return {}
 
 
@@ -639,8 +640,8 @@ async def extract_rss_post(post, blog):
         content_html = py_.get(post, "content:encoded", None) or post.get(
             "description", ""
         )
-        soup = BeautifulSoup(content_html, "html.parser")
-        summary = get_abstract(content_html)
+        soup = get_soup(content_html)
+        summary = get_abstract(content_html) or ""
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("link", None), secure=blog.get("secure", True))
@@ -678,8 +679,8 @@ async def extract_rss_post(post, blog):
             "archive_url": archive_url,
             "guid": py_.get(post, "guid.#text", None) or post.get("guid", None),
         }
-    except Exception as e:
-        print(e, post.get("link", None))
+    except Exception:
+        print(traceback.format_exc())
         return {}
 
 
@@ -768,40 +769,45 @@ def get_references(content_html: str):
     """Extract references from content_html,
     defined as the text after the tag "References</h2>",
     "References</h3>" or "References</h4>"""
-    reference_html = re.split(
-        r"(?:References|Referenzen|Bibliography)<\/(?:h1|h2|h3|h4)>",
-        content_html,
-        maxsplit=2,
-    )
-    if len(reference_html) == 1:
+    
+    try:
+        reference_html = re.split(
+            r"(?:References|Referenzen|Bibliography)<\/(?:h1|h2|h3|h4)>",
+            content_html,
+            maxsplit=2,
+        )
+        if len(reference_html) == 1:
+            return []
+
+        # strip optional text after references, using <hr>, <hr />, <h2, <h3, <h4 as tag
+        reference_html[1] = re.split(
+            r"(?:<hr \/>|<hr>|<h2|<h3|<h4)", reference_html[1], maxsplit=2
+        )[0]
+
+        urls = get_urls(reference_html[1])
+        if not urls or len(urls) == 0:
+            return []
+
+        def format_reference(url, index):
+            """Format reference."""
+            doi = is_doi(url)
+
+            if doi:
+                return {
+                    "key": f"ref{index + 1}",
+                    "doi": url,
+                }
+            else:
+                return {
+                    "key": f"ref{index + 1}",
+                    "url": url,
+                }
+
+        references = [format_reference(url, index) for index, url in enumerate(urls)]
+        return references
+    except Exception as e:
+        print(e)
         return []
-
-    # strip optional text after references, using <hr>, <hr />, <h2, <h3, <h4 as tag
-    reference_html[1] = re.split(
-        r"(?:<hr \/>|<hr>|<h2|<h3|<h4)", reference_html[1], maxsplit=2
-    )[0]
-
-    urls = get_urls(reference_html[1])
-    if not urls or len(urls) == 0:
-        return []
-
-    def format_reference(url, index):
-        """Format reference."""
-        doi = is_doi(url)
-
-        if doi:
-            return {
-                "key": f"ref{index + 1}",
-                "doi": url,
-            }
-        else:
-            return {
-                "key": f"ref{index + 1}",
-                "url": url,
-            }
-
-    references = [format_reference(url, index) for index, url in enumerate(urls)]
-    return references
 
 
 def get_title(content_html: str):
@@ -847,82 +853,90 @@ def get_relationships(content_html: str):
     Acknowledgments section,defined as the text after the tag
     "Acknowledgments</h2>", "Acknowledgments</h3>" or "Acknowledgments</h4>"""
 
-    relationships_html = re.split(
-        r"Acknowledgments<\/(?:h1|h2|h3|h4)>",
-        content_html,
-        maxsplit=2,
-    )
-    if len(relationships_html) == 1:
+    try:
+        relationships_html = re.split(
+            r"Acknowledgments<\/(?:h1|h2|h3|h4)>",
+            content_html,
+            maxsplit=2,
+        )
+        if len(relationships_html) == 1:
+            return []
+
+        # strip optional text after notes, using <hr>, <hr />, <h2, <h3, <h4 as tag
+        relationships_html[1] = re.split(
+            r"(?:<hr \/>|<hr>|<h2|<h3|<h4)", relationships_html[1], maxsplit=2
+        )[0]
+
+        # split notes into sentences and classify relationship type for each sentence
+        sentences = re.split(r"(?<=\w{3}[.!?;])\s+", relationships_html[1])
+
+        def extract_url(sentence):
+            """Extract url from sentence."""
+            sentence = sentence.strip()
+            urls = get_urls(sentence)
+            if not urls or len(urls) == 0:
+                return None
+            # detect type of relationship
+            type_ = None
+            if re.search("(originally published|cross-posted)", sentence):
+                type_ = "IsIdenticalTo"
+            elif re.search("peer-reviewed version", sentence):
+                type_ = "IsPreprintOf"
+            elif re.search("work was funded", sentence):
+                type_ = "HasAward"
+            if type_ is None:
+                return None
+            return {"type": type_, "url": urls[0]}
+
+        relationships = [extract_url(i) for i in sentences]
+        return [i for i in relationships if i is not None]
+    except Exception as e:
+        print(e)
         return []
-
-    # strip optional text after notes, using <hr>, <hr />, <h2, <h3, <h4 as tag
-    relationships_html[1] = re.split(
-        r"(?:<hr \/>|<hr>|<h2|<h3|<h4)", relationships_html[1], maxsplit=2
-    )[0]
-
-    # split notes into sentences and classify relationship type for each sentence
-    sentences = re.split(r"(?<=\w{3}[.!?;])\s+", relationships_html[1])
-
-    def extract_url(sentence):
-        """Extract url from sentence."""
-        sentence = sentence.strip()
-        urls = get_urls(sentence)
-        if not urls or len(urls) == 0:
-            return None
-        # detect type of relationship
-        type_ = None
-        if re.search("(originally published|cross-posted)", sentence):
-            type_ = "IsIdenticalTo"
-        elif re.search("peer-reviewed version", sentence):
-            type_ = "IsPreprintOf"
-        elif re.search("work was funded", sentence):
-            type_ = "HasAward"
-        if type_ is None:
-            return None
-        return {"type": type_, "url": urls[0]}
-
-    relationships = [extract_url(i) for i in sentences]
-    return [i for i in relationships if i is not None]
 
 
 def get_images(soup, url: str, home_page_url: str):
     """Extract images from content_html."""
 
-    def extract_img(image):
-        """Extract url from link."""
-        src = image.attrs.get("src", None)
+    try:
+        def extract_img(image):
+            """Extract url from link."""
+            src = image.attrs.get("src", None)
 
-        src = get_src_url(src, url, home_page_url)
-        srcset = image.attrs.get("srcset", None)
+            src = get_src_url(src, url, home_page_url)
+            srcset = image.attrs.get("srcset", None)
 
-        if isinstance(srcset, str):
-            srcset = srcset.split(", ")
-            srcset = [i.split(" ")[0] for i in srcset]
-            srcset = [get_src_url(i, url, home_page_url) for i in srcset]
-            srcset = ", ".join(srcset)
-        alt = image.attrs.get("alt", None)
+            if isinstance(srcset, str):
+                srcset = srcset.split(", ")
+                srcset = [i.split(" ")[0] for i in srcset]
+                srcset = [get_src_url(i, url, home_page_url) for i in srcset]
+                srcset = ", ".join(srcset)
+            alt = image.attrs.get("alt", None)
 
-        if alt:
-            alt = alt.strip()
+            if alt:
+                alt = alt.strip()
 
-        return compact(
-            {
-                "src": src,
-                "srcset": srcset,
-                "width": image.attrs.get("width", None),
-                "height": image.attrs.get("height", None),
-                "sizes": image.attrs.get("sizes", None),
-                "alt": alt,
-            }
-        )
+            return compact(
+                {
+                    "src": src,
+                    "srcset": srcset,
+                    "width": image.attrs.get("width", None),
+                    "height": image.attrs.get("height", None),
+                    "sizes": image.attrs.get("sizes", None),
+                    "alt": alt,
+                }
+            )
 
-    images = [extract_img(i) for i in soup.find_all("img")]
-    return images
+        images = [extract_img(i) for i in soup.find_all("img")]
+        return images
+    except Exception as e:
+        print(e)
+        return []
 
 
 def get_urls(content_html: str):
     """Extract urls from html."""
-    soup = BeautifulSoup(content_html, "html.parser")
+    soup = get_soup(content_html)
 
     def extract_url(link):
         """Extract url from link."""

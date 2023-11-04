@@ -6,6 +6,7 @@ import iso8601
 from dateutil import parser
 from furl import furl
 from langdetect import detect
+from bs4 import BeautifulSoup
 
 from commonmeta.doi_utils import doi_from_url
 
@@ -262,4 +263,19 @@ def is_valid_url(url: str) -> bool:
 
 def detect_language(text: str) -> str:
     """Detect language"""
-    return detect(text)
+    
+    try:
+        return detect(text)
+    except Exception as e:
+        print(e)
+        return "en"
+
+
+def get_soup(content_html: str) -> Optional[BeautifulSoup]:
+    """Get soup from html"""
+    try:
+        soup = BeautifulSoup(content_html, "html.parser")
+        return soup
+    except Exception as e:
+        print(e)
+        return content_html
