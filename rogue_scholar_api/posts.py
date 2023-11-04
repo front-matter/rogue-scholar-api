@@ -289,7 +289,7 @@ async def extract_wordpress_post(post, blog):
             "tags": terms,
             "title": py_.get(post, "title.rendered", ""),
             "url": url,
-            "archive_url": None,
+            "archive_url": archive_url,
             "guid": py_.get(post, "guid.rendered", None),
         }
     except Exception as e:
@@ -329,6 +329,7 @@ async def extract_wordpresscom_post(post, blog):
         url = normalize_url(post.get("URL", None), secure=blog.get("secure", True))
         archive_url = blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         images = get_images(soup, url, blog.get("home_page_url", None))
+        image = None
         if len(images) > 0 and int(images[0].get("width", 200)) >= 200:
             image = images[0].get("src", None)
         tags = [normalize_tag(i) for i in post.get("categories", None).keys()][:5]

@@ -19,12 +19,14 @@ def vcr_config():
     return {"filter_headers": ["apikey", "key", "X-TYPESENSE-API-KEY", "authorization"]}
 
 
-@pytest.mark.vcr
 @pytest.mark.asyncio
 async def test_extract_all_posts():
     """Extract all posts"""
     result = await extract_all_posts()
-    assert len(result) == 0
+    assert len(result) == 1
+    post = result[0]
+    assert post["title"] == "Connecting to AWS OpenSearch Serverless using Python"
+    assert post["blog_slug"] == "eve"
 
 
 @pytest.mark.vcr
