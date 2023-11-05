@@ -7,7 +7,8 @@ from dateutil import parser
 from furl import furl
 from langdetect import detect
 from bs4 import BeautifulSoup
-
+from idutils import is_orcid
+from commonmeta.base_utils import compact
 from commonmeta.doi_utils import doi_from_url
 
 
@@ -89,6 +90,21 @@ AUTHOR_NAMES = {
 }
 
 
+def normalize_author(name: str, url: str = None) -> dict:
+    """Normalize author name and url. Strip text after comma 
+       if suffix is an academic title"""
+    
+    if name.split(", ", maxsplit=1)[-1] in [
+            "MD",
+            "PhD"]:
+        name = name.split(", ", maxsplit=1)[0]
+
+    name_ = AUTHOR_NAMES.get(name, None) or name
+    url_ = url if url and is_orcid(url) else AUTHOR_IDS.get(name_, None)
+    
+    return compact({"name": name_, "url": url_})
+
+            
 def get_date(date: str):
     """Get iso8601 date from string."""
     if not date:

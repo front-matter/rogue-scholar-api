@@ -9,6 +9,7 @@ from rogue_scholar_api.utils import (
     start_case,
     normalize_tag,
     detect_language,
+    normalize_author
 )
 
 
@@ -119,6 +120,27 @@ def test_detect_language_spanish():
     """detect language spanish"""
     text = "Esto es una prueba"
     assert detect_language(text) == "es"  
+
+
+def test_normalize_author_username():
+    """normalize author username"""
+    name = "davidshotton"
+    result = normalize_author(name)
+    assert result == {"name": "David M. Shotton", "url": "https://orcid.org/0000-0001-5506-523X"}
+
+
+def test_normalize_author_suffix():
+    """normalize author suffix"""
+    name = "Tejas S. Sathe, MD"
+    result = normalize_author(name)
+    assert result == {"name": "Tejas S. Sathe", "url": "https://orcid.org/0000-0003-0449-4469"}
+
+
+def test_normalize_author_gpt4():
+    """normalize author GPT-4"""
+    name = "GPT-4"
+    result = normalize_author(name)
+    assert result == {"name": "Tejas S. Sathe", "url": "https://orcid.org/0000-0003-0449-4469"}
 
 
 # def test_sanitize_cool_suffix():

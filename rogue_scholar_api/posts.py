@@ -22,6 +22,7 @@ from rogue_scholar_api.utils import (
     get_src_url,
     get_soup,
     detect_language,
+    normalize_author,
     AUTHOR_IDS,
     AUTHOR_NAMES,
 )
@@ -29,10 +30,6 @@ from rogue_scholar_api.supabase import (
     supabase_admin_client as supabase_admin,
     supabase_client as supabase,
 )
-
-
-def author_ids():
-    """Author ids that can't be extracted from the blogging platform, e.g. from an RSS feed."""
 
 
 async def extract_all_posts(page: int = 1, update_all: bool = False):
@@ -231,17 +228,8 @@ async def extract_wordpress_post(post, blog):
             """Format author. Optionally lookup real name from username,
             and ORCID from name. Ideally this is done in the Wordpress
             user settings."""
-            name_ = author.get("name", None)
-            name = AUTHOR_NAMES.get(name_, None) or name_
-            url_ = author.get("url", None)
-            url = url_ if url_ and is_orcid(url_) else AUTHOR_IDS.get(name, None)
 
-            return compact(
-                {
-                    "name": name,
-                    "url": url,
-                }
-            )
+            return normalize_author(author.get("name", None), author.get("url", None))
 
         # use default author for blog if no post author found
         authors_ = wrap(py_.get(post, "_embedded.author", None))
@@ -253,7 +241,9 @@ async def extract_wordpress_post(post, blog):
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("link", None), secure=blog.get("secure", True))
-        archive_url = blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
+        archive_url = (
+            blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
+        )
         images = get_images(soup, url, blog["home_page_url"])
         image = (
             py_.get(post, "_embedded.wp:featuredmedia[0].source_url", None)
@@ -307,17 +297,7 @@ async def extract_wordpresscom_post(post, blog):
             and ORCID from name. Ideally this is done in the Wordpress
             user settings."""
 
-            name_ = author.get("name", None)
-            name = AUTHOR_NAMES.get(name_, None) or name_
-            url_ = author.get("URL", None)
-            url = url_ if url_ and is_orcid(url_) else AUTHOR_IDS.get(name, None)
-
-            return compact(
-                {
-                    "name": name,
-                    "url": url,
-                }
-            )
+            return normalize_author(author.get("name", None), author.get("URL", None))
 
         authors = [format_author(i) for i in wrap(post.get("author", None))]
         content_html = post.get("content", "")
@@ -328,7 +308,9 @@ async def extract_wordpresscom_post(post, blog):
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("URL", None), secure=blog.get("secure", True))
-        archive_url = blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
+        archive_url = (
+            blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
+        )
         images = get_images(soup, url, blog.get("home_page_url", None))
         image = None
         if len(images) > 0 and int(images[0].get("width", 200)) >= 200:
@@ -367,11 +349,8 @@ async def extract_ghost_post(post, blog):
 
         def format_author(author):
             """Format author."""
-            return compact(
-                {
-                    "name": author.get("name", None),
-                    "url": author.get("website", None),
-                }
+            return normalize_author(
+                author.get("name", None), author.get("website", None)
             )
 
         authors = [format_author(i) for i in wrap(post.get("authors", None))]
@@ -383,7 +362,9 @@ async def extract_ghost_post(post, blog):
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
-        archive_url = blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
+        archive_url = (
+            blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
+        )
         images = get_images(soup, url, blog.get("home_page_url", None))
         image = post.get("feature_image", None)
         if not image and len(images) > 0:
@@ -422,13 +403,7 @@ async def extract_substack_post(post, blog):
 
         def format_author(author):
             """Format author."""
-            name = author.get("name", None)
-            return compact(
-                {
-                    "name": name,
-                    "url": AUTHOR_IDS.get(name, None),
-                }
-            )
+            return normalize_author(author.get("name", None))
 
         authors = [format_author(i) for i in wrap(post.get("publishedBylines", None))]
         content_html = post.get("body_html", "")
@@ -440,7 +415,9 @@ async def extract_substack_post(post, blog):
         url = normalize_url(
             post.get("canonical_url", None), secure=blog.get("secure", True)
         )
-        archive_url = blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
+        archive_url = (
+            blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
+        )
         images = get_images(soup, url, blog.get("home_page_url", None))
         image = post.get("cover_image", None)
         if not image and len(images) > 0:
@@ -481,10 +458,7 @@ async def extract_json_feed_post(post, blog):
 
         def format_author(author):
             """Format author."""
-            name = author.get("name", None)
-            uri = author.get("url", None)
-            url = uri if uri and is_orcid(uri) else AUTHOR_IDS.get(name, None)
-            return compact({"name": name, "url": url})
+            return normalize_author(author.get("name", None), author.get("url", None))
 
         # use default authors for blog if no post authors found
         authors_ = wrap(post.get("authors", None))
@@ -497,7 +471,9 @@ async def extract_json_feed_post(post, blog):
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
-        archive_url = blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
+        archive_url = (
+            blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
+        )
         images = get_images(soup, url, blog.get("home_page_url", None))
         image = py_.get(post, "media:thumbnail.@url", None)
         if not image and len(images) > 0:
@@ -536,15 +512,7 @@ async def extract_atom_post(post, blog):
 
         def format_author(author):
             """Format author."""
-            name = author.get("name", None)
-            uri = author.get("uri", None)
-            url = uri if uri and is_orcid(uri) else AUTHOR_IDS.get(name, None)
-            return compact(
-                {
-                    "name": name,
-                    "url": url,
-                }
-            )
+            return normalize_author(author.get("name", None), author.get("uri", None))
 
         # use default authors for blog if no post authors found
         authors_ = wrap(post.get("author", None))
@@ -577,7 +545,9 @@ async def extract_atom_post(post, blog):
             )
 
         url = get_url(post.get("link", None))
-        archive_url = blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
+        archive_url = (
+            blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
+        )
         images = get_images(soup, url, blog.get("home_page_url", None))
         image = py_.get(post, "media:thumbnail.@url", None)
         if not image and len(images) > 0:
@@ -619,16 +589,7 @@ async def extract_rss_post(post, blog):
 
         def format_author(author):
             """Format author."""
-            name_ = author.get("name", None)
-            name = AUTHOR_NAMES.get(name_, None) or name_
-            url_ = author.get("uri", None)
-            url = url_ if url_ and is_orcid(url_) else AUTHOR_IDS.get(name, None)
-            return compact(
-                {
-                    "name": name,
-                    "url": url,
-                }
-            )
+            return normalize_author(author.get("name", None), author.get("url", None))
 
         # use default author for blog if no post author found
         author = post.get("dc:creator", None) or post.get("author", None)
@@ -645,7 +606,9 @@ async def extract_rss_post(post, blog):
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("link", None), secure=blog.get("secure", True))
-        archive_url = blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
+        archive_url = (
+            blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
+        )
         published_at = get_date(post.get("pubDate", None))
         images = get_images(soup, url, blog.get("home_page_url", None))
         image = py_.get(post, "media:content.@url", None) or py_.get(
@@ -769,7 +732,7 @@ def get_references(content_html: str):
     """Extract references from content_html,
     defined as the text after the tag "References</h2>",
     "References</h3>" or "References</h4>"""
-    
+
     try:
         reference_html = re.split(
             r"(?:References|Referenzen|Bibliography)<\/(?:h1|h2|h3|h4)>",
@@ -899,6 +862,7 @@ def get_images(soup, url: str, home_page_url: str):
     """Extract images from content_html."""
 
     try:
+
         def extract_img(image):
             """Extract url from link."""
             src = image.attrs.get("src", None)
