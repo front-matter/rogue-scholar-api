@@ -237,14 +237,13 @@ async def extract_wordpress_post(post, blog):
             authors_ = wrap(blog.get("authors", None))
         authors = [format_author(i) for i in authors_]
         content_html = py_.get(post, "content.rendered", "")
-        soup = get_soup(content_html)
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("link", None), secure=blog.get("secure", True))
         archive_url = (
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         )
-        images = get_images(soup, url, blog["home_page_url"])
+        images = get_images(content_html, url, blog["home_page_url"])
         image = (
             py_.get(post, "_embedded.wp:featuredmedia[0].source_url", None)
             or py_.get(post, "yoast_head_json.og_image[0].url", None)
@@ -301,7 +300,6 @@ async def extract_wordpresscom_post(post, blog):
 
         authors = [format_author(i) for i in wrap(post.get("author", None))]
         content_html = post.get("content", "")
-        soup = get_soup(content_html)
         summary = get_abstract(post.get("excerpt", None)) or get_title(
             post.get("title", None)
         )
@@ -311,7 +309,7 @@ async def extract_wordpresscom_post(post, blog):
         archive_url = (
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         )
-        images = get_images(soup, url, blog.get("home_page_url", None))
+        images = get_images(content_html, url, blog.get("home_page_url", None))
         image = None
         if len(images) > 0 and int(images[0].get("width", 200)) >= 200:
             image = images[0].get("src", None)
@@ -355,7 +353,6 @@ async def extract_ghost_post(post, blog):
 
         authors = [format_author(i) for i in wrap(post.get("authors", None))]
         content_html = post.get("html", "")
-        soup = get_soup(content_html)
 
         # don't use excerpt as summary, because it's not html
         summary = get_abstract(content_html)
@@ -365,7 +362,7 @@ async def extract_ghost_post(post, blog):
         archive_url = (
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         )
-        images = get_images(soup, url, blog.get("home_page_url", None))
+        images = get_images(content_html, url, blog.get("home_page_url", None))
         image = post.get("feature_image", None)
         if not image and len(images) > 0:
             image = images[0].get("src", None)
@@ -407,7 +404,6 @@ async def extract_substack_post(post, blog):
 
         authors = [format_author(i) for i in wrap(post.get("publishedBylines", None))]
         content_html = post.get("body_html", "")
-        soup = get_soup(content_html)
         summary = get_abstract(post.get("description", None))
         published_at = unix_timestamp(post.get("post_date", None))
         reference = get_references(content_html)
@@ -418,7 +414,7 @@ async def extract_substack_post(post, blog):
         archive_url = (
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         )
-        images = get_images(soup, url, blog.get("home_page_url", None))
+        images = get_images(content_html, url, blog.get("home_page_url", None))
         image = post.get("cover_image", None)
         if not image and len(images) > 0:
             image = images[0].get("src", None)
@@ -466,7 +462,6 @@ async def extract_json_feed_post(post, blog):
             authors_ = wrap(blog.get("authors", None))
         authors = [format_author(i) for i in authors_]
         content_html = post.get("content_html", "")
-        soup = get_soup(content_html)
         summary = get_abstract(content_html)
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
@@ -474,7 +469,7 @@ async def extract_json_feed_post(post, blog):
         archive_url = (
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         )
-        images = get_images(soup, url, blog.get("home_page_url", None))
+        images = get_images(content_html, url, blog.get("home_page_url", None))
         image = py_.get(post, "media:thumbnail.@url", None)
         if not image and len(images) > 0:
             image = images[0].get("src", None)
@@ -519,8 +514,9 @@ async def extract_atom_post(post, blog):
         if len(authors_) == 0 or authors_[0].get("name", None) is None:
             authors_ = wrap(blog.get("authors", None))
         authors = [format_author(i) for i in authors_]
-        content_html = py_.get(post, "content.#text", "")
-        soup = get_soup(content_html)
+        
+        # workaround, as content should be encodes as CDATA block
+        content_html = html.unescape(py_.get(post, "content.#text", ""))
         title = get_title(py_.get(post, "title.#text", None)) or get_title(
             post.get("title", None)
         )
@@ -548,7 +544,7 @@ async def extract_atom_post(post, blog):
         archive_url = (
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         )
-        images = get_images(soup, url, blog.get("home_page_url", None))
+        images = get_images(content_html, url, blog.get("home_page_url", None))
         image = py_.get(post, "media:thumbnail.@url", None)
         if not image and len(images) > 0:
             image = images[0].get("src", None)
@@ -601,7 +597,6 @@ async def extract_rss_post(post, blog):
         content_html = py_.get(post, "content:encoded", None) or post.get(
             "description", ""
         )
-        soup = get_soup(content_html)
         summary = get_abstract(content_html) or ""
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
@@ -610,7 +605,7 @@ async def extract_rss_post(post, blog):
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         )
         published_at = get_date(post.get("pubDate", None))
-        images = get_images(soup, url, blog.get("home_page_url", None))
+        images = get_images(content_html, url, blog.get("home_page_url", None))
         image = py_.get(post, "media:content.@url", None) or py_.get(
             post, "media:thumbnail.@url", None
         )
@@ -858,7 +853,7 @@ def get_relationships(content_html: str):
         return []
 
 
-def get_images(soup, url: str, home_page_url: str):
+def get_images(content_html: str, url: str, home_page_url: str):
     """Extract images from content_html."""
 
     try:
@@ -891,41 +886,52 @@ def get_images(soup, url: str, home_page_url: str):
                 }
             )
 
+        soup = get_soup(content_html)
+        if not soup:
+            return []
         images = [extract_img(i) for i in soup.find_all("img")]
         return images
     except Exception as e:
         print(e)
+        print(traceback.format_exc())
         return []
 
 
 def get_urls(content_html: str):
     """Extract urls from html."""
-    soup = get_soup(content_html)
+    
+    try:
+        soup = get_soup(content_html)
 
-    def extract_url(link):
-        """Extract url from link."""
-        return link.get("href")
+        def extract_url(link):
+            """Extract url from link."""
+            return link.get("href")
 
-    urls = [extract_url(i) for i in soup.find_all("a")]
+        urls = [extract_url(i) for i in soup.find_all("a")]
 
-    if not urls or len(urls) == 0:
+        if not urls or len(urls) == 0:
+            return []
+
+        def clean_url(url):
+            """Clean url."""
+            url = normalize_url(url)
+            if not url:
+                return None
+            if is_doi(url):
+                f = furl(url)
+                if f.scheme == "http":
+                    f.scheme = "https"
+                if f.host == "dx.doi.org":
+                    f.host = "doi.org"
+                url = f.url
+            else:
+                url = url.lower()
+            return url
+
+        urls = [clean_url(i) for i in urls]
+        return py_.uniq(urls)
+    except Exception as e:
+        print(e)
+        print(traceback.format_exc())
         return []
-
-    def clean_url(url):
-        """Clean url."""
-        url = normalize_url(url)
-        if not url:
-            return None
-        if is_doi(url):
-            f = furl(url)
-            if f.scheme == "http":
-                f.scheme = "https"
-            if f.host == "dx.doi.org":
-                f.host = "doi.org"
-            url = f.url
-        else:
-            url = url.lower()
-        return url
-
-    urls = [clean_url(i) for i in urls]
-    return py_.uniq(urls)
+    
