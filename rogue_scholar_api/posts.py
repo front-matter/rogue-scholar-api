@@ -283,7 +283,7 @@ async def extract_wordpress_post(post, blog):
             "guid": py_.get(post, "guid.rendered", None),
         }
     except Exception:
-        print(traceback.format_exc())
+        print(blog.get("slug", None), traceback.format_exc())
         return {}
 
 
@@ -336,7 +336,7 @@ async def extract_wordpresscom_post(post, blog):
             "guid": post.get("guid", None),
         }
     except Exception:
-        print(traceback.format_exc())
+        print(blog.get("slug", None), traceback.format_exc())
         return {}
 
 
@@ -389,7 +389,7 @@ async def extract_ghost_post(post, blog):
             "guid": post.get("id", None),
         }
     except Exception:
-        print(traceback.format_exc())
+        print(blog.get("slug", None), traceback.format_exc())
         return {}
 
 
@@ -443,7 +443,7 @@ async def extract_substack_post(post, blog):
             "guid": post.get("id", None),
         }
     except Exception:
-        print(traceback.format_exc())
+        print(blog.get("slug", None), traceback.format_exc())
         return {}
 
 
@@ -469,7 +469,10 @@ async def extract_json_feed_post(post, blog):
         archive_url = (
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         )
-        images = get_images(content_html, url, blog.get("home_page_url", None))
+        base_url = url
+        if blog.get("relative_url", None) == "blog":
+            base_url = blog.get("home_page_url", None)
+        images = get_images(content_html, base_url, blog.get("home_page_url", None))
         image = py_.get(post, "media:thumbnail.@url", None)
         if not image and len(images) > 0:
             image = images[0].get("src", None)
@@ -496,7 +499,7 @@ async def extract_json_feed_post(post, blog):
             "guid": post.get("id", None),
         }
     except Exception:
-        print(traceback.format_exc())
+        print(blog.get("slug", None), traceback.format_exc())
         return {}
 
 
@@ -514,7 +517,7 @@ async def extract_atom_post(post, blog):
         if len(authors_) == 0 or authors_[0].get("name", None) is None:
             authors_ = wrap(blog.get("authors", None))
         authors = [format_author(i) for i in authors_]
-        
+
         # workaround, as content should be encodes as CDATA block
         content_html = html.unescape(py_.get(post, "content.#text", ""))
         title = get_title(py_.get(post, "title.#text", None)) or get_title(
@@ -540,11 +543,16 @@ async def extract_atom_post(post, blog):
                 secure=blog.get("secure", True),
             )
 
-        url = get_url(post.get("link", None))
+        url = normalize_url(py_.get(post, "link.@href", None))
+        if not isinstance(url, str):
+            url = get_url(post.get("link", None))
         archive_url = (
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         )
-        images = get_images(content_html, url, blog.get("home_page_url", None))
+        base_url = url
+        if blog.get("relative_url", None) == "blog":
+            base_url = blog.get("home_page_url", None)
+        images = get_images(content_html, base_url, blog.get("home_page_url", None))
         image = py_.get(post, "media:thumbnail.@url", None)
         if not image and len(images) > 0:
             image = images[0].get("src", None)
@@ -574,7 +582,7 @@ async def extract_atom_post(post, blog):
             "guid": post.get("id", None),
         }
     except Exception:
-        print(traceback.format_exc())
+        print(blog.get("slug", None), traceback.format_exc())
         return {}
 
 
@@ -582,7 +590,6 @@ async def extract_rss_post(post, blog):
     """Extract RSS post."""
 
     try:
-
         def format_author(author):
             """Format author."""
             return normalize_author(author.get("name", None), author.get("url", None))
@@ -604,8 +611,11 @@ async def extract_rss_post(post, blog):
         archive_url = (
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         )
+        base_url = url
+        if blog.get("relative_url", None) == "blog":
+            base_url = blog.get("home_page_url", None)
         published_at = get_date(post.get("pubDate", None))
-        images = get_images(content_html, url, blog.get("home_page_url", None))
+        images = get_images(content_html, base_url, blog.get("home_page_url", None))
         image = py_.get(post, "media:content.@url", None) or py_.get(
             post, "media:thumbnail.@url", None
         )
@@ -638,7 +648,7 @@ async def extract_rss_post(post, blog):
             "guid": py_.get(post, "guid.#text", None) or post.get("guid", None),
         }
     except Exception:
-        print(traceback.format_exc())
+        print(blog.get("slug", None), traceback.format_exc())
         return {}
 
 
