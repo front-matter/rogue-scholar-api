@@ -590,6 +590,7 @@ async def extract_rss_post(post, blog):
     """Extract RSS post."""
 
     try:
+
         def format_author(author):
             """Format author."""
             return normalize_author(author.get("name", None), author.get("url", None))
@@ -892,15 +893,67 @@ def get_images(content_html: str, url: str, home_page_url: str):
                     "width": image.attrs.get("width", None),
                     "height": image.attrs.get("height", None),
                     "sizes": image.attrs.get("sizes", None),
-                    "alt": alt,
+                    "alt": alt if alt and len(alt) > 0 else None,
                 }
             )
 
         soup = get_soup(content_html)
         if not soup:
             return []
+
+        # find images in img tags
         images = [extract_img(i) for i in soup.find_all("img")]
-        return images
+
+        # find images in figure tags
+        def extract_figure(figure):
+            """Extract url from link."""
+            src = figure.find("img") and figure.find("img").attrs.get("src", None)
+            if not src:
+                src = figure.find("a") and figure.find("a").attrs.get("href", None)
+            if src:
+                src = get_src_url(src, url, home_page_url)
+            alt = figure.find("figcaption") and figure.find("figcaption").text.strip()
+
+            return compact(
+                {
+                    "src": src,
+                    "alt": alt if alt and len(alt) > 0 else None,
+                }
+            )
+
+        figures = [extract_figure(i) for i in soup.find_all("figure")]
+        figures = [
+            x
+            for x in figures
+            if x.get("src", None) is not None
+            and x.get("src", None).split(".").pop()
+            in ["jpg", "jpeg", "png", "gif", "svg"]
+        ]
+
+        # find images in links
+        def extract_link(link):
+            """Extract url from link."""
+            src = link.get("href", None)
+            if src:
+                src = get_src_url(src, url, home_page_url)
+            alt = link.text.strip()
+
+            return compact(
+                {
+                    "src": src,
+                    "alt": alt if alt and len(alt) > 0 else None,
+                }
+            )
+
+        links = [extract_link(i) for i in soup.find_all("a")]
+        links = [
+            x
+            for x in links
+            if x.get("src", None) is not None
+            and x.get("src", None).split(".").pop()
+            in ["jpg", "jpeg", "png", "gif", "svg"]
+        ]
+        return images + figures + links
     except Exception as e:
         print(e)
         print(traceback.format_exc())
@@ -909,7 +962,7 @@ def get_images(content_html: str, url: str, home_page_url: str):
 
 def get_urls(content_html: str):
     """Extract urls from html."""
-    
+
     try:
         soup = get_soup(content_html)
 
@@ -944,4 +997,3 @@ def get_urls(content_html: str):
         print(e)
         print(traceback.format_exc())
         return []
-    
