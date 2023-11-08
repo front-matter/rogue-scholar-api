@@ -224,10 +224,10 @@ async def test_posts_with_query_and_sort_route():
 
 
 @pytest.mark.vcr
-async def test_posts_not_indexed_route():
-    """Test posts not_indexed route."""
+async def test_posts_updated_route():
+    """Test posts updated route."""
     test_client = app.test_client()
-    response = await test_client.get("/posts/not_indexed")
+    response = await test_client.get("/posts/updated")
     assert response.status_code == 200
     result = await response.get_json()
     assert len(result) == 15

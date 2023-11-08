@@ -22,7 +22,6 @@ from quart_rate_limiter import RateLimiter, RateLimit
 
 from rogue_scholar_api.supabase import (
     supabase_client as supabase,
-    # supabase_admin_client as supabase_admin,
     blogWithPostsSelect,
     postsWithConfigSelect,
     postsWithContentSelect,
@@ -279,7 +278,7 @@ async def post(slug: str, suffix: Optional[str] = None):
         "10.59349",
         "10.59350",
     ]
-    permitted_slugs = ["unregistered", "not_indexed"] + prefixes
+    permitted_slugs = ["unregistered", "updated"] + prefixes
     if slug not in permitted_slugs and not validate_uuid(slug):
         logger.warning(f"Invalid slug: {slug}")
         return {"error": "An error occured."}, 400
@@ -298,14 +297,14 @@ async def post(slug: str, suffix: Optional[str] = None):
             .execute()
         )
         return jsonify(response.data)
-    elif slug == "not_indexed":
+    elif slug == "updated":
         response = (
             supabase.table("posts")
             .select(postsWithConfigSelect)
             .not_.is_("blogs.prefix", "null")
-            .is_("indexed", "null")
+            .is_("updated", True)
             .not_.is_("doi", "null")
-            .order("published_at", desc=True)
+            .order("updated_at", desc=True)
             .limit(15)
             .execute()
         )
