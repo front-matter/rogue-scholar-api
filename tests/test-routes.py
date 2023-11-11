@@ -81,7 +81,7 @@ async def test_blogs_with_include_fields_route():
 async def test_blogs_sort_route():
     """Test blogs route with sort."""
     test_client = app.test_client()
-    response = await test_client.get("/blogs?sort=title")
+    response = await test_client.get("/blogs?sort=title&order=asc")
     assert response.status_code == 200
     result = await response.get_json()
     assert result["found"] == 66

@@ -89,7 +89,7 @@ async def blogs():
     # default sort depends on whether a query is provided
     _text_match = "_text_match" if request.args.get("query") else "created_at"
     sort = request.args.get("sort") or _text_match
-    order = "asc" if request.args.get("order") == "asc" else "desc"
+    order = request.args.get("order") or "desc"
     include_fields = request.args.get("include_fields")
     
     # filter blogs by category, generator, and/or language
@@ -102,9 +102,7 @@ async def blogs():
             "q": query,
             "query_by": "slug,title,description,category,language,generator,prefix,funding",
             "filter_by": filter_by,
-            "sort_by": f"{sort}:{order}"
-            if request.args.get("query")
-            else "created_at:desc",
+            "sort_by": f"{sort}:{order}",
             "per_page": min(per_page, 50),
             "page": page if page and page > 0 else 1,
             "include_fields": include_fields,
@@ -203,7 +201,7 @@ async def posts():
     # default sort depends on whether a query is provided
     _text_match = "_text_match" if request.args.get("query") else "published_at"
     sort = request.args.get("sort") or _text_match
-    order = "asc" if request.args.get("order") == "asc" else "desc"
+    order = request.args.get("order") or "desc"
     include_fields = request.args.get("include_fields")
     blog_slug = request.args.get("blog_slug")
     published_since = (
