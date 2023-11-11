@@ -87,9 +87,9 @@ async def blogs():
     page = int(request.args.get("page") or "1")
     per_page = int(request.args.get("per_page") or "10")
     # default sort depends on whether a query is provided
-    _text_match = request.args.get("query") and "_text_match" or "created_at"
+    _text_match = "_text_match" if request.args.get("query") else "created_at"
     sort = request.args.get("sort") or _text_match
-    order = request.args.get("order") == "asc" and "asc" or "desc"
+    order = "asc" if request.args.get("order") == "asc" else "desc"
     include_fields = request.args.get("include_fields")
     
     # filter blogs by category, generator, and/or language
@@ -201,9 +201,9 @@ async def posts():
     page = int(request.args.get("page") or "1")
     per_page = int(request.args.get("per_page") or "10")
     # default sort depends on whether a query is provided
-    _text_match = request.args.get("query") and "_text_match" or "published_at"
+    _text_match = "_text_match" if request.args.get("query") else "published_at"
     sort = request.args.get("sort") or _text_match
-    order = request.args.get("order") == "asc" and "asc" or "desc"
+    order = "asc" if request.args.get("order") == "asc" else "desc"
     include_fields = request.args.get("include_fields")
     blog_slug = request.args.get("blog_slug")
     published_since = (
@@ -221,9 +221,7 @@ async def posts():
             "q": query,
             "query_by": "tags,title,doi,authors.name,authors.url,summary,content_html,reference",
             "filter_by": filter_by,
-            "sort_by": f"{sort}:{order}"
-            if request.args.get("query")
-            else "published_at:desc",
+            "sort_by": f"{sort}:{order}",
             "per_page": min(per_page, 50),
             "page": page if page and page > 0 else 1,
             "include_fields": include_fields,
