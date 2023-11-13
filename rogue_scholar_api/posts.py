@@ -205,6 +205,8 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                     posts = py_.get(json, "rss.channel.item", [])
                     if not update_all:
                         posts = filter_updated_posts(posts, blog, key="pubDate")
+                    if blog.get("filter", None):
+                        posts = filter_posts(posts, blog, key="category")
                     posts = posts[start_page:end_page]
             extract_posts = [
                 extract_rss_post(jsn.loads(jsn.dumps(x)), blog) for x in posts
@@ -663,6 +665,14 @@ def filter_updated_posts(posts, blog, key):
 
     return [x for x in posts if parse_date(x.get(key, None)) > blog["updated_at"]]
 
+def filter_posts(posts, blog, key):
+    """Filter posts if filter is set in blog settings."""
+    filters = blog.get("filter", "").split(":")
+    if len(filters) != 2 or filters[0] != key:
+        return posts
+    filters = filters[1].split(",")
+    
+    return [x for x in posts if x.get(key, None) in filters]
 
 def upsert_single_post(post):
     """Upsert single post."""
