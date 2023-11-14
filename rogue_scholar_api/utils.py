@@ -55,6 +55,7 @@ AUTHOR_IDS = {
     "Robert Huber": "https://orcid.org/0000-0003-3000-0020",
     "Sven Lieber": "https://orcid.org/0000-0002-7304-3787",
     "David M. Shotton": "https://orcid.org/0000-0001-5506-523X",
+    "Heinz Pampel": "https://orcid.org/0000-0003-3334-2771",
 }
 
 AUTHOR_NAMES = {
