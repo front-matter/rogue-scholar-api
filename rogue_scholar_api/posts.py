@@ -980,7 +980,7 @@ def get_urls(content_html: str):
             """Extract url from link."""
             return link.get("href")
 
-        urls = [extract_url(i) for i in soup.find_all("a")]
+        urls = [extract_url(i) for i in soup.find_all("a") if i.get("href", None)]
 
         if not urls or len(urls) == 0:
             return []
