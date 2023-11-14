@@ -21,7 +21,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 820c1aaf3e4066ed-AMS
+      - 825e24492a150e8c-AMS
       Connection:
       - keep-alive
       Content-Length:
@@ -29,11 +29,11 @@ interactions:
       Content-Type:
       - text/html;charset=utf-8
       Date:
-      - Sat, 04 Nov 2023 10:16:55 GMT
+      - Tue, 14 Nov 2023 09:14:00 GMT
       NEL:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=xiZALAgSNXdUpwuLCsKCxUHLtGbcCyXIXUwFSEld7Rwfe%2FtE22KKi6dszr4vieIu8Cv%2FnLZIjhtuVq15TqsYbxVfrqPSpa3t465Uu2R%2ByXo04Z0AwqbhmrYp0ZnXn0sImOQleno%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=ciAM8KUV8SrUixagdQ7OtbK5phLXA9%2FsOvRzplFr0g2b5FgsQ7I0pz65SrpS%2BklBmQrClAdaXEtnJ1tznYinyy%2BJkHABZ11q0qSVrb9RKPidF81iOeSSfpw8PRaYXPLb6YQyivw%3D"}],"group":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -41,7 +41,7 @@ interactions:
       alt-svc:
       - h3=":443"; ma=86400
       expires:
-      - Sat, 04 Nov 2023 10:44:22 GMT
+      - Tue, 14 Nov 2023 09:32:16 GMT
       location:
       - https://api.crossref.org/v1/works/10.59350%2Fsfzv4-xdb68/transform
       permissions-policy:
@@ -83,7 +83,119 @@ interactions:
       content-type:
       - application/x-bibtex
       date:
-      - Sat, 04 Nov 2023 10:16:55 GMT
+      - Tue, 14 Nov 2023 09:14:01 GMT
+      link:
+      - "<http://dx.doi.org/10.59350/sfzv4-xdb68>; rel=\"canonical\", <https://norbisley.wordpress.com/2023/10/06/que-libros-cientificos-publicamos>;
+        version=\"vor\"; type=\"text/html\"; rel=\"item\", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version=\"vor\"; rel=\"license\", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version=\"tdm\"; rel=\"license\", <http://orcid.org/0000-0002-9373-4622>;
+        title=\"Norbisley Fern\xE1ndez\"; rel=\"author\""
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/x-bibtex
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://doi.org/10.59350/sfzv4-xdb68
+  response:
+    body:
+      string: '<html><head><title>Handle Redirect</title></head>
+
+        <body><a href="https://api.crossref.org/v1/works/10.59350%2Fsfzv4-xdb68/transform">https://api.crossref.org/v1/works/10.59350%2Fsfzv4-xdb68/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 825e35d598056694-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '217'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Tue, 14 Nov 2023 09:25:59 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=PpB99mvqsnPIaUB7YruLD9gruU9pHN18T%2B4nla9eOJ0%2FLbu6851aJ7pUj6z0Z0bnTzMhi8Puj2NWoBLzLvHPKKyU%2BKK8TQ%2FMmbAu8l6a98R3kaxTRKwI1szvJi2XKCOoCMiuwnM%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Tue, 14 Nov 2023 09:53:17 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.59350%2Fsfzv4-xdb68/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/x-bibtex
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.59350%2Fsfzv4-xdb68/transform
+  response:
+    body:
+      string: "@article{Fern_ndez_2023,\n\tdoi = {10.59350/sfzv4-xdb68},\n\turl =
+        {https://doi.org/10.59350%2Fsfzv4-xdb68},\n\tyear = 2023,\n\tmonth = {oct},\n\tpublisher
+        = {Front Matter},\n\tauthor = {Norbisley Fern{\\'{a}}ndez},\n\ttitle = {{\\textquestiondown}Qu{\\'{e}}
+        libros cient{\\'{\\i}}ficos publicamos en Ediciones Universidad de Camag\xFCey?}\n}"
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-type:
+      - application/x-bibtex
+      date:
+      - Tue, 14 Nov 2023 09:26:00 GMT
       link:
       - "<http://dx.doi.org/10.59350/sfzv4-xdb68>; rel=\"canonical\", <https://norbisley.wordpress.com/2023/10/06/que-libros-cientificos-publicamos>;
         version=\"vor\"; type=\"text/html\"; rel=\"item\", <https://creativecommons.org/licenses/by/4.0/legalcode>;

@@ -1,7 +1,8 @@
 """Main quart application"""
 import logging
 from typing import Optional
-from datetime import timedelta
+from datetime import timedelta, datetime
+import time
 from commonmeta.utils import compact
 from os import environ
 import pydash as py_
@@ -31,6 +32,7 @@ from rogue_scholar_api.utils import (
     get_doi_metadata_from_ra,
     validate_uuid,
     unix_timestamp,
+    end_of_date,
 )
 from rogue_scholar_api.posts import extract_all_posts, extract_all_posts_by_blog
 from rogue_scholar_api.blogs import extract_single_blog, extract_all_blogs
@@ -209,8 +211,14 @@ async def posts():
         if request.args.get("published_since")
         else 0
     )
+    published_until = (
+        unix_timestamp(end_of_date(request.args.get("published_until")))
+        if request.args.get("published_until")
+        else int(time.time())
+    )
+    print(datetime.utcfromtimestamp(published_since), datetime.utcfromtimestamp(published_until))
     # filter posts by date published, blog, tags, and/or language
-    filter_by = f"published_at:>= {published_since}"
+    filter_by = f"published_at:>= {published_since} && published_at:<= {published_until}"
     filter_by = f"blog_slug:{blog_slug}" if blog_slug else filter_by
     filter_by = filter_by + f" && tags:=[{tags}]" if tags else filter_by
     filter_by = filter_by + f" && language:=[{language}]" if language else filter_by

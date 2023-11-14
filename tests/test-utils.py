@@ -6,6 +6,7 @@ from rogue_scholar_api.utils import (
     get_doi_metadata_from_ra,
     validate_uuid,
     unix_timestamp,
+    end_of_date,
     start_case,
     normalize_tag,
     detect_language,
@@ -79,6 +80,23 @@ def test_unix_timestamp_year():
     date = "2021"
     assert unix_timestamp(date) == 1609459200
 
+
+def test_end_of_day_day():
+    """convert iso8601 date to end of day"""
+    date = "2021-08-01"
+    assert end_of_date(date) == "2021-08-01T23:59:59+00:00"
+
+
+def test_end_of_day_month():
+    """convert iso8601 date to end of month"""
+    date = "2021-09"
+    assert end_of_date(date) == "2021-09-30T23:59:59+00:00"
+    
+    
+def test_end_of_day_year():
+    """convert iso8601 date to end of year"""
+    date = "2021"
+    assert end_of_date(date) == "2021-12-31T23:59:59+00:00"
 
 def test_start_case():
     """capitalize first letter without lowercasing the rest"""

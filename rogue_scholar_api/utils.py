@@ -3,7 +3,7 @@ from uuid import UUID
 from typing import Optional
 import requests
 import iso8601
-from dateutil import parser
+from dateutil import parser, relativedelta
 from furl import furl
 from langdetect import detect
 from bs4 import BeautifulSoup
@@ -124,6 +124,24 @@ def unix_timestamp(date_str: str) -> int:
     except ValueError as e:
         print(e)
         return 0
+
+
+def end_of_date(date_str: str) -> str:
+    """convert iso8601 date to end of day/month/year"""
+    try:
+        date = date_str.split("-")
+        dt = iso8601.parse_date(date_str)
+        month, day, hour, minute, second = dt.month, dt.day, dt.hour, dt.minute, dt.second
+        month = 12 if len(date) < 2 else month
+        day = 31 if len(date) < 3 else day
+        hour = 23 if hour == 0 else hour
+        minute = 59 if minute == 0 else minute
+        second = 59 if second == 0 else second
+        dt = dt + relativedelta.relativedelta(month=month, day=day, hour=hour, minute=minute, second=second)
+        return dt.isoformat("T", "seconds")
+    except ValueError as e:
+        print(e)
+        return "1970-01-01T00:00:00"
 
 
 def validate_uuid(slug: str) -> bool:

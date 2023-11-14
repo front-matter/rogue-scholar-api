@@ -24,8 +24,8 @@ async def test_extract_all_posts():
     result = await extract_all_posts()
     assert len(result) == 3
     post = result[0]
-    assert post["title"] == "RES-Community wählt ihren Vorsitz"
-    assert post["blog_slug"] == "epub_fis"
+    assert post["title"] == "Connecting to AWS OpenSearch Serverless using Python"
+    assert post["blog_slug"] == "eve"
 
 
 @pytest.mark.vcr
