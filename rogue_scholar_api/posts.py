@@ -824,7 +824,10 @@ def get_abstract(content_html: str = None, maxlen: int = 450):
             truncated = " ".join(sentences[:-1])
         else:
             truncated = sentences[0]
-    return truncated
+    
+    # make sure html tags are closed
+    soup = get_soup(truncated)
+    return soup.prettify()
 
 
 def get_relationships(content_html: str):
