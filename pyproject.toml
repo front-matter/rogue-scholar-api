@@ -20,7 +20,6 @@ python-dotenv = "^1.0.0"
 quart-schema = "^0.17.1"
 typesense = "^0.17.0"
 pydash = "^6.0"
-commonmeta-py = "^0.8.4"
 pytest-asyncio = "^0.21.1"
 chardet = "^5.2.0"
 quart-rate-limiter = "^0.9.0"
@@ -36,13 +35,14 @@ sentry-sdk = "^1.32.0"
 nh3 = "^0.2.14"
 langdetect = "^1.0.9"
 dateutils = "^0.6.12"
+bibtexparser = {git = "https://github.com/sciunto-org/python-bibtexparser", rev = "main"}
 
 
 [tool.poetry.group.dev.dependencies]
 coverage = "*"
 pytest = "^7.2.0"
 pytest-cov = "^4.1.0"
-ruff = "^0.0.292"
+ruff = "^0.1.5"
 black = "^23.9.1"
 pytest-asyncio = "^0.21.1"
 pytest-recording = "^0.13.0"

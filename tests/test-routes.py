@@ -178,7 +178,7 @@ async def test_posts_with_query_and_pagination_route():
     result = await response.get_json()
     assert result["found"] == 24
     post = py_.get(result, "hits[0].document")
-    assert post["title"] == "The undecidable nature of predatory publishing"
+    assert post["title"] == "The <i>Medical Journal of Australia</i> vs Elsevier"
 
 
 @pytest.mark.vcr
@@ -291,7 +291,7 @@ async def test_posts_post_route():
     response = await test_client.post("/posts", headers=headers)
     assert response.status_code == 200
     result = await response.get_json()
-    assert len(result) == 3
+    assert len(result) == 1
     post = result[0]
     assert post["title"] == "Connecting to AWS OpenSearch Serverless using Python"
     assert post["authors"][0] == {
@@ -369,11 +369,12 @@ async def test_post_as_bibtex():
         == """@article{Fern_ndez_2023,
 \tdoi = {10.59350/sfzv4-xdb68},
 \turl = {https://doi.org/10.59350%2Fsfzv4-xdb68},
-\tyear = 2023,
+\tyear = {2023},
 \tmonth = {oct},
 \tpublisher = {Front Matter},
 \tauthor = {Norbisley Fern{\\'{a}}ndez},
-\ttitle = {{\\textquestiondown}Qu{\\'{e}} libros cient{\\'{\\i}}ficos publicamos en Ediciones Universidad de Camagüey?}
+\ttitle = {{\\textquestiondown}Qu{\\'{e}} libros cient{\\'{\\i}}ficos publicamos en Ediciones Universidad de Camagüey?},
+\tDOI = {10.59350/sfzv4-xdb68}
 }"""
     )
 
@@ -398,7 +399,9 @@ async def test_post_as_csl():
     response = await test_client.get("/posts/10.59350/sfzv4-xdb68?format=csl")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["type"] == "posted-content"
+    assert result["type"] == "article-journal"
+    assert result["title"] == "¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?"
+    assert result["container-title"] == "Edición y comunicación de la Ciencia"
     assert result["DOI"] == "10.59350/sfzv4-xdb68"
 
 

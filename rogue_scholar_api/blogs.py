@@ -3,13 +3,12 @@ import socket
 import asyncio
 import feedparser
 import re
-from commonmeta.utils import wrap
 
 from rogue_scholar_api.supabase import (
     supabase_client as supabase,
     supabase_admin_client as supabase_admin,
 )
-from rogue_scholar_api.utils import start_case, get_date, unix_timestamp
+from rogue_scholar_api.utils import start_case, get_date, unix_timestamp, wrap
 
 
 async def extract_all_blogs():

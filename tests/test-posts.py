@@ -22,7 +22,7 @@ def vcr_config():
 async def test_extract_all_posts():
     """Extract all posts"""
     result = await extract_all_posts()
-    assert len(result) == 3
+    assert len(result) == 1
     post = result[0]
     assert post["title"] == "Connecting to AWS OpenSearch Serverless using Python"
     assert post["blog_slug"] == "eve"
@@ -370,4 +370,4 @@ def test_get_abstract():
     There’s something special about language. It is ‘our own’, it is ‘us’, in a profound way, and quite surprisingly, more so than art. I was deeply struck by this when I first saw reactions to large generative language models that created realistic, human-ish prose. Notably, those mature enough to reach a non-professional audience – ChatGPT based on GPT-3 and later GPT-4 – came quite some time after models that could create fairly acceptable visual ‘art’.1 The appearance of synthetic language-like products (SLLPs), as I like to call the output of such generative models, came well after the appearance of synthetic simulacra of visual art,2 yet elicited much less fervent responses."""
     result = get_abstract(abstract)
     assert len(result) <= 450
-    assert result.endswith("human-ish prose.")
+    assert result.endswith("human-ish prose.\n")

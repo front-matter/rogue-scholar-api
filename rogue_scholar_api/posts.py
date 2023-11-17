@@ -12,7 +12,6 @@ import xmltodict
 import time
 import traceback
 from idutils import is_doi, is_orcid
-from commonmeta.base_utils import wrap, compact
 
 from rogue_scholar_api.utils import (
     unix_timestamp,
@@ -23,6 +22,8 @@ from rogue_scholar_api.utils import (
     get_soup,
     detect_language,
     normalize_author,
+    wrap,
+    compact,
     AUTHOR_IDS,
     AUTHOR_NAMES,
 )

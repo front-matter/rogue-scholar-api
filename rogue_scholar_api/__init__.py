@@ -3,7 +3,6 @@ import logging
 from typing import Optional
 from datetime import timedelta, datetime
 import time
-from commonmeta.utils import compact
 from os import environ
 import pydash as py_
 from dotenv import load_dotenv
@@ -33,6 +32,7 @@ from rogue_scholar_api.utils import (
     validate_uuid,
     unix_timestamp,
     end_of_date,
+    compact
 )
 from rogue_scholar_api.posts import extract_all_posts, extract_all_posts_by_blog
 from rogue_scholar_api.blogs import extract_single_blog, extract_all_blogs

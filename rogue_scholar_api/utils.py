@@ -1,23 +1,19 @@
 """Utility functions"""
 from uuid import UUID
-from typing import Optional
+from typing import Optional, Union
+import re
 import requests
+import json
 import iso8601
+import html
+import bibtexparser
+from bibtexparser.model import Entry, Field
+import pydash as py_
 from dateutil import parser, relativedelta
 from furl import furl
 from langdetect import detect
 from bs4 import BeautifulSoup
 from idutils import is_orcid
-from commonmeta.base_utils import compact
-from commonmeta.doi_utils import doi_from_url
-
-
-# def sanitize_suffix(str):
-#     # Regular expression to only allow certain characters in DOI suffix
-#     # taken from https://www.crossref.org/blog/dois-and-matching-regular-expressions/
-#     m = re.match(r"^\[-._;\(\)/:A-Z0-9\]+$", str)
-#     print(m)
-#     return m
 
 
 AUTHOR_IDS = {
@@ -91,21 +87,50 @@ AUTHOR_NAMES = {
 }
 
 
+def wrap(item) -> list:
+    """Turn None, dict, or list into list"""
+    if item is None:
+        return []
+    if isinstance(item, list):
+        return item
+    return [item]
+
+
+def compact(dict_or_list: Union[dict, list]) -> Optional[Union[dict, list]]:
+    """Remove None from dict or list"""
+    if isinstance(dict_or_list, dict):
+        return {k: v for k, v in dict_or_list.items() if v is not None}
+    if isinstance(dict_or_list, list):
+        lst = [compact(i) for i in dict_or_list]
+        return lst if len(lst) > 0 else None
+
+    return None
+
+
+def doi_from_url(url: str) -> Optional[str]:
+    """Return a DOI from a URL"""
+    match = re.search(
+        r"\A(?:(http|https)://(dx\.)?(doi\.org|handle\.stage\.datacite\.org|handle\.test\.datacite\.org)/)?(doi:)?(10\.\d{4,5}/.+)\Z",
+        url,
+    )
+    if match is None:
+        return None
+    return match.group(5).lower()
+
+
 def normalize_author(name: str, url: str = None) -> dict:
-    """Normalize author name and url. Strip text after comma 
-       if suffix is an academic title"""
-    
-    if name.split(", ", maxsplit=1)[-1] in [
-            "MD",
-            "PhD"]:
+    """Normalize author name and url. Strip text after comma
+    if suffix is an academic title"""
+
+    if name.split(", ", maxsplit=1)[-1] in ["MD", "PhD"]:
         name = name.split(", ", maxsplit=1)[0]
 
     name_ = AUTHOR_NAMES.get(name, None) or name
     url_ = url if url and is_orcid(url) else AUTHOR_IDS.get(name_, None)
-    
+
     return compact({"name": name_, "url": url_})
 
-            
+
 def get_date(date: str):
     """Get iso8601 date from string."""
     if not date:
@@ -132,13 +157,21 @@ def end_of_date(date_str: str) -> str:
     try:
         date = date_str.split("-")
         dt = iso8601.parse_date(date_str)
-        month, day, hour, minute, second = dt.month, dt.day, dt.hour, dt.minute, dt.second
+        month, day, hour, minute, second = (
+            dt.month,
+            dt.day,
+            dt.hour,
+            dt.minute,
+            dt.second,
+        )
         month = 12 if len(date) < 2 else month
         day = 31 if len(date) < 3 else day
         hour = 23 if hour == 0 else hour
         minute = 59 if minute == 0 else minute
         second = 59 if second == 0 else second
-        dt = dt + relativedelta.relativedelta(month=month, day=day, hour=hour, minute=minute, second=second)
+        dt = dt + relativedelta.relativedelta(
+            month=month, day=day, hour=hour, minute=minute, second=second
+        )
         return dt.isoformat("T", "seconds")
     except ValueError as e:
         print(e)
@@ -216,32 +249,39 @@ def get_doi_metadata_from_ra(
     basename = doi_from_url(doi).replace("/", "-")
     if format_ == "csl":
         ext = "json"
+        csl = response.json()
+
+        # cleanup to align with CSL spec
+        csl = py_.omit(csl, ["license", "original-title"])
+        csl["id"] = doi
+        csl["title"] = html.unescape(csl["title"])
+
+        # correctly parse metadata for posted_content type
+        if csl["type"] == "posted-content":
+            csl["type"] = "article-journal"
+            csl["container-title"] = py_.get(csl, "institution[0].name", None)
+
+        result = json.dumps(csl, indent=2)
     elif format_ == "ris":
         ext = "ris"
+        result = response.text
     elif format_ == "bibtex":
         ext = "bib"
+        bib = bibtexparser.parse_string(response.text)
+        entry = bib.entries[0]
+        
+        # cleanup to bibtex
+        # TODO: fix more fields
+        entry.set_field(Field(key="DOI", value=doi_from_url(doi)))
+        result = bibtexparser.write_string(bib)
     else:
         ext = "txt"
+        result = response.text
     options = {
         "Content-Type": content_type,
         "Content-Disposition": f"attachment; filename={basename}.{ext}",
     }
-    return {"doi": doi, "data": response.text.strip(), "options": options}
-
-
-# def format_metadata(meta: dict, to: str = "bibtex"):
-#     """use commonmeta-py library to format metadata into various formats"""
-#     print(meta)
-#     subject = Metadata(meta)
-
-#     if to == "bibtex":
-#         return write_bibtex(subject)
-#     elif to == "ris":
-#         return write_ris(subject)
-#     elif to == "csl":
-#         return write_csl(subject)
-#     elif to == "citation":
-#         return write_citation(subject)
+    return {"doi": doi, "data": result.strip(), "options": options}
 
 
 def normalize_url(url: Optional[str], secure=False, lower=False) -> Optional[str]:
@@ -250,7 +290,7 @@ def normalize_url(url: Optional[str], secure=False, lower=False) -> Optional[str
         return None
     f = furl(url)
     f.path.normalize()
-    
+
     # remove index.html
     if f.path.segments[-1] in ["index.html"]:
         f.path.segments.pop(-1)
@@ -302,7 +342,7 @@ def is_valid_url(url: str) -> bool:
 
 def detect_language(text: str) -> str:
     """Detect language"""
-    
+
     try:
         return detect(text)
     except Exception as e:

@@ -28,13 +28,13 @@ def test_get_doi_metadata_bibtex():
     assert (
         result["data"]
         == """@article{Fenner_2023,
-\tdoi = {10.53731/ybhah-9jy85},
-\turl = {https://doi.org/10.53731%2Fybhah-9jy85},
-\tyear = 2023,
-\tmonth = {oct},
+\ttitle = {The rise of the (science) newsletter},
+\turl = {http://dx.doi.org/10.53731/ybhah-9jy85},
+\tDOI = {10.53731/ybhah-9jy85},
 \tpublisher = {Front Matter},
-\tauthor = {Martin Fenner},
-\ttitle = {The rise of the (science) newsletter}
+\tauthor = {Fenner, Martin},
+\tyear = {2023},
+\tmonth = {oct}
 }"""
     )
 
