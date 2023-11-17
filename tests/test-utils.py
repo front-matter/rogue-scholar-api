@@ -1,5 +1,7 @@
 """Test utils"""
 import pytest  # noqa: F401
+import pydash as py_  # noqa: F401
+import json
 
 from rogue_scholar_api.utils import (
     get_date,
@@ -10,7 +12,7 @@ from rogue_scholar_api.utils import (
     start_case,
     normalize_tag,
     detect_language,
-    normalize_author
+    normalize_author,
 )
 
 
@@ -24,7 +26,7 @@ def test_get_date_rss():
 def test_get_doi_metadata_bibtex():
     "get doi metadata in bibtex format"
     doi = "https://doi.org/10.53731/ybhah-9jy85"
-    result = get_doi_metadata_from_ra(doi)
+    result = get_doi_metadata_from_ra(doi, format_="bibtex")
     assert (
         result["data"]
         == """@article{Fenner_2023,
@@ -36,6 +38,18 @@ def test_get_doi_metadata_bibtex():
 \tyear = {2023},
 \tmonth = {oct}
 }"""
+    )
+
+
+def test_get_doi_metadata_csl():
+    "get doi metadata in csl format"
+    doi = "https://doi.org/10.59350/e3wmw-qwx29"
+    result = get_doi_metadata_from_ra(doi, format_="csl")
+    csl = json.loads(result["data"])
+    print(csl)
+    assert (
+        csl["title"]
+        == "Two influential textbooks &#8211; &#8220;Mee&#8221;  and &#8220;Mellor&#8221;."
     )
 
 
@@ -91,12 +105,13 @@ def test_end_of_day_month():
     """convert iso8601 date to end of month"""
     date = "2021-09"
     assert end_of_date(date) == "2021-09-30T23:59:59+00:00"
-    
-    
+
+
 def test_end_of_day_year():
     """convert iso8601 date to end of year"""
     date = "2021"
     assert end_of_date(date) == "2021-12-31T23:59:59+00:00"
+
 
 def test_start_case():
     """capitalize first letter without lowercasing the rest"""
@@ -137,28 +152,37 @@ def test_detect_language_french():
 def test_detect_language_spanish():
     """detect language spanish"""
     text = "Esto es una prueba"
-    assert detect_language(text) == "es"  
+    assert detect_language(text) == "es"
 
 
 def test_normalize_author_username():
     """normalize author username"""
     name = "davidshotton"
     result = normalize_author(name)
-    assert result == {"name": "David M. Shotton", "url": "https://orcid.org/0000-0001-5506-523X"}
+    assert result == {
+        "name": "David M. Shotton",
+        "url": "https://orcid.org/0000-0001-5506-523X",
+    }
 
 
 def test_normalize_author_suffix():
     """normalize author suffix"""
     name = "Tejas S. Sathe, MD"
     result = normalize_author(name)
-    assert result == {"name": "Tejas S. Sathe", "url": "https://orcid.org/0000-0003-0449-4469"}
+    assert result == {
+        "name": "Tejas S. Sathe",
+        "url": "https://orcid.org/0000-0003-0449-4469",
+    }
 
 
 def test_normalize_author_gpt4():
     """normalize author GPT-4"""
     name = "GPT-4"
     result = normalize_author(name)
-    assert result == {"name": "Tejas S. Sathe", "url": "https://orcid.org/0000-0003-0449-4469"}
+    assert result == {
+        "name": "Tejas S. Sathe",
+        "url": "https://orcid.org/0000-0003-0449-4469",
+    }
 
 
 # def test_sanitize_cool_suffix():

@@ -7,7 +7,7 @@ import json
 import iso8601
 import html
 import bibtexparser
-from bibtexparser.model import Entry, Field
+from bibtexparser.model import Field
 import pydash as py_
 from dateutil import parser, relativedelta
 from furl import furl
@@ -229,7 +229,7 @@ def normalize_tag(tag: str) -> str:
 
 
 def get_doi_metadata_from_ra(
-    doi: str, format_: str = "bibtex", style: str = "apa", locale: str = "en-US"
+    doi: str, format_: str = "csl", style: str = "apa", locale: str = "en-US"
 ) -> Optional[dict]:
     """use DOI content negotiation to get metadata in various formats.
     format_ can be bibtex, ris, csl, citation, with bibtex as default."""
@@ -241,6 +241,7 @@ def get_doi_metadata_from_ra(
         "citation": f"text/x-bibliography; style={style}; locale={locale}",
     }
     content_type = content_types.get(format_)
+    
     response = requests.get(doi, headers={"Accept": content_type}, timeout=10)
     response.encoding = "UTF-8"
     if response.status_code >= 400:
