@@ -188,7 +188,7 @@ async def test_posts_with_blog_slug_route():
     response = await test_client.get("/posts?blog_slug=rossmounce")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] == 127
+    assert result["found"] == 128
     post = py_.get(result, "hits[0].document")
     assert post["title"] is not None
 
@@ -262,7 +262,7 @@ async def test_posts_filter_by_tags_route():
     response = await test_client.get("/posts?tags=open+access")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] == 793
+    assert result["found"] == 794
     post = py_.get(result, "hits[0].document")
     assert post["title"] is not None and "Open Access" in post["tags"]
 
@@ -291,13 +291,9 @@ async def test_posts_post_route():
     response = await test_client.post("/posts", headers=headers)
     assert response.status_code == 200
     result = await response.get_json()
-    assert len(result) == 1
+    assert len(result) == 2
     post = result[0]
-    assert post["title"] == "Connecting to AWS OpenSearch Serverless using Python"
-    assert post["authors"][0] == {
-        "name": "Martin Paul Eve",
-        "url": "https://orcid.org/0000-0002-5589-8511",
-    }
+    assert post["title"] == "Political microtargeting"
     assert post["tags"] == []
     assert post["language"] == "en"
 

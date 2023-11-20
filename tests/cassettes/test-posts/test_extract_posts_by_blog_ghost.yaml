@@ -43363,4 +43363,73 @@ interactions:
       - '1'
     http_version: HTTP/1.1
     status_code: 200
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      user-agent:
+      - python-httpx/0.24.1
+      x-client-info:
+      - supabase-py/2.0.3
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20generator_raw%2C%20language%2C%20category%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.front_matter
+  response:
+    content: '{"id":"f0m0e38","slug":"front_matter","feed_url":"https://blog.front-matter.io/atom-complete/","current_feed_url":"https://blog.front-matter.io/atom/","home_page_url":"https://blog.front-matter.io","archive_prefix":"https://wayback.archive-it.org/22096/20231101172748/","feed_format":"application/atom+xml","created_at":1672617600,"updated_at":1699979357,"use_mastodon":true,"generator":"Ghost","generator_raw":"Ghost
+      5.52","language":"en","category":"computerAndInformationSciences","favicon":"https://blog.front-matter.io/favicon.png","title":"Front
+      Matter","description":"The Front Matter Blog covers the intersection of science
+      and technology since 2007.","category":"computerAndInformationSciences","status":"active","user_id":"8498eaf6-8c58-4b58-bc15-27eda292b1aa","authors":null,"plan":"Team","use_api":true,"relative_url":null,"filter":null,"secure":true}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 828fd193ec8e8681-MAD
+      Connection:
+      - keep-alive
+      Content-Location:
+      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20generator_raw%2C%20language%2C%20category%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.front_matter
+      Content-Profile:
+      - public
+      Content-Range:
+      - 0-0/*
+      Content-Type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      Date:
+      - Mon, 20 Nov 2023 09:55:40 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/2.8.1
+      X-Kong-Proxy-Latency:
+      - '1'
+      X-Kong-Upstream-Latency:
+      - '3'
+      alt-svc:
+      - h3=":443"; ma=86400
+      sb-gateway-version:
+      - '1'
+    http_version: HTTP/1.1
+    status_code: 200
 version: 1

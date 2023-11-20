@@ -32,7 +32,7 @@ from rogue_scholar_api.utils import (
     validate_uuid,
     unix_timestamp,
     end_of_date,
-    compact
+    compact,
 )
 from rogue_scholar_api.posts import extract_all_posts, extract_all_posts_by_blog
 from rogue_scholar_api.blogs import extract_single_blog, extract_all_blogs
@@ -80,7 +80,7 @@ async def blogs_redirect():
 @validate_response(Blog)
 @app.route("/blogs")
 async def blogs():
-    """Search blogs by query, category, generator, language. 
+    """Search blogs by query, category, generator, language.
     Options to change page, per_page and include fields."""
     query = request.args.get("query") or ""
     category = request.args.get("category")
@@ -93,7 +93,7 @@ async def blogs():
     sort = request.args.get("sort") or _text_match
     order = request.args.get("order") or "desc"
     include_fields = request.args.get("include_fields")
-    
+
     # filter blogs by category, generator, and/or language
     filter_by = "status:!=[submitted]"
     filter_by = f"category:>= {category}" if category else filter_by
@@ -194,10 +194,11 @@ async def posts_redirect():
 @validate_response(Post)
 @app.route("/posts")
 async def posts():
-    """Search posts by query, tags, language. Options to change page, per_page and include fields."""
+    """Search posts by query, tags, language, category. Options to change page, per_page and include fields."""
     query = request.args.get("query") or ""
     tags = request.args.get("tags")
     language = request.args.get("language")
+    category = request.args.get("category")
     page = int(request.args.get("page") or "1")
     per_page = int(request.args.get("per_page") or "10")
     # default sort depends on whether a query is provided
@@ -216,12 +217,14 @@ async def posts():
         if request.args.get("published_until")
         else int(time.time())
     )
-    print(datetime.utcfromtimestamp(published_since), datetime.utcfromtimestamp(published_until))
     # filter posts by date published, blog, tags, and/or language
-    filter_by = f"published_at:>= {published_since} && published_at:<= {published_until}"
-    filter_by = f"blog_slug:{blog_slug}" if blog_slug else filter_by
+    filter_by = (
+        f"published_at:>= {published_since} && published_at:<= {published_until}"
+    )
+    filter_by = filter_by + f" && blog_slug:{blog_slug}" if blog_slug else filter_by
     filter_by = filter_by + f" && tags:=[{tags}]" if tags else filter_by
     filter_by = filter_by + f" && language:=[{language}]" if language else filter_by
+    filter_by = filter_by + f" && category:>= {category}" if category else filter_by
     search_parameters = compact(
         {
             "q": query,

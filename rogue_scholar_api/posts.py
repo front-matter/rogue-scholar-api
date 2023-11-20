@@ -11,7 +11,7 @@ import json as jsn
 import xmltodict
 import time
 import traceback
-from idutils import is_doi, is_orcid
+from idutils import is_doi
 
 from rogue_scholar_api.utils import (
     unix_timestamp,
@@ -65,7 +65,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
     response = (
         supabase.table("blogs")
         .select(
-            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, use_mastodon, generator, generator_raw, language, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter, secure"
+            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, use_mastodon, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter, secure"
         )
         .eq("slug", slug)
         .maybe_single()
@@ -277,6 +277,7 @@ async def extract_wordpress_post(post, blog):
             "image": image,
             "images": images,
             "language": detect_language(content_html),
+            "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
             "tags": terms,
@@ -330,6 +331,7 @@ async def extract_wordpresscom_post(post, blog):
             "image": image,
             "images": images,
             "language": detect_language(content_html),
+            "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
             "tags": tags,
@@ -383,6 +385,7 @@ async def extract_ghost_post(post, blog):
             "image": image,
             "images": images,
             "language": detect_language(content_html),
+            "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
             "tags": tags,
@@ -437,6 +440,7 @@ async def extract_substack_post(post, blog):
             "image": image,
             "images": images,
             "language": detect_language(content_html),
+            "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
             "tags": tags,
@@ -493,6 +497,7 @@ async def extract_json_feed_post(post, blog):
             "image": image,
             "images": images,
             "language": detect_language(content_html),
+            "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
             "tags": tags,
@@ -576,6 +581,7 @@ async def extract_atom_post(post, blog):
             "image": image,
             "images": images,
             "language": detect_language(content_html),
+            "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
             "tags": tags,
@@ -643,6 +649,7 @@ async def extract_rss_post(post, blog):
             "image": image,
             "images": images,
             "language": detect_language(content_html),
+            "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
             "tags": tags,
@@ -698,6 +705,7 @@ def upsert_single_post(post):
                     "published_at": post.get("published_at", None),
                     "image": post.get("image", None),
                     "language": post.get("language", None),
+                    "category": post.get("category", None),
                     "reference": post.get("reference", None),
                     "relationships": post.get("relationships", None),
                     "summary": post.get("summary", ""),
