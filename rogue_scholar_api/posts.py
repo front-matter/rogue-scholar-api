@@ -150,7 +150,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "WordPress" and blog["use_api"]:
             async with aiohttp.ClientSession() as session:
-                async with session.get(feed_url, timeout=20) as resp:
+                async with session.get(feed_url, timeout=30) as resp:
                     posts = await resp.json()
                     if not update_all:
                         posts = filter_updated_posts(posts, blog, key="modified_gmt")
