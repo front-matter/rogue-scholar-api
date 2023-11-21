@@ -24,6 +24,7 @@ from rogue_scholar_api.utils import (
     normalize_author,
     wrap,
     compact,
+    fix_xml,
     AUTHOR_IDS,
     AUTHOR_NAMES,
 )
@@ -62,86 +63,90 @@ async def extract_all_posts(page: int = 1, update_all: bool = False):
 async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool = False):
     """Extract all posts by blog."""
 
-    response = (
-        supabase.table("blogs")
-        .select(
-            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, use_mastodon, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter, secure"
-        )
-        .eq("slug", slug)
-        .maybe_single()
-        .execute()
-    )
-    blog = response.data
-    if not blog or blog.get("status", None) != "active":
-        return {}
-    url = furl(blog.get("feed_url", None))
-    generator = (
-        blog.get("generator", "").split(" ")[0] if blog.get("generator", None) else None
-    )
-    # limit number of pages for free plan to 5 (50 posts)
-    page = min(page, 5) if blog.get("plan", None) == "Starter" else page
-    start_page = (page - 1) * 50 if page > 0 else 0
-    end_page = (page - 1) * 50 + 50 if page > 0 else 50
-
-    # handle pagination depending on blogging platform and whether we use their API
-    match generator:
-        case "WordPress":
-            if blog.get("use_api", False):
-                url = furl(blog.get("home_page_url", None))
-                params = {
-                    "rest_route": "/wp/v2/posts",
-                    "page": page,
-                    "per_page": 50,
-                    "_embed": 1,
-                }
-
-            else:
-                params = {"paged": page}
-        case "WordPress.com":
-            if blog.get("use_api", False):
-                site = furl(blog.get("home_page_url", None)).host
-                url = url.set(
-                    host="public-api.wordpress.com",
-                    scheme="https" if blog.get("secure", True) else "http",
-                    path="/rest/v1.1/sites/" + site + "/posts/",
-                )
-                params = {"page": page, "number": 50}
-            else:
-                params = {"paged": page}
-        case "Ghost":
-            if blog.get("use_api", False):
-                host = environ[f"QUART_{blog.get('slug').upper()}_GHOST_API_HOST"]
-                key = environ[f"QUART_{blog.get('slug').upper()}_GHOST_API_KEY"]
-                url = url.set(host=host, path="/ghost/api/content/posts/")
-                params = {
-                    "page": page,
-                    "limit": 50,
-                    "filter": blog.get("filter", None) or "visibility:public",
-                    "include": "tags,authors",
-                    "key": key,
-                }
-            else:
-                params = {}
-        case "Blogger":
-            params = {"start-index": start_page + 1, "max-results": 50}
-        case "Substack":
-            url = url.set(path="/api/v1/posts/")
-            params = {"sort": "new", "offset": start_page, "limit": 50}
-        case _:
-            params = {}
-
-    feed_url = url.set(params).url
-    blog_with_posts = {}
-
-    # use pagination of results only for non-API blogs
-    if params:
-        start_page = 0
-        end_page = 50
-
     try:
+        response = (
+            supabase.table("blogs")
+            .select(
+                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, use_mastodon, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter, secure"
+            )
+            .eq("slug", slug)
+            .maybe_single()
+            .execute()
+        )
+        blog = response.data
+        if not blog or blog.get("status", None) != "active":
+            return {}
+        url = furl(blog.get("feed_url", None))
+        generator = (
+            blog.get("generator", "").split(" ")[0]
+            if blog.get("generator", None)
+            else None
+        )
+        # limit number of pages for free plan to 5 (50 posts)
+        page = min(page, 5) if blog.get("plan", None) == "Starter" else page
+        start_page = (page - 1) * 50 if page > 0 else 0
+        end_page = (page - 1) * 50 + 50 if page > 0 else 50
+
+        # handle pagination depending on blogging platform and whether we use their API
+        match generator:
+            case "WordPress":
+                if blog.get("use_api", False):
+                    url = furl(blog.get("home_page_url", None))
+                    params = {
+                        "rest_route": "/wp/v2/posts",
+                        "page": page,
+                        "per_page": 50,
+                        "_embed": 1,
+                    }
+
+                else:
+                    params = {"paged": page}
+            case "WordPress.com":
+                if blog.get("use_api", False):
+                    site = furl(blog.get("home_page_url", None)).host
+                    url = url.set(
+                        host="public-api.wordpress.com",
+                        scheme="https" if blog.get("secure", True) else "http",
+                        path="/rest/v1.1/sites/" + site + "/posts/",
+                    )
+                    params = {"page": page, "number": 50}
+                else:
+                    params = {"paged": page}
+            case "Ghost":
+                if blog.get("use_api", False):
+                    host = environ[f"QUART_{blog.get('slug').upper()}_GHOST_API_HOST"]
+                    key = environ[f"QUART_{blog.get('slug').upper()}_GHOST_API_KEY"]
+                    url = url.set(host=host, path="/ghost/api/content/posts/")
+                    params = {
+                        "page": page,
+                        "limit": 50,
+                        "filter": blog.get("filter", None) or "visibility:public",
+                        "include": "tags,authors",
+                        "key": key,
+                    }
+                else:
+                    params = {}
+            case "Blogger":
+                params = {"start-index": start_page + 1, "max-results": 50}
+            case "Substack":
+                url = url.set(path="/api/v1/posts/")
+                params = {"sort": "new", "offset": start_page, "limit": 50}
+            case _:
+                params = {}
+
+        feed_url = url.set(params).url
+        blog_with_posts = {}
+
+        # use pagination of results only for non-API blogs
+        if params:
+            start_page = 0
+            end_page = 50
+
         if generator == "Substack":
             async with aiohttp.ClientSession() as session:
                 async with session.get(feed_url, timeout=10) as resp:
+                    if resp.status != 200:
+                        raise aiohttp.ClientResponseError
                     posts = await resp.json()
                     # only include posts that have been modified since last update
                     if not update_all:
@@ -151,6 +156,8 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
         elif generator == "WordPress" and blog["use_api"]:
             async with aiohttp.ClientSession() as session:
                 async with session.get(feed_url, timeout=30) as resp:
+                    if resp.status != 200:
+                        raise aiohttp.ClientResponseError
                     posts = await resp.json()
                     if not update_all:
                         posts = filter_updated_posts(posts, blog, key="modified_gmt")
@@ -159,6 +166,9 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
         elif generator == "WordPress.com" and blog["use_api"]:
             async with aiohttp.ClientSession() as session:
                 async with session.get(feed_url, timeout=10) as resp:
+                    if resp.status != 200:
+                        raise aiohttp.ClientResponseError
+
                     json = await resp.json()
                     posts = json.get("posts", [])
                     if not update_all:
@@ -169,6 +179,8 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             headers = {"Accept-Version": "v5.0"}
             async with aiohttp.ClientSession() as session:
                 async with session.get(feed_url, headers=headers, timeout=10) as resp:
+                    if resp.status != 200:
+                        raise aiohttp.ClientResponseError
                     json = await resp.json()
                     posts = json.get("posts", [])
                     if not update_all:
@@ -178,6 +190,8 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
         elif blog["feed_format"] == "application/feed+json":
             async with aiohttp.ClientSession() as session:
                 async with session.get(feed_url, timeout=10) as resp:
+                    if resp.status != 200:
+                        raise aiohttp.ClientResponseError
                     json = await resp.json()
                     posts = json.get("items", [])
                     if not update_all:
@@ -188,7 +202,11 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
         elif blog["feed_format"] == "application/atom+xml":
             async with aiohttp.ClientSession() as session:
                 async with session.get(feed_url, timeout=10) as resp:
-                    xml = await resp.text()
+                    if resp.status != 200:
+                        raise aiohttp.ClientResponseError
+
+                    # fix malformed xml
+                    xml = fix_xml(await resp.read())
                     json = xmltodict.parse(xml)
                     posts = py_.get(json, "feed.entry", [])
                     if not update_all:
@@ -201,7 +219,11 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
         elif blog["feed_format"] == "application/rss+xml":
             async with aiohttp.ClientSession() as session:
                 async with session.get(feed_url, timeout=10) as resp:
-                    xml = await resp.text()
+                    if resp.status != 200:
+                        raise aiohttp.ClientResponseError
+
+                    # fix malformed xml
+                    xml = fix_xml(await resp.read())
                     json = xmltodict.parse(xml)
                     posts = py_.get(json, "rss.channel.item", [])
                     if not update_all:
@@ -215,11 +237,15 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         else:
             blog_with_posts["entries"] = []
-    except Exception as e:
-        print(e)
-        blog_with_posts["entries"] = []
 
-    return [upsert_single_post(i) for i in blog_with_posts["entries"]]
+        return [upsert_single_post(i) for i in blog_with_posts["entries"]]
+    except TimeoutError:
+        print(f"Timeout error in blog {blog['slug']}.")
+        return []
+    except Exception as e:
+        print(f"{e} error in blog {blog['slug']}.")
+        print(traceback.format_exc())
+        return []
 
 
 async def extract_wordpress_post(post, blog):
@@ -673,14 +699,16 @@ def filter_updated_posts(posts, blog, key):
 
     return [x for x in posts if parse_date(x.get(key, None)) > blog["updated_at"]]
 
+
 def filter_posts(posts, blog, key):
     """Filter posts if filter is set in blog settings."""
     filters = blog.get("filter", "").split(":")
     if len(filters) != 2 or filters[0] != key:
         return posts
     filters = filters[1].split(",")
-    
+
     return [x for x in posts if x.get(key, None) in filters]
+
 
 def upsert_single_post(post):
     """Upsert single post."""
@@ -833,7 +861,7 @@ def get_abstract(content_html: str = None, maxlen: int = 450):
             truncated = " ".join(sentences[:-1])
         else:
             truncated = sentences[0]
-    
+
     # make sure html tags are closed
     soup = get_soup(truncated)
     return soup.prettify()

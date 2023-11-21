@@ -6,6 +6,7 @@ import requests
 import json
 import iso8601
 import html
+from lxml import etree
 import bibtexparser
 from bibtexparser.model import Field
 import pydash as py_
@@ -361,3 +362,8 @@ def get_soup(content_html: str) -> Optional[BeautifulSoup]:
     except Exception as e:
         print(e)
         return content_html
+
+
+def fix_xml(x):
+    p = etree.fromstring(x, parser = etree.XMLParser(recover=True))
+    return etree.tostring(p)

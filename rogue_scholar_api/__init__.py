@@ -175,6 +175,8 @@ async def post_blog_posts(slug: str, suffix: Optional[str] = None):
             result = await extract_all_posts_by_blog(
                 slug, page=page, update_all=(update == "all")
             )
+            if isinstance(result, dict) and result.get("error", None):
+                return result, 400
             return jsonify(result)
         except Exception as e:
             logger.warning(e.args[0])
