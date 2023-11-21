@@ -292,9 +292,11 @@ def normalize_url(url: Optional[str], secure=False, lower=False) -> Optional[str
     f = furl(url)
     f.path.normalize()
 
-    # remove index.html
-    if f.path.segments[-1] in ["index.html"]:
+    # remove trailing slash, index.html
+    if f.path.segments and f.path.segments[-1] in ["", "index.html"]:
         f.path.segments.pop(-1)
+    
+    # remove fragments
     f.remove(fragment=True)
 
     # remove specific query parameters
