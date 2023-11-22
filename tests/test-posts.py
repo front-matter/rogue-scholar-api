@@ -22,10 +22,10 @@ def vcr_config():
 async def test_extract_all_posts():
     """Extract all posts"""
     result = await extract_all_posts()
-    assert len(result) == 3
+    assert len(result) == 2
     post = result[0]
-    assert post["title"] == "Connecting to AWS OpenSearch Serverless using Python"
-    assert post["blog_slug"] == "eve"
+    assert post["title"] == "Schattenbibliotheken: Wie sich das Netz den Zugang zu Wissenschaft und Journalismus erzwingt"
+    assert post["blog_slug"] == "irights"
 
 
 @pytest.mark.vcr
@@ -305,6 +305,7 @@ def test_upsert_single_post():
         "tags": ["Tech Notes", "Multilingual"],
         "title": "How to Translate a Hugo Blog Post with Babeldown",
         "url": "https://ropensci.org/blog/2023/09/26/how-to-translate-a-hugo-blog-post-with-babeldown",
+        "guid": "https://ropensci.org/blog/2023/09/26/how-to-translate-a-hugo-blog-post-with-babeldown/",
     }
     result = upsert_single_post(post)
     assert result["title"] == "How to Translate a Hugo Blog Post with Babeldown"

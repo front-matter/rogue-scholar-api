@@ -291,11 +291,11 @@ async def test_posts_post_route():
     response = await test_client.post("/posts", headers=headers)
     assert response.status_code == 200
     result = await response.get_json()
-    assert len(result) == 3
+    assert len(result) == 2
     post = result[0]
-    assert post["title"] == "Connecting to AWS OpenSearch Serverless using Python"
-    assert post["tags"] == []
-    assert post["language"] == "en"
+    assert post["title"] == "Schattenbibliotheken: Wie sich das Netz den Zugang zu Wissenschaft und Journalismus erzwingt"
+    assert post["tags"] == ["Filesharing + Streaming", "Politik + Recht", "Urheberrecht", "Aaaaarg", "Library Genesis"]
+    assert post["language"] == "de"
 
 
 @pytest.mark.vcr

@@ -144,7 +144,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
 
         if generator == "Substack":
             async with aiohttp.ClientSession() as session:
-                async with session.get(feed_url, timeout=10) as resp:
+                async with session.get(feed_url, timeout=30) as resp:
                     if resp.status != 200:
                         raise aiohttp.ClientResponseError
                     posts = await resp.json()
@@ -165,7 +165,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "WordPress.com" and blog["use_api"]:
             async with aiohttp.ClientSession() as session:
-                async with session.get(feed_url, timeout=10) as resp:
+                async with session.get(feed_url, timeout=30) as resp:
                     if resp.status != 200:
                         raise aiohttp.ClientResponseError
 
@@ -178,7 +178,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
         elif generator == "Ghost" and blog["use_api"]:
             headers = {"Accept-Version": "v5.0"}
             async with aiohttp.ClientSession() as session:
-                async with session.get(feed_url, headers=headers, timeout=10) as resp:
+                async with session.get(feed_url, headers=headers, timeout=30) as resp:
                     if resp.status != 200:
                         raise aiohttp.ClientResponseError
                     json = await resp.json()
@@ -189,7 +189,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/feed+json":
             async with aiohttp.ClientSession() as session:
-                async with session.get(feed_url, timeout=10) as resp:
+                async with session.get(feed_url, timeout=30) as resp:
                     if resp.status != 200:
                         raise aiohttp.ClientResponseError
                     json = await resp.json()
@@ -201,7 +201,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/atom+xml":
             async with aiohttp.ClientSession() as session:
-                async with session.get(feed_url, timeout=10) as resp:
+                async with session.get(feed_url, timeout=30) as resp:
                     if resp.status != 200:
                         raise aiohttp.ClientResponseError
 
@@ -218,7 +218,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/rss+xml":
             async with aiohttp.ClientSession() as session:
-                async with session.get(feed_url, timeout=10) as resp:
+                async with session.get(feed_url, timeout=30) as resp:
                     if resp.status != 200:
                         raise aiohttp.ClientResponseError
 
@@ -484,7 +484,6 @@ async def extract_json_feed_post(post, blog):
     """Extract JSON Feed post."""
 
     try:
-
         def format_author(author):
             """Format author."""
             return normalize_author(author.get("name", None), author.get("url", None))
@@ -643,7 +642,9 @@ async def extract_rss_post(post, blog):
         summary = get_abstract(content_html) or ""
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
-        url = normalize_url(post.get("link", None), secure=blog.get("secure", True))
+        raw_url = post.get("link", None)
+        url = normalize_url(raw_url, secure=blog.get("secure", True))
+        guid = py_.get(post, "guid.#text", None) or post.get("guid", None) or raw_url
         archive_url = (
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         )
@@ -682,7 +683,7 @@ async def extract_rss_post(post, blog):
             "title": get_title(post.get("title", None)),
             "url": url,
             "archive_url": archive_url,
-            "guid": py_.get(post, "guid.#text", None) or post.get("guid", None),
+            "guid": guid,
         }
     except Exception:
         print(blog.get("slug", None), traceback.format_exc())
@@ -745,7 +746,7 @@ def upsert_single_post(post):
                 },
                 returning="representation",
                 ignore_duplicates=False,
-                on_conflict="url",
+                on_conflict="guid",
             )
             .execute()
         )
