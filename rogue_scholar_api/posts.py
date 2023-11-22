@@ -624,7 +624,6 @@ async def extract_rss_post(post, blog):
     """Extract RSS post."""
 
     try:
-
         def format_author(author):
             """Format author."""
             return normalize_author(author.get("name", None), author.get("url", None))
