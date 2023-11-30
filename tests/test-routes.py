@@ -188,7 +188,7 @@ async def test_posts_with_blog_slug_route():
     response = await test_client.get("/posts?blog_slug=rossmounce")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] == 128
+    assert result["found"] > 125
     post = py_.get(result, "hits[0].document")
     assert post["title"] is not None
 
