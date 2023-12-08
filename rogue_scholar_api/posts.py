@@ -278,7 +278,7 @@ async def extract_wordpress_post(post, blog):
             or py_.get(post, "yoast_head_json.og_image[0].url", None)
             or post.get("jetpack_featured_media_url", None)
         )
-        if not image and len(images) > 0:
+        if not image and len(images) > 0 and int(images[0].get("width", 200)) >= 200:
             image = images[0].get("src", None)
         categories = [
             normalize_tag(i.get("name", None))
@@ -395,7 +395,7 @@ async def extract_ghost_post(post, blog):
         )
         images = get_images(content_html, url, blog.get("home_page_url", None))
         image = post.get("feature_image", None)
-        if not image and len(images) > 0:
+        if not image and len(images) > 0 and int(images[0].get("width", 200)) >= 200:
             image = images[0].get("src", None)
         tags = [normalize_tag(i.get("name", None)) for i in post.get("tags", None)][:5]
 
@@ -448,7 +448,7 @@ async def extract_substack_post(post, blog):
         )
         images = get_images(content_html, url, blog.get("home_page_url", None))
         image = post.get("cover_image", None)
-        if not image and len(images) > 0:
+        if not image and len(images) > 0 and int(images[0].get("width", 200)) >= 200:
             image = images[0].get("src", None)
         tags = [normalize_tag(i.get("name")) for i in wrap(post.get("postTags", None))][
             :5
@@ -506,7 +506,7 @@ async def extract_json_feed_post(post, blog):
             base_url = blog.get("home_page_url", None)
         images = get_images(content_html, base_url, blog.get("home_page_url", None))
         image = py_.get(post, "media:thumbnail.@url", None)
-        if not image and len(images) > 0:
+        if not image and len(images) > 0 and int(images[0].get("width", 200)) >= 200:
             image = images[0].get("src", None)
         tags = [normalize_tag(i) for i in wrap(post.get("tags", None))][:5]
 
@@ -587,7 +587,7 @@ async def extract_atom_post(post, blog):
             base_url = blog.get("home_page_url", None)
         images = get_images(content_html, base_url, blog.get("home_page_url", None))
         image = py_.get(post, "media:thumbnail.@url", None)
-        if not image and len(images) > 0:
+        if not image and len(images) > 0 and int(images[0].get("width", 200)) >= 200:
             image = images[0].get("src", None)
         tags = [
             normalize_tag(i.get("@term", None))
@@ -658,6 +658,7 @@ async def extract_rss_post(post, blog):
         if (
             not image
             and len(images) > 0
+            and int(images[0].get("width", 200)) >= 200
             and furl(images[0].get("src", None)).host not in ["latex.codecogs.com"]
         ):
             image = images[0].get("src", None)
