@@ -89,9 +89,9 @@ async def blogs():
     page = int(request.args.get("page") or "1")
     per_page = int(request.args.get("per_page") or "10")
     # default sort depends on whether a query is provided
-    _text_match = "_text_match" if request.args.get("query") else "created_at"
+    _text_match = "_text_match" if request.args.get("query") else "title"
     sort = request.args.get("sort") or _text_match
-    order = request.args.get("order") or "desc"
+    order = request.args.get("order") or "asc"
     include_fields = request.args.get("include_fields")
 
     # filter blogs by category, generator, and/or language

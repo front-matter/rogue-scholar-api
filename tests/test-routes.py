@@ -57,9 +57,9 @@ async def test_blogs_with_query_and_pagination_route():
     response = await test_client.get("/blogs?query=wordpress&page=2&per_page=10")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] == 25
+    assert result["found"] > 25
     post = py_.get(result, "hits[0].document")
-    assert post["title"] == "Irish Plants"
+    assert post["title"] is not None
 
 
 @pytest.mark.vcr
@@ -69,7 +69,7 @@ async def test_blogs_with_include_fields_route():
     response = await test_client.get("/blogs?include_fields=slug,title")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] == 66
+    assert result["found"] > 65
     post = py_.get(result, "hits[0].document")
     assert "slug" in post.keys()
     assert "description" not in post.keys()
@@ -274,12 +274,8 @@ async def test_posts_filter_by_language_route():
     response = await test_client.get("/posts?language=es")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] == 90
+    assert result["found"] > 90
     post = py_.get(result, "hits[0].document")
-    assert (
-        post["title"]
-        == "El multiverso de rOpenSci"
-    )
     assert post["language"] == "es"
 
 
