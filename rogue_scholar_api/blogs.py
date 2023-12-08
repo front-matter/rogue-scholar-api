@@ -56,7 +56,7 @@ async def extract_single_blog(slug: str):
     title = feed.get("title", None) or config["title"]
     generator_raw = (
         parse_generator(feed.get("generator_detail", None) or feed.get("generator"))
-        or config["generator_raw"]
+        or config["generator_raw"] or "Other"
     )
     generator = re.split(" ", generator_raw)[0]
     description = feed.get("subtitle", None) or config["description"]
