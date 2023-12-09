@@ -14,6 +14,7 @@ from rogue_scholar_api.utils import (
     detect_language,
     normalize_author,
     normalize_url,
+    get_markdown,
 )
 
 
@@ -214,6 +215,13 @@ def test_normalize_url_with_slash_param():
     assert result == "https://www.ch.imperial.ac.uk/rzepa/blog?p=25304"
 
 
+def test_get_markdown():
+    """get markdown from html"""
+    html = "<p>This is a <em>test</em></p>"
+    result = get_markdown(html)
+    assert result == "This is a *test*\n"
+    
+    
 # def test_sanitize_cool_suffix():
 #     "sanitize cool suffix"
 #     suffix = "sfzv4-xdb68"

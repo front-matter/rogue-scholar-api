@@ -25,8 +25,7 @@ from rogue_scholar_api.utils import (
     wrap,
     compact,
     fix_xml,
-    AUTHOR_IDS,
-    AUTHOR_NAMES,
+    get_markdown,
 )
 from rogue_scholar_api.supabase import (
     supabase_admin_client as supabase_admin,
@@ -266,6 +265,7 @@ async def extract_wordpress_post(post, blog):
             authors_ = wrap(blog.get("authors", None))
         authors = [format_author(i) for i in authors_]
         content_html = py_.get(post, "content.rendered", "")
+        content_text = get_markdown(content_html)
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("link", None), secure=blog.get("secure", True))
@@ -297,6 +297,7 @@ async def extract_wordpress_post(post, blog):
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_html": content_html,
+            "content_text": content_text,
             "summary": get_abstract(content_html),
             "published_at": unix_timestamp(post.get("date_gmt", None)),
             "updated_at": unix_timestamp(post.get("modified_gmt", None)),
@@ -330,6 +331,7 @@ async def extract_wordpresscom_post(post, blog):
 
         authors = [format_author(i) for i in wrap(post.get("author", None))]
         content_html = post.get("content", "")
+        content_text = get_markdown(content_html)
         summary = get_abstract(post.get("excerpt", None)) or get_title(
             post.get("title", None)
         )
@@ -351,6 +353,7 @@ async def extract_wordpresscom_post(post, blog):
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_html": content_html,
+            "content_text": content_text,
             "summary": summary,
             "published_at": unix_timestamp(post.get("date", None)),
             "updated_at": unix_timestamp(post.get("modified", None)),
@@ -384,6 +387,7 @@ async def extract_ghost_post(post, blog):
 
         authors = [format_author(i) for i in wrap(post.get("authors", None))]
         content_html = post.get("html", "")
+        content_text = get_markdown(content_html)
 
         # don't use excerpt as summary, because it's not html
         summary = get_abstract(content_html)
@@ -405,6 +409,7 @@ async def extract_ghost_post(post, blog):
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_html": content_html,
+            "content_text": content_text,
             "summary": summary,
             "published_at": unix_timestamp(post.get("published_at", None)),
             "updated_at": unix_timestamp(post.get("updated_at", None)),
@@ -436,6 +441,7 @@ async def extract_substack_post(post, blog):
 
         authors = [format_author(i) for i in wrap(post.get("publishedBylines", None))]
         content_html = post.get("body_html", "")
+        content_text = get_markdown(content_html)
         summary = get_abstract(post.get("description", None))
         published_at = unix_timestamp(post.get("post_date", None))
         reference = get_references(content_html)
@@ -460,6 +466,7 @@ async def extract_substack_post(post, blog):
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_html": content_html,
+            "content_text": content_text,
             "summary": summary,
             "published_at": published_at,
             "updated_at": published_at,
@@ -494,6 +501,7 @@ async def extract_json_feed_post(post, blog):
             authors_ = wrap(blog.get("authors", None))
         authors = [format_author(i) for i in authors_]
         content_html = post.get("content_html", "")
+        content_text = get_markdown(content_html)
         summary = get_abstract(content_html)
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
@@ -516,6 +524,7 @@ async def extract_json_feed_post(post, blog):
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_html": content_html,
+            "content_text": content_text,
             "summary": summary,
             "published_at": unix_timestamp(post.get("date_published", None)),
             "updated_at": unix_timestamp(post.get("date_modified", None)),
@@ -553,6 +562,7 @@ async def extract_atom_post(post, blog):
 
         # workaround, as content should be encodes as CDATA block
         content_html = html.unescape(py_.get(post, "content.#text", ""))
+        content_text = get_markdown(content_html)
         title = get_title(py_.get(post, "title.#text", None)) or get_title(
             post.get("title", None)
         )
@@ -600,6 +610,7 @@ async def extract_atom_post(post, blog):
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_html": content_html,
+            "content_text": content_text,
             "summary": summary,
             "published_at": unix_timestamp(published_at),
             "updated_at": unix_timestamp(updated_at or published_at),
@@ -638,6 +649,7 @@ async def extract_rss_post(post, blog):
         content_html = py_.get(post, "content:encoded", None) or post.get(
             "description", ""
         )
+        content_text = get_markdown(content_html)
         summary = get_abstract(content_html) or ""
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
@@ -670,6 +682,7 @@ async def extract_rss_post(post, blog):
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_html": content_html,
+            "content_text": content_text,
             "summary": summary,
             "published_at": unix_timestamp(published_at),
             "updated_at": unix_timestamp(published_at),
@@ -728,7 +741,7 @@ def upsert_single_post(post):
                     "blog_name": post.get("blog_name", None),
                     "blog_slug": post.get("blog_slug", None),
                     "content_html": post.get("content_html", None),
-                    "content_text": post.get("content_text", "content_text"),
+                    "content_text": post.get("content_text", ""),
                     "images": post.get("images", None),
                     "updated_at": post.get("updated_at", None),
                     "published_at": post.get("published_at", None),

@@ -15,6 +15,7 @@ from furl import furl
 from langdetect import detect
 from bs4 import BeautifulSoup
 from idutils import is_orcid
+import pandoc
 
 
 AUTHOR_IDS = {
@@ -367,3 +368,13 @@ def get_soup(content_html: str) -> Optional[BeautifulSoup]:
 def fix_xml(x):
     p = etree.fromstring(x, parser = etree.XMLParser(recover=True))
     return etree.tostring(p)
+
+
+def get_markdown(content_html: str) -> str:
+    """Get markdown from html"""
+    try:
+        md = pandoc.read(content_html, format="html")
+        return pandoc.write(md, format="markdown", options=["--wrap=none"])
+    except Exception as e:
+        print(e)
+        return ""
