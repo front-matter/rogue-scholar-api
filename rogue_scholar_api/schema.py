@@ -48,6 +48,7 @@ class Post:
     title: str
     summary: str
     content_html: str
+    content_text: str
     published_at: datetime
     updated_at: datetime
     indexed_at: datetime

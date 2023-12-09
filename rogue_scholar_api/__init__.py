@@ -230,7 +230,7 @@ async def posts():
     search_parameters = compact(
         {
             "q": query,
-            "query_by": "tags,title,doi,authors.name,authors.url,summary,content_html,reference",
+            "query_by": "tags,title,doi,authors.name,authors.url,summary,content_text,reference",
             "filter_by": filter_by,
             "sort_by": f"{sort}:{order}",
             "per_page": min(per_page, 50),
