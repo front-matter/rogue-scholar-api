@@ -9,6 +9,11 @@ primary_region = "ams"
 [build]
   builder = "paketobuildpacks/builder:base"
 
+[deploy]
+  strategy = "rolling"
+  wait_timeout = "10m"
+  max_unavailable = 1
+
 [env]
   PORT = "8080"
 
