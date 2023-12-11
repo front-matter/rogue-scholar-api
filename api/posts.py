@@ -13,7 +13,7 @@ import time
 import traceback
 from idutils import is_doi
 
-from rogue_scholar_api.utils import (
+from api.utils import (
     unix_timestamp,
     normalize_tag,
     get_date,
@@ -27,7 +27,7 @@ from rogue_scholar_api.utils import (
     fix_xml,
     get_markdown,
 )
-from rogue_scholar_api.supabase import (
+from api.supabase import (
     supabase_admin_client as supabase_admin,
     supabase_client as supabase,
 )
@@ -589,6 +589,7 @@ async def extract_atom_post(post, blog):
         url = normalize_url(py_.get(post, "link.@href", None))
         if not isinstance(url, str):
             url = get_url(post.get("link", None))
+        print(post.get("id", None), url)
         archive_url = (
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         )

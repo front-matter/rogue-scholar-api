@@ -1,28 +1,46 @@
 # The builder image, used to build the virtual environment
+# from https://stackoverflow.com/questions/72465421/how-to-use-poetry-with-docker
 FROM python:3.11-bookworm AS builder
 
-RUN pip install poetry==1.7.1
+# Configure Poetry
+ENV POETRY_VERSION=1.7.1
+ENV POETRY_HOME=/opt/poetry
+ENV POETRY_VENV=/opt/poetry-venv
 
-ENV POETRY_NO_INTERACTION=1 \
-  POETRY_VIRTUALENVS_IN_PROJECT=1 \
-  POETRY_VIRTUALENVS_CREATE=1 \
-  POETRY_CACHE_DIR=/tmp/poetry_cache
+# Tell Poetry where to place its cache and virtual environment
+ENV POETRY_CACHE_DIR=/opt/.cache
 
-WORKDIR /rogue_scholar_api
+# Create stage for Poetry installation
+FROM builder AS poetry-base
 
-COPY pyproject.toml poetry.lock ./
-RUN touch README.md
+# Creating a virtual environment just for poetry and install it with pip
+RUN python3 -m venv ${POETRY_VENV} \
+    && ${POETRY_VENV}/bin/pip install -U pip setuptools \
+    && ${POETRY_VENV}/bin/pip install poetry==${POETRY_VERSION}
 
-RUN poetry install --without dev --no-root && rm -rf $POETRY_CACHE_DIR
+# Create a new stage from the base python image
+FROM builder AS example-app
 
-# The runtime image, used to just run the code provided its virtual environment
-FROM python:3.11-slim-bookworm AS runtime
+# Copy Poetry to app image
+COPY --from=poetry-base ${POETRY_VENV} ${POETRY_VENV}
 
-ENV VIRTUAL_ENV=/rogue_scholar_api/.venv \
-  PATH="/rogue_scholar_api/.venv/bin:$PATH"
+# Add Poetry to PATH
+ENV PATH="${PATH}:${POETRY_VENV}/bin"
 
-COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
+WORKDIR /app
 
-COPY rogue_scholar_api ./rogue_scholar_api
+# Copy Dependencies
+COPY poetry.lock pyproject.toml ./
 
-CMD ["hypercorn", "-b", "0.0.0.0:$PORT", "rogue_scholar_api:app"]
+# [OPTIONAL] Validate the project is properly configured
+RUN poetry check
+
+# Install Dependencies
+RUN poetry install --no-interaction --no-cache --without dev
+
+# Copy Application
+COPY . /app
+
+# Run Application
+EXPOSE $PORT
+CMD [ "poetry", "run", "python", "-m", "flask", "run", "--host=0.0.0.0" ]

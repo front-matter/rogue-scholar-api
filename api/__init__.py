@@ -1,7 +1,7 @@
 """Main quart application"""
 import logging
 from typing import Optional
-from datetime import timedelta, datetime
+from datetime import timedelta
 import time
 from os import environ
 import pydash as py_
@@ -20,23 +20,23 @@ from quart_schema import (
 )
 from quart_rate_limiter import RateLimiter, RateLimit
 
-from rogue_scholar_api.supabase import (
+from api.supabase import (
     supabase_client as supabase,
     blogWithPostsSelect,
     postsWithConfigSelect,
     postsWithContentSelect,
 )
-from rogue_scholar_api.typesense import typesense_client as typesense
-from rogue_scholar_api.utils import (
+from api.typesense import typesense_client as typesense
+from api.utils import (
     get_doi_metadata_from_ra,
     validate_uuid,
     unix_timestamp,
     end_of_date,
     compact,
 )
-from rogue_scholar_api.posts import extract_all_posts, extract_all_posts_by_blog
-from rogue_scholar_api.blogs import extract_single_blog, extract_all_blogs
-from rogue_scholar_api.schema import Blog, Post, PostQuery
+from api.posts import extract_all_posts, extract_all_posts_by_blog
+from api.blogs import extract_single_blog, extract_all_blogs
+from api.schema import Blog, Post, PostQuery
 
 load_dotenv()
 rate_limiter = RateLimiter()

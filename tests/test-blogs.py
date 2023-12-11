@@ -1,7 +1,7 @@
 """Test blogs"""
 import pytest  # noqa: F401
 
-from rogue_scholar_api.blogs import (
+from api.blogs import (
     extract_single_blog,
     extract_all_blogs,
     update_single_blog,

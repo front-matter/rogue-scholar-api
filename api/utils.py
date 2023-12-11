@@ -16,6 +16,7 @@ from langdetect import detect
 from bs4 import BeautifulSoup
 from idutils import is_orcid
 import pandoc
+# from pandoc.types import Str
 
 
 AUTHOR_IDS = {
@@ -373,8 +374,8 @@ def fix_xml(x):
 def get_markdown(content_html: str) -> str:
     """Get markdown from html"""
     try:
-        md = pandoc.read(content_html, format="html")
-        return pandoc.write(md, format="markdown", options=["--wrap=none"])
+        doc = pandoc.read(content_html, format="html")
+        return pandoc.write(doc, format="commonmark_x")
     except Exception as e:
         print(e)
         return ""

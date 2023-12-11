@@ -1,6 +1,6 @@
 """Test posts"""
 import pytest  # noqa: F401
-from rogue_scholar_api.posts import (
+from api.posts import (
     extract_all_posts,
     extract_all_posts_by_blog,
     upsert_single_post,

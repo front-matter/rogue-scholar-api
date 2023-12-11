@@ -3,7 +3,7 @@ import pytest  # noqa: F401
 import pydash as py_  # noqa: F401
 import json
 
-from rogue_scholar_api.utils import (
+from api.utils import (
     get_date,
     get_doi_metadata_from_ra,
     validate_uuid,

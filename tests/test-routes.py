@@ -3,7 +3,7 @@ import pytest_asyncio  # noqa: F401
 import pydash as py_  # noqa: F401
 from os import environ
 
-from rogue_scholar_api import app
+from api import app
 
 pytestmark = pytest.mark.asyncio
 
