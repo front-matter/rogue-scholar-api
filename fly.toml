@@ -7,8 +7,7 @@ app = "rogue-scholar-api"
 primary_region = "ams"
 
 [build]
-  builder = "paketobuildpacks/builder:base"
-  buildpacks = ["fagiani/apt"]
+  builder = "paketobuildpacks/builder-jammy-base"
 
 [deploy]
   strategy = "rolling"
