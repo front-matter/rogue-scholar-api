@@ -26,7 +26,7 @@ The API uses Poetry for dependency management. To install Poetry, see the [Poetr
 
 ```
 poetry install
-poetry run quart --app rogue_scholar_api run
+poetry run start
 ```
 
 The API will then be available at `http://localhost:5000`.
