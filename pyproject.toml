@@ -8,7 +8,7 @@ keywords = ["science", "blogging", "quart", "api", "supabase", "typesense"]
 authors = ["Martin Fenner <martin@front-matter.io>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "rogue_scholar_api"}]
+packages = [{include = "api"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -87,4 +87,4 @@ legacy_tox_ini = """
 asyncio_mode = "auto"
 
 [tool.poetry.scripts]
-start = "rogue_scholar_api:run"
+start = "api:run"
