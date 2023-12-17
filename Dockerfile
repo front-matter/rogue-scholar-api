@@ -1,28 +1,18 @@
-# The builder image, used to build the virtual environment
-FROM python:3.11-bookworm AS builder
+# Based on https://dev.to/farcellier/package-a-poetry-project-in-a-docker-container-for-production-3b4m
+# and https://stackoverflow.com/questions/53835198/integrating-python-poetry-with-docker
+FROM python:3.11-slim-bookworm AS base
 
-RUN pip install poetry==1.7.1
+RUN pip install --no-cache-dir poetry==1.7.1 && \
+    mkdir -p /app  
+COPY . /app
 
-ENV POETRY_NO_INTERACTION=1 \
-    POETRY_VIRTUALENVS_IN_PROJECT=1 \
-    POETRY_VIRTUALENVS_CREATE=1 \
-    POETRY_CACHE_DIR=/tmp/poetry_cache
+WORKDIR /app
 
-WORKDIR /api
+ENV PATH="/app/.venv/bin:$PATH"
 
-COPY pyproject.toml poetry.lock ./
-RUN touch README.md
+RUN poetry install --without dev
 
-RUN poetry install --without dev --no-root && rm -rf $POETRY_CACHE_DIR
-
-# The runtime image, used to just run the code provided its virtual environment
-FROM python:3.11-slim-bookworm AS runtime
-
-ENV VIRTUAL_ENV=/api/.venv \
-    PATH="/api/.venv/bin:$PATH"
-
-COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
-
-# CMD ["hypercorn", "-b", "0.0.0.0:5000", "api:app"]
+# Run Application
+EXPOSE 5000
 
 CMD ["poetry", "run", "start"]
