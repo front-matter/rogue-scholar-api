@@ -12,17 +12,16 @@ RUN apt-get update && apt-get upgrade -y && \
     dpkg -i pandoc-${PANDOC_VERSION}-1-arm64.deb && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN pip install --no-cache-dir poetry==${POETRY_VERSION} && \
-    mkdir -p /app  
-COPY . /app
+RUN pip install --no-cache-dir poetry==${POETRY_VERSION} 
+COPY . /.
 
-WORKDIR /app
+# WORKDIR /app
 
-ENV PATH="/app/.venv/bin:$PATH"
+ENV PATH .venv/bin:$PATH
 
 RUN poetry install --without dev
 
-# Run Application
 EXPOSE 5000
 
-CMD ["poetry", "run", "start"]
+# CMD ["hypercorn", "-b", "0.0.0.0:5000", "api:app"]
+CMD ["poetry", "run", "hypercorn", "-b",  "0.0.0.0:5000", "api:app"]

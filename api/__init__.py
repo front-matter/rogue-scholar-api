@@ -1,4 +1,5 @@
 """Main quart application"""
+from hypercorn.config import Config
 import logging
 from typing import Optional
 from datetime import timedelta
@@ -38,6 +39,8 @@ from api.posts import extract_all_posts, extract_all_posts_by_blog
 from api.blogs import extract_single_blog, extract_all_blogs
 from api.schema import Blog, Post, PostQuery
 
+config = Config()
+config.from_toml("hypercorn.toml")
 load_dotenv()
 rate_limiter = RateLimiter()
 logger = logging.getLogger(__name__)
