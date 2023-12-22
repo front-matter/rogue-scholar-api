@@ -11,6 +11,7 @@ import json as jsn
 import xmltodict
 import time
 import traceback
+from urllib.parse import unquote
 from idutils import is_doi
 
 from api.utils import (
@@ -75,7 +76,10 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
         blog = response.data
         if not blog or blog.get("status", None) != "active":
             return {}
-        url = furl(blog.get("feed_url", None))
+        if page == 1:
+            url = furl(blog.get("current_feed_url", None) or blog.get("feed_url", None))
+        else:
+            url = furl(blog.get("feed_url", None))
         generator = (
             blog.get("generator", "").split(" ")[0]
             if blog.get("generator", None)
@@ -572,7 +576,6 @@ async def extract_atom_post(post, blog):
         url = normalize_url(py_.get(post, "link.@href", None))
         if not isinstance(url, str):
             url = get_url(post.get("link", None))
-        print(post.get("id", None), url)
         archive_url = (
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         )
@@ -581,6 +584,8 @@ async def extract_atom_post(post, blog):
             base_url = blog.get("home_page_url", None)
         images = get_images(content_html, base_url, blog.get("home_page_url", None))
         image = py_.get(post, "media:thumbnail.@url", None)
+        if image is not None:
+            image = unquote(image)
         if not image and len(images) > 0 and int(images[0].get("width", 200)) >= 200:
             image = images[0].get("src", None)
         tags = [

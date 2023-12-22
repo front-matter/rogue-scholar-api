@@ -40036,4 +40036,1727 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Ccontent_text%2Creference&filter_by=published_at%3A%3E%3D+0+%26%26+published_at%3A%3C%3D+1703235156+%26%26+blog_slug%3Arossmounce&sort_by=published_at%3Adesc&per_page=10&page=1
+  response:
+    body:
+      string: "{\"facet_counts\":[],\"found\":130,\"hits\":[{\"document\":{\"authors\":[{\"name\":\"Ross
+        Mounce\"}],\"blog_id\":\"vbmdy90\",\"blog_name\":\"A blog by Ross Mounce\",\"blog_slug\":\"rossmounce\",\"category\":\"naturalSciences\",\"content_html\":\"\\n<p>To
+        seek an answer to the question posed in the title, I sought out reliable data
+        on open access journals. My first port of call was the <a href=\\\"https://doaj.org/\\\">Directory
+        of Open Access Journals</a> (DOAJ). Although DOAJ certainly isn&#8217;t a
+        complete listing of open access journals, as is well documented in &#8216;<a
+        href=\\\"https://scienceeurope.org/our-resources/oa-diamond-journals-study/\\\">The
+        OA Diamond Journals Study</a>&#8216; (2021), it will at least help provide
+        a minimum bound answer to the question.</p>\\n\\n\\n\\n<p>I downloaded journal-level
+        data in .csv format from the DOAJ <a href=\\\"https://doaj.org/docs/public-data-dump/\\\">public
+        data dump</a>. In this .csv you get data on each journal, one journal per
+        line. A very crude preliminary search of the .csv file, after subsetting the
+        data to exclude APC-OA journals, reveals that 947 lines of the file include
+        the word &#8216;society&#8217;, albeit one of these lines is the header row.
+        [e.g. <em>grep -i &#8216;society&#8217; DOAJdata.csv | wc -l</em> ]</p>\\n\\n\\n\\n<p>But
+        of course, it&#8217;s not that easy. In some cases, a journal has the word
+        &#8216;Society&#8217; in the journal title but is not actually published-for
+        or -by a learned society. Lots of learned societies also don&#8217;t necessarily
+        call themselves a society using that _exact_ word, in English. Unsurprisingly,
+        many learned societies operate in countries that use languages other than
+        English and thus the name of the society is often registered in other languages
+        and even non-Latin script. To do a better job of attempting to find all the
+        society-affiliated journals in DOAJ, one needs to search in a multilingual-aware
+        manner. I looked at the <a href=\\\"https://www.wikidata.org/wiki/Q955824\\\">Wikidata
+        item on &#8216;learned society&#8217;</a> (Q955824) for trustworthy translations
+        of the concept in other languages.</p>\\n\\n\\n\\n<figure class=\\\"wp-block-image
+        size-full\\\"><a href=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/12/image.png\\\"><img
+        loading=\\\"lazy\\\" decoding=\\\"async\\\" width=\\\"991\\\" height=\\\"887\\\"
+        src=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/12/image.png\\\"
+        alt=\\\"This image is a screenshot of part of https://www.wikidata.org/wiki/Q955824
+        . It depicts a table with four columns: 'Language' , 'Label' , 'Description',
+        and 'Also Known as'.\\\" class=\\\"wp-image-2416\\\" srcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/12/image.png
+        991w, https://rossmounce.co.uk/wp-content/uploads/2023/12/image-300x269.png
+        300w, https://rossmounce.co.uk/wp-content/uploads/2023/12/image-768x687.png
+        768w\\\" sizes=\\\"(max-width: 991px) 100vw, 991px\\\" /></a><figcaption class=\\\"wp-element-caption\\\">A
+        screenshot of part of the Wikidata item Q955824 that connects the concept
+        of &#8216;learned society&#8217; between many different languages.</figcaption></figure>\\n\\n\\n\\n<p>After
+        casting the net wide for societies and associations, I ended up finding over
+        1600 journals which both charge authors and readers no fees (diamond) AND
+        are associated with a learned society. For transparency, I have uploaded this
+        list of society associated, diamond open access journals to github <a href=\\\"https://github.com/rossmounce/Society-DiamondOA-Journals/blob/main/doaj-diamond-society-journals.csv\\\">here</a>.
+        Edits, additions, and corrections to this dataset are very welcome. <br><br>I
+        think 1600 journals is more than &#8216;a few&#8217; isn&#8217;t it?</p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<p>Some
+        interesting examples of fee free, society affiliated journals are shown below,
+        just for illustration. They are arbitrarily chosen by me, and are not necessarily
+        a representative sample:</p>\\n\\n\\n\\n<figure class=\\\"wp-block-table\\\"><table><tbody><tr><td><strong>Journal
+        title</strong></td><td><strong>eISSN</strong></td><td><strong>Affiliated Society
+        or Society Publisher</strong></td><td><strong>DOAJ entry</strong></td></tr><tr><td><a
+        href=\\\"https://pubs.acs.org/page/acscii/about.html\\\">ACS Central Science</a></td><td>2374-7951</td><td>American
+        Chemical Society</td><td><a href=\\\"https://doaj.org/toc/2e87d85515c8477eb07d379c472c4050\\\">link</a></td></tr><tr><td><a
+        href=\\\"https://www.mtosmt.org/\\\">Music Theory Online</a></td><td>1067-3040</td><td>Society
+        for Music Theory</td><td><a href=\\\"https://doaj.org/toc/bf3ab4cd7a9e49d49919553fe9a352f9\\\">link</a></td></tr><tr><td><a
+        href=\\\"https://jesi.areeo.ac.ir/?lang=en\\\">\u0646\u0627\u0645\u0647 \u0627\u0646\u062C\u0645\u0646
+        \u062D\u0634\u0631\u0647\u200C\u0634\u0646\u0627\u0633\u06CC \u0627\u06CC\u0631\u0627\u0646</a></td><td>2783-3968</td><td>Entomological
+        Society of Iran</td><td><a href=\\\"https://doaj.org/toc/e848193c070d4422b95299e1da5b0107\\\">link</a></td></tr><tr><td><a
+        href=\\\"http://ojrs.abvpress.ru/\\\">\u041E\u043F\u0443\u0445\u043E\u043B\u0438
+        \u0436\u0435\u043D\u0441\u043A\u043E\u0439 \u0440\u0435\u043F\u0440\u043E\u0434\u0443\u043A\u0442\u0438\u0432\u043D\u043E\u0439
+        \u0441\u0438\u0441\u0442\u0435\u043C\u044B</a></td><td>1999-8627</td><td>Russian
+        Breast Cancer Society</td><td><a href=\\\"https://doaj.org/toc/7e12795d6ed941779057c342b2caf978\\\">link</a></td></tr><tr><td><a
+        href=\\\"https://journals.library.ualberta.ca/vamp/index.php/VAMP/about\\\">Vertebrate
+        Anatomy Morphology Palaeontology&nbsp;</a></td><td>2292-1389</td><td>Canadian
+        Society of Vertebrate Palaeontology</td><td><a href=\\\"https://doaj.org/toc/a9ed2969253c48af9e3eb0e7e8876778\\\">link</a></td></tr><tr><td><a
+        href=\\\"https://tjh.com.tr/\\\">Turkish Journal of Hematology</a></td><td>1308-5263</td><td>Turkish
+        Society of Hematology</td><td><a href=\\\"https://doaj.org/toc/7e6eeb4ca94942258e28cd388af24fcf\\\">link</a></td></tr><tr><td><a
+        href=\\\"https://tehj.springeropen.com/about\\\">The Egyptian Heart Journal</a></td><td>2090-911X</td><td>Egyptian
+        Society of Cardiology</td><td><a href=\\\"https://doaj.org/toc/15d4abc26f90470c9121dbe9a24d1a68\\\">link</a></td></tr><tr><td><a
+        href=\\\"https://rbmfc.org.br/rbmfc/about\\\">Revista Brasileira de Medicina
+        de Fam\xEDlia e Comunidade</a></td><td>2179-7994</td><td>Sociedade Brasileira
+        de Medicina de Fam\xEDlia e Comunidade</td><td><a href=\\\"https://doaj.org/toc/46fd7fe00e24473cb2eca582b5af2ff1\\\">link</a></td></tr><tr><td><a
+        href=\\\"https://tahiti.journal.fi/\\\">TaHiTi</a></td><td>2242-0665</td><td>Society
+        for Art History in Finland</td><td><a href=\\\"https://doaj.org/toc/ebcca7e161304644ac390586a263fec2\\\">link</a></td></tr><tr><td><a
+        href=\\\"https://sciendo.com/journal/SJS\\\">Swiss Journal of Sociology</a></td><td>2297-8348</td><td>Swiss
+        Sociological Association</td><td><a href=\\\"https://doaj.org/toc/998bdd6fa50445b791a63c0429535b91\\\">link</a></td></tr><tr><td><a
+        href=\\\"https://www.rsc.org/journals-books-databases/about-journals/chemical-science/\\\">Chemical
+        Science</a></td><td>2041-6539</td><td>The Royal Society of Chemistry</td><td><a
+        href=\\\"https://doaj.org/toc/7b1c63ee2d884434831a1e6dab357170\\\">link</a></td></tr><tr><td><a
+        href=\\\"https://bioj-online.com/\\\">British and Irish Orthoptic Journal</a></td><td>2516-3590</td><td>British
+        and Irish Orthoptic Society</td><td><a href=\\\"https://doaj.org/toc/b694c82086f0461789516b2161edf829\\\">link</a></td></tr></tbody></table></figure>\\n\\n\\n\\n<p>I
+        hope to be writing a lot more about diamond open access over the coming months&#8230;</p>\\n\",\"content_text\":\"To
+        seek an answer to the question posed in the title, I sought out\\nreliable
+        data on open access journals. My first port of call was the\\n[Directory of
+        Open Access Journals](https://doaj.org/) (DOAJ). Although\\nDOAJ certainly
+        isn't a complete listing of open access journals, as is\\nwell documented
+        in '[The OA Diamond Journals\\nStudy](https://scienceeurope.org/our-resources/oa-diamond-journals-study/)'\\n(2021),
+        it will at least help provide a minimum bound answer to the\\nquestion.\\n\\nI
+        downloaded journal-level data in .csv format from the DOAJ [public\\ndata
+        dump](https://doaj.org/docs/public-data-dump/). In this .csv you\\nget data
+        on each journal, one journal per line. A very crude preliminary\\nsearch of
+        the .csv file, after subsetting the data to exclude APC-OA\\njournals, reveals
+        that 947 lines of the file include the word 'society',\\nalbeit one of these
+        lines is the header row. \\\\[e.g. *grep -i 'society'\\nDOAJdata.csv \\\\|
+        wc -l* \\\\]\\n\\nBut of course, it's not that easy. In some cases, a journal
+        has the word\\n'Society' in the journal title but is not actually published-for
+        or -by\\na learned society. Lots of learned societies also don't necessarily
+        call\\nthemselves a society using that \\\\_exact\\\\_ word, in English.\\nUnsurprisingly,
+        many learned societies operate in countries that use\\nlanguages other than
+        English and thus the name of the society is often\\nregistered in other languages
+        and even non-Latin script. To do a better\\njob of attempting to find all
+        the society-affiliated journals in DOAJ,\\none needs to search in a multilingual-aware
+        manner. I looked at the\\n[Wikidata item on 'learned\\nsociety'](https://www.wikidata.org/wiki/Q955824)
+        (Q955824) for\\ntrustworthy translations of the concept in other languages.\\n\\n<figure
+        class=\\\"wp-block-image size-full\\\">\\n<a\\nhref=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/12/image.png\\\"><img\\nsrc=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/12/image.png\\\"\\nclass=\\\"wp-image-2416\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/12/image.png
+        991w, https://rossmounce.co.uk/wp-content/uploads/2023/12/image-300x269.png
+        300w, https://rossmounce.co.uk/wp-content/uploads/2023/12/image-768x687.png
+        768w\\\"\\nsizes=\\\"(max-width: 991px) 100vw, 991px\\\" width=\\\"991\\\"
+        height=\\\"887\\\"\\nalt=\\\"This image is a screenshot of part of https://www.wikidata.org/wiki/Q955824
+        . It depicts a table with four columns: &#39;Language&#39; , &#39;Label&#39;
+        , &#39;Description&#39;, and &#39;Also Known as&#39;.\\\" /></a>\\n<figcaption>A
+        screenshot of part of the Wikidata item Q955824 that\\nconnects the concept
+        of \u2018learned society\u2019 between many different\\nlanguages.</figcaption>\\n</figure>\\n\\nAfter
+        casting the net wide for societies and associations, I ended up\\nfinding
+        over 1600 journals which both charge authors and readers no fees\\n(diamond)
+        AND are associated with a learned society. For transparency, I\\nhave uploaded
+        this list of society associated, diamond open access\\njournals to github\\n[here](https://github.com/rossmounce/Society-DiamondOA-Journals/blob/main/doaj-diamond-society-journals.csv).\\nEdits,
+        additions, and corrections to this dataset are very welcome.  \\n  \\nI think
+        1600 journals is more than 'a few' isn't it?\\n\\nSome interesting examples
+        of fee free, society affiliated journals are\\nshown below, just for illustration.
+        They are arbitrarily chosen by me,\\nand are not necessarily a representative
+        sample:\\n\\n<figure class=\\\"wp-block-table\\\">\\n<table>\\n<tbody>\\n<tr
+        class=\\\"odd\\\">\\n<td><strong>Journal title</strong></td>\\n<td><strong>eISSN</strong></td>\\n<td><strong>Affiliated
+        Society or Society Publisher</strong></td>\\n<td><strong>DOAJ entry</strong></td>\\n</tr>\\n<tr
+        class=\\\"even\\\">\\n<td><a href=\\\"https://pubs.acs.org/page/acscii/about.html\\\">ACS
+        Central\\nScience</a></td>\\n<td>2374-7951</td>\\n<td>American Chemical Society</td>\\n<td><a\\nhref=\\\"https://doaj.org/toc/2e87d85515c8477eb07d379c472c4050\\\">link</a></td>\\n</tr>\\n<tr
+        class=\\\"odd\\\">\\n<td><a href=\\\"https://www.mtosmt.org/\\\">Music Theory
+        Online</a></td>\\n<td>1067-3040</td>\\n<td>Society for Music Theory</td>\\n<td><a\\nhref=\\\"https://doaj.org/toc/bf3ab4cd7a9e49d49919553fe9a352f9\\\">link</a></td>\\n</tr>\\n<tr
+        class=\\\"even\\\">\\n<td><a href=\\\"https://jesi.areeo.ac.ir/?lang=en\\\">\u0646\u0627\u0645\u0647
+        \u0627\u0646\u062C\u0645\u0646 \u062D\u0634\u0631\u0647\u200C\u0634\u0646\u0627\u0633\u06CC\\n\u0627\u06CC\u0631\u0627\u0646</a></td>\\n<td>2783-3968</td>\\n<td>Entomological
+        Society of Iran</td>\\n<td><a\\nhref=\\\"https://doaj.org/toc/e848193c070d4422b95299e1da5b0107\\\">link</a></td>\\n</tr>\\n<tr
+        class=\\\"odd\\\">\\n<td><a href=\\\"http://ojrs.abvpress.ru/\\\">\u041E\u043F\u0443\u0445\u043E\u043B\u0438
+        \u0436\u0435\u043D\u0441\u043A\u043E\u0439 \u0440\u0435\u043F\u0440\u043E\u0434\u0443\u043A\u0442\u0438\u0432\u043D\u043E\u0439\\n\u0441\u0438\u0441\u0442\u0435\u043C\u044B</a></td>\\n<td>1999-8627</td>\\n<td>Russian
+        Breast Cancer Society</td>\\n<td><a\\nhref=\\\"https://doaj.org/toc/7e12795d6ed941779057c342b2caf978\\\">link</a></td>\\n</tr>\\n<tr
+        class=\\\"even\\\">\\n<td><a\\nhref=\\\"https://journals.library.ualberta.ca/vamp/index.php/VAMP/about\\\">Vertebrate\\nAnatomy
+        Morphology Palaeontology\_</a></td>\\n<td>2292-1389</td>\\n<td>Canadian Society
+        of Vertebrate Palaeontology</td>\\n<td><a\\nhref=\\\"https://doaj.org/toc/a9ed2969253c48af9e3eb0e7e8876778\\\">link</a></td>\\n</tr>\\n<tr
+        class=\\\"odd\\\">\\n<td><a href=\\\"https://tjh.com.tr/\\\">Turkish Journal
+        of Hematology</a></td>\\n<td>1308-5263</td>\\n<td>Turkish Society of Hematology</td>\\n<td><a\\nhref=\\\"https://doaj.org/toc/7e6eeb4ca94942258e28cd388af24fcf\\\">link</a></td>\\n</tr>\\n<tr
+        class=\\\"even\\\">\\n<td><a href=\\\"https://tehj.springeropen.com/about\\\">The
+        Egyptian Heart\\nJournal</a></td>\\n<td>2090-911X</td>\\n<td>Egyptian Society
+        of Cardiology</td>\\n<td><a\\nhref=\\\"https://doaj.org/toc/15d4abc26f90470c9121dbe9a24d1a68\\\">link</a></td>\\n</tr>\\n<tr
+        class=\\\"odd\\\">\\n<td><a href=\\\"https://rbmfc.org.br/rbmfc/about\\\">Revista
+        Brasileira de\\nMedicina de Fam\xEDlia e Comunidade</a></td>\\n<td>2179-7994</td>\\n<td>Sociedade
+        Brasileira de Medicina de Fam\xEDlia e Comunidade</td>\\n<td><a\\nhref=\\\"https://doaj.org/toc/46fd7fe00e24473cb2eca582b5af2ff1\\\">link</a></td>\\n</tr>\\n<tr
+        class=\\\"even\\\">\\n<td><a href=\\\"https://tahiti.journal.fi/\\\">TaHiTi</a></td>\\n<td>2242-0665</td>\\n<td>Society
+        for Art History in Finland</td>\\n<td><a\\nhref=\\\"https://doaj.org/toc/ebcca7e161304644ac390586a263fec2\\\">link</a></td>\\n</tr>\\n<tr
+        class=\\\"odd\\\">\\n<td><a href=\\\"https://sciendo.com/journal/SJS\\\">Swiss
+        Journal of\\nSociology</a></td>\\n<td>2297-8348</td>\\n<td>Swiss Sociological
+        Association</td>\\n<td><a\\nhref=\\\"https://doaj.org/toc/998bdd6fa50445b791a63c0429535b91\\\">link</a></td>\\n</tr>\\n<tr
+        class=\\\"even\\\">\\n<td><a\\nhref=\\\"https://www.rsc.org/journals-books-databases/about-journals/chemical-science/\\\">Chemical\\nScience</a></td>\\n<td>2041-6539</td>\\n<td>The
+        Royal Society of Chemistry</td>\\n<td><a\\nhref=\\\"https://doaj.org/toc/7b1c63ee2d884434831a1e6dab357170\\\">link</a></td>\\n</tr>\\n<tr
+        class=\\\"odd\\\">\\n<td><a href=\\\"https://bioj-online.com/\\\">British
+        and Irish Orthoptic\\nJournal</a></td>\\n<td>2516-3590</td>\\n<td>British
+        and Irish Orthoptic Society</td>\\n<td><a\\nhref=\\\"https://doaj.org/toc/b694c82086f0461789516b2161edf829\\\">link</a></td>\\n</tr>\\n</tbody>\\n</table>\\n</figure>\\n\\nI
+        hope to be writing a lot more about diamond open access over the\\ncoming
+        months...\\n\",\"doi\":\"https://doi.org/10.59350/b66bh-pkd46\",\"guid\":\"https://rossmounce.co.uk/?p=2414\",\"id\":\"6b0456e9-864a-4c43-90de-cb706a508940\",\"image\":\"https://rossmounce.co.uk/wp-content/uploads/2023/12/image.png\",\"language\":\"en\",\"published_at\":1701442289,\"reference\":[],\"relationships\":[],\"summary\":\"To
+        seek an answer to the question posed in the title, I sought out reliable data
+        on open access journals. My first port of call was the Directory of Open Access
+        Journals (DOAJ). Although DOAJ certainly isn\u2019t a complete listing of
+        open access journals, as is well documented in \u2018The OA Diamond Journals
+        Study\u2018 (2021), it will at least help provide a minimum bound answer to
+        the question.\\n\",\"tags\":[\"Diamond Open Access\",\"DiamondOA\",\"DOAJ\",\"Learned
+        Societies\",\"Myth Busting\"],\"title\":\"How many learned societies publish
+        Diamond Open Access journals?\",\"updated_at\":1701457198,\"url\":\"https://rossmounce.co.uk/2023/12/01/how-many-learned-societies-publish-diamond-open-access-journals\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Ross
+        Mounce\"}],\"blog_id\":\"vbmdy90\",\"blog_name\":\"A blog by Ross Mounce\",\"blog_slug\":\"rossmounce\",\"category\":\"naturalSciences\",\"content_html\":\"\\n<p>As
+        you may have seen in the <a href=\\\"https://www.theguardian.com/technology/2023/nov/22/personal-data-stolen-in-british-library-cyber-attack-appears-for-sale-online\\\">news</a>,
+        the British Library has been affected by a significant cyberattack. Many of
+        the digital services it provides have gone down and stayed down for many weeks
+        now, whilst investigations take place. I have a lot of sympathy for the BL
+        staff. As has been <a href=\\\"https://hcommons.social/@mia/111483661298025928\\\">observed</a>,
+        public services can be a relatively easy target.  </p>\\n\\n\\n\\n<p>Two of
+        the very wide variety of digital services that the BL provide, that I have
+        a particular interest in are:</p>\\n\\n\\n\\n<p>a) the ISSN National Centre
+        for the UK: <a href=\\\"https://www.bl.uk/bibliographic/issn.html\\\">https://www.bl.uk/bibliographic/issn.html</a><br>b)
+        the E-Theses Online Service (EThOS): <a href=\\\"http://ethos.bl.uk/\\\">http://ethos.bl.uk/</a>
+        </p>\\n\\n\\n\\n<p>Both of these services, and many others (do we even know
+        how many?) are still offline at the time of writing this (2023-11-30). I can
+        probably live without registering a new ISSN, that can wait. But what about
+        access to my PhD thesis? I want people to be able to read this. Is it still
+        available online anywhere? </p>\\n\\n\\n\\n<p>My thesis EThOS ID is: uk.bl.ethos.64202
+        . In more normal times it would be publicly available via this link: <a href=\\\"https://ethos.bl.uk/OrderDetails.do?uin=uk.bl.ethos.642022\\\">https://ethos.bl.uk/OrderDetails.do?uin=uk.bl.ethos.642022</a>
+        <br><br>Fortunately, because I retained my rights to it, my thesis is openly-licensed
+        under a Creative Commons Attribution 4.0 licence, and copies of it can be
+        uploaded wherever I want. As a consequence, my thesis is also available from
+        the <a href=\\\"https://researchportal.bath.ac.uk/en/studentTheses/comparative-cladistics-fossils-morphological-data-partitions-and-\\\">University
+        of Bath institutional repository</a>, <a href=\\\"https://doi.org/10.31237/osf.io/7sa6d\\\">Thesis
+        Commons</a>. , <a href=\\\"https://core.ac.uk/download/pdf/161921158.pdf\\\">CORE</a>,
+        and the <a href=\\\"https://scholar.archive.org/work/cdbjkgebvbapvdj6bz722wxvd4/access/wayback/https://files.osf.io/v1/resources/7sa6d/providers/osfstorage/5993099b9ad5a10274e1ba01?action=download&amp;direct&amp;version=1\\\">Internet
+        Archive</a>. Even if one or two of these repositories goes down, it&#8217;s
+        highly likely that my thesis will always be accessible from somewhere on the
+        internet 24/7, no matter what. Posting content in multiple independently-run
+        places gives others access to that content in a highly <em>resilient</em>
+        way. It is also worth mentioning, there is a <a href=\\\"https://doi.org/10.1177/0165551510389358\\\">study</a>
+        suggesting that OA content made available in multiple places gets cited more
+        than OA content only available in one place.</p>\\n\\n\\n\\n<figure class=\\\"wp-block-image
+        size-full\\\"><a href=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/WileyDown-1.jpg\\\"><img
+        loading=\\\"lazy\\\" decoding=\\\"async\\\" width=\\\"680\\\" height=\\\"263\\\"
+        src=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/WileyDown-1.jpg\\\"
+        alt=\\\"\\\" class=\\\"wp-image-2407\\\" srcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/WileyDown-1.jpg
+        680w, https://rossmounce.co.uk/wp-content/uploads/2023/11/WileyDown-1-300x116.jpg
+        300w\\\" sizes=\\\"(max-width: 680px) 100vw, 680px\\\" /></a></figure>\\n\\n\\n\\n<p>This
+        got me thinking again about the major &#8216;Atyponocalypse&#8217; downtime
+        event of 17th December 2020. Do you remember it? I certainly do (the screenshot
+        above is from that event). The journal hosting platforms of SAGE, ACS Publications,
+        Wiley, Taylor &amp; Francis and many others all simultaneously went offline
+        for roughly a 24 hour period because of an error at <a href=\\\"https://en.wikipedia.org/wiki/Atypon\\\">Atypon</a>,
+        the publishing platform that many different legacy publishers use. It was
+        unprecedented. People were rightly going nuts about it. Huge swathes of important
+        knowledge were made almost completely digitally unavailable, worldwide. I
+        like how <a href=\\\"https://twitter.com/brie_marina/status/1339566698408669185\\\">Brie</a>
+        put it, at the time:<br><br>&#8220;One day left for student finals and Wiley&#8217;s
+        (AnthroSource, etc) sites are all down for maintenance. What are the upsides
+        to mergers and consolidations of academic knowledge again?&#8221;<br><br>&#8220;1,600
+        journals and 22,000 books unavailable with <a href=\\\"https://twitter.com/hashtag/WileyDown?src=hashtag_click\\\">#WileyDown</a>&#8221;
+        (and that was the numbers for just <em>one</em> publisher)</p>\\n\\n\\n\\n<p>The
+        interesting thing about the Atypon 2020 downtime event was that for much of
+        the content affected, there was no alternative, legal platform hosting the
+        content in parallel.  Nor could people put online temporary copies to help
+        students and researchers access the content they urgently needed &#8211; because
+        of the copyright restrictions on that content. Many of the legacy publishers,
+        for their paywalled journals (only), still have this major single-point-of-failure
+        weakness.</p>\\n\\n\\n\\n<p>But open access content does NOT suffer these
+        weaknesses.<br><br>As I allude to in the title of this post. The key differentiators
+        here in open access systems, that make open access more resilient to downtime
+        overall are a) availability on multiple independent platforms and b) open
+        licencing that makes it legally easier to host content in multiple places.</p>\\n\\n\\n\\n<p>Tools
+        such as Google Scholar, <a href=\\\"https://openalex.org/\\\">OpenAlex</a>,
+        and <a href=\\\"https://www.base-search.net/\\\">BASE</a> can signpost the
+        way to where these alternative copies live. Research can stay openly accessible
+        24/7, 365 days a year, if only we let it be openly-licensed and thus easy
+        to host on multiple platforms.  </p>\\n\\n\\n\\n<p>Even if individual repositories
+        or open access publishers (e.g. <a href=\\\"https://scholarlykitchen.sspnet.org/2023/09/07/shared-infrastructure-downtime-michigan/\\\">Michigan</a>
+        recently) experience some downtime through cyberattacks or &#8216;unplanned
+        maintainence&#8217;, the global collective network of repositories can ensure
+        that the scholarship remains accessible 24/7, albeit in different locations.
+        \ <strong>The next time you see a paywalled journal experiencing some significant
+        downtime, please let me know.</strong> I think there are some very interesting
+        natural obervation experiments that could be done around these events to tease
+        out the differences in impact between open-licensed and &#8216;all rights
+        reserved&#8217; content.  Does anyone maintain a wiki or database of major
+        downtime events at academic publishers? There have been quite a few already&#8230;</p>\\n\\n\\n\\n<figure
+        class=\\\"wp-block-image size-large\\\"><a href=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1.png\\\"><img
+        loading=\\\"lazy\\\" decoding=\\\"async\\\" width=\\\"1024\\\" height=\\\"716\\\"
+        src=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1-1024x716.png\\\"
+        alt=\\\"\\\" class=\\\"wp-image-2410\\\" srcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1-1024x716.png
+        1024w, https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1-300x210.png
+        300w, https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1-768x537.png
+        768w, https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1.png 1163w\\\"
+        sizes=\\\"(max-width: 1024px) 100vw, 1024px\\\" /></a><figcaption class=\\\"wp-element-caption\\\">A
+        screenshot of the <a href=\\\"https://scholar.google.co.uk/scholar?cluster=10676069958217952836&amp;hl=en&amp;as_sdt=0,5\\\">Google
+        Scholar page</a> which links to the many different places in which copies
+        of my openly-licensed PhD thesis is openly available from. Yay for multiple
+        availability!</figcaption></figure>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<p></p>\\n\",\"content_text\":\"As
+        you may have seen in the\\n[news](https://www.theguardian.com/technology/2023/nov/22/personal-data-stolen-in-british-library-cyber-attack-appears-for-sale-online),\\nthe
+        British Library has been affected by a significant cyberattack. Many\\nof
+        the digital services it provides have gone down and stayed down for\\nmany
+        weeks now, whilst investigations take place. I have a lot of\\nsympathy for
+        the BL staff. As has been\\n[observed](https://hcommons.social/@mia/111483661298025928),
+        public\\nservices can be a relatively easy target.\\n\\nTwo of the very wide
+        variety of digital services that the BL provide,\\nthat I have a particular
+        interest in are:\\n\\na\\\\) the ISSN National Centre for the UK:\\n<https://www.bl.uk/bibliographic/issn.html>
+        \ \\nb) the E-Theses Online Service (EThOS): <http://ethos.bl.uk/>\\n\\nBoth
+        of these services, and many others (do we even know how many?) are\\nstill
+        offline at the time of writing this (2023-11-30). I can probably\\nlive without
+        registering a new ISSN, that can wait. But what about\\naccess to my PhD thesis?
+        I want people to be able to read this. Is it\\nstill available online anywhere?\\n\\nMy
+        thesis EThOS ID is: uk.bl.ethos.64202 . In more normal times it would\\nbe
+        publicly available via this link:\\n<https://ethos.bl.uk/OrderDetails.do?uin=uk.bl.ethos.642022>
+        \ \\n  \\nFortunately, because I retained my rights to it, my thesis is\\nopenly-licensed
+        under a Creative Commons Attribution 4.0 licence, and\\ncopies of it can be
+        uploaded wherever I want. As a consequence, my\\nthesis is also available
+        from the [University of Bath institutional\\nrepository](https://researchportal.bath.ac.uk/en/studentTheses/comparative-cladistics-fossils-morphological-data-partitions-and-),\\n[Thesis
+        Commons](https://doi.org/10.31237/osf.io/7sa6d). ,\\n[CORE](https://core.ac.uk/download/pdf/161921158.pdf),
+        and the [Internet\\nArchive](https://scholar.archive.org/work/cdbjkgebvbapvdj6bz722wxvd4/access/wayback/https://files.osf.io/v1/resources/7sa6d/providers/osfstorage/5993099b9ad5a10274e1ba01?action=download&direct&version=1).\\nEven
+        if one or two of these repositories goes down, it's highly likely\\nthat my
+        thesis will always be accessible from somewhere on the internet\\n24/7, no
+        matter what. Posting content in multiple independently-run\\nplaces gives
+        others access to that content in a highly *resilient* way.\\nIt is also worth
+        mentioning, there is a\\n[study](https://doi.org/10.1177/0165551510389358)
+        suggesting that OA\\ncontent made available in multiple places gets cited
+        more than OA\\ncontent only available in one place.\\n\\n<figure class=\\\"wp-block-image
+        size-full\\\">\\n<a\\nhref=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/WileyDown-1.jpg\\\"><img\\nsrc=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/WileyDown-1.jpg\\\"\\nclass=\\\"wp-image-2407\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/WileyDown-1.jpg
+        680w, https://rossmounce.co.uk/wp-content/uploads/2023/11/WileyDown-1-300x116.jpg
+        300w\\\"\\nsizes=\\\"(max-width: 680px) 100vw, 680px\\\" width=\\\"680\\\"
+        height=\\\"263\\\" /></a>\\n</figure>\\n\\nThis got me thinking again about
+        the major 'Atyponocalypse' downtime\\nevent of 17th December 2020. Do you
+        remember it? I certainly do (the\\nscreenshot above is from that event). The
+        journal hosting platforms of\\nSAGE, ACS Publications, Wiley, Taylor & Francis
+        and many others all\\nsimultaneously went offline for roughly a 24 hour period
+        because of an\\nerror at [Atypon](https://en.wikipedia.org/wiki/Atypon), the
+        publishing\\nplatform that many different legacy publishers use. It was\\nunprecedented.
+        People were rightly going nuts about it. Huge swathes of\\nimportant knowledge
+        were made almost completely digitally unavailable,\\nworldwide. I like how\\n[Brie](https://twitter.com/brie_marina/status/1339566698408669185)
+        put\\nit, at the time:  \\n  \\n\\\"One day left for student finals and Wiley's
+        (AnthroSource, etc) sites\\nare all down for maintenance. What are the upsides
+        to mergers and\\nconsolidations of academic knowledge again?\\\"  \\n  \\n\\\"1,600
+        journals and 22,000 books unavailable with\\n[\\\\#WileyDown](https://twitter.com/hashtag/WileyDown?src=hashtag_click)\\\"\\n(and
+        that was the numbers for just *one* publisher)\\n\\nThe interesting thing
+        about the Atypon 2020 downtime event was that for\\nmuch of the content affected,
+        there was no alternative, legal platform\\nhosting the content in parallel.
+        Nor could people put online temporary\\ncopies to help students and researchers
+        access the content they urgently\\nneeded -- because of the copyright restrictions
+        on that content. Many of\\nthe legacy publishers, for their paywalled journals
+        (only), still have\\nthis major single-point-of-failure weakness.\\n\\nBut
+        open access content does NOT suffer these weaknesses.  \\n  \\nAs I allude
+        to in the title of this post. The key differentiators here\\nin open access
+        systems, that make open access more resilient to downtime\\noverall are a)
+        availability on multiple independent platforms and b)\\nopen licencing that
+        makes it legally easier to host content in multiple\\nplaces.\\n\\nTools such
+        as Google Scholar, [OpenAlex](https://openalex.org/), and\\n[BASE](https://www.base-search.net/)
+        can signpost the way to where these\\nalternative copies live. Research can
+        stay openly accessible 24/7, 365\\ndays a year, if only we let it be openly-licensed
+        and thus easy to host\\non multiple platforms.\\n\\nEven if individual repositories
+        or open access publishers (e.g.\\n[Michigan](https://scholarlykitchen.sspnet.org/2023/09/07/shared-infrastructure-downtime-michigan/)\\nrecently)
+        experience some downtime through cyberattacks or 'unplanned\\nmaintainence',
+        the global collective network of repositories can ensure\\nthat the scholarship
+        remains accessible 24/7, albeit in different\\nlocations. **The next time
+        you see a paywalled journal experiencing some\\nsignificant downtime, please
+        let me know.** I think there are some very\\ninteresting natural obervation
+        experiments that could be done around\\nthese events to tease out the differences
+        in impact between\\nopen-licensed and 'all rights reserved' content. Does
+        anyone maintain a\\nwiki or database of major downtime events at academic
+        publishers? There\\nhave been quite a few already...\\n\\n<figure class=\\\"wp-block-image
+        size-large\\\">\\n<a\\nhref=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1.png\\\"><img\\nsrc=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1-1024x716.png\\\"\\nclass=\\\"wp-image-2410\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1-1024x716.png
+        1024w, https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1-300x210.png
+        300w, https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1-768x537.png
+        768w, https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1.png 1163w\\\"\\nsizes=\\\"(max-width:
+        1024px) 100vw, 1024px\\\" width=\\\"1024\\\"\\nheight=\\\"716\\\" /></a>\\n<figcaption>A
+        screenshot of the <a\\nhref=\\\"https://scholar.google.co.uk/scholar?cluster=10676069958217952836&amp;hl=en&amp;as_sdt=0,5\\\">Google\\nScholar
+        page</a> which links to the many different places in which\\ncopies of my
+        openly-licensed PhD thesis is openly available from. Yay\\nfor multiple availability!</figcaption>\\n</figure>\\n\",\"doi\":\"https://doi.org/10.59350/psmbr-f6p84\",\"guid\":\"https://rossmounce.co.uk/?p=2402\",\"id\":\"cd1768c2-b5bf-41b2-a512-4ef4328f0aa8\",\"image\":\"https://rossmounce.co.uk/wp-content/uploads/2023/11/WileyDown-1.jpg\",\"language\":\"en\",\"published_at\":1701353503,\"reference\":[],\"relationships\":[],\"summary\":\"As
+        you may have seen in the news, the British Library has been affected by a
+        significant cyberattack. Many of the digital services it provides have gone
+        down and stayed down for many weeks now, whilst investigations take place.
+        I have a lot of sympathy for the BL staff. As has been observed, public services
+        can be a relatively easy target.\\n\",\"tags\":[\"Panton Fellowship Updates\",\"Benefits
+        Of Open\",\"Downtime\",\"Open Access\",\"Resilience\"],\"title\":\"Resilience:
+        another advantage of openly-licensed content\",\"updated_at\":1701353505,\"url\":\"https://rossmounce.co.uk/2023/11/30/resilience-another-advantage-of-openly-licensed-content\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Ross
+        Mounce\"}],\"blog_id\":\"vbmdy90\",\"blog_name\":\"A blog by Ross Mounce\",\"blog_slug\":\"rossmounce\",\"category\":\"naturalSciences\",\"content_html\":\"\\n<p>This
+        is just a quick post of appreciation for <a href=\\\"https://rr.peercommunityin.org/\\\">PCI
+        Registered Reports</a>. I&#8217;ve recently joined the PCI RR community as
+        a &#8216;<a href=\\\"https://rr.peercommunityin.org/about/recommenders\\\">recommender</a>&#8216;.
+        </p>\\n\\n\\n\\n<figure class=\\\"wp-block-image size-full\\\"><a href=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image.png\\\"><img
+        loading=\\\"lazy\\\" decoding=\\\"async\\\" width=\\\"259\\\" height=\\\"194\\\"
+        src=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image.png\\\"
+        alt=\\\"\\\" class=\\\"wp-image-2279\\\"/></a></figure>\\n\\n\\n\\n<p><br>One
+        thing that spurred me to join is a rather unsatisfactory experience I had
+        as a peer-reviewer, reviewing a manuscript where the experimental design was
+        deeply insufficient. I won&#8217;t reveal for which open access journal I
+        reviewed, or the full content of my peer review report but the gist of it
+        was (quoting from my report, my words):</p>\\n\\n\\n\\n<blockquote class=\\\"wp-block-quote\\\">\\n<p><em>&#8220;&#8230;this
+        [name of OA journal redacted] manuscript has an inadequate sample size to
+        draw conclusions from. Sampling only 152 journals out of a total population
+        of ~4594 SCIE-indexed biology journals, equates to just a 3.3% sample size
+        (152/4594). I see no reason why the authors couldn\u2019t have taken at least
+        a 10% sample (over 459 journals). Prior work on open access citation advantage
+        such as Ghane et al (2020) did their work on a sample of 1881 journals indexed
+        in DOAJ (DOAJ at the time indexed a total of ~11,000 journals; Ghane et al
+        (2020) achieved a greater than 10% sample size).</em></p>\\n\\n\\n\\n<p><em>Furthermore,
+        the choice of how which journals were sampled was by their own account in
+        a non-random and arbitrary manner. Students merely _chose_ a journal to download
+        data on. This is highly subjective and prone to bias. As an example of one
+        possible bias introduced: if I were a student, I might be tempted to choose
+        a journal with a low article volume so that it would be less work/time to
+        complete the assignment&#8230;&#8221;</em></p>\\n<cite>Ross Mounce (2023)</cite></blockquote>\\n\\n\\n\\n<p>TL;DR
+        the experimental design was deeply flawed. Although I appreciate the authors
+        put a lot of work into it, the conclusions of their work were just not valid,
+        given the problems of their experimental design. </p>\\n\\n\\n\\n<p>The experience
+        as a reviewer was like arriving at the scene of a car crash six months too
+        late to stop the accident. To change this piece of work into one with an acceptable
+        experimental design at this point would be a LOT of new work and might require
+        throwing away much of the existing data. </p>\\n\\n\\n\\n<p>It&#8217;s clear
+        to me that a lot of researchers are now trying their hand at metaresearch,
+        research on research, journalology, and open access studies &#8212; whatever
+        you call it. That&#8217;s great. But I implore folks to seriously consider
+        getting their experimental design peer-reviewed BEFORE they start their study,
+        and <em>PCI Registered Reports</em> is one of the communities that will provide
+        that service for you, for free! </p>\\n\\n\\n\\n<p>I would love to see more
+        stage 1 registered reports in metaresearch, to catch improperly designed studies
+        before they get carried out, written-up, and submitted. Reducing research
+        waste AND increasing the quality of research that ends-up getting published
+        &#8212; what&#8217;s not to like? It might save you a lot of anguish.</p>\\n\",\"content_text\":\"This
+        is just a quick post of appreciation for [PCI Registered\\nReports](https://rr.peercommunityin.org/).
+        I've recently joined the PCI\\nRR community as a\\n'[recommender](https://rr.peercommunityin.org/about/recommenders)'.\\n\\n<figure
+        class=\\\"wp-block-image size-full\\\">\\n<a\\nhref=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image.png\\\"><img\\nsrc=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image.png\\\"\\nclass=\\\"wp-image-2279\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\" width=\\\"259\\\"\\nheight=\\\"194\\\"
+        /></a>\\n</figure>\\n\\n  \\nOne thing that spurred me to join is a rather
+        unsatisfactory experience\\nI had as a peer-reviewer, reviewing a manuscript
+        where the experimental\\ndesign was deeply insufficient. I won't reveal for
+        which open access\\njournal I reviewed, or the full content of my peer review
+        report but the\\ngist of it was (quoting from my report, my words):\\n\\n>
+        *\\\"...this \\\\[name of OA journal redacted\\\\] manuscript has an inadequate\\n>
+        sample size to draw conclusions from. Sampling only 152 journals out\\n> of
+        a total population of \\\\~4594 SCIE-indexed biology journals, equates\\n>
+        to just a 3.3% sample size (152/4594). I see no reason why the authors\\n>
+        couldn't have taken at least a 10% sample (over 459 journals). Prior\\n> work
+        on open access citation advantage such as Ghane et al (2020) did\\n> their
+        work on a sample of 1881 journals indexed in DOAJ (DOAJ at the\\n> time indexed
+        a total of \\\\~11,000 journals; Ghane et al (2020) achieved\\n> a greater
+        than 10% sample size).*\\n>\\n> *Furthermore, the choice of how which journals
+        were sampled was by\\n> their own account in a non-random and arbitrary manner.
+        Students\\n> merely \\\\_chose\\\\_ a journal to download data on. This is
+        highly\\n> subjective and prone to bias. As an example of one possible bias\\n>
+        introduced: if I were a student, I might be tempted to choose a\\n> journal
+        with a low article volume so that it would be less work/time\\n> to complete
+        the assignment...\\\"*\\n>\\n> Ross Mounce (2023)\\n\\nTL;DR the experimental
+        design was deeply flawed. Although I appreciate\\nthe authors put a lot of
+        work into it, the conclusions of their work\\nwere just not valid, given the
+        problems of their experimental design.\\n\\nThe experience as a reviewer was
+        like arriving at the scene of a car\\ncrash six months too late to stop the
+        accident. To change this piece of\\nwork into one with an acceptable experimental
+        design at this point would\\nbe a LOT of new work and might require throwing
+        away much of the\\nexisting data.\\n\\nIt's clear to me that a lot of researchers
+        are now trying their hand at\\nmetaresearch, research on research, journalology,
+        and open access\\nstudies --- whatever you call it. That's great. But I implore
+        folks to\\nseriously consider getting their experimental design peer-reviewed\\nBEFORE
+        they start their study, and *PCI Registered Reports* is one of\\nthe communities
+        that will provide that service for you, for free!\\n\\nI would love to see
+        more stage 1 registered reports in metaresearch, to\\ncatch improperly designed
+        studies before they get carried out,\\nwritten-up, and submitted. Reducing
+        research waste AND increasing the\\nquality of research that ends-up getting
+        published --- what's not to\\nlike? It might save you a lot of anguish.\\n\",\"doi\":\"https://doi.org/10.59350/dy0m6-g3170\",\"guid\":\"https://rossmounce.co.uk/?p=2278\",\"id\":\"fb067113-7046-4cfc-8a1b-a8cf6246eaef\",\"image\":\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image.png\",\"language\":\"en\",\"published_at\":1700434867,\"reference\":[],\"relationships\":[],\"summary\":\"This
+        is just a quick post of appreciation for PCI Registered Reports. I\u2019ve
+        recently joined the PCI RR community as a \u2018recommender\u2018.    One
+        thing that spurred me to join is a rather unsatisfactory experience I had
+        as a peer-reviewer, reviewing a manuscript where the experimental design was
+        deeply insufficient.\\n\",\"tags\":[\"Generation Open\",\"Open Access\",\"Open
+        Science\",\"Experimental Design\",\"Metaresearch\"],\"title\":\"Kudos to PCI
+        Registered Reports\",\"updated_at\":1701011881,\"url\":\"https://rossmounce.co.uk/2023/11/19/kudos-to-pci-registered-reports\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Ross
+        Mounce\"}],\"blog_id\":\"vbmdy90\",\"blog_name\":\"A blog by Ross Mounce\",\"blog_slug\":\"rossmounce\",\"category\":\"naturalSciences\",\"content_html\":\"\\n<p>&#8220;In
+        statistics, a central tendency (or measure of central tendency) is a central
+        or typical value for a probability distribution. Colloquially, measures of
+        central tendency are often called averages. The most common measures of central
+        tendency are the&nbsp;<a href=\\\"https://en.wikipedia.org/wiki/Arithmetic_mean\\\">arithmetic
+        mean</a>, the&nbsp;<a href=\\\"https://en.wikipedia.org/wiki/Median\\\">median</a>,
+        and the&nbsp;<a href=\\\"https://en.wikipedia.org/wiki/Mode_(statistics)\\\">mode</a>.&#8221;
+        &#8212; <a href=\\\"https://en.wikipedia.org/wiki/Central_tendency\\\" data-type=\\\"URL\\\"
+        data-id=\\\"https://en.wikipedia.org/wiki/Central_tendency\\\">Wikipedia</a>.</p>\\n\\n\\n\\n<p>In
+        the UK, we teach school kids how to calculate the mean, median, and mode <a
+        href=\\\"https://home.oxfordowl.co.uk/maths/primary-statistics/statistics-year-6-age-10-11/\\\"
+        data-type=\\\"URL\\\" data-id=\\\"https://home.oxfordowl.co.uk/maths/primary-statistics/statistics-year-6-age-10-11/\\\">in
+        Year 6</a> (kids aged 10-11), it&#8217;s simple stuff.</p>\\n\\n\\n\\n<p>If
+        your data is normally distributed then the mean is an appropriate measure
+        of central tendency to describe your data. However, if your data has significant
+        <a href=\\\"https://en.wikipedia.org/wiki/Skewness\\\" data-type=\\\"URL\\\"
+        data-id=\\\"https://en.wikipedia.org/wiki/Skewness\\\">skew</a> and/or big
+        outliers then it is not considered appropriate to report the mean, and instead
+        one should use the median or mode.</p>\\n\\n\\n\\n<p>You&#8217;ll see this
+        advice in countless stats textbooks and websites e.g. </p>\\n\\n\\n\\n<p>&#8220;<strong>In
+        a strongly skewed distribution, what is the best indicator of central tendency?</strong><br>It
+        is usually inappropriate to use the mean in such situations where your data
+        is skewed. You would normally choose the median or mode, with the median usually
+        preferred.&#8221; &#8212; from <a href=\\\"https://statistics.laerd.com/statistical-guides/measures-central-tendency-mean-mode-median-faqs.php\\\"
+        data-type=\\\"URL\\\" data-id=\\\"https://statistics.laerd.com/statistical-guides/measures-central-tendency-mean-mode-median-faqs.php\\\">Laerd
+        Statistics</a>.</p>\\n\\n\\n\\n<p>In the <a href=\\\"https://online.stat.psu.edu/stat200/lesson/2/2.2/2.2.4/2.2.4.1\\\"
+        data-type=\\\"URL\\\" data-id=\\\"https://online.stat.psu.edu/stat200/lesson/2/2.2/2.2.4/2.2.4.1\\\">Penn
+        State &#8220;Elementary Statistics&#8221; course</a> they teach that: &#8220;For
+        distributions that have outliers or are skewed, the median is often the preferred
+        measure of central tendency because the median is more&nbsp;resistant&nbsp;to
+        outliers than&nbsp;the mean.&#8221;</p>\\n\\n\\n\\n<p>In the SpringerNature
+        \u201Cwhite paper\u201D titled \u201C<a href=\\\"https://www.springernature.com/gp/open-research/journals-books/journals/going-for-gold-reach-and-impact\\\">Going
+        for gold: exploring the reach and impact of Gold open access articles in hybrid
+        journals</a>\u201D by Christina Emery, Mithu Lucraft, Jessica Monaghan, David
+        Stuart, and Susie Winter, the authors examine the distribution of citations
+        to 60,567 individual articles within 1,262 of Springer Nature&#8217;s &#8216;hybrid&#8217;
+        journals. To help understand the central tendency or &#8216;average&#8217;
+        of citations accrued to articles, the authors of this report frequently chose
+        to refer-to and display means. The main figures of the paper (figures 1, 2,
+        and 3) are particularly peculiar as they are bar chart style comparisons of
+        means and model predictions.</p>\\n\\n\\n\\n<figure class=\\\"wp-block-image
+        size-large\\\"><a href=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/figure1paper.png\\\"><img
+        loading=\\\"lazy\\\" decoding=\\\"async\\\" width=\\\"1024\\\" height=\\\"508\\\"
+        src=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/figure1paper-1024x508.png\\\"
+        alt=\\\"Figure 1 from the SpringerNature whitepaper \u201CGoing for gold:
+        exploring the reach and impact of Gold open access articles in hybrid journals\u201D
+        by Christina Emery, Mithu Lucraft, Jessica Monaghan, David Stuart, and Susie
+        Winter \\\" class=\\\"wp-image-2245\\\" srcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/figure1paper-1024x508.png
+        1024w, https://rossmounce.co.uk/wp-content/uploads/2021/11/figure1paper-300x149.png
+        300w, https://rossmounce.co.uk/wp-content/uploads/2021/11/figure1paper-768x381.png
+        768w, https://rossmounce.co.uk/wp-content/uploads/2021/11/figure1paper.png
+        1337w\\\" sizes=\\\"(max-width: 1024px) 100vw, 1024px\\\" /></a><figcaption><em>(image
+        caption for the figure immediately above) Reproduction of figure 1 from the
+        Springer Nature produced, not-peer-reviewed &#8220;white paper&#8221; titled
+        \u201C<a href=\\\"https://www.springernature.com/gp/open-research/journals-books/journals/going-for-gold-reach-and-impact\\\">Going
+        for gold: exploring the reach and impact of Gold open access articles in hybrid
+        journals</a>\u201D by Christina Emery, Mithu Lucraft, Jessica Monaghan, David
+        Stuart, and Susie Winter. This work is available for re-use under a <a href=\\\"https://creativecommons.org/licenses/by/4.0/\\\"
+        data-type=\\\"URL\\\" data-id=\\\"https://creativecommons.org/licenses/by/4.0/\\\">Creative
+        Commons Attribution License 4.0</a>, copyright of Emery et al.</em></figcaption></figure>\\n\\n\\n\\n<p><strong>Figure
+        1, Figure 2, and Figure 3 are all textbook examples of misleading statistical
+        malpractice</strong>. Beneath the misleading choice of presentation what we
+        have in Figure 1 is a comparison between the number of citations to 60,567
+        articles published by SpringerNature, split into three categories &#8220;Non-OA&#8221;
+        , &#8220;EarlyV&#8221;, and &#8220;Gold OA&#8221;.  The &#8220;Non-OA&#8221;
+        bar represents data about 44,557 articles, the &#8220;EarlyV&#8221; bar represents
+        data about 8,350 articles, and the &#8220;Gold OA&#8221; bar represents data
+        about 7,660 articles. Let&#8217;s have a look at the actual data shall we?
+        Below are my histogram frequency density plots of the citation distributions
+        for each of SpringerNature&#8217;s categories; &#8220;Non-OA&#8221; , &#8220;EarlyV&#8221;
+        , and &#8220;Gold OA&#8221; :</p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<figure class=\\\"wp-block-image
+        size-full\\\"><a href=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/NonOA-histo.png\\\"><img
+        loading=\\\"lazy\\\" decoding=\\\"async\\\" width=\\\"539\\\" height=\\\"406\\\"
+        src=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/NonOA-histo.png\\\"
+        alt=\\\"\\\" class=\\\"wp-image-2251\\\" srcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/NonOA-histo.png
+        539w, https://rossmounce.co.uk/wp-content/uploads/2021/11/NonOA-histo-300x226.png
+        300w\\\" sizes=\\\"(max-width: 539px) 100vw, 539px\\\" /></a></figure>\\n\\n\\n\\n<figure
+        class=\\\"wp-block-image size-full\\\"><a href=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/earlyV-hist.png\\\"><img
+        loading=\\\"lazy\\\" decoding=\\\"async\\\" width=\\\"539\\\" height=\\\"406\\\"
+        src=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/earlyV-hist.png\\\"
+        alt=\\\"\\\" class=\\\"wp-image-2252\\\" srcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/earlyV-hist.png
+        539w, https://rossmounce.co.uk/wp-content/uploads/2021/11/earlyV-hist-300x226.png
+        300w\\\" sizes=\\\"(max-width: 539px) 100vw, 539px\\\" /></a></figure>\\n\\n\\n\\n<figure
+        class=\\\"wp-block-image size-full\\\"><a href=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/hybridgold-hist.png\\\"><img
+        loading=\\\"lazy\\\" decoding=\\\"async\\\" width=\\\"539\\\" height=\\\"406\\\"
+        src=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/hybridgold-hist.png\\\"
+        alt=\\\"\\\" class=\\\"wp-image-2253\\\" srcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/hybridgold-hist.png
+        539w, https://rossmounce.co.uk/wp-content/uploads/2021/11/hybridgold-hist-300x226.png
+        300w\\\" sizes=\\\"(max-width: 539px) 100vw, 539px\\\" /></a></figure>\\n\\n\\n\\n<p>Full
+        disclosure: for the sake of convenience, the relatively few exceptional papers
+        with citations &gt;40 are not plotted. One thing that I hope you&#8217;ll
+        immediately notice with all three of these citation distributions is that
+        they are heavily skewed. With the help of the R package &#8216;<a href=\\\"https://cran.r-project.org/web/packages/e1071/index.html\\\"
+        data-type=\\\"URL\\\" data-id=\\\"https://cran.r-project.org/web/packages/e1071/index.html\\\">e1071</a>&#8216;
+        I calculated the skewness of each of these three distributions. For context
+        any value larger than 1, or smaller than -1 is considered indicative of a
+        strongly skewed distribution. The &#8220;Non-OA&#8221; set has a skew of 8.1,
+        the &#8220;EarlyV&#8221; set has a skew of 6.0, and the &#8220;Gold OA&#8221;
+        set has a skew of 5.4. All three citation distributions are highly skewed.
+        This level of skew is absolutely to be expected.  Per Seglen (1992) termed
+        the typical skew of journal citation distributions &#8220;<a href=\\\"https://doi.org/10.1002/(SICI)1097-4571(199210)43:9%3C628::AID-ASI5%3E3.0.CO;2-0\\\"
+        data-type=\\\"URL\\\" data-id=\\\"https://doi.org/10.1002/(SICI)1097-4571(199210)43:9%3C628::AID-ASI5%3E3.0.CO;2-0\\\">the
+        skewness of science</a>&#8220;. Any decent statistician will tell you that
+        you should not represent the central tendency of a highly skewed distribution
+        with the mean and yet this is exactly what the authors of the SN white paper
+        have chosen to do.</p>\\n\\n\\n\\n<p>A more statistically appropriate representation
+        of three distributions is to use boxplots, inter-quartile ranges, and the
+        median. Here&#8217;s how that looks (the black bar indicates the median, which
+        is 4 citations for &#8220;Non-OA&#8221; and &#8220;EarlyV&#8221; and is 6
+        citations for &#8220;Gold OA&#8221;):</p>\\n\\n\\n\\n<figure class=\\\"wp-block-image
+        size-full\\\"><a href=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/boxplots.png\\\"><img
+        loading=\\\"lazy\\\" decoding=\\\"async\\\" width=\\\"539\\\" height=\\\"406\\\"
+        src=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/boxplots.png\\\"
+        alt=\\\"\\\" class=\\\"wp-image-2255\\\" srcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/boxplots.png
+        539w, https://rossmounce.co.uk/wp-content/uploads/2021/11/boxplots-300x226.png
+        300w\\\" sizes=\\\"(max-width: 539px) 100vw, 539px\\\" /></a></figure>\\n\\n\\n\\n<p>To
+        their credit, they do display a boxplot analysis of this data but I can&#8217;t
+        help but notice that they stick it in the Appendix as Figure 4 on page 19
+        of the PDF! They choose a log-scale for the y-axis whereas here I prefer a
+        normal scale, albeit that choice means that outlier papers with &gt;30 citations
+        are not shown.  </p>\\n\\n\\n\\n<p>Am I concerned about the 2 citation difference
+        in medians, over a period of ~3 years, between &#8220;EarlyV&#8221; (Green
+        OA) and &#8220;Gold OA&#8221; (expensive hybrid gold open access at the journal)?
+        No. Why?</p>\\n\\n\\n\\n<p>1.) SN massively <a href=\\\"https://rossmounce.co.uk/2021/11/17/pricing-citation-impact-and-springer-nature-part-1/\\\"
+        data-type=\\\"URL\\\" data-id=\\\"https://rossmounce.co.uk/2021/11/17/pricing-citation-impact-and-springer-nature-part-1/\\\">cherry-picked</a>
+        their sample choosing only 38.5% of the full research articles they could
+        have otherwise included. If we add back-in the articles they chose to exclude
+        who knows what the picture will actually look like. </p>\\n\\n\\n\\n<p>2.)
+        There&#8217;s a huge unaddressed flaw in the &#8220;white paper&#8221; methodology
+        with respect to author manuscripts made publicly available at repositories.
+        <a href=\\\"https://www.springernature.com/gp/open-research/policies/journal-policies\\\"
+        data-type=\\\"URL\\\" data-id=\\\"https://www.springernature.com/gp/open-research/policies/journal-policies\\\">SpringerNature
+        hybrid journals set an &#8217;embargo&#8217; of either 6 months or 12 months
+        </a>depending on exactly which journal. Comparing the citation performance
+        of an article that was made immediately (day-0) open access at the journal
+        (their &#8220;Gold OA&#8221;), with the citation performance of an article
+        which has a parallel copy publicly available only 365 days after the publication
+        date, gives the &#8220;EarlyV&#8221; set much less time for the purported
+        open access benefit to take effect. Effectively it&#8217;s an unfair comparison
+        where the &#8220;Gold OA&#8221; set has been given an additional year or six
+        months extra to accrue citations relative to the eventual public emergence
+        of green OA author manuscripts.  But with the advent of the <a href=\\\"https://www.coalition-s.org/rights-retention-strategy/\\\"
+        data-type=\\\"URL\\\" data-id=\\\"https://www.coalition-s.org/rights-retention-strategy/\\\">Rights
+        Retention Strategy</a> whereby author manuscripts can be archived with a zero-day
+        embargo we may eventually be able to do a &#8216;fairer&#8217; analysis between
+        the citation benefit of open access provided either at the journal (&#8220;Gold&#8221;)
+        or at a repository (&#8220;Green&#8221;).</p>\\n\\n\\n\\n<p>3.) SN failed
+        to factor-in other possible biasing factors which might be co-associated with
+        &#8220;Gold OA&#8221; e.g. research funding. If grant funded research, from
+        funders with an open access policy, tends to be more highly cited than say
+        non-grant funded research, or from grant funded research from a funder that
+        does not pay for open access in hybrid journals, then that would bias the
+        results. What this result would really be demonstrating is funder choice for
+        research that tends to be more highly cited, relative to non-grant funded
+        research? </p>\\n\\n\\n\\n<p>4.) Hybrid Gold Open Access is typically priced
+        as the most expensive way possible of doing open access. Whils<a href=\\\"https://www.nature.com/articles/d41586-020-02959-1\\\"
+        data-type=\\\"URL\\\" data-id=\\\"https://www.nature.com/articles/d41586-020-02959-1\\\">t
+        the Max Planck Digital Library appears happy to pay Springer Nature $11,200
+        for some articles</a>, the rest of the world sensibly will not pay this ransom.
+        There also seems no cap on the constant above-inflation price rises of hybrid
+        OA options over time. At current prices, even for &#8216;cheaper&#8217; SN
+        hybrid journals, most research institutions simply cannot afford to pay for
+        hybrid gold open access at Springer Nature for all their articles. Even if
+        it did somehow garner a tiny citation benefit over a three year period, is
+        it worth $2780 per article? I think not.</p>\\n\\n\\n\\n<p>5.) Fully open
+        access journals of which <a href=\\\"https://doaj.org/\\\" data-type=\\\"URL\\\"
+        data-id=\\\"https://doaj.org/\\\">there are over 17,000 listed at DOAJ</a>
+        are typically both lower in price and often higher in citation performance
+        per article as I demonstrated with <em>SciPost Physics</em> in <a href=\\\"https://rossmounce.co.uk/2021/11/17/pricing-citation-impact-and-springer-nature-part-1/\\\"
+        data-type=\\\"URL\\\" data-id=\\\"https://rossmounce.co.uk/2021/11/17/pricing-citation-impact-and-springer-nature-part-1/\\\">Part
+        1 of this series</a>.<br><br>All that SpringerNature have demonstrated with
+        their white paper is alarming statistical illiteracy, and a lack of reproducibility
+        and transparency. Given how popular measures like Clarivate&#8217;s Journal
+        Impact Factor are (which is also calculated in a <a href=\\\"http://occamstypewriter.org/scurry/2012/08/13/sick-of-impact-factors/\\\"
+        data-type=\\\"URL\\\" data-id=\\\"http://occamstypewriter.org/scurry/2012/08/13/sick-of-impact-factors/\\\">statistically
+        illiterate wa</a>y), perhaps SpringerNature just decided to run with it anyway,
+        despite the methodological and statistical wrongness? As SPARC notes, the
+        lead author of the report is <a href=\\\"https://sparcopen.org/news/2021/trampling-on-green-in-a-rush-for-gold/\\\"
+        data-type=\\\"URL\\\" data-id=\\\"https://sparcopen.org/news/2021/trampling-on-green-in-a-rush-for-gold/\\\">SN\u2019s
+        Senior Marketing Manager</a> &#8211; this &#8220;white paper&#8221; is pure
+        marketing, not rigorous research.   </p>\\n\",\"content_text\":\"\\\"In statistics,
+        a central tendency (or measure of central tendency) is a\\ncentral or typical
+        value for a probability distribution. Colloquially,\\nmeasures of central
+        tendency are often called averages. The most common\\nmeasures of central
+        tendency are the\_[arithmetic\\nmean](https://en.wikipedia.org/wiki/Arithmetic_mean),\\nthe\_[median](https://en.wikipedia.org/wiki/Median),
+        and\\nthe\_[mode](https://en.wikipedia.org/wiki/Mode_(statistics)).\\\" ---\\n[Wikipedia](https://en.wikipedia.org/wiki/Central_tendency){data-type=\\\"URL\\\"\\ndata-id=\\\"https://en.wikipedia.org/wiki/Central_tendency\\\"}.\\n\\nIn
+        the UK, we teach school kids how to calculate the mean, median, and\\nmode
+        [in Year\\n6](https://home.oxfordowl.co.uk/maths/primary-statistics/statistics-year-6-age-10-11/){data-type=\\\"URL\\\"\\ndata-id=\\\"https://home.oxfordowl.co.uk/maths/primary-statistics/statistics-year-6-age-10-11/\\\"}\\n(kids
+        aged 10-11), it's simple stuff.\\n\\nIf your data is normally distributed
+        then the mean is an appropriate\\nmeasure of central tendency to describe
+        your data. However, if your data\\nhas significant\\n[skew](https://en.wikipedia.org/wiki/Skewness){data-type=\\\"URL\\\"\\ndata-id=\\\"https://en.wikipedia.org/wiki/Skewness\\\"}
+        and/or big outliers\\nthen it is not considered appropriate to report the
+        mean, and instead\\none should use the median or mode.\\n\\nYou'll see this
+        advice in countless stats textbooks and websites e.g.\\n\\n\\\"**In a strongly
+        skewed distribution, what is the best indicator of\\ncentral tendency?**  \\nIt
+        is usually inappropriate to use the mean in such situations where\\nyour data
+        is skewed. You would normally choose the median or mode, with\\nthe median
+        usually preferred.\\\" --- from [Laerd\\nStatistics](https://statistics.laerd.com/statistical-guides/measures-central-tendency-mean-mode-median-faqs.php){data-type=\\\"URL\\\"\\ndata-id=\\\"https://statistics.laerd.com/statistical-guides/measures-central-tendency-mean-mode-median-faqs.php\\\"}.\\n\\nIn
+        the [Penn State \\\"Elementary Statistics\\\"\\ncourse](https://online.stat.psu.edu/stat200/lesson/2/2.2/2.2.4/2.2.4.1){data-type=\\\"URL\\\"\\ndata-id=\\\"https://online.stat.psu.edu/stat200/lesson/2/2.2/2.2.4/2.2.4.1\\\"}\\nthey
+        teach that: \\\"For distributions that have outliers or are skewed,\\nthe
+        median is often the preferred measure of central tendency because\\nthe median
+        is more\_resistant\_to outliers than\_the mean.\\\"\\n\\nIn the SpringerNature
+        \\\"white paper\\\" titled \\\"[Going for gold: exploring\\nthe reach and
+        impact of Gold open access articles in hybrid\\njournals](https://www.springernature.com/gp/open-research/journals-books/journals/going-for-gold-reach-and-impact)\\\"\\nby
+        Christina Emery, Mithu Lucraft, Jessica Monaghan, David Stuart, and\\nSusie
+        Winter, the authors examine the distribution of citations to\\n60,567 individual
+        articles within 1,262 of Springer Nature's 'hybrid'\\njournals. To help understand
+        the central tendency or 'average' of\\ncitations accrued to articles, the
+        authors of this report frequently\\nchose to refer-to and display means. The
+        main figures of the paper\\n(figures 1, 2, and 3) are particularly peculiar
+        as they are bar chart\\nstyle comparisons of means and model predictions.\\n\\n<figure
+        class=\\\"wp-block-image size-large\\\">\\n<a\\nhref=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/figure1paper.png\\\"><img\\nsrc=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/figure1paper-1024x508.png\\\"\\nclass=\\\"wp-image-2245\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/figure1paper-1024x508.png
+        1024w, https://rossmounce.co.uk/wp-content/uploads/2021/11/figure1paper-300x149.png
+        300w, https://rossmounce.co.uk/wp-content/uploads/2021/11/figure1paper-768x381.png
+        768w, https://rossmounce.co.uk/wp-content/uploads/2021/11/figure1paper.png
+        1337w\\\"\\nsizes=\\\"(max-width: 1024px) 100vw, 1024px\\\" width=\\\"1024\\\"
+        height=\\\"508\\\"\\nalt=\\\"Figure 1 from the SpringerNature whitepaper \u201CGoing
+        for gold: exploring the reach and impact of Gold open access articles in hybrid
+        journals\u201D by Christina Emery, Mithu Lucraft, Jessica Monaghan, David
+        Stuart, and Susie Winter \\\" /></a>\\n<figcaption><em>(image caption for
+        the figure immediately above)\\nReproduction of figure 1 from the Springer
+        Nature produced,\\nnot-peer-reviewed \u201Cwhite paper\u201D titled \u201C<a\\nhref=\\\"https://www.springernature.com/gp/open-research/journals-books/journals/going-for-gold-reach-and-impact\\\">Going\\nfor
+        gold: exploring the reach and impact of Gold open access articles in\\nhybrid
+        journals</a>\u201D by Christina Emery, Mithu Lucraft, Jessica\\nMonaghan,
+        David Stuart, and Susie Winter. This work is available for\\nre-use under
+        a <a href=\\\"https://creativecommons.org/licenses/by/4.0/\\\"\\ndata-type=\\\"URL\\\"\\ndata-id=\\\"https://creativecommons.org/licenses/by/4.0/\\\">Creative
+        Commons\\nAttribution License 4.0</a>, copyright of Emery et al.</em></figcaption>\\n</figure>\\n\\n**Figure
+        1, Figure 2, and Figure 3 are all textbook examples of\\nmisleading statistical
+        malpractice**. Beneath the misleading choice of\\npresentation what we have
+        in Figure 1 is a comparison between the number\\nof citations to 60,567 articles
+        published by SpringerNature, split into\\nthree categories \\\"Non-OA\\\"
+        , \\\"EarlyV\\\", and \\\"Gold OA\\\". The \\\"Non-OA\\\" bar\\nrepresents
+        data about 44,557 articles, the \\\"EarlyV\\\" bar represents data\\nabout
+        8,350 articles, and the \\\"Gold OA\\\" bar represents data about 7,660\\narticles.
+        Let's have a look at the actual data shall we? Below are my\\nhistogram frequency
+        density plots of the citation distributions for each\\nof SpringerNature's
+        categories; \\\"Non-OA\\\" , \\\"EarlyV\\\" , and \\\"Gold OA\\\" :\\n\\n<figure
+        class=\\\"wp-block-image size-full\\\">\\n<a\\nhref=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/NonOA-histo.png\\\"><img\\nsrc=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/NonOA-histo.png\\\"\\nclass=\\\"wp-image-2251\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/NonOA-histo.png
+        539w, https://rossmounce.co.uk/wp-content/uploads/2021/11/NonOA-histo-300x226.png
+        300w\\\"\\nsizes=\\\"(max-width: 539px) 100vw, 539px\\\" width=\\\"539\\\"
+        height=\\\"406\\\" /></a>\\n</figure>\\n\\n<figure class=\\\"wp-block-image
+        size-full\\\">\\n<a\\nhref=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/earlyV-hist.png\\\"><img\\nsrc=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/earlyV-hist.png\\\"\\nclass=\\\"wp-image-2252\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/earlyV-hist.png
+        539w, https://rossmounce.co.uk/wp-content/uploads/2021/11/earlyV-hist-300x226.png
+        300w\\\"\\nsizes=\\\"(max-width: 539px) 100vw, 539px\\\" width=\\\"539\\\"
+        height=\\\"406\\\" /></a>\\n</figure>\\n\\n<figure class=\\\"wp-block-image
+        size-full\\\">\\n<a\\nhref=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/hybridgold-hist.png\\\"><img\\nsrc=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/hybridgold-hist.png\\\"\\nclass=\\\"wp-image-2253\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/hybridgold-hist.png
+        539w, https://rossmounce.co.uk/wp-content/uploads/2021/11/hybridgold-hist-300x226.png
+        300w\\\"\\nsizes=\\\"(max-width: 539px) 100vw, 539px\\\" width=\\\"539\\\"
+        height=\\\"406\\\" /></a>\\n</figure>\\n\\nFull disclosure: for the sake of
+        convenience, the relatively few\\nexceptional papers with citations \\\\>40
+        are not plotted. One thing that I\\nhope you'll immediately notice with all
+        three of these citation\\ndistributions is that they are heavily skewed. With
+        the help of the R\\npackage\\n'[e1071](https://cran.r-project.org/web/packages/e1071/index.html){data-type=\\\"URL\\\"\\ndata-id=\\\"https://cran.r-project.org/web/packages/e1071/index.html\\\"}'
+        I\\ncalculated the skewness of each of these three distributions. For\\ncontext
+        any value larger than 1, or smaller than -1 is considered\\nindicative of
+        a strongly skewed distribution. The \\\"Non-OA\\\" set has a\\nskew of 8.1,
+        the \\\"EarlyV\\\" set has a skew of 6.0, and the \\\"Gold OA\\\" set\\nhas
+        a skew of 5.4. All three citation distributions are highly skewed.\\nThis
+        level of skew is absolutely to be expected. Per Seglen (1992)\\ntermed the
+        typical skew of journal citation distributions \\\"[the skewness\\nof\\nscience](https://doi.org/10.1002/(SICI)1097-4571(199210)43:9%3C628::AID-ASI5%3E3.0.CO;2-0){data-type=\\\"URL\\\"\\ndata-id=\\\"https://doi.org/10.1002/(SICI)1097-4571(199210)43:9%3C628::AID-ASI5%3E3.0.CO;2-0\\\"}\\\".\\nAny
+        decent statistician will tell you that you should not represent the\\ncentral
+        tendency of a highly skewed distribution with the mean and yet\\nthis is exactly
+        what the authors of the SN white paper have chosen to\\ndo.\\n\\nA more statistically
+        appropriate representation of three distributions\\nis to use boxplots, inter-quartile
+        ranges, and the median. Here's how\\nthat looks (the black bar indicates the
+        median, which is 4 citations for\\n\\\"Non-OA\\\" and \\\"EarlyV\\\" and is
+        6 citations for \\\"Gold OA\\\"):\\n\\n<figure class=\\\"wp-block-image size-full\\\">\\n<a\\nhref=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/boxplots.png\\\"><img\\nsrc=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/boxplots.png\\\"\\nclass=\\\"wp-image-2255\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2021/11/boxplots.png
+        539w, https://rossmounce.co.uk/wp-content/uploads/2021/11/boxplots-300x226.png
+        300w\\\"\\nsizes=\\\"(max-width: 539px) 100vw, 539px\\\" width=\\\"539\\\"
+        height=\\\"406\\\" /></a>\\n</figure>\\n\\nTo their credit, they do display
+        a boxplot analysis of this data but I\\ncan't help but notice that they stick
+        it in the Appendix as Figure 4 on\\npage 19 of the PDF! They choose a log-scale
+        for the y-axis whereas here\\nI prefer a normal scale, albeit that choice
+        means that outlier papers\\nwith \\\\>30 citations are not shown.\\n\\nAm
+        I concerned about the 2 citation difference in medians, over a period\\nof
+        \\\\~3 years, between \\\"EarlyV\\\" (Green OA) and \\\"Gold OA\\\" (expensive\\nhybrid
+        gold open access at the journal)? No. Why?\\n\\n1.) SN massively\\n[cherry-picked](https://rossmounce.co.uk/2021/11/17/pricing-citation-impact-and-springer-nature-part-1/){data-type=\\\"URL\\\"\\ndata-id=\\\"https://rossmounce.co.uk/2021/11/17/pricing-citation-impact-and-springer-nature-part-1/\\\"}\\ntheir
+        sample choosing only 38.5% of the full research articles they\\ncould have
+        otherwise included. If we add back-in the articles they chose\\nto exclude
+        who knows what the picture will actually look like.\\n\\n2.) There's a huge
+        unaddressed flaw in the \\\"white paper\\\" methodology\\nwith respect to
+        author manuscripts made publicly available at\\nrepositories. [SpringerNature
+        hybrid journals set an 'embargo' of either\\n6 months or 12\\nmonths](https://www.springernature.com/gp/open-research/policies/journal-policies){data-type=\\\"URL\\\"\\ndata-id=\\\"https://www.springernature.com/gp/open-research/policies/journal-policies\\\"}\\ndepending
+        on exactly which journal. Comparing the citation performance\\nof an article
+        that was made immediately (day-0) open access at the\\njournal (their \\\"Gold
+        OA\\\"), with the citation performance of an article\\nwhich has a parallel
+        copy publicly available only 365 days after the\\npublication date, gives
+        the \\\"EarlyV\\\" set much less time for the\\npurported open access benefit
+        to take effect. Effectively it's an unfair\\ncomparison where the \\\"Gold
+        OA\\\" set has been given an additional year or\\nsix months extra to accrue
+        citations relative to the eventual public\\nemergence of green OA author manuscripts.
+        But with the advent of the\\n[Rights Retention\\nStrategy](https://www.coalition-s.org/rights-retention-strategy/){data-type=\\\"URL\\\"\\ndata-id=\\\"https://www.coalition-s.org/rights-retention-strategy/\\\"}\\nwhereby
+        author manuscripts can be archived with a zero-day embargo we\\nmay eventually
+        be able to do a 'fairer' analysis between the citation\\nbenefit of open access
+        provided either at the journal (\\\"Gold\\\") or at a\\nrepository (\\\"Green\\\").\\n\\n3.)
+        SN failed to factor-in other possible biasing factors which might be\\nco-associated
+        with \\\"Gold OA\\\" e.g. research funding. If grant funded\\nresearch, from
+        funders with an open access policy, tends to be more\\nhighly cited than say
+        non-grant funded research, or from grant funded\\nresearch from a funder that
+        does not pay for open access in hybrid\\njournals, then that would bias the
+        results. What this result would\\nreally be demonstrating is funder choice
+        for research that tends to be\\nmore highly cited, relative to non-grant funded
+        research?\\n\\n4.) Hybrid Gold Open Access is typically priced as the most
+        expensive\\nway possible of doing open access. Whils[t the Max Planck Digital\\nLibrary
+        appears happy to pay Springer Nature \\\\$11,200 for some\\narticles](https://www.nature.com/articles/d41586-020-02959-1){data-type=\\\"URL\\\"\\ndata-id=\\\"https://www.nature.com/articles/d41586-020-02959-1\\\"},
+        the rest\\nof the world sensibly will not pay this ransom. There also seems
+        no cap\\non the constant above-inflation price rises of hybrid OA options
+        over\\ntime. At current prices, even for 'cheaper' SN hybrid journals, most\\nresearch
+        institutions simply cannot afford to pay for hybrid gold open\\naccess at
+        Springer Nature for all their articles. Even if it did somehow\\ngarner a
+        tiny citation benefit over a three year period, is it worth\\n\\\\$2780 per
+        article? I think not.\\n\\n5.) Fully open access journals of which [there
+        are over 17,000 listed at\\nDOAJ](https://doaj.org/){data-type=\\\"URL\\\"
+        data-id=\\\"https://doaj.org/\\\"}\\nare typically both lower in price and
+        often higher in citation\\nperformance per article as I demonstrated with
+        *SciPost Physics* in\\n[Part 1 of this\\nseries](https://rossmounce.co.uk/2021/11/17/pricing-citation-impact-and-springer-nature-part-1/){data-type=\\\"URL\\\"\\ndata-id=\\\"https://rossmounce.co.uk/2021/11/17/pricing-citation-impact-and-springer-nature-part-1/\\\"}.
+        \ \\n  \\nAll that SpringerNature have demonstrated with their white paper
+        is\\nalarming statistical illiteracy, and a lack of reproducibility and\\ntransparency.
+        Given how popular measures like Clarivate's Journal Impact\\nFactor are (which
+        is also calculated in a [statistically illiterate\\nwa](http://occamstypewriter.org/scurry/2012/08/13/sick-of-impact-factors/){data-type=\\\"URL\\\"\\ndata-id=\\\"http://occamstypewriter.org/scurry/2012/08/13/sick-of-impact-factors/\\\"}y),\\nperhaps
+        SpringerNature just decided to run with it anyway, despite the\\nmethodological
+        and statistical wrongness? As SPARC notes, the lead\\nauthor of the report
+        is [SN's Senior Marketing\\nManager](https://sparcopen.org/news/2021/trampling-on-green-in-a-rush-for-gold/){data-type=\\\"URL\\\"\\ndata-id=\\\"https://sparcopen.org/news/2021/trampling-on-green-in-a-rush-for-gold/\\\"}\\n--
+        this \\\"white paper\\\" is pure marketing, not rigorous research.\\n\",\"doi\":\"https://doi.org/10.59350/ykjrh-bb552\",\"guid\":\"https://rossmounce.co.uk/?p=2237\",\"id\":\"552dddc5-87c0-49b2-9873-86c40ab72f7f\",\"image\":\"https://rossmounce.co.uk/wp-content/uploads/2021/11/figure1paper-1024x508.png\",\"language\":\"en\",\"published_at\":1637340661,\"reference\":[],\"relationships\":[],\"summary\":\"\u201CIn
+        statistics, a central tendency (or measure of central tendency) is a central
+        or typical value for a probability distribution. Colloquially, measures of
+        central tendency are often called averages. The most common measures of central
+        tendency are the\_arithmetic mean, the\_median, and the\_mode.\u201D \u2014
+        Wikipedia.  In the UK, we teach school kids how to calculate the mean, median,
+        and mode in Year 6 (kids aged 10-11), it\u2019s simple stuff.\\n\",\"tags\":[\"SpringerNature\"],\"title\":\"Central
+        Tendency, Citation Distributions, and Springer Nature (Part 2)\",\"updated_at\":1701012153,\"url\":\"https://rossmounce.co.uk/2021/11/19/central-tendency-citation-distributions-and-springer-nature-part-2\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Ross
+        Mounce\"}],\"blog_id\":\"vbmdy90\",\"blog_name\":\"A blog by Ross Mounce\",\"blog_slug\":\"rossmounce\",\"category\":\"naturalSciences\",\"content_html\":\"\\n<p>On
+        the 26<sup>th</sup> October 2021, Springer Nature published version 1 of a
+        (not peer-reviewed) \u201Cwhite paper\u201D titled \u201C<a href=\\\"https://www.springernature.com/gp/open-research/journals-books/journals/going-for-gold-reach-and-impact\\\"
+        data-type=\\\"URL\\\" data-id=\\\"https://www.springernature.com/gp/open-research/journals-books/journals/going-for-gold-reach-and-impact\\\">Going
+        for gold: exploring the reach and impact of Gold open access articles in hybrid
+        journals</a>\u201D by Christina Emery, Mithu Lucraft, Jessica Monaghan, David
+        Stuart, and Susie Winter.</p>\\n\\n\\n\\n<p>Springer Nature present cherry-picked
+        analyses with an experimental design of their choosing, of 60,567 articles
+        published in 1,262 of their \u2018hybrid\u2019 journals.</p>\\n\\n\\n\\n<p><strong>What
+        is a &#8216;hybrid&#8217; journal?</strong></p>\\n\\n\\n\\n<p>A \u2018hybrid\u2019
+        journal is a journal that is predominantly a paywalled subscription journal,
+        albeit that it permits individual articles within that journal to not be paywalled
+        if one of three things happens:</p>\\n\\n\\n\\n<ul><li>(1) the author(s),
+        institution, or funder pays a fee (APC) to ensure permanent openness of an
+        individual article with a Creative Commons license,</li></ul>\\n\\n\\n\\n<p>or</p>\\n\\n\\n\\n<ul><li>(2)
+        the journal grants a fee waiver and gives permanent open access to an individual
+        article with a Creative Commons license,</li></ul>\\n\\n\\n\\n<p>or</p>\\n\\n\\n\\n<ul><li>(3)
+        the journal just turns off the paywall on an individual article at whim without
+        author-side payment, without a Creative Commons license, and importantly without
+        any assurance of permanence of the turned-off paywall state (so called \u2018<a
+        href=\\\"https://peerj.com/articles/4375/\\\">bronze OA</a>\u2019).</li></ul>\\n\\n\\n\\n<p>Springer
+        Nature use the results of various analyses to claim, presumably to an audience
+        of governments, policymakers, and researchers that they should focus their
+        efforts (funding $$$) on their hybrid gold OA journals rather than green OA
+        infrastructure:</p>\\n\\n\\n\\n<p><em>&nbsp;\u201CEfforts which seek to increase
+        the availability of Green OA don\u2019t create the intended benefits and risk
+        delaying or even preventing the take up of full Gold OA and achieving the
+        benefits described above. While sharing of subscription-tied earlier versions
+        can help the dissemination of research, they do not have as strong a reach
+        or impact as full Gold OA, and remain dependent on the continuation of subscription
+        models to fund the costs of editorial and publishing processes to validate
+        and improve the manuscript. As such, we believe investment in Gold OA should
+        be a priority and is the only way to achieve full, immediate and sustainable
+        OA.\u201D</em></p>\\n\\n\\n\\n<p>The methods by which they have chosen to
+        do their analysis, do not accurately or cleanly tackle the hypothesis of:
+        which intervention has more impact \u2018gold OA\u2019 or \u2018green OA\u2019
+        , let alone the substantial pricing differential between the two. Simply put,
+        the experimental design in the (not peer reviewed) white paper is not a fair
+        or logical comparison.</p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<p><strong>Extensive
+        cherry-picking</strong></p>\\n\\n\\n\\n<p>As with any analysis it&#8217;s
+        always good to look at the data sources. In the SpringerNature white paper
+        they look at full original research papers (excluding other items found within
+        journals such as Editorials, Letters, News, Correction Notices, Retraction
+        Notices, Book Reviews, Obituaries, Opinions, Research Summaries, &#8220;Other
+        Journals in Brief&#8221;, &#8220;Product News&#8221; , et cetera) that are
+        first published online at the journal in the calendar year 2018 (that is from
+        2018-01-01 to 2018-12-31 inclusive).  An interesting quirk of this is that
+        lots of research articles within the first 2018 issue of SN hybrid journals
+        are excluded because they tend to be published online in 2017 and only assigned
+        to a &#8220;2018&#8221; issue later-on. Similarly there are many articles
+        in the SN whitepaper dataset that are in &#8220;2019&#8221; journal issues
+        but were first published online in 2018 e.g. say December 2018. [That&#8217;s
+        not a complaint fwiw, just an observation&#8230;]</p>\\n\\n\\n\\n<p>When I
+        first looked at an exemplar SN hybrid journal, namely <em><a href=\\\"https://www.springer.com/journal/40\\\"
+        data-type=\\\"URL\\\" data-id=\\\"https://www.springer.com/journal/40\\\">Insectes
+        Sociaux</a></em>, I was shocked to observe a large discrepancy between the
+        number of full research articles in that journal, that were published in the
+        calendar year 2018 (53), and the much fewer number of articles from that journal
+        included in SN&#8217;s whitepaper dataset (29). By my analysis the whitepaper
+        arbitrarily excludes 24 (=53-29) of the full research articles published in
+        2018, in this journal. </p>\\n\\n\\n\\n<p>The SN whitepaper is pseudo-transparent
+        about the selectivity of their sampling. On page 8 they mention: </p>\\n\\n\\n\\n<blockquote
+        class=\\\"wp-block-quote\\\"><p>Only those primary research articles where
+        all the necessary metadata was available<br>were included in the analysis:<br>\u2022
+        138,449/157,333 (88%) of the articles were identified as being published in
+        a<br>journal with an impact factor<br>\u2022 68,668/157,333 (44%) of the articles
+        had a corresponding author that had an<br>identifiable THE institutional ranking
+        and country.</p><p><br>The overlap between these two factors left a final
+        data set of 60,567 records<br>incorporated in the analysis.</p></blockquote>\\n\\n\\n\\n<p>Careful
+        readers will observe that 60,567 out of 157,333 amounts to just 38.5% of the
+        set of full research articles in SN hybrid journals, published in the calendar
+        year 2018. It might be okay were this sample a random sample but clearly it
+        is explicitly non-random &#8211; it excludes full research articles with corresponding
+        authors from outside the set of 2,112 institutions included in the Times Higher
+        Education (THE) rankings. For context, estimates vary, but there are thought
+        to be at least <a href=\\\"https://www.webometrics.info/en/Methodology\\\">31,000
+        higher education institutions in the world</a>. This bakes-in a significant
+        bias towards Western institutions and does not give a truly global or balanced
+        picture of what&#8217;s being published in SN hybrid journals.</p>\\n\\n\\n\\n<p>Their
+        vague description of their selection methodology doesn&#8217;t even correspond
+        with the data they&#8217;ve excluded. For instance, within <em>Insectes Sociaux</em>,
+        I found <a href=\\\"http://10.1007/s00040-018-0616-9\\\" data-type=\\\"URL\\\"
+        data-id=\\\"10.1007/s00040-018-0616-9\\\">this paper</a> (DOI: 10.1007/s00040-018-0616-9)
+        published in April 2018. The journal is a hybrid journal, it has a Clarivate
+        Journal Impact Factor, and the corresponding author affiliation on this paper
+        is &#8220;Graduate School of Education, University of the Ryukyus, Japan&#8221;
+        , <a href=\\\"https://www.timeshighereducation.com/world-university-rankings/university-ryukyus\\\"
+        data-type=\\\"URL\\\" data-id=\\\"https://www.timeshighereducation.com/world-university-rankings/university-ryukyus\\\">the
+        University of the Ryukus is one of the lucky 2,112 institutions to be included
+        in the THE rankings</a>, therefore I can&#8217;t see why this paper is <em>not</em>
+        included in their dataset of 60,567 articles.  The way in which they have
+        whittled-down the sample from 157,333 articles to 60,567 is not reproducible
+        and does not appear to match their stated selection criteria. </p>\\n\\n\\n\\n<p>Via
+        email, I asked the authors of the report for the full list of 157,333 DOIs
+        of the initial sample (just the DOIs, nothing more) and the response from
+        Mithu Lucraft was<em> &#8220;I\u2019m not able to release the broader dataset.
+        If you wish to apply for a NDA to utilise a different dataset, I\u2019ll look
+        into the appropriate contact internally for this purpose&#8221;</em>. I can&#8217;t
+        help but note that the 60,567 dataset is publicly available<a href=\\\"https://figshare.com/articles/dataset/Going_for_gold_exploring_the_reach_and_impact_of_Gold_open_access_articles_in_hybrid_journals_data_set_/16860238\\\">
+        from figshare</a> under a CC BY license, yet when I ask merely for a list
+        of DOIs pertaining to the very same study it is hinted I would have to apply
+        for an NDA. <strong>SpringerNature operate transparency and open licensing
+        only when it suits them</strong>. I have no intention of ever signing a non-disclosure
+        agreement with SpringerNature and so I assume I will now have to recreate
+        the list of ~ 157,333 full research articles published in SN hybrid journals
+        in 2018, myself, without their assistance. </p>\\n\\n\\n\\n<p> </p>\\n\\n\\n\\n<p><strong>A
+        closer look at hybrid gold versus green preprints posted at arXiv, for physics
+        papers</strong></p>\\n\\n\\n\\n<p>Leaving aside the rampant cherry-picking
+        that has occurred to create the whitepaper dataset, if we drill-down into
+        a subject-area e.g. &#8216;Physics&#8217; we can observe from the dataset
+        that the median number of citations of a 2018 published Physics paper, (when
+        assessed in November 2021, this is an elapsed period of at maximum 3 years
+        and 10 months [if published 2018-01-01] and at minimum 2 years and 10 months
+        [if published 2018-12-31] ), in an SN hybrid journal:</p>\\n\\n\\n\\n<ul><li>*
+        that was made gold open access at an SN hybrid journal is <strong>3 citations</strong>
+        (across n=315 articles)</li><li>* that is paywalled at the hybrid SN journal
+        but is also publicly accessible via an arxiv preprint copy is <strong>3 citations</strong>
+        (across n=838 articles)</li><li>* that is neither open access at the journal,
+        nor publicly accessible via arxiv or other preprint servers or repositories
+        is <strong>2 citations</strong> (for n=2103)</li><li>* (this data is not provided
+        by SpringerNature, my own analysis) for the 111 papers published in 2018 at
+        the fully open access journal <a href=\\\"https://scipost.org/SciPostPhys\\\"
+        data-type=\\\"URL\\\" data-id=\\\"https://scipost.org/SciPostPhys\\\">SciPost
+        Physics</a>, which is NOT published by SpringerNature, the median number of
+        citations is <strong>10 citations</strong></li></ul>\\n\\n\\n\\n<p>From examining
+        the data SN provide, the citation difference between gold OA and green OA
+        as routes to achieving public access to research is negligible.</p>\\n\\n\\n\\n<p>Providing
+        open access or at least public access to a version of a research output from
+        a theoretical perspective could clearly create more measurable impact (e.g.
+        citations, downloads, altmetrics). However, <a href=\\\"https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0253129\\\">Over
+        130 peer-reviewed studies have previously tested for the existence of the
+        &#8216;open access citation advantage&#8217; (OACA) but a recent meta-analysis
+        points out that most of them are poorly done</a>. This &#8216;Going for Gold&#8217;
+        SN whitepaper sadly joins the majority of poorly executed studies. </p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<p><strong>What
+        then with regard to costs?</strong></p>\\n\\n\\n\\n<ul><li>arXiv\u2019s running
+        costs famously amount to<strong> <a href=\\\"https://www.nature.com/articles/nature.2015.18351?proof=t\\\">less
+        than $10 per paper</a></strong>. [I\u2019m <a href=\\\"https://twitter.com/undercaffeinatd/status/1219970518448779264\\\">conscious
+        that this is a barebones figure that is not sustainable in the long-run and
+        that arXiv sorely more financial support</a> from the world\u2019s research
+        institutions]</li><li>By 2021 list-price, SpringerNature physics journals,
+        hybrid gold APCs vary from $4480 in <em>The Astronomy and Astrophysics Review</em>
+        to just $2690 in <em>Celestial Mechanics and Dynamical Astronomy</em>, <strong>the
+        median list price per article to enable open access in SN hybrid Physics journals
+        is $2780</strong></li><li>Alternatively, one could calculate the cost of hybrid
+        gold on the basis of estimated per article costs contained within \u2018transformative
+        agreement\u2019 big deals as listed at the <a href=\\\"https://esac-initiative.org/about/transformative-agreements/agreement-registry/\\\">ESAC
+        registry</a>. In the <a href=\\\"https://esac-initiative.org/about/transformative-agreements/agreement-registry/sn2021ie/\\\">2021
+        Irish IREL consortium agreement</a> with Springer Nature, Irish institutions
+        covered by that agreement will pay \u20AC2,410 per article for open access,
+        which if we convert that from Euros to USD is <strong>$2727.80 per article</strong>.</li><li>Another
+        interesting comparator group left-out of the SN whitepaper is the existence
+        of <strong>fully open access journals</strong>. The SN whitepaper chose to
+        provide analysis exclusively of &#8216;hybrid&#8217; journals. A suitable
+        physics journal that enables open access at the journal for all articles is
+        <em>SciPost Physics</em>. According to <a href=\\\"https://scipost.org/finances/apex\\\"
+        data-type=\\\"URL\\\" data-id=\\\"https://scipost.org/finances/apex\\\">their
+        data</a>, it costs them about <strong>620 euros per article (~ $700 USD)</strong>,
+        and their model is such that there is no author-facing charge (no APC).</li></ul>\\n\\n\\n\\n<p>So,
+        policymakers; when faced with a choice of enabling public access to research
+        via \u2018green\u2019 routes such as arXiv or fully open access journals such
+        as <em>SciPost Physics</em> or hybrid \u2018gold\u2019 routes such as SpringerNature
+        hybrid journals which would you choose? On the basis of the evidence, both
+        what SpringerNature cares to cherry-pick in their report and data external
+        to that, in a world where money is in limited supply, it&#8217;s clear to
+        me that green open access and fully open access journals are better options.
+        Hybrid journals no matter how much you cherry-pick the data and methods, always
+        come out as <a href=\\\"https://asistdl.onlinelibrary.wiley.com/doi/10.1002/asi.23742\\\"
+        data-type=\\\"URL\\\" data-id=\\\"https://asistdl.onlinelibrary.wiley.com/doi/10.1002/asi.23742\\\">the
+        most expensive</a> and the most prone to price gouging practices going forwards.
+        Spending money on hybrid journals is wasteful and SpringerNature&#8217;s own
+        data (!) actually demonstrates this.</p>\\n\",\"content_text\":\"On the 26^th^
+        October 2021, Springer Nature published version 1 of a\\n(not peer-reviewed)
+        \\\"white paper\\\" titled \\\"[Going for gold: exploring the\\nreach and
+        impact of Gold open access articles in hybrid\\njournals](https://www.springernature.com/gp/open-research/journals-books/journals/going-for-gold-reach-and-impact){data-type=\\\"URL\\\"\\ndata-id=\\\"https://www.springernature.com/gp/open-research/journals-books/journals/going-for-gold-reach-and-impact\\\"}\\\"\\nby
+        Christina Emery, Mithu Lucraft, Jessica Monaghan, David Stuart, and\\nSusie
+        Winter.\\n\\nSpringer Nature present cherry-picked analyses with an experimental\\ndesign
+        of their choosing, of 60,567 articles published in 1,262 of their\\n'hybrid'
+        journals.\\n\\n**What is a 'hybrid' journal?**\\n\\nA 'hybrid' journal is
+        a journal that is predominantly a paywalled\\nsubscription journal, albeit
+        that it permits individual articles within\\nthat journal to not be paywalled
+        if one of three things happens:\\n\\n- \\\\(1\\\\) the author(s), institution,
+        or funder pays a fee (APC) to ensure\\n  permanent openness of an individual
+        article with a Creative Commons\\n  license,\\n\\nor\\n\\n- \\\\(2\\\\) the
+        journal grants a fee waiver and gives permanent open access\\n  to an individual
+        article with a Creative Commons license,\\n\\nor\\n\\n- \\\\(3\\\\) the journal
+        just turns off the paywall on an individual article\\n  at whim without author-side
+        payment, without a Creative Commons\\n  license, and importantly without any
+        assurance of permanence of the\\n  turned-off paywall state (so called '[bronze\\n
+        \ OA](https://peerj.com/articles/4375/)').\\n\\nSpringer Nature use the results
+        of various analyses to claim, presumably\\nto an audience of governments,
+        policymakers, and researchers that they\\nshould focus their efforts (funding
+        \\\\$\\\\$\\\\$) on their hybrid gold OA\\njournals rather than green OA infrastructure:\\n\\n*\_\\\"Efforts
+        which seek to increase the availability of Green OA don't\\ncreate the intended
+        benefits and risk delaying or even preventing the\\ntake up of full Gold OA
+        and achieving the benefits described above.\\nWhile sharing of subscription-tied
+        earlier versions can help the\\ndissemination of research, they do not have
+        as strong a reach or impact\\nas full Gold OA, and remain dependent on the
+        continuation of\\nsubscription models to fund the costs of editorial and publishing\\nprocesses
+        to validate and improve the manuscript. As such, we believe\\ninvestment in
+        Gold OA should be a priority and is the only way to\\nachieve full, immediate
+        and sustainable OA.\\\"*\\n\\nThe methods by which they have chosen to do
+        their analysis, do not\\naccurately or cleanly tackle the hypothesis of: which
+        intervention has\\nmore impact 'gold OA' or 'green OA' , let alone the substantial
+        pricing\\ndifferential between the two. Simply put, the experimental design
+        in the\\n(not peer reviewed) white paper is not a fair or logical comparison.\\n\\n**Extensive
+        cherry-picking**\\n\\nAs with any analysis it's always good to look at the
+        data sources. In\\nthe SpringerNature white paper they look at full original
+        research\\npapers (excluding other items found within journals such as Editorials,\\nLetters,
+        News, Correction Notices, Retraction Notices, Book Reviews,\\nObituaries,
+        Opinions, Research Summaries, \\\"Other Journals in Brief\\\",\\n\\\"Product
+        News\\\" , et cetera) that are first published online at the\\njournal in
+        the calendar year 2018 (that is from 2018-01-01 to 2018-12-31\\ninclusive).
+        An interesting quirk of this is that lots of research\\narticles within the
+        first 2018 issue of SN hybrid journals are excluded\\nbecause they tend to
+        be published online in 2017 and only assigned to a\\n\\\"2018\\\" issue later-on.
+        Similarly there are many articles in the SN\\nwhitepaper dataset that are
+        in \\\"2019\\\" journal issues but were first\\npublished online in 2018 e.g.
+        say December 2018. \\\\[That's not a\\ncomplaint fwiw, just an observation...\\\\]\\n\\nWhen
+        I first looked at an exemplar SN hybrid journal, namely *[Insectes\\nSociaux](https://www.springer.com/journal/40){data-type=\\\"URL\\\"\\ndata-id=\\\"https://www.springer.com/journal/40\\\"}*,
+        I was shocked to\\nobserve a large discrepancy between the number of full
+        research articles\\nin that journal, that were published in the calendar year
+        2018 (53), and\\nthe much fewer number of articles from that journal included
+        in SN's\\nwhitepaper dataset (29). By my analysis the whitepaper arbitrarily\\nexcludes
+        24 (=53-29) of the full research articles published in 2018, in\\nthis journal.\\n\\nThe
+        SN whitepaper is pseudo-transparent about the selectivity of their\\nsampling.
+        On page 8 they mention:\\n\\n> Only those primary research articles where
+        all the necessary metadata\\n> was available  \\n> were included in the analysis:
+        \ \\n> \u2022 138,449/157,333 (88%) of the articles were identified as being\\n>
+        published in a  \\n> journal with an impact factor  \\n> \u2022 68,668/157,333
+        (44%) of the articles had a corresponding author that\\n> had an  \\n> identifiable
+        THE institutional ranking and country.\\n>\\n>   \\n> The overlap between
+        these two factors left a final data set of 60,567\\n> records  \\n> incorporated
+        in the analysis.\\n\\nCareful readers will observe that 60,567 out of 157,333
+        amounts to just\\n38.5% of the set of full research articles in SN hybrid
+        journals,\\npublished in the calendar year 2018. It might be okay were this
+        sample a\\nrandom sample but clearly it is explicitly non-random -- it excludes\\nfull
+        research articles with corresponding authors from outside the set\\nof 2,112
+        institutions included in the Times Higher Education (THE)\\nrankings. For
+        context, estimates vary, but there are thought to be at\\nleast [31,000 higher
+        education institutions in the\\nworld](https://www.webometrics.info/en/Methodology).
+        This bakes-in a\\nsignificant bias towards Western institutions and does not
+        give a truly\\nglobal or balanced picture of what's being published in SN
+        hybrid\\njournals.\\n\\nTheir vague description of their selection methodology
+        doesn't even\\ncorrespond with the data they've excluded. For instance, within\\n*Insectes
+        Sociaux*, I found [this\\npaper](http://10.1007/s00040-018-0616-9){data-type=\\\"URL\\\"\\ndata-id=\\\"10.1007/s00040-018-0616-9\\\"}
+        (DOI: 10.1007/s00040-018-0616-9)\\npublished in April 2018. The journal is
+        a hybrid journal, it has a\\nClarivate Journal Impact Factor, and the corresponding
+        author\\naffiliation on this paper is \\\"Graduate School of Education, University\\nof
+        the Ryukyus, Japan\\\" , [the University of the Ryukus is one of the\\nlucky
+        2,112 institutions to be included in the THE\\nrankings](https://www.timeshighereducation.com/world-university-rankings/university-ryukyus){data-type=\\\"URL\\\"\\ndata-id=\\\"https://www.timeshighereducation.com/world-university-rankings/university-ryukyus\\\"},\\ntherefore
+        I can't see why this paper is *not* included in their dataset\\nof 60,567
+        articles. The way in which they have whittled-down the sample\\nfrom 157,333
+        articles to 60,567 is not reproducible and does not appear\\nto match their
+        stated selection criteria.\\n\\nVia email, I asked the authors of the report
+        for the full list of\\n157,333 DOIs of the initial sample (just the DOIs,
+        nothing more) and the\\nresponse from Mithu Lucraft was *\\\"I'm not able
+        to release the broader\\ndataset. If you wish to apply for a NDA to utilise
+        a different dataset,\\nI'll look into the appropriate contact internally for
+        this purpose\\\"*. I\\ncan't help but note that the 60,567 dataset is publicly
+        available [from\\nfigshare](https://figshare.com/articles/dataset/Going_for_gold_exploring_the_reach_and_impact_of_Gold_open_access_articles_in_hybrid_journals_data_set_/16860238)\\nunder
+        a CC BY license, yet when I ask merely for a list of DOIs\\npertaining to
+        the very same study it is hinted I would have to apply for\\nan NDA. **SpringerNature
+        operate transparency and open licensing only\\nwhen it suits them**. I have
+        no intention of ever signing a\\nnon-disclosure agreement with SpringerNature
+        and so I assume I will now\\nhave to recreate the list of \\\\~ 157,333 full
+        research articles published\\nin SN hybrid journals in 2018, myself, without
+        their assistance.\\n\\n**A closer look at hybrid gold versus green preprints
+        posted at arXiv,\\nfor physics papers**\\n\\nLeaving aside the rampant cherry-picking
+        that has occurred to create the\\nwhitepaper dataset, if we drill-down into
+        a subject-area e.g. 'Physics'\\nwe can observe from the dataset that the median
+        number of citations of a\\n2018 published Physics paper, (when assessed in
+        November 2021, this is\\nan elapsed period of at maximum 3 years and 10 months
+        \\\\[if published\\n2018-01-01\\\\] and at minimum 2 years and 10 months \\\\[if
+        published\\n2018-12-31\\\\] ), in an SN hybrid journal:\\n\\n- \\\\* that
+        was made gold open access at an SN hybrid journal is **3\\n  citations** (across
+        n=315 articles)\\n- \\\\* that is paywalled at the hybrid SN journal but is
+        also publicly\\n  accessible via an arxiv preprint copy is **3 citations**
+        (across n=838\\n  articles)\\n- \\\\* that is neither open access at the journal,
+        nor publicly accessible\\n  via arxiv or other preprint servers or repositories
+        is **2 citations**\\n  (for n=2103)\\n- \\\\* (this data is not provided by
+        SpringerNature, my own analysis) for\\n  the 111 papers published in 2018
+        at the fully open access journal\\n  [SciPost Physics](https://scipost.org/SciPostPhys){data-type=\\\"URL\\\"\\n
+        \ data-id=\\\"https://scipost.org/SciPostPhys\\\"}, which is NOT published
+        by\\n  SpringerNature, the median number of citations is **10 citations**\\n\\nFrom
+        examining the data SN provide, the citation difference between gold\\nOA and
+        green OA as routes to achieving public access to research is\\nnegligible.\\n\\nProviding
+        open access or at least public access to a version of a\\nresearch output
+        from a theoretical perspective could clearly create more\\nmeasurable impact
+        (e.g. citations, downloads, altmetrics). However,\\n[Over 130 peer-reviewed
+        studies have previously tested for the existence\\nof the 'open access citation
+        advantage' (OACA) but a recent\\nmeta-analysis points out that most of them
+        are poorly\\ndone](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0253129).\\nThis
+        'Going for Gold' SN whitepaper sadly joins the majority of poorly\\nexecuted
+        studies.\\n\\n**What then with regard to costs?**\\n\\n- arXiv's running costs
+        famously amount to **[less than \\\\$10 per\\n  paper](https://www.nature.com/articles/nature.2015.18351?proof=t)**.\\n
+        \ \\\\[I'm [conscious that this is a barebones figure that is not\\n  sustainable
+        in the long-run and that arXiv sorely more financial\\n  support](https://twitter.com/undercaffeinatd/status/1219970518448779264)\\n
+        \ from the world's research institutions\\\\]\\n- By 2021 list-price, SpringerNature
+        physics journals, hybrid gold APCs\\n  vary from \\\\$4480 in *The Astronomy
+        and Astrophysics Review* to just\\n  \\\\$2690 in *Celestial Mechanics and
+        Dynamical Astronomy*, **the median\\n  list price per article to enable open
+        access in SN hybrid Physics\\n  journals is \\\\$2780**\\n- Alternatively,
+        one could calculate the cost of hybrid gold on the\\n  basis of estimated
+        per article costs contained within 'transformative\\n  agreement' big deals
+        as listed at the [ESAC\\n  registry](https://esac-initiative.org/about/transformative-agreements/agreement-registry/).\\n
+        \ In the [2021 Irish IREL consortium\\n  agreement](https://esac-initiative.org/about/transformative-agreements/agreement-registry/sn2021ie/)\\n
+        \ with Springer Nature, Irish institutions covered by that agreement\\n  will
+        pay \u20AC2,410 per article for open access, which if we convert that\\n  from
+        Euros to USD is **\\\\$2727.80 per article**.\\n- Another interesting comparator
+        group left-out of the SN whitepaper is\\n  the existence of **fully open access
+        journals**. The SN whitepaper\\n  chose to provide analysis exclusively of
+        'hybrid' journals. A suitable\\n  physics journal that enables open access
+        at the journal for all\\n  articles is *SciPost Physics*. According to [their\\n
+        \ data](https://scipost.org/finances/apex){data-type=\\\"URL\\\"\\n  data-id=\\\"https://scipost.org/finances/apex\\\"},
+        it costs them about\\n  **620 euros per article (\\\\~ \\\\$700 USD)**, and
+        their model is such that\\n  there is no author-facing charge (no APC).\\n\\nSo,
+        policymakers; when faced with a choice of enabling public access to\\nresearch
+        via 'green' routes such as arXiv or fully open access journals\\nsuch as *SciPost
+        Physics* or hybrid 'gold' routes such as SpringerNature\\nhybrid journals
+        which would you choose? On the basis of the evidence,\\nboth what SpringerNature
+        cares to cherry-pick in their report and data\\nexternal to that, in a world
+        where money is in limited supply, it's\\nclear to me that green open access
+        and fully open access journals are\\nbetter options. Hybrid journals no matter
+        how much you cherry-pick the\\ndata and methods, always come out as [the most\\nexpensive](https://asistdl.onlinelibrary.wiley.com/doi/10.1002/asi.23742){data-type=\\\"URL\\\"\\ndata-id=\\\"https://asistdl.onlinelibrary.wiley.com/doi/10.1002/asi.23742\\\"}\\nand
+        the most prone to price gouging practices going forwards. Spending\\nmoney
+        on hybrid journals is wasteful and SpringerNature's own data (!)\\nactually
+        demonstrates this.\\n\",\"doi\":\"https://doi.org/10.59350/bsw58-9a637\",\"guid\":\"https://rossmounce.co.uk/?p=2216\",\"id\":\"01a655b0-7ece-40b3-8921-b7e80a7eb133\",\"image\":\"\",\"language\":\"en\",\"published_at\":1637166524,\"reference\":[],\"relationships\":[],\"summary\":\"On
+        the 26\\n<sup>\\n th\\n</sup>\\nOctober 2021, Springer Nature published version
+        1 of a (not peer-reviewed) \u201Cwhite paper\u201D titled \u201CGoing for
+        gold: exploring the reach and impact of Gold open access articles in hybrid
+        journals\u201D by Christina Emery, Mithu Lucraft, Jessica Monaghan, David
+        Stuart, and Susie Winter.\\n\",\"tags\":[\"SpringerNature\"],\"title\":\"Pricing,
+        Citation Impact, and Springer Nature (Part 1)\",\"updated_at\":1701012102,\"url\":\"https://rossmounce.co.uk/2021/11/17/pricing-citation-impact-and-springer-nature-part-1\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Ross
+        Mounce\"}],\"blog_id\":\"vbmdy90\",\"blog_name\":\"A blog by Ross Mounce\",\"blog_slug\":\"rossmounce\",\"category\":\"naturalSciences\",\"content_html\":\"\\n<p>On
+        Monday 29th June 2020, I learned <a href=\\\"https://retractionwatch.com/2020/06/29/major-indexing-service-sounds-alarm-on-self-citations-by-nearly-50-journals/\\\">from
+        Retraction Watch</a> that Clarivate, the for-profit proprietor of <em>Journal
+        Impact Factor</em> \u2122  has newly &#8220;suppressed&#8221;   33 journals
+        from their indexing service. The immediate consequence of this &#8220;suppression&#8221;
+        is that these 33 journals do not get assigned an official Clarivate <em>Journal
+        Impact Factor</em> \u2122 .  Clarivate justify this action on the basis of
+        &#8220;anomalous citation patterns&#8221; but without much further detail
+        given for each of the journals other than the overall &#8220;% Self-cites&#8221;
+        of the journal, and the effect of those self-cites on Clarivate&#8217;s citation-based
+        ranking of journals (% Distortion of category rank).</p>\\n\\n\\n\\n<p>Amongst
+        the 33 journals, I spotted not one but two <a href=\\\"https://en.wikipedia.org/wiki/Systematics\\\">systematics</a>
+        journals that I know very well:</p>\\n\\n\\n\\n<ul><li><a href=\\\"https://www.mapress.com/j/zt/\\\">Zootaxa</a>
+        <ul><li>published by a small independent publisher &#8216;Magnolia Press&#8217;
+        based in New Zealand</li></ul></li><li><a href=\\\"https://www.microbiologyresearch.org/content/journal/ijsem\\\">International
+        Journal of Systematic and Evolutionary Microbiology</a><ul><li>published by
+        the Microbiology Society</li><li>the official publication of the&nbsp;<a rel=\\\"noreferrer
+        noopener\\\" href=\\\"https://www.the-icsp.org/\\\" target=\\\"_blank\\\">International
+        Committee on Systematics of Prokaryotes</a>&nbsp;and the Bacteriology and
+        Applied Microbiology Division of the&nbsp;<a rel=\\\"noreferrer noopener\\\"
+        href=\\\"https://www.iums.org/\\\" target=\\\"_blank\\\">International Union
+        of Microbiological Societies</a></li></ul></li></ul>\\n\\n\\n\\n<p>I have
+        read, cited, and analysed (textmining and image analysis) articles from both
+        of these journals extensively. Chapter 6 of my <a href=\\\"https://ethos.bl.uk/OrderDetails.do?uin=uk.bl.ethos.642021\\\">PhD
+        thesis</a> mined over 12,000 <em>Zootaxa</em> articles looking for phylogenetic
+        data. In a more <a href=\\\"https://doi.org/10.3897/rio.3.e13589\\\">recent
+        work published in Research Ideas and Outcomes</a> (RIO Journal), I mined over
+        5,800 <em>IJSEM</em> articles for <a href=\\\"https://en.wikipedia.org/wiki/Phylogenetic_tree\\\">phylogenetic
+        tree</a> data. Of relevance, I should also say I was a council member of the
+        <a href=\\\"https://en.wikipedia.org/wiki/Systematics_Association\\\">Systematics
+        Association</a> for many years.</p>\\n\\n\\n\\n<p>Given the experiences listed
+        above, I am therefore very well placed to say that what Clarivate has done
+        to these two systematics journals is utter brainless idiocy.</p>\\n\\n\\n\\n<p>The
+        reason why <em>Zootaxa</em> articles cite quite a high proportion of other
+        <em>Zootaxa</em> articles is obvious (&#8220;self-citation&#8221; at the journal-level
+        from Clarivate&#8217;s point-of-view) to anyone in the discipline. <em>Zootaxa</em>
+        is an important &#8216;megajournal&#8217; for the zoological systematics community.
+        According to <a href=\\\"https://www.lens.org/lens/search/scholar/list?q=&amp;p=0&amp;n=10&amp;s=_score&amp;d=%2B&amp;f=false&amp;e=false&amp;l=en&amp;authorField=author&amp;dateFilterField=publishedYear&amp;presentation=false&amp;preview=&amp;stemmed=true&amp;useAuthorId=false&amp;sourceTitle.must=Zootaxa&amp;publishedYear.from=2018&amp;publishedYear.to=2019\\\">lens.org
+        data</a> Zootaxa published over 5,000 items (articles and monographs) between
+        2018 and 2019. Clarivate&#8217;s own records from another one of their proprietary
+        analytics services called &#8216;<a href=\\\"http://www.organismnames.com/metrics.htm?page=tsj\\\">Zoological
+        Record</a>&#8216; indicate that 26.57% of all new zoological taxa are published
+        in <em>Zootaxa</em>. For  many decades descriptive taxonomy has been pushed-out
+        of for-profit journals. <em>Zootaxa</em> is a vital refugia for sound science
+        in a poorly funded discipline.  </p>\\n\\n\\n\\n<p>The case for legitimate
+        &#8216;high&#8217; journal-level self-citation at <em>International Journal
+        of Systematic and Evolutionary Microbiology</em> (<em>IJSEM</em>) is even
+        clearer and easier to explain. The <a href=\\\"https://en.wikipedia.org/wiki/International_Code_of_Nomenclature_of_Prokaryotes\\\">International
+        Code of Nomenclature of Prokaryotes</a> (ICNP) <em><strong>requires</strong></em>
+        that all new bacteria names are published in IJSEM and nowhere else (a very
+        sensible idea which the bacteriology community should be commended for). Hence
+        a lot of the systematic and evolutionary microbiology articles in IJSEM will
+        cite prior IJSEM articles.</p>\\n\\n\\n\\n<p> Wayne Maddison has <a href=\\\"https://twitter.com/WayneMaddison/status/1278773935656407040\\\">commented</a>
+        on Twitter that the hardest hit researchers by this action might be those
+        in developing countries. I agree. The problem here is that many institutions
+        and research funders idiotically use the Journal Impact Factor \u2122 to assess
+        the quality of an individual&#8217;s research output. In some regimes, if
+        a researcher publishes a paper in a journal that has a Journal Impact Factor
+        \u2122 then it &#8216;counts&#8217;, whereas if a researcher publishes a paper
+        in a journal that has not been given an official Journal Impact Factor \u2122
+        by Clarivate then that paper may not &#8216;count&#8217; towards the assessment
+        of that researcher.</p>\\n\\n\\n\\n<p>The <a href=\\\"https://twitter.com/MoscasFloricola/status/1278515036139520001\\\">zoology
+        section of the Chilean Society of Biology</a> has already petitioned Clarivate
+        to unsuppress Zootaxa, to give it back its Journal Impact Factor \u2122 .
+        I understand why they would do this but I would actually call for something
+        quite different and more far-reaching.</p>\\n\\n\\n\\n<p>I would encourage
+        all systematists, taxonomists, zoologists, microbiologists, and biologists
+        in general to see the real problem here: Clarivate, a for-profit analytics
+        company, should never be so relied-upon by research evaluation committees
+        to arbitrarily decide the value of a research output. Especially given that
+        the Journal Impact Factor \u2122 is untransparent, <a href=\\\"https://dx.doi.org/10.1083%2Fjcb.200801036\\\">irreproducible</a>,
+        and fundamentally <a href=\\\"http://occamstypewriter.org/scurry/2012/08/13/sick-of-impact-factors/\\\">statistically
+        illiterate</a>.</p>\\n\\n\\n\\n<p>Thus to bring us back to my title. I wonder
+        if Clarivate&#8217;s wacky &#8220;suppression&#8221; might actually be a pathway
+        to liberation from the inappropriate stupidity of using Journal Impact Factor
+        \u2122 to evaluate individual research outputs. Given we have all now witnessed
+        just how brainless some of Clarivate&#8217;s decision making is, I would ask
+        Clarivate to please &#8220;suppress&#8221; all journals thereby removing the
+        harmful stupidity of Journal Impact Factor \u2122 from the lives of researchers.</p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<p></p>\\n\",\"content_text\":\"On
+        Monday 29th June 2020, I learned [from Retraction\\nWatch](https://retractionwatch.com/2020/06/29/major-indexing-service-sounds-alarm-on-self-citations-by-nearly-50-journals/)\\nthat
+        Clarivate, the for-profit proprietor of *Journal Impact Factor* \u2122\\nhas
+        newly \\\"suppressed\\\" 33 journals from their indexing service. The\\nimmediate
+        consequence of this \\\"suppression\\\" is that these 33 journals do\\nnot
+        get assigned an official Clarivate *Journal Impact Factor* \u2122 .\\nClarivate
+        justify this action on the basis of \\\"anomalous citation\\npatterns\\\"
+        but without much further detail given for each of the journals\\nother than
+        the overall \\\"% Self-cites\\\" of the journal, and the effect of\\nthose
+        self-cites on Clarivate's citation-based ranking of journals (%\\nDistortion
+        of category rank).\\n\\nAmongst the 33 journals, I spotted not one but two\\n[systematics](https://en.wikipedia.org/wiki/Systematics)
+        journals that I\\nknow very well:\\n\\n- [Zootaxa](https://www.mapress.com/j/zt/)\\n
+        \ - published by a small independent publisher 'Magnolia Press' based in\\n
+        \   New Zealand\\n- [International Journal of Systematic and Evolutionary\\n
+        \ Microbiology](https://www.microbiologyresearch.org/content/journal/ijsem)\\n
+        \ - published by the Microbiology Society\\n  - the official publication of
+        the\_[International Committee on\\n    Systematics of\\n    Prokaryotes](https://www.the-icsp.org/){rel=\\\"noreferrer
+        noopener\\\"\\n    target=\\\"_blank\\\"}\_and the Bacteriology and Applied
+        Microbiology\\n    Division of the\_[International Union of Microbiological\\n
+        \   Societies](https://www.iums.org/){rel=\\\"noreferrer noopener\\\"\\n    target=\\\"_blank\\\"}\\n\\nI
+        have read, cited, and analysed (textmining and image analysis)\\narticles
+        from both of these journals extensively. Chapter 6 of my [PhD\\nthesis](https://ethos.bl.uk/OrderDetails.do?uin=uk.bl.ethos.642021)\\nmined
+        over 12,000 *Zootaxa* articles looking for phylogenetic data. In a\\nmore
+        [recent work published in Research Ideas and\\nOutcomes](https://doi.org/10.3897/rio.3.e13589)
+        (RIO Journal), I mined\\nover 5,800 *IJSEM* articles for [phylogenetic\\ntree](https://en.wikipedia.org/wiki/Phylogenetic_tree)
+        data. Of\\nrelevance, I should also say I was a council member of the [Systematics\\nAssociation](https://en.wikipedia.org/wiki/Systematics_Association)
+        for\\nmany years.\\n\\nGiven the experiences listed above, I am therefore
+        very well placed to\\nsay that what Clarivate has done to these two systematics
+        journals is\\nutter brainless idiocy.\\n\\nThe reason why *Zootaxa* articles
+        cite quite a high proportion of other\\n*Zootaxa* articles is obvious (\\\"self-citation\\\"
+        at the journal-level from\\nClarivate's point-of-view) to anyone in the discipline.
+        *Zootaxa* is an\\nimportant 'megajournal' for the zoological systematics community.\\nAccording
+        to [lens.org\\ndata](https://www.lens.org/lens/search/scholar/list?q=&p=0&n=10&s=_score&d=%2B&f=false&e=false&l=en&authorField=author&dateFilterField=publishedYear&presentation=false&preview=&stemmed=true&useAuthorId=false&sourceTitle.must=Zootaxa&publishedYear.from=2018&publishedYear.to=2019)\\nZootaxa
+        published over 5,000 items (articles and monographs) between\\n2018 and 2019.
+        Clarivate's own records from another one of their\\nproprietary analytics
+        services called '[Zoological\\nRecord](http://www.organismnames.com/metrics.htm?page=tsj)'
+        indicate\\nthat 26.57% of all new zoological taxa are published in *Zootaxa*.
+        For\\nmany decades descriptive taxonomy has been pushed-out of for-profit\\njournals.
+        *Zootaxa* is a vital refugia for sound science in a poorly\\nfunded discipline.\\n\\nThe
+        case for legitimate 'high' journal-level self-citation at\\n*International
+        Journal of Systematic and Evolutionary Microbiology*\\n(*IJSEM*) is even clearer
+        and easier to explain. The [International Code\\nof Nomenclature of\\nProkaryotes](https://en.wikipedia.org/wiki/International_Code_of_Nomenclature_of_Prokaryotes)\\n(ICNP)
+        ***requires*** that all new bacteria names are published in IJSEM\\nand nowhere
+        else (a very sensible idea which the bacteriology community\\nshould be commended
+        for). Hence a lot of the systematic and evolutionary\\nmicrobiology articles
+        in IJSEM will cite prior IJSEM articles.\\n\\nWayne Maddison has\\n[commented](https://twitter.com/WayneMaddison/status/1278773935656407040)\\non
+        Twitter that the hardest hit researchers by this action might be\\nthose in
+        developing countries. I agree. The problem here is that many\\ninstitutions
+        and research funders idiotically use the Journal Impact\\nFactor \u2122 to
+        assess the quality of an individual's research output. In\\nsome regimes,
+        if a researcher publishes a paper in a journal that has a\\nJournal Impact
+        Factor \u2122 then it 'counts', whereas if a researcher\\npublishes a paper
+        in a journal that has not been given an official\\nJournal Impact Factor \u2122
+        by Clarivate then that paper may not 'count'\\ntowards the assessment of that
+        researcher.\\n\\nThe [zoology section of the Chilean Society of\\nBiology](https://twitter.com/MoscasFloricola/status/1278515036139520001)\\nhas
+        already petitioned Clarivate to unsuppress Zootaxa, to give it back\\nits
+        Journal Impact Factor \u2122 . I understand why they would do this but I\\nwould
+        actually call for something quite different and more far-reaching.\\n\\nI
+        would encourage all systematists, taxonomists, zoologists,\\nmicrobiologists,
+        and biologists in general to see the real problem here:\\nClarivate, a for-profit
+        analytics company, should never be so\\nrelied-upon by research evaluation
+        committees to arbitrarily decide the\\nvalue of a research output. Especially
+        given that the Journal Impact\\nFactor \u2122 is untransparent,\\n[irreproducible](https://dx.doi.org/10.1083%2Fjcb.200801036),
+        and\\nfundamentally [statistically\\nilliterate](http://occamstypewriter.org/scurry/2012/08/13/sick-of-impact-factors/).\\n\\nThus
+        to bring us back to my title. I wonder if Clarivate's wacky\\n\\\"suppression\\\"
+        might actually be a pathway to liberation from the\\ninappropriate stupidity
+        of using Journal Impact Factor \u2122 to evaluate\\nindividual research outputs.
+        Given we have all now witnessed just how\\nbrainless some of Clarivate's decision
+        making is, I would ask Clarivate\\nto please \\\"suppress\\\" all journals
+        thereby removing the harmful stupidity\\nof Journal Impact Factor \u2122 from
+        the lives of researchers.\\n\",\"doi\":\"https://doi.org/10.59350/v5rp0-nde12\",\"guid\":\"http://rossmounce.co.uk/?p=2199\",\"id\":\"741aaa98-c929-4c12-933c-c09bc151f8e6\",\"image\":\"\",\"language\":\"en\",\"published_at\":1593777776,\"reference\":[],\"relationships\":[],\"summary\":\"On
+        Monday 29th June 2020, I learned from Retraction Watch that Clarivate, the
+        for-profit proprietor of\\n<em>\\n Journal Impact Factor\\n</em>\\n\u2122
+        \ has newly \u201Csuppressed\u201D   33 journals from their indexing service.\\n\",\"tags\":[\"Research
+        Assessment\"],\"title\":\"Suppression as a form of liberation?\",\"updated_at\":1701022623,\"url\":\"https://rossmounce.co.uk/2020/07/03/suppression-as-a-form-of-liberation\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Ross
+        Mounce\"}],\"blog_id\":\"vbmdy90\",\"blog_name\":\"A blog by Ross Mounce\",\"blog_slug\":\"rossmounce\",\"category\":\"naturalSciences\",\"content_html\":\"<p>In
+        late 2016, Martin Eve, Stuart Lawson and Jon Tennant referred Elsevier/RELX
+        to the <a href=\\\"https://www.martineve.com/2016/12/03/referring-elsevierrelx-to-the-competition-and-markets-authority/\\\">Competition
+        and Markets Authority</a>. Inspired by this, I thought I would try referring
+        a complaint to the UK <a href=\\\"https://www.asa.org.uk/\\\">Advertising
+        Standards Authority</a> (ASA) about some blatant fibbing I saw Elsevier engage-in
+        with their marketing spiel at a recent conference.</p>\\n<p>The content of
+        my submission is below:</p>\\n<p><strong>Name:\_</strong>Ross Mounce</p>\\n<p><strong>Ad\_type:</strong>\_Leaflets,
+        flyers and circulars</p>\\n<p><strong>Brand/product:</strong>\_Elsevier</p>\\n<p><strong>Date:
+        </strong>26th February 2018</p>\\n<p><strong>Your complaint:</strong><br />\\nElsevier,
+        a large academic publishing company, have flyers and a large poster, both
+        containing the same information at the <a href=\\\"https://r2rconf.com/\\\">Researcher
+        to Reader Conference</a> (British Medical Association House, London). They
+        claim on both the flyers and the poster that &#8220;Fact #2: Our APC prices
+        are value for money Our APC prices range from $150 &#8211; $5000 US dollars&#8230;&#8221;
+        [APC means Article Processing Charge, a publishing service for academic customers]
+        I believe this is false advertising as some of their journals clearly charge
+        $5200 US dollars as an APC. $5200 is greater than the maximum of $5000 advertised.
+        They also report these prices without VAT added-on, this is also misleading
+        as this meeting is in the UK. UK customers choosing this service would have
+        to pay the APC plus VAT tax and so the prices should be displayed inclusive
+        of taxes in adverts like this. There is no mention of the need to pay VAT
+        on either the flyers or the poster. I went to their website the same day and
+        found thirteen journals published at Elsevier, that by Elsevier&#8217;s own
+        price list charge $5200 US dollars, not including VAT. Those journals are:
+        <em>Cancer Cell, Cell, Cell Chemical Biology, Cell Host &amp; Microbe, Cell
+        Metabolism, Cell Stem Cell, Cell Systems, Current Biology, Developmental Cell,
+        Immunity, Molecular Cell, Neuron</em>, and <em>Structure</em>. For reference
+        I have attached a PDF of Elsevier&#8217;s online price list which I downloaded
+        from Elsevier&#8217;s official website here:\_<a href=\\\"https://www.elsevier.com/about/our-business/policies/pricing\\\"
+        target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\" data-saferedirecturl=\\\"https://www.google.com/url?hl=en-GB&amp;q=https://www.elsevier.com/about/our-business/policies/pricing&amp;source=gmail&amp;ust=1526414355514000&amp;usg=AFQjCNEaFZRpq3gTY5XViZKa3a_kBIwcPg\\\">https://www.elsevier.com/<wbr
+        />about/our-business/policies/<wbr />pricing</a> which takes one to this PDF
+        URL:\_<a href=\\\"https://www.elsevier.com/__data/promis_misc/j.custom97.pdf\\\"
+        target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\" data-saferedirecturl=\\\"https://www.google.com/url?hl=en-GB&amp;q=https://www.elsevier.com/__data/promis_misc/j.custom97.pdf&amp;source=gmail&amp;ust=1526414355514000&amp;usg=AFQjCNE7fpjwNTNzwgn55b3-gxC35KcbuA\\\">https://www.elsevier.com/__<wbr
+        />data/promis_misc/j.custom97.<wbr />pdf</a></p>\\n<p>I attached images of
+        the offending poster and flyers. Below is a photo I took of the misleading
+        flyer:</p>\\n<p><a href=\\\"http://rossmounce.co.uk/wp-content/uploads/2018/05/flyer.jpg\\\"><img
+        loading=\\\"lazy\\\" decoding=\\\"async\\\" class=\\\"alignleft size-thumbnail
+        wp-image-2184\\\" src=\\\"http://rossmounce.co.uk/wp-content/uploads/2018/05/flyer-150x150.jpg\\\"
+        alt=\\\"Misleading Elsevier Flyer\\\" width=\\\"150\\\" height=\\\"150\\\"
+        /></a></p>\\n<p>I am pleased to announce that the UK Advertising Standards
+        Authority upheld my complaint.</p>\\n<p>Here is their reply:</p>\\n<p><strong><span
+        class=\\\"il\\\">ASA</span>\_Enquiry Ref: A18-443580 &#8211; RELX (UK) Ltd
+        t/a\_<span class=\\\"il\\\">Elsevier</span></strong></p>\\n<p style=\\\"font-weight:
+        400;\\\">Dear Dr Mounce,</p>\\n<p style=\\\"font-weight: 400;\\\">Thank you
+        for contacting the Advertising Standards Authority (ASA).</p>\\n<p style=\\\"font-weight:
+        400;\\\"><strong>Your Complaint: RELX (UK) Ltd t/a\_Elsevier</strong></p>\\n<p
+        style=\\\"font-weight: 400;\\\">I understand from your complaint that you
+        felt that\_Elsevier\u2019s advertising was misleading because it did not accurately
+        reflect the price range of their products and they do not quote prices with
+        VAT.\_ Please note that we have only reviewed the leaflet which you forwarded
+        to us, because we considered that the sign constituted point of sale material,
+        which is not covered by our Codes.</p>\\n<p style=\\\"font-weight: 400;\\\">We
+        have concluded that the leaflet was likely to have breached the Advertising
+        Rules that we apply and I am writing to let you know that we have taken steps
+        to address this.</p>\\n<p style=\\\"font-weight: 400;\\\">We\_have explained\_your
+        concerns to the advertiser and provided guidance to them on the areas that
+        require attention, together with advice on how to ensure that their advertising
+        complies with the Codes.</p>\\n<p style=\\\"font-weight: 400;\\\">Comments
+        such as yours help us to understand the issues that matter to consumers and
+        we will keep a record of your complaint on file for use in future monitoring.
+        If you would like more information about our complaint handling principles,
+        please visit our website\_<a href=\\\"https://www.asa.org.uk/make-a-complaint.html\\\"
+        data-saferedirecturl=\\\"https://www.google.com/url?hl=en-GB&amp;q=https://www.asa.org.uk/make-a-complaint.html&amp;source=gmail&amp;ust=1526414850918000&amp;usg=AFQjCNEMI1Fo3TCjP67HrhUSnwPHPnTLOg\\\">here</a>.</p>\\n<p
+        style=\\\"font-weight: 400;\\\">Thank you once again for contacting us with
+        your concerns.</p>\\n<p style=\\\"font-weight: 400;\\\">Yours sincerely,</p>\\n<p
+        style=\\\"font-weight: 400;\\\"><strong>\_</strong></p>\\n<p style=\\\"font-weight:
+        400;\\\"><strong>Damson Warner-Allen</strong></p>\\n<p style=\\\"font-weight:
+        400;\\\"><strong>Complaints Executive</strong></p>\\n<p style=\\\"font-weight:
+        400;\\\">Direct line 020 7492 2173</p>\\n<p style=\\\"font-weight: 400;\\\">Advertising
+        Standards Authority</p>\\n<p style=\\\"font-weight: 400;\\\">Mid City Place,
+        71 High Holborn</p>\\n<p style=\\\"font-weight: 400;\\\">London WC1V 6QT</p>\\n<p
+        style=\\\"font-weight: 400;\\\">Telephone 020 7492 2222</p>\\n<p style=\\\"font-weight:
+        400;\\\"><a href=\\\"http://www.asa.org.uk/\\\" data-saferedirecturl=\\\"https://www.google.com/url?hl=en-GB&amp;q=http://www.asa.org.uk/&amp;source=gmail&amp;ust=1526414850918000&amp;usg=AFQjCNHgIQYbCvf3E8nRheqj8NByolEZOA\\\">www.asa.org.uk</a></p>\\n<p>I
+        am thrilled that the Advertising Standards Authority has officially upheld
+        my complaint, and I encourage others who notice similar problems with Elsevier&#8217;s
+        business practices, and that of other academic publishers to come forward
+        with further complaints. These companies are not immune to regulation &#8211;
+        they must abide by the law at all times. The punishment for now is just a
+        slap-on-the-wrist but if they are consistently caught misadvertising, stronger
+        punishments can and would be meted out. Perhaps now is the time for more regulators
+        to start seriously investigating complaints about these richly profitable
+        publishing companies with <a href=\\\"https://en.wikipedia.org/wiki/Elsevier\\\">dubious
+        business practices</a>? Watch this space&#8230;</p>\\n\",\"content_text\":\"In
+        late 2016, Martin Eve, Stuart Lawson and Jon Tennant referred\\nElsevier/RELX
+        to the [Competition and Markets\\nAuthority](https://www.martineve.com/2016/12/03/referring-elsevierrelx-to-the-competition-and-markets-authority/).\\nInspired
+        by this, I thought I would try referring a complaint to the UK\\n[Advertising
+        Standards Authority](https://www.asa.org.uk/) (ASA) about\\nsome blatant fibbing
+        I saw Elsevier engage-in with their marketing spiel\\nat a recent conference.\\n\\nThe
+        content of my submission is below:\\n\\n**Name:\_**Ross Mounce\\n\\n**Ad\_type:**\_Leaflets,
+        flyers and circulars\\n\\n**Brand/product:**\_Elsevier\\n\\n**Date:** 26th
+        February 2018\\n\\n**Your complaint:**  \\nElsevier, a large academic publishing
+        company, have flyers and a large\\nposter, both containing the same information
+        at the [Researcher to\\nReader Conference](https://r2rconf.com/) (British
+        Medical Association\\nHouse, London). They claim on both the flyers and the
+        poster that \\\"Fact\\n\\\\#2: Our APC prices are value for money Our APC
+        prices range from \\\\$150\\n-- \\\\$5000 US dollars...\\\" \\\\[APC means
+        Article Processing Charge, a\\npublishing service for academic customers\\\\]
+        I believe this is false\\nadvertising as some of their journals clearly charge
+        \\\\$5200 US dollars\\nas an APC. \\\\$5200 is greater than the maximum of
+        \\\\$5000 advertised. They\\nalso report these prices without VAT added-on,
+        this is also misleading\\nas this meeting is in the UK. UK customers choosing
+        this service would\\nhave to pay the APC plus VAT tax and so the prices should
+        be displayed\\ninclusive of taxes in adverts like this. There is no mention
+        of the need\\nto pay VAT on either the flyers or the poster. I went to their
+        website\\nthe same day and found thirteen journals published at Elsevier,
+        that by\\nElsevier's own price list charge \\\\$5200 US dollars, not including
+        VAT.\\nThose journals are: *Cancer Cell, Cell, Cell Chemical Biology, Cell
+        Host\\n& Microbe, Cell Metabolism, Cell Stem Cell, Cell Systems, Current\\nBiology,
+        Developmental Cell, Immunity, Molecular Cell, Neuron*, and\\n*Structure*.
+        For reference I have attached a PDF of Elsevier's online\\nprice list which
+        I downloaded from Elsevier's official website\\nhere:\_[https://www.elsevier.com/about/our-business/policies/pricing](https://www.elsevier.com/about/our-business/policies/pricing){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"\\nsaferedirecturl=\\\"https://www.google.com/url?hl=en-GB&q=https://www.elsevier.com/about/our-business/policies/pricing&source=gmail&ust=1526414355514000&usg=AFQjCNEaFZRpq3gTY5XViZKa3a_kBIwcPg\\\"}\\nwhich
+        takes one to this PDF\\nURL:\_[https://www.elsevier.com/\\\\_\\\\_data/promis_misc/j.custom97.pdf](https://www.elsevier.com/__data/promis_misc/j.custom97.pdf){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"\\nsaferedirecturl=\\\"https://www.google.com/url?hl=en-GB&q=https://www.elsevier.com/__data/promis_misc/j.custom97.pdf&source=gmail&ust=1526414355514000&usg=AFQjCNE7fpjwNTNzwgn55b3-gxC35KcbuA\\\"}\\n\\nI
+        attached images of the offending poster and flyers. Below is a photo I\\ntook
+        of the misleading flyer:\\n\\n[![Misleading Elsevier\\nFlyer](http://rossmounce.co.uk/wp-content/uploads/2018/05/flyer-150x150.jpg){.alignleft\\n.size-thumbnail
+        .wp-image-2184 loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nwidth=\\\"150\\\"\\nheight=\\\"150\\\"}](http://rossmounce.co.uk/wp-content/uploads/2018/05/flyer.jpg)\\n\\nI
+        am pleased to announce that the UK Advertising Standards Authority\\nupheld
+        my complaint.\\n\\nHere is their reply:\\n\\n**[ASA]{.il}\_Enquiry Ref: A18-443580
+        -- RELX (UK) Ltd\\nt/a\_[Elsevier]{.il}**\\n\\nDear Dr Mounce,\\n\\nThank
+        you for contacting the Advertising Standards Authority (ASA).\\n\\n**Your
+        Complaint: RELX (UK) Ltd t/a\_Elsevier**\\n\\nI understand from your complaint
+        that you felt that\_Elsevier's\\nadvertising was misleading because it did
+        not accurately reflect the\\nprice range of their products and they do not
+        quote prices with VAT.\_\\nPlease note that we have only reviewed the leaflet
+        which you forwarded\\nto us, because we considered that the sign constituted
+        point of sale\\nmaterial, which is not covered by our Codes.\\n\\nWe have
+        concluded that the leaflet was likely to have breached the\\nAdvertising Rules
+        that we apply and I am writing to let you know that we\\nhave taken steps
+        to address this.\\n\\nWe\_have explained\_your concerns to the advertiser
+        and provided guidance\\nto them on the areas that require attention, together
+        with advice on how\\nto ensure that their advertising complies with the Codes.\\n\\nComments
+        such as yours help us to understand the issues that matter to\\nconsumers
+        and we will keep a record of your complaint on file for use in\\nfuture monitoring.
+        If you would like more information about our\\ncomplaint handling principles,
+        please visit our\\nwebsite\_[here](https://www.asa.org.uk/make-a-complaint.html){saferedirecturl=\\\"https://www.google.com/url?hl=en-GB&q=https://www.asa.org.uk/make-a-complaint.html&source=gmail&ust=1526414850918000&usg=AFQjCNEMI1Fo3TCjP67HrhUSnwPHPnTLOg\\\"}.\\n\\nThank
+        you once again for contacting us with your concerns.\\n\\nYours sincerely,\\n\\n**\_**\\n\\n**Damson
+        Warner-Allen**\\n\\n**Complaints Executive**\\n\\nDirect line 020 7492 2173\\n\\nAdvertising
+        Standards Authority\\n\\nMid City Place, 71 High Holborn\\n\\nLondon WC1V
+        6QT\\n\\nTelephone 020 7492 2222\\n\\n[www.asa.org.uk](http://www.asa.org.uk/){saferedirecturl=\\\"https://www.google.com/url?hl=en-GB&q=http://www.asa.org.uk/&source=gmail&ust=1526414850918000&usg=AFQjCNHgIQYbCvf3E8nRheqj8NByolEZOA\\\"}\\n\\nI
+        am thrilled that the Advertising Standards Authority has officially\\nupheld
+        my complaint, and I encourage others who notice similar problems\\nwith Elsevier's
+        business practices, and that of other academic\\npublishers to come forward
+        with further complaints. These companies are\\nnot immune to regulation --
+        they must abide by the law at all times. The\\npunishment for now is just
+        a slap-on-the-wrist but if they are\\nconsistently caught misadvertising,
+        stronger punishments can and would\\nbe meted out. Perhaps now is the time
+        for more regulators to start\\nseriously investigating complaints about these
+        richly profitable\\npublishing companies with [dubious business\\npractices](https://en.wikipedia.org/wiki/Elsevier)?
+        Watch this space...\\n\",\"doi\":\"https://doi.org/10.59350/9fy5r-q3f20\",\"guid\":\"http://rossmounce.co.uk/?p=2183\",\"id\":\"b8dc0068-2350-4635-aa1a-75a9017a6d1f\",\"image\":\"http://rossmounce.co.uk/wp-content/uploads/2018/05/flyer-150x150.jpg\",\"language\":\"en\",\"published_at\":1526329504,\"reference\":[],\"relationships\":[],\"summary\":\"In
+        late 2016, Martin Eve, Stuart Lawson and Jon Tennant referred Elsevier/RELX
+        to the Competition and Markets Authority. Inspired by this, I thought I would
+        try referring a complaint to the UK Advertising Standards Authority (ASA)
+        about some blatant fibbing I saw Elsevier engage-in with their marketing spiel
+        at a recent conference.\\n\",\"tags\":[\"Paywall Watch\",\"Advertising\",\"Consumer
+        Rights\",\"Elsevier\",\"Regulators\"],\"title\":\"Referring Elsevier/RELX
+        to the Advertising Standards Authority\",\"updated_at\":1701012244,\"url\":\"https://rossmounce.co.uk/2018/05/14/referring-elsevier-relx-to-the-advertising-standards-authority\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Ross
+        Mounce\"}],\"blog_id\":\"vbmdy90\",\"blog_name\":\"A blog by Ross Mounce\",\"blog_slug\":\"rossmounce\",\"category\":\"naturalSciences\",\"content_html\":\"<p><span
+        style=\\\"font-weight: 400;\\\">In 2017, we have a vast toolbox of informative
+        methods to help us analyse large volumes of text. Sentiment analysis, topic
+        modelling, and named entity recognition are to name but a few of these exciting
+        approaches. Computational power and storage capacity are not the limiting
+        factors on what we could do with the 100 million or so journal articles that
+        comprise the ever-growing research literature so far. But the continued observance
+        of 17</span><span style=\\\"font-weight: 400;\\\">th</span><span style=\\\"font-weight:
+        400;\\\"> century limitations on how we can use research are simply jarring.
+        Thanks to computers and the internet, we have the ability to do wonderful
+        things, but the licensing and access-restrictions placed on most of the research
+        literature explicitly and artificially prevent most of us from trying. As
+        a result, few researchers bother thinking about using text mining techniques
+        \u2013 it is often simpler and easier to just farm-out repetitive large-scale
+        literature analysis tasks to an array of student minions and volunteers to
+        do by-hand \u2013 even though computers could and perhaps should be doing
+        these analyses for us. </span></p>\\n<p><span style=\\\"font-weight: 400;\\\">Inadequate
+        computational access to research has already caused us great harm. Just ask
+        the Ministry of Health in Liberia: they were not pleased to discover, after
+        a lethal Ebola virus outbreak, that </span><a href=\\\"https://www.nytimes.com/2015/04/08/opinion/yes-we-were-warned-about-ebola.html\\\"><span
+        style=\\\"font-weight: 400;\\\">vital knowledge locked-away in \u201Cforgotten
+        papers\u201D published in the 1980\u2019s</span></a><span style=\\\"font-weight:
+        400;\\\">, clearly warned that the Ebola virus might be present in Liberia.
+        This information wasn\u2019t in the title, keywords, metadata, or abstract;
+        it was completely hidden behind a paywall. Full text mining approaches would
+        have easily found this buried knowledge and would have provided vital early
+        warning that Ebola could come to Liberia, which might have prevented some
+        deaths during the </span><a href=\\\"https://en.wikipedia.org/wiki/West_African_Ebola_virus_epidemic\\\"><span
+        style=\\\"font-weight: 400;\\\">West African Ebola virus epidemic (2013\u20132016)</span></a><span
+        style=\\\"font-weight: 400;\\\">.\_</span></p>\\n<p><span style=\\\"font-weight:
+        400;\\\">Some subscription-based publishers have been known to use \u2018defence\u2019
+        mechanisms such as </span><a href=\\\"http://doi.org/10.1038/535011f\\\"><span
+        style=\\\"font-weight: 400;\\\">\u2018trap URLs\u2019 that hinder text miners</span></a><span
+        style=\\\"font-weight: 400;\\\"> &#8211; making it even harder to do basic
+        research. Whilst other subscription publishers like </span><a href=\\\"https://royalsociety.org/journals/ethics-policies/data-sharing-mining/\\\"><span
+        style=\\\"font-weight: 400;\\\">Royal Society Publishing are helpfully supportive
+        to text miners</span></a><span style=\\\"font-weight: 400;\\\">, as are open
+        access publishers. Hindawi for instance, allows anyone to download every single
+        article they\u2019ve ever published with a\_</span><a href=\\\"https://www.hindawi.com/corpus/\\\"><span
+        style=\\\"font-weight: 400;\\\">single mouse-click</span></a><span style=\\\"font-weight:
+        400;\\\">. Thanks to open licensing, aggregators like\_</span><a href=\\\"https://europepmc.org/downloads/openaccess\\\"><span
+        style=\\\"font-weight: 400;\\\">Europe PubMedCentral</span></a><span style=\\\"font-weight:
+        400;\\\"> can bring together the outputs of many different OA publishers,
+        making millions of articles available with a minimum of fuss. It is \u201Cno
+        bullshit\u201D access. You want it? You can have it </span><i><span style=\\\"font-weight:
+        400;\\\">all</span></i><span style=\\\"font-weight: 400;\\\">. No need to
+        beg permission, to spend\_</span><a href=\\\"http://www.nature.com/news/text-mining-spat-heats-up-1.12636\\\"><span
+        style=\\\"font-weight: 400;\\\">months negotiating</span></a><span style=\\\"font-weight:
+        400;\\\"> and signing additional contracts, nor to use complicated publisher-controlled
+        access APIs, and their associated restrictions. Furthermore, OA publishers
+        typically provide highly structured full-text XML files which make it even
+        easier for text miners. But only a small fraction of the research literature
+        is openly-licensed open access. It\u2019s for these reasons and more that
+        many of the best text-mining researchers operate-on and enrich our understanding
+        of open access papers-</span><i><span style=\\\"font-weight: 400;\\\">only</span></i><span
+        style=\\\"font-weight: 400;\\\"> e.g.\_</span><a href=\\\"https://doi.org/10.7554/eLife.13615\\\"><span
+        style=\\\"font-weight: 400;\\\">Florez-Vargas et al 2016</span></a><span style=\\\"font-weight:
+        400;\\\">.</span></p>\\n<p><span style=\\\"font-weight: 400;\\\">So if I had
+        but one wish this Christmas, it would be for the artificial, legally-imposed
+        restrictions on the bulk download and analysis of research texts, to be unambiguously
+        removed for everyone, worldwide \u2013 so that no researcher need\_</span><a
+        href=\\\"https://en.wikipedia.org/wiki/Aaron_Swartz\\\"><span style=\\\"font-weight:
+        400;\\\">fear imprisonment</span></a><span style=\\\"font-weight: 400;\\\">
+        or other punitive action, simply for doing justified and ethical academic
+        research. Unchain the literature, and we might be able to properly unleash
+        and apply the collected knowledge of humanity. \_</span></p>\\n<p>&nbsp;</p>\\n<p><em>This
+        is my short contribution for Open Access Week 2017, and the <a href=\\\"https://openinorder.to/\\\">#OpenInOrderTo</a>
+        website created by <a href=\\\"https://sparcopen.org/\\\">SPARC</a>,\_to move
+        beyond talking about openness in itself and focus on what openness enables.</em></p>\\n<p>&nbsp;</p>\\n\",\"content_text\":\"[In
+        2017, we have a vast toolbox of informative methods to help us\\nanalyse large
+        volumes of text. Sentiment analysis, topic modelling, and\\nnamed entity recognition
+        are to name but a few of these exciting\\napproaches. Computational power
+        and storage capacity are not the\\nlimiting factors on what we could do with
+        the 100 million or so journal\\narticles that comprise the ever-growing research
+        literature so far. But\\nthe continued observance of\\n17]{style=\\\"font-weight:
+        400;\\\"}[th]{style=\\\"font-weight: 400;\\\"}[ century\\nlimitations on how
+        we can use research are simply jarring. Thanks to\\ncomputers and the internet,
+        we have the ability to do wonderful things,\\nbut the licensing and access-restrictions
+        placed on most of the research\\nliterature explicitly and artificially prevent
+        most of us from trying.\\nAs a result, few researchers bother thinking about
+        using text mining\\ntechniques -- it is often simpler and easier to just farm-out
+        repetitive\\nlarge-scale literature analysis tasks to an array of student
+        minions and\\nvolunteers to do by-hand -- even though computers could and
+        perhaps\\nshould be doing these analyses for us. ]{style=\\\"font-weight:
+        400;\\\"}\\n\\n[Inadequate computational access to research has already caused
+        us great\\nharm. Just ask the Ministry of Health in Liberia: they were not
+        pleased\\nto discover, after a lethal Ebola virus outbreak, that\\n]{style=\\\"font-weight:
+        400;\\\"}[[vital knowledge locked-away in \\\"forgotten\\npapers\\\" published
+        in the\\n1980's]{style=\\\"font-weight: 400;\\\"}](https://www.nytimes.com/2015/04/08/opinion/yes-we-were-warned-about-ebola.html)[,\\nclearly
+        warned that the Ebola virus might be present in Liberia. This\\ninformation
+        wasn't in the title, keywords, metadata, or abstract; it was\\ncompletely
+        hidden behind a paywall. Full text mining approaches would\\nhave easily found
+        this buried knowledge and would have provided vital\\nearly warning that Ebola
+        could come to Liberia, which might have\\nprevented some deaths during the
+        ]{style=\\\"font-weight: 400;\\\"}[[West\\nAfrican Ebola virus epidemic\\n(2013--2016)]{style=\\\"font-weight:
+        400;\\\"}](https://en.wikipedia.org/wiki/West_African_Ebola_virus_epidemic)[.\_]{style=\\\"font-weight:
+        400;\\\"}\\n\\n[Some subscription-based publishers have been known to use
+        'defence'\\nmechanisms such as ]{style=\\\"font-weight: 400;\\\"}[['trap URLs'
+        that hinder\\ntext\\nminers]{style=\\\"font-weight: 400;\\\"}](http://doi.org/10.1038/535011f)[
+        --\\nmaking it even harder to do basic research. Whilst other subscription\\npublishers
+        like ]{style=\\\"font-weight: 400;\\\"}[[Royal Society Publishing\\nare helpfully
+        supportive to text\\nminers]{style=\\\"font-weight: 400;\\\"}](https://royalsociety.org/journals/ethics-policies/data-sharing-mining/)[,\\nas
+        are open access publishers. Hindawi for instance, allows anyone to\\ndownload
+        every single article they've ever published with\\na\_]{style=\\\"font-weight:
+        400;\\\"}[[single\\nmouse-click]{style=\\\"font-weight: 400;\\\"}](https://www.hindawi.com/corpus/)[.\\nThanks
+        to open licensing, aggregators\\nlike\_]{style=\\\"font-weight: 400;\\\"}[[Europe\\nPubMedCentral]{style=\\\"font-weight:
+        400;\\\"}](https://europepmc.org/downloads/openaccess)[\\ncan bring together
+        the outputs of many different OA publishers, making\\nmillions of articles
+        available with a minimum of fuss. It is \\\"no\\nbullshit\\\" access. You
+        want it? You can have it\\n]{style=\\\"font-weight: 400;\\\"}*[all]{style=\\\"font-weight:
+        400;\\\"}*[. No need\\nto beg permission, to spend\_]{style=\\\"font-weight:
+        400;\\\"}[[months\\nnegotiating]{style=\\\"font-weight: 400;\\\"}](http://www.nature.com/news/text-mining-spat-heats-up-1.12636)[\\nand
+        signing additional contracts, nor to use complicated\\npublisher-controlled
+        access APIs, and their associated restrictions.\\nFurthermore, OA publishers
+        typically provide highly structured full-text\\nXML files which make it even
+        easier for text miners. But only a small\\nfraction of the research literature
+        is openly-licensed open access. It's\\nfor these reasons and more that many
+        of the best text-mining researchers\\noperate-on and enrich our understanding
+        of open access\\npapers-]{style=\\\"font-weight: 400;\\\"}*[only]{style=\\\"font-weight:
+        400;\\\"}*[\\ne.g.\_]{style=\\\"font-weight: 400;\\\"}[[Florez-Vargas et al\\n2016]{style=\\\"font-weight:
+        400;\\\"}](https://doi.org/10.7554/eLife.13615)[.]{style=\\\"font-weight:
+        400;\\\"}\\n\\n[So if I had but one wish this Christmas, it would be for the\\nartificial,
+        legally-imposed restrictions on the bulk download and\\nanalysis of research
+        texts, to be unambiguously removed for everyone,\\nworldwide -- so that no
+        researcher\\nneed\_]{style=\\\"font-weight: 400;\\\"}[[fear\\nimprisonment]{style=\\\"font-weight:
+        400;\\\"}](https://en.wikipedia.org/wiki/Aaron_Swartz)[\\nor other punitive
+        action, simply for doing justified and ethical\\nacademic research. Unchain
+        the literature, and we might be able to\\nproperly unleash and apply the collected
+        knowledge of humanity.\\n\_]{style=\\\"font-weight: 400;\\\"}\\n\\n\_\\n\\n*This
+        is my short contribution for Open Access Week 2017, and the\\n[\\\\#OpenInOrderTo](https://openinorder.to/)
+        website created by\\n[SPARC](https://sparcopen.org/),\_to move beyond talking
+        about openness\\nin itself and focus on what openness enables.*\\n\\n\_\\n\",\"doi\":\"https://doi.org/10.59350/pvyrm-wtt17\",\"guid\":\"http://rossmounce.co.uk/?p=2178\",\"id\":\"3cbd7637-09a8-4745-bb39-15f21957e029\",\"image\":\"\",\"language\":\"en\",\"published_at\":1508751235,\"reference\":[],\"relationships\":[],\"summary\":\"In
+        2017, we have a vast toolbox of informative methods to help us analyse large
+        volumes of text. Sentiment analysis, topic modelling, and named entity recognition
+        are to name but a few of these exciting approaches. Computational power and
+        storage capacity are not the limiting factors on what we could do with the
+        100 million or so journal articles that comprise the ever-growing research
+        literature so far.\\n\",\"tags\":[\"Generation Open\",\"Open Access\"],\"title\":\"Open
+        in order to unleash the power of text mining\",\"updated_at\":1701012296,\"url\":\"https://rossmounce.co.uk/2017/10/23/open-in-order-to-unleash-the-power-of-text-mining\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Ross
+        Mounce\"}],\"blog_id\":\"vbmdy90\",\"blog_name\":\"A blog by Ross Mounce\",\"blog_slug\":\"rossmounce\",\"category\":\"naturalSciences\",\"content_html\":\"<p>This
+        is a quick post to announce what I&#8217;ll be doing next after my postdoc
+        at the <a href=\\\"http://www.plantsci.cam.ac.uk/\\\">Department of Plant
+        Sciences, University of Cambridge</a>. From June 2017 onwards, I&#8217;m delighted
+        to say I&#8217;ll be the new Open Access Grants Manager for <a href=\\\"https://www.arcadiafund.org.uk/\\\">Arcadia
+        Fund</a>.</p>\\n<p><strong>About Arcadia Fund</strong></p>\\n<p>If you haven&#8217;t
+        heard of it before here&#8217;s what you need to know: Arcadia is a charitable
+        fund, set up by <a href=\\\"https://en.wikipedia.org/wiki/Peter_Baldwin_(professor)\\\">Peter
+        Baldwin</a> and <a href=\\\"https://en.wikipedia.org/wiki/Lisbet_Rausing\\\">Lisbet
+        Rausing</a> in 2002. So far, it has awarded more than $440 million to cultural,
+        environmental and open access projects. Within the open access funding programme
+        Arcadia have awarded grants to organisations including Creative Commons, Wikimedia
+        Foundation, Authors Alliance,\_Public.Resource.Org,\_Internet Archive,\_Digital
+        Public Library of America and more&#8230;</p>\\n<p><strong>New Career, Same
+        Me</strong></p>\\n<p>When the job ad came-up I could scarcely believe how
+        good the organisational fit was for me: Arcadia funds brilliant\_projects
+        in this space. I am genuinely looking forward to developing and advising on
+        Arcadia\u2019s open access policy, to <em>continue</em> engaging with the
+        wider open access community, to manage Arcadia&#8217;s existing grants portfolio,
+        and to identify new opportunities for high impact initiatives where funding
+        from Arcadia will make a difference.</p>\\n<p>I feel extremely grateful to
+        have been chosen for this position against many other talented and experienced
+        applicants (and friends!) and although it&#8217;ll take me many months to
+        &#8216;learn the ropes&#8217; I see this as my new career now, no going back.
+        I&#8217;m now part of the <a href=\\\"http://www.nature.com/nature/journal/v534/n7608/full/534475c.html\\\">88%
+        majority of UK postdocs who never secure a tenured position in academia</a>;
+        but don&#8217;t feel sorry for me &#8211; I&#8217;m delighted with this new
+        direction. New career, same me.</p>\\n<p>A lot of passionate, intelligent
+        young people with an academic background have jobs where they can really\_make
+        a difference (i.e. <em>not</em> in academia). In this regard, I&#8217;m inspired
+        by the likes of <a href=\\\"http://tjbliss.org/\\\">TJ Bliss</a> at Hewlett
+        Foundation, <a href=\\\"https://strasser.github.io/\\\">Carly Strasser</a>
+        at Moore Foundation, <a href=\\\"https://sparcopen.org/people/nick-shockey/\\\">Nick
+        Shockey</a> at SPARC, <a href=\\\"https://impactstory.org/about\\\">Heather
+        Piwowar and Jason Priem</a> at Impactstory,\_<a href=\\\"https://sparcopen.org/people/joseph-mcarthur/\\\">Joe
+        McArthur</a> at\_The Right to Research Coalition, and <a href=\\\"http://jonathangray.org/\\\">Jonathon
+        Gray</a> at Open Knowledge. Now I&#8217;ve turned 30, I&#8217;m married, and
+        I have a beautiful baby daughter. Some things have changed, but my passion
+        for open knowledge hasn&#8217;t.\_Doing &#8216;open&#8217; on the side of
+        research wasn&#8217;t enough.\_Soon it&#8217;ll be\_my full time endeavour!</p>\\n\",\"content_text\":\"This
+        is a quick post to announce what I'll be doing next after my\\npostdoc at
+        the [Department of Plant Sciences, University of\\nCambridge](http://www.plantsci.cam.ac.uk/).
+        From June 2017 onwards, I'm\\ndelighted to say I'll be the new Open Access
+        Grants Manager for [Arcadia\\nFund](https://www.arcadiafund.org.uk/).\\n\\n**About
+        Arcadia Fund**\\n\\nIf you haven't heard of it before here's what you need
+        to know: Arcadia\\nis a charitable fund, set up by [Peter\\nBaldwin](https://en.wikipedia.org/wiki/Peter_Baldwin_(professor))
+        and\\n[Lisbet Rausing](https://en.wikipedia.org/wiki/Lisbet_Rausing) in 2002.\\nSo
+        far, it has awarded more than \\\\$440 million to cultural,\\nenvironmental
+        and open access projects. Within the open access funding\\nprogramme Arcadia
+        have awarded grants to organisations including\\nCreative Commons, Wikimedia
+        Foundation, Authors\\nAlliance,\_Public.Resource.Org,\_Internet Archive,\_Digital
+        Public Library\\nof America and more...\\n\\n**New Career, Same Me**\\n\\nWhen
+        the job ad came-up I could scarcely believe how good the\\norganisational
+        fit was for me: Arcadia funds brilliant\_projects in this\\nspace. I am genuinely
+        looking forward to developing and advising on\\nArcadia's open access policy,
+        to *continue* engaging with the wider open\\naccess community, to manage Arcadia's
+        existing grants portfolio, and to\\nidentify new opportunities for high impact
+        initiatives where funding\\nfrom Arcadia will make a difference.\\n\\nI feel
+        extremely grateful to have been chosen for this position against\\nmany other
+        talented and experienced applicants (and friends!) and\\nalthough it'll take
+        me many months to 'learn the ropes' I see this as my\\nnew career now, no
+        going back. I'm now part of the [88% majority of UK\\npostdocs who never secure
+        a tenured position in\\nacademia](http://www.nature.com/nature/journal/v534/n7608/full/534475c.html);\\nbut
+        don't feel sorry for me -- I'm delighted with this new direction.\\nNew career,
+        same me.\\n\\nA lot of passionate, intelligent young people with an academic\\nbackground
+        have jobs where they can really\_make a difference (i.e. *not*\\nin academia).
+        In this regard, I'm inspired by the likes of [TJ\\nBliss](http://tjbliss.org/)
+        at Hewlett Foundation, [Carly\\nStrasser](https://strasser.github.io/) at
+        Moore Foundation, [Nick\\nShockey](https://sparcopen.org/people/nick-shockey/)
+        at SPARC, [Heather\\nPiwowar and Jason Priem](https://impactstory.org/about)
+        at\\nImpactstory,\_[Joe\\nMcArthur](https://sparcopen.org/people/joseph-mcarthur/)
+        at\_The Right to\\nResearch Coalition, and [Jonathon Gray](http://jonathangray.org/)
+        at\\nOpen Knowledge. Now I've turned 30, I'm married, and I have a beautiful\\nbaby
+        daughter. Some things have changed, but my passion for open\\nknowledge hasn't.\_Doing
+        'open' on the side of research wasn't\\nenough.\_Soon it'll be\_my full time
+        endeavour!\\n\",\"doi\":\"https://doi.org/10.59350/5krd9-vvj03\",\"guid\":\"http://rossmounce.co.uk/?p=2167\",\"id\":\"f259e4b8-a353-44c0-b939-ab4f925fae89\",\"image\":\"\",\"language\":\"en\",\"published_at\":1492460824,\"reference\":[],\"relationships\":[],\"summary\":\"This
+        is a quick post to announce what I\u2019ll be doing next after my postdoc
+        at the Department of Plant Sciences, University of Cambridge. From June 2017
+        onwards, I\u2019m delighted to say I\u2019ll be the new Open Access Grants
+        Manager for Arcadia Fund.\\n<strong>\\n About Arcadia Fund\\n</strong>\\nIf
+        you haven\u2019t heard of it before here\u2019s what you need to know: Arcadia
+        is a charitable fund, set up by Peter Baldwin and Lisbet Rausing in 2002.\\n\",\"tags\":[\"Open
+        Access\"],\"title\":\"New Career, Same Me\",\"updated_at\":1701012339,\"url\":\"https://rossmounce.co.uk/2017/04/17/new-career-same-me\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Ross
+        Mounce\"}],\"blog_id\":\"vbmdy90\",\"blog_name\":\"A blog by Ross Mounce\",\"blog_slug\":\"rossmounce\",\"category\":\"naturalSciences\",\"content_html\":\"<p><strong>To:</strong>
+        francesca.martin@oup.com, sally.iannacci@oup.com, Jennifer.Boyd@oup.com,<br
+        />\\nrebecca.seger@oup.com, graham.grant@oup.com, chris.holmes@oup.com,<br
+        />\\nandrea.gilbey@oup.com</p>\\n<p><strong>From:</strong> Ross Mounce &lt;rcm61@cam.ac.uk&gt;</p>\\n<p><strong>Subject:</strong>
+        An Open Letter to Oxford University Press on Publishing</p>\\n<p><strong>Cc:</strong>
+        R.VanNoorden@nature.com, Q.Schiermeier@nature.com, Ben.Taplin@jisc.ac.uk,<br
+        />\\nAnna.Vernon@jisc.ac.uk, Richard.Savory@jisc.ac.uk,<br />\\npaul.jump@timeshighereducation.com,
+        chris.havergal@timeshighereducation.com,<br />\\nholly.else@timeshighereducation.com,
+        science_news@aaas.org,<br />\\ntimcross@economist.com</p>\\n<p><strong>Date:</strong>
+        Sun, 2 Apr 2017 16:55:50 +0100<br />\\n<strong>User-Agent:</strong> Mozilla/5.0
+        (X11; Linux x86_64; rv:45.0) Gecko/20100101<br />\\nThunderbird/45.8.0<br
+        />\\n<strong>Content-Type:</strong> text/plain; charset=utf-8; format=flowed</p>\\n<p>Dear
+        Oxford University Press,</p>\\n<p>The problems at Oxford University Press
+        (OUP) journals have been<br />\\ngoing-on far too long.</p>\\n<p>It is affecting
+        our ability to do research.</p>\\n<p>OUP have known about these problems since
+        mid-January yet so many<br />\\ncritical problems still remain unresolved.
+        Where is all the<br />\\nsupplementary materials for MBE and GBE? Where are
+        the &#8220;missing&#8221; 16<br />\\nyears worth of full text MBE articles?</p>\\n<p>Providing
+        access to research is the most basic job of a publisher,<br />\\nyet OUP are
+        failing to do even this simple task at the moment.</p>\\n<p>The situation
+        is simply outrageous.</p>\\n<p>On behalf of over 50 signatories representing
+        postdocs, principal<br />\\ninvestigators, professors, and others from institutions
+        around the<br />\\nworld, <a href=\\\"https://docs.google.com/document/d/1syhN3heTAn1v5UYzjwP8JS124PNr27ecq59CkDplX3g/edit?usp=sharing\\\">I
+        attach a formal open letter of complaint about the abysmal </a><br />\\nservice
+        being provided by OUP, in the hope that OUP might finally<br />\\nprovide
+        adequate responses to the various problems detailed therein.</p>\\n<p>Sincerely,</p>\\n<p>Dr
+        Ross Mounce</p>\\n<p>Postdoctoral Research Associate &amp; Software Sustainability
+        Fellow<br />\\nDepartment of Plant Sciences<br />\\nUniversity of Cambridge</p>\\n\",\"content_text\":\"**To:**
+        francesca.martin@oup.com, sally.iannacci@oup.com,\\nJennifer.Boyd@oup.com,
+        \ \\nrebecca.seger@oup.com, graham.grant@oup.com, chris.holmes@oup.com,  \\nandrea.gilbey@oup.com\\n\\n**From:**
+        Ross Mounce \\\\<rcm61@cam.ac.uk\\\\>\\n\\n**Subject:** An Open Letter to
+        Oxford University Press on Publishing\\n\\n**Cc:** R.VanNoorden@nature.com,
+        Q.Schiermeier@nature.com,\\nBen.Taplin@jisc.ac.uk,  \\nAnna.Vernon@jisc.ac.uk,
+        Richard.Savory@jisc.ac.uk,  \\npaul.jump@timeshighereducation.com,\\nchris.havergal@timeshighereducation.com,
+        \ \\nholly.else@timeshighereducation.com, science_news@aaas.org,  \\ntimcross@economist.com\\n\\n**Date:**
+        Sun, 2 Apr 2017 16:55:50 +0100  \\n**User-Agent:** Mozilla/5.0 (X11; Linux
+        x86_64; rv:45.0)\\nGecko/20100101  \\nThunderbird/45.8.0  \\n**Content-Type:**
+        text/plain; charset=utf-8; format=flowed\\n\\nDear Oxford University Press,\\n\\nThe
+        problems at Oxford University Press (OUP) journals have been  \\ngoing-on
+        far too long.\\n\\nIt is affecting our ability to do research.\\n\\nOUP have
+        known about these problems since mid-January yet so many  \\ncritical problems
+        still remain unresolved. Where is all the  \\nsupplementary materials for
+        MBE and GBE? Where are the \\\"missing\\\" 16  \\nyears worth of full text
+        MBE articles?\\n\\nProviding access to research is the most basic job of a
+        publisher,  \\nyet OUP are failing to do even this simple task at the moment.\\n\\nThe
+        situation is simply outrageous.\\n\\nOn behalf of over 50 signatories representing
+        postdocs, principal  \\ninvestigators, professors, and others from institutions
+        around the  \\nworld, [I attach a formal open letter of complaint about the\\nabysmal](https://docs.google.com/document/d/1syhN3heTAn1v5UYzjwP8JS124PNr27ecq59CkDplX3g/edit?usp=sharing)
+        \ \\nservice being provided by OUP, in the hope that OUP might finally  \\nprovide
+        adequate responses to the various problems detailed therein.\\n\\nSincerely,\\n\\nDr
+        Ross Mounce\\n\\nPostdoctoral Research Associate & Software Sustainability
+        Fellow  \\nDepartment of Plant Sciences  \\nUniversity of Cambridge\\n\",\"doi\":\"https://doi.org/10.59350/57rf3-qee23\",\"guid\":\"http://rossmounce.co.uk/?p=2162\",\"id\":\"8f5beb8c-a57f-4729-8f90-601d9a3446e5\",\"image\":\"\",\"language\":\"en\",\"published_at\":1491149157,\"reference\":[],\"relationships\":[],\"summary\":\"<strong>\\n
+        To:\\n</strong>\\nfrancesca.martin@oup.com, sally.iannacci@oup.com, Jennifer.Boyd@oup.com,
+        rebecca.seger@oup.com, graham.grant@oup.com, chris.holmes@oup.com, andrea.gilbey@oup.com\\n<strong>\\n
+        From:\\n</strong>\\nRoss Mounce &lt;rcm61@cam.ac.uk&gt;\\n<strong>\\n Subject:\\n</strong>\\nAn
+        Open Letter to Oxford University Press on Publishing\\n<strong>\\n Cc:\\n</strong>\\nR.VanNoorden@nature.com,
+        Q.Schiermeier@nature.com, Ben.Taplin@jisc.ac.uk, Anna.Vernon@jisc.ac.uk,\\n\",\"tags\":[\"Publishing\"],\"title\":\"An
+        Open Letter to Oxford University Press on Publishing\",\"updated_at\":1701012405,\"url\":\"https://rossmounce.co.uk/2017/04/02/open-letter-to-oxford-university-press\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}}],\"out_of\":13547,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"\"},\"search_cutoff\":false,\"search_time_ms\":11}"
+    headers:
+      Connection:
+      - keep-alive
+      accept-ranges:
+      - none
+      access-control-allow-origin:
+      - '*'
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: OK
 version: 1
