@@ -262,7 +262,7 @@ async def test_posts_filter_by_tags_route():
     response = await test_client.get("/posts?tags=open+access")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] > 800
+    assert result["found"] > 750
     post = py_.get(result, "hits[0].document")
     assert post["title"] is not None and "Open Access" in post["tags"]
 

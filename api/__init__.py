@@ -35,7 +35,7 @@ from api.utils import (
     end_of_date,
     compact,
 )
-from api.posts import extract_all_posts, extract_all_posts_by_blog
+from api.posts import extract_all_posts, extract_all_posts_by_blog, update_posts
 from api.blogs import extract_single_blog, extract_all_blogs
 from api.schema import Blog, Post, PostQuery
 
@@ -255,6 +255,7 @@ async def post_posts():
 
     page = int(request.args.get("page") or "1")
     update = request.args.get("update")
+    content_text = request.args.get("content_text")
 
     if (
         request.headers.get("Authorization", None) is None
@@ -264,9 +265,24 @@ async def post_posts():
         return {"error": "Unauthorized."}, 401
     else:
         try:
-            extracted_posts = await extract_all_posts(
-                page=page, update_all=(update == "all")
-            )
+            if content_text == "content_text":
+                response = typesense.collections["posts"].documents.search(
+                    {
+                        "q": "",
+                        "query_by": "content_text",
+                        "sort_by": "published_at:desc",
+                        "per_page": 50,
+                        "page": page if page and page > 0 else 1,
+                        "filter_by": "content_text:content_text",
+                        "include_fields": "id,doi,content_text",
+                    }
+                )
+                updated_posts = await update_posts(response.get("hits", []))
+                return jsonify(updated_posts)
+            else:
+                extracted_posts = await extract_all_posts(
+                    page=page, update_all=(update == "all")
+                )
             return jsonify(extracted_posts)
         except Exception as e:
             logger.warning(e)  # .args[0])

@@ -32,6 +32,7 @@ from api.supabase import (
     supabase_admin_client as supabase_admin,
     supabase_client as supabase,
 )
+from api.typesense import typesense_client as typesense
 
 
 async def extract_all_posts(page: int = 1, update_all: bool = False):
@@ -58,6 +59,24 @@ async def extract_all_posts(page: int = 1, update_all: bool = False):
             results.append(result[0])
 
     return results
+
+
+async def update_posts(posts: list):
+    """Update posts."""
+    
+    try:
+        def update_post(post):
+            id_ = py_.get(post, "document.id")
+            if len(id_) == 5:
+                print(id_, py_.get(post, "document.doi", None))
+                typesense.collections["posts"].documents[id_].delete()
+                return {}
+            return py_.get(post, "document.content_text", "")
+
+        return [update_post(x) for x in posts]
+    except Exception:
+        print(traceback.format_exc())
+        return {}
 
 
 async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool = False):
@@ -283,7 +302,6 @@ async def extract_wordpress_post(post, blog):
             "blog_id": blog.get("id", None),
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
-            "content_html": content_html,
             "content_text": content_text,
             "summary": get_abstract(content_html),
             "published_at": unix_timestamp(post.get("date_gmt", None)),
@@ -339,7 +357,6 @@ async def extract_wordpresscom_post(post, blog):
             "blog_id": blog.get("id", None),
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
-            "content_html": content_html,
             "content_text": content_text,
             "summary": summary,
             "published_at": unix_timestamp(post.get("date", None)),
@@ -395,7 +412,6 @@ async def extract_ghost_post(post, blog):
             "blog_id": blog.get("id", None),
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
-            "content_html": content_html,
             "content_text": content_text,
             "summary": summary,
             "published_at": unix_timestamp(post.get("published_at", None)),
@@ -452,7 +468,6 @@ async def extract_substack_post(post, blog):
             "blog_id": blog.get("id", None),
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
-            "content_html": content_html,
             "content_text": content_text,
             "summary": summary,
             "published_at": published_at,
@@ -510,7 +525,6 @@ async def extract_json_feed_post(post, blog):
             "blog_id": blog.get("id", None),
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
-            "content_html": content_html,
             "content_text": content_text,
             "summary": summary,
             "published_at": unix_timestamp(post.get("date_published", None)),
@@ -598,7 +612,6 @@ async def extract_atom_post(post, blog):
             "blog_id": blog.get("id", None),
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
-            "content_html": content_html,
             "content_text": content_text,
             "summary": summary,
             "published_at": unix_timestamp(published_at),
@@ -670,7 +683,6 @@ async def extract_rss_post(post, blog):
             "blog_id": blog.get("id", None),
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
-            "content_html": content_html,
             "content_text": content_text,
             "summary": summary,
             "published_at": unix_timestamp(published_at),
@@ -716,6 +728,7 @@ def filter_posts(posts, blog, key):
 def upsert_single_post(post):
     """Upsert single post."""
 
+    print(post.get("guid", None))
     # missing title or publication date
     if not post.get("title", None) or post.get("published_at", None) > int(time.time()):
         return {}
@@ -729,7 +742,6 @@ def upsert_single_post(post):
                     "blog_id": post.get("blog_id", None),
                     "blog_name": post.get("blog_name", None),
                     "blog_slug": post.get("blog_slug", None),
-                    "content_html": post.get("content_html", None),
                     "content_text": post.get("content_text", ""),
                     "images": post.get("images", None),
                     "updated_at": post.get("updated_at", None),
