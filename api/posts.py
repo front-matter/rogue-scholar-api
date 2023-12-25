@@ -299,7 +299,6 @@ async def extract_wordpress_post(post, blog):
 
         return {
             "authors": authors,
-            "blog_id": blog.get("id", None),
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_text": content_text,
@@ -354,7 +353,6 @@ async def extract_wordpresscom_post(post, blog):
 
         return {
             "authors": authors,
-            "blog_id": blog.get("id", None),
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_text": content_text,
@@ -409,7 +407,6 @@ async def extract_ghost_post(post, blog):
 
         return {
             "authors": authors,
-            "blog_id": blog.get("id", None),
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_text": content_text,
@@ -465,7 +462,6 @@ async def extract_substack_post(post, blog):
 
         return {
             "authors": authors,
-            "blog_id": blog.get("id", None),
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_text": content_text,
@@ -522,7 +518,6 @@ async def extract_json_feed_post(post, blog):
 
         return {
             "authors": authors,
-            "blog_id": blog.get("id", None),
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_text": content_text,
@@ -609,7 +604,6 @@ async def extract_atom_post(post, blog):
 
         return {
             "authors": authors,
-            "blog_id": blog.get("id", None),
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_text": content_text,
@@ -680,7 +674,6 @@ async def extract_rss_post(post, blog):
 
         return {
             "authors": authors,
-            "blog_id": blog.get("id", None),
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_text": content_text,
@@ -728,7 +721,6 @@ def filter_posts(posts, blog, key):
 def upsert_single_post(post):
     """Upsert single post."""
 
-    print(post.get("guid", None))
     # missing title or publication date
     if not post.get("title", None) or post.get("published_at", None) > int(time.time()):
         return {}
@@ -739,7 +731,6 @@ def upsert_single_post(post):
             .upsert(
                 {
                     "authors": post.get("authors", None),
-                    "blog_id": post.get("blog_id", None),
                     "blog_name": post.get("blog_name", None),
                     "blog_slug": post.get("blog_slug", None),
                     "content_text": post.get("content_text", ""),

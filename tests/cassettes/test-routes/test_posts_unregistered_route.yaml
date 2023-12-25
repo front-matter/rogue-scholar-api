@@ -21,87 +21,7 @@ interactions:
       user-agent:
       - python-httpx/0.24.1
       x-client-info:
-      - supabase-py/2.0.3
-    method: GET
-    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%29&blogs.prefix=not.is.null&doi=is.null&order=published_at.desc&limit=15
-  response:
-    content: '[{"id":"36c9f7f9-5900-41b7-8d0c-74be97c6a7eb","guid":"137562374","doi":null,"url":"https://fairdata.substack.com/p/fair-data-digest-21","archive_url":"https://wayback.archive-it.org/22133/20231105105801/https://fairdata.substack.com/p/fair-data-digest-21","title":"FAIR
-      Data Digest #21","summary":"on the meeting point of cultural heritage and technology:
-      Heritage Science. Looking at the European Research Infrastructure for Heritage
-      Science and the need for FAIR data not only coming from digitized content but
-      also from measurements of specialized scientific instruments.","published_at":1699952454,"updated_at":1699952454,"indexed_at":0,"indexed":false,"authors":[{"url":
-      "https://orcid.org/0000-0002-7304-3787", "name": "Sven Lieber"}],"image":"https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F44a708f9-d198-42a0-8b2c-99eea0b1fa5d_530x530.jpeg","tags":["E-RIHS","Research
-      Infrastructure","European Research Infrastructure For Heritage Science","Heritage
-      Science"],"language":"en","reference":[],"relationships":[],"blog_name":"FAIR
-      Data Digest","blog_slug":"fairdata","blog":{"slug":"fairdata","title":"FAIR
-      Data Digest","description":"Notes on my work with (cultural heritage) FAIR data.
-      Topics cover Programming, Open Science, Digital Humanities, Knowledge Graphs,
-      Linked Data, Metadata, data catalogs, Wikidata, RDF, SPARQL and the Semantic
-      Web as well as personal interests.","feed_url":"https://fairdata.substack.com/feed","home_page_url":"https://fairdata.substack.com","language":"en","category":"computerAndInformationSciences","status":"active","generator":"Substack","license":"https://creativecommons.org/licenses/by/4.0/legalcode","updated_at":1699952454}}]'
-    headers:
-      Access-Control-Allow-Origin:
-      - '*'
-      CF-Cache-Status:
-      - DYNAMIC
-      CF-Ray:
-      - 825e23e76a891537-DUS
-      Connection:
-      - keep-alive
-      Content-Encoding:
-      - gzip
-      Content-Location:
-      - /posts?blogs.prefix=not.is.null&doi=is.null&limit=15&order=published_at.desc&select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%29
-      Content-Profile:
-      - public
-      Content-Range:
-      - 0-0/*
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Tue, 14 Nov 2023 09:13:44 GMT
-      Server:
-      - cloudflare
-      Strict-Transport-Security:
-      - max-age=2592000; includeSubDomains
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
-      Via:
-      - kong/2.8.1
-      X-Kong-Proxy-Latency:
-      - '1'
-      X-Kong-Upstream-Latency:
-      - '9'
-      alt-svc:
-      - h3=":443"; ma=86400
-      sb-gateway-version:
-      - '1'
-    http_version: HTTP/1.1
-    status_code: 200
-- request:
-    body: '{}'
-    headers:
-      accept:
-      - '*/*'
-      accept-encoding:
-      - gzip, deflate
-      accept-profile:
-      - public
-      connection:
-      - keep-alive
-      content-length:
-      - '2'
-      content-profile:
-      - public
-      content-type:
-      - application/json
-      host:
-      - db.rogue-scholar.org
-      user-agent:
-      - python-httpx/0.24.1
-      x-client-info:
-      - supabase-py/2.0.3
+      - supabase-py/2.3.0
     method: GET
     uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%29&blogs.prefix=not.is.null&doi=is.null&order=published_at.desc&limit=15
   response:
@@ -112,7 +32,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 825e356abb5c7178-DUS
+      - 83b1f5220c987166-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -126,7 +46,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Tue, 14 Nov 2023 09:25:42 GMT
+      - Mon, 25 Dec 2023 15:01:07 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -140,7 +60,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '9'
+      - '7'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:

@@ -48,7 +48,6 @@ def test_get_doi_metadata_csl():
     doi = "https://doi.org/10.59350/e3wmw-qwx29"
     result = get_doi_metadata_from_ra(doi, format_="csl")
     csl = json.loads(result["data"])
-    print(csl)
     assert (
         csl["title"]
         == "Two influential textbooks &#8211; &#8220;Mee&#8221;  and &#8220;Mellor&#8221;."

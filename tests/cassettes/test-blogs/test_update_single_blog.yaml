@@ -21,18 +21,18 @@ interactions:
       user-agent:
       - python-httpx/0.24.1
       x-client-info:
-      - supabase-py/1.2.0
+      - supabase-py/2.3.0
     method: GET
     uri: https://db.rogue-scholar.org/rest/v1/posts?select=updated_at&blog_slug=eq.epub_fis&order=updated_at.desc&limit=1
   response:
-    content: '[{"updated_at":1697718444}]'
+    content: '[{"updated_at":1701682917}]'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 81ff12c92b417a58-DUS
+      - 83b0b1e3ac77fb5c-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -46,7 +46,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 02 Nov 2023 20:19:36 GMT
+      - Mon, 25 Dec 2023 11:20:27 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -60,7 +60,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '8'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -71,7 +71,7 @@ interactions:
     body: '{"title": "FIS & EPub", "description": "Gemeinsamer Blog der DINI AG Forschungsinformationssystem
       und Elektronisches Publizieren", "feed_url": "https://blog.dini.de/EPub_FIS/feed/atom/",
       "current_feed_url": null, "home_page_url": "https://blog.dini.de/EPub_FIS",
-      "feed_format": "application/atom+xml", "updated_at": 1697718444, "language":
+      "feed_format": "application/atom+xml", "updated_at": 1701682917, "language":
       "de", "category": "socialSciences", "favicon": "https://blog.dini.de/EPub_FIS/wp-content/uploads/2018/03/cropped-DINI-AG-FIS-3-1-150x150.png",
       "license": "https://creativecommons.org/licenses/by/4.0/legalcode", "generator":
       "WordPress 6.3.2", "generator_raw": null, "status": "active", "user_id": "a9e3541e-1e00-4bf3-8a4d-fc9b1c505651",
@@ -98,20 +98,20 @@ interactions:
       user-agent:
       - python-httpx/0.24.1
       x-client-info:
-      - supabase-py/1.2.0
+      - supabase-py/2.3.0
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/blogs?slug=eq.epub_fis
   response:
     content: '[{"id":"mdh1h61","title":"FIS & EPub","description":"Gemeinsamer Blog
       der DINI AG Forschungsinformationssystem und Elektronisches Publizieren","language":"de","favicon":"https://blog.dini.de/EPub_FIS/wp-content/uploads/2018/03/cropped-DINI-AG-FIS-3-1-150x150.png","feed_url":"https://blog.dini.de/EPub_FIS/feed/atom/","home_page_url":"https://blog.dini.de/EPub_FIS","user_id":"a9e3541e-1e00-4bf3-8a4d-fc9b1c505651","feed_format":"application/atom+xml","license":"https://creativecommons.org/licenses/by/4.0/legalcode","generator":"WordPress
-      6.3.2","category":"socialSciences","prefix":null,"version":"https://jsonfeed.org/version/1.1","current_feed_url":null,"status":"active","issn":"2940-1798","backlog":0,"authors":null,"plan":"Team","slug":"epub_fis","use_mastodon":false,"api":true,"funding":null,"archive_prefix":null,"use_api":true,"relative_url":null,"canonical_url":null,"filter":null,"updated_at":1697718444,"secure":null,"created_at":1689897600,"indexed":false,"generator_raw":null}]'
+      6.3.2","category":"socialSciences","prefix":null,"version":"https://jsonfeed.org/version/1.1","current_feed_url":null,"status":"active","issn":"2940-1798","backlog":0,"authors":null,"plan":"Team","slug":"epub_fis","use_mastodon":false,"api":true,"funding":null,"archive_prefix":"https://wayback.archive-it.org/22121/20231105105752/","use_api":true,"relative_url":null,"canonical_url":null,"filter":null,"updated_at":1701682917,"secure":null,"created_at":1689897600,"indexed":null,"generator_raw":null}]'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 81ff12c9ae3bcb2b-DUS
+      - 83b0b1e4195ccae1-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -123,7 +123,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 02 Nov 2023 20:19:36 GMT
+      - Mon, 25 Dec 2023 11:20:27 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -135,7 +135,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:

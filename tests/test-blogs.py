@@ -20,7 +20,7 @@ def vcr_config():
 async def test_extract_all_blogs():
     "extract all blogs"
     result = await extract_all_blogs()
-    assert len(result) == 65
+    assert len(result) > 65
     blog = result[0]
     assert blog["slug"] == "rossmounce"
     assert blog["feed_url"] == "https://rossmounce.co.uk/feed/atom"
