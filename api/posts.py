@@ -593,8 +593,13 @@ async def extract_atom_post(post, blog):
             base_url = blog.get("home_page_url", None)
         images = get_images(content_html, base_url, blog.get("home_page_url", None))
         image = py_.get(post, "media:thumbnail.@url", None)
+        # workaround for eve blog
         if image is not None:
-            image = unquote(image)
+            f = furl(image)
+            if f.host == "eve.gd":
+                image = unquote(image)
+                if f.path.segments[0] != "images":
+                    image = f.set(path="/images/" + f.path.segments[0]).url
         if not image and len(images) > 0 and int(images[0].get("width", 200)) >= 200:
             image = images[0].get("src", None)
         tags = [
