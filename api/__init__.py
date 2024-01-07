@@ -363,7 +363,7 @@ async def post(slug: str, suffix: Optional[str] = None):
                 return (
                     format_markdown(content, metadata),
                     200,
-                    {"Content-Type": "text/markdown"},
+                    {"Content-Type": "text/markdown;charset=UTF-8"},
                 )
             except Exception as e:
                 logger.warning(e.args[0])
