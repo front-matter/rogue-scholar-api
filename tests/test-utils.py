@@ -15,6 +15,7 @@ from api.utils import (
     normalize_author,
     normalize_url,
     get_markdown,
+    format_markdown,
 )
 
 
@@ -219,8 +220,23 @@ def test_get_markdown():
     html = "<p>This is a <em>test</em></p>"
     result = get_markdown(html)
     assert result == "This is a *test*\n"
-    
-    
+
+
+def test_format_markdown():
+    """format markdown"""
+    content = "This is a *test*"
+    metadata = {"title": "Test"}
+    result = format_markdown(content, metadata)
+    assert result == """---
+abstract: ''
+date: '1970-01-01T00:00:00Z'
+title: Test
+updated_date: '1970-01-01T00:00:00Z'
+---
+
+This is a *test*""" 
+
+
 # def test_sanitize_cool_suffix():
 #     "sanitize cool suffix"
 #     suffix = "sfzv4-xdb68"

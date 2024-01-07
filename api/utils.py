@@ -11,10 +11,12 @@ import bibtexparser
 from bibtexparser.model import Field
 import pydash as py_
 from dateutil import parser, relativedelta
+from datetime import datetime
 from furl import furl
 from langdetect import detect
 from bs4 import BeautifulSoup
 from idutils import is_orcid
+import frontmatter
 import pandoc
 # from pandoc.types import Str
 
@@ -380,3 +382,12 @@ def get_markdown(content_html: str) -> str:
     except Exception as e:
         print(e)
         return ""
+    
+    
+def format_markdown(content: str, metadata) -> str:
+    """format markdown"""
+    post = frontmatter.Post(content, **metadata)
+    post['date'] = datetime.utcfromtimestamp(metadata.get("date", 0)).isoformat() + "Z"
+    post['updated_date'] = datetime.utcfromtimestamp(metadata.get("updated_date", 0)).isoformat() + "Z"
+    post['abstract'] = metadata.get("abstract", "").strip()
+    return frontmatter.dumps(post)

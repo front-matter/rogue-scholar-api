@@ -24,12 +24,14 @@ from quart_rate_limiter import RateLimiter, RateLimit
 from api.supabase import (
     supabase_client as supabase,
     blogWithPostsSelect,
+    postsSelect,
     postsWithConfigSelect,
     postsWithContentSelect,
 )
 from api.typesense import typesense_client as typesense
 from api.utils import (
     get_doi_metadata_from_ra,
+    format_markdown,
     validate_uuid,
     unix_timestamp,
     end_of_date,
@@ -336,7 +338,37 @@ async def post(slug: str, suffix: Optional[str] = None):
         return jsonify(response.data)
     elif slug in prefixes and suffix:
         doi = f"https://doi.org/{slug}/{suffix}"
-        if format_ in formats:
+        if format_ == "markdown":
+            try:
+                response = (
+                    supabase.table("posts")
+                    .select(postsSelect)
+                    .eq("doi", doi)
+                    .maybe_single()
+                    .execute()
+                )
+                content = response.data.get("content_text", None)
+                metadata = py_.omit(response.data, ["content_text"])
+                metadata = py_.rename_keys(
+                    metadata,
+                    {
+                        "blog_name": "container",
+                        "language": "lang",
+                        "published_at": "date",
+                        "summary": "abstract",
+                        "tags": "keywords",
+                        "updated_at": "updated_date",
+                    },
+                )
+                return (
+                    format_markdown(content, metadata),
+                    200,
+                    {"Content-Type": "text/markdown"},
+                )
+            except Exception as e:
+                logger.warning(e.args[0])
+                return {"error": "Post not found"}, 404
+        elif format_ in formats:
             response = get_doi_metadata_from_ra(doi, format_, style, locale)
             if not response:
                 logger.warning("Metadata not found")
