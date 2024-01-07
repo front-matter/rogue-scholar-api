@@ -30,6 +30,7 @@ from api.supabase import (
 )
 from api.typesense import typesense_client as typesense
 from api.utils import (
+    doi_from_url,
     get_doi_metadata_from_ra,
     format_markdown,
     validate_uuid,
@@ -338,7 +339,7 @@ async def post(slug: str, suffix: Optional[str] = None):
         return jsonify(response.data)
     elif slug in prefixes and suffix:
         doi = f"https://doi.org/{slug}/{suffix}"
-        if format_ == "markdown":
+        if format_ in ["markdown", "md"]:
             try:
                 response = (
                     supabase.table("posts")
@@ -347,6 +348,8 @@ async def post(slug: str, suffix: Optional[str] = None):
                     .maybe_single()
                     .execute()
                 )
+                basename = doi_from_url(doi).replace("/", "-")
+    
                 content = response.data.get("content_text", None)
                 metadata = py_.omit(response.data, ["content_text"])
                 metadata = py_.rename_keys(
@@ -363,7 +366,7 @@ async def post(slug: str, suffix: Optional[str] = None):
                 return (
                     format_markdown(content, metadata),
                     200,
-                    {"Content-Type": "text/markdown;charset=UTF-8"},
+                    {"Content-Type": "text/markdown;charset=UTF-8", "Content-Disposition": f"attachment; filename={basename}.md",},
                 )
             except Exception as e:
                 logger.warning(e.args[0])
