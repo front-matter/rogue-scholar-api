@@ -384,10 +384,30 @@ def get_markdown(content_html: str) -> str:
         return ""
     
     
+def write_epub(markdown: str):
+    """Get epub from markdown"""
+    try:
+        doc = pandoc.read(markdown, format="commonmark_x")
+        return pandoc.write(doc, format="epub")
+    except Exception as e:
+        print(e)
+        return ""
+
+
+def write_pdf(markdown: str):
+    """Get pdf from markdown"""
+    try:
+        doc = pandoc.read(markdown, format="commonmark_x", options=["--pdf-engine=weasyprint"])
+        return pandoc.write(doc, format="pdf")
+    except Exception as e:
+        print(e)
+        return ""
+
+
 def format_markdown(content: str, metadata) -> str:
     """format markdown"""
     post = frontmatter.Post(content, **metadata)
     post['date'] = datetime.utcfromtimestamp(metadata.get("date", 0)).isoformat() + "Z"
-    post['updated_date'] = datetime.utcfromtimestamp(metadata.get("updated_date", 0)).isoformat() + "Z"
+    post['date_updated'] = datetime.utcfromtimestamp(metadata.get("date_updated", 0)).isoformat() + "Z"
     post['abstract'] = metadata.get("abstract", "").strip()
     return frontmatter.dumps(post)

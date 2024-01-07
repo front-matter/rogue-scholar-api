@@ -9384,4 +9384,1881 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Ccontent_text%2Creference&filter_by=published_at%3A%3E%3D+0+%26%26+published_at%3A%3C%3D+1704631816+%26%26+tags%3A%3D%5Bopen+access%5D&sort_by=published_at%3Adesc&per_page=10&page=1
+  response:
+    body:
+      string: "{\"facet_counts\":[],\"found\":769,\"hits\":[{\"document\":{\"authors\":[{\"name\":\"Ross
+        Mounce\"}],\"blog_id\":\"vbmdy90\",\"blog_name\":\"A blog by Ross Mounce\",\"blog_slug\":\"rossmounce\",\"category\":\"naturalSciences\",\"content_html\":\"\\n<p>As
+        you may have seen in the <a href=\\\"https://www.theguardian.com/technology/2023/nov/22/personal-data-stolen-in-british-library-cyber-attack-appears-for-sale-online\\\">news</a>,
+        the British Library has been affected by a significant cyberattack. Many of
+        the digital services it provides have gone down and stayed down for many weeks
+        now, whilst investigations take place. I have a lot of sympathy for the BL
+        staff. As has been <a href=\\\"https://hcommons.social/@mia/111483661298025928\\\">observed</a>,
+        public services can be a relatively easy target.  </p>\\n\\n\\n\\n<p>Two of
+        the very wide variety of digital services that the BL provide, that I have
+        a particular interest in are:</p>\\n\\n\\n\\n<p>a) the ISSN National Centre
+        for the UK: <a href=\\\"https://www.bl.uk/bibliographic/issn.html\\\">https://www.bl.uk/bibliographic/issn.html</a><br>b)
+        the E-Theses Online Service (EThOS): <a href=\\\"http://ethos.bl.uk/\\\">http://ethos.bl.uk/</a>
+        </p>\\n\\n\\n\\n<p>Both of these services, and many others (do we even know
+        how many?) are still offline at the time of writing this (2023-11-30). I can
+        probably live without registering a new ISSN, that can wait. But what about
+        access to my PhD thesis? I want people to be able to read this. Is it still
+        available online anywhere? </p>\\n\\n\\n\\n<p>My thesis EThOS ID is: uk.bl.ethos.64202
+        . In more normal times it would be publicly available via this link: <a href=\\\"https://ethos.bl.uk/OrderDetails.do?uin=uk.bl.ethos.642022\\\">https://ethos.bl.uk/OrderDetails.do?uin=uk.bl.ethos.642022</a>
+        <br><br>Fortunately, because I retained my rights to it, my thesis is openly-licensed
+        under a Creative Commons Attribution 4.0 licence, and copies of it can be
+        uploaded wherever I want. As a consequence, my thesis is also available from
+        the <a href=\\\"https://researchportal.bath.ac.uk/en/studentTheses/comparative-cladistics-fossils-morphological-data-partitions-and-\\\">University
+        of Bath institutional repository</a>, <a href=\\\"https://doi.org/10.31237/osf.io/7sa6d\\\">Thesis
+        Commons</a>. , <a href=\\\"https://core.ac.uk/download/pdf/161921158.pdf\\\">CORE</a>,
+        and the <a href=\\\"https://scholar.archive.org/work/cdbjkgebvbapvdj6bz722wxvd4/access/wayback/https://files.osf.io/v1/resources/7sa6d/providers/osfstorage/5993099b9ad5a10274e1ba01?action=download&amp;direct&amp;version=1\\\">Internet
+        Archive</a>. Even if one or two of these repositories goes down, it&#8217;s
+        highly likely that my thesis will always be accessible from somewhere on the
+        internet 24/7, no matter what. Posting content in multiple independently-run
+        places gives others access to that content in a highly <em>resilient</em>
+        way. It is also worth mentioning, there is a <a href=\\\"https://doi.org/10.1177/0165551510389358\\\">study</a>
+        suggesting that OA content made available in multiple places gets cited more
+        than OA content only available in one place.</p>\\n\\n\\n\\n<figure class=\\\"wp-block-image
+        size-full\\\"><a href=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/WileyDown-1.jpg\\\"><img
+        loading=\\\"lazy\\\" decoding=\\\"async\\\" width=\\\"680\\\" height=\\\"263\\\"
+        src=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/WileyDown-1.jpg\\\"
+        alt=\\\"\\\" class=\\\"wp-image-2407\\\" srcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/WileyDown-1.jpg
+        680w, https://rossmounce.co.uk/wp-content/uploads/2023/11/WileyDown-1-300x116.jpg
+        300w\\\" sizes=\\\"(max-width: 680px) 100vw, 680px\\\" /></a></figure>\\n\\n\\n\\n<p>This
+        got me thinking again about the major &#8216;Atyponocalypse&#8217; downtime
+        event of 17th December 2020. Do you remember it? I certainly do (the screenshot
+        above is from that event). The journal hosting platforms of SAGE, ACS Publications,
+        Wiley, Taylor &amp; Francis and many others all simultaneously went offline
+        for roughly a 24 hour period because of an error at <a href=\\\"https://en.wikipedia.org/wiki/Atypon\\\">Atypon</a>,
+        the publishing platform that many different legacy publishers use. It was
+        unprecedented. People were rightly going nuts about it. Huge swathes of important
+        knowledge were made almost completely digitally unavailable, worldwide. I
+        like how <a href=\\\"https://twitter.com/brie_marina/status/1339566698408669185\\\">Brie</a>
+        put it, at the time:<br><br>&#8220;One day left for student finals and Wiley&#8217;s
+        (AnthroSource, etc) sites are all down for maintenance. What are the upsides
+        to mergers and consolidations of academic knowledge again?&#8221;<br><br>&#8220;1,600
+        journals and 22,000 books unavailable with <a href=\\\"https://twitter.com/hashtag/WileyDown?src=hashtag_click\\\">#WileyDown</a>&#8221;
+        (and that was the numbers for just <em>one</em> publisher)</p>\\n\\n\\n\\n<p>The
+        interesting thing about the Atypon 2020 downtime event was that for much of
+        the content affected, there was no alternative, legal platform hosting the
+        content in parallel.  Nor could people put online temporary copies to help
+        students and researchers access the content they urgently needed &#8211; because
+        of the copyright restrictions on that content. Many of the legacy publishers,
+        for their paywalled journals (only), still have this major single-point-of-failure
+        weakness.</p>\\n\\n\\n\\n<p>But open access content does NOT suffer these
+        weaknesses.<br><br>As I allude to in the title of this post. The key differentiators
+        here in open access systems, that make open access more resilient to downtime
+        overall are a) availability on multiple independent platforms and b) open
+        licencing that makes it legally easier to host content in multiple places.</p>\\n\\n\\n\\n<p>Tools
+        such as Google Scholar, <a href=\\\"https://openalex.org/\\\">OpenAlex</a>,
+        and <a href=\\\"https://www.base-search.net/\\\">BASE</a> can signpost the
+        way to where these alternative copies live. Research can stay openly accessible
+        24/7, 365 days a year, if only we let it be openly-licensed and thus easy
+        to host on multiple platforms.  </p>\\n\\n\\n\\n<p>Even if individual repositories
+        or open access publishers (e.g. <a href=\\\"https://scholarlykitchen.sspnet.org/2023/09/07/shared-infrastructure-downtime-michigan/\\\">Michigan</a>
+        recently) experience some downtime through cyberattacks or &#8216;unplanned
+        maintainence&#8217;, the global collective network of repositories can ensure
+        that the scholarship remains accessible 24/7, albeit in different locations.
+        \ <strong>The next time you see a paywalled journal experiencing some significant
+        downtime, please let me know.</strong> I think there are some very interesting
+        natural obervation experiments that could be done around these events to tease
+        out the differences in impact between open-licensed and &#8216;all rights
+        reserved&#8217; content.  Does anyone maintain a wiki or database of major
+        downtime events at academic publishers? There have been quite a few already&#8230;</p>\\n\\n\\n\\n<figure
+        class=\\\"wp-block-image size-large\\\"><a href=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1.png\\\"><img
+        loading=\\\"lazy\\\" decoding=\\\"async\\\" width=\\\"1024\\\" height=\\\"716\\\"
+        src=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1-1024x716.png\\\"
+        alt=\\\"\\\" class=\\\"wp-image-2410\\\" srcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1-1024x716.png
+        1024w, https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1-300x210.png
+        300w, https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1-768x537.png
+        768w, https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1.png 1163w\\\"
+        sizes=\\\"(max-width: 1024px) 100vw, 1024px\\\" /></a><figcaption class=\\\"wp-element-caption\\\">A
+        screenshot of the <a href=\\\"https://scholar.google.co.uk/scholar?cluster=10676069958217952836&amp;hl=en&amp;as_sdt=0,5\\\">Google
+        Scholar page</a> which links to the many different places in which copies
+        of my openly-licensed PhD thesis is openly available from. Yay for multiple
+        availability!</figcaption></figure>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<p></p>\\n\",\"content_text\":\"As
+        you may have seen in the\\n[news](https://www.theguardian.com/technology/2023/nov/22/personal-data-stolen-in-british-library-cyber-attack-appears-for-sale-online),\\nthe
+        British Library has been affected by a significant cyberattack. Many\\nof
+        the digital services it provides have gone down and stayed down for\\nmany
+        weeks now, whilst investigations take place. I have a lot of\\nsympathy for
+        the BL staff. As has been\\n[observed](https://hcommons.social/@mia/111483661298025928),
+        public\\nservices can be a relatively easy target.\\n\\nTwo of the very wide
+        variety of digital services that the BL provide,\\nthat I have a particular
+        interest in are:\\n\\na\\\\) the ISSN National Centre for the UK:\\n<https://www.bl.uk/bibliographic/issn.html>
+        \ \\nb) the E-Theses Online Service (EThOS): <http://ethos.bl.uk/>\\n\\nBoth
+        of these services, and many others (do we even know how many?) are\\nstill
+        offline at the time of writing this (2023-11-30). I can probably\\nlive without
+        registering a new ISSN, that can wait. But what about\\naccess to my PhD thesis?
+        I want people to be able to read this. Is it\\nstill available online anywhere?\\n\\nMy
+        thesis EThOS ID is: uk.bl.ethos.64202 . In more normal times it would\\nbe
+        publicly available via this link:\\n<https://ethos.bl.uk/OrderDetails.do?uin=uk.bl.ethos.642022>
+        \ \\n  \\nFortunately, because I retained my rights to it, my thesis is\\nopenly-licensed
+        under a Creative Commons Attribution 4.0 licence, and\\ncopies of it can be
+        uploaded wherever I want. As a consequence, my\\nthesis is also available
+        from the [University of Bath institutional\\nrepository](https://researchportal.bath.ac.uk/en/studentTheses/comparative-cladistics-fossils-morphological-data-partitions-and-),\\n[Thesis
+        Commons](https://doi.org/10.31237/osf.io/7sa6d). ,\\n[CORE](https://core.ac.uk/download/pdf/161921158.pdf),
+        and the [Internet\\nArchive](https://scholar.archive.org/work/cdbjkgebvbapvdj6bz722wxvd4/access/wayback/https://files.osf.io/v1/resources/7sa6d/providers/osfstorage/5993099b9ad5a10274e1ba01?action=download&direct&version=1).\\nEven
+        if one or two of these repositories goes down, it's highly likely\\nthat my
+        thesis will always be accessible from somewhere on the internet\\n24/7, no
+        matter what. Posting content in multiple independently-run\\nplaces gives
+        others access to that content in a highly *resilient* way.\\nIt is also worth
+        mentioning, there is a\\n[study](https://doi.org/10.1177/0165551510389358)
+        suggesting that OA\\ncontent made available in multiple places gets cited
+        more than OA\\ncontent only available in one place.\\n\\n<figure class=\\\"wp-block-image
+        size-full\\\">\\n<a\\nhref=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/WileyDown-1.jpg\\\"><img\\nsrc=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/WileyDown-1.jpg\\\"\\nclass=\\\"wp-image-2407\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/WileyDown-1.jpg
+        680w, https://rossmounce.co.uk/wp-content/uploads/2023/11/WileyDown-1-300x116.jpg
+        300w\\\"\\nsizes=\\\"(max-width: 680px) 100vw, 680px\\\" width=\\\"680\\\"
+        height=\\\"263\\\" /></a>\\n</figure>\\n\\nThis got me thinking again about
+        the major 'Atyponocalypse' downtime\\nevent of 17th December 2020. Do you
+        remember it? I certainly do (the\\nscreenshot above is from that event). The
+        journal hosting platforms of\\nSAGE, ACS Publications, Wiley, Taylor & Francis
+        and many others all\\nsimultaneously went offline for roughly a 24 hour period
+        because of an\\nerror at [Atypon](https://en.wikipedia.org/wiki/Atypon), the
+        publishing\\nplatform that many different legacy publishers use. It was\\nunprecedented.
+        People were rightly going nuts about it. Huge swathes of\\nimportant knowledge
+        were made almost completely digitally unavailable,\\nworldwide. I like how\\n[Brie](https://twitter.com/brie_marina/status/1339566698408669185)
+        put\\nit, at the time:  \\n  \\n\\\"One day left for student finals and Wiley's
+        (AnthroSource, etc) sites\\nare all down for maintenance. What are the upsides
+        to mergers and\\nconsolidations of academic knowledge again?\\\"  \\n  \\n\\\"1,600
+        journals and 22,000 books unavailable with\\n[\\\\#WileyDown](https://twitter.com/hashtag/WileyDown?src=hashtag_click)\\\"\\n(and
+        that was the numbers for just *one* publisher)\\n\\nThe interesting thing
+        about the Atypon 2020 downtime event was that for\\nmuch of the content affected,
+        there was no alternative, legal platform\\nhosting the content in parallel.
+        Nor could people put online temporary\\ncopies to help students and researchers
+        access the content they urgently\\nneeded -- because of the copyright restrictions
+        on that content. Many of\\nthe legacy publishers, for their paywalled journals
+        (only), still have\\nthis major single-point-of-failure weakness.\\n\\nBut
+        open access content does NOT suffer these weaknesses.  \\n  \\nAs I allude
+        to in the title of this post. The key differentiators here\\nin open access
+        systems, that make open access more resilient to downtime\\noverall are a)
+        availability on multiple independent platforms and b)\\nopen licencing that
+        makes it legally easier to host content in multiple\\nplaces.\\n\\nTools such
+        as Google Scholar, [OpenAlex](https://openalex.org/), and\\n[BASE](https://www.base-search.net/)
+        can signpost the way to where these\\nalternative copies live. Research can
+        stay openly accessible 24/7, 365\\ndays a year, if only we let it be openly-licensed
+        and thus easy to host\\non multiple platforms.\\n\\nEven if individual repositories
+        or open access publishers (e.g.\\n[Michigan](https://scholarlykitchen.sspnet.org/2023/09/07/shared-infrastructure-downtime-michigan/)\\nrecently)
+        experience some downtime through cyberattacks or 'unplanned\\nmaintainence',
+        the global collective network of repositories can ensure\\nthat the scholarship
+        remains accessible 24/7, albeit in different\\nlocations. **The next time
+        you see a paywalled journal experiencing some\\nsignificant downtime, please
+        let me know.** I think there are some very\\ninteresting natural obervation
+        experiments that could be done around\\nthese events to tease out the differences
+        in impact between\\nopen-licensed and 'all rights reserved' content. Does
+        anyone maintain a\\nwiki or database of major downtime events at academic
+        publishers? There\\nhave been quite a few already...\\n\\n<figure class=\\\"wp-block-image
+        size-large\\\">\\n<a\\nhref=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1.png\\\"><img\\nsrc=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1-1024x716.png\\\"\\nclass=\\\"wp-image-2410\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1-1024x716.png
+        1024w, https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1-300x210.png
+        300w, https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1-768x537.png
+        768w, https://rossmounce.co.uk/wp-content/uploads/2023/11/image-1.png 1163w\\\"\\nsizes=\\\"(max-width:
+        1024px) 100vw, 1024px\\\" width=\\\"1024\\\"\\nheight=\\\"716\\\" /></a>\\n<figcaption>A
+        screenshot of the <a\\nhref=\\\"https://scholar.google.co.uk/scholar?cluster=10676069958217952836&amp;hl=en&amp;as_sdt=0,5\\\">Google\\nScholar
+        page</a> which links to the many different places in which\\ncopies of my
+        openly-licensed PhD thesis is openly available from. Yay\\nfor multiple availability!</figcaption>\\n</figure>\\n\",\"doi\":\"https://doi.org/10.59350/psmbr-f6p84\",\"guid\":\"https://rossmounce.co.uk/?p=2402\",\"id\":\"cd1768c2-b5bf-41b2-a512-4ef4328f0aa8\",\"image\":\"https://rossmounce.co.uk/wp-content/uploads/2023/11/WileyDown-1.jpg\",\"language\":\"en\",\"published_at\":1701353503,\"reference\":[],\"relationships\":[],\"summary\":\"As
+        you may have seen in the news, the British Library has been affected by a
+        significant cyberattack. Many of the digital services it provides have gone
+        down and stayed down for many weeks now, whilst investigations take place.
+        I have a lot of sympathy for the BL staff. As has been observed, public services
+        can be a relatively easy target.\\n\",\"tags\":[\"Panton Fellowship Updates\",\"Benefits
+        Of Open\",\"Downtime\",\"Open Access\",\"Resilience\"],\"title\":\"Resilience:
+        another advantage of openly-licensed content\",\"updated_at\":1701353505,\"url\":\"https://rossmounce.co.uk/2023/11/30/resilience-another-advantage-of-openly-licensed-content\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22125/20231105110316/https://opencitations.hypotheses.org/3499\",\"authors\":[{\"name\":\"Chiara
+        Di Giambattista\"}],\"blog_id\":\"gzqej46\",\"blog_name\":\"OpenCitations
+        blog\",\"blog_slug\":\"opencitations\",\"category\":\"socialSciences\",\"content_html\":\"\\r\\n<p
+        style=\\\"text-align: justify\\\"><em>Blog post by Ivan Heibi (University
+        of Bologna), Arianna Moretti (University of Bologna) and Chiara Di Giambattista
+        (University of Bologna).</em></p>\\r\\n\\r\\n<p style=\\\"text-align: justify\\\"><span
+        style=\\\"font-weight: 400\\\">In the past five years, the OpenCitations data
+        has been enriched with numerous new indexes of open citation data from different
+        sources. However, the quantity and diversification of the ingested information
+        have raised several issues, which recently made it essential to conduct a
+        complete revision of the ingestion workflow. The result was a revolution in
+        the way OpenCitations data is delivered. In this blog post, we will explain
+        the context and challenges raised by the old procedure. Then, we will present
+        the new ingestion workflow, designed to produce </span><b>just two comprehensive
+        collections</b><span style=\\\"font-weight: 400\\\">:</span><b> OpenCitations
+        Index</b><span style=\\\"font-weight: 400\\\">, collecting open citation data,
+        and </span><b>OpenCitations Meta</b><span style=\\\"font-weight: 400\\\">,
+        for the open bibliographical metadata.\_</span></p>\\r\\n<h4 style=\\\"text-align:
+        justify\\\"><b>Once upon a time, there were five OpenCitations indexes\u2026</b></h4>\\r\\n<p
+        style=\\\"text-align: justify\\\"><span style=\\\"font-weight: 400\\\">In
+        2018, OpenCitations released the kickoff version of its first citation index,
+        </span><a href=\\\"https://opencitations.hypotheses.org/961\\\"><b>COCI </b><span
+        style=\\\"font-weight: 400\\\">(citations from Crossref)</span></a><span style=\\\"font-weight:
+        400\\\">, which contained around 300 million citation links derived from the
+        subset of the reference lists in the Crossref database, where citing and cited
+        entities were identified using Digital Object Identifiers (DOIs). COCI gathered
+        citations with associated metadata in compliance with the recommendations
+        from the Initiative for Open Citations (</span><a href=\\\"https://i4oc.org/\\\"><span
+        style=\\\"font-weight: 400\\\">I4OC</span></a><span style=\\\"font-weight:
+        400\\\">) that citation data should be structured, separable, and open, thus
+        marking a turning point by providing a disruptive and free and open alternative
+        to earlier sources such as Google Scholar, which provided freely accessible
+        data although not downloadable, and Web of Science or Scopus, which demanded
+        paid access.\_</span></p>\\r\\n<p style=\\\"text-align: justify\\\"><span
+        style=\\\"font-weight: 400\\\">In a short time, COCI became a competitive
+        and trusted index of citation data, used by numerous institutional repositories,
+        including </span><a href=\\\"https://service.tib.eu/bison/\\\"><span style=\\\"font-weight:
+        400\\\">B!son</span></a><span style=\\\"font-weight: 400\\\"> and </span><a
+        href=\\\"https://projects.tib.eu/optimeta/en/\\\"><span style=\\\"font-weight:
+        400\\\">Optimeta</span></a><span style=\\\"font-weight: 400\\\">. In 2021,
+        COCI was taken into account </span><a href=\\\"https://opencitations.hypotheses.org/1420\\\"><span
+        style=\\\"font-weight: 400\\\">in a comparative study</span></a><span style=\\\"font-weight:
+        400\\\"> with the most relevant sources in the landscape, including the proprietary
+        ones, which showed its coverage approaching parity with those of the other
+        sources involved in the analysis (Microsoft Academic, Scopus, Dimensions,
+        and Web of Science). At the time of its most recent update in January 2023,
+        COCI counted more than 1.4 billion citations. The reason behind this outstanding
+        number lies in several factors, including </span><a href=\\\"https://opencitations.hypotheses.org/1165\\\"><span
+        style=\\\"font-weight: 400\\\">Elsevier\u2019s endorsement of the Declaration
+        on Research Assessment (DORA) in December 2020</span></a><span style=\\\"font-weight:
+        400\\\">, leading to the open release via Crossref of the reference lists
+        of the articles published in all its journals, and confirming the value of
+        initiatives such as the </span><a href=\\\"https://opencitations.hypotheses.org/696\\\"><span
+        style=\\\"font-weight: 400\\\">Initiative for Open Citations (I4OC)</span></a><span
+        style=\\\"font-weight: 400\\\">.\_</span></p>\\r\\n<p style=\\\"text-align:
+        justify\\\"><span style=\\\"font-weight: 400\\\">However, before this change
+        of heart, in 2019 OpenCitations had tried to narrow the open citations coverage
+        gap by launching its second index, the </span><a href=\\\"https://opencitations.hypotheses.org/944\\\"><span
+        style=\\\"font-weight: 400\\\">Crowdsourced Open Citations Index (</span><b>CROCI</b><span
+        style=\\\"font-weight: 400\\\">)</span></a><span style=\\\"font-weight: 400\\\">.
+        This index allowed publishers and scholars to contribute directly by uploading
+        crowdsourced open citations into the OpenCitations infrastructure.</span></p>\\r\\n<p
+        style=\\\"text-align: justify\\\"><span style=\\\"font-weight: 400\\\">In
+        December 2022, a new concrete step towards a factual plurality of OpenCitations
+        indexes was taken by the ingestion of new data sources into the infrastructure,
+        with the publication of the inaugural dumps of </span><a href=\\\"https://opencitations.hypotheses.org/3106\\\"><b>DOCI
+        </b><span style=\\\"font-weight: 400\\\">(citations from DataCite)</span></a><span
+        style=\\\"font-weight: 400\\\"> and </span><a href=\\\"https://opencitations.hypotheses.org/3246\\\"><b>POCI
+        </b><span style=\\\"font-weight: 400\\\">(citations from PubMed)</span></a><span
+        style=\\\"font-weight: 400\\\">. In June 2023, the first version of the </span><b>OROCI
+        </b><span style=\\\"font-weight: 400\\\">(citations from OpenAIRE) dump was
+        released too, and </span><b>JOCI </b><span style=\\\"font-weight: 400\\\">(citations
+        from </span><a href=\\\"https://japanlinkcenter.org/top/english.html\\\"><span
+        style=\\\"font-weight: 400\\\">JALC</span></a><span style=\\\"font-weight:
+        400\\\">) is expected to be available by the end of November 2023, for a total
+        of five collections from different sources.\_</span></p>\\r\\n<h4 style=\\\"text-align:
+        justify\\\"><b>Why a new workflow? The issues with multiple sources management
+        and new challenges</b></h4>\\r\\n<p style=\\\"text-align: justify\\\"><span
+        style=\\\"font-weight: 400\\\">While having such a variety and richness of
+        indexes helped present the extent of OpenCitations sources, the recent </span><span
+        style=\\\"font-weight: 400\\\">increment in the number of sources and the
+        diversification of data integrated led to two primary </span><b>issues</b><span
+        style=\\\"font-weight: 400\\\">: </span></p>\\r\\n<ol>\\r\\n<li style=\\\"list-style-type:
+        none\\\">\\r\\n<ol style=\\\"text-align: justify\\\">\\r\\n<li>the necessity
+        to handle the ingestion of new identifier types in a DOI-based software infrastructure,
+        and</li>\\r\\n<li>the consequent possibility of encountering the same citation
+        expressed by several sources with different identifiers.</li>\\r\\n</ol>\\r\\n</li>\\r\\n</ol>\\r\\n<p
+        style=\\\"text-align: justify\\\"><span style=\\\"font-weight: 400\\\">Moreover,
+        it soon became evident the need to optimize the reuse of the already developed
+        software components </span><b>to facilitate the metadata crosswalk processes
+        between the new sources\u2019 data models and the OpenCitations Data Model</b><span
+        style=\\\"font-weight: 400\\\">, with </span><b>the aim to define a functional
+        and easily extendable workflow</b><span style=\\\"font-weight: 400\\\"> to
+        be easily reused when it comes to incorporating new data sources, which should
+        be:\_</span></p>\\r\\n<ol>\\r\\n<li style=\\\"list-style-type: none\\\">\\r\\n<ol
+        style=\\\"list-style-type: lower-alpha;text-align: justify\\\">\\r\\n<li><span
+        style=\\\"font-weight: 400\\\">sufficiently generic to establish a globally
+        unique procedure;\_</span></li>\\r\\n<li><span style=\\\"font-weight: 400\\\">customizable
+        enough to capture the necessary information within each of the specific data
+        models and formats.\_</span></li>\\r\\n</ol>\\r\\n</li>\\r\\n</ol>\\r\\n<p
+        style=\\\"text-align: justify\\\"><span style=\\\"font-weight: 400\\\">As
+        a solution, we decided to use </span><a href=\\\"https://opencitations.hypotheses.org/3140\\\"><span
+        style=\\\"font-weight: 400\\\">OpenCitations Meta</span></a><span style=\\\"font-weight:
+        400\\\">, the new OpenCitations database and tool for managing bibliographic
+        data related to the publications involved in the citations. OpenCitations
+        Meta makes it possible to assign each entity involved in a citation an internal
+        identifier, nominally the OpenCitations Meta Identifier (OMID), to which all
+        the associated persistent identifiers of the same publication are redirected.</span></p>\\r\\n<p
+        style=\\\"text-align: justify\\\"><span style=\\\"font-weight: 400\\\">As
+        a result, the allocation of an OMID for each bibliographic resource also enabled
+        the unambiguous identification of each citation, regardless of the persistent
+        identifier schema originally used by the data source to identify the resources.
+        This approach allowed us to perform data deduplication and finally make all
+        the sources\u2019 contributions converge into </span><b>a unified index containing
+        all the unique citations managed by OpenCitations, expressed as OMID to OMID
+        citation links.</b></p>\\r\\n<h4 style=\\\"text-align: justify\\\"><b>The
+        revised workflow</b></h4>\\r\\n<p style=\\\"text-align: justify\\\"><span
+        style=\\\"font-weight: 400\\\">The new workflow is based on </span><b>three
+        main components</b><span style=\\\"font-weight: 400\\\"> with the </span><b>benefit
+        </b><span style=\\\"font-weight: 400\\\">of optimizing the process both in
+        terms of computational cost and in terms of flexibility. As shown in Fig.
+        1, in a preliminary step, source-specific software converts the input dataset
+        &#8211; structured according to the source data model &#8211; to extract two
+        OpenCitations Data Model compliant data collections in tabular format for
+        bibliographic metadata and citation data, respectively.</span></p>\\r\\n<p
+        style=\\\"text-align: justify\\\"><span style=\\\"font-weight: 400\\\">The
+        following steps are common to the process of each dataset.\_\_</span></p>\\r\\n<p
+        style=\\\"text-align: justify\\\"><b>STEP 1</b><span style=\\\"font-weight:
+        400\\\">: The bibliographic metadata collection is used as input for the META
+        software. At this stage, it is checked whether or not the bibliographic entities
+        have been previously integrated into our infrastructure (coming from other
+        data sources). If so, the existing OMID is linked also to the new alternative
+        identifiers of the new bibliographic resources. New metadata values, if any,
+        are also integrated. A new OMID identifier is produced for entities never
+        previously encountered, uniquely representing the bibliographic resource in
+        OpenCitations. The outputs of the process are: (I) an updated version of the
+        OpenCitations Meta collection that also includes the metadata of the bibliographic
+        entities provided by the new source, and (II) a collection of provenance data.
+        An internal database is constantly refreshed to preserve correspondence between
+        IDs and the associated internal OMIDs.</span></p>\\r\\n<p style=\\\"text-align:
+        justify\\\"><b>STEP 2</b><span style=\\\"font-weight: 400\\\">: Starting from
+        the collection of citations expressed as directional links between identifiers
+        of potentially any type (e.g., DOI-DOI, PMID-PMID, PMC-PMID, etc.), the INDEX
+        software queries the internal database mapping IDs to OMIDs to produce an
+        updated version of the OpenCitations Index: unique citations expressed as
+        OMID-OMID links in different formats, accompanied by their corresponding provenance
+        data.</span></p>\\r\\n<p style=\\\"text-align: justify\\\"><img decoding=\\\"async\\\"
+        loading=\\\"lazy\\\" class=\\\"wp-image-3503 aligncenter\\\" src=\\\"https://opencitations.hypotheses.org/files/2023/11/Simplified_ingestion_workflow_2-300x169.png\\\"
+        alt=\\\"\\\" width=\\\"676\\\" height=\\\"381\\\" srcset=\\\"https://opencitations.hypotheses.org/files/2023/11/Simplified_ingestion_workflow_2-300x169.png
+        300w, https://opencitations.hypotheses.org/files/2023/11/Simplified_ingestion_workflow_2-500x281.png
+        500w, https://opencitations.hypotheses.org/files/2023/11/Simplified_ingestion_workflow_2-768x432.png
+        768w, https://opencitations.hypotheses.org/files/2023/11/Simplified_ingestion_workflow_2-1536x864.png
+        1536w, https://opencitations.hypotheses.org/files/2023/11/Simplified_ingestion_workflow_2.png
+        1920w\\\" sizes=\\\"(max-width: 676px) 100vw, 676px\\\" /><b><i>Fig. 1: </i></b><i>An
+        overview of the data ingestion workflow, starting from the data source-specific
+        conversion and production of citations and bibliographic metadata tables,
+        progressing through the META process and the assignation of an OMID identifier
+        to each bibliographic record involved in a citation, and culminating with
+        the exposition of the OpenCitations Index collection of OMID-OMID unique citations.</i></p>\\r\\n<h4
+        style=\\\"text-align: justify\\\"><b>What we have now: The OpenCitations Index</b><span
+        style=\\\"font-weight: 400\\\">\_</span></h4>\\r\\n<p style=\\\"text-align:
+        justify\\\"><span style=\\\"font-weight: 400\\\">From now on, OpenCitations
+        will no longer display an index of citation data for each source. Instead,
+        we will publish a single collection of citations into which the contributions
+        from each of the sources will flow, which we will simply call &#8216;</span><b>The
+        OpenCitations Index</b><span style=\\\"font-weight: 400\\\">&#8216;. The first
+        version of this unified index of OMID-OMID citations is posted on Figshare.
+        It was produced in </span><a href=\\\"https://figshare.com/articles/dataset/OpenCitations_Index_N-Triples_dataset_of_all_the_citation_data/24369136\\\"><span
+        style=\\\"font-weight: 400\\\">RDF</span></a><span style=\\\"font-weight:
+        400\\\">, </span><a href=\\\"https://figshare.com/articles/dataset/OpenCitations_Index_CSV_dataset_of_all_the_citation_data/24356626\\\"><span
+        style=\\\"font-weight: 400\\\">CSV</span></a><span style=\\\"font-weight:
+        400\\\">, and </span><a href=\\\"https://figshare.com/articles/dataset/OpenCitations_Index_Scholix_dataset_of_all_the_citation_data/24416749\\\"><span
+        style=\\\"font-weight: 400\\\">SCHOLIX</span></a><span style=\\\"font-weight:
+        400\\\"> formats, together with a collection of its provenance information,
+        provided in </span><a href=\\\"https://doi.org/10.6084/m9.figshare.24417736\\\"><span
+        style=\\\"font-weight: 400\\\">RDF</span></a><span style=\\\"font-weight:
+        400\\\"> and </span><a href=\\\"https://doi.org/10.6084/m9.figshare.24417733\\\"><span
+        style=\\\"font-weight: 400\\\">CSV</span></a><span style=\\\"font-weight:
+        400\\\"> formats. For each citation, it is possible to trace the source of
+        the information by consulting the Provenance data collection, thanks to the
+        </span><a href=\\\"http://www.w3.org/ns/prov#atLocation\\\"><span style=\\\"font-weight:
+        400\\\">http://www.w3.org/ns/prov#atLocation</span></a><span style=\\\"font-weight:
+        400\\\"> property, which defines the location of each citation.</span></p>\\r\\n<p
+        style=\\\"text-align: justify\\\"><span style=\\\"font-weight: 400\\\">This
+        new solution has the </span><b>benefit </b><span style=\\\"font-weight: 400\\\">of
+        simplifying the consultation of the data maintained by our infrastructure
+        without reducing the information content. In addition, by including efficient
+        handling of the deduplication problem, the new Index not only provides accurate
+        data on the exact number of unique citations exposed by the framework but
+        also verifies the individual contribution of each source, as well as their
+        overlapping data (Fig. 2).</span></p>\\r\\n<p><img decoding=\\\"async\\\"
+        loading=\\\"lazy\\\" class=\\\"aligncenter wp-image-3501\\\" src=\\\"https://opencitations.hypotheses.org/files/2023/11/Screenshot-29-300x73.png\\\"
+        alt=\\\"\\\" width=\\\"674\\\" height=\\\"164\\\" srcset=\\\"https://opencitations.hypotheses.org/files/2023/11/Screenshot-29-300x73.png
+        300w, https://opencitations.hypotheses.org/files/2023/11/Screenshot-29-500x122.png
+        500w, https://opencitations.hypotheses.org/files/2023/11/Screenshot-29-768x187.png
+        768w, https://opencitations.hypotheses.org/files/2023/11/Screenshot-29.png
+        1125w\\\" sizes=\\\"(max-width: 674px) 100vw, 674px\\\" /></p>\\r\\n<p style=\\\"text-align:
+        justify\\\"><b><i>Fig. 2: </i></b><i><span style=\\\"font-weight: 400\\\">An
+        overview of the number of citations stored in the OpenCitations Index as of
+        October 31, 2023. The diagonal cells in the table (highlighted in yellow)
+        show the unique contribution of each collection to the OpenCitations Index,
+        while the other cells represent the citations that are shared between the
+        collections. More in detail, the green cells show the overall input of each
+        source, while the pink cells represent the number of overlapping citations
+        between two data sources.</span></i></p>\\r\\n<p style=\\\"text-align: justify\\\"><span
+        style=\\\"font-weight: 400\\\">Currently, the Index contains </span><b>almost
+        2 billion unique citations</b><span style=\\\"font-weight: 400\\\">. By the
+        end of November, a new version of the collection will be published, including
+        the contribution of the new </span><a href=\\\"https://japanlinkcenter.org/top/english.html\\\"><span
+        style=\\\"font-weight: 400\\\">Japan Link Centre (JaLC)</span></a><span style=\\\"font-weight:
+        400\\\"> source.\_</span></p>\\r\\n<h4 style=\\\"text-align: justify\\\"><b>How
+        to access the OpenCitations Index data</b></h4>\\r\\n<p style=\\\"text-align:
+        justify\\\"><span style=\\\"font-weight: 400\\\">To maximize the </span><b>reuse
+        </b><span style=\\\"font-weight: 400\\\">of the exposed information and to
+        ensure the greatest possible </span><b>interoperability</b><span style=\\\"font-weight:
+        400\\\">, the collection will always be published on Figshare in all formats
+        listed above. In addition, the data will be accessible via an </span><a href=\\\"https://opencitations.net/index/api/v2\\\"><span
+        style=\\\"font-weight: 400\\\">API</span></a><span style=\\\"font-weight:
+        400\\\">, a </span><a href=\\\"https://opencitations.net/index/sparql\\\"><span
+        style=\\\"font-weight: 400\\\">SPARQL endpoint</span></a><span style=\\\"font-weight:
+        400\\\">, and a </span><a href=\\\"https://opencitations.net/index/search\\\"><span
+        style=\\\"font-weight: 400\\\">web interface</span></a><span style=\\\"font-weight:
+        400\\\">.</span></p>\\r\\n<p style=\\\"text-align: justify\\\"><span style=\\\"font-weight:
+        400\\\">The redesign of the ingestion workflow marks a fundamental step for
+        OpenCitations towards a more intuitive and simple access to our services while
+        always preserving and improving the quality of our data. If you need further
+        information on how the new workflow works, please visit <a href=\\\"https://opencitations.net/datasets\\\">our
+        website</a>, contact us at <a href=\\\"mailto:contact@opencitations.net\\\">contact@opencitations.net</a>\_
+        or leave feedback and/or suggestions in the <a href=\\\"https://trello.com/c/z5PEJKuY\\\">dedicated
+        card</a> on our public roadmap to help us improve our services and communications.
+        Thank you! </span></p>\\r\\n<div class=\\\"wpcp\\\">Cite this article as:
+        Chiara Di Giambattista, \\\"A new revolutionary workflow for a unified collection
+        of citations: say hello to the OpenCitations Index,\\\" in <em>OpenCitations
+        blog</em>, 27/11/2023, <a href=\\\"https://opencitations.hypotheses.org/3499\\\">https://opencitations.hypotheses.org/3499</a>.</div>\",\"content_text\":\"*Blog
+        post by Ivan Heibi (University of Bologna), Arianna Moretti\\n(University
+        of Bologna) and Chiara Di Giambattista (University of\\nBologna).*\\n\\n[In
+        the past five years, the OpenCitations data has been enriched with\\nnumerous
+        new indexes of open citation data from different sources.\\nHowever, the quantity
+        and diversification of the ingested information\\nhave raised several issues,
+        which recently made it essential to conduct\\na complete revision of the ingestion
+        workflow. The result was a\\nrevolution in the way OpenCitations data is delivered.
+        In this blog\\npost, we will explain the context and challenges raised by
+        the old\\nprocedure. Then, we will present the new ingestion workflow, designed
+        to\\nproduce ]{style=\\\"font-weight: 400\\\"}**just two comprehensive\\ncollections**[:]{style=\\\"font-weight:
+        400\\\"} **OpenCitations Index**[,\\ncollecting open citation data, and\\n]{style=\\\"font-weight:
+        400\\\"}**OpenCitations Meta**[, for the open\\nbibliographical metadata.\_]{style=\\\"font-weight:
+        400\\\"}\\n\\n#### **Once upon a time, there were five OpenCitations indexes...**
+        {#once-upon-a-time-there-were-five-opencitations-indexes style=\\\"text-align:
+        justify\\\"}\\n\\n[In 2018, OpenCitations released the kickoff version of
+        its first\\ncitation index, ]{style=\\\"font-weight: 400\\\"}[**COCI** [(citations
+        from\\nCrossref)]{style=\\\"font-weight: 400\\\"}](https://opencitations.hypotheses.org/961)[,\\nwhich
+        contained around 300 million citation links derived from the\\nsubset of the
+        reference lists in the Crossref database, where citing and\\ncited entities
+        were identified using Digital Object Identifiers (DOIs).\\nCOCI gathered citations
+        with associated metadata in compliance with the\\nrecommendations from the
+        Initiative for Open Citations\\n(]{style=\\\"font-weight: 400\\\"}[[I4OC]{style=\\\"font-weight:
+        400\\\"}](https://i4oc.org/)[)\\nthat citation data should be structured,
+        separable, and open, thus\\nmarking a turning point by providing a disruptive
+        and free and open\\nalternative to earlier sources such as Google Scholar,
+        which provided\\nfreely accessible data although not downloadable, and Web
+        of Science or\\nScopus, which demanded paid access.\_]{style=\\\"font-weight:
+        400\\\"}\\n\\n[In a short time, COCI became a competitive and trusted index
+        of\\ncitation data, used by numerous institutional repositories, including\\n]{style=\\\"font-weight:
+        400\\\"}[[B!son]{style=\\\"font-weight: 400\\\"}](https://service.tib.eu/bison/)[\\nand\\n]{style=\\\"font-weight:
+        400\\\"}[[Optimeta]{style=\\\"font-weight: 400\\\"}](https://projects.tib.eu/optimeta/en/)[.\\nIn
+        2021, COCI was taken into account ]{style=\\\"font-weight: 400\\\"}[[in a\\ncomparative\\nstudy]{style=\\\"font-weight:
+        400\\\"}](https://opencitations.hypotheses.org/1420)[\\nwith the most relevant
+        sources in the landscape, including the\\nproprietary ones, which showed its
+        coverage approaching parity with\\nthose of the other sources involved in
+        the analysis (Microsoft Academic,\\nScopus, Dimensions, and Web of Science).
+        At the time of its most recent\\nupdate in January 2023, COCI counted more
+        than 1.4 billion citations.\\nThe reason behind this outstanding number lies
+        in several factors,\\nincluding ]{style=\\\"font-weight: 400\\\"}[[Elsevier's
+        endorsement of the\\nDeclaration on Research Assessment (DORA) in December\\n2020]{style=\\\"font-weight:
+        400\\\"}](https://opencitations.hypotheses.org/1165)[,\\nleading to the open
+        release via Crossref of the reference lists of the\\narticles published in
+        all its journals, and confirming the value of\\ninitiatives such as the ]{style=\\\"font-weight:
+        400\\\"}[[Initiative for Open\\nCitations\\n(I4OC)]{style=\\\"font-weight:
+        400\\\"}](https://opencitations.hypotheses.org/696)[.\_]{style=\\\"font-weight:
+        400\\\"}\\n\\n[However, before this change of heart, in 2019 OpenCitations
+        had tried\\nto narrow the open citations coverage gap by launching its second
+        index,\\nthe ]{style=\\\"font-weight: 400\\\"}[[Crowdsourced Open Citations
+        Index\\n(]{style=\\\"font-weight: 400\\\"}**CROCI**[)]{style=\\\"font-weight:
+        400\\\"}](https://opencitations.hypotheses.org/944)[.\\nThis index allowed
+        publishers and scholars to contribute directly by\\nuploading crowdsourced
+        open citations into the OpenCitations\\ninfrastructure.]{style=\\\"font-weight:
+        400\\\"}\\n\\n[In December 2022, a new concrete step towards a factual plurality
+        of\\nOpenCitations indexes was taken by the ingestion of new data sources\\ninto
+        the infrastructure, with the publication of the inaugural dumps of\\n]{style=\\\"font-weight:
+        400\\\"}[**DOCI** [(citations from\\nDataCite)]{style=\\\"font-weight: 400\\\"}](https://opencitations.hypotheses.org/3106)[\\nand
+        ]{style=\\\"font-weight: 400\\\"}[**POCI** [(citations from\\nPubMed)]{style=\\\"font-weight:
+        400\\\"}](https://opencitations.hypotheses.org/3246)[.\\nIn June 2023, the
+        first version of the\\n]{style=\\\"font-weight: 400\\\"}**OROCI** [(citations
+        from OpenAIRE) dump was\\nreleased too, and ]{style=\\\"font-weight: 400\\\"}**JOCI**
+        [(citations from\\n]{style=\\\"font-weight: 400\\\"}[[JALC]{style=\\\"font-weight:
+        400\\\"}](https://japanlinkcenter.org/top/english.html)[)\\nis expected to
+        be available by the end of November 2023, for a total of\\nfive collections
+        from different sources.\_]{style=\\\"font-weight: 400\\\"}\\n\\n#### **Why
+        a new workflow? The issues with multiple sources management and new challenges**
+        {#why-a-new-workflow-the-issues-with-multiple-sources-management-and-new-challenges
+        style=\\\"text-align: justify\\\"}\\n\\n[While having such a variety and richness
+        of indexes helped present the\\nextent of OpenCitations sources, the recent\\n]{style=\\\"font-weight:
+        400\\\"}[increment in the number of sources and the\\ndiversification of data
+        integrated led to two primary\\n]{style=\\\"font-weight: 400\\\"}**issues**[:
+        ]{style=\\\"font-weight: 400\\\"}\\n\\n1.  1.  the necessity to handle the
+        ingestion of new identifier types in\\n        a DOI-based software infrastructure,
+        and\\n    2.  the consequent possibility of encountering the same citation\\n
+        \       expressed by several sources with different identifiers.\\n\\n[Moreover,
+        it soon became evident the need to optimize the reuse of the\\nalready developed
+        software components ]{style=\\\"font-weight: 400\\\"}**to\\nfacilitate the
+        metadata crosswalk processes between the new sources'\\ndata models and the
+        OpenCitations Data Model**[, with\\n]{style=\\\"font-weight: 400\\\"}**the
+        aim to define a functional and easily\\nextendable workflow**[ to be easily
+        reused when it comes to\\nincorporating new data sources, which should\\nbe:\_]{style=\\\"font-weight:
+        400\\\"}\\n\\n1.  a.  [sufficiently generic to establish a globally unique\\n
+        \       procedure;\_]{style=\\\"font-weight: 400\\\"}\\n    b.  [customizable
+        enough to capture the necessary information within\\n        each of the specific
+        data models and\\n        formats.\_]{style=\\\"font-weight: 400\\\"}\\n\\n[As
+        a solution, we decided to use\\n]{style=\\\"font-weight: 400\\\"}[[OpenCitations\\nMeta]{style=\\\"font-weight:
+        400\\\"}](https://opencitations.hypotheses.org/3140)[,\\nthe new OpenCitations
+        database and tool for managing bibliographic data\\nrelated to the publications
+        involved in the citations. OpenCitations\\nMeta makes it possible to assign
+        each entity involved in a citation an\\ninternal identifier, nominally the
+        OpenCitations Meta Identifier (OMID),\\nto which all the associated persistent
+        identifiers of the same\\npublication are redirected.]{style=\\\"font-weight:
+        400\\\"}\\n\\n[As a result, the allocation of an OMID for each bibliographic
+        resource\\nalso enabled the unambiguous identification of each citation, regardless\\nof
+        the persistent identifier schema originally used by the data source\\nto identify
+        the resources. This approach allowed us to perform data\\ndeduplication and
+        finally make all the sources' contributions converge\\ninto ]{style=\\\"font-weight:
+        400\\\"}**a unified index containing all the\\nunique citations managed by
+        OpenCitations, expressed as OMID to OMID\\ncitation links.**\\n\\n#### **The
+        revised workflow** {#the-revised-workflow style=\\\"text-align: justify\\\"}\\n\\n[The
+        new workflow is based on ]{style=\\\"font-weight: 400\\\"}**three main\\ncomponents**[
+        with the ]{style=\\\"font-weight: 400\\\"}**benefit** [of\\noptimizing the
+        process both in terms of computational cost and in terms\\nof flexibility.
+        As shown in Fig. 1, in a preliminary step,\\nsource-specific software converts
+        the input dataset -- structured\\naccording to the source data model -- to
+        extract two OpenCitations Data\\nModel compliant data collections in tabular
+        format for bibliographic\\nmetadata and citation data, respectively.]{style=\\\"font-weight:
+        400\\\"}\\n\\n[The following steps are common to the process of each\\ndataset.\_\_]{style=\\\"font-weight:
+        400\\\"}\\n\\n**STEP 1**[: The bibliographic metadata collection is used as
+        input for\\nthe META software. At this stage, it is checked whether or not
+        the\\nbibliographic entities have been previously integrated into our\\ninfrastructure
+        (coming from other data sources). If so, the existing\\nOMID is linked also
+        to the new alternative identifiers of the new\\nbibliographic resources. New
+        metadata values, if any, are also\\nintegrated. A new OMID identifier is produced
+        for entities never\\npreviously encountered, uniquely representing the bibliographic
+        resource\\nin OpenCitations. The outputs of the process are: (I) an updated
+        version\\nof the OpenCitations Meta collection that also includes the metadata
+        of\\nthe bibliographic entities provided by the new source, and (II) a\\ncollection
+        of provenance data. An internal database is constantly\\nrefreshed to preserve
+        correspondence between IDs and the associated\\ninternal OMIDs.]{style=\\\"font-weight:
+        400\\\"}\\n\\n**STEP 2**[: Starting from the collection of citations expressed
+        as\\ndirectional links between identifiers of potentially any type (e.g.,\\nDOI-DOI,
+        PMID-PMID, PMC-PMID, etc.), the INDEX software queries the\\ninternal database
+        mapping IDs to OMIDs to produce an updated version of\\nthe OpenCitations
+        Index: unique citations expressed as OMID-OMID links\\nin different formats,
+        accompanied by their corresponding provenance\\ndata.]{style=\\\"font-weight:
+        400\\\"}\\n\\n![](https://opencitations.hypotheses.org/files/2023/11/Simplified_ingestion_workflow_2-300x169.png){.wp-image-3503\\n.aligncenter
+        decoding=\\\"async\\\" loading=\\\"lazy\\\" width=\\\"676\\\" height=\\\"381\\\"\\nsrcset=\\\"https://opencitations.hypotheses.org/files/2023/11/Simplified_ingestion_workflow_2-300x169.png
+        300w, https://opencitations.hypotheses.org/files/2023/11/Simplified_ingestion_workflow_2-500x281.png
+        500w, https://opencitations.hypotheses.org/files/2023/11/Simplified_ingestion_workflow_2-768x432.png
+        768w, https://opencitations.hypotheses.org/files/2023/11/Simplified_ingestion_workflow_2-1536x864.png
+        1536w, https://opencitations.hypotheses.org/files/2023/11/Simplified_ingestion_workflow_2.png
+        1920w\\\"\\nsizes=\\\"(max-width: 676px) 100vw, 676px\\\"}***Fig. 1:*** *An
+        overview of\\nthe data ingestion workflow, starting from the data source-specific\\nconversion
+        and production of citations and bibliographic metadata\\ntables, progressing
+        through the META process and the assignation of an\\nOMID identifier to each
+        bibliographic record involved in a citation, and\\nculminating with the exposition
+        of the OpenCitations Index collection of\\nOMID-OMID unique citations.*\\n\\n####
+        **What we have now: The OpenCitations Index**[\_]{style=\\\"font-weight: 400\\\"}
+        {#what-we-have-now-the-opencitations-index style=\\\"text-align: justify\\\"}\\n\\n[From
+        now on, OpenCitations will no longer display an index of citation\\ndata for
+        each source. Instead, we will publish a single collection of\\ncitations into
+        which the contributions from each of the sources will\\nflow, which we will
+        simply call ']{style=\\\"font-weight: 400\\\"}**The\\nOpenCitations Index**['.
+        The first version of this unified index of\\nOMID-OMID citations is posted
+        on Figshare. It was produced in\\n]{style=\\\"font-weight: 400\\\"}[[RDF]{style=\\\"font-weight:
+        400\\\"}](https://figshare.com/articles/dataset/OpenCitations_Index_N-Triples_dataset_of_all_the_citation_data/24369136)[,\\n]{style=\\\"font-weight:
+        400\\\"}[[CSV]{style=\\\"font-weight: 400\\\"}](https://figshare.com/articles/dataset/OpenCitations_Index_CSV_dataset_of_all_the_citation_data/24356626)[,\\nand\\n]{style=\\\"font-weight:
+        400\\\"}[[SCHOLIX]{style=\\\"font-weight: 400\\\"}](https://figshare.com/articles/dataset/OpenCitations_Index_Scholix_dataset_of_all_the_citation_data/24416749)[\\nformats,
+        together with a collection of its provenance information,\\nprovided in\\n]{style=\\\"font-weight:
+        400\\\"}[[RDF]{style=\\\"font-weight: 400\\\"}](https://doi.org/10.6084/m9.figshare.24417736)[\\nand\\n]{style=\\\"font-weight:
+        400\\\"}[[CSV]{style=\\\"font-weight: 400\\\"}](https://doi.org/10.6084/m9.figshare.24417733)[\\nformats.
+        For each citation, it is possible to trace the source of the\\ninformation
+        by consulting the Provenance data collection, thanks to the\\n]{style=\\\"font-weight:
+        400\\\"}[[http://www.w3.org/ns/prov#atLocation]{style=\\\"font-weight: 400\\\"}](http://www.w3.org/ns/prov#atLocation)[\\nproperty,
+        which defines the location of each\\ncitation.]{style=\\\"font-weight: 400\\\"}\\n\\n[This
+        new solution has the ]{style=\\\"font-weight: 400\\\"}**benefit** [of\\nsimplifying
+        the consultation of the data maintained by our\\ninfrastructure without reducing
+        the information content. In addition, by\\nincluding efficient handling of
+        the deduplication problem, the new Index\\nnot only provides accurate data
+        on the exact number of unique citations\\nexposed by the framework but also
+        verifies the individual contribution\\nof each source, as well as their overlapping
+        data (Fig.\\n2).]{style=\\\"font-weight: 400\\\"}\\n\\n![](https://opencitations.hypotheses.org/files/2023/11/Screenshot-29-300x73.png){.aligncenter\\n.wp-image-3501
+        decoding=\\\"async\\\" loading=\\\"lazy\\\" width=\\\"674\\\" height=\\\"164\\\"\\nsrcset=\\\"https://opencitations.hypotheses.org/files/2023/11/Screenshot-29-300x73.png
+        300w, https://opencitations.hypotheses.org/files/2023/11/Screenshot-29-500x122.png
+        500w, https://opencitations.hypotheses.org/files/2023/11/Screenshot-29-768x187.png
+        768w, https://opencitations.hypotheses.org/files/2023/11/Screenshot-29.png
+        1125w\\\"\\nsizes=\\\"(max-width: 674px) 100vw, 674px\\\"}\\n\\n***Fig. 2:***
+        *[An overview of the number of citations stored in the\\nOpenCitations Index
+        as of October 31, 2023. The diagonal cells in the\\ntable (highlighted in
+        yellow) show the unique contribution of each\\ncollection to the OpenCitations
+        Index, while the other cells represent\\nthe citations that are shared between
+        the collections. More in detail,\\nthe green cells show the overall input
+        of each source, while the pink\\ncells represent the number of overlapping
+        citations between two data\\nsources.]{style=\\\"font-weight: 400\\\"}*\\n\\n[Currently,
+        the Index contains ]{style=\\\"font-weight: 400\\\"}**almost 2\\nbillion unique
+        citations**[. By the end of November, a new version of\\nthe collection will
+        be published, including the contribution of the new\\n]{style=\\\"font-weight:
+        400\\\"}[[Japan Link Centre\\n(JaLC)]{style=\\\"font-weight: 400\\\"}](https://japanlinkcenter.org/top/english.html)[\\nsource.\_]{style=\\\"font-weight:
+        400\\\"}\\n\\n#### **How to access the OpenCitations Index data** {#how-to-access-the-opencitations-index-data
+        style=\\\"text-align: justify\\\"}\\n\\n[To maximize the ]{style=\\\"font-weight:
+        400\\\"}**reuse** [of the exposed\\ninformation and to ensure the greatest
+        possible\\n]{style=\\\"font-weight: 400\\\"}**interoperability**[, the collection
+        will\\nalways be published on Figshare in all formats listed above. In\\naddition,
+        the data will be accessible via an\\n]{style=\\\"font-weight: 400\\\"}[[API]{style=\\\"font-weight:
+        400\\\"}](https://opencitations.net/index/api/v2)[,\\na ]{style=\\\"font-weight:
+        400\\\"}[[SPARQL\\nendpoint]{style=\\\"font-weight: 400\\\"}](https://opencitations.net/index/sparql)[,\\nand
+        a ]{style=\\\"font-weight: 400\\\"}[[web\\ninterface]{style=\\\"font-weight:
+        400\\\"}](https://opencitations.net/index/search)[.]{style=\\\"font-weight:
+        400\\\"}\\n\\n[The redesign of the ingestion workflow marks a fundamental
+        step for\\nOpenCitations towards a more intuitive and simple access to our
+        services\\nwhile always preserving and improving the quality of our data.
+        If you\\nneed further information on how the new workflow works, please visit\\n[our
+        website](https://opencitations.net/datasets), contact us at\\n<contact@opencitations.net>\_
+        or leave feedback and/or suggestions in the\\n[dedicated card](https://trello.com/c/z5PEJKuY)
+        on our public roadmap to\\nhelp us improve our services and communications.
+        Thank you!\\n]{style=\\\"font-weight: 400\\\"}\\n\\n::: {.wpcp}\\nCite this
+        article as: Chiara Di Giambattista, \\\\\\\"A new revolutionary\\nworkflow
+        for a unified collection of citations: say hello to the\\nOpenCitations Index,\\\\\\\"
+        in *OpenCitations blog*, 27/11/2023,\\n<https://opencitations.hypotheses.org/3499>.\\n:::\\n\",\"doi\":\"https://doi.org/10.59350/r0rjh-a4885\",\"guid\":\"https://opencitations.hypotheses.org/?p=3499\",\"id\":\"b73452a1-bdf1-4691-a4ad-ab2c2a88cc95\",\"image\":\"https://opencitations.hypotheses.org/files/2023/11/Simplified_ingestion_workflow_2-300x169.png\",\"language\":\"en\",\"published_at\":1701097545,\"reference\":[],\"relationships\":[],\"summary\":\"<em>\\n
+        Blog post by Ivan Heibi (University of Bologna), Arianna Moretti (University
+        of Bologna) and Chiara Di Giambattista (University of Bologna).\\n</em>\\nIn
+        the past five years, the OpenCitations data has been enriched with numerous
+        new indexes of open citation data from different sources.\\n\",\"tags\":[\"Bibliographic
+        References\",\"Citations As First-Class Data Entities\",\"Ontologies\",\"Open
+        Access\",\"Open Citation Identifiers\"],\"title\":\"A new revolutionary workflow
+        for a unified collection of citations: say hello to the OpenCitations Index\",\"updated_at\":1701097545,\"url\":\"https://opencitations.hypotheses.org/3499\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Ross
+        Mounce\"}],\"blog_id\":\"vbmdy90\",\"blog_name\":\"A blog by Ross Mounce\",\"blog_slug\":\"rossmounce\",\"category\":\"naturalSciences\",\"content_html\":\"\\n<p>This
+        is just a quick post of appreciation for <a href=\\\"https://rr.peercommunityin.org/\\\">PCI
+        Registered Reports</a>. I&#8217;ve recently joined the PCI RR community as
+        a &#8216;<a href=\\\"https://rr.peercommunityin.org/about/recommenders\\\">recommender</a>&#8216;.
+        </p>\\n\\n\\n\\n<figure class=\\\"wp-block-image size-full\\\"><a href=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image.png\\\"><img
+        loading=\\\"lazy\\\" decoding=\\\"async\\\" width=\\\"259\\\" height=\\\"194\\\"
+        src=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image.png\\\"
+        alt=\\\"\\\" class=\\\"wp-image-2279\\\"/></a></figure>\\n\\n\\n\\n<p><br>One
+        thing that spurred me to join is a rather unsatisfactory experience I had
+        as a peer-reviewer, reviewing a manuscript where the experimental design was
+        deeply insufficient. I won&#8217;t reveal for which open access journal I
+        reviewed, or the full content of my peer review report but the gist of it
+        was (quoting from my report, my words):</p>\\n\\n\\n\\n<blockquote class=\\\"wp-block-quote\\\">\\n<p><em>&#8220;&#8230;this
+        [name of OA journal redacted] manuscript has an inadequate sample size to
+        draw conclusions from. Sampling only 152 journals out of a total population
+        of ~4594 SCIE-indexed biology journals, equates to just a 3.3% sample size
+        (152/4594). I see no reason why the authors couldn\u2019t have taken at least
+        a 10% sample (over 459 journals). Prior work on open access citation advantage
+        such as Ghane et al (2020) did their work on a sample of 1881 journals indexed
+        in DOAJ (DOAJ at the time indexed a total of ~11,000 journals; Ghane et al
+        (2020) achieved a greater than 10% sample size).</em></p>\\n\\n\\n\\n<p><em>Furthermore,
+        the choice of how which journals were sampled was by their own account in
+        a non-random and arbitrary manner. Students merely _chose_ a journal to download
+        data on. This is highly subjective and prone to bias. As an example of one
+        possible bias introduced: if I were a student, I might be tempted to choose
+        a journal with a low article volume so that it would be less work/time to
+        complete the assignment&#8230;&#8221;</em></p>\\n<cite>Ross Mounce (2023)</cite></blockquote>\\n\\n\\n\\n<p>TL;DR
+        the experimental design was deeply flawed. Although I appreciate the authors
+        put a lot of work into it, the conclusions of their work were just not valid,
+        given the problems of their experimental design. </p>\\n\\n\\n\\n<p>The experience
+        as a reviewer was like arriving at the scene of a car crash six months too
+        late to stop the accident. To change this piece of work into one with an acceptable
+        experimental design at this point would be a LOT of new work and might require
+        throwing away much of the existing data. </p>\\n\\n\\n\\n<p>It&#8217;s clear
+        to me that a lot of researchers are now trying their hand at metaresearch,
+        research on research, journalology, and open access studies &#8212; whatever
+        you call it. That&#8217;s great. But I implore folks to seriously consider
+        getting their experimental design peer-reviewed BEFORE they start their study,
+        and <em>PCI Registered Reports</em> is one of the communities that will provide
+        that service for you, for free! </p>\\n\\n\\n\\n<p>I would love to see more
+        stage 1 registered reports in metaresearch, to catch improperly designed studies
+        before they get carried out, written-up, and submitted. Reducing research
+        waste AND increasing the quality of research that ends-up getting published
+        &#8212; what&#8217;s not to like? It might save you a lot of anguish.</p>\\n\",\"content_text\":\"This
+        is just a quick post of appreciation for [PCI Registered\\nReports](https://rr.peercommunityin.org/).
+        I've recently joined the PCI\\nRR community as a\\n'[recommender](https://rr.peercommunityin.org/about/recommenders)'.\\n\\n<figure
+        class=\\\"wp-block-image size-full\\\">\\n<a\\nhref=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image.png\\\"><img\\nsrc=\\\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image.png\\\"\\nclass=\\\"wp-image-2279\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\" width=\\\"259\\\"\\nheight=\\\"194\\\"
+        /></a>\\n</figure>\\n\\n  \\nOne thing that spurred me to join is a rather
+        unsatisfactory experience\\nI had as a peer-reviewer, reviewing a manuscript
+        where the experimental\\ndesign was deeply insufficient. I won't reveal for
+        which open access\\njournal I reviewed, or the full content of my peer review
+        report but the\\ngist of it was (quoting from my report, my words):\\n\\n>
+        *\\\"...this \\\\[name of OA journal redacted\\\\] manuscript has an inadequate\\n>
+        sample size to draw conclusions from. Sampling only 152 journals out\\n> of
+        a total population of \\\\~4594 SCIE-indexed biology journals, equates\\n>
+        to just a 3.3% sample size (152/4594). I see no reason why the authors\\n>
+        couldn't have taken at least a 10% sample (over 459 journals). Prior\\n> work
+        on open access citation advantage such as Ghane et al (2020) did\\n> their
+        work on a sample of 1881 journals indexed in DOAJ (DOAJ at the\\n> time indexed
+        a total of \\\\~11,000 journals; Ghane et al (2020) achieved\\n> a greater
+        than 10% sample size).*\\n>\\n> *Furthermore, the choice of how which journals
+        were sampled was by\\n> their own account in a non-random and arbitrary manner.
+        Students\\n> merely \\\\_chose\\\\_ a journal to download data on. This is
+        highly\\n> subjective and prone to bias. As an example of one possible bias\\n>
+        introduced: if I were a student, I might be tempted to choose a\\n> journal
+        with a low article volume so that it would be less work/time\\n> to complete
+        the assignment...\\\"*\\n>\\n> Ross Mounce (2023)\\n\\nTL;DR the experimental
+        design was deeply flawed. Although I appreciate\\nthe authors put a lot of
+        work into it, the conclusions of their work\\nwere just not valid, given the
+        problems of their experimental design.\\n\\nThe experience as a reviewer was
+        like arriving at the scene of a car\\ncrash six months too late to stop the
+        accident. To change this piece of\\nwork into one with an acceptable experimental
+        design at this point would\\nbe a LOT of new work and might require throwing
+        away much of the\\nexisting data.\\n\\nIt's clear to me that a lot of researchers
+        are now trying their hand at\\nmetaresearch, research on research, journalology,
+        and open access\\nstudies --- whatever you call it. That's great. But I implore
+        folks to\\nseriously consider getting their experimental design peer-reviewed\\nBEFORE
+        they start their study, and *PCI Registered Reports* is one of\\nthe communities
+        that will provide that service for you, for free!\\n\\nI would love to see
+        more stage 1 registered reports in metaresearch, to\\ncatch improperly designed
+        studies before they get carried out,\\nwritten-up, and submitted. Reducing
+        research waste AND increasing the\\nquality of research that ends-up getting
+        published --- what's not to\\nlike? It might save you a lot of anguish.\\n\",\"doi\":\"https://doi.org/10.59350/dy0m6-g3170\",\"guid\":\"https://rossmounce.co.uk/?p=2278\",\"id\":\"fb067113-7046-4cfc-8a1b-a8cf6246eaef\",\"image\":\"https://rossmounce.co.uk/wp-content/uploads/2023/11/image.png\",\"language\":\"en\",\"published_at\":1700434867,\"reference\":[],\"relationships\":[],\"summary\":\"This
+        is just a quick post of appreciation for PCI Registered Reports. I\u2019ve
+        recently joined the PCI RR community as a \u2018recommender\u2018.    One
+        thing that spurred me to join is a rather unsatisfactory experience I had
+        as a peer-reviewer, reviewing a manuscript where the experimental design was
+        deeply insufficient.\\n\",\"tags\":[\"Generation Open\",\"Open Access\",\"Open
+        Science\",\"Experimental Design\",\"Metaresearch\"],\"title\":\"Kudos to PCI
+        Registered Reports\",\"updated_at\":1701011881,\"url\":\"https://rossmounce.co.uk/2023/11/19/kudos-to-pci-registered-reports\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22098/20231101171344/http://gigasciencejournal.com/blog/biobanking-at-ggbn-2023\",\"authors\":[{\"name\":\"Chris
+        Armit\",\"url\":\"https://orcid.org/0000-0002-9952-8141\"}],\"blog_id\":\"3ffcd46\",\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"category\":\"biologicalSciences\",\"content_html\":\"<blockquote
+        class=\\\"wp-block-quote has-text-align-center\\\">\\n<p></p>\\n<cite><em>\u201CExtinction
+        is forever \u2013 so our action must be immediate.\u201D</em><br>\u2013<em>Sir
+        David Attenborough, Sept 30th 2020</em></cite></blockquote>\\n\\n\\n\\n<p
+        class=\\\"has-text-align-center\\\"></p>\\n\\n\\n\\n<p>The fourth international
+        <a href=\\\"https://ggbn2023.weebly.com/\\\" target=\\\"_blank\\\" rel=\\\"noreferrer
+        noopener\\\">Global Genome Biodiversity Network (GGBN) Conference</a> took
+        place in Aguascalientes, Mexico from October 17th to October 20th 2023 where
+        it was hosted by the Universidad Aut\xF3noma de Aguascalientes. The <a href=\\\"https://www.ggbn.org/\\\"
+        target=\\\"_blank\\\" rel=\\\"noreferrer noopener\\\">GGBN</a> is a global
+        network of collections of genomic samples from across the Tree of Life, whose
+        mission is to foster collaborations among biodiversity and biobanking repositories
+        in order to ensure quality standards and harmonise exchange of material in
+        accordance with national and international legislation and conventions. GigaScience
+        Press Data Scientist Chris Armit attended the conference and reports below
+        on some of the highlights.</p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<h3 class=\\\"wp-block-heading\\\"><strong>Confronting
+        the Global Decline in Biodiversity: The GGBN Perspective</strong></h3>\\n\\n\\n\\n<p><strong>Oliver
+        Ryder </strong>(San Diego Zoo Wildlife Alliance IUCN-SSC Animal Biobanking
+        for Conservation Specialist Group, and <a href=\\\"https://doi.org/10.1186/2047-217X-3-32\\\"
+        target=\\\"_blank\\\" rel=\\\"noreferrer noopener\\\">co-founder of Genome10K</a>
+        \u2013 of which we have published many genomes and <a href=\\\"https://doi.org/10.1186/2047-217X-1-8\\\"
+        target=\\\"_blank\\\" rel=\\\"noreferrer noopener\\\">standards</a>) introduced
+        the Biodiversity Crisis with some dizzying statistics. A study of 31,821 populations
+        representing 5,230 species monitored across the globe showed a 69% decline
+        in abundance. The decline is disproportionate across the globe with the megadiverse
+        continent of Africa showing a 66% reduction in biodiversity, and Latin America
+        and the Caribbean showing a staggering 94% reduction in biodiversity. The
+        message is clear \u2013 we have to act now to conserve our living planet.</p>\\n\\n\\n\\n<p>Conservation
+        is a key focus of the GGBN, and this network \u2013 coordinated by the GGBN
+        Secretariat hosted and supported by the National Museum of Natural History,
+        Smithsonian Institution, Washington, DC \u2013 aims to provide the necessary
+        Data Standards for BioBanked specimens in a global context.</p>\\n\\n\\n\\n<figure
+        class=\\\"wp-block-image is-resized\\\"><img decoding=\\\"async\\\" loading=\\\"lazy\\\"
+        src=\\\"https://lh7-us.googleusercontent.com/UjgoqbzgJ_WcABy1q1hJW1PmZ73gnK-MJWkLvW7nKqusRmnNH_yXEP-7UeLp_Lv47_S0HH_mEe9jxAIa7Nq7hbD90mtFYc9nApbUc75GfAjtmE1BmVt-BCSCJdJCLLedfDtLVPExr2C4XrsR5H5NgCA\\\"
+        alt=\\\"Oliver Ryder\u2019s keynote talk set the stage for Animal Biobanking
+        for Conservation.\\\" width=\\\"800\\\" height=\\\"600\\\" /></figure>\\n\\n\\n\\n<p><em>Oliver
+        Ryder\u2019s keynote talk set the stage for Animal Biobanking for Conservation.</em></p>\\n\\n\\n\\n<p>The
+        term \u2018Data Standards\u2019 is used to describe a set of terms and controlled
+        vocabularies designed to represent facts about a sample/voucher. An additional
+        important concept pertinent to the focus of GGBN is the \u201CDigital Extended
+        Specimen\u201D, which is a cloud of information around a vouchered specimen
+        and which can include genomic sequence data and metabolomics data.</p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<h3
+        class=\\\"wp-block-heading\\\"><strong>One Plan Approach</strong></h3>\\n\\n\\n\\n<p>In
+        his Keynote talk, Oliver Ryder highlighted the need for a common standard
+        of good practice and information sharing. Towards this end, Oliver showcased
+        the \u201COne Plan Approach\u201D which was formulated at the IUCN World Conservation
+        Congress 2020 at its session in Marseille, France, and which \u201Curges the
+        Secretariat and professional societies to promote integration of <em>in situ</em>
+        and <em>ex situ</em> conservation interventions\u201D and \u201Cto ensure
+        effective use of all available conservation tools\u201D.</p>\\n\\n\\n\\n<p>Of
+        central importance for this network, are the calls on IUCN Commissions and
+        Members to \u201Cenable and support establishment of a global network of biobanks
+        dedicated to the achievement of global species conservation targets and operating
+        to common standards of good practice and information sharing.\u201D</p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<h3
+        class=\\\"wp-block-heading\\\"><strong>Genetic Rescue and Cloning</strong></h3>\\n\\n\\n\\n<p>Oliver
+        Ryder further showcased a series of success stories. Foremost amongst these
+        is genetic rescue by moving animals. Genetic rescue involves an increase in
+        fitness from the introduction of new, unrelated individuals into small, declining
+        populations, and we have <a href=\\\"http://gigasciencejournal.com/blog/honeyeater-genome/\\\"
+        target=\\\"_blank\\\" rel=\\\"noreferrer noopener\\\">explored this topic
+        previously</a> with our publication of the genome of the critically endangered
+        helmeted honeyeater. At GGBN 2023, Oliver highlighted how genetic rescue has
+        been successful in <a href=\\\"https://www.sciencedaily.com/releases/2022/08/220822130300.htm\\\"
+        target=\\\"_blank\\\" rel=\\\"noreferrer noopener\\\">increasing the fitness
+        of the Florida panther</a> <em>Puma</em> <em>concolor coryi</em>, by moving
+        female panthers from Texas to Florida from the mid-1990s.</p>\\n\\n\\n\\n<p>Much
+        more technically challenging is the use of cloning to increase genetic fitness
+        in endangered species. Oliver was swift to point out that this approach has
+        been used for the critically endangered Przewalski\u2019s horse. The <a href=\\\"https://www.chronofhorse.com/article/the-story-of-a-colt-named-kurt/\\\"
+        target=\\\"_blank\\\" rel=\\\"noreferrer noopener\\\">first cloned <em>Equus
+        przewalskii</em></a><em> </em>was foaled on August 6th 2020 and was named
+        \u2018Kurt\u2019 in honour of the first Frozen Zoo creator Dr Kurt Benirschke
+        of San Diego Zoo.</p>\\n\\n\\n\\n<p>In the same year, a black-footed ferret
+        named \u2018Elizabeth Ann\u2019 (born December 10, 2020) was <a href=\\\"https://en.wikipedia.org/wiki/Elizabeth_Ann\\\"
+        target=\\\"_blank\\\" rel=\\\"noreferrer noopener\\\">the first U.S. endangered
+        species to be cloned</a>. Elizabeth Ann was cloned using the frozen cells
+        from Willa, a black-footed female ferret who died in the 1980s and who had
+        no living descendants.</p>\\n\\n\\n\\n<figure class=\\\"wp-block-image is-resized\\\"><img
+        decoding=\\\"async\\\" loading=\\\"lazy\\\" src=\\\"https://lh7-us.googleusercontent.com/zX_W3b01BneaJBOw3Ms2se8Z7JJ8HN8_MgKqOcD5cthmUCs5boO04_BWn4p6arO3-YZrdHV0z79lXk-ZZkZS_UPRzZWXMNAZe3CW0kME8Ul2vu6UAgJSR3mAL-iQDplGGBqy7A6q8rh7bIlBHjl23I8\\\"
+        alt=\\\"Elizabeth Ann - The first cloned black-footed ferret.\_\\\" width=\\\"722\\\"
+        height=\\\"800\\\" /></figure>\\n\\n\\n\\n<p><em>Elizabeth Ann \u2013 The
+        first cloned black-footed ferret. As a work of the U.S. federal government,
+        the image is in the <a href=\\\"https://commons.wikimedia.org/wiki/File:Elizabeth_Ann_birthday.jpg\\\"
+        target=\\\"_blank\\\" rel=\\\"noreferrer noopener\\\">public domain</a>.\_
+        </em></p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<h3 class=\\\"wp-block-heading\\\"><strong>BioBanking
+        and the Frozen Zoo</strong></h3>\\n\\n\\n\\n<p>A core focus of the GGBN conference
+        was cryobanking of viable cells and gametes. In her talk on Biodiversity Biobanking,
+        <strong>Jackie Mackenzie-Dodds</strong> (Natural History Museum, London) referred
+        to the cryopreservation facilities as a \u201Ctreasure trove of molecules\u201D.
+        Jackie pointed out that viable cell lines are the most requested resource
+        for the Natural History Museum BioBank, where they are used for the generation
+        of induced pluripotent stem cells (iPSCs) and chimaeras.</p>\\n\\n\\n\\n<p>Another
+        important message from the GGBN conference was the need for Open Access BioBank
+        facilities. Towards this end, an additional incentive for researchers and
+        curators was provided by <strong>Mudzuli Mavhunga</strong> of Biodiversity
+        Biobanks South Africa (South African National Biodiversity Institute, Pretoria).
+        Mudzuli highlighted that, if a South African BioBank is awarded the status
+        of Open Access, then it is eligible for resource allocations through Biodiversity
+        Biobanks South Africa (BBSA), which is a great asset for a collection facility.</p>\\n\\n\\n\\n<figure
+        class=\\\"wp-block-image is-resized\\\"><img decoding=\\\"async\\\" loading=\\\"lazy\\\"
+        src=\\\"https://lh7-us.googleusercontent.com/icjNsd_U5bl7hYWP9YzF7PT9wcf0GHB06OifrxvMEwrqspnifNYqkus5C8ULkjoK0HIOfJtideUJiY2m3m8Z8QH8CUkcxnDlMupHeJSuyVzhA0HDZMLLn0LbHgClL2rXM0n3e_E6G0p7uSF6J9EWL70\\\"
+        alt=\\\"Mudzuli Mavhunga highlighted advantages for BioBanks in ensuring that
+        genomic collections are Open Access.\\\" width=\\\"800\\\" height=\\\"600\\\"
+        /></figure>\\n\\n\\n\\n<p><em>Mudzuli Mavhunga highlighted advantages for
+        BioBanks in ensuring that genomic collections are Open Access.</em></p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<h3
+        class=\\\"wp-block-heading\\\"><strong>Scalability of Cloning</strong></h3>\\n\\n\\n\\n<p>So
+        is cloning from frozen somatic cell lines a scalable approach? <strong>Ben
+        Novak</strong> of Revive & Restore (Sausalito, California), in his talk entitled
+        \u201CImportant Considerations for Biobanking for Genetic Rescue of Endangered
+        Species\u201D, highlighted the example of passerines (perching birds) where
+        programmed DNA loss is observed in some species. In passerines such as the
+        zebra finch (<em>Taeniopygia guttata</em>), there is a <a href=\\\"https://doi.org/10.1023/A:1009234912307\\\"
+        target=\\\"_blank\\\" rel=\\\"noreferrer noopener\\\">germ-line-restricted
+        chromosome</a> \u2013 known as an accessory chromosome \u2013 that is present
+        in the oocytes and spermatocytes, and is subsequently <a href=\\\"https://doi.org/10.1007/s00412-005-0025-5\\\"
+        target=\\\"_blank\\\" rel=\\\"noreferrer noopener\\\">lost during male meiosis</a>.
+        This germ-line restricted chromosome is unusual in that it is represented
+        exclusively in the germ cells, and is absent from somatic cells of the <a
+        href=\\\"https://doi.org/10.1023/A:1009234912307\\\" target=\\\"_blank\\\"
+        rel=\\\"noreferrer noopener\\\">bone marrow</a> and <a href=\\\"https://doi.org/10.1007/s10577-005-6602-x\\\"
+        target=\\\"_blank\\\" rel=\\\"noreferrer noopener\\\">skin and liver fibroblasts</a>.</p>\\n\\n\\n\\n<p>DNA
+        elimination is observed in many vertebrate and invertebrate species, and can
+        occur through chromosome breakage and selective loss of chromosome regions
+        and/or the elimination of individual chromosomes. However, this phenomenon,
+        if observed in somatic tissues, can severely impact on the ability to generate
+        functioning iPSCs from frozen cell lines.</p>\\n\\n\\n\\n<figure class=\\\"wp-block-image
+        is-resized\\\"><img decoding=\\\"async\\\" loading=\\\"lazy\\\" src=\\\"https://lh7-us.googleusercontent.com/6roVYUxXNfxnN7xQhCn6OVQ8eeuVsNCiOvTM3zShYNM4j99wD2r8rBaXf_zI_ZoqaG1mXr1Igjx0GaVJrBZa2SbsQNUbNDdNt8yfT_xFPOJfwi4vRSfhmJMGsKVCh6hPoQAolqLgDvo57zDPIGjlFpg\\\"
+        alt=\\\"Ben Novak offered insight into the genetic rescue toolkit, and some
+        of the challenges for conservation.\\\" width=\\\"800\\\" height=\\\"600\\\"
+        /></figure>\\n\\n\\n\\n<p><em>Ben Novak offered insight into the genetic rescue
+        toolkit, and some of the challenges for conservation.</em></p>\\n\\n\\n\\n<p>As
+        Ben explained, a key consideration for cryobanking is \u201Cwhich tissues
+        to save?\u201D. The inclusion of an additional cytogenetics step, to ensure
+        a cell line is chosen where the chromosomal integrity is maintained, is one
+        means of addressing the challenge of germ-line-restricted chromosomes in the
+        cryopreservation of endangered species. The alternative is to cryopreserve
+        reproductive tissues.</p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<h3 class=\\\"wp-block-heading\\\"><strong>Cryopreservation
+        for BioBanking of Gametes and Reproductive Tissues</strong></h3>\\n\\n\\n\\n<p>On
+        the subject of cryopreservation of reproductive tissues, invaluable insights
+        were provided by <strong>Tullis Matson</strong> of <a href=\\\"https://www.natures-safe.com/\\\"
+        target=\\\"_blank\\\" rel=\\\"noreferrer noopener\\\">Nature\u2019s SAFE</a>,
+        whose mission is to combat extinction by collecting, indefinitely storing
+        and regenerating reproductive cells and cell lines from endangered animal
+        species.</p>\\n\\n\\n\\n<p>Tullis has expertise in artificial insemination
+        of rare equine breeds, including the critically endangered Suffolk Punch for
+        which there are only 300 individuals in the world and only 80 breeding females.
+        Tullis has created Nature\u2019s SAFE with the intention of applying this
+        know-how of rare equine breeds to endangered mammalian species, and has been
+        on field trips to cryopreserve sperm from elephants in South Africa. An important
+        message was that the samples that were obtained in South Africa stay in South
+        Africa, which is both an ethical and legal obligation (see Sharing of Genomic
+        Collections under the Nagoya Protocol below).</p>\\n\\n\\n\\n<p>Tullis additionally
+        highlighted the importance of harvesting epididymal samples, and the role
+        of Nature\u2019s SAFE in cryopreservation of ovarian tissue from the pied
+        tamarin (<em>Saguinus bicolor</em>, critically endangered), the lar gibbon
+        (<em>Hylobates lar</em>, endangered), and the cheetah (<em>Acinonyx jubatus</em>,
+        vulnerable). As Tullis explained, \u201Cworking with leading reproductive
+        scientists and cryobiologists, we use state-of-the-art methods to preserve
+        cells in a way that maintains viability, allowing them to be thawed and used
+        to establish pregnancies, restoring endangered animal species\u201D.</p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<h3
+        class=\\\"wp-block-heading\\\"><strong>From Fieldwork to BioBank</strong></h3>\\n\\n\\n\\n<p>Whereas
+        there was clear focus on BioBanking at the GGBN conference, I was additionally
+        interested to hear that GGBN standards are useful from a rewilding perspective.
+        <strong>Beth Kaplin</strong> (Center of Excellence in Biodiversity and Natural
+        Resource Management, University of Rwanda) offered some invaluable insights
+        on this topic, and highlighted that environmental DNA (eDNA) and environmental
+        specimen metadata is used for decision making in projects such as the <a href=\\\"https://bethkaplin.org/current-projects/\\\"
+        target=\\\"_blank\\\" rel=\\\"noreferrer noopener\\\">rewilding of Akagera
+        National Park</a>. In this project \u2013 which is funded by the National
+        Geographic Society \u2013 eDNA sampling of sediment cores and sample surface
+        sediments are combined with natural history observations, and used to understand
+        biodiversity patterns and assist park management in their plan for reintroductions.</p>\\n\\n\\n\\n<figure
+        class=\\\"wp-block-image is-resized\\\"><img decoding=\\\"async\\\" loading=\\\"lazy\\\"
+        src=\\\"https://lh7-us.googleusercontent.com/LA0wnb1JU7juu96nYYe4QEP62z85cjoWy-fU0gQ5ScRzDvPJKbTqq4HJYbf8WJVBbohNxz0nc92ovBP8PF0wNF-3cJIcEtBIrdD6wioRYUlDD_ckW76F5wgjJWuECQAFZ5c5pU4sdmYTqW2QGSEFVl4\\\"
+        alt=\\\"Beth Kaplin highlighted the infrastructure challenges associated with
+        rewilding in Rwanda.\\\" width=\\\"746\\\" height=\\\"800\\\" /></figure>\\n\\n\\n\\n<p><em>Beth
+        Kaplin highlighted the infrastructure challenges associated with rewilding
+        in Rwanda. Image reproduced from </em><a href=\\\"https://bii4africa.org/beth-kaplin-prof-2/\\\"
+        target=\\\"_blank\\\" rel=\\\"noreferrer noopener\\\"><em>here</em></a>.</p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<h3
+        class=\\\"wp-block-heading\\\"><strong>Sharing of Genomic Collections under
+        the Nagoya Protocol: Recognition of Indigenous Peoples and Local Communities\_</strong></h3>\\n\\n\\n\\n<p>The
+        <a href=\\\"https://www.cbd.int/abs/\\\" target=\\\"_blank\\\" rel=\\\"noreferrer
+        noopener\\\">Nagoya Protocol on Access and Benefit-sharing</a> became effective
+        in 2014. It is an international agreement which aims at sharing the benefits
+        arising from the utilisation of genetic resources in a fair and equitable
+        way. One of the key features of the Nagoya Protocol agreement is that a permit
+        is required for gathering a specimen. From a GGBN perspective, it is a requirement
+        to share this information with GGBN, where it is stored in the Darwin Core
+        metadata associated with a sample.</p>\\n\\n\\n\\n<p>As an illustrative example,
+        <strong>Jocelyn Che\xE9-Santiago</strong> (Universidad Aut\xF3noma de Aguascalientes)
+        focused on the Nagoya Protocol as it relates to Mexico and explained, \u201Cyou
+        need to get a permit of collect\u201D. One of the reasons for a permit is
+        to ensure the recognition of the collective property of indigenous lands,
+        and to ensure that allegations of biopiracy are excluded from genomic collections.
+        As Jocelyn explained, \u201Cthe heart of the Nagoya protocol is community
+        consent \u2013 informed consent from indigenous people\u201D.</p>\\n\\n\\n\\n<figure
+        class=\\\"wp-block-image is-resized\\\"><img decoding=\\\"async\\\" loading=\\\"lazy\\\"
+        src=\\\"https://lh7-us.googleusercontent.com/EEZtppdSP_TlngcUlppTlB93gVXVFas_wdq9xCuuZpHI9otpJnh-nbQv6wHtQEGF8SeDOzFXo2Uy9nSgIIZ_JN0dIE64QPEIJh9ljBu3YfaP7wefKXYMLOuXfVoqNGm_w8yegYoob7_OvNEAzduhEN0\\\"
+        alt=\\\"\_Jocelyn Che\xE9-Santiago reported on the implementation of the Nagoya
+        Protocol in Mexico.\\\" width=\\\"800\\\" height=\\\"600\\\" /></figure>\\n\\n\\n\\n<p><em>\_Jocelyn
+        Che\xE9-Santiago reported on the implementation of the Nagoya Protocol in
+        Mexico.</em></p>\\n\\n\\n\\n<p>This sentiment was echoed by <strong>Guadalupe
+        Yesenia Hern\xE1ndez M\xE1rquez</strong> (International Indigenous Forum on
+        Biodiversity and Ecosystem Services IIFBES, Mexico), who highlighted that
+        the Nagoya Protocol is \u201Cthe only legally binding document that recognises
+        community protocols\u201D. A corollary of this is that it is important to
+        have community involvement and community consent prior to commencing fieldwork.</p>\\n\\n\\n\\n<p>This
+        is an important message for GGBN and for the wider BioBanking community.</p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<p>Thank
+        you to the conference organisers <strong>Gilberto Ocampo</strong> (Universidad
+        Aut\xF3noma de Aguascalientes), <strong>Katie Barker</strong> (GGBN/Smithsonian
+        Institution, National Museum of Natural History), and <strong>Jonas Astrin</strong>
+        (Leibniz Institute for the Analysis of Biodiversity Change) for a wonderful
+        selection of talks.</p>\\n\\n\\n\\n<p>Many additional talks from GGBN 2023
+        are included in the following <a href=\\\"https://www.youtube.com/watch?v=NfOFuKPmJMQ&list=PLxCMSf8YBiw8RZX6q-_cs-y0nM103_-Is\\\">pla</a><a
+        href=\\\"https://www.youtube.com/watch?v=NfOFuKPmJMQ&list=PLxCMSf8YBiw8RZX6q-_cs-y0nM103_-Is\\\"
+        target=\\\"_blank\\\" rel=\\\"noreferrer noopener\\\">ylist</a>.</p>\\n\\n\\n\\n<p>We
+        look forward to the next GGBN Conference in Kirstenbosch National Botanical
+        Garden, Cape Town, South Africa in 2025.</p>\\n<p>The post <a rel=\\\"nofollow\\\"
+        href=\\\"http://gigasciencejournal.com/blog/biobanking-at-ggbn-2023/\\\">BioBanking
+        at GGBN 2023: Highlights from GigaScience Press</a> appeared first on <a rel=\\\"nofollow\\\"
+        href=\\\"http://gigasciencejournal.com/blog\\\">GigaBlog</a>.</p>\",\"content_text\":\">
+        *\\\"Extinction is forever -- so our action must be immediate.\\\"*  \\n>
+        --*Sir David Attenborough, Sept 30th 2020*\\n\\nThe fourth international [Global
+        Genome Biodiversity Network (GGBN)\\nConference](https://ggbn2023.weebly.com/){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"} took place in Aguascalientes, Mexico from\\nOctober 17th to
+        October 20th 2023 where it was hosted by the Universidad\\nAut\xF3noma de
+        Aguascalientes. The\\n[GGBN](https://www.ggbn.org/){target=\\\"_blank\\\"
+        rel=\\\"noreferrer noopener\\\"}\\nis a global network of collections of genomic
+        samples from across the\\nTree of Life, whose mission is to foster collaborations
+        among\\nbiodiversity and biobanking repositories in order to ensure quality\\nstandards
+        and harmonise exchange of material in accordance with national\\nand international
+        legislation and conventions. GigaScience Press Data\\nScientist Chris Armit
+        attended the conference and reports below on some\\nof the highlights.\\n\\n###
+        **Confronting the Global Decline in Biodiversity: The GGBN Perspective** {#confronting-the-global-decline-in-biodiversity-the-ggbn-perspective
+        .wp-block-heading}\\n\\n**Oliver Ryder** (San Diego Zoo Wildlife Alliance
+        IUCN-SSC Animal\\nBiobanking for Conservation Specialist Group, and [co-founder
+        of\\nGenome10K](https://doi.org/10.1186/2047-217X-3-32){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"} -- of which we have published many genomes\\nand [standards](https://doi.org/10.1186/2047-217X-1-8){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"}) introduced the Biodiversity Crisis with some\\ndizzying statistics.
+        A study of 31,821 populations representing 5,230\\nspecies monitored across
+        the globe showed a 69% decline in abundance.\\nThe decline is disproportionate
+        across the globe with the megadiverse\\ncontinent of Africa showing a 66%
+        reduction in biodiversity, and Latin\\nAmerica and the Caribbean showing a
+        staggering 94% reduction in\\nbiodiversity. The message is clear -- we have
+        to act now to conserve our\\nliving planet.\\n\\nConservation is a key focus
+        of the GGBN, and this network -- coordinated\\nby the GGBN Secretariat hosted
+        and supported by the National Museum of\\nNatural History, Smithsonian Institution,
+        Washington, DC -- aims to\\nprovide the necessary Data Standards for BioBanked
+        specimens in a global\\ncontext.\\n\\n<figure class=\\\"wp-block-image is-resized\\\">\\n<img\\nsrc=\\\"https://lh7-us.googleusercontent.com/UjgoqbzgJ_WcABy1q1hJW1PmZ73gnK-MJWkLvW7nKqusRmnNH_yXEP-7UeLp_Lv47_S0HH_mEe9jxAIa7Nq7hbD90mtFYc9nApbUc75GfAjtmE1BmVt-BCSCJdJCLLedfDtLVPExr2C4XrsR5H5NgCA\\\"\\ndecoding=\\\"async\\\"
+        loading=\\\"lazy\\\" width=\\\"800\\\" height=\\\"600\\\"\\nalt=\\\"Oliver
+        Ryder\u2019s keynote talk set the stage for Animal Biobanking for Conservation.\\\"
+        />\\n</figure>\\n\\n*Oliver Ryder's keynote talk set the stage for Animal
+        Biobanking for\\nConservation.*\\n\\nThe term 'Data Standards' is used to
+        describe a set of terms and\\ncontrolled vocabularies designed to represent
+        facts about a\\nsample/voucher. An additional important concept pertinent
+        to the focus\\nof GGBN is the \\\"Digital Extended Specimen\\\", which is
+        a cloud of\\ninformation around a vouchered specimen and which can include
+        genomic\\nsequence data and metabolomics data.\\n\\n### **One Plan Approach**
+        {#one-plan-approach .wp-block-heading}\\n\\nIn his Keynote talk, Oliver Ryder
+        highlighted the need for a common\\nstandard of good practice and information
+        sharing. Towards this end,\\nOliver showcased the \\\"One Plan Approach\\\"
+        which was formulated at the\\nIUCN World Conservation Congress 2020 at its
+        session in Marseille,\\nFrance, and which \\\"urges the Secretariat and professional
+        societies to\\npromote integration of *in situ* and *ex situ* conservation\\ninterventions\\\"
+        and \\\"to ensure effective use of all available\\nconservation tools\\\".\\n\\nOf
+        central importance for this network, are the calls on IUCN\\nCommissions and
+        Members to \\\"enable and support establishment of a global\\nnetwork of biobanks
+        dedicated to the achievement of global species\\nconservation targets and
+        operating to common standards of good practice\\nand information sharing.\\\"\\n\\n###
+        **Genetic Rescue and Cloning** {#genetic-rescue-and-cloning .wp-block-heading}\\n\\nOliver
+        Ryder further showcased a series of success stories. Foremost\\namongst these
+        is genetic rescue by moving animals. Genetic rescue\\ninvolves an increase
+        in fitness from the introduction of new, unrelated\\nindividuals into small,
+        declining populations, and we have [explored\\nthis topic\\npreviously](http://gigasciencejournal.com/blog/honeyeater-genome/){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"} with our publication of the genome of the\\ncritically endangered
+        helmeted honeyeater. At GGBN 2023, Oliver\\nhighlighted how genetic rescue
+        has been successful in [increasing the\\nfitness of the Florida\\npanther](https://www.sciencedaily.com/releases/2022/08/220822130300.htm){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"} *Puma* *concolor coryi*, by moving female\\npanthers from Texas
+        to Florida from the mid-1990s.\\n\\nMuch more technically challenging is the
+        use of cloning to increase\\ngenetic fitness in endangered species. Oliver
+        was swift to point out\\nthat this approach has been used for the critically
+        endangered\\nPrzewalski's horse. The [first cloned *Equus\\nprzewalskii*](https://www.chronofhorse.com/article/the-story-of-a-colt-named-kurt/){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"} was foaled on August 6th 2020 and was named\\n'Kurt' in honour
+        of the first Frozen Zoo creator Dr Kurt Benirschke of\\nSan Diego Zoo.\\n\\nIn
+        the same year, a black-footed ferret named 'Elizabeth Ann' (born\\nDecember
+        10, 2020) was [the first U.S. endangered species to be\\ncloned](https://en.wikipedia.org/wiki/Elizabeth_Ann){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"}. Elizabeth Ann was cloned using the frozen\\ncells from Willa,
+        a black-footed female ferret who died in the 1980s and\\nwho had no living
+        descendants.\\n\\n<figure class=\\\"wp-block-image is-resized\\\">\\n<img\\nsrc=\\\"https://lh7-us.googleusercontent.com/zX_W3b01BneaJBOw3Ms2se8Z7JJ8HN8_MgKqOcD5cthmUCs5boO04_BWn4p6arO3-YZrdHV0z79lXk-ZZkZS_UPRzZWXMNAZe3CW0kME8Ul2vu6UAgJSR3mAL-iQDplGGBqy7A6q8rh7bIlBHjl23I8\\\"\\ndecoding=\\\"async\\\"
+        loading=\\\"lazy\\\" width=\\\"722\\\" height=\\\"800\\\"\\nalt=\\\"Elizabeth
+        Ann - The first cloned black-footed ferret.\_\\\" />\\n</figure>\\n\\n*Elizabeth
+        Ann -- The first cloned black-footed ferret. As a work of the\\nU.S. federal
+        government, the image is in the [public\\ndomain](https://commons.wikimedia.org/wiki/File:Elizabeth_Ann_birthday.jpg){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"}.\_*\\n\\n### **BioBanking and the Frozen Zoo** {#biobanking-and-the-frozen-zoo
+        .wp-block-heading}\\n\\nA core focus of the GGBN conference was cryobanking
+        of viable cells and\\ngametes. In her talk on Biodiversity Biobanking, **Jackie\\nMackenzie-Dodds**
+        (Natural History Museum, London) referred to the\\ncryopreservation facilities
+        as a \\\"treasure trove of molecules\\\". Jackie\\npointed out that viable
+        cell lines are the most requested resource for\\nthe Natural History Museum
+        BioBank, where they are used for the\\ngeneration of induced pluripotent stem
+        cells (iPSCs) and chimaeras.\\n\\nAnother important message from the GGBN
+        conference was the need for Open\\nAccess BioBank facilities. Towards this
+        end, an additional incentive for\\nresearchers and curators was provided by
+        **Mudzuli Mavhunga** of\\nBiodiversity Biobanks South Africa (South African
+        National Biodiversity\\nInstitute, Pretoria). Mudzuli highlighted that, if
+        a South African\\nBioBank is awarded the status of Open Access, then it is
+        eligible for\\nresource allocations through Biodiversity Biobanks South Africa
+        (BBSA),\\nwhich is a great asset for a collection facility.\\n\\n<figure class=\\\"wp-block-image
+        is-resized\\\">\\n<img\\nsrc=\\\"https://lh7-us.googleusercontent.com/icjNsd_U5bl7hYWP9YzF7PT9wcf0GHB06OifrxvMEwrqspnifNYqkus5C8ULkjoK0HIOfJtideUJiY2m3m8Z8QH8CUkcxnDlMupHeJSuyVzhA0HDZMLLn0LbHgClL2rXM0n3e_E6G0p7uSF6J9EWL70\\\"\\ndecoding=\\\"async\\\"
+        loading=\\\"lazy\\\" width=\\\"800\\\" height=\\\"600\\\"\\nalt=\\\"Mudzuli
+        Mavhunga highlighted advantages for BioBanks in ensuring that genomic collections
+        are Open Access.\\\" />\\n</figure>\\n\\n*Mudzuli Mavhunga highlighted advantages
+        for BioBanks in ensuring that\\ngenomic collections are Open Access.*\\n\\n###
+        **Scalability of Cloning** {#scalability-of-cloning .wp-block-heading}\\n\\nSo
+        is cloning from frozen somatic cell lines a scalable approach? **Ben\\nNovak**
+        of Revive & Restore (Sausalito, California), in his talk\\nentitled \\\"Important
+        Considerations for Biobanking for Genetic Rescue of\\nEndangered Species\\\",
+        highlighted the example of passerines (perching\\nbirds) where programmed
+        DNA loss is observed in some species. In\\npasserines such as the zebra finch
+        (*Taeniopygia guttata*), there is a\\n[germ-line-restricted\\nchromosome](https://doi.org/10.1023/A:1009234912307){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"} -- known as an accessory chromosome -- that\\nis present in
+        the oocytes and spermatocytes, and is subsequently [lost\\nduring male\\nmeiosis](https://doi.org/10.1007/s00412-005-0025-5){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"}. This germ-line restricted chromosome is\\nunusual in that it
+        is represented exclusively in the germ cells, and is\\nabsent from somatic
+        cells of the [bone\\nmarrow](https://doi.org/10.1023/A:1009234912307){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"} and [skin and liver\\nfibroblasts](https://doi.org/10.1007/s10577-005-6602-x){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"}.\\n\\nDNA elimination is observed in many vertebrate and invertebrate
+        species,\\nand can occur through chromosome breakage and selective loss of\\nchromosome
+        regions and/or the elimination of individual chromosomes.\\nHowever, this
+        phenomenon, if observed in somatic tissues, can severely\\nimpact on the ability
+        to generate functioning iPSCs from frozen cell\\nlines.\\n\\n<figure class=\\\"wp-block-image
+        is-resized\\\">\\n<img\\nsrc=\\\"https://lh7-us.googleusercontent.com/6roVYUxXNfxnN7xQhCn6OVQ8eeuVsNCiOvTM3zShYNM4j99wD2r8rBaXf_zI_ZoqaG1mXr1Igjx0GaVJrBZa2SbsQNUbNDdNt8yfT_xFPOJfwi4vRSfhmJMGsKVCh6hPoQAolqLgDvo57zDPIGjlFpg\\\"\\ndecoding=\\\"async\\\"
+        loading=\\\"lazy\\\" width=\\\"800\\\" height=\\\"600\\\"\\nalt=\\\"Ben Novak
+        offered insight into the genetic rescue toolkit, and some of the challenges
+        for conservation.\\\" />\\n</figure>\\n\\n*Ben Novak offered insight into
+        the genetic rescue toolkit, and some of\\nthe challenges for conservation.*\\n\\nAs
+        Ben explained, a key consideration for cryobanking is \\\"which tissues\\nto
+        save?\\\". The inclusion of an additional cytogenetics step, to ensure a\\ncell
+        line is chosen where the chromosomal integrity is maintained, is\\none means
+        of addressing the challenge of germ-line-restricted\\nchromosomes in the cryopreservation
+        of endangered species. The\\nalternative is to cryopreserve reproductive tissues.\\n\\n###
+        **Cryopreservation for BioBanking of Gametes and Reproductive Tissues** {#cryopreservation-for-biobanking-of-gametes-and-reproductive-tissues
+        .wp-block-heading}\\n\\nOn the subject of cryopreservation of reproductive
+        tissues, invaluable\\ninsights were provided by **Tullis Matson** of [Nature's\\nSAFE](https://www.natures-safe.com/){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"}, whose mission is to combat extinction by\\ncollecting, indefinitely
+        storing and regenerating reproductive cells and\\ncell lines from endangered
+        animal species.\\n\\nTullis has expertise in artificial insemination of rare
+        equine breeds,\\nincluding the critically endangered Suffolk Punch for which
+        there are\\nonly 300 individuals in the world and only 80 breeding females.
+        Tullis\\nhas created Nature's SAFE with the intention of applying this know-how\\nof
+        rare equine breeds to endangered mammalian species, and has been on\\nfield
+        trips to cryopreserve sperm from elephants in South Africa. An\\nimportant
+        message was that the samples that were obtained in South\\nAfrica stay in
+        South Africa, which is both an ethical and legal\\nobligation (see Sharing
+        of Genomic Collections under the Nagoya Protocol\\nbelow).\\n\\nTullis additionally
+        highlighted the importance of harvesting epididymal\\nsamples, and the role
+        of Nature's SAFE in cryopreservation of ovarian\\ntissue from the pied tamarin
+        (*Saguinus bicolor*, critically\\nendangered), the lar gibbon (*Hylobates
+        lar*, endangered), and the\\ncheetah (*Acinonyx jubatus*, vulnerable). As
+        Tullis explained, \\\"working\\nwith leading reproductive scientists and cryobiologists,
+        we use\\nstate-of-the-art methods to preserve cells in a way that maintains\\nviability,
+        allowing them to be thawed and used to establish pregnancies,\\nrestoring
+        endangered animal species\\\".\\n\\n### **From Fieldwork to BioBank** {#from-fieldwork-to-biobank
+        .wp-block-heading}\\n\\nWhereas there was clear focus on BioBanking at the
+        GGBN conference, I\\nwas additionally interested to hear that GGBN standards
+        are useful from\\na rewilding perspective. **Beth Kaplin** (Center of Excellence
+        in\\nBiodiversity and Natural Resource Management, University of Rwanda)\\noffered
+        some invaluable insights on this topic, and highlighted that\\nenvironmental
+        DNA (eDNA) and environmental specimen metadata is used for\\ndecision making
+        in projects such as the [rewilding of Akagera National\\nPark](https://bethkaplin.org/current-projects/){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"}. In this project -- which is funded by the\\nNational Geographic
+        Society -- eDNA sampling of sediment cores and\\nsample surface sediments
+        are combined with natural history observations,\\nand used to understand biodiversity
+        patterns and assist park management\\nin their plan for reintroductions.\\n\\n<figure
+        class=\\\"wp-block-image is-resized\\\">\\n<img\\nsrc=\\\"https://lh7-us.googleusercontent.com/LA0wnb1JU7juu96nYYe4QEP62z85cjoWy-fU0gQ5ScRzDvPJKbTqq4HJYbf8WJVBbohNxz0nc92ovBP8PF0wNF-3cJIcEtBIrdD6wioRYUlDD_ckW76F5wgjJWuECQAFZ5c5pU4sdmYTqW2QGSEFVl4\\\"\\ndecoding=\\\"async\\\"
+        loading=\\\"lazy\\\" width=\\\"746\\\" height=\\\"800\\\"\\nalt=\\\"Beth Kaplin
+        highlighted the infrastructure challenges associated with rewilding in Rwanda.\\\"
+        />\\n</figure>\\n\\n*Beth Kaplin highlighted the infrastructure challenges
+        associated with\\nrewilding in Rwanda. Image reproduced from*\\n[*here*](https://bii4africa.org/beth-kaplin-prof-2/){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"}.\\n\\n### **Sharing of Genomic Collections under the Nagoya
+        Protocol: Recognition of Indigenous Peoples and Local Communities\_** {#sharing-of-genomic-collections-under-the-nagoya-protocol-recognition-of-indigenous-peoples-and-local-communities
+        .wp-block-heading}\\n\\nThe [Nagoya Protocol on Access and\\nBenefit-sharing](https://www.cbd.int/abs/){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"} became effective in 2014. It is an\\ninternational agreement
+        which aims at sharing the benefits arising from\\nthe utilisation of genetic
+        resources in a fair and equitable way. One of\\nthe key features of the Nagoya
+        Protocol agreement is that a permit is\\nrequired for gathering a specimen.
+        From a GGBN perspective, it is a\\nrequirement to share this information with
+        GGBN, where it is stored in\\nthe Darwin Core metadata associated with a sample.\\n\\nAs
+        an illustrative example, **Jocelyn Che\xE9-Santiago** (Universidad\\nAut\xF3noma
+        de Aguascalientes) focused on the Nagoya Protocol as it relates\\nto Mexico
+        and explained, \\\"you need to get a permit of collect\\\". One of\\nthe reasons
+        for a permit is to ensure the recognition of the collective\\nproperty of
+        indigenous lands, and to ensure that allegations of\\nbiopiracy are excluded
+        from genomic collections. As Jocelyn explained,\\n\\\"the heart of the Nagoya
+        protocol is community consent -- informed\\nconsent from indigenous people\\\".\\n\\n<figure
+        class=\\\"wp-block-image is-resized\\\">\\n<img\\nsrc=\\\"https://lh7-us.googleusercontent.com/EEZtppdSP_TlngcUlppTlB93gVXVFas_wdq9xCuuZpHI9otpJnh-nbQv6wHtQEGF8SeDOzFXo2Uy9nSgIIZ_JN0dIE64QPEIJh9ljBu3YfaP7wefKXYMLOuXfVoqNGm_w8yegYoob7_OvNEAzduhEN0\\\"\\ndecoding=\\\"async\\\"
+        loading=\\\"lazy\\\" width=\\\"800\\\" height=\\\"600\\\"\\nalt=\\\"\_Jocelyn
+        Che\xE9-Santiago reported on the implementation of the Nagoya Protocol in
+        Mexico.\\\" />\\n</figure>\\n\\n*\_Jocelyn Che\xE9-Santiago reported on the
+        implementation of the Nagoya\\nProtocol in Mexico.*\\n\\nThis sentiment was
+        echoed by **Guadalupe Yesenia Hern\xE1ndez M\xE1rquez**\\n(International Indigenous
+        Forum on Biodiversity and Ecosystem Services\\nIIFBES, Mexico), who highlighted
+        that the Nagoya Protocol is \\\"the only\\nlegally binding document that recognises
+        community protocols\\\". A\\ncorollary of this is that it is important to
+        have community involvement\\nand community consent prior to commencing fieldwork.\\n\\nThis
+        is an important message for GGBN and for the wider BioBanking\\ncommunity.\\n\\nThank
+        you to the conference organisers **Gilberto Ocampo** (Universidad\\nAut\xF3noma
+        de Aguascalientes), **Katie Barker** (GGBN/Smithsonian\\nInstitution, National
+        Museum of Natural History), and **Jonas Astrin**\\n(Leibniz Institute for
+        the Analysis of Biodiversity Change) for a\\nwonderful selection of talks.\\n\\nMany
+        additional talks from GGBN 2023 are included in the following\\n[pla](https://www.youtube.com/watch?v=NfOFuKPmJMQ&list=PLxCMSf8YBiw8RZX6q-_cs-y0nM103_-Is)[ylist](https://www.youtube.com/watch?v=NfOFuKPmJMQ&list=PLxCMSf8YBiw8RZX6q-_cs-y0nM103_-Is){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"}.\\n\\nWe look forward to the next GGBN Conference in Kirstenbosch
+        National\\nBotanical Garden, Cape Town, South Africa in 2025.\\n\\nThe post
+        [BioBanking at GGBN 2023: Highlights from GigaScience\\nPress](http://gigasciencejournal.com/blog/biobanking-at-ggbn-2023/){rel=\\\"nofollow\\\"}\\nappeared
+        first on\\n[GigaBlog](http://gigasciencejournal.com/blog){rel=\\\"nofollow\\\"}.\\n\",\"doi\":\"https://doi.org/10.59350/ahnf6-e1m90\",\"guid\":\"http://gigasciencejournal.com/blog/?p=5493\",\"id\":\"284e3277-a2c3-4406-901c-67fb4dfac452\",\"image\":\"https://lh7-us.googleusercontent.com/UjgoqbzgJ_WcABy1q1hJW1PmZ73gnK-MJWkLvW7nKqusRmnNH_yXEP-7UeLp_Lv47_S0HH_mEe9jxAIa7Nq7hbD90mtFYc9nApbUc75GfAjtmE1BmVt-BCSCJdJCLLedfDtLVPExr2C4XrsR5H5NgCA\",\"language\":\"en\",\"published_at\":1699438384,\"reference\":[],\"relationships\":[],\"summary\":\"<em>\\n
+        \u201CExtinction is forever \u2013 so our action must be immediate.\u201D\\n</em>\\n\u2013\\n<em>\\n
+        Sir David Attenborough, Sept 30th 2020\\n</em>\\nThe fourth international
+        Global Genome Biodiversity Network (GGBN) Conference took place in Aguascalientes,
+        Mexico from October 17th to October 20th 2023 where it was hosted by the Universidad
+        Aut\xF3noma de Aguascalientes.\\n\",\"tags\":[\"Biology\",\"Open Access\",\"Biobanking\",\"Biodiversity\",\"Cloning\"],\"title\":\"BioBanking
+        at GGBN 2023: Highlights from GigaScience Press\",\"updated_at\":1699444443,\"url\":\"http://gigasciencejournal.com/blog/biobanking-at-ggbn-2023\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22152/20231101171820/https://www.samuelmoore.org/2023/10/30/whats-so-bad-about-consolidation-in-academic-publishing\",\"authors\":[{\"name\":\"Samuel
+        Moore\"}],\"blog_id\":\"gr1by89\",\"blog_name\":\"Samuel Moore\",\"blog_slug\":\"samuelmoore\",\"category\":\"socialSciences\",\"content_html\":\"\\n<p>Today&#8217;s
+        <em>Scholarly Kitchen </em>blog post is an attempt by David Crotty &#8212;
+        the blog&#8217;s editor &#8212; to quantify the increasing consolidation of
+        the academic publishing industry. Crotty concludes:</p>\\n\\n\\n\\n<blockquote
+        class=\\\"wp-block-quote\\\">\\n<p>Overall, the market has significantly consolidated
+        since 2000 \u2014 when the top 5 publishers held 39% of the market of articles
+        to 2022 where they control 61% of it. Looking at larger sets of publishers
+        makes the consolidation even more extreme, as the top 10 largest publishers
+        went from 47% of the market in 2000 to 75% in 2023, and the top 20 largest
+        publishers from 54% to controlling 83% of the corpus.</p>\\n<cite>https://scholarlykitchen.sspnet.org/2023/10/30/quantifying-consolidation-in-the-scholarly-journals-market/</cite></blockquote>\\n\\n\\n\\n<p>It&#8217;s
+        helpful to have more data on the increasing power that a small number of academic
+        publishers hold. Crotty charts this consolidation from the year 2000 onwards,
+        from the concentration brought about by the effects of the Big Deal to the
+        present day where 5 publishers now control 61% of the article output, brought
+        about by the dominant business models for open access based on greater volume
+        and technological scale. The author&#8217;s finger is pointed at Coalition
+        S for instigating a &#8216;rapid state of change&#8217; that allows author-pays
+        open access to flourish.</p>\\n\\n\\n\\n<p>I&#8217;m no fan of open access
+        policies, Plan S especially, and I&#8217;m sure that policy interventions
+        play a part in the consolidation at play. There are of course many ways of
+        achieving open access without recourse to author fees, transformative agreements,
+        or technologies that remove human expertise in place of automation and scale.
+        But while there is nothing natural or necessary about the relationship between
+        open access and consolidation, there is a much stronger connection between
+        commercialisation and consolidation. The recent history of academic publishing
+        has been of marketisation and, hence, consolidation.  </p>\\n\\n\\n\\n<p>I
+        always bristle when I read that open access is to blame for the problems with
+        the publishing market, not simply because open access does not have to be
+        a market-based activity (and is better when it isn&#8217;t) but more because
+        the explanation is so shallow. It is a position that usually takes as its
+        starting point that the natural and proper way for academic publishing to
+        be organised is as a commercial activity and any intervention that works against
+        this is to blame for the deleterious effects of commercialisation. Publishing
+        is and always is a business (possibly a reflection of the constituents that
+        the <em>Scholarly Kitchen</em> represents), despite the fact that it is exactly
+        the commercial nature of publishing that is the problem. </p>\\n\\n\\n\\n<p>Yet
+        open access is good precisely because it allows us to reorient academic publishing
+        away from commercial practice and to experiment with forms of publishing that
+        are less reliant on competition, profiteering and the extraction of free and
+        under-remunerated labour. Policymakers are starting to wake up to this fact,
+        as in part illustrated by the turn towards no-fee and non-commercial forms
+        of open access, and I am cautiously optimistic about this turn. The danger
+        is that policymakers mandate no-fee open access in accordance with the requirements
+        of commercial publishing and the need to devalue skilled labour in the pursuit
+        of revenue. </p>\\n\\n\\n\\n<p>So it&#8217;s easy to criticise open access
+        policies for their harmful impact, but this has to be done from a position
+        that understands how the same issues of profiteering and extraction were a
+        consequence of the subscription market too. They are the logical extension
+        of publishing as a market-based activity, not of wanting to make the literature
+        freely available to all. Open access policies do not address the problem of
+        marketisation largely because they are not designed to do so. Profit-seeking
+        actors create business models to maximise their revenues as a result of such
+        policies. The whole system rests on this logic of extraction and that&#8217;s
+        what needs to be opposed.</p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<p></p>\\n\\n\\n\\n<p></p>\\n\",\"content_text\":\"Today's
+        *Scholarly Kitchen* blog post is an attempt by David Crotty ---\\nthe blog's
+        editor --- to quantify the increasing consolidation of the\\nacademic publishing
+        industry. Crotty concludes:\\n\\n> Overall, the market has significantly consolidated
+        since 2000 --- when\\n> the top 5 publishers held 39% of the market of articles
+        to 2022 where\\n> they control 61% of it. Looking at larger sets of publishers
+        makes the\\n> consolidation even more extreme, as the top 10 largest publishers
+        went\\n> from 47% of the market in 2000 to 75% in 2023, and the top 20 largest\\n>
+        publishers from 54% to controlling 83% of the corpus.\\n>\\n> https://scholarlykitchen.sspnet.org/2023/10/30/quantifying-consolidation-in-the-scholarly-journals-market/\\n\\nIt's
+        helpful to have more data on the increasing power that a small\\nnumber of
+        academic publishers hold. Crotty charts this consolidation\\nfrom the year
+        2000 onwards, from the concentration brought about by the\\neffects of the
+        Big Deal to the present day where 5 publishers now\\ncontrol 61% of the article
+        output, brought about by the dominant\\nbusiness models for open access based
+        on greater volume and\\ntechnological scale. The author's finger is pointed
+        at Coalition S for\\ninstigating a 'rapid state of change' that allows author-pays
+        open\\naccess to flourish.\\n\\nI'm no fan of open access policies, Plan S
+        especially, and I'm sure that\\npolicy interventions play a part in the consolidation
+        at play. There are\\nof course many ways of achieving open access without
+        recourse to author\\nfees, transformative agreements, or technologies that
+        remove human\\nexpertise in place of automation and scale. But while there
+        is nothing\\nnatural or necessary about the relationship between open access
+        and\\nconsolidation, there is a much stronger connection between\\ncommercialisation
+        and consolidation. The recent history of academic\\npublishing has been of
+        marketisation and, hence, consolidation.\\n\\nI always bristle when I read
+        that open access is to blame for the\\nproblems with the publishing market,
+        not simply because open access does\\nnot have to be a market-based activity
+        (and is better when it isn't) but\\nmore because the explanation is so shallow.
+        It is a position that\\nusually takes as its starting point that the natural
+        and proper way for\\nacademic publishing to be organised is as a commercial
+        activity and any\\nintervention that works against this is to blame for the
+        deleterious\\neffects of commercialisation. Publishing is and always is a
+        business\\n(possibly a reflection of the constituents that the *Scholarly
+        Kitchen*\\nrepresents), despite the fact that it is exactly the commercial
+        nature\\nof publishing that is the problem.\\n\\nYet open access is good precisely
+        because it allows us to reorient\\nacademic publishing away from commercial
+        practice and to experiment with\\nforms of publishing that are less reliant
+        on competition, profiteering\\nand the extraction of free and under-remunerated
+        labour. Policymakers\\nare starting to wake up to this fact, as in part illustrated
+        by the turn\\ntowards no-fee and non-commercial forms of open access, and
+        I am\\ncautiously optimistic about this turn. The danger is that policymakers\\nmandate
+        no-fee open access in accordance with the requirements of\\ncommercial publishing
+        and the need to devalue skilled labour in the\\npursuit of revenue.\\n\\nSo
+        it's easy to criticise open access policies for their harmful impact,\\nbut
+        this has to be done from a position that understands how the same\\nissues
+        of profiteering and extraction were a consequence of the\\nsubscription market
+        too. They are the logical extension of publishing as\\na market-based activity,
+        not of wanting to make the literature freely\\navailable to all. Open access
+        policies do not address the problem of\\nmarketisation largely because they
+        are not designed to do so.\\nProfit-seeking actors create business models
+        to maximise their revenues\\nas a result of such policies. The whole system
+        rests on this logic of\\nextraction and that's what needs to be opposed.\\n\",\"doi\":\"https://doi.org/10.59350/z8017-00204\",\"guid\":\"https://www.samuelmoore.org/?p=1437\",\"id\":\"95fef4ed-6274-47ed-a682-494ef1cb85ef\",\"image\":\"https://www.samuelmoore.org/wp-content/uploads/2023/10/R229.aa364024.jpg\",\"language\":\"en\",\"published_at\":1698678686,\"reference\":[],\"relationships\":[],\"summary\":\"Today\u2019s\\n<em>\\n
+        Scholarly Kitchen\\n</em>\\nblog post is an attempt by David Crotty \u2014
+        the blog\u2019s editor \u2014 to quantify the increasing consolidation of
+        the academic publishing industry.\\n\",\"tags\":[\"Open Access\"],\"title\":\"What&#8217;s
+        so bad about consolidation in academic publishing?\",\"updated_at\":1698678694,\"url\":\"https://www.samuelmoore.org/2023/10/30/whats-so-bad-about-consolidation-in-academic-publishing\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22125/20231105110316/https://opencitations.hypotheses.org/3488\",\"authors\":[{\"name\":\"Chiara
+        Di Giambattista\"}],\"blog_id\":\"gzqej46\",\"blog_name\":\"OpenCitations
+        blog\",\"blog_slug\":\"opencitations\",\"category\":\"socialSciences\",\"content_html\":\"<p
+        style=\\\"text-align: justify\\\"><span style=\\\"font-weight: 400\\\">In
+        OpenCitations, we like to define our infrastructure organization as \u201Ccommunity-based\u201D
+        and \u201Ccommunity-driven\u201D, and we\_</span><span style=\\\"text-decoration:
+        underline\\\"><span style=\\\"font-weight: 400\\\">really</span></span><span
+        style=\\\"font-weight: 400\\\">\_mean it. The support coming from the number
+        of academic libraries and consortia coming after\_</span><a href=\\\"https://opencitations.hypotheses.org/991\\\"><span
+        style=\\\"font-weight: 400\\\">OpenCitations\u2019 involvement in the 2nd
+        SCOSS funding cycle</span></a><span style=\\\"font-weight: 400\\\">\_has made
+        it possible, starting from 2020, to make OpenCitations develop from a small
+        university project based on time-limited grant incomes to being an open infrastructure
+        globally recognized for the provision of open citation data and bibliographical
+        metadata. We want to thank all our members and donors, for trusting our mission
+        and sustaining OpenCitations activities with their continuous and generous
+        support, despite the pandemic and post-pandemic times.\_</span></p>\\n<p style=\\\"text-align:
+        justify\\\"><span style=\\\"font-weight: 400\\\">While retracing our work
+        in the last three years, we are astonished by the achievements our team has
+        accomplished, and by how in such a limited time frame OpenCitations has approached
+        David Shotton\u2019s initial vision (who is one of the co-directors of OpenCitations),
+        when he first shaped the project back in 2010. Here are just some of the technical
+        developments that have marked the last years:</span></p>\\n<ul style=\\\"text-align:
+        justify\\\">\\n<li style=\\\"font-weight: 400\\\"><span style=\\\"font-weight:
+        400\\\">in 2021,\_</span><a href=\\\"http://opencitations.net/index/coci\\\"><span
+        style=\\\"font-weight: 400\\\">COCI, the OpenCitations Index of Crossref open
+        DOI-to-DOI citations</span></a><span style=\\\"font-weight: 400\\\">\_crossed
+        the threshold of one billion citations stored;</span></li>\\n<li style=\\\"font-weight:
+        400\\\"><span style=\\\"font-weight: 400\\\">in 2022, we released the two
+        new OpenCitations indexes of open citations,\_</span><a href=\\\"https://opencitations.net/index/doci\\\"><span
+        style=\\\"font-weight: 400\\\">DOCI</span></a><span style=\\\"font-weight:
+        400\\\">\_(citations from DataCite) and\_</span><a href=\\\"https://opencitations.net/index/poci\\\"><span
+        style=\\\"font-weight: 400\\\">POCI</span></a><span style=\\\"font-weight:
+        400\\\">\_(citations from PubMed);</span></li>\\n<li style=\\\"font-weight:
+        400\\\"><span style=\\\"font-weight: 400\\\">we expanded our collection besides
+        the citation data by releasing\_</span><a href=\\\"https://opencitations.net/meta\\\"><span
+        style=\\\"font-weight: 400\\\">OpenCitations Meta</span></a><span style=\\\"font-weight:
+        400\\\">, a database storing and delivering bibliographic metadata for all
+        the publications in the OpenCitations Indexes, including the publication\u2019s
+        title, type, venue (e.g. journal name), volume number, issue number, page
+        numbers, publication date, identifiers and details of the main actors involved
+        in the document\u2019s publication (the names of the authors, editors, and
+        publishers);\_</span></li>\\n<li style=\\\"font-weight: 400\\\"><span style=\\\"font-weight:
+        400\\\">as of October 2023, OpenCitations Indexes contain information on <strong>1.82
+        <span style=\\\"text-decoration: underline\\\">billion</span></strong>\_</span><span
+        style=\\\"font-weight: 400\\\">unique</span><span style=\\\"font-weight: 400\\\">\_open
+        citations.\_</span></li>\\n</ul>\\n<p style=\\\"text-align: justify\\\"><span
+        style=\\\"font-weight: 400\\\">However, the most significant achievements
+        for OpenCiations in the last years have been the <strong>creation of a prolific
+        network of collaborations</strong> with other Open Science projects, such
+        as <a href=\\\"https://www.openaire.eu/openaire-nexus-project\\\">OpenAIRE-Nexus</a>,
+        <a href=\\\"https://www.risis2.eu/\\\">RISIS2</a> and <a href=\\\"https://graspos.eu/\\\">GraspOS</a>,
+        and the establishment of a structured team, involving young researchers and
+        PhD students, whose work at the University of Bologna has made it possible
+        to work on the technical developments day by day.\_</span></p>\\n<p style=\\\"text-align:
+        justify\\\"><span style=\\\"font-weight: 400\\\">Our results are a strong
+        indicator of the growing sensibility on the theme of the open provision of
+        bibliographical metadata and citation data, of which Open Citations is at
+        the forefront as a founding member of the\_</span><a href=\\\"https://i4oc.org/\\\"><span
+        style=\\\"font-weight: 400\\\">Initiative for Open Citations (I4OC)</span></a><span
+        style=\\\"font-weight: 400\\\">\_and the\_</span><a href=\\\"https://i4oa.org/\\\"><span
+        style=\\\"font-weight: 400\\\">Initiative for Open Abstracts (I4OA)</span></a><span
+        style=\\\"font-weight: 400\\\">. The effort and awareness campaigns led by
+        these initiatives, by\_</span><a href=\\\"https://sfdora.org/\\\"><span style=\\\"font-weight:
+        400\\\">DORA</span></a><span style=\\\"font-weight: 400\\\">\_and the Open
+        Science community as a whole, have led more and more publishers to a change
+        of heart and to open their reference lists. OpenCitations is an integral part
+        of an ongoing process of transformation of the research environment, and we
+        have collected and interpreted some of the needs of the academic community
+        to plan our\_</span><a href=\\\"https://trello.com/b/RprHYoKL/opencitations\\\"><span
+        style=\\\"font-weight: 400\\\">future activities and developments</span></a><span
+        style=\\\"font-weight: 400\\\">. <strong>We still need your help and support
+        to make it possible to maintain and improve our infrastructure and to sustain
+        the team working at OpenCitations</strong>.\_</span></p>\\n<p style=\\\"text-align:
+        justify\\\"><span style=\\\"font-weight: 400\\\">If you believe in</span></p>\\n<ul
+        style=\\\"list-style-type: circle\\\">\\n<li style=\\\"text-align: justify\\\"><span
+        style=\\\"font-weight: 400\\\">the importance of open bibliographic data for
+        the creation of reproducible metrics for research assessment exercises</span></li>\\n<li
+        style=\\\"text-align: justify\\\"><span style=\\\"font-weight: 400\\\">the
+        power of the scholarly community to change existing practice by reclaiming
+        ownership of its own data\u2013 and you want to become an active part of this
+        change</span></li>\\n</ul>\\n<p style=\\\"text-align: justify\\\"><b>please
+        consider supporting OpenCitations either via membership or donation</b><span
+        style=\\\"font-weight: 400\\\">. You can find all the information on membership
+        on our website at\_</span><a href=\\\"https://opencitations.net/membership\\\"><span
+        style=\\\"font-weight: 400\\\">https://opencitations.net/membership</span></a><span
+        style=\\\"font-weight: 400\\\">, or you can ask for information by contacting
+        us at\_</span><a href=\\\"mailto:membership@opencitations.net\\\"><span style=\\\"font-weight:
+        400\\\">membership@opencitations.net</span></a><span style=\\\"font-weight:
+        400\\\">.\_</span></p>\\n<p style=\\\"text-align: justify\\\"><span style=\\\"font-weight:
+        400\\\">Together, we can work to create an open and inclusive future for science
+        and research.\_</span></p>\\n<p style=\\\"text-align: justify\\\"><span style=\\\"font-weight:
+        400\\\">Thank You!</span></p>\\n<p style=\\\"text-align: justify\\\"><div
+        class=\\\"wpcp\\\">Cite this article as: Chiara Di Giambattista, \\\"OpenCitations
+        needs you: support the change in research practices,\\\" in <em>OpenCitations
+        blog</em>, 17/10/2023, <a href=\\\"https://opencitations.hypotheses.org/3488\\\">https://opencitations.hypotheses.org/3488</a>.</div></p>\\n\",\"content_text\":\"[In
+        OpenCitations, we like to define our infrastructure organization as\\n\\\"community-based\\\"
+        and \\\"community-driven\\\", and\\nwe\_]{style=\\\"font-weight: 400\\\"}[[really]{style=\\\"font-weight:
+        400\\\"}]{style=\\\"text-decoration: underline\\\"}[\_mean\\nit. The support
+        coming from the number of academic libraries and\\nconsortia coming after\_]{style=\\\"font-weight:
+        400\\\"}[[OpenCitations'\\ninvolvement in the 2nd SCOSS funding\\ncycle]{style=\\\"font-weight:
+        400\\\"}](https://opencitations.hypotheses.org/991)[\_has\\nmade it possible,
+        starting from 2020, to make OpenCitations develop from\\na small university
+        project based on time-limited grant incomes to being\\nan open infrastructure
+        globally recognized for the provision of open\\ncitation data and bibliographical
+        metadata. We want to thank all our\\nmembers and donors, for trusting our
+        mission and sustaining\\nOpenCitations activities with their continuous and
+        generous support,\\ndespite the pandemic and post-pandemic\\ntimes.\_]{style=\\\"font-weight:
+        400\\\"}\\n\\n[While retracing our work in the last three years, we are astonished
+        by\\nthe achievements our team has accomplished, and by how in such a limited\\ntime
+        frame OpenCitations has approached David Shotton's initial vision\\n(who is
+        one of the co-directors of OpenCitations), when he first shaped\\nthe project
+        back in 2010. Here are just some of the technical\\ndevelopments that have
+        marked the last years:]{style=\\\"font-weight: 400\\\"}\\n\\n- [in 2021,\_]{style=\\\"font-weight:
+        400\\\"}[[COCI, the OpenCitations Index\\n  of Crossref open DOI-to-DOI\\n
+        \ citations]{style=\\\"font-weight: 400\\\"}](http://opencitations.net/index/coci)[\_crossed\\n
+        \ the threshold of one billion citations\\n  stored;]{style=\\\"font-weight:
+        400\\\"}\\n- [in 2022, we released the two new OpenCitations indexes of open\\n
+        \ citations,\_]{style=\\\"font-weight: 400\\\"}[[DOCI]{style=\\\"font-weight:
+        400\\\"}](https://opencitations.net/index/doci)[\_(citations\\n  from DataCite)\\n
+        \ and\_]{style=\\\"font-weight: 400\\\"}[[POCI]{style=\\\"font-weight: 400\\\"}](https://opencitations.net/index/poci)[\_(citations\\n
+        \ from PubMed);]{style=\\\"font-weight: 400\\\"}\\n- [we expanded our collection
+        besides the citation data by\\n  releasing\_]{style=\\\"font-weight: 400\\\"}[[OpenCitations\\n
+        \ Meta]{style=\\\"font-weight: 400\\\"}](https://opencitations.net/meta)[,
+        a\\n  database storing and delivering bibliographic metadata for all the\\n
+        \ publications in the OpenCitations Indexes, including the publication's\\n
+        \ title, type, venue (e.g. journal name), volume number, issue number,\\n
+        \ page numbers, publication date, identifiers and details of the main\\n  actors
+        involved in the document's publication (the names of the\\n  authors, editors,
+        and publishers);\_]{style=\\\"font-weight: 400\\\"}\\n- [as of October 2023,
+        OpenCitations Indexes contain information on\\n  **1.82\\n  [billion]{style=\\\"text-decoration:
+        underline\\\"}**\_]{style=\\\"font-weight: 400\\\"}[unique]{style=\\\"font-weight:
+        400\\\"}[\_open\\n  citations.\_]{style=\\\"font-weight: 400\\\"}\\n\\n[However,
+        the most significant achievements for OpenCiations in the last\\nyears have
+        been the **creation of a prolific network of collaborations**\\nwith other
+        Open Science projects, such as\\n[OpenAIRE-Nexus](https://www.openaire.eu/openaire-nexus-project),\\n[RISIS2](https://www.risis2.eu/)
+        and [GraspOS](https://graspos.eu/), and\\nthe establishment of a structured
+        team, involving young researchers and\\nPhD students, whose work at the University
+        of Bologna has made it\\npossible to work on the technical developments day
+        by\\nday.\_]{style=\\\"font-weight: 400\\\"}\\n\\n[Our results are a strong
+        indicator of the growing sensibility on the\\ntheme of the open provision
+        of bibliographical metadata and citation\\ndata, of which Open Citations is
+        at the forefront as a founding member\\nof the\_]{style=\\\"font-weight: 400\\\"}[[Initiative
+        for Open Citations\\n(I4OC)]{style=\\\"font-weight: 400\\\"}](https://i4oc.org/)[\_and\\nthe\_]{style=\\\"font-weight:
+        400\\\"}[[Initiative for Open Abstracts\\n(I4OA)]{style=\\\"font-weight: 400\\\"}](https://i4oa.org/)[.
+        The effort and\\nawareness campaigns led by these initiatives,\\nby\_]{style=\\\"font-weight:
+        400\\\"}[[DORA]{style=\\\"font-weight: 400\\\"}](https://sfdora.org/)[\_and\\nthe
+        Open Science community as a whole, have led more and more publishers\\nto
+        a change of heart and to open their reference lists. OpenCitations is\\nan
+        integral part of an ongoing process of transformation of the research\\nenvironment,
+        and we have collected and interpreted some of the needs of\\nthe academic
+        community to plan our\_]{style=\\\"font-weight: 400\\\"}[[future\\nactivities
+        and\\ndevelopments]{style=\\\"font-weight: 400\\\"}](https://trello.com/b/RprHYoKL/opencitations)[.\\n**We
+        still need your help and support to make it possible to maintain\\nand improve
+        our infrastructure and to sustain the team working at\\nOpenCitations**.\_]{style=\\\"font-weight:
+        400\\\"}\\n\\n[If you believe in]{style=\\\"font-weight: 400\\\"}\\n\\n- [the
+        importance of open bibliographic data for the creation of\\n  reproducible
+        metrics for research assessment\\n  exercises]{style=\\\"font-weight: 400\\\"}\\n-
+        [the power of the scholarly community to change existing practice by\\n  reclaiming
+        ownership of its own data-- and you want to become an\\n  active part of this
+        change]{style=\\\"font-weight: 400\\\"}\\n\\n**please consider supporting
+        OpenCitations either via membership or\\ndonation**[. You can find all the
+        information on membership on our\\nwebsite\\nat\_]{style=\\\"font-weight:
+        400\\\"}[[https://opencitations.net/membership]{style=\\\"font-weight: 400\\\"}](https://opencitations.net/membership)[,\\nor
+        you can ask for information by contacting us\\nat\_]{style=\\\"font-weight:
+        400\\\"}[[membership@opencitations.net]{style=\\\"font-weight: 400\\\"}](mailto:membership@opencitations.net)[.\_]{style=\\\"font-weight:
+        400\\\"}\\n\\n[Together, we can work to create an open and inclusive future
+        for\\nscience and research.\_]{style=\\\"font-weight: 400\\\"}\\n\\n[Thank
+        You!]{style=\\\"font-weight: 400\\\"}\\n\\n::: {.wpcp}\\nCite this article
+        as: Chiara Di Giambattista, \\\\\\\"OpenCitations needs you:\\nsupport the
+        change in research practices,\\\\\\\" in *OpenCitations blog*,\\n17/10/2023,
+        <https://opencitations.hypotheses.org/3488>.\\n:::\\n\",\"doi\":\"https://doi.org/10.59350/canw4-3xd10\",\"guid\":\"https://opencitations.hypotheses.org/?p=3488\",\"id\":\"77e770e0-74be-46f4-b800-9f8dc6435741\",\"language\":\"en\",\"published_at\":1697558939,\"reference\":[],\"relationships\":[],\"summary\":\"In
+        OpenCitations, we like to define our infrastructure organization as \u201Ccommunity-based\u201D
+        and \u201Ccommunity-driven\u201D, and we\_really\_mean it. The support coming
+        from the number of academic libraries and consortia coming after\_OpenCitations\u2019
+        involvement in the 2nd SCOSS funding cycle\_has made it possible, starting
+        from 2020, to make OpenCitations develop from a small university project based
+        on time-limited grant incomes to being an\\n\",\"tags\":[\"Open Abstracts\",\"Open
+        Access\",\"Open Citations\",\"Open Scholarship\",\"Open Science\"],\"title\":\"OpenCitations
+        needs you: support the change in research practices\",\"updated_at\":1698658626,\"url\":\"https://opencitations.hypotheses.org/3488\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Joshua
+        Chalifour\"}],\"blog_id\":\"62prc14\",\"blog_name\":\"Chroknowlogy\",\"blog_slug\":\"chroknowlogy\",\"category\":\"humanities\",\"content_html\":\"\\n<p>The
+        processes and supports within an institution can, I&#8217;ve noticed, demand
+        a bit of effort to change. When we speak of <strong>open scholarship</strong>
+        or <strong>open science</strong>, many aspects tie-in or lead out from those
+        concepts, which makes the whole prospect of institutional change quite complex.
+        I&#8217;m very excited about the efforts so far that the Open Science Working
+        Group (of which I&#8217;m a participant) at Concordia University has undertaken
+        and accomplished. These include an initial report on &#8220;<a href=\\\"https://doi.org/10.11573/spectrum.library.concordia.ca.00992647\\\"><strong>Recommendations
+        for Fostering Open Science at Concordia University</strong></a>&#8221; (DOI:
+        10.11573/spectrum.library.concordia.ca.00992647) </p>\\n\\n\\n\\n<!--more-->\\n\\n\\n\\n<p>Of
+        course, the Library is always doing outreach about open access (OA). In the
+        past I&#8217;ve organized activities, events, and <a href=\\\"https://chroknowlogy.ca/intellectual-liberty/2022/talk-broad-value-open-access/\\\"
+        data-type=\\\"post\\\" data-id=\\\"64563\\\">projects</a> for <a href=\\\"https://www.openaccessweek.org/\\\">open
+        access week</a>. I can see how frequently our modern research practices, which
+        involve digital techniques are enabled by the various forms of open: open
+        source, open data, open protocols, open access, etc. However, I&#8217;ve always
+        found that it&#8217;s a struggle to get people&#8217;s interest and that we
+        have to be creative in order to educate about OA issues. Part of what I suspect
+        makes advocating for OA difficult is the sort of singularity that comes from
+        being &#8220;just the library,&#8221; the group that&#8217;s always talking
+        about it. So when this Open Science Working Group formed, I was excited about
+        its multidisciplinary nature and that it included both students and faculty.
+        I think that really helps to broaden involvement across the university.</p>\\n\\n\\n\\n<p>The
+        working group, led by colleagues Krista Byers-Heinlein (who is also Concordia
+        University Research Chair in Bilingualism and Open Science) and Nicol\xE1s
+        Alessandroni, initiated the effort through a day-long <a href=\\\"https://www.concordia.ca/cuevents/artsci/2022/05/27/open-science-concordia.html\\\">conference
+        on open science</a> in 2022. Later they established the working group by inviting
+        people to participate in a workshop (there were over 20 people representing
+        many disciplines). The workshop operated through a modified form of DORA&#8217;s
+        <a href=\\\"https://sfdora.org/resource/workshop-toolkit-to-introduce-the-space-rubric/\\\">SPACE
+        rubric</a>, which was designed for academic institutions to use toward improving
+        their policies. I think using that tool to organize such a large group of
+        people toward a practical outcome was extremely beneficial. </p>\\n\\n\\n\\n<p>After
+        more meetings, discussions, and revisions the working group was able to produce
+        a set of <a href=\\\"https://spectrum.library.concordia.ca/id/eprint/992647/\\\">recommendations</a>
+        to bolster open scholarship throughout the university. It addresses many issues,
+        including existing policies, outreach, inter-institutional work, position
+        principles, open education, resources, and more. Of course, this is not the
+        end of the process. Among other things, next steps include focused discussions
+        with department heads, administrators, and others. I imagine that getting
+        to a place where open scholarship/open science is well-understood and hopefully
+        a default institutional position for research and education will require ongoing
+        work. </p>\\n\\n\\n\\n<p>The recommendations in the report tend to be specific
+        within the context of Concordia University but I felt it worthwhile to write
+        about here because the process, the findings, and the recommendations may
+        be of interest to others. Perhaps you would like to try something similar
+        at your institution? The Concordia work could be one model to reflect on what
+        would work well or not so well in your own context.</p>\\n\",\"content_text\":\"The
+        processes and supports within an institution can, I've noticed,\\ndemand a
+        bit of effort to change. When we speak of **open scholarship**\\nor **open
+        science**, many aspects tie-in or lead out from those\\nconcepts, which makes
+        the whole prospect of institutional change quite\\ncomplex. I'm very excited
+        about the efforts so far that the Open Science\\nWorking Group (of which I'm
+        a participant) at Concordia University has\\nundertaken and accomplished.
+        These include an initial report on\\n\\\"[**Recommendations for Fostering
+        Open Science at Concordia\\nUniversity**](https://doi.org/10.11573/spectrum.library.concordia.ca.00992647)\\\"\\n(DOI:
+        10.11573/spectrum.library.concordia.ca.00992647)\\n\\nOf course, the Library
+        is always doing outreach about open access (OA).\\nIn the past I've organized
+        activities, events, and\\n[projects](https://chroknowlogy.ca/intellectual-liberty/2022/talk-broad-value-open-access/){data-type=\\\"post\\\"\\ndata-id=\\\"64563\\\"}
+        for [open access\\nweek](https://www.openaccessweek.org/). I can see how frequently
+        our\\nmodern research practices, which involve digital techniques are enabled\\nby
+        the various forms of open: open source, open data, open protocols,\\nopen
+        access, etc. However, I've always found that it's a struggle to get\\npeople's
+        interest and that we have to be creative in order to educate\\nabout OA issues.
+        Part of what I suspect makes advocating for OA\\ndifficult is the sort of
+        singularity that comes from being \\\"just the\\nlibrary,\\\" the group that's
+        always talking about it. So when this Open\\nScience Working Group formed,
+        I was excited about its multidisciplinary\\nnature and that it included both
+        students and faculty. I think that\\nreally helps to broaden involvement across
+        the university.\\n\\nThe working group, led by colleagues Krista Byers-Heinlein
+        (who is also\\nConcordia University Research Chair in Bilingualism and Open
+        Science)\\nand Nicol\xE1s Alessandroni, initiated the effort through a day-long\\n[conference
+        on open\\nscience](https://www.concordia.ca/cuevents/artsci/2022/05/27/open-science-concordia.html)\\nin
+        2022. Later they established the working group by inviting people to\\nparticipate
+        in a workshop (there were over 20 people representing many\\ndisciplines).
+        The workshop operated through a modified form of DORA's\\n[SPACE\\nrubric](https://sfdora.org/resource/workshop-toolkit-to-introduce-the-space-rubric/),\\nwhich
+        was designed for academic institutions to use toward improving\\ntheir policies.
+        I think using that tool to organize such a large group\\nof people toward
+        a practical outcome was extremely beneficial.\\n\\nAfter more meetings, discussions,
+        and revisions the working group was\\nable to produce a set of\\n[recommendations](https://spectrum.library.concordia.ca/id/eprint/992647/)\\nto
+        bolster open scholarship throughout the university. It addresses many\\nissues,
+        including existing policies, outreach, inter-institutional work,\\nposition
+        principles, open education, resources, and more. Of course,\\nthis is not
+        the end of the process. Among other things, next steps\\ninclude focused discussions
+        with department heads, administrators, and\\nothers. I imagine that getting
+        to a place where open scholarship/open\\nscience is well-understood and hopefully
+        a default institutional\\nposition for research and education will require
+        ongoing work.\\n\\nThe recommendations in the report tend to be specific within
+        the context\\nof Concordia University but I felt it worthwhile to write about
+        here\\nbecause the process, the findings, and the recommendations may be of\\ninterest
+        to others. Perhaps you would like to try something similar at\\nyour institution?
+        The Concordia work could be one model to reflect on\\nwhat would work well
+        or not so well in your own context.\\n\",\"doi\":\"https://doi.org/10.59350/pk905-p9r05\",\"guid\":\"https://chroknowlogy.ca/?p=64616\",\"id\":\"b11b28bb-f44a-4dc7-a3ea-3917c603e3ef\",\"language\":\"en\",\"published_at\":1692993161,\"reference\":[],\"relationships\":[],\"summary\":\"The
+        processes and supports within an institution can, I\u2019ve noticed, demand
+        a bit of effort to change. When we speak of\\n<strong>\\n open scholarship\\n</strong>\\nor\\n<strong>\\n
+        open science\\n</strong>\\n, many aspects tie-in or lead out from those concepts,
+        which makes the whole prospect of institutional change quite complex.\\n\",\"tags\":[\"Information
+        Ethics And Policy\",\"Institutional Change\",\"Open Access\",\"Open Scholarship\",\"Open
+        Science\"],\"title\":\"Institutional Change toward Open Scholarship and Open
+        Science\",\"updated_at\":1692993261,\"url\":\"https://chroknowlogy.ca/info-ethics-policy/2023/institutional-change-toward-open-scholarship-and-open-science\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22125/20231105110316/https://opencitations.hypotheses.org/3436\",\"authors\":[{\"name\":\"Chiara
+        Di Giambattista\"}],\"blog_id\":\"gzqej46\",\"blog_name\":\"OpenCitations
+        blog\",\"blog_slug\":\"opencitations\",\"category\":\"socialSciences\",\"content_html\":\"\\r\\n<p
+        style=\\\"text-align: justify\\\"><span data-contrast=\\\"auto\\\">Last April,
+        </span><a href=\\\"https://www.linkedin.com/in/mfenner/?originalSubdomain=de\\\"><span
+        data-contrast=\\\"none\\\">Martin Fenner</span></a><span data-contrast=\\\"auto\\\">
+        launched </span><a href=\\\"https://rogue-scholar.org/\\\"><span data-contrast=\\\"none\\\">Rogue
+        Scholar</span></a><span data-contrast=\\\"auto\\\">, an archive of science
+        blogs aiming to index full-text of blog posts, establish a full-text search,
+        and register DOIs and metadata for all posts. Rogue Scholar works with all
+        blogging platforms that publish scholarly content and have an RSS or Atom
+        feed with full-text content distributed under a Creative Commons Attribution
+        (CC-BY 4.0) license.\_\_\_</span><span data-ccp-props=\\\"{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}\\\">\_</span></p>\\r\\n\\r\\n\\r\\n\\r\\n<p
+        style=\\\"text-align: justify\\\"><span data-contrast=\\\"auto\\\">Rogue Scholar
+        currently features 40 blogs, including the OpenCitations blog, with more than
+        1,000 blog posts that are available via full-text search, with DOIs linking
+        to the original post on one of 40 science blogs. By exploring t</span><a href=\\\"https://rogue-scholar.org/blogs/gzqej46\\\"><span
+        data-contrast=\\\"none\\\">he OpenCitations blog\u2019s profile</span></a><span
+        data-contrast=\\\"auto\\\"> on Rogue Scholar, you will find the last 40 posts
+        with summaries (derived from the information you get in the RSS feed), and
+        by clicking on the DOI you will be redirected to the full post on the blog.
+        The DOI metadata include abstract, language, license, and (OECD Fields of
+        Science) subject category for all posts.\_</span><span data-ccp-props=\\\"{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}\\\">\_</span></p>\\r\\n\\r\\n\\r\\n\\r\\n<figure
+        class=\\\"wp-block-image size-large\\\" style=\\\"text-align: justify\\\"><img
+        decoding=\\\"async\\\" loading=\\\"lazy\\\" class=\\\"wp-image-3439\\\" src=\\\"https://opencitations.hypotheses.org/files/2023/08/Screenshot-14-1-500x259.png\\\"
+        alt=\\\"\\\" width=\\\"656\\\" height=\\\"340\\\" srcset=\\\"https://opencitations.hypotheses.org/files/2023/08/Screenshot-14-1-500x259.png
+        500w, https://opencitations.hypotheses.org/files/2023/08/Screenshot-14-1-300x155.png
+        300w, https://opencitations.hypotheses.org/files/2023/08/Screenshot-14-1-768x397.png
+        768w, https://opencitations.hypotheses.org/files/2023/08/Screenshot-14-1.png
+        1260w\\\" sizes=\\\"(max-width: 656px) 100vw, 656px\\\" /></figure>\\r\\n\\r\\n\\r\\n\\r\\n<p
+        style=\\\"text-align: justify\\\"><span data-contrast=\\\"auto\\\"><span class=\\\"TextRun
+        SCXW125598297 BCX0\\\" lang=\\\"EN-GB\\\" xml:lang=\\\"EN-GB\\\" data-contrast=\\\"auto\\\"><span
+        class=\\\"NormalTextRun SCXW125598297 BCX0\\\">Rogue Scholar </span></span><a
+        class=\\\"Hyperlink SCXW125598297 BCX0\\\" href=\\\"https://blog.front-matter.io/posts/the-rogue-scholar-milestone/\\\"
+        target=\\\"_blank\\\" rel=\\\"noreferrer noopener\\\"><span class=\\\"TextRun
+        Underlined SCXW125598297 BCX0\\\" lang=\\\"EN-GB\\\" xml:lang=\\\"EN-GB\\\"
+        data-contrast=\\\"none\\\"><span class=\\\"NormalTextRun SCXW125598297 BCX0\\\"
+        data-ccp-charstyle=\\\"Hyperlink\\\">is growing</span><span class=\\\"NormalTextRun
+        SCXW125598297 BCX0\\\" data-ccp-charstyle=\\\"Hyperlink\\\"> day by day</span></span></a><span
+        class=\\\"TextRun SCXW125598297 BCX0\\\" lang=\\\"EN-GB\\\" xml:lang=\\\"EN-GB\\\"
+        data-contrast=\\\"auto\\\"><span class=\\\"NormalTextRun SCXW125598297 BCX0\\\">,
+        and the </span><span class=\\\"NormalTextRun SCXW125598297 BCX0\\\">increasing
+        </span><span class=\\\"NormalTextRun SCXW125598297 BCX0\\\">involvement </span><span
+        class=\\\"NormalTextRun SCXW125598297 BCX0\\\">of </span><span class=\\\"NormalTextRun
+        SCXW125598297 BCX0\\\">science blogs</span><span class=\\\"NormalTextRun SCXW125598297
+        BCX0\\\"> \u2013 from different disciplines and various languages &#8211;
+        </span><span class=\\\"NormalTextRun SCXW125598297 BCX0\\\">demon</span><span
+        class=\\\"NormalTextRun SCXW125598297 BCX0\\\">strates</span><span class=\\\"NormalTextRun
+        SCXW125598297 BCX0\\\"> that </span><span class=\\\"NormalTextRun SCXW125598297
+        BCX0\\\">\u201C</span><span class=\\\"NormalTextRun SCXW125598297 BCX0\\\">a
+        central archive of science blogs with full-text content, and DOIs for all
+        blog posts with relevant metadata is </span><span class=\\\"NormalTextRun
+        SCXW125598297 BCX0\\\">feasible</span><span class=\\\"NormalTextRun SCXW125598297
+        BCX0\\\">, making an important contribution to</span> <span class=\\\"NormalTextRun
+        SCXW125598297 BCX0\\\">Open Scholarly infrastructure</span><span class=\\\"NormalTextRun
+        SCXW125598297 BCX0\\\">\u201D.</span></span><span class=\\\"EOP SCXW125598297
+        BCX0\\\" data-ccp-props=\\\"{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}\\\">\_</span></span></p>\\r\\n<p
+        style=\\\"text-align: justify\\\"><span data-contrast=\\\"auto\\\">Thanks
+        to a r</span><span data-contrast=\\\"none\\\">ecently launched</span><span
+        data-contrast=\\\"auto\\\"> <a href=\\\"https://blog.front-matter.io/posts/rogue-scholar-joins-fediverse/\\\">Mastodon
+        instance</a> at Rogue Scholar Social, the OpenCitations blog has now its own
+        Mastodon feed, where you can keep yourself updated about the last posts of
+        the OpenCitations blog, by finding summaries and the related DOIs linking
+        to the full post \u2013 and you can also boost and comment, of course! Please
+        follow us at </span><a href=\\\"https://rogue-scholar.social/@opencitations\\\"><span
+        data-contrast=\\\"none\\\">https://rogue-scholar.social/@opencitations</span></a><span
+        data-contrast=\\\"auto\\\">\_ to not miss anything.\_</span><span data-ccp-props=\\\"{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}\\\">\_</span></p>\\r\\n\\r\\n\\r\\n\\r\\n<p
+        style=\\\"text-align: justify\\\"><span data-contrast=\\\"auto\\\">If you
+        are managing a Science Blog and are interested in adding it to the Rogue Scholar
+        archive, or if you are just interested in the topic of metadata for scholarly
+        blogs, please contact info@front-matter.io\_</span><span data-ccp-props=\\\"{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}\\\">\_</span></p>\\r\\n\\r\\n\\r\\n\\r\\n<p
+        style=\\\"text-align: justify\\\"><span data-ccp-props=\\\"{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}\\\">\_<div
+        class=\\\"wpcp\\\">Cite this article as: Chiara Di Giambattista, \\\"The OpenCitations
+        blog posts are now archived on Rogue Scholar with DOIs,\\\" in <em>OpenCitations
+        blog</em>, 22/08/2023, <a href=\\\"https://opencitations.hypotheses.org/3436\\\">https://opencitations.hypotheses.org/3436</a>.</div></span></p>\\r\\n\",\"content_text\":\"[Last
+        April, ]{contrast=\\\"auto\\\"}[[Martin\\nFenner]{contrast=\\\"none\\\"}](https://www.linkedin.com/in/mfenner/?originalSubdomain=de)[\\nlaunched
+        ]{contrast=\\\"auto\\\"}[[Rogue\\nScholar]{contrast=\\\"none\\\"}](https://rogue-scholar.org/)[,
+        an archive of\\nscience blogs aiming to index full-text of blog posts, establish
+        a\\nfull-text search, and register DOIs and metadata for all posts. Rogue\\nScholar
+        works with all blogging platforms that publish scholarly content\\nand have
+        an RSS or Atom feed with full-text content distributed under a\\nCreative
+        Commons Attribution (CC-BY 4.0)\\nlicense.\_\_\_]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":259}\\\"}\\n\\n[Rogue
+        Scholar currently features 40 blogs, including the OpenCitations\\nblog, with
+        more than 1,000 blog posts that are available via full-text\\nsearch, with
+        DOIs linking to the original post on one of 40 science\\nblogs. By exploring
+        t]{contrast=\\\"auto\\\"}[[he OpenCitations blog's\\nprofile]{contrast=\\\"none\\\"}](https://rogue-scholar.org/blogs/gzqej46)[
+        on\\nRogue Scholar, you will find the last 40 posts with summaries (derived\\nfrom
+        the information you get in the RSS feed), and by clicking on the\\nDOI you
+        will be redirected to the full post on the blog. The DOI\\nmetadata include
+        abstract, language, license, and (OECD Fields of\\nScience) subject category
+        for all\\nposts.\_]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":259}\\\"}\\n\\n<figure
+        class=\\\"wp-block-image size-large\\\" style=\\\"text-align: justify\\\">\\n<img\\nsrc=\\\"https://opencitations.hypotheses.org/files/2023/08/Screenshot-14-1-500x259.png\\\"\\nclass=\\\"wp-image-3439\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://opencitations.hypotheses.org/files/2023/08/Screenshot-14-1-500x259.png
+        500w, https://opencitations.hypotheses.org/files/2023/08/Screenshot-14-1-300x155.png
+        300w, https://opencitations.hypotheses.org/files/2023/08/Screenshot-14-1-768x397.png
+        768w, https://opencitations.hypotheses.org/files/2023/08/Screenshot-14-1.png
+        1260w\\\"\\nsizes=\\\"(max-width: 656px) 100vw, 656px\\\" width=\\\"656\\\"
+        height=\\\"340\\\" />\\n</figure>\\n\\n[[[Rogue Scholar ]{.NormalTextRun .SCXW125598297
+        .BCX0}]{.TextRun\\n.SCXW125598297 .BCX0 lang=\\\"EN-GB\\\" contrast=\\\"auto\\\"}[[[is\\ngrowing]{.NormalTextRun
+        .SCXW125598297 .BCX0 ccp-charstyle=\\\"Hyperlink\\\"}[\\nday by day]{.NormalTextRun
+        .SCXW125598297 .BCX0\\nccp-charstyle=\\\"Hyperlink\\\"}]{.TextRun .Underlined
+        .SCXW125598297 .BCX0\\nlang=\\\"EN-GB\\\"\\ncontrast=\\\"none\\\"}](https://blog.front-matter.io/posts/the-rogue-scholar-milestone/){.Hyperlink\\n.SCXW125598297
+        .BCX0 target=\\\"_blank\\\" rel=\\\"noreferrer noopener\\\"}[[, and\\nthe
+        ]{.NormalTextRun .SCXW125598297 .BCX0}[increasing ]{.NormalTextRun\\n.SCXW125598297
+        .BCX0}[involvement ]{.NormalTextRun .SCXW125598297\\n.BCX0}[of ]{.NormalTextRun
+        .SCXW125598297 .BCX0}[science\\nblogs]{.NormalTextRun .SCXW125598297 .BCX0}[
+        -- from different\\ndisciplines and various languages -- ]{.NormalTextRun
+        .SCXW125598297\\n.BCX0}[demon]{.NormalTextRun .SCXW125598297\\n.BCX0}[strates]{.NormalTextRun
+        .SCXW125598297 .BCX0}[ that\\n]{.NormalTextRun .SCXW125598297 .BCX0}[\\\"]{.NormalTextRun
+        .SCXW125598297\\n.BCX0}[a central archive of science blogs with full-text
+        content, and\\nDOIs for all blog posts with relevant metadata is ]{.NormalTextRun\\n.SCXW125598297
+        .BCX0}[feasible]{.NormalTextRun .SCXW125598297 .BCX0}[,\\nmaking an important
+        contribution to]{.NormalTextRun .SCXW125598297\\n.BCX0} [Open Scholarly infrastructure]{.NormalTextRun
+        .SCXW125598297\\n.BCX0}[\\\".]{.NormalTextRun .SCXW125598297 .BCX0}]{.TextRun
+        .SCXW125598297\\n.BCX0 lang=\\\"EN-GB\\\" contrast=\\\"auto\\\"}[\_]{.EOP
+        .SCXW125598297 .BCX0\\nccp-props=\\\"{\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":259}\\\"}]{contrast=\\\"auto\\\"}\\n\\n[Thanks
+        to a r]{contrast=\\\"auto\\\"}[ecently launched]{contrast=\\\"none\\\"}[\\n[Mastodon\\ninstance](https://blog.front-matter.io/posts/rogue-scholar-joins-fediverse/)\\nat
+        Rogue Scholar Social, the OpenCitations blog has now its own Mastodon\\nfeed,
+        where you can keep yourself updated about the last posts of the\\nOpenCitations
+        blog, by finding summaries and the related DOIs linking to\\nthe full post
+        -- and you can also boost and comment, of course! Please\\nfollow us at\\n]{contrast=\\\"auto\\\"}[[https://rogue-scholar.social/@opencitations]{contrast=\\\"none\\\"}](https://rogue-scholar.social/@opencitations)[\_\\nto
+        not miss\\nanything.\_]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":259}\\\"}\\n\\n[If
+        you are managing a Science Blog and are interested in adding it to\\nthe Rogue
+        Scholar archive, or if you are just interested in the topic of\\nmetadata
+        for scholarly blogs, please contact\\ninfo@front-matter.io\_]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":259}\\\"}\\n\\n[\_]{ccp-props=\\\"{\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":259}\\\"}\\n\\n:::
+        {.wpcp}\\nCite this article as: Chiara Di Giambattista, \\\\\\\"The OpenCitations
+        blog\\nposts are now archived on Rogue Scholar with DOIs,\\\\\\\" in *OpenCitations\\nblog*,
+        22/08/2023, <https://opencitations.hypotheses.org/3436>.\\n:::\\n\",\"doi\":\"https://doi.org/10.59350/vwajv-ym488\",\"guid\":\"https://opencitations.hypotheses.org/?p=3436\",\"id\":\"87f82ac2-3f23-4a80-bc6e-43c522b15c52\",\"image\":\"https://opencitations.hypotheses.org/files/2023/08/Screenshot-14-1-500x259.png\",\"language\":\"en\",\"published_at\":1692712885,\"reference\":[],\"relationships\":[],\"summary\":\"Last
+        April, Martin Fenner launched Rogue Scholar, an archive of science blogs aiming
+        to index full-text of blog posts, establish a full-text search, and register
+        DOIs and metadata for all posts. Rogue Scholar works with all blogging platforms
+        that publish scholarly content and have an RSS or Atom feed with full-text
+        content distributed under a Creative Commons Attribution (CC-BY 4.0) license.\\n\",\"tags\":[\"Open
+        Access\",\"Open Citations\",\"Open Scholarship\",\"Open Science\",\"OpenCitations\"],\"title\":\"The
+        OpenCitations blog posts are now archived on Rogue Scholar with DOIs\",\"updated_at\":1693479885,\"url\":\"https://opencitations.hypotheses.org/3436\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22125/20231105110316/https://opencitations.hypotheses.org/3424\",\"authors\":[{\"name\":\"Chiara
+        Di Giambattista\"}],\"blog_id\":\"gzqej46\",\"blog_name\":\"OpenCitations
+        blog\",\"blog_slug\":\"opencitations\",\"category\":\"socialSciences\",\"content_html\":\"<p
+        style=\\\"text-align: justify\\\"><span data-contrast=\\\"auto\\\">Last March,
+        the \u202F</span><a href=\\\"https://coara.eu/\\\"><span data-contrast=\\\"none\\\">Coalition
+        for Advancing Research Assessment</span></a><span data-contrast=\\\"auto\\\">\u202F(CoARA)
+        launched its call for members to propose Working Groups and National Chapters.
+        The aim of the call (which was closed in June) was to foster the creation
+        of Working Groups that would work as \u2018communities of practice\u2019 to
+        </span><i><span data-contrast=\\\"auto\\\">enable systemic reform of research
+        assessment</span></i><span data-contrast=\\\"auto\\\"> by </span><i><span
+        data-contrast=\\\"auto\\\">providing mutual learning and collaboration on
+        specific thematic areas</span></i><span data-contrast=\\\"auto\\\">.\_</span><span
+        data-ccp-props=\\\"{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}\\\">\_</span></p>\\n<p
+        style=\\\"text-align: justify\\\"><span data-contrast=\\\"auto\\\">A group
+        of 23 Coalition members, including University of Bologna\u2019s personnel
+        working at OpenCitations, collaborated in designing and proposing the CoARA
+        Working Group Towards Open Infrastructures for Responsible Research Assessment
+        (OI4RRA), focusing on having open infrastructures for </span><b><span data-contrast=\\\"auto\\\">making
+        research assessment more transparent and responsible</span></b><span data-contrast=\\\"auto\\\">,
+        and thus </span><b><span data-contrast=\\\"auto\\\">enabling the research
+        community to be in full control of the data and indicators it relies on in
+        assessments.</span></b><span data-ccp-props=\\\"{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}\\\">\_</span></p>\\n<p
+        style=\\\"text-align: justify\\\"><span data-contrast=\\\"auto\\\">We are
+        now thrilled to announce that the proposed Working Group has been accepted,
+        and will start its activities in the next months, with the mission to \u201Cenable
+        institutions to move from proprietary infrastructure and research information,
+        to open alternatives\u2013in support of the transition to responsible research
+        assessment practices. This effort will take into consideration the wide range
+        of research outputs and open science practices and address the diversity of
+        the global research community\u201D.</span><span data-ccp-props=\\\"{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}\\\">\_</span></p>\\n<p
+        style=\\\"text-align: justify\\\"><span data-contrast=\\\"auto\\\">The CoARA
+        Working Group Towards Open Infrastructures for Responsible Research Assessment
+        will work to facilitate the use of existing open infrastructures, -, with
+        the aim to make it possible a transition to a fully OI4RRA ecosystem \u2013
+        interconnected, decentralised and open &#8211; \_that is fit to serve existing
+        and emerging needs of reformed RRA agendas. </span><span data-ccp-props=\\\"{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}\\\">\_</span></p>\\n<p
+        style=\\\"text-align: justify\\\"><span data-contrast=\\\"auto\\\">For more
+        information visit the </span><a href=\\\"https://coara.eu/coalition/working-groups/\\\"><span
+        data-contrast=\\\"none\\\">dedicated section</span></a><span data-contrast=\\\"auto\\\">
+        on CoARA\u2019s website, and read the full list of participants in OI4RRA
+        </span><a href=\\\"https://graspos.eu/coara-wg-oi4rra\\\"><span data-contrast=\\\"none\\\">here</span></a><span
+        data-contrast=\\\"auto\\\">.\_</span><span data-ccp-props=\\\"{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:259}\\\">\_</span></p>\\n<p><div
+        class=\\\"wpcp\\\">Cite this article as: Chiara Di Giambattista, \\\"OpenCitations
+        is part of the CoARA Working Group Towards Open Infrastructures for Responsible
+        Research Assessment (OI4RRA),\\\" in <em>OpenCitations blog</em>, 01/08/2023,
+        <a href=\\\"https://opencitations.hypotheses.org/3424\\\">https://opencitations.hypotheses.org/3424</a>.</div></p>\\n\",\"content_text\":\"[Last
+        March, the \u202F]{contrast=\\\"auto\\\"}[[Coalition for Advancing Research\\nAssessment]{contrast=\\\"none\\\"}](https://coara.eu/)[\u202F(CoARA)
+        launched its\\ncall for members to propose Working Groups and National Chapters.
+        The\\naim of the call (which was closed in June) was to foster the creation
+        of\\nWorking Groups that would work as 'communities of practice' to\\n]{contrast=\\\"auto\\\"}*[enable
+        systemic reform of research\\nassessment]{contrast=\\\"auto\\\"}*[ by ]{contrast=\\\"auto\\\"}*[providing
+        mutual\\nlearning and collaboration on specific thematic\\nareas]{contrast=\\\"auto\\\"}*[.\_]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":259}\\\"}\\n\\n[A
+        group of 23 Coalition members, including University of Bologna's\\npersonnel
+        working at OpenCitations, collaborated in designing and\\nproposing the CoARA
+        Working Group Towards Open Infrastructures for\\nResponsible Research Assessment
+        (OI4RRA), focusing on having open\\ninfrastructures for ]{contrast=\\\"auto\\\"}**[making
+        research assessment more\\ntransparent and responsible]{contrast=\\\"auto\\\"}**[,
+        and thus\\n]{contrast=\\\"auto\\\"}**[enabling the research community to be
+        in full\\ncontrol of the data and indicators it relies on in\\nassessments.]{contrast=\\\"auto\\\"}**[\_]{ccp-props=\\\"{\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":259}\\\"}\\n\\n[We
+        are now thrilled to announce that the proposed Working Group has\\nbeen accepted,
+        and will start its activities in the next months, with\\nthe mission to \\\"enable
+        institutions to move from proprietary\\ninfrastructure and research information,
+        to open alternatives--in\\nsupport of the transition to responsible research
+        assessment practices.\\nThis effort will take into consideration the wide
+        range of research\\noutputs and open science practices and address the diversity
+        of the\\nglobal research\\ncommunity\\\".]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":259}\\\"}\\n\\n[The
+        CoARA Working Group Towards Open Infrastructures for Responsible\\nResearch
+        Assessment will work to facilitate the use of existing open\\ninfrastructures,
+        -, with the aim to make it possible a transition to a\\nfully OI4RRA ecosystem
+        -- interconnected, decentralised and open --\\n\_that is fit to serve existing
+        and emerging needs of reformed RRA\\nagendas.\\n]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":259}\\\"}\\n\\n[For
+        more information visit the ]{contrast=\\\"auto\\\"}[[dedicated\\nsection]{contrast=\\\"none\\\"}](https://coara.eu/coalition/working-groups/)[\\non
+        CoARA's website, and read the full list of participants in OI4RRA\\n]{contrast=\\\"auto\\\"}[[here]{contrast=\\\"none\\\"}](https://graspos.eu/coara-wg-oi4rra)[.\_]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":259}\\\"}\\n\\n:::
+        {.wpcp}\\nCite this article as: Chiara Di Giambattista, \\\\\\\"OpenCitations
+        is part of\\nthe CoARA Working Group Towards Open Infrastructures for Responsible\\nResearch
+        Assessment (OI4RRA),\\\\\\\" in *OpenCitations blog*, 01/08/2023,\\n<https://opencitations.hypotheses.org/3424>.\\n:::\\n\",\"doi\":\"https://doi.org/10.59350/wpdyk-ad420\",\"guid\":\"https://opencitations.hypotheses.org/?p=3424\",\"id\":\"9f92915d-3081-40e6-a7fd-cc86f3169fc6\",\"language\":\"en\",\"published_at\":1690887926,\"reference\":[],\"relationships\":[],\"summary\":\"Last
+        March, the \u202FCoalition for Advancing Research Assessment\u202F(CoARA)
+        launched its call for members to propose Working Groups and National Chapters.
+        The aim of the call (which was closed in June) was to foster the creation
+        of Working Groups that would work as \u2018communities of practice\u2019 to\\n<i>\\n
+        enable systemic reform of research assessment\\n</i>\\nby\\n<i>\\n providing
+        mutual learning and collaboration on specific thematic areas\\n</i>\\n.\\n\",\"tags\":[\"Open
+        Abstracts\",\"Open Academic Analytics\",\"Open Access\",\"Open Scholarship\",\"Open
+        Science\"],\"title\":\"OpenCitations is part of the CoARA Working Group Towards
+        Open Infrastructures for Responsible Research Assessment (OI4RRA)\",\"updated_at\":1693479906,\"url\":\"https://opencitations.hypotheses.org/3424\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Heinz
+        Pampel\",\"url\":\"https://orcid.org/0000-0003-3334-2771\"}],\"blog_name\":\"wisspub.net\",\"blog_slug\":\"wisspub\",\"category\":\"socialSciences\",\"content_text\":\"Die
+        EU-Wissenschaftsministerien haben sich auf ihrer [heutigen\\nSitzung](https://www.consilium.europa.eu/en/press/press-releases/2023/05/23/council-calls-for-transparent-equitable-and-open-access-to-scholarly-publications/)\\nin
+        Br\xFCssel unter dem Titel \\\"Council conclusions on high-quality,\\ntransparent,
+        open, trustworthy and equitable scholarly publishing\\\" ([PDF\\nder englischen\\nVersion](https://data.consilium.europa.eu/doc/document/ST-8827-2023-INIT/en/pdf),\\n[PDF
+        der deutschen\\nVersion](https://data.consilium.europa.eu/doc/document/ST-8827-2023-INIT/de/pdf))\_mit\\nden
+        aktuellen Herausforderungen des wissenschaftlichen\\nPublikationswesens befasst.\\n\\nBereits
+        im Vorfeld der Sitzung der Wissenschaftsministerien wurden\\nverschiedene
+        Versionen der Erkl\xE4rung \xF6ffentlich diskutiert (siehe z.B.\\n[Science\\nBusiness](https://sciencebusiness.net/news/Universities/leaked-eu-member-states-set-out-reform-scientific-publishing)\\nund
+        [Times Higher\\nEducation](https://www.timeshighereducation.com/news/can-eu-make-parallel-publishing-system-work)).\\nIm
+        Kern stand die Frage, inwiefern das EU-Papier den Fokus auf\\nFinanzierungs-
+        und Gesch\xE4ftsmodelle abseits von Publikationsgeb\xFChren\\n(Article Processing
+        Charges, APCs) legt und ob sogar eine Abkehr von der\\nUnterst\xFCtzung dieses
+        Modells durch die \xF6ffentliche Hand in Europa betont\\nwird.\\n\\nSchweden
+        hatte das Thema im Rahmen seiner EU-Ratspr\xE4sidentschaft\\naugegriffen und
+        bereits im\\n[Februar](https://wisspub.net/2023/02/10/eu-wissenschaftsministerien-erortern-open-science/)\\nin
+        einem Hintergrund-Papier adressiert. Schon in diesem Briefing Paper\\nwurde
+        die Problematik steigender Preise f\xFCr die wissenschaftlichen\\nFachinformation
+        betont.\_\\n\\nIn der jetzt verabschiedeten Version der Schlussfolgerungen
+        die\\nForderung nach sofortigem Open Access f\xFCr wissenschaftliche\\nPublikationen,
+        die im Rahmen der \xF6ffentlich gef\xF6rderten Forschung\\nentstehen, nochmals
+        betont. Dieses Ziel wurde [bereits\\n2016](https://wisspub.net/2016/05/27/eu-und-g7-staaten-setzen-auf-open-science/)\\nvon
+        den EU-Wissenschaftsministerien erhoben. Die\\nWissenschaftsminister:innen
+        hatten damals einen Open-Access-Anteil von\\n100 % bis 2020 gefordert. Dieser
+        Wert wurde bisher jedoch nicht\\nerreicht. In Deutschland liegt der Open-Access-Anteil
+        zum Beispiel bei\\n[63](https://open-access-monitor.de/) Prozent, w\xE4hrend
+        die Niederlande\\nim Publikationsjahr 2021 einen Anteil von\\n[82](https://www.openaccess.nl/en/in-the-netherlands/monitor)\_Prozent\\nerreichten.\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"alignleft size-large is-resized\\\">\\n<a\\nhref=\\\"https://wisspub.files.wordpress.com/2023/05/bildschirmc2adfoto-2023-05-23-um-11.05.39.png\\\"><img\\nsrc=\\\"https://wisspub.files.wordpress.com/2023/05/bildschirmc2adfoto-2023-05-23-um-11.05.39.png?w=723\\\"\\nclass=\\\"wp-image-20457\\\"
+        loading=\\\"lazy\\\" data-attachment-id=\\\"20457\\\"\\ndata-permalink=\\\"http://wisspub.net/2023/05/23/eu-mitgliedstaaten-betonen-die-rolle-von-wissenschaftsgeleiteten-open-access-modellen-jenseits-von-apcs/bildschirmc2adfoto-2023-05-23-um-11-05-39/\\\"\\ndata-orig-file=\\\"https://wisspub.files.wordpress.com/2023/05/bildschirmc2adfoto-2023-05-23-um-11.05.39.png\\\"\\ndata-orig-size=\\\"1512,2142\\\"
+        data-comments-opened=\\\"1\\\"\\ndata-image-meta=\\\"{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}\\\"\\ndata-image-title=\\\"bildschirmc2adfoto-2023-05-23-um-11.05.39\\\"\\ndata-image-description=\\\"\\\"
+        data-image-caption=\\\"\\\"\\ndata-medium-file=\\\"https://wisspub.files.wordpress.com/2023/05/bildschirmc2adfoto-2023-05-23-um-11.05.39.png?w=212\\\"\\ndata-large-file=\\\"https://wisspub.files.wordpress.com/2023/05/bildschirmc2adfoto-2023-05-23-um-11.05.39.png?w=723\\\"\\nsrcset=\\\"https://wisspub.files.wordpress.com/2023/05/bildschirmc2adfoto-2023-05-23-um-11.05.39.png?w=353
+        353w, https://wisspub.files.wordpress.com/2023/05/bildschirmc2adfoto-2023-05-23-um-11.05.39.png?w=706
+        706w, https://wisspub.files.wordpress.com/2023/05/bildschirmc2adfoto-2023-05-23-um-11.05.39.png?w=106
+        106w, https://wisspub.files.wordpress.com/2023/05/bildschirmc2adfoto-2023-05-23-um-11.05.39.png?w=212
+        212w\\\"\\nsizes=\\\"(max-width: 353px) 100vw, 353px\\\" width=\\\"353\\\"
+        height=\\\"500\\\" /></a>\\n<figcaption><em>\u201CCouncil conclusions on high-quality,
+        transparent, open,\\ntrustworthy and equitable scholarly publishing\u201D</em></figcaption>\\n</figure>\\n:::\\n\\nAngesichts
+        steigender Abonnementkosten und \xE4hnlicher Entwicklungen im\\nBereich der
+        Publikationsgeb\xFChren f\xFCr Open Access und hybride Optionen\\nbetont das
+        EU-Papier das Potenzial von Gesch\xE4fts- und\\nFinanzierungsmodellen, die
+        weder die Leser:innen noch die Autor:innen\\nfinanziell belasten und sich
+        durch angemessene und transparente Preise\\nauszeichnen (Punkt 6). Es wird
+        beklagt, dass die steigenden Preise f\xFCr\\nwissenschaftliche Fachinformationen
+        zu Ungleichheiten f\xFChren und die\\n\xF6ffentliche Hand in Europa zum Nachteil
+        der Forschung belasten (Punkt\\n5).\\n\\nAufgrund dieser Kritik am kommerziellen
+        Verlagswesen wird in zwei\\nbemerkenswerten Punkten (6 und 7) die Bedeutung
+        von nicht\\ngewinnorientierten Open-Access-Modellen betont. Wortlaut:\\n\\n\\\"The
+        Council of the European Union \\\\[...\\\\] highlights the importance of\\nnot-for-profit,
+        scholarly open access publishing models that do not\\ncharge fees to authors
+        or readers and where authors can publish their\\nwork without funding/institutional
+        eligibility criteria; notes the\\nvariety of models that do not depend on
+        article processing charges or\\nsimilar per-unit charges and stresses the
+        importance of supporting the\\ndevelopment of such models led by public research
+        organisations; \\\\[...\\\\]\\nstresses that it is essential to avoid situations
+        where researchers are\\nlimited in their choice of publication channels due
+        to financial\\ncapacities rather than quality criteria, and where access to
+        research\\npublications is restricted by paywalls\\\"\\n\\nZwar sind diese
+        Unterstreichung und Betonung sicherlich nur ein kleiner\\nSchritt auf dem
+        Weg zur Gestaltung eines pluralistischen, transparenten\\nund nachhaltigen
+        Systems der digtialen Wissenschaftskommunikation. Sie\\nkommen jedoch zu einem
+        Zeitpunkt, zu dem die Kritik an dem Modell der\\nPublikationsgeb\xFChren w\xE4chst.\\n\\nErst
+        k\xFCrzlich hat die Ivy Plus Libraries Confederation (IPLC) in den\\nUSA,
+        als Zusammenschluss von Bibliotheken forschungsstarker\\nEinrichtungen, das
+        APC-Modell [deutlich\\nkritisiert](https://ivpluslibraries.org/2023/03/iplc-letter-to-the-office-of-science-technology-policy/).\\nDie
+        Bibliothekar:innen sehen die Gefahr, dass Publikationsgeb\xFChren\\nUngleichheit
+        f\xF6rdern und Forschende aus finanziell weniger gut\\nausgestatteten Regionen
+        beim Open-Access-Publizieren benachteiligt\\nwerden. Sie charakterisieren
+        APCs als eine H\xFCrde bei der Publikation.\\n\\nAuch hat der \xF6ffentlichkeitswirksame\\n[R\xFCcktritt](https://www.nature.com/articles/d41586-023-01391-5)
+        des\\nEditorial Boards der Elsevier-Zeitschrift NeuroImage aufgrund steigender\\nAPCs
+        den kritischen Blick auf das Gesch\xE4ftsmodell gelenkt. Die\\nzur\xFCckgetretenen
+        Herausgebenden haben nun bei MIT Press ein neues\\nJournal\\n[gegr\xFCndet](https://mitpress.mit.edu/the-mit-press-to-launch-open-access-journal-imaging-neuroscience/),\\ndas
+        niedrige APCs erhebt. Dieser Schritt zeigt, dass nicht APCs das\\nProblem
+        sein m\xFCssen, sondern vielmehr deren Preisgestaltung.\\n\\nUm die im obrigen
+        Zitat formulierten Anliegen der EU-Staaten zu\\nadressieren, soll die Koordinierung
+        innerhalb der EU und mit globalen\\nPartnern zur Unterst\xFCtzung von Chancengleichheit
+        im wissenschaftlichen\\nPublizieren gef\xF6rdert werden (Absatz 7). Hierzu
+        sollen auch abgestimmte\\nFinanzierungsstrategien entwickelt werden, um die
+        Anzahl von\\nnot-for-profit open access multi-format scholarly publishing
+        models in\\nEurope with no costs for authors or readers\\\" signifikant zu
+        erh\xF6hen\\n(Absatz 11).\\n\\nAuch soll das Anliegen durch eine m\xF6gliche
+        Beteiligung der\\nEU-Mitgliedstaaten an Open Research Europe (ORE), der von
+        der\\nEU-Kommission finanzierten Publikationsplattform f\xFCr Autor:innen
+        aus den\\nEU-Rahmenprogrammen, vorangetrieben werden (Absatz 15).\_\\n\\nIn
+        der\\n[Pressemitteilung](https://www.consilium.europa.eu/de/press/press-releases/2023/05/23/council-calls-for-transparent-equitable-and-open-access-to-scholarly-publications/)\\nwerden
+        weitere Themen der verabschiedeten Schlussfolgerungen\\naugegriffen:\_\\n\\n\\\"Some
+        Member States have introduced secondary publication rights into\\ntheir national
+        copyright legislation, enabling open access to scholarly\\npublications which
+        involve public funds. The Council encourages national\\nopen access policies
+        and guidelines to make scholarly publications\\nimmediately openly accessible
+        under open licences. The conclusions\\nacknowledge positive developments in
+        terms of monitoring progress, like\\nwithin the framework of the European
+        Open Science Cloud (EOSC), and\\nsuggest including open science monitoring
+        in the European Research Area\\nmonitoring mechanism.\\\"\\n\\nDie Schlussfolgerungen
+        k\xF6nnen zweifellos als St\xE4rkung des\\nwissenschaftsgeleiteten Open-Access-Publizierens
+        in akademischer\\nTr\xE4gerschaft\_ interpretiert werden. Der eingeschlagene
+        Kurs ist zu\\nbegr\xFC\xDFen. Um die bereits vielf\xE4ltigen Open-Access-Publikationsangebote\\nund
+        -Verlage, die von wissenschaftlichen Einrichtungen betrieben oder\\ngemeinsam
+        (mit angemessenen und ohne APCs) finanziert werden, nachhaltig\\nzu st\xE4rken,
+        ist es erforderlich, kooperative Finanzierungsmodelle auf\\ninternationaler
+        Ebene zu entwickeln und umzusetzen. Daf\xFCr sind, wie das\\nPapier richtig
+        betont, abgestimmte F\xF6rderaktivit\xE4ten erforderlich, die\\nbeispielsweise
+        in Deutschland, komplement\xE4r zu DEAL, dem\\nwissenschaftsgeleiteten Open-Access-Publizieren
+        einen deutlichen\\nAufschwung geben.\\n\",\"doi\":\"https://doi.org/10.59350/kz04m-s8z58\",\"guid\":\"https://wisspub.net/?p=20455\",\"id\":\"1c578558-1324-4493-b8af-84c49eabc52f\",\"image\":\"https://wisspub.files.wordpress.com/2023/05/bildschirmc2adfoto-2023-05-23-um-11.05.39.png?w=723\",\"language\":\"de\",\"published_at\":1684833413,\"reference\":[],\"relationships\":[],\"summary\":\"Die
+        EU-Wissenschaftsministerien haben sich auf ihrer heutigen Sitzung in Br\xFCssel
+        unter dem Titel \u201CCouncil conclusions on high-quality, transparent, open,
+        trustworthy and equitable scholarly publishing\u201D (PDF der englischen Version,
+        PDF der deutschen Version)\_mit den aktuellen Herausforderungen des wissenschaftlichen
+        Publikationswesens befasst.\\n\",\"tags\":[\"Open Access\",\"Open Access Transformation\",\"Open
+        Science\"],\"title\":\"EU-Mitgliedstaaten betonen die Rolle von wissenschaftsgeleiteten
+        Open-Access-Modellen jenseits von APCs\",\"updated_at\":1684833413,\"url\":\"https://wisspub.net/2023/05/23/eu-mitgliedstaaten-betonen-die-rolle-von-wissenschaftsgeleiteten-open-access-modellen-jenseits-von-apcs\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}}],\"out_of\":13287,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"\"},\"search_cutoff\":false,\"search_time_ms\":8}"
+    headers:
+      Connection:
+      - keep-alive
+      accept-ranges:
+      - none
+      access-control-allow-origin:
+      - '*'
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: OK
 version: 1

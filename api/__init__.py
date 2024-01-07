@@ -32,6 +32,8 @@ from api.typesense import typesense_client as typesense
 from api.utils import (
     doi_from_url,
     get_doi_metadata_from_ra,
+    write_epub,
+    write_pdf,
     format_markdown,
     validate_uuid,
     unix_timestamp,
@@ -339,7 +341,7 @@ async def post(slug: str, suffix: Optional[str] = None):
         return jsonify(response.data)
     elif slug in prefixes and suffix:
         doi = f"https://doi.org/{slug}/{suffix}"
-        if format_ in ["markdown", "md"]:
+        if format_ in ["markdown", "md", "epub", "pdf"]:
             try:
                 response = (
                     supabase.table("posts")
@@ -360,14 +362,30 @@ async def post(slug: str, suffix: Optional[str] = None):
                         "published_at": "date",
                         "summary": "abstract",
                         "tags": "keywords",
-                        "updated_at": "updated_date",
+                        "updated_at": "date_updated",
                     },
                 )
-                return (
-                    format_markdown(content, metadata),
-                    200,
-                    {"Content-Type": "text/markdown;charset=UTF-8", "Content-Disposition": f"attachment; filename={basename}.md",},
-                )
+                markdown = format_markdown(content, metadata)
+                if format_ == "epub":
+                    epub = write_epub(markdown)
+                    return (
+                        epub,
+                        200,
+                        {"Content-Type": "application/epub+zip", "Content-Disposition": f"attachment; filename={basename}.epub",},
+                    )
+                elif format_ == "pdf":
+                    pdf = write_pdf(markdown)
+                    return (
+                        pdf,
+                        200,
+                        {"Content-Type": "application/pdf", "Content-Disposition": f"attachment; filename={basename}.pdf",},
+                    )
+                else:
+                    return (
+                        format_markdown(content, metadata),
+                        200,
+                        {"Content-Type": "text/markdown;charset=UTF-8", "Content-Disposition": f"attachment; filename={basename}.md",},
+                    )
             except Exception as e:
                 logger.warning(e.args[0])
                 return {"error": "Post not found"}, 404
