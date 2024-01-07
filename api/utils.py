@@ -158,6 +158,16 @@ def unix_timestamp(date_str: str) -> int:
         return 0
 
 
+def format_datetime(date_str: str) -> str:
+    """convert iso8601 date to formatted date"""
+    try:
+        dt = iso8601.parse_date(date_str)
+        return dt.strftime('%B %-d, %Y')
+    except ValueError as e:
+        print(e)
+        return "January 1, 1970"
+    
+
 def end_of_date(date_str: str) -> str:
     """convert iso8601 date to end of day/month/year"""
     try:
@@ -183,6 +193,13 @@ def end_of_date(date_str: str) -> str:
         print(e)
         return "1970-01-01T00:00:00"
 
+
+def format_authors(authors):
+    """Extract author names"""
+    def format_author(author):
+        return author.get("name", None)
+    return [format_author(x) for x in authors]
+    
 
 def validate_uuid(slug: str) -> bool:
     """validate uuid"""
@@ -410,4 +427,4 @@ def format_markdown(content: str, metadata) -> str:
     post['date'] = datetime.utcfromtimestamp(metadata.get("date", 0)).isoformat() + "Z"
     post['date_updated'] = datetime.utcfromtimestamp(metadata.get("date_updated", 0)).isoformat() + "Z"
     post['abstract'] = metadata.get("abstract", "").strip()
-    return frontmatter.dumps(post)
+    return post

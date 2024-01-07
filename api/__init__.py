@@ -2,12 +2,13 @@
 from hypercorn.config import Config
 import logging
 from typing import Optional
-from datetime import timedelta
+from datetime import timedelta, datetime
 import time
 from os import environ
 import pydash as py_
 from dotenv import load_dotenv
 import sentry_sdk
+import frontmatter
 
 # import importlib.metadata
 from quart import Quart, request, jsonify, redirect
@@ -39,6 +40,8 @@ from api.utils import (
     unix_timestamp,
     end_of_date,
     compact,
+    format_datetime,
+    format_authors
 )
 from api.posts import extract_all_posts, extract_all_posts_by_blog, update_posts
 from api.blogs import extract_single_blog, extract_all_blogs
@@ -357,7 +360,9 @@ async def post(slug: str, suffix: Optional[str] = None):
                 metadata = py_.rename_keys(
                     metadata,
                     {
-                        "blog_name": "container",
+                        "authors": "author",
+                        "blog_name": "publisher",
+                        "doi": "identifier",
                         "language": "lang",
                         "published_at": "date",
                         "summary": "abstract",
@@ -367,6 +372,9 @@ async def post(slug: str, suffix: Optional[str] = None):
                 )
                 markdown = format_markdown(content, metadata)
                 if format_ == "epub":
+                    markdown["date"] = format_datetime(markdown["date"])
+                    markdown["author"] = format_authors(markdown["author"])
+                    markdown = frontmatter.dumps(markdown)
                     epub = write_epub(markdown)
                     return (
                         epub,
@@ -374,6 +382,10 @@ async def post(slug: str, suffix: Optional[str] = None):
                         {"Content-Type": "application/epub+zip", "Content-Disposition": f"attachment; filename={basename}.epub",},
                     )
                 elif format_ == "pdf":
+                    markdown["date"] = format_datetime(markdown["date"])
+                    markdown["abstract"] = None
+                    markdown["author"] = format_authors(markdown["author"])
+                    markdown = frontmatter.dumps(markdown)
                     pdf = write_pdf(markdown)
                     return (
                         pdf,
@@ -382,7 +394,7 @@ async def post(slug: str, suffix: Optional[str] = None):
                     )
                 else:
                     return (
-                        format_markdown(content, metadata),
+                        frontmatter.dumps(markdown),
                         200,
                         {"Content-Type": "text/markdown;charset=UTF-8", "Content-Disposition": f"attachment; filename={basename}.md",},
                     )

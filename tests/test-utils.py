@@ -2,8 +2,7 @@
 import pytest  # noqa: F401
 import pydash as py_  # noqa: F401
 import json
-# from ebooklib import epub
-# from PyPDF2 import PdfReader
+import frontmatter
 
 from api.utils import (
     get_date,
@@ -231,6 +230,7 @@ def test_format_markdown():
     content = "This is a *test*"
     metadata = {"title": "Test"}
     result = format_markdown(content, metadata)
+    result = frontmatter.dumps(result)
     assert (
         result
         == """---
