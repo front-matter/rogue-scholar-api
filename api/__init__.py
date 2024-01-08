@@ -394,7 +394,7 @@ async def post(slug: str, suffix: Optional[str] = None):
                     return (
                         pdf,
                         200,
-                        {"Content-Type": "application/pdf"},
+                        {"Content-Type": "application/pdf", "Content-Disposition": f"attachment; filename={basename}.pdf",},
                     )
                 else:
                     return (
