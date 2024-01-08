@@ -237,6 +237,7 @@ def test_format_markdown():
 abstract: ''
 date: '1970-01-01T00:00:00Z'
 date_updated: '1970-01-01T00:00:00Z'
+rights: https://creativecommons.org/licenses/by/4.0/legalcode
 title: Test
 ---
 

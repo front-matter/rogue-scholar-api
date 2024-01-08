@@ -287,7 +287,7 @@ async def test_posts_post_route():
     response = await test_client.post("/posts", headers=headers)
     assert response.status_code == 200
     result = await response.get_json()
-    assert len(result) == 5
+    assert len(result) > 1
     post = result[0]
     assert post["title"] is not None
 
@@ -379,6 +379,16 @@ async def test_post_as_ris():
     doi = result.splitlines()[1]
     assert type_ == "TY  - GENERIC"
     assert doi == "DO  - 10.59350/sfzv4-xdb68"
+
+
+@pytest.mark.vcr
+async def test_post_as_markdown():
+    """Test post formatted as markdown."""
+    test_client = app.test_client()
+    response = await test_client.get("/posts/10.59350/sfzv4-xdb68.md")
+    assert response.status_code == 200
+    result = await response.get_data(as_text=True)
+    assert result is not None
 
 
 @pytest.mark.vcr

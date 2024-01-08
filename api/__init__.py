@@ -343,13 +343,12 @@ async def post(slug: str, suffix: Optional[str] = None):
         return jsonify(response.data)
     elif slug in prefixes and suffix:
         path = suffix.split(".")
-        if len(path) == 2 and path[1] in ["md", "epub", "pdf", "bib", "ris", "csl"]:
+        if len(path) == 2 and path[1] in ["md", "epub", "pdf", "bib", "ris"]:
             suffix = path[0]
             format_ = path[1]
-        if format_ == "bibtex":
-            format_ = "bib"
+        if format_ == "bib":
+            format_ = "bibtex"
         doi = f"https://doi.org/{slug}/{suffix}"
-        print(format_)
         if format_ in ["md", "epub", "pdf"]:
             try:
                 response = (
@@ -408,7 +407,7 @@ async def post(slug: str, suffix: Optional[str] = None):
             except Exception as e:
                 logger.warning(e.args[0])
                 return {"error": "Post not found"}, 404
-        elif format_ in ["bib", "ris", "csl", "citation"]:
+        elif format_ in ["bibtex", "ris", "csl", "citation"]:
             response = get_doi_metadata_from_ra(doi, format_, style, locale)
             if not response:
                 logger.warning("Metadata not found")
