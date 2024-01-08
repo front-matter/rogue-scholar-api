@@ -385,7 +385,7 @@ async def test_post_as_ris():
 async def test_post_as_csl():
     """Test post formatted as csl."""
     test_client = app.test_client()
-    response = await test_client.get("/posts/10.59350/sfzv4-xdb68.csl")
+    response = await test_client.get("/posts/10.59350/sfzv4-xdb68?format=csl")
     assert response.status_code == 200
     result = await response.get_json()
     assert result["type"] == "article-journal"
