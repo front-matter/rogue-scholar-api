@@ -287,9 +287,9 @@ async def test_posts_post_route():
     response = await test_client.post("/posts", headers=headers)
     assert response.status_code == 200
     result = await response.get_json()
-    assert len(result) == 0
-    # post = result[0]
-    # assert post["title"] is not None
+    assert len(result) == 5
+    post = result[0]
+    assert post["title"] is not None
 
 
 @pytest.mark.vcr
@@ -351,7 +351,7 @@ async def test_post_route_by_doi_not_found():
 async def test_post_as_bibtex():
     """Test post formatted as bibtex."""
     test_client = app.test_client()
-    response = await test_client.get("/posts/10.59350/sfzv4-xdb68?format=bibtex")
+    response = await test_client.get("/posts/10.59350/sfzv4-xdb68.bib")
     assert response.status_code == 200
     result = await response.get_data(as_text=True)
     assert (
@@ -372,7 +372,7 @@ async def test_post_as_bibtex():
 async def test_post_as_ris():
     """Test post formatted as ris."""
     test_client = app.test_client()
-    response = await test_client.get("/posts/10.59350/sfzv4-xdb68?format=ris")
+    response = await test_client.get("/posts/10.59350/sfzv4-xdb68.ris")
     assert response.status_code == 200
     result = await response.get_data(as_text=True)
     type_ = result.splitlines()[0]
@@ -385,7 +385,7 @@ async def test_post_as_ris():
 async def test_post_as_csl():
     """Test post formatted as csl."""
     test_client = app.test_client()
-    response = await test_client.get("/posts/10.59350/sfzv4-xdb68?format=csl")
+    response = await test_client.get("/posts/10.59350/sfzv4-xdb68.csl")
     assert response.status_code == 200
     result = await response.get_json()
     assert result["type"] == "article-journal"

@@ -258,7 +258,7 @@ def get_doi_metadata_from_ra(
     format_ can be bibtex, ris, csl, citation, with bibtex as default."""
 
     content_types = {
-        "bibtex": "application/x-bibtex",
+        "bib": "application/x-bibtex",
         "ris": "application/x-research-info-systems",
         "csl": "application/vnd.citationstyles.csl+json",
         "citation": f"text/x-bibliography; style={style}; locale={locale}",
@@ -289,7 +289,7 @@ def get_doi_metadata_from_ra(
     elif format_ == "ris":
         ext = "ris"
         result = response.text
-    elif format_ == "bibtex":
+    elif format_ == "bib":
         ext = "bib"
         bib = bibtexparser.parse_string(response.text)
         entry = bib.entries[0]
