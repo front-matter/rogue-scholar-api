@@ -427,4 +427,5 @@ def format_markdown(content: str, metadata) -> str:
     post['date'] = datetime.utcfromtimestamp(metadata.get("date", 0)).isoformat() + "Z"
     post['date_updated'] = datetime.utcfromtimestamp(metadata.get("date_updated", 0)).isoformat() + "Z"
     post['abstract'] = metadata.get("abstract", "").strip()
+    post['rights'] = "https://creativecommons.org/licenses/by/4.0/legalcode"
     return post
