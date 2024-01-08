@@ -415,7 +415,7 @@ def write_pdf(markdown: str):
     """Get pdf from markdown"""
     try:
         doc = pandoc.read(markdown, format="commonmark_x")
-        return pandoc.write(doc, format="pdf", options=["--pdf-engine=lualatex"])
+        return pandoc.write(doc, format="pdf", options=["--pdf-engine=weasyprint"])
     except Exception as e:
         print(e)
         return ""
