@@ -385,6 +385,9 @@ async def post(slug: str, suffix: Optional[str] = None):
                     markdown["date"] = format_datetime(markdown["date"])
                     markdown["abstract"] = None
                     markdown["author"] = format_authors(markdown["author"])
+                    markdown["mainfont"] = "SourceSerifPro"
+                    markdown["sansfont"] = "SourceSansPro"
+                    markdown["monofont"] = "SourceCodePro"
                     markdown = frontmatter.dumps(markdown)
                     pdf = write_pdf(markdown)
                     return (
