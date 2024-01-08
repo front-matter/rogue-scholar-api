@@ -414,7 +414,7 @@ def write_epub(markdown: str):
 def write_pdf(markdown: str):
     """Get pdf from markdown"""
     try:
-        doc = pandoc.read(markdown, format="commonmark_x")
+        doc = pandoc.read(markdown, format="commonmark_x", options=["--pdf-engine=lualatex"])
         return pandoc.write(doc, format="pdf")
     except Exception as e:
         print(e)
