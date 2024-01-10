@@ -207,11 +207,11 @@ def format_authors_full(authors):
     """Parse author names into given and family names"""
 
     def format_author(author):
-        orcid = normalize_orcid(author.get("url", None))
         meta = get_one_author(author)
         given_names = meta.get("givenName", None)
         surname = meta.get("familyName", None)
         name = meta.get("name", None)
+        orcid = normalize_orcid(author.get("url", None) or "")
         return compact(
             {
                 "orcid": orcid,
