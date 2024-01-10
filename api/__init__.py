@@ -35,13 +35,15 @@ from api.utils import (
     get_doi_metadata_from_ra,
     write_epub,
     write_pdf,
+    write_jats,
     format_markdown,
     validate_uuid,
     unix_timestamp,
     end_of_date,
     compact,
     format_datetime,
-    format_authors
+    format_authors,
+    format_authors_full,
 )
 from api.posts import extract_all_posts, extract_all_posts_by_blog, update_posts
 from api.blogs import extract_single_blog, extract_all_blogs
@@ -343,13 +345,13 @@ async def post(slug: str, suffix: Optional[str] = None):
         return jsonify(response.data)
     elif slug in prefixes and suffix:
         path = suffix.split(".")
-        if len(path) == 2 and path[1] in ["md", "epub", "pdf", "bib", "ris"]:
+        if len(path) == 2 and path[1] in ["md", "epub", "pdf", "xml", "bib", "ris"]:
             suffix = path[0]
             format_ = path[1]
         if format_ == "bib":
             format_ = "bibtex"
         doi = f"https://doi.org/{slug}/{suffix}"
-        if format_ in ["md", "epub", "pdf"]:
+        if format_ in ["md", "epub", "pdf", "xml"]:
             try:
                 response = (
                     supabase.table("posts")
@@ -359,14 +361,13 @@ async def post(slug: str, suffix: Optional[str] = None):
                     .execute()
                 )
                 basename = doi_from_url(doi).replace("/", "-")
-    
+
                 content = response.data.get("content_text", None)
                 metadata = py_.omit(response.data, ["content_text"])
                 metadata = py_.rename_keys(
                     metadata,
                     {
                         "authors": "author",
-                        "blog_name": "publisher",
                         "doi": "identifier",
                         "language": "lang",
                         "published_at": "date",
@@ -385,7 +386,10 @@ async def post(slug: str, suffix: Optional[str] = None):
                     return (
                         epub,
                         200,
-                        {"Content-Type": "application/epub+zip", "Content-Disposition": f"attachment; filename={basename}.epub",},
+                        {
+                            "Content-Type": "application/epub+zip",
+                            "Content-Disposition": f"attachment; filename={basename}.epub",
+                        },
                     )
                 elif format_ == "pdf":
                     markdown["date"] = format_datetime(markdown["date"])
@@ -396,13 +400,44 @@ async def post(slug: str, suffix: Optional[str] = None):
                     return (
                         pdf,
                         200,
-                        {"Content-Type": "application/pdf", "Content-Disposition": f"attachment; filename={basename}.pdf",},
+                        {
+                            "Content-Type": "application/pdf",
+                            "Content-Disposition": f"attachment; filename={basename}.pdf",
+                        },
+                    )
+                elif format_ == "xml":
+                    markdown["author"] = format_authors_full(markdown["author"])
+                    markdown["date"] = {
+                        "iso-8601": markdown["date"],
+                        "year": markdown["date"][:4],
+                        "month": markdown["date"][5:7],
+                        "day": markdown["date"][8:10],
+                    }
+                    markdown["article"] = {"doi": markdown["identifier"]}
+                    markdown["license"] = {
+                        "text": "Creative Commons Attribution 4.0",
+                        "type": "open-access",
+                        "link": markdown["rights"]
+                    }
+                    markdown["journal"] = {"title": markdown["blog_name"]}
+                    markdown = frontmatter.dumps(markdown)
+                    jats = write_jats(markdown)
+                    return (
+                        jats,
+                        200,
+                        {
+                            "Content-Type": "application/xml",
+                            "Content-Disposition": f"attachment; filename={basename}.xml",
+                        },
                     )
                 else:
                     return (
                         frontmatter.dumps(markdown),
                         200,
-                        {"Content-Type": "text/markdown;charset=UTF-8", "Content-Disposition": f"attachment; filename={basename}.md",},
+                        {
+                            "Content-Type": "text/markdown;charset=UTF-8",
+                            "Content-Disposition": f"attachment; filename={basename}.md",
+                        },
                     )
             except Exception as e:
                 logger.warning(e.args[0])

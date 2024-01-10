@@ -8,14 +8,14 @@ import iso8601
 import html
 from lxml import etree
 import bibtexparser
-from bibtexparser.model import Field
 import pydash as py_
 from dateutil import parser, relativedelta
 from datetime import datetime
 from furl import furl
 from langdetect import detect
 from bs4 import BeautifulSoup
-from idutils import is_orcid
+from idutils import is_orcid, normalize_orcid
+from commonmeta import get_one_author
 import frontmatter
 import pandoc
 # from pandoc.types import Str
@@ -162,11 +162,11 @@ def format_datetime(date_str: str) -> str:
     """convert iso8601 date to formatted date"""
     try:
         dt = iso8601.parse_date(date_str)
-        return dt.strftime('%B %-d, %Y')
+        return dt.strftime("%B %-d, %Y")
     except ValueError as e:
         print(e)
         return "January 1, 1970"
-    
+
 
 def end_of_date(date_str: str) -> str:
     """convert iso8601 date to end of day/month/year"""
@@ -196,10 +196,33 @@ def end_of_date(date_str: str) -> str:
 
 def format_authors(authors):
     """Extract author names"""
+
     def format_author(author):
         return author.get("name", None)
+
     return [format_author(x) for x in authors]
-    
+
+
+def format_authors_full(authors):
+    """Parse author names into given and family names"""
+
+    def format_author(author):
+        orcid = normalize_orcid(author.get("url", None))
+        meta = get_one_author(author)
+        given_names = meta.get("givenName", None)
+        surname = meta.get("familyName", None)
+        name = meta.get("name", None)
+        return compact(
+            {
+                "orcid": orcid,
+                "given-names": given_names,
+                "surname": surname,
+                "name": name,
+            }
+        )
+
+    return [format_author(x) for x in authors]
+
 
 def validate_uuid(slug: str) -> bool:
     """validate uuid"""
@@ -264,7 +287,7 @@ def get_doi_metadata_from_ra(
         "citation": f"text/x-bibliography; style={style}; locale={locale}",
     }
     content_type = content_types.get(format_)
-    
+
     response = requests.get(doi, headers={"Accept": content_type}, timeout=10)
     response.encoding = "UTF-8"
     if response.status_code >= 400:
@@ -291,13 +314,13 @@ def get_doi_metadata_from_ra(
         result = response.text
     elif format_ == "bibtex":
         ext = "bib"
-        bib = bibtexparser.parse_string(response.text)
-        entry = bib.entries[0]
-        
+        library = bibtexparser.loads(response.text)
+
         # cleanup to bibtex
         # TODO: fix more fields
-        entry.set_field(Field(key="DOI", value=doi_from_url(doi)))
-        result = bibtexparser.write_string(bib)
+        library.entries[0]["doi"] = doi_from_url(doi)
+        result = bibtexparser.dumps(library)
+
     else:
         ext = "txt"
         result = response.text
@@ -318,7 +341,7 @@ def normalize_url(url: Optional[str], secure=False, lower=False) -> Optional[str
     # remove trailing slash, index.html
     if f.path.segments and f.path.segments[-1] in ["", "index.html"]:
         f.path.segments.pop(-1)
-    
+
     # remove fragments
     f.remove(fragment=True)
 
@@ -387,7 +410,7 @@ def get_soup(content_html: str) -> Optional[BeautifulSoup]:
 
 
 def fix_xml(x):
-    p = etree.fromstring(x, parser = etree.XMLParser(recover=True))
+    p = etree.fromstring(x, parser=etree.XMLParser(recover=True))
     return etree.tostring(p)
 
 
@@ -399,8 +422,8 @@ def get_markdown(content_html: str) -> str:
     except Exception as e:
         print(e)
         return ""
-    
-    
+
+
 def write_epub(markdown: str):
     """Get epub from markdown"""
     try:
@@ -415,7 +438,24 @@ def write_pdf(markdown: str):
     """Get pdf from markdown"""
     try:
         doc = pandoc.read(markdown, format="commonmark_x")
-        return pandoc.write(doc, format="pdf", options=["--pdf-engine=weasyprint", "--pdf-engine-opt=--pdf-variant=pdf/ua-1"])
+        return pandoc.write(
+            doc,
+            format="pdf",
+            options=[
+                "--pdf-engine=weasyprint",
+                "--pdf-engine-opt=--pdf-variant=pdf/ua-1",
+            ],
+        )
+    except Exception as e:
+        print(e)
+        return ""
+
+
+def write_jats(markdown: str):
+    """Get jats from markdown"""
+    try:
+        doc = pandoc.read(markdown, format="commonmark_x")
+        return pandoc.write(doc, format="jats", options=["--standalone"])
     except Exception as e:
         print(e)
         return ""
@@ -424,8 +464,10 @@ def write_pdf(markdown: str):
 def format_markdown(content: str, metadata) -> str:
     """format markdown"""
     post = frontmatter.Post(content, **metadata)
-    post['date'] = datetime.utcfromtimestamp(metadata.get("date", 0)).isoformat() + "Z"
-    post['date_updated'] = datetime.utcfromtimestamp(metadata.get("date_updated", 0)).isoformat() + "Z"
-    post['abstract'] = metadata.get("abstract", "").strip()
-    post['rights'] = "https://creativecommons.org/licenses/by/4.0/legalcode"
+    post["date"] = datetime.utcfromtimestamp(metadata.get("date", 0)).isoformat() + "Z"
+    post["date_updated"] = (
+        datetime.utcfromtimestamp(metadata.get("date_updated", 0)).isoformat() + "Z"
+    )
+    post["abstract"] = metadata.get("abstract", "").strip()
+    post["rights"] = "https://creativecommons.org/licenses/by/4.0/legalcode"
     return post

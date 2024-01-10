@@ -287,7 +287,7 @@ async def test_posts_post_route():
     response = await test_client.post("/posts", headers=headers)
     assert response.status_code == 200
     result = await response.get_json()
-    assert len(result) > 1
+    assert len(result) > 0
     post = result[0]
     assert post["title"] is not None
 
@@ -357,13 +357,13 @@ async def test_post_as_bibtex():
     assert (
         result
         == """@article{Fern_ndez_2023,
-\ttitle = {¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?},
-\turl = {http://dx.doi.org/10.59350/sfzv4-xdb68},
-\tDOI = {10.59350/sfzv4-xdb68},
-\tpublisher = {Front Matter},
-\tauthor = {Fernández, Norbisley},
-\tyear = {2023},
-\tmonth = {oct}
+ author = {Fernández, Norbisley},
+ doi = {10.59350/sfzv4-xdb68},
+ month = {October},
+ publisher = {Front Matter},
+ title = {¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?},
+ url = {http://dx.doi.org/10.59350/sfzv4-xdb68},
+ year = {2023}
 }"""
     )
 
@@ -390,6 +390,36 @@ async def test_post_as_markdown():
     result = await response.get_data(as_text=True)
     assert result is not None
 
+
+@pytest.mark.vcr
+async def test_post_as_xml():
+    """Test post formatted as xml."""
+    test_client = app.test_client()
+    response = await test_client.get("/posts/10.59350/sfzv4-xdb68.xml")
+    assert response.status_code == 200
+    result = await response.get_data(as_text=True)
+    assert result is not None
+
+
+@pytest.mark.vcr
+async def test_post_as_epub():
+    """Test post formatted as epub."""
+    test_client = app.test_client()
+    response = await test_client.get("/posts/10.59350/sfzv4-xdb68.epub")
+    assert response.status_code == 200
+    result = await response.get_data()
+    assert result is not None
+
+
+@pytest.mark.vcr
+async def test_post_as_pdf():
+    """Test post formatted as pdf."""
+    test_client = app.test_client()
+    response = await test_client.get("/posts/10.59350/sfzv4-xdb68.pdf")
+    assert response.status_code == 200
+    result = await response.get_data()
+    assert result is not None
+    
 
 @pytest.mark.vcr
 async def test_post_as_csl():

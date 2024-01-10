@@ -33,16 +33,17 @@ def test_get_doi_metadata_bibtex():
     "get doi metadata in bibtex format"
     doi = "https://doi.org/10.53731/ybhah-9jy85"
     result = get_doi_metadata_from_ra(doi, format_="bibtex")
+    print(result)
     assert (
         result["data"]
         == """@article{Fenner_2023,
-\ttitle = {The rise of the (science) newsletter},
-\turl = {http://dx.doi.org/10.53731/ybhah-9jy85},
-\tDOI = {10.53731/ybhah-9jy85},
-\tpublisher = {Front Matter},
-\tauthor = {Fenner, Martin},
-\tyear = {2023},
-\tmonth = {oct}
+ author = {Fenner, Martin},
+ doi = {10.53731/ybhah-9jy85},
+ month = {October},
+ publisher = {Front Matter},
+ title = {The rise of the (science) newsletter},
+ url = {http://dx.doi.org/10.53731/ybhah-9jy85},
+ year = {2023}
 }"""
     )
 
