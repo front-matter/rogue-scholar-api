@@ -443,6 +443,9 @@ def write_pdf(markdown: str):
             options=[
                 "--pdf-engine=weasyprint",
                 "--pdf-engine-opt=--pdf-variant=pdf/ua-1",
+                "--data-dir=environ['QUART_PANDOC_DATA_DIR']",
+                "--template=default.html5",
+                "--css=style.css"
             ],
         )
     except Exception as e:
