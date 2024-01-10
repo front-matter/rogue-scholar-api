@@ -14,8 +14,7 @@ from datetime import datetime
 from furl import furl
 from langdetect import detect
 from bs4 import BeautifulSoup
-from idutils import is_orcid, normalize_orcid
-from commonmeta import get_one_author
+from commonmeta import get_one_author, validate_orcid
 import frontmatter
 import pandoc
 # from pandoc.types import Str
@@ -132,7 +131,7 @@ def normalize_author(name: str, url: str = None) -> dict:
         name = name.split(", ", maxsplit=1)[0]
 
     name_ = AUTHOR_NAMES.get(name, None) or name
-    url_ = url if url and is_orcid(url) else AUTHOR_IDS.get(name_, None)
+    url_ = url if url and validate_orcid(url) else AUTHOR_IDS.get(name_, None)
 
     return compact({"name": name_, "url": url_})
 
@@ -211,7 +210,7 @@ def format_authors_full(authors):
         given_names = meta.get("givenName", None)
         surname = meta.get("familyName", None)
         name = meta.get("name", None)
-        orcid = normalize_orcid(author.get("url", None) or "")
+        orcid = validate_orcid(author.get("url", None))
         return compact(
             {
                 "orcid": orcid,

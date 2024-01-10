@@ -12,7 +12,7 @@ import xmltodict
 import time
 import traceback
 from urllib.parse import unquote
-from idutils import is_doi
+from commonmeta import validate_doi
 
 from api.utils import (
     unix_timestamp,
@@ -817,7 +817,7 @@ def get_references(content_html: str):
 
         def format_reference(url, index):
             """Format reference."""
-            doi = is_doi(url)
+            doi = validate_doi(url)
 
             if doi:
                 return {
@@ -1041,7 +1041,7 @@ def get_urls(content_html: str):
             url = normalize_url(url)
             if not url:
                 return None
-            if is_doi(url):
+            if validate_doi(url):
                 f = furl(url)
                 if f.scheme == "http":
                     f.scheme = "https"
