@@ -14,7 +14,7 @@ from datetime import datetime
 from furl import furl
 from langdetect import detect
 from bs4 import BeautifulSoup
-from commonmeta import get_one_author, validate_orcid
+from commonmeta import get_one_author, validate_orcid, normalize_orcid
 import frontmatter
 import pandoc
 # from pandoc.types import Str
@@ -216,6 +216,37 @@ def format_authors_full(authors):
                 "orcid": orcid,
                 "given-names": given_names,
                 "surname": surname,
+                "name": name,
+            }
+        )
+
+    return [format_author(x) for x in authors]
+
+
+def format_license(authors, date):
+    """Generate license string"""
+    
+    auth = format_authors(authors)
+    length = len(auth)
+    year = date[:4]
+    if length == 0:
+        auth = ""
+    if length > 0:
+        auth = auth[0]
+    if length > 1:
+        auth = auth + " et al."
+    return f"Copyright <span class=\"copyright\">©</span> {auth} {year}."
+
+
+def format_authors_with_orcid(authors):
+    """Parse author names into names and orcid"""
+
+    def format_author(author):
+        name = author.get("name", None)
+        orcid = normalize_orcid(author.get("url", None))
+        return compact(
+            {
+                "orcid": orcid,
                 "name": name,
             }
         )

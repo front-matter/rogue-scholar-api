@@ -25,49 +25,52 @@
   font-weight: 500;
   src: url(firasans-semibold.otf);
 }
+@font-face {
+  font-family: Fira Sans;
+  font-style: italic;
+  font-weight: 500;
+  src: url(firasans-semibolditalic.otf);
+}
+@font-face {
+  font-family: Fira Sans;
+  font-weight: 700;
+  src: url(firasans-bold.otf);
+}
 
 @page {
   @top-left {
-    background: #bfdbfe;
-    content: counter(page);
-    height: 1cm;
-    text-align: center;
-    width: 1cm;
-    margin-bottom: .2cm; 
-  }
-  @top-center {
-    background: #bfdbfe;
-    content: '';
-    display: block;
-    height: .05cm;
-    opacity: .5;
-    width: 100%;
-    margin-bottom: .2cm; 
+    content: string(blog);
+    font-size: 12pt;
+    font-weight: 700;
+    margin-left: .2cm;
+    height: 1.2cm;
+    vertical-align: middle;
+    width: 25%;
   }
   @top-right {
-    content: string(heading);
+    content: string(heading) " • Page " counter(page);
     font-size: 9pt;
-    height: 1.4cm;
+    height: 1.2cm;
     vertical-align: middle;
-    width: 100%;
+    width: 75%;
   }
 }
-@page :blank {
-  @top-left { background: none; content: '' }
-  @top-center { content: none }
-  @top-right { content: none }
-}
 @page no-chapter {
-  @top-left { background: none; content: none }
-  @top-center { content: none }
+  @top-left { background: none }
   @top-right { content: none }
 }
 @page chapter {
   background: #bfdbfe;
   margin: 0;
   @top-left { content: none }
-  @top-center { content: none }
   @top-right { content: none }
+}
+
+.header {
+  visibility: hidden;
+  display: inline;
+  margin: 0;
+  string-set: blog content();
 }
 
 html {
@@ -80,21 +83,24 @@ html {
 
 h1 {
   color: #3b82f6;
-  font-size: 30pt;
+  font-size: 27pt;
   line-height: 1.15;
   page: no-chapter;
   width: 100%;
   string-set: heading content();
+  margin: 0;
 }
 h2, h3, h4 {
   color: black;
   font-weight: 500;
 }
 h2 {
-  break-before: always;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: -12pt;
+  padding-bottom: 0;
+  line-height: 1.15;
   color: #3b82f6;
-  font-size: 24pt;
+  font-size: 22pt;
   font-weight: 500;
 }
 h3 {
@@ -170,18 +176,6 @@ h4 {
   color: #bfdbfe;
   content: target-counter(attr(href), page);
   float: right;
-}
-
-#columns section {
-  columns: 2;
-  column-gap: 1cm;
-  padding-top: 1cm;
-}
-#columns section p {
-  text-align: justify;
-}
-#columns section p:first-of-type {
-  font-weight: 500;
 }
 
 #chapter {
@@ -296,16 +290,47 @@ h4 {
 .author, .date, .identifier {
   margin: 0;
 }
+.date {
+  padding-top: 12pt;
+}
+.author span {
+  font-weight: 500;
+}
+.rights {
+  padding-top: 12pt;
+  break-after: always;
+}
+.abstract-title, .keywords-title, .rights-title, .date-title, .citation-title {
+  font-weight: 500;
+  padding-top: 12pt;
+}
+a, .citation a {
+  text-decoration: none;
+  color: #3b82f6;
+}
+figure {
+  img {
+    max-width: 100%;
+  }
+  figcaption {
+    font-size: 9pt;
+  }
+}
 img {
   max-width: 100%;
 }
-figcaption {
-  font-size: 9pt;
+img.feature-image {
+  padding-top: 12pt;
+  max-width: 75%;
+  max-height: 8cm;
 }
 blockquote {
   margin: 10px 0;
-  border-left: 3px solid #bfdbfe;
+  border-left: 3px solid #3b82f6;
   padding-left: 10px;
   font-style: italic;
   font-weight: 300;
+}
+.copyright {
+  vertical-align: -1px;
 }

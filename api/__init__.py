@@ -44,6 +44,8 @@ from api.utils import (
     format_datetime,
     format_authors,
     format_authors_full,
+    format_authors_with_orcid,
+    format_license
 )
 from api.posts import extract_all_posts, extract_all_posts_by_blog, update_posts
 from api.blogs import extract_single_blog, extract_all_blogs
@@ -392,9 +394,16 @@ async def post(slug: str, suffix: Optional[str] = None):
                         },
                     )
                 elif format_ == "pdf":
+                    markdown["author"] = format_authors_with_orcid(markdown["author"])
+                    markdown["license"] = {
+                        "text": format_license(markdown["author"], markdown["date"]),
+                        "link": markdown["rights"]
+                    }
                     markdown["date"] = format_datetime(markdown["date"])
-                    markdown["abstract"] = None
-                    markdown["author"] = format_authors(markdown["author"])
+                    markdown["blog_name"] = markdown["blog_name"][:32] + (markdown["blog_name"][32:] and '...')
+                    citation = get_doi_metadata_from_ra(doi, "citation", style, locale)
+                    if citation:
+                        markdown["citation"] = citation["data"]
                     markdown = frontmatter.dumps(markdown)
                     pdf = write_pdf(markdown)
                     return (

@@ -37,29 +37,71 @@ $endif$
 $for(include-before)$
 $include-before$
 $endfor$
-$if(title)$
-<header id="title-block-header">
-<h1 class="title">$title$</h1>
-$if(subtitle)$
-<p class="subtitle">$subtitle$</p>
+<section class="front-matter">
+  $if(title)$
+    <h1 class="title">$title$</h1>
+    $if(subtitle)$
+      <p class="subtitle">$subtitle$</p>
+    $endif$
+  $endif$
+  <span class="header">$blog_name$</span>
+  <p class="author">
+  $if(author/allbutlast)$
+    $for(author/allbutlast)$
+      $if(it.orcid)$
+        <span>${it.name}<a href="${it.orcid}"><img alt="ORCID logo" src="orcid.svg" style="margin-left: 2px; vertical-align: -1px" /></a></span>$else$<span>${it.name}</span>$endif$$sep$, $endfor$
+    $for(author/last)$
+      $if(it.orcid)$
+        and <span>${it.name}<a href="${it.orcid}"><img alt="ORCID logo" src="orcid.svg" style="margin-left: 2px; vertical-align: -1px" /></a></span>
+      $else$
+        and <span>${it.name}</span>
+      $endif$
+    $endfor$
+  $else$
+    $for(author)$
+      $if(it.orcid)$
+        <span>${it.name}<a href="${it.orcid}"><img alt="ORCID logo" src="orcid.svg" style="margin-left: 2px; vertical-align: -1px" /></a></span>
+      $else$
+        <span>${it.name}</span>
+      $endif$
+    $endfor$
+  $endif$
+  </p>
+  $if(date)$
+    <div class="date">
+      Published $date$
+    </div>
+  $endif$
+  $if(citation)$
+    <div class="citation">
+      <div class="citation-title">Citation</div>
+      $citation$
+    </div>
+  $endif$
+  $if(keywords)$
+    <div class=""keywords>
+      <div class="keywords-title">Keywords</div>
+      $keywords[, ]$
+    </div>
+  $endif$
+  $if(abstract)$
+    <div class="abstract">
+      <div class="abstract-title">$abstract-title$</div>
+        $abstract$
+    </div>
+  $endif$
+  $if(image)$
+    <img class="feature-image" alt="Feature Image" src="$image$" />
+  $endif$
+  $if(license)$
+  <div class="rights">
+    <div class="rights-title">Copyright</div>
+    $license.text$ Distributed under the terms of the <a href="$license.link$">Creative Commons Attribution 4.0 International License</a>,
+    which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and 
+    source are credited.
+  </div>
 $endif$
-$if(identifier)$
-<p class="identifier">$identifier$</p>
-$endif$
-$if(date)$
-<p class="date">Published $date$ in $blog_name$</p>
-$endif$
-$for(author)$
-<p class="author">$author$</p>
-$endfor$
-$if(abstract)$
-<div class="abstract">
-<div class="abstract-title">$abstract-title$</div>
-$abstract$
-</div>
-$endif$
-</header>
-$endif$
+</section>
 $if(toc)$
 <nav id="$idprefix$TOC" role="doc-toc">
 $if(toc-title)$
@@ -72,8 +114,5 @@ $body$
 $for(include-after)$
 $include-after$
 $endfor$
-$if(rights)$
-<p class="rights">Distributed under the terms of the <a href="$rights$">Creative Commons Attribution 4.0 International License</a>.</p>
-$endif$
 </body>
 </html>
