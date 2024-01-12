@@ -404,6 +404,8 @@ async def post(slug: str, suffix: Optional[str] = None):
                     citation = get_doi_metadata_from_ra(doi, "citation", style, locale)
                     if citation:
                         markdown["citation"] = citation["data"]
+                    else:
+                        markdown["citation"] = markdown["identifier"]
                     markdown = frontmatter.dumps(markdown)
                     pdf = write_pdf(markdown)
                     return (
