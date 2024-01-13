@@ -45,7 +45,8 @@ from api.utils import (
     format_authors,
     format_authors_full,
     format_authors_with_orcid,
-    format_license
+    format_license,
+    format_relationships
 )
 from api.posts import extract_all_posts, extract_all_posts_by_blog, update_posts
 from api.blogs import extract_single_blog, extract_all_blogs
@@ -406,6 +407,7 @@ async def post(slug: str, suffix: Optional[str] = None):
                         markdown["citation"] = citation["data"]
                     else:
                         markdown["citation"] = markdown["identifier"]
+                    markdown["relationships"] = format_relationships(markdown["relationships"])
                     markdown = frontmatter.dumps(markdown)
                     pdf = write_pdf(markdown)
                     return (

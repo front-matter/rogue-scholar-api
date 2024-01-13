@@ -238,6 +238,20 @@ def format_license(authors, date):
     return f"Copyright <span class=\"copyright\">©</span> {auth} {year}."
 
 
+def format_relationships(relationships):
+    "Format relationships metadata"
+    
+    def format_relationship(relationship):
+        if relationship.get("type", None) == "IsIdenticalTo":
+            return {"identical": relationship.get("url", None)}
+        elif relationship.get("type", None) == "IsPreprintOf":
+            return {"preprint": relationship.get("url", None)}
+        elif relationship.get("type", None) == "HasAward":
+            return {"funding": relationship.get("url", None)}
+    
+    return [format_relationship(x) for x in relationships]
+
+
 def format_authors_with_orcid(authors):
     """Parse author names into names and orcid"""
 
