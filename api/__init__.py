@@ -4,6 +4,7 @@ import logging
 from typing import Optional
 from datetime import timedelta, datetime
 import time
+import json
 from os import environ
 import pydash as py_
 from dotenv import load_dotenv
@@ -25,7 +26,7 @@ from quart_rate_limiter import RateLimiter, RateLimit
 from api.supabase import (
     supabase_client as supabase,
     blogWithPostsSelect,
-    postsSelect,
+    postsWithBlogSelect,
     postsWithConfigSelect,
     postsWithContentSelect,
 )
@@ -33,6 +34,8 @@ from api.typesense import typesense_client as typesense
 from api.utils import (
     doi_from_url,
     get_doi_metadata_from_ra,
+    get_doi_metadata,
+    convert_to_commonmeta,
     write_epub,
     write_pdf,
     write_jats,
@@ -354,109 +357,109 @@ async def post(slug: str, suffix: Optional[str] = None):
         if format_ == "bib":
             format_ = "bibtex"
         doi = f"https://doi.org/{slug}/{suffix}"
-        if format_ in ["md", "epub", "pdf", "xml"]:
-            try:
-                response = (
+        try:
+            response = (
                     supabase.table("posts")
-                    .select(postsSelect)
+                    .select(postsWithBlogSelect)
                     .eq("doi", doi)
                     .maybe_single()
                     .execute()
                 )
-                basename = doi_from_url(doi).replace("/", "-")
-
-                content = response.data.get("content_text", None)
-                metadata = py_.omit(response.data, ["content_text"])
-                metadata = py_.rename_keys(
-                    metadata,
+            content = response.data.get("content_text", None)
+            metadata = py_.omit(response.data, ["content_text"])
+            meta_str = json.dumps(convert_to_commonmeta(metadata))
+        except Exception as e:
+            logger.warning(e.args[0])
+            return {"error": "Post not found"}, 404
+        if format_ in ["md", "epub", "pdf", "xml"]:
+            basename = doi_from_url(doi).replace("/", "-")
+            metadata = py_.rename_keys(
+                metadata,
+                {
+                    "authors": "author",
+                    "doi": "identifier",
+                    "language": "lang",
+                    "published_at": "date",
+                    "summary": "abstract",
+                    "tags": "keywords",
+                    "updated_at": "date_updated",
+                },
+            )
+            markdown = format_markdown(content, metadata)
+            if format_ == "epub":
+                markdown["date"] = format_datetime(markdown["date"])
+                markdown["author"] = format_authors(markdown["author"])
+                markdown["rights"] = None
+                markdown = frontmatter.dumps(markdown)
+                epub = write_epub(markdown)
+                return (
+                    epub,
+                    200,
                     {
-                        "authors": "author",
-                        "doi": "identifier",
-                        "language": "lang",
-                        "published_at": "date",
-                        "summary": "abstract",
-                        "tags": "keywords",
-                        "updated_at": "date_updated",
+                        "Content-Type": "application/epub+zip",
+                        "Content-Disposition": f"attachment; filename={basename}.epub",
                     },
                 )
-                markdown = format_markdown(content, metadata)
-                if format_ == "epub":
-                    markdown["date"] = format_datetime(markdown["date"])
-                    markdown["author"] = format_authors(markdown["author"])
-                    markdown["rights"] = None
-                    markdown = frontmatter.dumps(markdown)
-                    epub = write_epub(markdown)
-                    return (
-                        epub,
-                        200,
-                        {
-                            "Content-Type": "application/epub+zip",
-                            "Content-Disposition": f"attachment; filename={basename}.epub",
-                        },
-                    )
-                elif format_ == "pdf":
-                    markdown["author"] = format_authors_with_orcid(markdown["author"])
-                    markdown["license"] = {
-                        "text": format_license(markdown["author"], markdown["date"]),
-                        "link": markdown["rights"]
-                    }
-                    markdown["date"] = format_datetime(markdown["date"])
-                    markdown["blog_name"] = markdown["blog_name"][:32] + (markdown["blog_name"][32:] and '...')
-                    citation = get_doi_metadata_from_ra(doi, "citation", style, locale)
-                    if citation:
-                        markdown["citation"] = citation["data"]
-                    else:
-                        markdown["citation"] = markdown["identifier"]
-                    markdown["relationships"] = format_relationships(markdown["relationships"])
-                    markdown = frontmatter.dumps(markdown)
-                    pdf = write_pdf(markdown)
-                    return (
-                        pdf,
-                        200,
-                        {
-                            "Content-Type": "application/pdf",
-                            "Content-Disposition": f"attachment; filename={basename}.pdf",
-                        },
-                    )
-                elif format_ == "xml":
-                    markdown["author"] = format_authors_full(markdown["author"])
-                    markdown["date"] = {
-                        "iso-8601": markdown["date"],
-                        "year": markdown["date"][:4],
-                        "month": markdown["date"][5:7],
-                        "day": markdown["date"][8:10],
-                    }
-                    markdown["article"] = {"doi": markdown["identifier"]}
-                    markdown["license"] = {
-                        "text": "Creative Commons Attribution 4.0",
-                        "type": "open-access",
-                        "link": markdown["rights"]
-                    }
-                    markdown["journal"] = {"title": markdown["blog_name"]}
-                    markdown = frontmatter.dumps(markdown)
-                    jats = write_jats(markdown)
-                    return (
-                        jats,
-                        200,
-                        {
-                            "Content-Type": "application/xml",
-                            "Content-Disposition": f"attachment; filename={basename}.xml",
-                        },
-                    )
+            elif format_ == "pdf":
+                markdown["author"] = format_authors_with_orcid(markdown["author"])
+                markdown["license"] = {
+                    "text": format_license(markdown["author"], markdown["date"]),
+                    "link": markdown["rights"]
+                }
+                markdown["date"] = format_datetime(markdown["date"])
+                markdown["blog_name"] = markdown["blog_name"][:32] + (markdown["blog_name"][32:] and '...')
+                citation = get_doi_metadata(meta_str, "citation", style, locale)
+                if citation:
+                    markdown["citation"] = citation["data"]
                 else:
-                    return (
-                        frontmatter.dumps(markdown),
-                        200,
-                        {
-                            "Content-Type": "text/markdown;charset=UTF-8",
-                            "Content-Disposition": f"attachment; filename={basename}.md",
-                        },
-                    )
-            except Exception as e:
-                logger.warning(e.args[0])
-                return {"error": "Post not found"}, 404
+                    markdown["citation"] = markdown["identifier"]
+                markdown["relationships"] = format_relationships(markdown["relationships"])
+                markdown = frontmatter.dumps(markdown)
+                pdf = write_pdf(markdown)
+                return (
+                    pdf,
+                    200,
+                    {
+                        "Content-Type": "application/pdf",
+                        "Content-Disposition": f"attachment; filename={basename}.pdf",
+                    },
+                )
+            elif format_ == "xml":
+                markdown["author"] = format_authors_full(markdown["author"])
+                markdown["date"] = {
+                    "iso-8601": markdown["date"],
+                    "year": markdown["date"][:4],
+                    "month": markdown["date"][5:7],
+                    "day": markdown["date"][8:10],
+                }
+                markdown["article"] = {"doi": markdown["identifier"]}
+                markdown["license"] = {
+                    "text": "Creative Commons Attribution 4.0",
+                    "type": "open-access",
+                    "link": markdown["rights"]
+                }
+                markdown["journal"] = {"title": markdown["blog_name"]}
+                markdown = frontmatter.dumps(markdown)
+                jats = write_jats(markdown)
+                return (
+                    jats,
+                    200,
+                    {
+                        "Content-Type": "application/xml",
+                        "Content-Disposition": f"attachment; filename={basename}.xml",
+                    },
+                )
+            else:
+                return (
+                    frontmatter.dumps(markdown),
+                    200,
+                    {
+                        "Content-Type": "text/markdown;charset=UTF-8",
+                        "Content-Disposition": f"attachment; filename={basename}.md",
+                    },
+                )
         elif format_ in ["bibtex", "ris", "csl", "citation"]:
-            response = get_doi_metadata_from_ra(doi, format_, style, locale)
+            response = get_doi_metadata(meta_str, format_, style, locale)
             if not response:
                 logger.warning("Metadata not found")
                 return {"error": "Metadata not found."}, 404

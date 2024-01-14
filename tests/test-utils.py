@@ -1,12 +1,15 @@
 """Test utils"""
 import pytest  # noqa: F401
 import pydash as py_  # noqa: F401
+from os import path
 import json
 import frontmatter
 
 from api.utils import (
     get_date,
+    convert_to_commonmeta,
     get_doi_metadata_from_ra,
+    get_doi_metadata,
     validate_uuid,
     unix_timestamp,
     end_of_date,
@@ -29,8 +32,96 @@ def test_get_date_rss():
     assert result == "2023-09-18T04:00:00+00:00"
 
 
+def test_convert_to_commonmeta_default():
+    """Concert metadata into commonmeta format"""
+    string = path.join(path.dirname(__file__), "fixtures", "rogue-scholar.json")
+    with open(string, encoding="utf-8") as file:
+        string = file.read()
+    data = json.loads(string)
+    result = convert_to_commonmeta(data)
+    assert result["id"] == "https://doi.org/10.59350/ps8tw-rpk77"
+    assert result["schema_version"] == "https://commonmeta.org/commonmeta_v0.10.5.json"
+    assert result["type"] == "Article"
+    assert result["url"] == "http://gigasciencejournal.com/blog/fair-workflows"
+    assert py_.get(result, "titles.0") == {
+        "title": "A Decade of FAIR – what happens next? Q&amp;A on FAIR workflows with the Netherlands X-omics Initiative"
+    }
+    assert len(result["contributors"]) == 1
+    assert py_.get(result, "contributors.0") == {
+        "type": "Person",
+        "id": "https://orcid.org/0000-0001-6444-1436",
+        "contributorRoles": ["Author"],
+        "givenName": "Scott",
+        "familyName": "Edmunds",
+    }
+    assert result["license"] == {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+    }
+
+    assert result["date"] == {
+        "published": "2024-01-13T19:10:51",
+        "updated": "2024-01-13T19:10:51",
+    }
+    assert result["publisher"] == {
+        "id": "https://api.crossref.org/members/31795",
+        "name": "Front Matter",
+    }
+    assert len(result["references"]) == 0
+    assert result["funding_references"] == []
+    assert result["container"] == {'type': 'Periodical', 'title': 'GigaBlog'}
+    assert py_.get(result, "descriptions.0.description").startswith(
+        "<em>\n Marking the 10\n <sup>\n  th\n </sup>\n anniversary"
+    )
+    assert result["subjects"] == ['Technology', 'Computational Biology', 'FAIR', 'FAIR Data', 'FORCE11']
+    assert result["provider"] == "Crossref"
+    assert len(result["files"]) == 5
+    assert py_.get(result, "files.2") == {
+        "url": "https://api.rogue-scholar.org/posts/10.59350/ps8tw-rpk77.pdf",
+        "mimeType": "application/pdf",
+    }
+
+
 def test_get_doi_metadata_bibtex():
     "get doi metadata in bibtex format"
+    data = path.join(path.dirname(__file__), "fixtures", "commonmeta.json")
+    result = get_doi_metadata(data, format_="bibtex")
+    assert (
+        result["data"]
+        == """@article{10.53731/ybhah-9jy85,
+    abstract = {Newsletters have been around forever, but their popularity has significantly increased in the past few years, also thanks to platforms such as Ghost, Medium, and Substack. Which of course also includes science newsletters.Failure of advertising as a revenue model The most important driver of this trend is probably the realization that advertising is a poor revenue model for content published on the web, including blogs.},
+    author = {Fenner, Martin},
+    copyright = {https://creativecommons.org/licenses/by/4.0/legalcode},
+    doi = {10.53731/ybhah-9jy85},
+    month = oct,
+    title = {The rise of the (science) newsletter},
+    url = {https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter},
+    urldate = {2023-10-04},
+    year = {2023}
+}"""
+    )
+
+
+def test_get_doi_metadata_csl():
+    "get doi metadata in csl format"
+    data = path.join(path.dirname(__file__), "fixtures", "commonmeta.json")
+    result = get_doi_metadata(data, format_="csl")
+    csl = json.loads(result["data"])
+    assert csl["title"] == "The rise of the (science) newsletter"
+
+
+def test_get_doi_metadata_citation():
+    "get doi metadata as formatted citation"
+    data = path.join(path.dirname(__file__), "fixtures", "commonmeta.json")
+    result = get_doi_metadata(data, format_="citation")
+    assert (
+        result["data"]
+        == "Fenner, M. (2023). <i>The rise of the (science) newsletter</i>. Front Matter. https://doi.org/10.53731/ybhah-9jy85"
+    )
+
+
+def test_get_metadata_bibtex():
+    "get metadata in bibtex format"
     doi = "https://doi.org/10.53731/ybhah-9jy85"
     result = get_doi_metadata_from_ra(doi, format_="bibtex")
     print(result)
@@ -48,8 +139,8 @@ def test_get_doi_metadata_bibtex():
     )
 
 
-def test_get_doi_metadata_csl():
-    "get doi metadata in csl format"
+def test_get_metadata_csl():
+    "get metadata in csl format"
     doi = "https://doi.org/10.59350/e3wmw-qwx29"
     result = get_doi_metadata_from_ra(doi, format_="csl")
     csl = json.loads(result["data"])
@@ -59,8 +150,8 @@ def test_get_doi_metadata_csl():
     )
 
 
-def test_get_doi_metadata_citation():
-    "get doi metadata as formatted citation"
+def test_get_metadata_citation():
+    "get metadata as formatted citation"
     doi = "https://doi.org/10.53731/ybhah-9jy85"
     result = get_doi_metadata_from_ra(doi, format_="citation")
     assert (

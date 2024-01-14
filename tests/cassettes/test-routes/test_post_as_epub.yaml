@@ -121,4 +121,79 @@ interactions:
       - '1'
     http_version: HTTP/1.1
     status_code: 200
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      user-agent:
+      - python-httpx/0.25.2
+      x-client-info:
+      - supabase-py/2.3.3
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28%2A%29&doi=eq.https%3A%2F%2Fdoi.org%2F10.59350%2Fsfzv4-xdb68
+  response:
+    content: "{\"id\":\"77b2102f-fec5-425a-90a3-4a97c768bdc4\",\"guid\":\"https://norbisley.wordpress.com/?p=517\",\"doi\":\"https://doi.org/10.59350/sfzv4-xdb68\",\"url\":\"https://norbisley.wordpress.com/2023/10/06/que-libros-cientificos-publicamos\",\"archive_url\":\"https://wayback.archive-it.org/22132/20231107222423/https://norbisley.wordpress.com/2023/10/06/que-libros-cientificos-publicamos\",\"title\":\"\xBFQu\xE9
+      libros cient\xEDficos publicamos en Ediciones Universidad de Camag\xFCey?\",\"summary\":\"Con
+      frecuencia a la editorial llegan textos que terminan siendo muy diferentes a
+      la idea de libro que el autor tra\xEDa inicialmente. Esto se debe en parte,
+      a que es insuficiente el abordaje de las clasificaciones de textos cient\xEDficos
+      que se divulga institucionalmente.\\n\",\"published_at\":1696588740,\"updated_at\":1696673881,\"indexed_at\":1698172158,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-9373-4622\", \"name\": \"Norbisley Fern\xE1ndez\"}],\"image\":\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png\",\"tags\":[\"Presentaci\xF3n
+      De La Informaci\xF3n Cient\xEDfica\",\"Sin Categor\xEDa\"],\"language\":\"es\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Edici\xF3n
+      y comunicaci\xF3n de la Ciencia\",\"blog_slug\":\"norbisley\",\"blog\":{\"id\":\"6aswq28\",\"title\":\"Edici\xF3n
+      y comunicaci\xF3n de la Ciencia\",\"description\":null,\"language\":\"es\",\"favicon\":\"https://norbisley.files.wordpress.com/2023/08/cropped-cropped-logo-1.png?w=32\",\"feed_url\":\"https://norbisley.wordpress.com/feed/atom/\",\"home_page_url\":\"https://norbisley.wordpress.com\",\"user_id\":\"126368cd-e941-4e6f-8316-f5fe574e595b\",\"feed_format\":\"application/atom+xml\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"generator\":\"WordPress.com\",\"category\":\"mediaAndCommunications\",\"prefix\":\"10.59350\",\"version\":\"https://jsonfeed.org/version/1.1\",\"current_feed_url\":null,\"status\":\"active\",\"issn\":null,\"backlog\":0,\"authors\":null,\"plan\":\"Starter\",\"slug\":\"norbisley\",\"use_mastodon\":false,\"api\":true,\"funding\":null,\"archive_prefix\":\"https://wayback.archive-it.org/22132/20231107222423/\",\"use_api\":true,\"relative_url\":null,\"canonical_url\":null,\"filter\":null,\"updated_at\":1699014419,\"secure\":true,\"created_at\":1692662400,\"indexed\":false,\"generator_raw\":\"WordPress.com\"}}"
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 84510c5e9f2f6a7c-DUS
+      Connection:
+      - keep-alive
+      Content-Location:
+      - /posts?doi=eq.https%3A%2F%2Fdoi.org%2F10.59350%2Fsfzv4-xdb68&select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28%2A%29
+      Content-Profile:
+      - public
+      Content-Range:
+      - 0-0/*
+      Content-Type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      Date:
+      - Sat, 13 Jan 2024 22:24:15 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/2.8.1
+      X-Kong-Proxy-Latency:
+      - '1'
+      X-Kong-Upstream-Latency:
+      - '5'
+      alt-svc:
+      - h3=":443"; ma=86400
+      sb-gateway-version:
+      - '1'
+    http_version: HTTP/1.1
+    status_code: 200
 version: 1

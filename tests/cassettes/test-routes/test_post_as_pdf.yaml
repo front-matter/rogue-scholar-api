@@ -272,4 +272,187 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - text/x-bibliography; style=apa; locale=en-US
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://doi.org/10.59350/sfzv4-xdb68
+  response:
+    body:
+      string: '<html><head><title>Handle Redirect</title></head>
+
+        <body><a href="https://api.crossref.org/v1/works/10.59350%2Fsfzv4-xdb68/transform">https://api.crossref.org/v1/works/10.59350%2Fsfzv4-xdb68/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 844e8d9158d00ae1-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '217'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Sat, 13 Jan 2024 15:08:09 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=aVpYfIhIKlW5CPciXUcaVANyjXV0gq40yrxkENYs1fBVKGwIQwJvg8LzFY99hjtyCgKt3HYDaJgTnc41tjUr%2Bbg1rmSJwxRKLR09xV1xq%2BwpAscrO0%2FFLqbWYCCRL%2BvhuJ%2BqGeo%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Sat, 13 Jan 2024 16:00:49 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.59350%2Fsfzv4-xdb68/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - text/x-bibliography; style=apa; locale=en-US
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.59350%2Fsfzv4-xdb68/transform
+  response:
+    body:
+      string: "Fern\xE1ndez, N. (2023). \xBFQu\xE9 libros cient\xEDficos publicamos
+        en Ediciones Universidad de Camag\xFCey? https://doi.org/10.59350/sfzv4-xdb68\n"
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-type:
+      - text/x-bibliography
+      date:
+      - Sat, 13 Jan 2024 15:08:12 GMT
+      link:
+      - "<http://dx.doi.org/10.59350/sfzv4-xdb68>; rel=\"canonical\", <https://norbisley.wordpress.com/2023/10/06/que-libros-cientificos-publicamos>;
+        version=\"vor\"; type=\"text/html\"; rel=\"item\", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version=\"vor\"; rel=\"license\", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version=\"tdm\"; rel=\"license\", <http://orcid.org/0000-0002-9373-4622>;
+        title=\"Norbisley Fern\xE1ndez\"; rel=\"author\""
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      user-agent:
+      - python-httpx/0.25.2
+      x-client-info:
+      - supabase-py/2.3.3
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28%2A%29&doi=eq.https%3A%2F%2Fdoi.org%2F10.59350%2Fsfzv4-xdb68
+  response:
+    content: "{\"id\":\"77b2102f-fec5-425a-90a3-4a97c768bdc4\",\"guid\":\"https://norbisley.wordpress.com/?p=517\",\"doi\":\"https://doi.org/10.59350/sfzv4-xdb68\",\"url\":\"https://norbisley.wordpress.com/2023/10/06/que-libros-cientificos-publicamos\",\"archive_url\":\"https://wayback.archive-it.org/22132/20231107222423/https://norbisley.wordpress.com/2023/10/06/que-libros-cientificos-publicamos\",\"title\":\"\xBFQu\xE9
+      libros cient\xEDficos publicamos en Ediciones Universidad de Camag\xFCey?\",\"summary\":\"Con
+      frecuencia a la editorial llegan textos que terminan siendo muy diferentes a
+      la idea de libro que el autor tra\xEDa inicialmente. Esto se debe en parte,
+      a que es insuficiente el abordaje de las clasificaciones de textos cient\xEDficos
+      que se divulga institucionalmente.\\n\",\"published_at\":1696588740,\"updated_at\":1696673881,\"indexed_at\":1698172158,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-9373-4622\", \"name\": \"Norbisley Fern\xE1ndez\"}],\"image\":\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png\",\"tags\":[\"Presentaci\xF3n
+      De La Informaci\xF3n Cient\xEDfica\",\"Sin Categor\xEDa\"],\"language\":\"es\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Edici\xF3n
+      y comunicaci\xF3n de la Ciencia\",\"blog_slug\":\"norbisley\",\"blog\":{\"id\":\"6aswq28\",\"title\":\"Edici\xF3n
+      y comunicaci\xF3n de la Ciencia\",\"description\":null,\"language\":\"es\",\"favicon\":\"https://norbisley.files.wordpress.com/2023/08/cropped-cropped-logo-1.png?w=32\",\"feed_url\":\"https://norbisley.wordpress.com/feed/atom/\",\"home_page_url\":\"https://norbisley.wordpress.com\",\"user_id\":\"126368cd-e941-4e6f-8316-f5fe574e595b\",\"feed_format\":\"application/atom+xml\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"generator\":\"WordPress.com\",\"category\":\"mediaAndCommunications\",\"prefix\":\"10.59350\",\"version\":\"https://jsonfeed.org/version/1.1\",\"current_feed_url\":null,\"status\":\"active\",\"issn\":null,\"backlog\":0,\"authors\":null,\"plan\":\"Starter\",\"slug\":\"norbisley\",\"use_mastodon\":false,\"api\":true,\"funding\":null,\"archive_prefix\":\"https://wayback.archive-it.org/22132/20231107222423/\",\"use_api\":true,\"relative_url\":null,\"canonical_url\":null,\"filter\":null,\"updated_at\":1699014419,\"secure\":true,\"created_at\":1692662400,\"indexed\":false,\"generator_raw\":\"WordPress.com\"}}"
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 84510c5f689c6a7c-DUS
+      Connection:
+      - keep-alive
+      Content-Location:
+      - /posts?doi=eq.https%3A%2F%2Fdoi.org%2F10.59350%2Fsfzv4-xdb68&select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28%2A%29
+      Content-Profile:
+      - public
+      Content-Range:
+      - 0-0/*
+      Content-Type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      Date:
+      - Sat, 13 Jan 2024 22:24:15 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/2.8.1
+      X-Kong-Proxy-Latency:
+      - '0'
+      X-Kong-Upstream-Latency:
+      - '5'
+      alt-svc:
+      - h3=":443"; ma=86400
+      sb-gateway-version:
+      - '1'
+    http_version: HTTP/1.1
+    status_code: 200
 version: 1

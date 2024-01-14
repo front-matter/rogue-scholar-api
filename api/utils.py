@@ -14,7 +14,9 @@ from datetime import datetime
 from furl import furl
 from langdetect import detect
 from bs4 import BeautifulSoup
-from commonmeta import get_one_author, validate_orcid, normalize_orcid
+from commonmeta import Metadata, get_one_author, validate_orcid, normalize_orcid
+from commonmeta.constants import Commonmeta
+from commonmeta.date_utils import get_date_from_unix_timestamp
 import frontmatter
 import pandoc
 # from pandoc.types import Str
@@ -223,9 +225,18 @@ def format_authors_full(authors):
     return [format_author(x) for x in authors]
 
 
+def format_authors_commonmeta(authors):
+    """Extract author names"""
+
+    def format_author(author):
+        return get_one_author(author)
+
+    return [format_author(x) for x in authors]
+
+
 def format_license(authors, date):
     """Generate license string"""
-    
+
     auth = format_authors(authors)
     length = len(auth)
     year = date[:4]
@@ -235,12 +246,12 @@ def format_license(authors, date):
         auth = auth[0]
     if length > 1:
         auth = auth + " et al."
-    return f"Copyright <span class=\"copyright\">©</span> {auth} {year}."
+    return f'Copyright <span class="copyright">©</span> {auth} {year}.'
 
 
 def format_relationships(relationships):
     "Format relationships metadata"
-    
+
     def format_relationship(relationship):
         if relationship.get("type", None) == "IsIdenticalTo":
             return {"identical": relationship.get("url", None)}
@@ -248,7 +259,7 @@ def format_relationships(relationships):
             return {"preprint": relationship.get("url", None)}
         elif relationship.get("type", None) == "HasAward":
             return {"funding": relationship.get("url", None)}
-    
+
     return [format_relationship(x) for x in relationships]
 
 
@@ -318,6 +329,72 @@ def normalize_tag(tag: str) -> str:
     return fixed_tags.get(tag, start_case(tag))
 
 
+def convert_to_commonmeta(meta: dict) -> Commonmeta:
+    """Convert post metadata to commonmeta format"""
+
+    doi = doi_from_url(meta.get("doi", None))
+    published = get_date_from_unix_timestamp(meta.get("published_at", 0))
+    updated = get_date_from_unix_timestamp(meta.get("updated_at", None))
+    container_title = py_.get(meta, "blog.title")
+    identifier = py_.get(meta, "blog.id")
+    identifier_type = "ISSN" if identifier else None
+    return {
+        "id": meta.get("doi", None),
+        "url": meta.get("url", None),
+        "type": "JournalArticle",
+        "contributors": format_authors_commonmeta(meta.get("authors", None)),
+        "titles": [{"title": meta.get("title", None)}],
+        "descriptions": [
+            {"description": meta.get("summary", None), "descriptionType": "Abstract"}
+        ],
+        "date": {"published": published, "updated": updated},
+        "publisher": {
+            "id": "https://api.crossref.org/members/31795",
+            "name": "Front Matter",
+        },
+        "container": compact(
+            {
+                "type": "Periodical",
+                "title": container_title,
+                "identifier": identifier,
+                "identifierType": identifier_type,
+            }
+        ),
+        "subjects": meta.get("tags", None),
+        "language": meta.get("language", None),
+        "references": meta.get("reference", None),
+        "funding_references": [],
+        "license": {
+            "id": "CC-BY-4.0",
+            "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+        },
+        "provider": "Crossref",
+        "files": [
+            {
+                "url": meta.get("url", None),
+                "mimeType": "text/html",
+            },
+            {
+                "url": f"https://api.rogue-scholar.org/posts/{doi}.md",
+                "mimeType": "text/plain",
+            },
+            {
+                "url": f"https://api.rogue-scholar.org/posts/{doi}.pdf",
+                "mimeType": "application/pdf",
+            },
+            {
+                "url": f"https://api.rogue-scholar.org/posts/{doi}.epub",
+                "mimeType": "application/epub+zip",
+            },
+            {
+                "url": f"https://api.rogue-scholar.org/posts/{doi}.xml",
+                "mimeType": "application/xml",
+            },
+        ],
+        "schema_version": "https://commonmeta.org/commonmeta_v0.10.5.json",
+    }
+
+
 def get_doi_metadata_from_ra(
     doi: str, format_: str = "csl", style: str = "apa", locale: str = "en-US"
 ) -> Optional[dict]:
@@ -368,6 +445,41 @@ def get_doi_metadata_from_ra(
     else:
         ext = "txt"
         result = response.text
+    options = {
+        "Content-Type": content_type,
+        "Content-Disposition": f"attachment; filename={basename}.{ext}",
+    }
+    return {"doi": doi, "data": result.strip(), "options": options}
+
+
+def get_doi_metadata(
+    data: str = "{}", format_: str = "csl", style: str = "apa", locale: str = "en-US"
+):
+    """use commonmeta library to get metadata in various formats.
+    format_ can be bibtex, ris, csl, citation, with bibtex as default."""
+
+    content_types = {
+        "bibtex": "application/x-bibtex",
+        "ris": "application/x-research-info-systems",
+        "csl": "application/vnd.citationstyles.csl+json",
+        "citation": f"text/x-bibliography; style={style}; locale={locale}",
+    }
+    content_type = content_types.get(format_)
+    subject = Metadata(data, via="commonmeta")
+    doi = doi_from_url(subject.id)
+    basename = doi_from_url(doi).replace("/", "-")
+    if format_ == "csl":
+        ext = "json"
+        result = subject.csl()
+    elif format_ == "ris":
+        ext = "ris"
+        result = subject.ris()
+    elif format_ == "bibtex":
+        ext = "bib"
+        result = subject.bibtex()
+    else:
+        ext = "txt"
+        result = subject.citation()
     options = {
         "Content-Type": content_type,
         "Content-Disposition": f"attachment; filename={basename}.{ext}",
@@ -490,7 +602,7 @@ def write_pdf(markdown: str):
                 "--pdf-engine-opt=--pdf-variant=pdf/ua-1",
                 "--data-dir=environ['QUART_PANDOC_DATA_DIR']",
                 "--template=default.html5",
-                "--css=style.css"
+                "--css=style.css",
             ],
         )
     except Exception as e:
