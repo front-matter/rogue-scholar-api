@@ -407,7 +407,7 @@ async def post(slug: str, suffix: Optional[str] = None):
                     "link": markdown["rights"]
                 }
                 markdown["date"] = format_datetime(markdown["date"])
-                markdown["blog_name"] = markdown["blog_name"][:32] + (markdown["blog_name"][32:] and '...')
+                markdown["blog_name"] = markdown["blog_name"][:40] + (markdown["blog_name"][40:] and '...')
                 citation = get_doi_metadata(meta_str, "citation", style, locale)
                 if citation:
                     markdown["citation"] = citation["data"]
