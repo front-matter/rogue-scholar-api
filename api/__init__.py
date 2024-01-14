@@ -360,7 +360,7 @@ async def post(slug: str, suffix: Optional[str] = None):
         try:
             response = (
                     supabase.table("posts")
-                    .select(postsWithBlogSelect)
+                    .select(postsWithContentSelect)
                     .eq("doi", doi)
                     .maybe_single()
                     .execute()
