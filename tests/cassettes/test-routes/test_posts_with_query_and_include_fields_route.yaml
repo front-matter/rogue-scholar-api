@@ -2879,4 +2879,184 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=retraction-watch&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Ccontent_text%2Creference&filter_by=published_at%3A%3E%3D+0+%26%26+published_at%3A%3C%3D+1705245723&sort_by=_text_match%3Adesc&per_page=10&page=1&include_fields=doi%2Ctitle
+  response:
+    body:
+      string: "{\"facet_counts\":[],\"found\":25,\"hits\":[{\"document\":{\"doi\":\"https://doi.org/10.59350/cmyz9-ms451\",\"title\":\"What
+        Difference Does It Make?\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100883,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":3,\"score\":\"1157451471441100883\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59348/9b1f4-29n44\",\"title\":\"Retract
+        this!\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100882,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":2,\"score\":\"1157451471441100882\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59350/v5rp0-nde12\",\"title\":\"Suppression
+        as a form of liberation?\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100882,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":2,\"score\":\"1157451471441100882\",\"tokens_matched\":2}},{\"document\":{\"title\":\"What
+        is the impact of retractions in science?\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100882,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":2,\"score\":\"1157451471441100882\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59348/8584f-zts44\",\"title\":\"My
+        2023 year in review\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59350/p679x-qfh48\",\"title\":\"Two
+        new browser extensions that help with delivery or access - ebsco passport
+        and GetFTR browser extension and other developments\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.53731/ffbx660-083tnag\",\"title\":\"Guinea
+        Worms, ChatGPT, Neanderthals, Plagiarism, Tidyverse\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59350/8wafm-6yc04\",\"title\":\"The
+        lowest common denominator: marketing science with jIF\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59350/jgggm-t5x67\",\"title\":\"Are
+        more retractions due to more scrutiny?\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59350/2tj8e-e7v42\",\"title\":\"John
+        Bohannon\u2019s peer-review sting against <i>Science</i>\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}}],\"out_of\":13313,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"retraction-watch\"},\"search_cutoff\":false,\"search_time_ms\":7}"
+    headers:
+      Connection:
+      - keep-alive
+      accept-ranges:
+      - none
+      access-control-allow-origin:
+      - '*'
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=retraction-watch&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Ccontent_text%2Creference&filter_by=published_at%3A%3E%3D+0+%26%26+published_at%3A%3C%3D+1705246234&sort_by=_text_match%3Adesc&per_page=10&page=1&include_fields=doi%2Ctitle
+  response:
+    body:
+      string: "{\"facet_counts\":[],\"found\":25,\"hits\":[{\"document\":{\"doi\":\"https://doi.org/10.59350/cmyz9-ms451\",\"title\":\"What
+        Difference Does It Make?\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100883,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":3,\"score\":\"1157451471441100883\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59348/9b1f4-29n44\",\"title\":\"Retract
+        this!\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100882,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":2,\"score\":\"1157451471441100882\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59350/v5rp0-nde12\",\"title\":\"Suppression
+        as a form of liberation?\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100882,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":2,\"score\":\"1157451471441100882\",\"tokens_matched\":2}},{\"document\":{\"title\":\"What
+        is the impact of retractions in science?\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100882,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":2,\"score\":\"1157451471441100882\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59348/8584f-zts44\",\"title\":\"My
+        2023 year in review\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59350/p679x-qfh48\",\"title\":\"Two
+        new browser extensions that help with delivery or access - ebsco passport
+        and GetFTR browser extension and other developments\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.53731/ffbx660-083tnag\",\"title\":\"Guinea
+        Worms, ChatGPT, Neanderthals, Plagiarism, Tidyverse\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59350/8wafm-6yc04\",\"title\":\"The
+        lowest common denominator: marketing science with jIF\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59350/jgggm-t5x67\",\"title\":\"Are
+        more retractions due to more scrutiny?\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59350/2tj8e-e7v42\",\"title\":\"John
+        Bohannon\u2019s peer-review sting against <i>Science</i>\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}}],\"out_of\":13313,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"retraction-watch\"},\"search_cutoff\":false,\"search_time_ms\":7}"
+    headers:
+      Connection:
+      - keep-alive
+      accept-ranges:
+      - none
+      access-control-allow-origin:
+      - '*'
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=retraction-watch&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Ccontent_text%2Creference&filter_by=published_at%3A%3E%3D+0+%26%26+published_at%3A%3C%3D+1705246477&sort_by=_text_match%3Adesc&per_page=10&page=1&include_fields=doi%2Ctitle
+  response:
+    body:
+      string: "{\"facet_counts\":[],\"found\":25,\"hits\":[{\"document\":{\"doi\":\"https://doi.org/10.59350/cmyz9-ms451\",\"title\":\"What
+        Difference Does It Make?\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100883,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":3,\"score\":\"1157451471441100883\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59348/9b1f4-29n44\",\"title\":\"Retract
+        this!\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100882,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":2,\"score\":\"1157451471441100882\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59350/v5rp0-nde12\",\"title\":\"Suppression
+        as a form of liberation?\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100882,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":2,\"score\":\"1157451471441100882\",\"tokens_matched\":2}},{\"document\":{\"title\":\"What
+        is the impact of retractions in science?\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100882,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":2,\"score\":\"1157451471441100882\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59348/8584f-zts44\",\"title\":\"My
+        2023 year in review\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59350/p679x-qfh48\",\"title\":\"Two
+        new browser extensions that help with delivery or access - ebsco passport
+        and GetFTR browser extension and other developments\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.53731/ffbx660-083tnag\",\"title\":\"Guinea
+        Worms, ChatGPT, Neanderthals, Plagiarism, Tidyverse\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59350/8wafm-6yc04\",\"title\":\"The
+        lowest common denominator: marketing science with jIF\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59350/jgggm-t5x67\",\"title\":\"Are
+        more retractions due to more scrutiny?\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59350/2tj8e-e7v42\",\"title\":\"John
+        Bohannon\u2019s peer-review sting against <i>Science</i>\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}}],\"out_of\":13313,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"retraction-watch\"},\"search_cutoff\":false,\"search_time_ms\":8}"
+    headers:
+      Connection:
+      - keep-alive
+      accept-ranges:
+      - none
+      access-control-allow-origin:
+      - '*'
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=retraction-watch&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Ccontent_text%2Creference&filter_by=published_at%3A%3E%3D+0+%26%26+published_at%3A%3C%3D+1705246760&sort_by=_text_match%3Adesc&per_page=10&page=1&include_fields=doi%2Ctitle
+  response:
+    body:
+      string: "{\"facet_counts\":[],\"found\":25,\"hits\":[{\"document\":{\"doi\":\"https://doi.org/10.59350/cmyz9-ms451\",\"title\":\"What
+        Difference Does It Make?\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100883,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":3,\"score\":\"1157451471441100883\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59348/9b1f4-29n44\",\"title\":\"Retract
+        this!\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100882,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":2,\"score\":\"1157451471441100882\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59350/v5rp0-nde12\",\"title\":\"Suppression
+        as a form of liberation?\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100882,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":2,\"score\":\"1157451471441100882\",\"tokens_matched\":2}},{\"document\":{\"title\":\"What
+        is the impact of retractions in science?\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100882,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":2,\"score\":\"1157451471441100882\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59348/8584f-zts44\",\"title\":\"My
+        2023 year in review\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59350/p679x-qfh48\",\"title\":\"Two
+        new browser extensions that help with delivery or access - ebsco passport
+        and GetFTR browser extension and other developments\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.53731/ffbx660-083tnag\",\"title\":\"Guinea
+        Worms, ChatGPT, Neanderthals, Plagiarism, Tidyverse\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59350/8wafm-6yc04\",\"title\":\"The
+        lowest common denominator: marketing science with jIF\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59350/jgggm-t5x67\",\"title\":\"Are
+        more retractions due to more scrutiny?\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}},{\"document\":{\"doi\":\"https://doi.org/10.59350/2tj8e-e7v42\",\"title\":\"John
+        Bohannon\u2019s peer-review sting against <i>Science</i>\"},\"highlight\":{},\"highlights\":[],\"text_match\":1157451471441100873,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":9,\"fields_matched\":1,\"score\":\"1157451471441100873\",\"tokens_matched\":2}}],\"out_of\":13313,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"retraction-watch\"},\"search_cutoff\":false,\"search_time_ms\":7}"
+    headers:
+      Connection:
+      - keep-alive
+      accept-ranges:
+      - none
+      access-control-allow-origin:
+      - '*'
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: OK
 version: 1

@@ -336,7 +336,7 @@ def convert_to_commonmeta(meta: dict) -> Commonmeta:
     published = get_date_from_unix_timestamp(meta.get("published_at", 0))
     updated = get_date_from_unix_timestamp(meta.get("updated_at", None))
     container_title = py_.get(meta, "blog.title")
-    identifier = py_.get(meta, "blog.id")
+    identifier = py_.get(meta, "blog.issn")
     identifier_type = "ISSN" if identifier else None
     return {
         "id": meta.get("doi", None),

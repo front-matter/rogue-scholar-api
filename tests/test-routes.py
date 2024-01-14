@@ -362,7 +362,6 @@ async def test_post_as_bibtex():
     author = {Fernández, Norbisley},
     copyright = {https://creativecommons.org/licenses/by/4.0/legalcode},
     doi = {10.59350/sfzv4-xdb68},
-    issn = {6aswq28},
     language = {es},
     month = oct,
     title = {¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?},
@@ -433,7 +432,7 @@ async def test_post_as_csl():
     response = await test_client.get("/posts/10.59350/sfzv4-xdb68?format=csl")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["type"] == "article"
+    assert result["type"] == "article-journal"
     assert result["title"] == "¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?"
     assert result["container-title"] == "Edición y comunicación de la Ciencia"
     assert result["DOI"] == "10.59350/sfzv4-xdb68"
@@ -448,7 +447,7 @@ async def test_post_as_citation():
     result = await response.get_data(as_text=True)
     assert (
         result
-        == "Fernández, N. (2023). ¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?. In <i>Edición y comunicación de la Ciencia</i>. Front Matter. https://doi.org/10.59350/sfzv4-xdb68"
+        == "Fernández, N. (2023). ¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?. <i>Edición y comunicación de la ciencia</i>. https://doi.org/10.59350/sfzv4-xdb68"
     )
 
 
@@ -463,7 +462,7 @@ async def test_post_as_citation_with_style():
     result = await response.get_data(as_text=True)
     assert (
         result
-        == "Fernández, N. (2023). ¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?. In <i>Edición y comunicación de la Ciencia</i>. Front Matter. https://doi.org/10.59350/sfzv4-xdb68"
+        == "Fernández, N. (2023). ¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?. <i>Edición y comunicación de la ciencia</i>. https://doi.org/10.59350/sfzv4-xdb68"
     )
 
 
@@ -478,7 +477,7 @@ async def test_post_as_citation_with_locale():
     result = await response.get_data(as_text=True)
     assert (
         result
-        == "Fernández, N. (2023). ¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?. In <i>Edición y comunicación de la Ciencia</i>. Front Matter. https://doi.org/10.59350/sfzv4-xdb68"
+        == "Fernández, N. (2023). ¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?. <i>Edición y comunicación de la ciencia</i>. https://doi.org/10.59350/sfzv4-xdb68"
     )
 
 
