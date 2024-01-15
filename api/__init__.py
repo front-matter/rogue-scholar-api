@@ -351,9 +351,9 @@ async def post(slug: str, suffix: Optional[str] = None):
         return jsonify(response.data)
     elif slug in prefixes and suffix:
         path = suffix.split(".")
-        if len(path) == 2 and path[1] in ["md", "epub", "pdf", "xml", "bib", "ris"]:
-            suffix = path[0]
-            format_ = path[1]
+        if len(path) > 1 and path[-1] in ["md", "epub", "pdf", "xml", "bib", "ris"]:
+            format_ = path.pop()
+            suffix = ".".join(path)
         if format_ == "bib":
             format_ = "bibtex"
         doi = f"https://doi.org/{slug}/{suffix}"
