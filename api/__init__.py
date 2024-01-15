@@ -386,7 +386,7 @@ async def post(slug: str, suffix: Optional[str] = None):
             )
             markdown = format_markdown(content, metadata)
             if format_ == "epub":
-                markdown["date"] = format_datetime(markdown["date"])
+                markdown["date"] = format_datetime(markdown["date"], markdown["lang"])
                 markdown["author"] = format_authors(markdown["author"])
                 markdown["rights"] = None
                 markdown = frontmatter.dumps(markdown)
@@ -405,7 +405,7 @@ async def post(slug: str, suffix: Optional[str] = None):
                     "text": format_license(markdown["author"], markdown["date"]),
                     "link": markdown["rights"]
                 }
-                markdown["date"] = format_datetime(markdown["date"])
+                markdown["date"] = format_datetime(markdown["date"], markdown["lang"])
                 markdown["blog_name"] = markdown["blog_name"][:40] + (markdown["blog_name"][40:] and '...')
                 citation = get_doi_metadata(meta_str, "citation", style, locale)
                 if citation:

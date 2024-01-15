@@ -2,6 +2,7 @@
 from uuid import UUID
 from typing import Optional, Union
 import re
+from babel.dates import format_date
 import requests
 import json
 import iso8601
@@ -159,11 +160,11 @@ def unix_timestamp(date_str: str) -> int:
         return 0
 
 
-def format_datetime(date_str: str) -> str:
+def format_datetime(date_str: str, lc: str = "en") -> str:
     """convert iso8601 date to formatted date"""
     try:
         dt = iso8601.parse_date(date_str)
-        return dt.strftime("%B %-d, %Y")
+        return format_date(dt, format="long", locale=lc)
     except ValueError as e:
         print(e)
         return "January 1, 1970"
@@ -634,6 +635,14 @@ def format_markdown(content: str, metadata) -> str:
 
 def translate_titles(markdown):
     """Translate titles into respective language"""
+    lastsep = {
+        "en": "and",
+        "de": "und",
+        "es": "y",
+        "fr": "et",
+        "it": "e",
+        "pt": "e"
+    }
     date_title = {
         "en": "Published",
         "de": "Veröffentlicht",
@@ -667,6 +676,7 @@ def translate_titles(markdown):
         "pt": "Direitos de autor",
     }
     lang = markdown.get("lang", "en")
+    markdown["lastsep"] = lastsep.get(lang, "and")
     markdown["date-title"] = date_title.get(lang, "Published")
     markdown["keywords-title"] = keywords_title.get(lang, "Keywords")
     markdown["citation-title"] = citation_title.get(lang, "Citation")
