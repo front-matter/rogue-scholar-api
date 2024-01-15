@@ -26,14 +26,12 @@ from quart_rate_limiter import RateLimiter, RateLimit
 from api.supabase import (
     supabase_client as supabase,
     blogWithPostsSelect,
-    postsWithBlogSelect,
     postsWithConfigSelect,
     postsWithContentSelect,
 )
 from api.typesense import typesense_client as typesense
 from api.utils import (
     doi_from_url,
-    get_doi_metadata_from_ra,
     get_doi_metadata,
     convert_to_commonmeta,
     write_epub,
@@ -49,7 +47,8 @@ from api.utils import (
     format_authors_full,
     format_authors_with_orcid,
     format_license,
-    format_relationships
+    format_relationships,
+    translate_titles,
 )
 from api.posts import extract_all_posts, extract_all_posts_by_blog, update_posts
 from api.blogs import extract_single_blog, extract_all_blogs
@@ -414,6 +413,7 @@ async def post(slug: str, suffix: Optional[str] = None):
                 else:
                     markdown["citation"] = markdown["identifier"]
                 markdown["relationships"] = format_relationships(markdown["relationships"])
+                markdown = translate_titles(markdown)
                 markdown = frontmatter.dumps(markdown)
                 pdf = write_pdf(markdown)
                 return (

@@ -69,18 +69,18 @@ $endfor$
   </p>
   $if(date)$
     <div class="date">
-      Published $date$
+      $date-title$ $date$
     </div>
   $endif$
   $if(citation)$
     <div class="citation">
-      <h4>Citation</h4>
+      <h4>$citation-title$</h4>
       $citation$
     </div>
   $endif$
   $if(keywords)$
     <div class=""keywords>
-      <h4>Keywords</h4>
+      <h4>$keywords-title$</h4>
       $keywords[, ]$
     </div>
   $endif$
@@ -111,7 +111,7 @@ $endfor$
   $endif$
   $if(license)$
     <div class="rights">
-      <h4>Copyright</h4>
+      <h4>$copyright-title$</h4>
       $license.text$ Distributed under the terms of the <a href="$license.link$">Creative Commons Attribution 4.0 International License</a>,
       which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and 
       source are credited.

@@ -630,3 +630,45 @@ def format_markdown(content: str, metadata) -> str:
     post["abstract"] = metadata.get("abstract", "").strip()
     post["rights"] = "https://creativecommons.org/licenses/by/4.0/legalcode"
     return post
+
+
+def translate_titles(markdown):
+    """Translate titles into respective language"""
+    date_title = {
+        "en": "Published",
+        "de": "Veröffentlicht",
+        "es": "Publicado",
+        "fr": "Publié",
+        "it": "Pubblicato",
+        "pt": "Publicados",
+    }
+    keywords_title = {
+        "en": "Keywords",
+        "de": "Schlüsselwörter",
+        "es": "Palabras clave",
+        "fr": "Mots clés",
+        "it": "Parole chiave",
+        "pt": "Palavras-chave",
+    }
+    citation_title = {
+        "en": "Citation",
+        "de": "Zitiervorschlag",
+        "es": "Cita",
+        "fr": "Citation",
+        "it": "Citazione",
+        "pt": "Citação",
+    }
+    copyright_title = {
+        "en": "Copyright",
+        "de": "Urheberrecht",
+        "es": "Copyright",
+        "fr": "Droit d'auteur",
+        "it": "Copyright",
+        "pt": "Direitos de autor",
+    }
+    lang = markdown.get("lang", "en")
+    markdown["date-title"] = date_title.get(lang, "Published")
+    markdown["keywords-title"] = keywords_title.get(lang, "Keywords")
+    markdown["citation-title"] = citation_title.get(lang, "Citation")
+    markdown["copyright-title"] = copyright_title.get(lang, "Copyright")
+    return markdown
