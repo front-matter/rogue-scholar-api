@@ -463,6 +463,7 @@ def get_doi_metadata(
         "bibtex": "application/x-bibtex",
         "ris": "application/x-research-info-systems",
         "csl": "application/vnd.citationstyles.csl+json",
+        "schema_org": "application/vnd.schemaorg.ld+json",
         "citation": f"text/x-bibliography; style={style}; locale={locale}",
     }
     content_type = content_types.get(format_)
@@ -478,6 +479,9 @@ def get_doi_metadata(
     elif format_ == "bibtex":
         ext = "bib"
         result = subject.bibtex()
+    elif format_ == "schema_org":
+        ext = "jsonld"
+        result = subject.schema_org()
     else:
         ext = "txt"
         result = subject.citation()

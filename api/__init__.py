@@ -350,11 +350,15 @@ async def post(slug: str, suffix: Optional[str] = None):
         return jsonify(response.data)
     elif slug in prefixes and suffix:
         path = suffix.split(".")
-        if len(path) > 1 and path[-1] in ["md", "epub", "pdf", "xml", "bib", "ris"]:
+        if len(path) > 1 and path[-1] in ["md", "epub", "pdf", "xml", "bib", "ris", "jsonld", "json"]:
             format_ = path.pop()
             suffix = ".".join(path)
         if format_ == "bib":
             format_ = "bibtex"
+        elif format_ == "jsonld":
+            format_ = "schema_org"
+        elif format_ == "json":
+            format_ = "csl"
         doi = f"https://doi.org/{slug}/{suffix}"
         try:
             response = (
@@ -458,7 +462,7 @@ async def post(slug: str, suffix: Optional[str] = None):
                         "Content-Disposition": f"attachment; filename={basename}.md",
                     },
                 )
-        elif format_ in ["bibtex", "ris", "csl", "citation"]:
+        elif format_ in ["bibtex", "ris", "csl", "schema_org", "citation"]:
             response = get_doi_metadata(meta_str, format_, style, locale)
             if not response:
                 logger.warning("Metadata not found")
