@@ -8,7 +8,6 @@ import frontmatter
 from api.utils import (
     get_date,
     convert_to_commonmeta,
-    get_doi_metadata_from_ra,
     get_doi_metadata,
     validate_uuid,
     unix_timestamp,
@@ -69,11 +68,17 @@ def test_convert_to_commonmeta_default():
     }
     assert len(result["references"]) == 0
     assert result["funding_references"] == []
-    assert result["container"] == {'type': 'Periodical', 'title': 'GigaBlog'}
+    assert result["container"] == {"type": "Periodical", "title": "GigaBlog"}
     assert py_.get(result, "descriptions.0.description").startswith(
         "<em>\n Marking the 10\n <sup>\n  th\n </sup>\n anniversary"
     )
-    assert result["subjects"] == ['Technology', 'Computational Biology', 'FAIR', 'FAIR Data', 'FORCE11']
+    assert result["subjects"] == [
+        "Technology",
+        "Computational Biology",
+        "FAIR",
+        "FAIR Data",
+        "FORCE11",
+    ]
     assert result["provider"] == "Crossref"
     assert len(result["files"]) == 5
     assert py_.get(result, "files.2") == {
@@ -108,6 +113,75 @@ def test_get_doi_metadata_csl():
     result = get_doi_metadata(data, format_="csl")
     csl = json.loads(result["data"])
     assert csl["title"] == "The rise of the (science) newsletter"
+    assert csl["author"] == [{'family': 'Fenner', 'given': 'Martin'}]
+
+
+def test_get_doi_metadata_ris():
+    "get doi metadata in ris format"
+    data = path.join(path.dirname(__file__), "fixtures", "commonmeta.json")
+    result = get_doi_metadata(data, format_="ris")
+    ris = result["data"].split("\r\n")
+    assert ris[1] == "T1  - The rise of the (science) newsletter"
+    assert ris[2] == "AU  - Fenner, Martin"
+
+
+def test_get_doi_metadata_commonmeta():
+    "get doi metadata in commonmeta format"
+    data = path.join(path.dirname(__file__), "fixtures", "commonmeta.json")
+    result = get_doi_metadata(data)
+    commonmeta = json.loads(result["data"])
+    assert (
+        commonmeta["titles"][0].get("title") == "The rise of the (science) newsletter"
+    )
+    assert commonmeta["contributors"] == [
+        {
+            "id": "https://orcid.org/0000-0003-1419-2405",
+            "type": "Person",
+            "contributorRoles": ["Author"],
+            "givenName": "Martin",
+            "familyName": "Fenner",
+        }
+    ]
+
+
+def test_get_doi_metadata_schema_org():
+    "get doi metadata in schema_org format"
+    data = path.join(path.dirname(__file__), "fixtures", "commonmeta.json")
+    result = get_doi_metadata(data, format_="schema_org")
+    schema_org = json.loads(result["data"])
+    assert schema_org["name"] == "The rise of the (science) newsletter"
+    assert schema_org["author"] == [
+        {
+            "id": "https://orcid.org/0000-0003-1419-2405",
+            "givenName": "Martin",
+            "familyName": "Fenner",
+            "@type": "Person",
+            "name": "Martin Fenner",
+        }
+    ]
+
+
+def test_get_doi_metadata_datacite():
+    "get doi metadata in datacite format"
+    data = path.join(path.dirname(__file__), "fixtures", "commonmeta.json")
+    result = get_doi_metadata(data, format_="datacite")
+    datacite = json.loads(result["data"])
+    assert datacite["titles"][0].get("title") == "The rise of the (science) newsletter"
+    assert datacite["creators"] == [
+        {
+            "familyName": "Fenner",
+            "givenName": "Martin",
+            "name": "Fenner, Martin",
+            "nameIdentifiers": [
+                {
+                    "nameIdentifier": "https://orcid.org/0000-0003-1419-2405",
+                    "nameIdentifierScheme": "ORCID",
+                    "schemeUri": "https://orcid.org",
+                }
+            ],
+            "nameType": "Personal",
+        }
+    ]
 
 
 def test_get_doi_metadata_citation():
@@ -117,46 +191,6 @@ def test_get_doi_metadata_citation():
     assert (
         result["data"]
         == "Fenner, M. (2023). <i>The rise of the (science) newsletter</i>. Front Matter. https://doi.org/10.53731/ybhah-9jy85"
-    )
-
-
-def test_get_metadata_bibtex():
-    "get metadata in bibtex format"
-    doi = "https://doi.org/10.53731/ybhah-9jy85"
-    result = get_doi_metadata_from_ra(doi, format_="bibtex")
-    print(result)
-    assert (
-        result["data"]
-        == """@article{Fenner_2023,
- author = {Fenner, Martin},
- doi = {10.53731/ybhah-9jy85},
- month = {October},
- publisher = {Front Matter},
- title = {The rise of the (science) newsletter},
- url = {http://dx.doi.org/10.53731/ybhah-9jy85},
- year = {2023}
-}"""
-    )
-
-
-def test_get_metadata_csl():
-    "get metadata in csl format"
-    doi = "https://doi.org/10.59350/e3wmw-qwx29"
-    result = get_doi_metadata_from_ra(doi, format_="csl")
-    csl = json.loads(result["data"])
-    assert (
-        csl["title"]
-        == "Two influential textbooks &#8211; &#8220;Mee&#8221;  and &#8220;Mellor&#8221;."
-    )
-
-
-def test_get_metadata_citation():
-    "get metadata as formatted citation"
-    doi = "https://doi.org/10.53731/ybhah-9jy85"
-    result = get_doi_metadata_from_ra(doi, format_="citation")
-    assert (
-        result["data"]
-        == "Fenner, M. (2023). The rise of the (science) newsletter. https://doi.org/10.53731/ybhah-9jy85"
     )
 
 

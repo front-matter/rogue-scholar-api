@@ -332,10 +332,10 @@ async def test_post_route_by_doi():
     assert response.status_code == 200
     result = await response.get_json()
     assert (
-        result["title"]
+        result["titles"][0].get("title")
         == "¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?"
     )
-    assert result["doi"] == "https://doi.org/10.59350/sfzv4-xdb68"
+    assert result["id"] == "https://doi.org/10.59350/sfzv4-xdb68"
 
 
 async def test_post_route_by_doi_not_found():
@@ -362,6 +362,7 @@ async def test_post_as_bibtex():
     author = {Fernández, Norbisley},
     copyright = {https://creativecommons.org/licenses/by/4.0/legalcode},
     doi = {10.59350/sfzv4-xdb68},
+    journal = {Edición y comunicación de la Ciencia},
     language = {es},
     month = oct,
     title = {¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?},

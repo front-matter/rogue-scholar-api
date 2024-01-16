@@ -350,7 +350,16 @@ async def post(slug: str, suffix: Optional[str] = None):
         return jsonify(response.data)
     elif slug in prefixes and suffix:
         path = suffix.split(".")
-        if len(path) > 1 and path[-1] in ["md", "epub", "pdf", "xml", "bib", "ris", "jsonld", "json"]:
+        if len(path) > 1 and path[-1] in [
+            "md",
+            "epub",
+            "pdf",
+            "xml",
+            "bib",
+            "ris",
+            "jsonld",
+            "json",
+        ]:
             format_ = path.pop()
             suffix = ".".join(path)
         if format_ == "bib":
@@ -358,16 +367,16 @@ async def post(slug: str, suffix: Optional[str] = None):
         elif format_ == "jsonld":
             format_ = "schema_org"
         elif format_ == "json":
-            format_ = "csl"
+            format_ = "commonmeta"
         doi = f"https://doi.org/{slug}/{suffix}"
         try:
             response = (
-                    supabase.table("posts")
-                    .select(postsWithContentSelect)
-                    .eq("doi", doi)
-                    .maybe_single()
-                    .execute()
-                )
+                supabase.table("posts")
+                .select(postsWithContentSelect)
+                .eq("doi", doi)
+                .maybe_single()
+                .execute()
+            )
             content = response.data.get("content_text", None)
             metadata = py_.omit(response.data, ["content_text"])
             meta_str = json.dumps(convert_to_commonmeta(metadata))
@@ -407,16 +416,20 @@ async def post(slug: str, suffix: Optional[str] = None):
                 markdown["author"] = format_authors_with_orcid(markdown["author"])
                 markdown["license"] = {
                     "text": format_license(markdown["author"], markdown["date"]),
-                    "link": markdown["rights"]
+                    "link": markdown["rights"],
                 }
                 markdown["date"] = format_datetime(markdown["date"], markdown["lang"])
-                markdown["blog_name"] = markdown["blog_name"][:40] + (markdown["blog_name"][40:] and '...')
+                markdown["blog_name"] = markdown["blog_name"][:40] + (
+                    markdown["blog_name"][40:] and "..."
+                )
                 citation = get_doi_metadata(meta_str, "citation", style, locale)
                 if citation:
                     markdown["citation"] = citation["data"]
                 else:
                     markdown["citation"] = markdown["identifier"]
-                markdown["relationships"] = format_relationships(markdown["relationships"])
+                markdown["relationships"] = format_relationships(
+                    markdown["relationships"]
+                )
                 markdown = translate_titles(markdown)
                 markdown = frontmatter.dumps(markdown)
                 pdf = write_pdf(markdown)
@@ -440,7 +453,7 @@ async def post(slug: str, suffix: Optional[str] = None):
                 markdown["license"] = {
                     "text": "Creative Commons Attribution 4.0",
                     "type": "open-access",
-                    "link": markdown["rights"]
+                    "link": markdown["rights"],
                 }
                 markdown["journal"] = {"title": markdown["blog_name"]}
                 markdown = frontmatter.dumps(markdown)
@@ -462,7 +475,15 @@ async def post(slug: str, suffix: Optional[str] = None):
                         "Content-Disposition": f"attachment; filename={basename}.md",
                     },
                 )
-        elif format_ in ["bibtex", "ris", "csl", "schema_org", "citation"]:
+        elif format_ in [
+            "bibtex",
+            "ris",
+            "csl",
+            "schema_org",
+            "datacite",
+            "commonmeta",
+            "citation",
+        ]:
             response = get_doi_metadata(meta_str, format_, style, locale)
             if not response:
                 logger.warning("Metadata not found")

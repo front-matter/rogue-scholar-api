@@ -396,81 +396,29 @@ def convert_to_commonmeta(meta: dict) -> Commonmeta:
     }
 
 
-def get_doi_metadata_from_ra(
-    doi: str, format_: str = "csl", style: str = "apa", locale: str = "en-US"
-) -> Optional[dict]:
-    """use DOI content negotiation to get metadata in various formats.
-    format_ can be bibtex, ris, csl, citation, with bibtex as default."""
-
-    content_types = {
-        "bibtex": "application/x-bibtex",
-        "ris": "application/x-research-info-systems",
-        "csl": "application/vnd.citationstyles.csl+json",
-        "citation": f"text/x-bibliography; style={style}; locale={locale}",
-    }
-    content_type = content_types.get(format_)
-
-    response = requests.get(doi, headers={"Accept": content_type}, timeout=10)
-    response.encoding = "UTF-8"
-    if response.status_code >= 400:
-        return None
-
-    basename = doi_from_url(doi).replace("/", "-")
-    if format_ == "csl":
-        ext = "json"
-        csl = response.json()
-
-        # cleanup to align with CSL spec
-        csl = py_.omit(csl, ["license", "original-title"])
-        csl["id"] = doi
-        csl["title"] = html.unescape(csl["title"])
-
-        # correctly parse metadata for posted_content type
-        if csl["type"] == "posted-content":
-            csl["type"] = "article-journal"
-            csl["container-title"] = py_.get(csl, "institution[0].name", None)
-
-        result = json.dumps(csl, indent=2)
-    elif format_ == "ris":
-        ext = "ris"
-        result = response.text
-    elif format_ == "bibtex":
-        ext = "bib"
-        library = bibtexparser.loads(response.text)
-
-        # cleanup to bibtex
-        # TODO: fix more fields
-        library.entries[0]["doi"] = doi_from_url(doi)
-        result = bibtexparser.dumps(library)
-
-    else:
-        ext = "txt"
-        result = response.text
-    options = {
-        "Content-Type": content_type,
-        "Content-Disposition": f"attachment; filename={basename}.{ext}",
-    }
-    return {"doi": doi, "data": result.strip(), "options": options}
-
-
 def get_doi_metadata(
-    data: str = "{}", format_: str = "csl", style: str = "apa", locale: str = "en-US"
+    data: str = "{}", format_: str = "commonmeta", style: str = "apa", locale: str = "en-US"
 ):
     """use commonmeta library to get metadata in various formats.
     format_ can be bibtex, ris, csl, citation, with bibtex as default."""
 
     content_types = {
+        "commonmeta": "application/vnd.commonmeta+json",
         "bibtex": "application/x-bibtex",
         "ris": "application/x-research-info-systems",
         "csl": "application/vnd.citationstyles.csl+json",
         "schema_org": "application/vnd.schemaorg.ld+json",
+        "datacite": "application/vnd.datacite.datacite+json",
         "citation": f"text/x-bibliography; style={style}; locale={locale}",
     }
     content_type = content_types.get(format_)
     subject = Metadata(data, via="commonmeta")
     doi = doi_from_url(subject.id)
     basename = doi_from_url(doi).replace("/", "-")
-    if format_ == "csl":
+    if format_ == "commonmeta":
+        ext = "json"
+        result = subject.commonmeta()
+    elif format_ == "csl":
         ext = "json"
         result = subject.csl()
     elif format_ == "ris":
@@ -482,6 +430,12 @@ def get_doi_metadata(
     elif format_ == "schema_org":
         ext = "jsonld"
         result = subject.schema_org()
+    elif format_ == "crossref_xml":
+        ext = "xml"
+        result = subject.crossref_xml()
+    elif format_ == "datacite":
+        ext = "json"
+        result = subject.datacite()
     else:
         ext = "txt"
         result = subject.citation()
