@@ -43,7 +43,7 @@ async def extract_all_blogs():
     blogs = (
         supabase.table("blogs")
         .select("slug")
-        .in_("status", ["active"])
+        .in_("status", ["approved", "active"])
         .order("title", desc=False)
         .execute()
     )
