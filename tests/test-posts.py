@@ -75,7 +75,7 @@ async def test_extract_posts_by_archived_blog():
     """Extract posts by archived_blog"""
     slug = "thor"
     result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
-    assert result == {}
+    assert result == []
 
 
 @pytest.mark.vcr

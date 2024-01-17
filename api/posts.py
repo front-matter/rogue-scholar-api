@@ -93,7 +93,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             .execute()
         )
         blog = response.data
-        if not blog or blog.get("status", None) != "active":
+        if not blog:
             return {}
         if page == 1:
             url = furl(blog.get("current_feed_url", None) or blog.get("feed_url", None))
@@ -242,7 +242,8 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         else:
             blog_with_posts["entries"] = []
-
+        if blog.get("status", None) != "active":
+            return blog_with_posts["entries"]
         return [upsert_single_post(i) for i in blog_with_posts["entries"]]
     except TimeoutError:
         print(f"Timeout error in blog {blog['slug']}.")
