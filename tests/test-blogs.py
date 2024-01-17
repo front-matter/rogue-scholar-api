@@ -7,7 +7,9 @@ from api.blogs import (
     update_single_blog,
     parse_generator,
     parse_feed_format,
+    find_feed,
 )
+
 
 @pytest.fixture(scope="session")
 def vcr_config():
@@ -77,6 +79,78 @@ async def test_extract_single_blog_rss_feed():
     assert result["favicon"] is None
 
 
+@pytest.mark.vcr
+@pytest.mark.asyncio
+async def test_find_feed_ghost():
+    "find feed in ghost homepage"
+    url = "https://blog.front-matter.io/"
+    result = await find_feed(url)
+    assert result == "https://blog.front-matter.io/atom/"
+
+
+@pytest.mark.vcr
+@pytest.mark.asyncio
+async def test_find_feed_wordpress():
+    "find feed in wordpress homepage"
+    url = "https://ulirockenbauch.blog"
+    result = await find_feed(url)
+    assert result == "https://ulirockenbauch.blog/feed/"
+
+
+@pytest.mark.vcr
+@pytest.mark.asyncio
+async def test_find_feed_wordpress_subfolder():
+    "find feed in wordpress homepage"
+    url = "https://www.ch.imperial.ac.uk/rzepa/blog/"
+    result = await find_feed(url)
+    assert result == "https://www.ch.imperial.ac.uk/rzepa/blog/?feed=rss2"
+
+
+@pytest.mark.vcr
+@pytest.mark.asyncio
+async def test_find_feed_hugo():
+    "find feed in hugo homepage"
+    url = "https://sven-lieber.org/en/"
+    result = await find_feed(url)
+    assert result == "https://sven-lieber.org/en/index.xml"
+
+
+@pytest.mark.vcr
+@pytest.mark.asyncio
+async def test_find_feed_quarto():
+    "find feed in quarto homepage"
+    url = "https://www.andrewheiss.com/"
+    result = await find_feed(url)
+    assert result is None
+    
+    
+@pytest.mark.vcr
+@pytest.mark.asyncio
+async def test_find_feed_blogger():
+    "find feed in blogger homepage"
+    url = "https://iphylo.blogspot.com/"
+    result = await find_feed(url)
+    assert result == "https://iphylo.blogspot.com/feeds/posts/default"
+
+
+@pytest.mark.vcr
+@pytest.mark.asyncio
+async def test_find_feed_jekyll():
+    "find feed in jekyll homepage"
+    url = "https://eve.gd/"
+    result = await find_feed(url)
+    assert result == "https://eve.gd/feed/feed.atom"
+
+
+@pytest.mark.vcr
+@pytest.mark.asyncio
+async def test_find_feed_substack():
+    "find feed in substack homepage"
+    url = "https://cwagen.substack.com/"
+    result = await find_feed(url)
+    assert result == "https://cwagen.substack.com/feed"
+
+
 def test_parse_generator_hugo():
     """Parse generator hugo"""
     generator = {"href": "https://gohugo.io", "name": "Hugo 0.110.0"}
@@ -93,6 +167,13 @@ def test_parse_generator_wordpress():
     }
     result = parse_generator(generator)
     assert result == "WordPress 6.2.3"
+
+
+def test_parse_generator_wordpress_alternate():
+    """Parse generator wordpress alternate format"""
+    generator = {'name': 'https://wordpress.org/?v=6.4.2'}
+    result = parse_generator(generator)
+    assert result == "WordPress 6.4.2"
 
 
 def test_parse_generator_wordpress_com():

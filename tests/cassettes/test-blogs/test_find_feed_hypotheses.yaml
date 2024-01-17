@@ -1,0 +1,45 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://lucidarios.hypotheses.org/
+  response:
+    body:
+      string: "<!DOCTYPE html>\n<html>\n  <head>\n    <title>503 Backend fetch failed</title>\n
+        \ </head>\n  <body>\n    <h1>Error 503 Backend fetch failed</h1>\n    <p>Backend
+        fetch failed</p>\n    <h3>Guru Meditation:</h3>\n    <p>XID: 150297581</p>\n
+        \   <hr>\n    <p>Varnish cache server</p>\n  </body>\n</html>\n"
+    headers:
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '286'
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Wed, 17 Jan 2024 08:53:16 GMT
+      Retry-After:
+      - '5'
+      Server:
+      - Varnish
+      Via:
+      - 1.1 varnish (Varnish/7.0)
+      X-Cacheable:
+      - 'YES'
+      X-Varnish:
+      - '150297580'
+    status:
+      code: 503
+      message: Backend fetch failed
+version: 1

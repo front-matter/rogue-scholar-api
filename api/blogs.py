@@ -1,14 +1,40 @@
 """Blogs module."""
 import socket
 import asyncio
+from typing import Optional
+import requests
 import feedparser
 import re
+from bs4 import BeautifulSoup as bs4
+from furl import furl
 
 from api.supabase import (
     supabase_client as supabase,
     supabase_admin_client as supabase_admin,
 )
-from api.utils import start_case, get_date, unix_timestamp, wrap
+from api.utils import start_case, get_date, unix_timestamp, wrap, normalize_url, is_valid_url
+
+
+async def find_feed(url: str) -> Optional[str]:
+    """Find RSS feed in homepage. Based on https://gist.github.com/alexmill/9bc634240531d81c3abe
+    Prefer JSON Feed over Atom over RSS"""
+    url = normalize_url(url)
+    raw = requests.get(url).text
+    html = bs4(raw, features="lxml")
+    feeds = html.findAll("link", rel="alternate")
+    if len(feeds) == 0:
+        return None
+    feed_url = next((feed.get("href", None) for feed in feeds if feed.get('type', None) == "application/feed+json"), None)
+    if feed_url is None:
+       feed_url = next((feed.get("href", None) for feed in feeds if feed.get('type', None) == "application/atom+xml"), None)
+    if feed_url is None:
+       feed_url = next((feed.get("href", None) for feed in feeds if feed.get('type', None) == "application/rss+xml"), None)
+    if is_valid_url(feed_url):
+        return feed_url
+    # else feed_url is relative url
+    f = furl(url)
+    f.path = feed_url
+    return f.url
 
 
 async def extract_all_blogs():
@@ -44,8 +70,11 @@ async def extract_single_blog(slug: str):
     if not response.data:
         return None
     config = response.data
+    feed_url = config.get("feed_url", None)
+    if feed_url is None:
+        feed_url = await find_feed(config["home_page_url"])
     socket.setdefaulttimeout(60)
-    parsed = feedparser.parse(response.data["feed_url"])
+    parsed = feedparser.parse(config.get("feed_url", None) or feed_url)
     feed = parsed.feed
     home_page_url = config["home_page_url"] or feed.get("link", None)
     updated_at = get_date(feed.get("updated", None))
@@ -56,7 +85,8 @@ async def extract_single_blog(slug: str):
     title = feed.get("title", None) or config["title"]
     generator_raw = (
         parse_generator(feed.get("generator_detail", None) or feed.get("generator"))
-        or config["generator_raw"] or "Other"
+        or config["generator_raw"]
+        or "Other"
     )
     generator = re.split(" ", generator_raw)[0]
     description = feed.get("subtitle", None) or config["description"]
@@ -73,7 +103,7 @@ async def extract_single_blog(slug: str):
         "id": config["id"],
         "slug": slug,
         "version": "https://jsonfeed.org/version/1.1",
-        "feed_url": config["feed_url"],
+        "feed_url": feed_url,
         "created_at": config["created_at"],
         "updated_at": updated_at,
         "current_feed_url": config["current_feed_url"],
@@ -106,9 +136,16 @@ def parse_generator(generator):
     """Parse blog generator."""
     if not generator:
         return None
+    elif isinstance(generator, str):
+        return generator
     elif isinstance(generator, dict):
         version = generator.get("version", None)
         name = generator.get("name", None)
+        if is_valid_url(name):
+            f = furl(name)
+            name = f.host.split(".")[0]
+            version = f.args.get("v", None)
+            
         names = name.split(" ")
 
         # split name and version
@@ -121,10 +158,11 @@ def parse_generator(generator):
 
         # capitalize first letter without lowercasing the rest
         name = start_case(name)
-
+        
         # versions prior to 6.1
         if name == "Wordpress":
             name = "WordPress"
+            
         elif name == "Wowchemy":
             name = "Hugo"
         elif name == "Site Server":
@@ -188,7 +226,7 @@ def update_single_blog(blog):
                     "secure": blog.get("secure", None),
                 }
             )
-            .eq('slug', blog.get("slug"))
+            .eq("slug", blog.get("slug"))
             .execute()
         )
         return response.data[0]
