@@ -228,7 +228,7 @@ async def test_posts_updated_route():
     response = await test_client.get("/posts/updated")
     assert response.status_code == 200
     result = await response.get_json()
-    assert len(result) == 0
+    assert len(result) > 0
 
 
 @pytest.mark.vcr

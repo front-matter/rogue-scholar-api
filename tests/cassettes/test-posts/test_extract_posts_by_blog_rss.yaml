@@ -19,9 +19,9 @@ interactions:
       host:
       - db.rogue-scholar.org
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: GET
     uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20generator_raw%2C%20language%2C%20category%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.tarleb
   response:
@@ -34,7 +34,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5935f7e1620-DUS
+      - 8498645a3803cb01-DUS
       Connection:
       - keep-alive
       Content-Location:
@@ -46,7 +46,7 @@ interactions:
       Content-Type:
       - application/vnd.pgrst.object+json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:22:58 GMT
+      - Mon, 22 Jan 2024 14:12:27 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -60,7 +60,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '6'
+      - '5'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -2179,7 +2179,7 @@ interactions:
       Access-Control-Allow-Origin:
       - '*'
       Age:
-      - '165'
+      - '259'
       Cache-Control:
       - max-age=600
       Connection:
@@ -2191,11 +2191,11 @@ interactions:
       Content-Type:
       - application/xml
       Date:
-      - Mon, 25 Dec 2023 11:22:58 GMT
+      - Mon, 22 Jan 2024 14:12:28 GMT
       Etag:
       - W/"64205d75-291df"
       Expires:
-      - Mon, 11 Dec 2023 10:20:04 GMT
+      - Wed, 03 Jan 2024 02:27:14 GMT
       Last-Modified:
       - Sun, 26 Mar 2023 14:57:57 GMT
       Server:
@@ -2209,13 +2209,13 @@ interactions:
       X-Cache-Hits:
       - '1'
       X-Fastly-Request-ID:
-      - adbe2b50ab34da620197bdbc683ceccc99443b38
+      - 599839c176611dd01ba2ff75c7f5904e13512372
       X-GitHub-Request-Id:
-      - 2870:4F612:4894FB6:49F38E4:6576DFFB
+      - AA0A:34B254:125D405:12A4AB0:6594C3AA
       X-Served-By:
-      - cache-ams21033-AMS
+      - cache-ams21043-AMS
       X-Timer:
-      - S1703503379.597776,VS0,VE2
+      - S1705932748.014729,VS0,VE26
       x-proxy-cache:
       - MISS
     status:
@@ -2371,9 +2371,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -2513,7 +2513,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b59e5a517a5a-DUS
+      - 849864655ddf1638-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -2523,7 +2523,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:00 GMT
+      - Mon, 22 Jan 2024 14:12:29 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -2537,9 +2537,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '11'
+      - '6'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -2568,9 +2568,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.b98948a9-9fcf-4580-a446-7354f2c7e6cd
   response:
@@ -2710,7 +2710,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b59ecac47a5a-DUS
+      - 84986465de611638-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -2722,7 +2722,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:00 GMT
+      - Mon, 22 Jan 2024 14:12:29 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -2734,9 +2734,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -2831,9 +2831,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -2910,7 +2910,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b59f2b407a5a-DUS
+      - 849864662ec91638-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -2920,7 +2920,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:00 GMT
+      - Mon, 22 Jan 2024 14:12:29 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -2936,7 +2936,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '7'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -2965,9 +2965,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.4fb04d8c-7e8b-4597-a917-ebd71b2f2d35
   response:
@@ -3044,7 +3044,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b59fcbe27a5a-DUS
+      - 84986466af531638-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -3056,7 +3056,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:00 GMT
+      - Mon, 22 Jan 2024 14:12:29 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -3068,7 +3068,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -3150,9 +3150,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -3213,7 +3213,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a02c357a5a-DUS
+      - 849864671fe71638-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -3223,7 +3223,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:00 GMT
+      - Mon, 22 Jan 2024 14:12:29 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -3237,9 +3237,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '6'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -3268,9 +3268,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.7d384846-aee9-4cf2-a0df-9ebaa4d4f955
   response:
@@ -3331,7 +3331,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a08cb37a5a-DUS
+      - 8498646788471638-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -3343,7 +3343,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:00 GMT
+      - Mon, 22 Jan 2024 14:12:30 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -3355,9 +3355,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -3406,9 +3406,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -3436,7 +3436,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a0ed037a5a-DUS
+      - 84986467f8af1638-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -3446,7 +3446,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:00 GMT
+      - Mon, 22 Jan 2024 14:12:30 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -3460,7 +3460,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
       - '4'
       alt-svc:
@@ -3491,9 +3491,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.e848e36a-a036-4d6f-88ca-c8fa89d0c8c6
   response:
@@ -3521,7 +3521,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a17d817a5a-DUS
+      - 84986468690d1638-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -3533,7 +3533,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:00 GMT
+      - Mon, 22 Jan 2024 14:12:30 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -3547,7 +3547,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -3595,9 +3595,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -3622,7 +3622,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a1ddd37a5a-DUS
+      - 84986468c9981638-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -3632,7 +3632,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:00 GMT
+      - Mon, 22 Jan 2024 14:12:30 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -3646,9 +3646,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -3677,9 +3677,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.08423165-ffe1-47a4-a2d8-e902a6d82bcc
   response:
@@ -3704,7 +3704,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a23e377a5a-DUS
+      - 849864693a341638-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -3716,7 +3716,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:00 GMT
+      - Mon, 22 Jan 2024 14:12:30 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -3728,7 +3728,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '2'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -3837,9 +3837,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -3926,7 +3926,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a31ef17a5a-DUS
+      - 84986469bae71638-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -3936,7 +3936,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:01 GMT
+      - Mon, 22 Jan 2024 14:12:30 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -3952,7 +3952,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -3981,9 +3981,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.b5e8c157-247d-4901-ad08-7c752c554db4
   response:
@@ -4070,7 +4070,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a38f597a5a-DUS
+      - 8498646a4bc31638-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -4082,7 +4082,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:01 GMT
+      - Mon, 22 Jan 2024 14:12:30 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -4094,9 +4094,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '2'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '2'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -4145,9 +4145,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -4175,7 +4175,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a41fbe7a5a-DUS
+      - 8498646aac221638-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -4185,7 +4185,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:01 GMT
+      - Mon, 22 Jan 2024 14:12:30 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -4199,9 +4199,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -4230,9 +4230,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.7b6162e7-1b3b-46b9-bcf3-523193e440a0
   response:
@@ -4260,7 +4260,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a4780d7a5a-DUS
+      - 8498646b1cf81638-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -4272,7 +4272,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:01 GMT
+      - Mon, 22 Jan 2024 14:12:30 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -4284,9 +4284,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '2'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -4379,9 +4379,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -4454,7 +4454,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a4d8547a5a-DUS
+      - 8498646b9d931638-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -4464,7 +4464,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:01 GMT
+      - Mon, 22 Jan 2024 14:12:30 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -4478,9 +4478,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -4509,9 +4509,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.3ceb36e6-eb5d-4f47-9b1f-db12a204e802
   response:
@@ -4584,7 +4584,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a568e27a5a-DUS
+      - 8498646c1e131638-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -4596,7 +4596,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:01 GMT
+      - Mon, 22 Jan 2024 14:12:30 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -4704,9 +4704,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -4781,7 +4781,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a5c93b7a5a-DUS
+      - 8498646c7e6c1638-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -4791,7 +4791,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:01 GMT
+      - Mon, 22 Jan 2024 14:12:30 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -4805,9 +4805,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -4836,9 +4836,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.92141755-62a9-4409-9638-d01f721d4357
   response:
@@ -4913,7 +4913,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a629757a5a-DUS
+      - 8498646cfee71638-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -4925,7 +4925,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:01 GMT
+      - Mon, 22 Jan 2024 14:12:30 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -5067,9 +5067,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -5179,7 +5179,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a699c37a5a-DUS
+      - 8498646d6f5b1638-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -5189,7 +5189,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:01 GMT
+      - Mon, 22 Jan 2024 14:12:30 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -5203,7 +5203,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -5234,9 +5234,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.83343fed-2939-46d6-afa3-9f512ff3c3f8
   response:
@@ -5346,7 +5346,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a6fa2f7a5a-DUS
+      - 8498646ddfc51638-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -5358,7 +5358,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:01 GMT
+      - Mon, 22 Jan 2024 14:12:31 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -5370,7 +5370,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -5522,9 +5522,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -5656,7 +5656,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a75a737a5a-DUS
+      - 8498646e485d1638-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -5666,7 +5666,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:01 GMT
+      - Mon, 22 Jan 2024 14:12:31 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -5682,7 +5682,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '5'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -5711,9 +5711,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.0578c708-1102-42b5-b43f-f2a830b218d5
   response:
@@ -5845,7 +5845,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a7cadc7a5a-DUS
+      - 8498646ed93b1638-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -5857,7 +5857,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:01 GMT
+      - Mon, 22 Jan 2024 14:12:31 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -5869,7 +5869,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -6065,9 +6065,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -6243,7 +6243,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a84b4c7a5a-DUS
+      - 8498646f49b81638-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -6253,7 +6253,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:01 GMT
+      - Mon, 22 Jan 2024 14:12:31 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -6267,7 +6267,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '4'
       alt-svc:
@@ -6298,9 +6298,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.146e7741-5865-42f3-81cc-d1146bbf38f5
   response:
@@ -6476,7 +6476,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a8abb37a5a-DUS
+      - 8498646fca6d1638-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -6488,7 +6488,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:01 GMT
+      - Mon, 22 Jan 2024 14:12:31 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -6502,7 +6502,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -6551,9 +6551,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -6580,7 +6580,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a99ca47a5a-DUS
+      - 849864702ad31638-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -6590,7 +6590,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:02 GMT
+      - Mon, 22 Jan 2024 14:12:31 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -6635,9 +6635,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.3b609a34-a6cd-4dd4-a075-67f9418e7d8f
   response:
@@ -6664,7 +6664,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5a9fced7a5a-DUS
+      - 849864709b711638-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -6676,7 +6676,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:02 GMT
+      - Mon, 22 Jan 2024 14:12:31 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -6688,9 +6688,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '2'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '2'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -6787,9 +6787,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -6867,7 +6867,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5aa6d387a5a-DUS
+      - 849864711c081638-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -6877,7 +6877,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:02 GMT
+      - Mon, 22 Jan 2024 14:12:31 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -6891,9 +6891,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '5'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -6922,9 +6922,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.e0cd3729-73cd-43b4-a2e7-079bf5618506
   response:
@@ -7002,7 +7002,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5aacd9d7a5a-DUS
+      - 849864718cac1638-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -7014,7 +7014,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:02 GMT
+      - Mon, 22 Jan 2024 14:12:31 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -7150,9 +7150,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -7257,7 +7257,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5ab3e057a5a-DUS
+      - 84986471fd5b1638-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -7267,7 +7267,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:02 GMT
+      - Mon, 22 Jan 2024 14:12:31 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -7281,7 +7281,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '4'
       alt-svc:
@@ -7312,9 +7312,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.ec547272-e118-4dac-926c-96c2667ba699
   response:
@@ -7419,7 +7419,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5ab9e707a5a-DUS
+      - 849864727e2d1638-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -7431,7 +7431,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:02 GMT
+      - Mon, 22 Jan 2024 14:12:31 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -7567,9 +7567,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -7669,7 +7669,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5ac0ed17a5a-DUS
+      - 84986472debe1638-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -7679,7 +7679,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:02 GMT
+      - Mon, 22 Jan 2024 14:12:31 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -7695,7 +7695,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -7724,9 +7724,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.7894f246-b7f8-4114-9e80-f42c9a80d8ae
   response:
@@ -7826,7 +7826,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5ac6f3c7a5a-DUS
+      - 849864735f401638-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -7838,7 +7838,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:02 GMT
+      - Mon, 22 Jan 2024 14:12:31 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -7850,7 +7850,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -7934,9 +7934,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -7996,7 +7996,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5acdfa77a5a-DUS
+      - 84986473d8281638-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -8006,7 +8006,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:02 GMT
+      - Mon, 22 Jan 2024 14:12:32 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -8020,9 +8020,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '5'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -8051,9 +8051,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.4457d532-104c-424c-a9f9-6e63fab4881c
   response:
@@ -8113,7 +8113,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5ad38227a5a-DUS
+      - 8498647458bf1638-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -8125,7 +8125,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:02 GMT
+      - Mon, 22 Jan 2024 14:12:32 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -8137,7 +8137,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -8236,9 +8236,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -8318,7 +8318,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5ad88ac7a5a-DUS
+      - 84986474e96c1638-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -8328,7 +8328,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:02 GMT
+      - Mon, 22 Jan 2024 14:12:32 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -8344,7 +8344,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '6'
+      - '5'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -8373,9 +8373,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.1855bfd0-e6c3-40c2-86e3-ddcea2ecfce8
   response:
@@ -8455,7 +8455,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b5adf92c7a5a-DUS
+      - 849864758a191638-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -8467,7 +8467,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:23:02 GMT
+      - Mon, 22 Jan 2024 14:12:32 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -8479,9 +8479,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '2'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '2'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:

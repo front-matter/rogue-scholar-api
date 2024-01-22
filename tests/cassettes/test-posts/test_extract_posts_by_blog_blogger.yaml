@@ -35525,4 +35525,1651 @@ interactions:
       - '1'
     http_version: HTTP/1.1
     status_code: 200
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: HEAD
+    uri: https://www.ncbi.nlm.nih.gov/pmc/articles/pmc2674678
+  response:
+    body:
+      string: ''
+    headers:
+      Cache-Control:
+      - max-age=180
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '162'
+      Content-Security-Policy:
+      - upgrade-insecure-requests
+      Content-Type:
+      - text/html
+      Date:
+      - Mon, 22 Jan 2024 14:06:20 GMT
+      Expires:
+      - Mon, 22 Jan 2024 14:09:20 GMT
+      Keep-Alive:
+      - timeout=1, max=10
+      Location:
+      - /pmc/articles/PMC2674678
+      Referrer-Policy:
+      - origin-when-cross-origin
+      Server:
+      - nginx
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Frame-Options:
+      - DENY
+      X-UA-Compatible:
+      - IE=Edge
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 301
+      message: Moved Permanently
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://doi.org/10.1186/1471-2105-10-s14-s4
+  response:
+    body:
+      string: '<html><head><title>Handle Redirect</title></head>
+
+        <body><a href="https://api.crossref.org/v1/works/10.1186%2F1471-2105-10-s14-s4/transform">https://api.crossref.org/v1/works/10.1186%2F1471-2105-10-s14-s4/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 84985b630d2a662a-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '231'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:06:20 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=Cky9cODYfTsPQvuNmlOp2j9iH7hz6eHRBDL5uM11qBLTkv30czqELAVzpnjbL6zzp56a%2FDBJEOasgPOAjJ8lniW0gy%2Bsda8a2GzqLFT9h%2FVT1Kpq7MpJuS0LZXF5lgTIbh4P6lw%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Mon, 22 Jan 2024 14:34:40 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.1186%2F1471-2105-10-s14-s4/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.1186%2F1471-2105-10-s14-s4/transform
+  response:
+    body:
+      string: '{"indexed":{"date-parts":[[2023,9,12]],"date-time":"2023-09-12T07:06:25Z","timestamp":1694502385213},"reference-count":6,"publisher":"Springer
+        Science and Business Media LLC","issue":"S14","license":[{"start":{"date-parts":[[2009,11,1]],"date-time":"2009-11-01T00:00:00Z","timestamp":1257033600000},"content-version":"tdm","delay-in-days":0,"URL":"http:\/\/creativecommons.org\/licenses\/by\/2.0"}],"content-domain":{"domain":[],"crossmark-restriction":false},"published-print":{"date-parts":[[2009,11]]},"DOI":"10.1186\/1471-2105-10-s14-s4","type":"journal-article","created":{"date-parts":[[2009,11,10]],"date-time":"2009-11-10T14:15:27Z","timestamp":1257862527000},"source":"Crossref","is-referenced-by-count":7,"title":"Googling
+        DNA sequences on the World Wide Web","prefix":"10.1186","volume":"10","author":[{"given":"Mehrdad","family":"Hajibabaei","sequence":"first","affiliation":[]},{"given":"Gregory
+        AC","family":"Singer","sequence":"additional","affiliation":[]}],"member":"297","published-online":{"date-parts":[[2009,11,10]]},"reference":[{"key":"3439_CR1","doi-asserted-by":"publisher","first-page":"167","DOI":"10.1016\/j.tig.2007.02.001","volume":"23","author":"M
+        Hajibabaei","year":"2007","unstructured":"Hajibabaei M, Singer GAC, Hebert
+        PDN, Hickey DA: DNA barcoding: how it complements taxonomy, molecular phylogenetics
+        and population genetics. Trends in Genetics 2007, 23: 167\u2013172. 10.1016\/j.tig.2007.02.001","journal-title":"Trends
+        in Genetics"},{"key":"3439_CR2","doi-asserted-by":"publisher","first-page":"313","DOI":"10.1098\/rspb.2002.2218","volume":"270","author":"PDN
+        Hebert","year":"2003","unstructured":"Hebert PDN, Cywinska A, Ball SL, deWaard
+        JR: Biological identifications through DNA barcodes. Proceedings of the Royal
+        Society of London B Biological Sciences 2003, 270: 313\u2013321. 10.1098\/rspb.2002.2218","journal-title":"Proceedings
+        of the Royal Society of London B Biological Sciences"},{"key":"3439_CR3","doi-asserted-by":"publisher","first-page":"2677","DOI":"10.1073\/pnas.0813249106","volume":"106","author":"GE
+        Sims","year":"2009","unstructured":"Sims GE, Jun SR, Wu GA, Kim SH: Alignment-free
+        genome comparison with feature frequency profiles (FFP) and optimal resolutions.
+        Proc Natl Acad Sci USA 2009, 106: 2677\u20132682. 10.1073\/pnas.0813249106","journal-title":"Proc
+        Natl Acad Sci USA"},{"key":"3439_CR4","doi-asserted-by":"publisher","first-page":"818","DOI":"10.1038\/nature05110","volume":"443","author":"TY
+        James","year":"2006","unstructured":"James TY, Kauff F, Schoch CL, Matheny
+        PB, Hofstetter V, Cox CJ, Celio G, Gueidan C, Fraker E, Miadlikowska J, et
+        al.: Reconstructing the early evolution of Fungi using a six-gene phylogeny.
+        Nature 2006, 443: 818\u2013822. 10.1038\/nature05110","journal-title":"Nature"},{"key":"3439_CR5","unstructured":"Google
+        Desktop Search[\n                    http:\/\/desktop.google.com\/\n                    \n                  ]"},{"key":"3439_CR6","unstructured":"Google
+        Gene Web Server[\n                    http:\/\/www.ibarcode.org\/gg\n                    \n                  ]"}],"container-title":"BMC
+        Bioinformatics","original-title":[],"language":"en","link":[{"URL":"http:\/\/link.springer.com\/content\/pdf\/10.1186\/1471-2105-10-S14-S4.pdf","content-type":"application\/pdf","content-version":"vor","intended-application":"text-mining"},{"URL":"http:\/\/link.springer.com\/article\/10.1186\/1471-2105-10-S14-S4\/fulltext.html","content-type":"text\/html","content-version":"vor","intended-application":"text-mining"},{"URL":"http:\/\/link.springer.com\/content\/pdf\/10.1186\/1471-2105-10-S14-S4.pdf","content-type":"application\/pdf","content-version":"vor","intended-application":"similarity-checking"}],"deposited":{"date-parts":[[2019,1,22]],"date-time":"2019-01-22T05:26:07Z","timestamp":1548134767000},"score":1,"resource":{"primary":{"URL":"https:\/\/bmcbioinformatics.biomedcentral.com\/articles\/10.1186\/1471-2105-10-S14-S4"}},"subtitle":[],"short-title":[],"issued":{"date-parts":[[2009,11]]},"references-count":6,"journal-issue":{"issue":"S14","published-print":{"date-parts":[[2009,11]]}},"alternative-id":["3439"],"URL":"http:\/\/dx.doi.org\/10.1186\/1471-2105-10-s14-s4","relation":{},"ISSN":["1471-2105"],"subject":["Applied
+        Mathematics","Computer Science Applications","Molecular Biology","Biochemistry","Structural
+        Biology"],"container-title-short":"BMC Bioinformatics","published":{"date-parts":[[2009,11]]},"article-number":"S4"}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-encoding:
+      - gzip
+      content-length:
+      - '1774'
+      content-type:
+      - application/vnd.citationstyles.csl+json
+      date:
+      - Mon, 22 Jan 2024 14:06:21 GMT
+      link:
+      - <http://dx.doi.org/10.1186/1471-2105-10-s14-s4>; rel="canonical", <http://link.springer.com/content/pdf/10.1186/1471-2105-10-S14-S4.pdf>;
+        version="vor"; type="application/pdf"; rel="item", <http://link.springer.com/article/10.1186/1471-2105-10-S14-S4/fulltext.html>;
+        version="vor"; type="text/html"; rel="item", <http://link.springer.com/content/pdf/10.1186/1471-2105-10-S14-S4.pdf>;
+        version="vor"; type="application/pdf"; rel="item", <http://creativecommons.org/licenses/by/2.0>;
+        version="tdm"; rel="license"
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept, Accept-Encoding
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://doi.org/10.1186/1471-2105-10-s14-s9
+  response:
+    body:
+      string: '<html><head><title>Handle Redirect</title></head>
+
+        <body><a href="https://api.crossref.org/v1/works/10.1186%2F1471-2105-10-s14-s9/transform">https://api.crossref.org/v1/works/10.1186%2F1471-2105-10-s14-s9/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 84985b676bbcb778-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '231'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:06:21 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=AMmaNxmwqAaE9hDZFQkaUXkz%2BIeIZJkSRbE4ZadacXvGkMM8SzQNLR7I85jRkjsDEJR5X752Yd9T3y47FaIf%2BKDhqy2395PrG0lZOckw3SjTAdYhskjqnsumWoUZwEShpdOEPhU%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Mon, 22 Jan 2024 14:38:44 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.1186%2F1471-2105-10-s14-s9/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.1186%2F1471-2105-10-s14-s9/transform
+  response:
+    body:
+      string: '{"indexed":{"date-parts":[[2024,1,13]],"date-time":"2024-01-13T01:03:19Z","timestamp":1705107799464},"reference-count":40,"publisher":"Springer
+        Science and Business Media LLC","issue":"S14","license":[{"start":{"date-parts":[[2009,11,1]],"date-time":"2009-11-01T00:00:00Z","timestamp":1257033600000},"content-version":"tdm","delay-in-days":0,"URL":"http:\/\/creativecommons.org\/licenses\/by\/2.0"}],"content-domain":{"domain":[],"crossmark-restriction":false},"published-print":{"date-parts":[[2009,11]]},"DOI":"10.1186\/1471-2105-10-s14-s9","type":"journal-article","created":{"date-parts":[[2009,11,10]],"date-time":"2009-11-10T19:15:19Z","timestamp":1257880519000},"source":"Crossref","is-referenced-by-count":62,"title":"Efficient
+        alignment-free DNA barcode analytics","prefix":"10.1186","volume":"10","author":[{"given":"Pavel","family":"Kuksa","sequence":"first","affiliation":[]},{"given":"Vladimir","family":"Pavlovic","sequence":"additional","affiliation":[]}],"member":"297","published-online":{"date-parts":[[2009,11,10]]},"reference":[{"key":"3444_CR1","first-page":"313","volume-title":"Proceedings
+        of the Royal Society of London","author":"PDN Hebert","year":"2003","unstructured":"Hebert
+        PDN, Cywinska A, Ball S, deWaard J: Biological identifications through DNA
+        barcodes. Proceedings of the Royal Society of London 2003, 313\u2013322. 10.1098\/rspb.2002.2218"},{"key":"3444_CR2","first-page":"82","volume-title":"Scientific
+        American","author":"M Stoeckle","year":"2008","unstructured":"Stoeckle M,
+        Herbert PDN: Barcode of Life. Scientific American 2008, 82\u201388. 10.1038\/scientificamerican1008-82"},{"key":"3444_CR3","volume-title":"Mol
+        Phylogenet Evol","author":"M Linares","year":"2008","unstructured":"Linares
+        M, Soto-Calder\u00f3n I, Lees D, Anthony N: High mitochondrial diversity in
+        geographically widespread butterflies of Madagascar: A test of the DNA barcoding
+        approach. Mol Phylogenet Evol 2008."},{"issue":"1462","key":"3444_CR4","doi-asserted-by":"publisher","first-page":"1813","DOI":"10.1098\/rstb.2005.1713","volume":"360","author":"KF
+        Armstrong","year":"2005","unstructured":"Armstrong KF, Ball SL: DNA barcodes
+        for biosecurity: invasive species identification. Philos Trans R Soc Lond,
+        B, Biol Sci 2005, 360(1462):1813\u201323. 10.1098\/rstb.2005.1713","journal-title":"Philos
+        Trans R Soc Lond, B, Biol Sci"},{"key":"3444_CR5","volume-title":"Journal
+        of Fish Biology","author":"P Smith","year":"2008","unstructured":"Smith P,
+        McVeagh S, Steinke D, Meyer A: DNA barcoding for the identification of smoked
+        fish products. Journal of Fish Biology 2008."},{"key":"3444_CR6","volume-title":"Food
+        Research International","author":"E Wong","year":"2008","unstructured":"Wong
+        E, Hanner R: DNA barcoding detects market substitution in North American seafood.
+        Food Research International 2008."},{"key":"3444_CR7","volume-title":"Fisheries
+        Research","author":"B Holmes","year":"2008","unstructured":"Holmes B, Steinke
+        D, Ward R: Identification of shark and ray fins using DNA barcoding. Fisheries
+        Research 2008."},{"key":"3444_CR8","volume-title":"Philosophical Transactions
+        of the Royal Society B: ..","author":"G Saunders","year":"2005","unstructured":"Saunders
+        G: Applying DNA barcoding to red macroalgae: a preliminary appraisal holds
+        promise for future ... Philosophical Transactions of the Royal Society B:
+        ... 2005."},{"issue":"32","key":"3444_CR9","doi-asserted-by":"publisher","first-page":"12115","DOI":"10.1073\/pnas.0605127103","volume":"103","author":"ML
+        Sogin","year":"2006","unstructured":"Sogin ML, Morrison HG, Huber JA, Welch
+        DM, Huse SM, Neal PR, Arrieta JM, Herndl GJ: Microbial diversity in the deep
+        sea and the underexplored \"rare biosphere\". Proceedings of the National
+        Academy of Sciences 2006, 103(32):12115\u201312120. [\n                    http:\/\/www.pnas.org\/content\/103\/32\/12115.abstract\n                    \n                  ]
+        10.1073\/pnas.0605127103","journal-title":"Proceedings of the National Academy
+        of Sciences"},{"key":"3444_CR10","volume-title":"Proceedings of the National
+        Academy of Sciences","author":"W Kress","year":"2005","unstructured":"Kress
+        W, Wurdack K, Zimmer E, Weigt L: Use of DNA barcodes to identify flowering
+        plants. Proceedings of the National Academy of Sciences 2005. [\n                    http:\/\/www.pnas.org\/cgi\/content\/abstract\/102\/23\/8369\n                    \n                  ]"},{"issue":"1462","key":"3444_CR11","doi-asserted-by":"publisher","first-page":"1889","DOI":"10.1098\/rstb.2005.1720","volume":"360","author":"MW
+        Chase","year":"2005","unstructured":"Chase MW, Salamin N, Wilkinson M, Dunwell
+        JM, Kesanakurthi RP, Haidar N, Savolainen V: Land plants and DNA barcodes:
+        short-term and long-term goals. Philos Trans R Soc Lond, B, Biol Sci 2005,
+        360(1462):1889\u201395. 10.1098\/rstb.2005.1720","journal-title":"Philos Trans
+        R Soc Lond, B, Biol Sci"},{"key":"3444_CR12","volume-title":"BIOTROPICA","author":"WJ
+        Kress","year":"2008","unstructured":"Kress WJ, Erickson DL: DNA Barcoding--a
+        Windfall for Tropical Biology? BIOTROPICA 2008."},{"issue":"3","key":"3444_CR13","doi-asserted-by":"publisher","first-page":"481","DOI":"10.1139\/z05-024","volume":"83","author":"R
+        Barrett","year":"2005","unstructured":"Barrett R, Hebert P: Identifying spiders
+        through DNA barcodes. Can J Zool 2005, 83(3):481\u2013491. 10.1139\/z05-024","journal-title":"Can
+        J Zool"},{"issue":"1462","key":"3444_CR14","doi-asserted-by":"publisher","first-page":"1847","DOI":"10.1098\/rstb.2005.1716","volume":"360","author":"RD
+        Ward","year":"2005","unstructured":"Ward RD, Zemlak TS, Innes BH, Last PR,
+        Hebert PD: DNA barcoding Australia''s fish species. Philosophical Transactions
+        of the Royal Society B: Biological Sciences 2005, 360(1462):1847\u20131857.
+        10.1098\/rstb.2005.1716","journal-title":"Philosophical Transactions of the
+        Royal Society B: Biological Sciences"},{"key":"3444_CR15","volume-title":"Molecular
+        Ecology Notes","author":"J Robins","year":"2007","unstructured":"Robins J,
+        Hingston M, Matisoo-Smith E, Ross H: Identifying Rattus species using mitochondrial
+        DNA. Molecular Ecology Notes 2007."},{"issue":"1462","key":"3444_CR16","doi-asserted-by":"publisher","first-page":"1975","DOI":"10.1098\/rstb.2005.1729","volume":"360","author":"D
+        Steinke","year":"2005","unstructured":"Steinke D, Vences M, Salzburger W,
+        Meyer A: TaxI: a software tool for DNA barcoding using distance methods. Philosophical
+        Transactions of the Royal Society B: Biological Sciences 2005, 360(1462):1975\u20131980.
+        10.1098\/rstb.2005.1729","journal-title":"Philosophical Transactions of the
+        Royal Society B: Biological Sciences"},{"key":"3444_CR17","doi-asserted-by":"publisher","first-page":"44","DOI":"10.1080\/10635150601167005","volume":"56","author":"Z
+        Abdo","year":"2007","unstructured":"Abdo Z, Golding GB: A step toward barcoding
+        life: a model-based, decision-theoretic method to assign genes to preexisting
+        species groups. Systematic Biology 2007, 56: 44\u201356. 10.1080\/10635150601167005","journal-title":"Systematic
+        Biology"},{"key":"3444_CR18","doi-asserted-by":"publisher","first-page":"162","DOI":"10.1080\/10635150500431239","volume":"55","author":"R
+        Nielsen","year":"2006","unstructured":"Nielsen R, Matz M: Statistical Approaches
+        for DNA Barcoding. Systematic Biology 2006, 55: 162\u2013169. 10.1080\/10635150500431239","journal-title":"Systematic
+        Biology"},{"key":"3444_CR19","volume-title":"Systematic Biology","author":"A
+        Zhang","year":"2008","unstructured":"Zhang A: Inferring Species Membership
+        Using DNA Sequences with Back-Propagation Neural Networks. Systematic Biology
+        2008."},{"issue":"1462","key":"3444_CR20","doi-asserted-by":"publisher","first-page":"1969","DOI":"10.1098\/rstb.2005.1728","volume":"360","author":"MV
+        Matz","year":"2005","unstructured":"Matz MV, Nielsen R: A likelihood ratio
+        test for species membership based on DNA sequence data. Philosophical Transactions
+        of the Royal Society B: Biological Sciences 2005, 360(1462):1969\u20131974.
+        10.1098\/rstb.2005.1728","journal-title":"Philosophical Transactions of the
+        Royal Society B: Biological Sciences"},{"key":"3444_CR21","doi-asserted-by":"crossref","unstructured":"Meyer
+        CP, Paulay G: DNA barcoding: error rates based on comprehensive sampling.
+        PLoS Biol 2005., 3(12): 10.1371\/journal.pbio.0030422","DOI":"10.1371\/journal.pbio.0030422"},{"key":"3444_CR22","first-page":"566","volume-title":"Pacific
+        Symposium on Biocomputing","author":"CS Leslie","year":"2002","unstructured":"Leslie
+        CS, Eskin E, Noble WS: The Spectrum Kernel: A String Kernel for SVM Protein
+        Classification. Pacific Symposium on Biocomputing 2002, 566\u2013575."},{"key":"3444_CR23","first-page":"1417","volume-title":"NIPS","author":"CS
+        Leslie","year":"2002","unstructured":"Leslie CS, Eskin E, Weston J, Noble
+        WS: Mismatch String Kernels for SVM Protein Classification. In NIPS. Edited
+        by: Becker S, Thrun S, Obermayer K. MIT Press; 2002:1417\u20131424."},{"key":"3444_CR24","first-page":"152","volume-title":"CSB
+        ''04: Proceedings of the 2004 IEEE Computational Systems Bioinformatics Conference
+        (CSB''04)","author":"R Kuang","year":"2004","unstructured":"Kuang R, Ie E,
+        Wang K, Wang K, Siddiqi M, Freund Y, Leslie C: Profile-Based String Kernels
+        for Remote Homology Detection and Motif Extraction. In CSB ''04: Proceedings
+        of the 2004 IEEE Computational Systems Bioinformatics Conference (CSB''04).
+        Washington, DC, USA: IEEE Computer Society; 2004:152\u2013160."},{"issue":"1-2","key":"3444_CR25","doi-asserted-by":"publisher","first-page":"95","DOI":"10.1089\/10665270050081405","volume":"7","author":"T
+        Jaakkola","year":"2000","unstructured":"Jaakkola T, Diekhans M, Haussler D:
+        A Discriminative Framework for Detecting Remote Protein Homologies. Journal
+        of Computational Biology 2000, 7(1\u20132):95\u2013114. 10.1089\/10665270050081405","journal-title":"Journal
+        of Computational Biology"},{"key":"3444_CR26","doi-asserted-by":"publisher","first-page":"585","DOI":"10.1145\/1102351.1102425","volume-title":"ICML
+        ''05: Proceedings of the 22nd international conference on Machine learning","author":"S
+        Menchetti","year":"2005","unstructured":"Menchetti S, Costa F, Frasconi P:
+        Weighted decomposition kernels. In ICML ''05: Proceedings of the 22nd international
+        conference on Machine learning. New York, NY, USA: ACM Press; 2005:585\u2013592.
+        full_text"},{"key":"3444_CR27","volume-title":"Learning with kernels","author":"B
+        Sch\u00f6lkopf","year":"2002","unstructured":"Sch\u00f6lkopf B, Smola AJ:
+        Learning with kernels. MIT Press; 2002."},{"key":"3444_CR28","volume-title":"Statistical
+        learning theory","author":"V Vapnik","year":"1998","unstructured":"Vapnik
+        V: Statistical learning theory. Wiley; 1998."},{"key":"3444_CR29","first-page":"1417","volume-title":"NIPS","author":"CS
+        Leslie","year":"2002","unstructured":"Leslie CS, Eskin E, Weston J, Noble
+        WS: Mismatch String Kernels for SVM Protein Classification. NIPS 2002, 1417\u20131424."},{"key":"3444_CR30","first-page":"1435","volume":"5","author":"C
+        Leslie","year":"2004","unstructured":"Leslie C, Kuang R: Fast String Kernels
+        using Inexact Matching for Protein Sequences. J Mach Learn Res 2004, 5: 1435\u20131455.","journal-title":"J
+        Mach Learn Res"},{"key":"3444_CR31","volume-title":"NIPS","author":"P Kuksa","year":"2008","unstructured":"Kuksa
+        P, Huang PH, Pavlovic V: Scalable Algorithms for String Kernels with Inexact
+        Matching. NIPS 2008."},{"key":"3444_CR32","doi-asserted-by":"publisher","first-page":"113","DOI":"10.1162\/15324430152733133","volume":"1","author":"EL
+        Allwein","year":"2001","unstructured":"Allwein EL, Schapire RE, Singer Y:
+        Reducing multiclass to binary: a unifying approach for margin classifiers.
+        J Mach Learn Res 2001, 1: 113\u2013141. 10.1162\/15324430152733133","journal-title":"J
+        Mach Learn Res"},{"key":"3444_CR33","unstructured":"[\n                    http:\/\/www.boldsystems.org\n                    \n                  ]"},{"key":"3444_CR34","unstructured":"[\n                    http:\/\/dimacs.rutgers.edu\/Workshops\/BarcodeResearchChallenges2007\/\n                    \n                  ]"},{"key":"3444_CR35","unstructured":"[\n                    http:\/\/www.kyb.tuebingen.mpg.de\/bs\/people\/spider\n                    \n                  ]"},{"key":"3444_CR36","unstructured":"[\n                    http:\/\/seqam.rutgers.edu\/projects\/bioinfo\/barcoding\/barcoding.html\n                    \n                  ]"},{"key":"3444_CR37","doi-asserted-by":"publisher","first-page":"14812","DOI":"10.1073\/pnas.0406166101","volume":"101","author":"PDN
+        Hebert","year":"2004","unstructured":"Hebert PDN, Penton EH, Burns JM, Janzen
+        DH, Hallwachs W: Ten species in one: DNA barcoding reveals cryptic species
+        in the neotropical skipper butterfly Astraptes fulgerator. PNAS 2004, 101:
+        14812\u201314817. 10.1073\/pnas.0406166101","journal-title":"PNAS"},{"key":"3444_CR38","doi-asserted-by":"publisher","first-page":"171","DOI":"10.1007\/3-540-57868-4_57","volume-title":"ECML-94:
+        Proceedings of the European conference on machine learning on Machine Learning","author":"I
+        Kononenko","year":"1994","unstructured":"Kononenko I: Estimating attributes:
+        analysis and extensions of RELIEF. In ECML-94: Proceedings of the European
+        conference on machine learning on Machine Learning. Secaucus, NJ, USA: Springer-Verlag
+        New York, Inc; 1994:171\u2013182."},{"key":"3444_CR39","doi-asserted-by":"publisher","first-page":"972","DOI":"10.1126\/science.1136800","volume":"315","author":"BJ
+        Frey","year":"2007","unstructured":"Frey BJ, Dueck D: Clustering by Passing
+        Messages Between Data Points. Science 2007, 315: 972\u2013976. [\n                    http:\/\/www.psi.toronto.edu\/affinitypropagation\n                    \n                  ]
+        10.1126\/science.1136800","journal-title":"Science"},{"issue":"336","key":"3444_CR40","doi-asserted-by":"publisher","first-page":"846","DOI":"10.1080\/01621459.1971.10482356","volume":"66","author":"WM
+        Rand","year":"1971","unstructured":"Rand WM: Objective Criteria for the Evaluation
+        of Clustering Methods. Journal of the American Statistical Association 1971,
+        66(336):846\u2013850. [\n                    http:\/\/www.jstor.org\/stable\/2284239\n                    \n                  ]
+        10.2307\/2284239","journal-title":"Journal of the American Statistical Association"}],"container-title":"BMC
+        Bioinformatics","original-title":[],"language":"en","link":[{"URL":"http:\/\/link.springer.com\/content\/pdf\/10.1186\/1471-2105-10-S14-S9.pdf","content-type":"application\/pdf","content-version":"vor","intended-application":"text-mining"},{"URL":"http:\/\/link.springer.com\/article\/10.1186\/1471-2105-10-S14-S9\/fulltext.html","content-type":"text\/html","content-version":"vor","intended-application":"text-mining"},{"URL":"http:\/\/link.springer.com\/content\/pdf\/10.1186\/1471-2105-10-S14-S9.pdf","content-type":"application\/pdf","content-version":"vor","intended-application":"similarity-checking"}],"deposited":{"date-parts":[[2019,1,23]],"date-time":"2019-01-23T06:00:18Z","timestamp":1548223218000},"score":1,"resource":{"primary":{"URL":"https:\/\/bmcbioinformatics.biomedcentral.com\/articles\/10.1186\/1471-2105-10-S14-S9"}},"subtitle":[],"short-title":[],"issued":{"date-parts":[[2009,11]]},"references-count":40,"journal-issue":{"issue":"S14","published-print":{"date-parts":[[2009,11]]}},"alternative-id":["3444"],"URL":"http:\/\/dx.doi.org\/10.1186\/1471-2105-10-s14-s9","relation":{},"ISSN":["1471-2105"],"subject":["Applied
+        Mathematics","Computer Science Applications","Molecular Biology","Biochemistry","Structural
+        Biology"],"container-title-short":"BMC Bioinformatics","published":{"date-parts":[[2009,11]]},"article-number":"S9"}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-encoding:
+      - gzip
+      content-length:
+      - '4912'
+      content-type:
+      - application/vnd.citationstyles.csl+json
+      date:
+      - Mon, 22 Jan 2024 14:06:21 GMT
+      link:
+      - <http://dx.doi.org/10.1186/1471-2105-10-s14-s9>; rel="canonical", <http://link.springer.com/content/pdf/10.1186/1471-2105-10-S14-S9.pdf>;
+        version="vor"; type="application/pdf"; rel="item", <http://link.springer.com/article/10.1186/1471-2105-10-S14-S9/fulltext.html>;
+        version="vor"; type="text/html"; rel="item", <http://link.springer.com/content/pdf/10.1186/1471-2105-10-S14-S9.pdf>;
+        version="vor"; type="application/pdf"; rel="item", <http://creativecommons.org/licenses/by/2.0>;
+        version="tdm"; rel="license"
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept, Accept-Encoding
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://doi.org/10.1126/science.aaf4381
+  response:
+    body:
+      string: '<html><head><title>Handle Redirect</title></head>
+
+        <body><a href="https://api.crossref.org/v1/works/10.1126%2Fscience.aaf4381/transform">https://api.crossref.org/v1/works/10.1126%2Fscience.aaf4381/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 84985b6b99536574-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '223'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:06:22 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=JAbVJEOMdlLtauTi%2F0FxCxY7Or35e0tRIMNXmpYnt%2BOFBQtpT8SDK24WiWoJej%2B3hVBkim8E5IehbT4ZzQ3H506eteTX1vN9xK%2FrE27md0YDu3QZdThajnQ%2BbazcHzJavqDND5o%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Mon, 22 Jan 2024 14:32:35 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.1126%2Fscience.aaf4381/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.1126%2Fscience.aaf4381/transform
+  response:
+    body:
+      string: '{"indexed":{"date-parts":[[2024,1,19]],"date-time":"2024-01-19T09:58:37Z","timestamp":1705658317997},"reference-count":51,"publisher":"American
+        Association for the Advancement of Science (AAAS)","issue":"6307","license":[{"start":{"date-parts":[[2017,9,30]],"date-time":"2017-09-30T00:00:00Z","timestamp":1506729600000},"content-version":"vor","delay-in-days":365,"URL":"http:\/\/www.sciencemag.org\/about\/science-licenses-journal-article-reuse"}],"funder":[{"name":"FrieForskningsrads
+        Sapere Aude Forskerkarriereprogram"},{"DOI":"10.13039\/100008398","name":"Villum
+        Foundation Young Investigators Programme","doi-asserted-by":"publisher","award":["VKR023120"]},{"DOI":"10.13039\/501100002808","name":"Carlsberg
+        Foundation","doi-asserted-by":"publisher","award":["CF14-1069","CF14-0995"]},{"DOI":"10.13039\/501100001809","name":"National
+        Natural Science Foundation of China","doi-asserted-by":"publisher","award":["31522012"]},{"DOI":"10.13039\/501100001732","name":"Danish
+        National Research Foundation","doi-asserted-by":"publisher","award":["DNRF96"]}],"content-domain":{"domain":[],"crossmark-restriction":false},"published-print":{"date-parts":[[2016,9,30]]},"abstract":"<jats:p>The
+        Anthropocene is witnessing a loss of biodiversity, with well-documented declines
+        in the diversity of ecosystems and species. For intraspecific genetic diversity,
+        however, we lack even basic knowledge on its global distribution. We georeferenced
+        92,801 mitochondrial sequences for &gt;4500 species of terrestrial mammals
+        and amphibians, and found that genetic diversity is 27% higher in the tropics
+        than in nontropical regions. Overall, habitats that are more affected by humans
+        hold less genetic diversity than wilder regions, although results for mammals
+        are sensitive to choice of genetic locus. Our study associates geographic
+        coordinates with publicly available genetic sequences at a massive scale,
+        yielding an opportunity to investigate both the drivers of this component
+        of biodiversity and the genetic consequences of the anthropogenic modification
+        of nature.<\/jats:p>","DOI":"10.1126\/science.aaf4381","type":"journal-article","created":{"date-parts":[[2016,9,29]],"date-time":"2016-09-29T18:19:04Z","timestamp":1475173144000},"page":"1532-1535","source":"Crossref","is-referenced-by-count":231,"title":"An
+        Anthropocene map of genetic diversity","prefix":"10.1126","volume":"353","author":[{"given":"Andreia","family":"Miraldo","sequence":"first","affiliation":[{"name":"Center
+        for Macroecology, Evolution, and Climate, Natural History Museum of Denmark,
+        University of Copenhagen, DK-2100 Copenhagen \u00d8, Denmark."}]},{"given":"Sen","family":"Li","sequence":"additional","affiliation":[{"name":"Center
+        for Macroecology, Evolution, and Climate, Natural History Museum of Denmark,
+        University of Copenhagen, DK-2100 Copenhagen \u00d8, Denmark."}]},{"given":"Michael
+        K.","family":"Borregaard","sequence":"additional","affiliation":[{"name":"Center
+        for Macroecology, Evolution, and Climate, Natural History Museum of Denmark,
+        University of Copenhagen, DK-2100 Copenhagen \u00d8, Denmark."}]},{"given":"Alexander","family":"Fl\u00f3rez-Rodr\u00edguez","sequence":"additional","affiliation":[{"name":"Center
+        for Macroecology, Evolution, and Climate, Natural History Museum of Denmark,
+        University of Copenhagen, DK-2100 Copenhagen \u00d8, Denmark."}]},{"given":"Shyam","family":"Gopalakrishnan","sequence":"additional","affiliation":[{"name":"Centre
+        for GeoGenetics, Natural History Museum of Denmark, University of Copenhagen,
+        DK-2100 Copenhagen \u00d8, Denmark."}]},{"given":"Mirnesa","family":"Rizvanovic","sequence":"additional","affiliation":[{"name":"Center
+        for Macroecology, Evolution, and Climate, Natural History Museum of Denmark,
+        University of Copenhagen, DK-2100 Copenhagen \u00d8, Denmark."}]},{"given":"Zhiheng","family":"Wang","sequence":"additional","affiliation":[{"name":"Center
+        for Macroecology, Evolution, and Climate, Natural History Museum of Denmark,
+        University of Copenhagen, DK-2100 Copenhagen \u00d8, Denmark."},{"name":"Department
+        of Ecology and Key Laboratory for Earth Surface Processes of the Ministry
+        of Education, College of Urban and Environmental Sciences, Peking University,
+        Beijing 100871, China."}]},{"given":"Carsten","family":"Rahbek","sequence":"additional","affiliation":[{"name":"Center
+        for Macroecology, Evolution, and Climate, Natural History Museum of Denmark,
+        University of Copenhagen, DK-2100 Copenhagen \u00d8, Denmark."},{"name":"Imperial
+        College London, Silwood Park Campus, Ascot, Berkshire SL5 7PY, UK."}]},{"given":"Katharine
+        A.","family":"Marske","sequence":"additional","affiliation":[{"name":"Center
+        for Macroecology, Evolution, and Climate, Natural History Museum of Denmark,
+        University of Copenhagen, DK-2100 Copenhagen \u00d8, Denmark."}]},{"given":"David","family":"Nogu\u00e9s-Bravo","sequence":"additional","affiliation":[{"name":"Center
+        for Macroecology, Evolution, and Climate, Natural History Museum of Denmark,
+        University of Copenhagen, DK-2100 Copenhagen \u00d8, Denmark."}]}],"member":"221","reference":[{"key":"e_1_3_2_2_2","unstructured":"R.
+        Lewontin The Genetic Basis of Evolutionary Change (Columbia Univ. Press 1974)."},{"key":"e_1_3_2_3_2","doi-asserted-by":"crossref","unstructured":"R.
+        A. Fischer The Genetical Theory of Natural Selection (Oxford Univ. Press 1930).","DOI":"10.5962\/bhl.title.27468"},{"key":"e_1_3_2_4_2","doi-asserted-by":"publisher","DOI":"10.1046\/j.1523-1739.1995.09040792.x"},{"key":"e_1_3_2_5_2","doi-asserted-by":"publisher","DOI":"10.1038\/33136"},{"key":"e_1_3_2_6_2","doi-asserted-by":"publisher","DOI":"10.2307\/2411107"},{"key":"e_1_3_2_7_2","doi-asserted-by":"publisher","DOI":"10.1073\/pnas.0403809101"},{"key":"e_1_3_2_8_2","doi-asserted-by":"publisher","DOI":"10.1890\/05-0173"},{"key":"e_1_3_2_9_2","doi-asserted-by":"publisher","DOI":"10.1126\/science.1128326"},{"key":"e_1_3_2_10_2","doi-asserted-by":"publisher","DOI":"10.1098\/rstb.2008.0336"},{"key":"e_1_3_2_11_2","doi-asserted-by":"publisher","DOI":"10.1098\/rstb.1994.0014"},{"key":"e_1_3_2_12_2","doi-asserted-by":"publisher","DOI":"10.1126\/science.aaa4984"},{"key":"e_1_3_2_13_2","doi-asserted-by":"publisher","DOI":"10.1126\/science.1189930"},{"key":"e_1_3_2_14_2","doi-asserted-by":"publisher","DOI":"10.1126\/science.1237190"},{"key":"e_1_3_2_15_2","doi-asserted-by":"publisher","DOI":"10.1098\/rspb.2006.3484"},{"key":"e_1_3_2_16_2","doi-asserted-by":"publisher","DOI":"10.1146\/annurev-environ-042911-093511"},{"key":"e_1_3_2_17_2","doi-asserted-by":"publisher","DOI":"10.1038\/35016000"},{"key":"e_1_3_2_18_2","doi-asserted-by":"publisher","DOI":"10.1126\/science.1259855"},{"key":"e_1_3_2_19_2","doi-asserted-by":"publisher","DOI":"10.1126\/science.1229931"},{"key":"e_1_3_2_20_2","doi-asserted-by":"publisher","DOI":"10.1186\/1742-9994-1-4"},{"key":"e_1_3_2_21_2","doi-asserted-by":"crossref","first-page":"3754","DOI":"10.1111\/j.1365-294X.2008.03857.x","article-title":"Twenty
+        years of phylogeography: The state of the field and the challenges for the
+        Southern Hemisphere","volume":"17","author":"Beheregaray L. B.","year":"2008","unstructured":"Beheregaray
+        L. B., Twenty years of phylogeography: The state of the field and the challenges
+        for the Southern Hemisphere. Mol. Ecol. 17, 3754\u20133774 (2008).18627447","journal-title":"Mol.
+        Ecol."},{"key":"e_1_3_2_23_2","doi-asserted-by":"publisher","DOI":"10.1073\/pnas.0705056104"},{"key":"e_1_3_2_24_2","doi-asserted-by":"publisher","DOI":"10.1038\/nature05237"},{"key":"e_1_3_2_25_2","doi-asserted-by":"publisher","DOI":"10.2307\/3545569"},{"key":"e_1_3_2_26_2","doi-asserted-by":"publisher","DOI":"10.1111\/j.1461-0248.2007.01020.x"},{"key":"e_1_3_2_27_2","doi-asserted-by":"publisher","DOI":"10.1146\/annurev-ecolsys-112414-054102"},{"key":"e_1_3_2_28_2","doi-asserted-by":"publisher","DOI":"10.1126\/science.1251817"},{"key":"e_1_3_2_29_2","doi-asserted-by":"publisher","DOI":"10.1126\/science.aad2622"},{"key":"e_1_3_2_30_2","doi-asserted-by":"publisher","DOI":"10.1111\/j.1466-8238.2010.00540.x"},{"key":"e_1_3_2_32_2","doi-asserted-by":"publisher","DOI":"10.1093\/bioinformatics\/bts199"},{"key":"e_1_3_2_33_2","doi-asserted-by":"crossref","first-page":"174","DOI":"10.1007\/BF00163806","article-title":"Numt,
+        a recent transfer and tandem amplification of mitochondrial DNA to the nuclear
+        genome of the domestic cat","volume":"39","author":"Lopez J. V.","year":"1994","unstructured":"Lopez
+        J. V., Yuhki N., Masuda R., Modi W., O\u2019Brien S. J., Numt, a recent transfer
+        and tandem amplification of mitochondrial DNA to the nuclear genome of the
+        domestic cat. J. Mol. Evol. 39, 174\u2013190 (1994).7932781","journal-title":"J.
+        Mol. Evol."},{"key":"e_1_3_2_34_2","doi-asserted-by":"publisher","DOI":"10.1093\/nar\/gkh340"},{"key":"e_1_3_2_35_2","unstructured":"J.
+        Bezanson A. Edelman S. Karpinski V. B. Shah https:\/\/arxiv.org\/abs\/1411.1607
+        (2015)."},{"key":"e_1_3_2_36_2","unstructured":"R: A Language and Environment
+        for Statistical Computing (R Foundation for Statistical Computing Vienna 2015);
+        www.r-project.org."},{"key":"e_1_3_2_37_2","doi-asserted-by":"crossref","unstructured":"M.
+        Nei Molecular Evolutionary Genetics (Arizona State University 1987).","DOI":"10.7312\/nei-92038"},{"key":"e_1_3_2_38_2","doi-asserted-by":"publisher","DOI":"10.1073\/pnas.76.10.5269"},{"key":"e_1_3_2_39_2","doi-asserted-by":"publisher","DOI":"10.1266\/jjg.68.567"},{"key":"e_1_3_2_40_2","unstructured":"QGIS
+        Geographic Information System Open Source Geospatial Foundation Project (2011);
+        http:\/\/qgis.osgeo.org."},{"key":"e_1_3_2_41_2","doi-asserted-by":"publisher","DOI":"10.1641\/0006-3568(2001)051[0933:TEOTWA]2.0.CO;2"},{"key":"e_1_3_2_42_2","unstructured":"IUCN
+        Red List of Threatened Species (amphibians) version 2014.4; www.iucnredlist.org\/amphibians."},{"key":"e_1_3_2_43_2","unstructured":"IUCN
+        Red List of Threatened Species (mammals) version 2014.4; www.iucnredlist.org\/mammals."},{"key":"e_1_3_2_44_2","unstructured":"D.
+        R. Frost Amphibian Species of the World: An Online Reference version 6.0 (American
+        Museum of Natural History New York); http:\/\/research.amnh.org\/herpetology\/amphibia\/index.html."},{"key":"e_1_3_2_45_2","unstructured":"D.
+        E. Wilson D. M. Reeder Eds. Mammal Species of the World: A Taxonomic and Geographic
+        Reference (Johns Hopkins Univ. Press ed. 3 2005)."},{"key":"e_1_3_2_46_2","doi-asserted-by":"publisher","DOI":"10.1111\/2041-210X.12283"},{"key":"e_1_3_2_47_2","doi-asserted-by":"publisher","DOI":"10.2307\/2532625"},{"key":"e_1_3_2_48_2","unstructured":"F.
+        Osorio R. Vallejos SpatialPack: Package for Analysis of Spatial Data R Package
+        version 0.2-3 (2014); http:\/\/cran.r-project.org\/package=SpatialPack."},{"key":"e_1_3_2_49_2","doi-asserted-by":"publisher","DOI":"10.1080\/0266476042000214501"},{"key":"e_1_3_2_50_2","doi-asserted-by":"publisher","DOI":"10.1037\/1082-989X.11.1.54"},{"key":"e_1_3_2_51_2","doi-asserted-by":"publisher","DOI":"10.18637\/jss.v034.i02"},{"key":"e_1_3_2_52_2","unstructured":"V.
+        E. Seshan clinfun: Clinical Trial Design and Data Analysis Functions R Package
+        version 1.0.11 (2015); http:\/\/CRAN.R-project.org\/package=clinfun."},{"key":"e_1_3_2_53_2","doi-asserted-by":"publisher","DOI":"10.1023\/A:1008985925162"},{"key":"e_1_3_2_54_2","unstructured":"C.
+        Walch R. Mac Nally hier.part: Hierarchical Partitioning R Package version
+        1.0-4 (2013); http:\/\/cran.r-project.org\/package=hier.part."}],"container-title":"Science","original-title":[],"language":"en","link":[{"URL":"https:\/\/www.science.org\/doi\/pdf\/10.1126\/science.aaf4381","content-type":"unspecified","content-version":"vor","intended-application":"similarity-checking"}],"deposited":{"date-parts":[[2024,1,15]],"date-time":"2024-01-15T16:22:51Z","timestamp":1705335771000},"score":1,"resource":{"primary":{"URL":"https:\/\/www.science.org\/doi\/10.1126\/science.aaf4381"}},"subtitle":[],"short-title":[],"issued":{"date-parts":[[2016,9,30]]},"references-count":51,"journal-issue":{"issue":"6307","published-print":{"date-parts":[[2016,9,30]]}},"alternative-id":["10.1126\/science.aaf4381"],"URL":"http:\/\/dx.doi.org\/10.1126\/science.aaf4381","relation":{},"ISSN":["0036-8075","1095-9203"],"subject":["Multidisciplinary"],"container-title-short":"Science","published":{"date-parts":[[2016,9,30]]}}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-encoding:
+      - gzip
+      content-length:
+      - '3775'
+      content-type:
+      - application/vnd.citationstyles.csl+json
+      date:
+      - Mon, 22 Jan 2024 14:06:22 GMT
+      link:
+      - <http://dx.doi.org/10.1126/science.aaf4381>; rel="canonical", <https://www.science.org/doi/pdf/10.1126/science.aaf4381>;
+        version="vor"; rel="item", <http://www.sciencemag.org/about/science-licenses-journal-article-reuse>;
+        version="vor"; rel="license"
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept, Accept-Encoding
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://doi.org/10.1093/nar/gkn075
+  response:
+    body:
+      string: '<html><head><title>Handle Redirect</title></head>
+
+        <body><a href="https://api.crossref.org/v1/works/10.1093%2Fnar%2Fgkn075/transform">https://api.crossref.org/v1/works/10.1093%2Fnar%2Fgkn075/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 84985b6f7fef1cae-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '217'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:06:22 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=iQHgGSoHStRYbPe3YRSw%2F9l%2F8uYJvHnbqI57r28hsv76HpM2Q0jVJ1oClX3S0DW2OjN%2FX2i%2F6GsDUPXcemDfiaIj80DmfQYrBJYgx5FncyZkTJ28rJpRJQp9M%2BvzBkPznxQmeo0%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Mon, 22 Jan 2024 14:40:23 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.1093%2Fnar%2Fgkn075/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.1093%2Fnar%2Fgkn075/transform
+  response:
+    body:
+      string: '{"indexed":{"date-parts":[[2023,7,28]],"date-time":"2023-07-28T01:13:25Z","timestamp":1690506805419},"reference-count":0,"publisher":"Oxford
+        University Press (OUP)","issue":"5","license":[{"start":{"date-parts":[[2016,11,7]],"date-time":"2016-11-07T00:00:00Z","timestamp":1478476800000},"content-version":"vor","delay-in-days":3224,"URL":"http:\/\/creativecommons.org\/licenses\/by-nc\/2.0\/uk\/"}],"content-domain":{"domain":[],"crossmark-restriction":false},"DOI":"10.1093\/nar\/gkn075","type":"journal-article","created":{"date-parts":[[2008,2,23]],"date-time":"2008-02-23T01:45:36Z","timestamp":1203731136000},"page":"e33-e33","source":"Crossref","is-referenced-by-count":35,"title":"Performance
+        comparison between k-tuple distance and four model-based distances in phylogenetic
+        tree reconstruction","prefix":"10.1093","volume":"36","author":[{"given":"K.","family":"Yang","sequence":"first","affiliation":[]},{"given":"L.","family":"Zhang","sequence":"additional","affiliation":[]}],"member":"286","published-online":{"date-parts":[[2008,1,10]]},"container-title":"Nucleic
+        Acids Research","original-title":[],"language":"en","link":[{"URL":"http:\/\/academic.oup.com\/nar\/article-pdf\/36\/5\/e33\/7181978\/gkn075.pdf","content-type":"unspecified","content-version":"vor","intended-application":"similarity-checking"}],"deposited":{"date-parts":[[2018,4,2]],"date-time":"2018-04-02T14:39:57Z","timestamp":1522679997000},"score":1,"resource":{"primary":{"URL":"https:\/\/academic.oup.com\/nar\/article-lookup\/doi\/10.1093\/nar\/gkn075"}},"subtitle":[],"short-title":[],"issued":{"date-parts":[[2008,1,10]]},"references-count":0,"journal-issue":{"issue":"5","published-online":{"date-parts":[[2008,1,10]]}},"URL":"http:\/\/dx.doi.org\/10.1093\/nar\/gkn075","relation":{},"ISSN":["0305-1048","1362-4962"],"subject":["Genetics"],"container-title-short":"Nucleic
+        Acids Research","published":{"date-parts":[[2008,1,10]]}}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-encoding:
+      - gzip
+      content-length:
+      - '933'
+      content-type:
+      - application/vnd.citationstyles.csl+json
+      date:
+      - Mon, 22 Jan 2024 14:06:23 GMT
+      link:
+      - <http://dx.doi.org/10.1093/nar/gkn075>; rel="canonical", <http://academic.oup.com/nar/article-pdf/36/5/e33/7181978/gkn075.pdf>;
+        version="vor"; rel="item", <http://creativecommons.org/licenses/by-nc/2.0/uk/>;
+        version="vor"; rel="license"
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept, Accept-Encoding
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://doi.org/10.1038/sdata.2015.35
+  response:
+    body:
+      string: '<html><head><title>Handle Redirect</title></head>
+
+        <body><a href="https://api.crossref.org/v1/works/10.1038%2Fsdata.2015.35/transform">https://api.crossref.org/v1/works/10.1038%2Fsdata.2015.35/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 84985b981c5d6715-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '219'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:06:29 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=gWk611HZOhhgg8bMif7knckQFDBf6BcLSGEMJKzwNriiXgbkeczUQeabnl2K4KmN%2FIK4agLotMU330gKds8%2F9PPBJa40F%2BNb5UKXAewKDHBxOrfkTEtQ%2B8VPfJViI7BSoS4GK%2Fw%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Mon, 22 Jan 2024 14:38:44 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.1038%2Fsdata.2015.35/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.1038%2Fsdata.2015.35/transform
+  response:
+    body:
+      string: '{"indexed":{"date-parts":[[2024,1,12]],"date-time":"2024-01-12T12:20:20Z","timestamp":1705062020775},"reference-count":33,"publisher":"Springer
+        Science and Business Media LLC","issue":"1","license":[{"start":{"date-parts":[[2015,7,7]],"date-time":"2015-07-07T00:00:00Z","timestamp":1436227200000},"content-version":"tdm","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0"},{"start":{"date-parts":[[2015,7,7]],"date-time":"2015-07-07T00:00:00Z","timestamp":1436227200000},"content-version":"vor","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0"}],"content-domain":{"domain":["link.springer.com"],"crossmark-restriction":false},"abstract":"<jats:title>Abstract<\/jats:title><jats:p><jats:italic>Aedes
+        aegypti<\/jats:italic> and <jats:italic>Ae. albopictus<\/jats:italic> are
+        the main vectors transmitting dengue and chikungunya viruses. Despite being
+        pathogens of global public health importance, knowledge of their vectors\u2019
+        global distribution remains patchy and sparse. A global geographic database
+        of known occurrences of <jats:italic>Ae. aegypti<\/jats:italic> and <jats:italic>Ae.
+        albopictus<\/jats:italic> between 1960 and 2014 was compiled. Herein we present
+        the database, which comprises occurrence data linked to point or polygon locations,
+        derived from peer-reviewed literature and unpublished studies including national
+        entomological surveys and expert networks. We describe all data collection
+        processes, as well as geo-positioning methods, database management and quality-control
+        procedures. This is the first comprehensive global database of <jats:italic>Ae.
+        aegypti<\/jats:italic> and <jats:italic>Ae. albopictus<\/jats:italic> occurrence,
+        consisting of 19,930 and 22,137 geo-positioned occurrence records respectively.
+        Both datasets can be used for a variety of mapping and spatial analyses of
+        the vectors and, by inference, the diseases they transmit.<\/jats:p>","DOI":"10.1038\/sdata.2015.35","type":"journal-article","created":{"date-parts":[[2015,7,6]],"date-time":"2015-07-06T14:59:38Z","timestamp":1436194778000},"update-policy":"http:\/\/dx.doi.org\/10.1007\/springer_crossmark_policy","source":"Crossref","is-referenced-by-count":0,"title":"The
+        global compendium of Aedes aegypti and Ae. albopictus occurrence","prefix":"10.1038","volume":"2","author":[{"given":"Moritz
+        U. G.","family":"Kraemer","sequence":"first","affiliation":[]},{"given":"Marianne
+        E.","family":"Sinka","sequence":"additional","affiliation":[]},{"given":"Kirsten
+        A.","family":"Duda","sequence":"additional","affiliation":[]},{"given":"Adrian","family":"Mylne","sequence":"additional","affiliation":[]},{"given":"Freya
+        M.","family":"Shearer","sequence":"additional","affiliation":[]},{"given":"Oliver
+        J.","family":"Brady","sequence":"additional","affiliation":[]},{"given":"Jane
+        P.","family":"Messina","sequence":"additional","affiliation":[]},{"given":"Christopher
+        M.","family":"Barker","sequence":"additional","affiliation":[]},{"given":"Chester
+        G.","family":"Moore","sequence":"additional","affiliation":[]},{"given":"Roberta
+        G.","family":"Carvalho","sequence":"additional","affiliation":[]},{"given":"Giovanini
+        E.","family":"Coelho","sequence":"additional","affiliation":[]},{"given":"Wim","family":"Van
+        Bortel","sequence":"additional","affiliation":[]},{"given":"Guy","family":"Hendrickx","sequence":"additional","affiliation":[]},{"given":"Francis","family":"Schaffner","sequence":"additional","affiliation":[]},{"given":"G.
+        R. William","family":"Wint","sequence":"additional","affiliation":[]},{"given":"Iqbal
+        R. F.","family":"Elyazar","sequence":"additional","affiliation":[]},{"given":"Hwa-Jen","family":"Teng","sequence":"additional","affiliation":[]},{"given":"Simon
+        I.","family":"Hay","sequence":"additional","affiliation":[]}],"member":"297","published-online":{"date-parts":[[2015,7,7]]},"reference":[{"key":"BFsdata201535_CR1","doi-asserted-by":"publisher","first-page":"700","DOI":"10.1111\/j.1096-3642.2009.00570.x","volume":"157","author":"JF
+        Reinert","year":"2009","unstructured":"Reinert, J. F., Harbach, R. E. & Kitching,
+        I. J. Phylogeny and classification of tribe Aedini (Diptera: Culicidae) .
+        Zool. J. Linn. Soc. 157, 700\u2013794 (2009).","journal-title":"Zool. J. Linn.
+        Soc."},{"key":"BFsdata201535_CR2","doi-asserted-by":"publisher","first-page":"20120250","DOI":"10.1098\/rstb.2012.0250","volume":"368","author":"SI
+        Hay","year":"2013","unstructured":"Hay, S. I. et al. Global mapping of infectious
+        disease. Philos. Trans. R. Soc. Lond. B. Biol. Sci 368, 20120250 (2013).","journal-title":"Philos.
+        Trans. R. Soc. Lond. B. Biol. Sci"},{"key":"BFsdata201535_CR3","doi-asserted-by":"publisher","first-page":"558","DOI":"10.1111\/j.1461-0248.2005.00755.x","volume":"8","author":"Sa
+        Juliano","year":"2005","unstructured":"Juliano, S. a. & Philip Lounibos, L.
+        Ecology of invasive mosquitoes: effects on resident species and on human health.
+        Ecol. Lett. 8, 558\u2013574 (2005).","journal-title":"Ecol. Lett."},{"key":"BFsdata201535_CR4","doi-asserted-by":"publisher","first-page":"e68","DOI":"10.1371\/journal.pmed.0050068","volume":"5","author":"AC
+        Morrison","year":"2008","unstructured":"Morrison, A. C., Zielinski-Gutierrez,
+        E., Scott, T. W. & Rosenberg, R. Defining challenges and proposing solutions
+        for control of the virus vector Aedes aegypti . PLoS Med. 5, e68 (2008).","journal-title":"PLoS
+        Med."},{"key":"BFsdata201535_CR5","doi-asserted-by":"publisher","first-page":"504","DOI":"10.1038\/nature12060","volume":"496","author":"S
+        Bhatt","year":"2013","unstructured":"Bhatt, S. et al. The global distribution
+        and burden of dengue. Nature 496, 504\u2013507 (2013).","journal-title":"Nature"},{"key":"BFsdata201535_CR6","doi-asserted-by":"publisher","first-page":"e1760","DOI":"10.1371\/journal.pntd.0001760","volume":"6","author":"OJ
+        Brady","year":"2012","unstructured":"Brady, O. J. et al. Refining the global
+        spatial limits of dengue virus transmission by evidence-based consensus. PLoS
+        Negl. Trop. Dis. 6, e1760 (2012).","journal-title":"PLoS Negl. Trop. Dis."},{"key":"BFsdata201535_CR7","doi-asserted-by":"publisher","first-page":"887","DOI":"10.1056\/NEJMp1407698","volume":"371","author":"JE
+        Staples","year":"2014","unstructured":"Staples, J. E. & Fischer, M. Chikungunya
+        virus in the Americas\u2014what a vectorborne pathogen can do. N. Engl. J.
+        Med. 371, 887\u2013889 (2014).","journal-title":"N. Engl. J. Med."},{"key":"BFsdata201535_CR8","first-page":"500","volume":"63","author":"TM
+        Sharp","year":"2014","unstructured":"Sharp, T. M. et al. Chikungunya Cases
+        Identified Through Passive Surveillance and Household Investigations\u2014Puerto
+        Rico, May 5\u2014August 12, 2014. MMWR Morb Mortal Wkly Rep. 63, 500\u2013501
+        (2014).","journal-title":"MMWR Morb Mortal Wkly Rep."},{"key":"BFsdata201535_CR9","doi-asserted-by":"publisher","first-page":"2008","DOI":"10.1016\/S0140-6736(14)61290-3","volume":"384","author":"AM
+        Powers","year":"2014","unstructured":"Powers, A. M. Chikungunya virus control:
+        is a vaccine on the horizon? Lancet 384, 2008\u20132009 (2014).","journal-title":"Lancet"},{"key":"BFsdata201535_CR10","doi-asserted-by":"publisher","first-page":"685","DOI":"10.1111\/1469-0691.12189","volume":"19","author":"F
+        Schaffner","year":"2013","unstructured":"Schaffner, F., Medlock, J. M. & Van
+        Bortel, W. Public health significance of invasive mosquitoes in Europe. Clin.
+        Microbiol. Infect. 19, 685\u2013692 (2013).","journal-title":"Clin. Microbiol.
+        Infect."},{"key":"BFsdata201535_CR11","doi-asserted-by":"publisher","first-page":"e1001638","DOI":"10.1371\/journal.pmed.1001638","volume":"11","author":"T
+        Garske","year":"2014","unstructured":"Garske, T. et al. Yellow Fever in Africa:
+        estimating the burden of disease and impact of mass vaccination from outbreak
+        and serological data. PLoS Med. 11, e1001638 (2014).","journal-title":"PLoS
+        Med."},{"issue":"Suppl.","key":"BFsdata201535_CR12","doi-asserted-by":"publisher","first-page":"11","DOI":"10.1590\/0074-0276130395","volume":"108","author":"JR
+        Powell","year":"2013","unstructured":"Powell, J. R. & Tabachnick, W. J. History
+        of domestication and spread of Aedes aegypti\u2014a review. Mem. Inst. Oswaldo
+        Cruz 108(Suppl.), 11\u201317 (2013).","journal-title":"Mem. Inst. Oswaldo
+        Cruz"},{"key":"BFsdata201535_CR13","doi-asserted-by":"publisher","first-page":"25","DOI":"10.1089\/vbz.2007.0649","volume":"8","author":"H
+        Delatte","year":"2008","unstructured":"Delatte, H. et al. Geographic distribution
+        and developmental sites of Aedes albopictus (Diptera: Culicidae) during a
+        Chikungunya epidemic event. Vector borne zoonotic Dis. 8, 25\u201334 (2008).","journal-title":"Vector
+        borne zoonotic Dis."},{"key":"BFsdata201535_CR14","doi-asserted-by":"publisher","first-page":"20141078","DOI":"10.1098\/rspb.2014.1078","volume":"281","author":"K
+        Zouache","year":"2014","unstructured":"Zouache, K. et al. Three-way interactions
+        between mosquito population, viral strain and temperature underlying chikungunya
+        virus transmission potential. Proc. R. Soc. Biol. Sci. 281, 20141078 (2014).","journal-title":"Proc.
+        R. Soc. Biol. Sci."},{"key":"BFsdata201535_CR15","first-page":"111","volume":"19","author":"DJ
+        Gubler","year":"2011","unstructured":"Gubler, D. J. Prevention and Control
+        of Aedes aegypti-borne Diseases: Lesson Learned from Past Successes and Failures.
+        AsPac J. Mol. Biol. Biotechnol. 19, 111\u2013114 (2011).","journal-title":"AsPac
+        J. Mol. Biol. Biotechnol."},{"key":"BFsdata201535_CR16","doi-asserted-by":"publisher","first-page":"1271","DOI":"10.1016\/S1473-3099(14)70834-5","volume":"14","author":"F
+        Schaffner","year":"2014","unstructured":"Schaffner, F. & Mathis, A. Dengue
+        and dengue vectors in the WHO European region: past, present, and scenarios
+        for the future. Lancet. Infect. Dis. 14, 1271\u20131280 (2014).","journal-title":"Lancet.
+        Infect. Dis."},{"key":"BFsdata201535_CR17","doi-asserted-by":"publisher","first-page":"191","DOI":"10.1590\/S0074-02762003000200005","volume":"98","author":"NA
+        Hon\u00f3rio","year":"2003","unstructured":"Hon\u00f3rio, N. A. et al. Dispersal
+        of Aedes aegypti and Aedes albopictus (Diptera: Culicidae) in an urban endemic
+        dengue area in the State of Rio de Janeiro, Brazil. Mem. Inst. Oswaldo Cruz
+        98, 191\u2013198 (2003).","journal-title":"Mem. Inst. Oswaldo Cruz"},{"key":"BFsdata201535_CR18","doi-asserted-by":"publisher","first-page":"209","DOI":"10.1186\/1756-3305-6-209","volume":"6","author":"F
+        Schaffner","year":"2013","unstructured":"Schaffner, F. et al. Development
+        of guidelines for the surveillance of invasive mosquitoes in Europe. Parasit.
+        Vectors 6, 209 (2013).","journal-title":"Parasit. Vectors"},{"key":"BFsdata201535_CR19","doi-asserted-by":"publisher","first-page":"142","DOI":"10.1186\/1756-3305-7-142","volume":"7","author":"F
+        Schaffner","year":"2014","unstructured":"Schaffner, F., Kaufmann, C., Pfl\u00fcger,
+        V. & Mathis, A. Rapid protein profiling facilitates surveillance of invasive
+        mosquito species. Parasit. Vectors 7, 142 (2014).","journal-title":"Parasit.
+        Vectors"},{"key":"BFsdata201535_CR20","doi-asserted-by":"publisher","first-page":"787","DOI":"10.1590\/0074-0276140304","volume":"109","author":"RG
+        Carvalho","year":"2014","unstructured":"Carvalho, R. G., Louren\u00e7o-de-Oliveira,
+        R. & Braga, I. A. Updating the geographical distribution and frequency of
+        Aedes albopictus in Brazil with remarks regarding its range in the Americas.
+        Mem. Inst. Oswaldo Cruz 109, 787\u2013796 (2014).","journal-title":"Mem. Inst.
+        Oswaldo Cruz"},{"key":"BFsdata201535_CR21","doi-asserted-by":"publisher","first-page":"S13","DOI":"10.1590\/S0036-46652012000700006","volume":"54","author":"GE
+        Coelho","year":"2012","unstructured":"Coelho, G. E. Challenges in the control
+        of Aedes aegypti . Rev. Inst. Med. Trop. Sao Paolo 54, S13\u2013S14 (2012).","journal-title":"Rev.
+        Inst. Med. Trop. Sao Paolo"},{"key":"BFsdata201535_CR22","unstructured":"Food
+        and Agricultural Organization of the United Nations. The Global Administrative
+        Unit Layers (GAUL): Technical Aspects. Food Agric. Organ. United Nations,
+        EC-FAO Food Secur. Program. (2008)."},{"key":"BFsdata201535_CR23","doi-asserted-by":"publisher","first-page":"338","DOI":"10.1186\/1756-3305-7-338","volume":"7","author":"OJ
+        Brady","year":"2014","unstructured":"Brady, O. J. et al. Global temperature
+        constraints on Aedes aegypti and Ae. albopictus persistence and competence
+        for dengue virus transmission. Parasit. Vectors 7, 338 (2014).","journal-title":"Parasit.
+        Vectors"},{"key":"BFsdata201535_CR24","doi-asserted-by":"publisher","first-page":"1965","DOI":"10.1002\/joc.1276","volume":"25","author":"RJ
+        Hijmans","year":"2005","unstructured":"Hijmans, R. J., Cameron, S. E., Parra,
+        J. L., Jones, P. G. & Jarvis, A. Very high resolution interpolated climate
+        surfaces for global land areas. Int. J. Climatol. 25, 1965\u20131978 (2005).","journal-title":"Int.
+        J. Climatol."},{"key":"BFsdata201535_CR25","doi-asserted-by":"publisher","first-page":"6242","DOI":"10.1073\/pnas.0508391103","volume":"103","author":"AJ
+        Tatem","year":"2006","unstructured":"Tatem, A. J., Hay, S. I. & Rogers, D.
+        J. Global traffic and disease vector dispersal. Proc. Natl. Acad. Sci. USA
+        103, 6242\u20136247 (2006).","journal-title":"Proc. Natl. Acad. Sci. USA"},{"key":"BFsdata201535_CR26","doi-asserted-by":"publisher","first-page":"1114","DOI":"10.1126\/science.3576225","volume":"236","author":"WA
+        Hawley","year":"1987","unstructured":"Hawley, W. A., Reiter, P., Copeland,
+        R. S., Pumpuni, C. B. & Craig, G. B. Aedes albopictus in North America: probable
+        introduction in used tires from northern Asia. Science 236, 1114\u20131116
+        (1987).","journal-title":"Science"},{"key":"BFsdata201535_CR27","doi-asserted-by":"publisher","first-page":"217","DOI":"10.1089\/vbz.2008.0071","volume":"9","author":"A
+        Hofhuis","year":"2009","unstructured":"Hofhuis, A. et al. The hidden passenger
+        of lucky bamboo: do imported Aedes albopictus mosquitoes cause dengue virus
+        transmission in the Netherlands? Vector borne zoonotic Dis 9, 217\u2013220
+        (2009).","journal-title":"Vector borne zoonotic Dis"},{"key":"BFsdata201535_CR28","doi-asserted-by":"publisher","first-page":"e3278","DOI":"10.1371\/journal.pntd.0003278","volume":"8","author":"JC
+        Semenza","year":"2014","unstructured":"Semenza, J. C. et al. International
+        dispersal of dengue through air travel: importation risk for Europe. PLoS
+        Negl. Trop. Dis. 8, e3278 (2014).","journal-title":"PLoS Negl. Trop. Dis."},{"key":"BFsdata201535_CR29","doi-asserted-by":"publisher","first-page":"885","DOI":"10.1056\/NEJMp1408509","volume":"371","author":"DM
+        Morens","year":"2014","unstructured":"Morens, D. M. & Fauci, A. S. Chikungunya
+        at the door\u2014deja vu all over again? N. Engl. J. Med. 371, 885\u2013887
+        (2014).","journal-title":"N. Engl. J. Med."},{"key":"BFsdata201535_CR30","unstructured":"Khan,
+        K. et al. Assessing the origin of and potential for international spread of
+        Chikungunya virus from the Caribbean. PLOS Curr. Outbreaks Jun 6, doi: 10.1371\/currents.outbreaks.2134a0a7b\"f37fd8d388181539fea2da5
+        (2014)."},{"key":"BFsdata201535_CR31","doi-asserted-by":"publisher","first-page":"181","DOI":"10.1890\/07-2153.1","volume":"19","author":"SJ
+        Phillips","year":"2009","unstructured":"Phillips, S. J. et al. Sample selection
+        bias and presence-only distribution model: implications for background and
+        pseudo-absence data. Ecol. Appl. 19, 181\u2013197 (2009).","journal-title":"Ecol.
+        Appl."},{"key":"BFsdata201535_CR32","doi-asserted-by":"publisher","first-page":"e08347","DOI":"10.7554\/eLife.08347","volume":"4","author":"M
+        Kraemer","year":"2015","unstructured":"Kraemer, M. et al. The global distribution
+        of the arbovirus vectors Aedes aegypti and Ae. albopictus . eLife. 4, e08347
+        (2015).","journal-title":"eLife."},{"key":"BFsdata201535_CR33","doi-asserted-by":"publisher","author":"M.
+        U. G. Kraemer","year":"2015","unstructured":"Kraemer, M. U. G. Dryad Digital
+        Repository http:\/\/dx.doi.org\/10.5061\/dryad.47v3c (2015)","DOI":"10.5061\/dryad.47v3c"}],"container-title":"Scientific
+        Data","original-title":[],"language":"en","link":[{"URL":"https:\/\/www.nature.com\/articles\/sdata201535.pdf","content-type":"application\/pdf","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/www.nature.com\/articles\/sdata201535","content-type":"text\/html","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/www.nature.com\/articles\/sdata201535.pdf","content-type":"application\/pdf","content-version":"vor","intended-application":"similarity-checking"}],"deposited":{"date-parts":[[2023,1,5]],"date-time":"2023-01-05T13:04:09Z","timestamp":1672923849000},"score":1,"resource":{"primary":{"URL":"https:\/\/www.nature.com\/articles\/sdata201535"}},"subtitle":[],"short-title":[],"issued":{"date-parts":[[2015,7,7]]},"references-count":33,"journal-issue":{"issue":"1","published-online":{"date-parts":[[2015,12,8]]}},"alternative-id":["BFsdata201535"],"URL":"http:\/\/dx.doi.org\/10.1038\/sdata.2015.35","relation":{"references":[{"id-type":"doi","id":"10.5061\/dryad.47v3c","asserted-by":"subject"}],"has-review":[{"id-type":"doi","id":"10.3410\/f.726055560.793512891","asserted-by":"object"}]},"ISSN":["2052-4463"],"subject":["Library
+        and Information Sciences","Statistics, Probability and Uncertainty","Computer
+        Science Applications","Education","Information Systems","Statistics and Probability"],"container-title-short":"Sci
+        Data","published":{"date-parts":[[2015,7,7]]},"assertion":[{"value":"30 March
+        2015","order":1,"name":"received","label":"Received","group":{"name":"ArticleHistory","label":"Article
+        History"}},{"value":"23 June 2015","order":2,"name":"accepted","label":"Accepted","group":{"name":"ArticleHistory","label":"Article
+        History"}},{"value":"7 July 2015","order":3,"name":"first_online","label":"First
+        Online","group":{"name":"ArticleHistory","label":"Article History"}},{"value":"The
+        authors declare no competing financial interests.","order":1,"name":"Ethics","group":{"name":"EthicsHeading","label":"Competing
+        interests"}}],"article-number":"150035"}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-encoding:
+      - gzip
+      content-length:
+      - '5727'
+      content-type:
+      - application/vnd.citationstyles.csl+json
+      date:
+      - Mon, 22 Jan 2024 14:06:29 GMT
+      link:
+      - <http://dx.doi.org/10.1038/sdata.2015.35>; rel="canonical", <https://www.nature.com/articles/sdata201535.pdf>;
+        version="vor"; type="application/pdf"; rel="item", <https://www.nature.com/articles/sdata201535>;
+        version="vor"; type="text/html"; rel="item", <https://www.nature.com/articles/sdata201535.pdf>;
+        version="vor"; type="application/pdf"; rel="item", <https://creativecommons.org/licenses/by/4.0>;
+        version="tdm"; rel="license", <https://creativecommons.org/licenses/by/4.0>;
+        version="vor"; rel="license"
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept, Accept-Encoding
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://doi.org/10.5061/dryad.47v3c
+  response:
+    body:
+      string: '<html><head><title>Handle Redirect</title></head>
+
+        <body><a href="https://data.crosscite.org/10.5061%2Fdryad.47v3c">https://data.crosscite.org/10.5061%2Fdryad.47v3c</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 84985b9bfb600a5b-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '181'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:06:29 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=dkI5ISvN7zUHpSVpl5%2Fgt%2BYc0MGx%2Fn8n%2FBHXaIzBfodvLz2uOIIFkZOiLFN8RSrsUsudFaTHvvK1FIM3smB1oUVG%2BCNpv%2FezmGaF914DSomTTfvE4NiGhBZ60AynUuMK8jfXkbg%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Mon, 22 Jan 2024 14:34:12 GMT
+      location:
+      - https://data.crosscite.org/10.5061%2Fdryad.47v3c
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://data.crosscite.org/10.5061%2Fdryad.47v3c
+  response:
+    body:
+      string: "{\n  \"type\": \"dataset\",\n  \"id\": \"https://doi.org/10.5061/dryad.47v3c\",\n
+        \ \"categories\": [\n    \"Yellow fever\",\n    \"Ae. albopictus\",\n    \"Arboviruses\",\n
+        \   \"dengue\",\n    \"Chikungunya\",\n    \"Ae. aegypti\"\n  ],\n  \"language\":
+        \"en\",\n  \"author\": [\n    {\n      \"family\": \"Kraemer\",\n      \"given\":
+        \"Moritz U. G.\"\n    },\n    {\n      \"family\": \"Sinka\",\n      \"given\":
+        \"Marianne E.\"\n    },\n    {\n      \"family\": \"Duda\",\n      \"given\":
+        \"Kirsten A.\"\n    },\n    {\n      \"family\": \"Mylne\",\n      \"given\":
+        \"Adrian\"\n    },\n    {\n      \"family\": \"Shearer\",\n      \"given\":
+        \"Freya M.\"\n    },\n    {\n      \"family\": \"Brady\",\n      \"given\":
+        \"Oliver J.\"\n    },\n    {\n      \"family\": \"Messina\",\n      \"given\":
+        \"Janey P.\"\n    },\n    {\n      \"family\": \"Barker\",\n      \"given\":
+        \"Christopher M.\"\n    },\n    {\n      \"family\": \"Moore\",\n      \"given\":
+        \"Chester G.\"\n    },\n    {\n      \"family\": \"Carvalho\",\n      \"given\":
+        \"Roberta G.\"\n    },\n    {\n      \"family\": \"Coelho\",\n      \"given\":
+        \"Giovanini E.\"\n    },\n    {\n      \"family\": \"Van Bortel\",\n      \"given\":
+        \"Wim\"\n    },\n    {\n      \"family\": \"Hendrickx\",\n      \"given\":
+        \"Guy\"\n    },\n    {\n      \"family\": \"Schaffner\",\n      \"given\":
+        \"Francis\"\n    },\n    {\n      \"family\": \"Wint\",\n      \"given\":
+        \"G. R. William\"\n    },\n    {\n      \"family\": \"Elyazar\",\n      \"given\":
+        \"Iqbal R. F.\"\n    },\n    {\n      \"family\": \"Teng\",\n      \"given\":
+        \"Hwa-Jen\"\n    },\n    {\n      \"family\": \"Hay\",\n      \"given\": \"Simon
+        I.\"\n    }\n  ],\n  \"issued\": {\n    \"date-parts\": [\n      [\n        2016,\n
+        \       6,\n        25\n      ]\n    ]\n  },\n  \"abstract\": \"PLEASE NOTE,
+        THESE DATA ARE ALSO REFERRED TO IN ANOTHER PUBLICATION. PLEASE SEE http://dx.doi.org/10.7554/eLife.08347.
+        Aedes aegypti and Ae. albopictus are the main vectors transmitting dengue
+        and chikungunya viruses. Despite being pathogens of global public health importance,
+        knowledge of their vectors\u2019 global distribution remains patchy and sparse.
+        A global geographic database of known occurrences of Ae. aegypti and Ae. albopictus
+        between 1960 and 2014 was compiled. Herein we present the database, which
+        comprises occurrence data linked to point or polygon locations, derived from
+        peer-reviewed literature and unpublished studies including national entomological
+        surveys and expert networks. We describe all data collection processes, as
+        well as geo-positioning methods, database management and quality-control procedures.
+        This is the first comprehensive global database of Ae. aegypti and Ae. albopictus
+        occurrence, consisting of 19,930 and 22,137 geo-positioned occurrence records
+        respectively. Both datasets can be used for a variety of mapping and spatial
+        analyses of the vectors and, by inference, the diseases they transmit.\",\n
+        \ \"DOI\": \"10.5061/DRYAD.47V3C\",\n  \"publisher\": \"Dryad\",\n  \"title\":
+        \"Data from: The global compendium of Aedes aegypti and Ae. albopictus occurrence\",\n
+        \ \"URL\": \"https://datadryad.org/stash/dataset/doi:10.5061/dryad.47v3c\",\n
+        \ \"copyright\": \"Creative Commons Zero v1.0 Universal\",\n  \"version\":
+        \"2\"\n}"
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/vnd.citationstyles.csl+json; charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:06:30 GMT
+      ETag:
+      - W/"3a5def6c2d959d12388f3940fae9c13e"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx/1.18.0 + Phusion Passenger(R) 6.0.19
+      Status:
+      - 200 OK
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept, Accept-Encoding, Origin
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Powered-By:
+      - Phusion Passenger(R) 6.0.19
+      X-Request-Id:
+      - 8974e4a4-9ccd-4903-96aa-07b7fc291ecd
+      X-Runtime:
+      - '0.053856'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://doi.org/10.7554/elife.08347
+  response:
+    body:
+      string: '<html><head><title>Handle Redirect</title></head>
+
+        <body><a href="https://api.crossref.org/v1/works/10.7554%2Felife.08347/transform">https://api.crossref.org/v1/works/10.7554%2Felife.08347/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 84985ba068276724-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '215'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:06:30 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=zzzSQJhGNPrziKAk8sbSZyGowF%2F0RSxOkcZtRy9KlkPN1G0zyD%2Bt%2F%2Fb5YQfA1KK6RcgMpkX9ke8Olp%2BkTkUUYH4JRuiu%2FGGYJAA%2FWdG2wifqQpMl%2FNEqJOgpwzKeMBCdBKyXfhw%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Mon, 22 Jan 2024 14:32:35 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.7554%2Felife.08347/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.7554%2Felife.08347/transform
+  response:
+    body:
+      string: '{"indexed":{"date-parts":[[2024,1,22]],"date-time":"2024-01-22T11:37:31Z","timestamp":1705923451298},"reference-count":125,"publisher":"eLife
+        Sciences Publications, Ltd","license":[{"start":{"date-parts":[[2015,6,30]],"date-time":"2015-06-30T00:00:00Z","timestamp":1435622400000},"content-version":"vor","delay-in-days":0,"URL":"http:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/"},{"start":{"date-parts":[[2015,6,30]],"date-time":"2015-06-30T00:00:00Z","timestamp":1435622400000},"content-version":"am","delay-in-days":0,"URL":"http:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/"},{"start":{"date-parts":[[2015,6,30]],"date-time":"2015-06-30T00:00:00Z","timestamp":1435622400000},"content-version":"tdm","delay-in-days":0,"URL":"http:\/\/creativecommons.org\/publicdomain\/zero\/1.0\/"}],"funder":[{"DOI":"10.13039\/501100004350","name":"Studienstiftung
+        des Deutschen Volkes","doi-asserted-by":"publisher"},{"DOI":"10.13039\/100000865","name":"Bill
+        and Melinda Gates Foundation","doi-asserted-by":"publisher","award":["#OPP1053338"]},{"DOI":"10.13039\/100004440","name":"Wellcome
+        Trust","doi-asserted-by":"publisher","award":["#095066"]},{"DOI":"10.13039\/501100000805","name":"European
+        Centre for Disease Prevention and Control","doi-asserted-by":"publisher","award":["ECDC\/09\/018"]},{"DOI":"10.13039\/100004431","name":"European
+        Commission Directorate-General for Research and Innovation","doi-asserted-by":"publisher","award":["#21803"]},{"DOI":"10.13039\/501100000268","name":"Biotechnology
+        and Biological Sciences Research Council (BBSRC)","doi-asserted-by":"publisher"},{"DOI":"10.13039\/100000104","name":"National
+        Aeronautics and Space Administration (NASA)","doi-asserted-by":"publisher","award":["#NNX15AF36G"]},{"DOI":"10.13039\/100000002","name":"National
+        Institutes of Health (NIH)","doi-asserted-by":"publisher","award":["RAPIDD
+        program"]},{"DOI":"10.13039\/100000002","name":"National Institutes of Health
+        (NIH)","doi-asserted-by":"publisher","award":["R01-AI069341"]},{"DOI":"10.13039\/100000002","name":"National
+        Institutes of Health (NIH)","doi-asserted-by":"publisher","award":["R01-AI091980"]},{"DOI":"10.13039\/100000002","name":"National
+        Institutes of Health (NIH)","doi-asserted-by":"publisher","award":["R01-GM08322"]},{"DOI":"10.13039\/100000002","name":"National
+        Institutes of Health (NIH)","doi-asserted-by":"publisher","award":["N01-A1-25489"]},{"DOI":"10.13039\/100000865","name":"Bill
+        and Melinda Gates Foundation","doi-asserted-by":"publisher","award":["#OPP52250"]},{"name":"Sir
+        Richard Southwood Graduate Scholarship"},{"DOI":"10.13039\/100004440","name":"Wellcome
+        Trust","doi-asserted-by":"publisher","award":["Vecnet"]},{"DOI":"10.13039\/100004440","name":"Wellcome
+        Trust","doi-asserted-by":"publisher","award":["#099872"]},{"DOI":"10.13039\/501100000697","name":"The
+        Rhodes Trust","doi-asserted-by":"publisher"}],"content-domain":{"domain":[],"crossmark-restriction":false},"abstract":"<jats:p>Dengue
+        and chikungunya are increasing global public health concerns due to their
+        rapid geographical spread and increasing disease burden. Knowledge of the
+        contemporary distribution of their shared vectors, Aedes aegypti and Aedes
+        albopictus remains incomplete and is complicated by an ongoing range expansion
+        fuelled by increased global trade and travel. Mapping the global distribution
+        of these vectors and the geographical determinants of their ranges is essential
+        for public health planning. Here we compile the largest contemporary database
+        for both species and pair it with relevant environmental variables predicting
+        their global distribution. We show Aedes distributions to be the widest ever
+        recorded; now extensive in all continents, including North America and Europe.
+        These maps will help define the spatial limits of current autochthonous transmission
+        of dengue and chikungunya viruses. It is only with this kind of rigorous entomological
+        baseline that we can hope to project future health impacts of these viruses.<\/jats:p>","DOI":"10.7554\/elife.08347","type":"journal-article","created":{"date-parts":[[2015,6,30]],"date-time":"2015-06-30T11:31:32Z","timestamp":1435663892000},"source":"Crossref","is-referenced-by-count":1263,"title":"The
+        global distribution of the arbovirus vectors Aedes aegypti and Ae. albopictus","prefix":"10.7554","volume":"4","author":[{"given":"Moritz
+        UG","family":"Kraemer","sequence":"first","affiliation":[{"name":"Spatial
+        Ecology and Epidemiology Group, Department of Zoology, University of Oxford,
+        Oxford, United Kingdom"}]},{"given":"Marianne E","family":"Sinka","sequence":"additional","affiliation":[{"name":"Spatial
+        Ecology and Epidemiology Group, Department of Zoology, University of Oxford,
+        Oxford, United Kingdom"}]},{"given":"Kirsten A","family":"Duda","sequence":"additional","affiliation":[{"name":"Spatial
+        Ecology and Epidemiology Group, Department of Zoology, University of Oxford,
+        Oxford, United Kingdom"}]},{"given":"Adrian QN","family":"Mylne","sequence":"additional","affiliation":[{"name":"Wellcome
+        Trust Centre for Human Genetics, University of Oxford, Oxford, United Kingdom"}]},{"given":"Freya
+        M","family":"Shearer","sequence":"additional","affiliation":[{"name":"Wellcome
+        Trust Centre for Human Genetics, University of Oxford, Oxford, United Kingdom"}]},{"ORCID":"http:\/\/orcid.org\/0000-0002-7941-346X","authenticated-orcid":true,"given":"Christopher
+        M","family":"Barker","sequence":"additional","affiliation":[{"name":"Department
+        of Pathology, Microbiology, and Immunology, School of Veterinary Medicine,
+        University of California, Davis, Davis, United States"}]},{"given":"Chester
+        G","family":"Moore","sequence":"additional","affiliation":[{"name":"Department
+        of Microbiology, Immunology and Pathology, Colorado State University, Fort
+        Collins, United States"}]},{"given":"Roberta G","family":"Carvalho","sequence":"additional","affiliation":[{"name":"National
+        Dengue Control Program, Ministry of Health, Brasilia, Brazil"}]},{"given":"Giovanini
+        E","family":"Coelho","sequence":"additional","affiliation":[{"name":"National
+        Dengue Control Program, Ministry of Health, Brasilia, Brazil"}]},{"given":"Wim","family":"Van
+        Bortel","sequence":"additional","affiliation":[{"name":"European Centre for
+        Disease Prevention and Control, Stockholm, Sweden"}]},{"given":"Guy","family":"Hendrickx","sequence":"additional","affiliation":[{"name":"Avia-GIS,
+        Zoersel, Belgium"}]},{"ORCID":"http:\/\/orcid.org\/0000-0001-9166-7617","authenticated-orcid":true,"given":"Francis","family":"Schaffner","sequence":"additional","affiliation":[{"name":"Avia-GIS,
+        Zoersel, Belgium"}]},{"given":"Iqbal RF","family":"Elyazar","sequence":"additional","affiliation":[{"name":"Eijkman-Oxford
+        Clinical Research Unit, Jakarta, Indonesia"}]},{"given":"Hwa-Jen","family":"Teng","sequence":"additional","affiliation":[{"name":"Center
+        for Research, Diagnostics and Vaccine Development, Centers for Disease Control,
+        Taipei, Taiwan"}]},{"given":"Oliver J","family":"Brady","sequence":"additional","affiliation":[{"name":"Wellcome
+        Trust Centre for Human Genetics, University of Oxford, Oxford, United Kingdom"}]},{"given":"Jane
+        P","family":"Messina","sequence":"additional","affiliation":[{"name":"Spatial
+        Ecology and Epidemiology Group, Department of Zoology, University of Oxford,
+        Oxford, United Kingdom"}]},{"ORCID":"http:\/\/orcid.org\/0000-0002-6731-4034","authenticated-orcid":true,"given":"David
+        M","family":"Pigott","sequence":"additional","affiliation":[{"name":"Spatial
+        Ecology and Epidemiology Group, Department of Zoology, University of Oxford,
+        Oxford, United Kingdom"},{"name":"Wellcome Trust Centre for Human Genetics,
+        University of Oxford, Oxford, United Kingdom"}]},{"given":"Thomas W","family":"Scott","sequence":"additional","affiliation":[{"name":"Fogarty
+        International Center, National Institutes of Health, Bethesda, United States"},{"name":"Department
+        of Entomology and Nematology, University of California, Davis, Davis, United
+        States"}]},{"ORCID":"http:\/\/orcid.org\/0000-0003-4367-3849","authenticated-orcid":true,"given":"David
+        L","family":"Smith","sequence":"additional","affiliation":[{"name":"Spatial
+        Ecology and Epidemiology Group, Department of Zoology, University of Oxford,
+        Oxford, United Kingdom"},{"name":"Fogarty International Center, National Institutes
+        of Health, Bethesda, United States"},{"name":"Sanaria Institute for Global
+        Health and Tropical Medicine, Rockville, United States"}]},{"given":"GR William","family":"Wint","sequence":"additional","affiliation":[{"name":"Environmental
+        Research Group Oxford, Department of Zoology, University of Oxford, Oxford,
+        United Kingdom"}]},{"ORCID":"http:\/\/orcid.org\/0000-0001-8916-5570","authenticated-orcid":true,"given":"Nick","family":"Golding","sequence":"additional","affiliation":[{"name":"Wellcome
+        Trust Centre for Human Genetics, University of Oxford, Oxford, United Kingdom"}]},{"ORCID":"http:\/\/orcid.org\/0000-0002-0611-7272","authenticated-orcid":true,"given":"Simon
+        I","family":"Hay","sequence":"additional","affiliation":[{"name":"Wellcome
+        Trust Centre for Human Genetics, University of Oxford, Oxford, United Kingdom"},{"name":"Fogarty
+        International Center, National Institutes of Health, Bethesda, United States"},{"name":"Institute
+        for Health Metrics and Evaluation, University of Washington, Seattle, United
+        States"}]}],"member":"4374","published-online":{"date-parts":[[2015,6,30]]},"reference":[{"key":"bib1","doi-asserted-by":"publisher","first-page":"1533","DOI":"10.1093\/molbev\/msr320","article-title":"Phylogeography
+        and population dynamics of dengue viruses in the Americas","volume":"29","author":"Allicock","year":"2012","journal-title":"Molecular
+        Biology and Evolution"},{"key":"bib2","doi-asserted-by":"publisher","first-page":"96","DOI":"10.1159\/000131667","article-title":"Dengue
+        in travellers is still underestimated","volume":"51","author":"Allwinn","year":"2008","journal-title":"Intervirology"},{"key":"bib3","doi-asserted-by":"publisher","first-page":"448","DOI":"10.1007\/s10393-012-0808-0","article-title":"Potential
+        distribution of dengue fever under scenarios of climate change and economic
+        development","volume":"9","author":"Astr\u00f6m","year":"2012","journal-title":"Ecohealth"},{"key":"bib4","doi-asserted-by":"publisher","first-page":"119","DOI":"10.1016\/S0065-308X(05)62004-0","article-title":"Determining
+        global population distribution: methods, applications and data","volume":"62","author":"Balk","year":"2006","journal-title":"Advances
+        in Parasitology"},{"key":"bib5","doi-asserted-by":"publisher","first-page":"2888","DOI":"10.1073\/pnas.1219599110","article-title":"Evolution
+        of resistance to satyrization through reproductive character displacement
+        in populations of invasive dengue vectors","volume":"110","author":"Bargielowski","year":"2013","journal-title":"Proceedings
+        of the National Academy of Sciences of USA"},{"key":"bib6","doi-asserted-by":"publisher","first-page":"76","DOI":"10.1089\/vbz.2006.0562","article-title":"Spread
+        of the tiger: global risk of invasion by the mosquito Aedes albopictus","volume":"7","author":"Benedict","year":"2007","journal-title":"Vector
+        Borne and Zoonotic Diseases"},{"key":"bib7","doi-asserted-by":"publisher","first-page":"504","DOI":"10.1038\/nature12060","article-title":"The
+        global distribution and burden of dengue","volume":"496","author":"Bhatt","year":"2013","journal-title":"Nature"},{"key":"bib8","doi-asserted-by":"publisher","first-page":"1","DOI":"10.1016\/S0140-6736(14)61828-6","article-title":"Assessment
+        of the potential for international dissemination of Ebola virus via commercial
+        air travel during the 2014 west African outbreak","volume":"6736","author":"Bogoch","year":"2014","journal-title":"Lancet"},{"key":"bib9","doi-asserted-by":"publisher","first-page":"1401","DOI":"10.1086\/517537","article-title":"Outbreak
+        of chikungunya on Reunion Island: early clinical and laboratory features in
+        157 adult patients","volume":"44","author":"Borgherini","year":"2007","journal-title":"Clinical
+        Infectious Diseases"},{"key":"bib10","doi-asserted-by":"publisher","first-page":"e1760","DOI":"10.1371\/journal.pntd.0001760","article-title":"Refining
+        the global spatial limits of dengue virus transmission by evidence-based consensus","volume":"6","author":"Brady","year":"2012","journal-title":"PLOS
+        Neglected Tropical Diseases"},{"key":"bib11","doi-asserted-by":"publisher","first-page":"338","DOI":"10.1186\/1756-3305-7-338","article-title":"Global
+        temperature constraints on Aedes aegypti and Ae. albopictus persistence and
+        competence for dengue virus transmission","volume":"7","author":"Brady","year":"2014","journal-title":"Parasites
+        & Vectors"},{"key":"bib12","doi-asserted-by":"publisher","first-page":"351","DOI":"10.1186\/1756-3305-6-351","article-title":"Modelling
+        adult Aedes aegypti and Aedes albopictus survival at different temperatures
+        in laboratory and field settings","volume":"6","author":"Brady","year":"2013","journal-title":"Parasites
+        & Vectors"},{"key":"bib13","doi-asserted-by":"publisher","first-page":"514","DOI":"10.1111\/evo.12281","article-title":"Human
+        impacts have shaped historical and recent evolution in Aedes aegypti, the
+        dengue and yellow fever mosquito","volume":"68","author":"Brown","year":"2014","journal-title":"Evolution"},{"key":"bib14","doi-asserted-by":"publisher","first-page":"2446","DOI":"10.1098\/rspb.2010.2469","article-title":"Worldwide
+        patterns of genetic differentiation imply multiple \u2018domestications\u2019
+        of Aedes aegypti, a major vector of human diseases","volume":"278","author":"Brown","year":"2011","journal-title":"Proceedings.
+        Biological Sciences\/The Royal Society"},{"key":"bib15","doi-asserted-by":"publisher","first-page":"2708","DOI":"10.1098\/rsif.2012.0138","article-title":"Suitability
+        of European climate for the Asian tiger mosquito Aedes albopictus: recent
+        trends and future scenarios","volume":"9","author":"Caminade","year":"2012","journal-title":"Journal
+        of the Royal Society, Interface\/The Royal Society"},{"key":"bib16","doi-asserted-by":"publisher","DOI":"10.1098\/rstb.2014.0135","article-title":"Climate
+        change influences on global vector distributions for dengue and chikungunya
+        viruses","volume":"370","author":"Campbell","year":"2015","journal-title":"Philosophical
+        Transactions of the Royal Society B"},{"key":"bib17","doi-asserted-by":"publisher","first-page":"1","DOI":"10.3389\/fimmu.2014.00290","article-title":"Human
+        to mosquito transmission of dengue viruses","volume":"5","author":"Carrington","year":"2014","journal-title":"Frontiers
+        in Immunology"},{"key":"bib18","doi-asserted-by":"publisher","first-page":"787","DOI":"10.1590\/0074-0276140304","article-title":"Updating
+        the geographical distribution and frequency of Aedes albopictus in Brazil
+        with remarks regarding its range in the Americas","volume":"109","author":"Carvalho","year":"2014","journal-title":"Mem\u00f3rias
+        do Instituto Oswaldo Cruz"},{"key":"bib19","doi-asserted-by":"publisher","first-page":"20854","DOI":"10.2807\/1560-7917.ES2014.19.28.20854","article-title":"Local
+        and regional spread of chikungunya fever in the Americas","volume":"19","author":"Cauchemez","year":"2014","journal-title":"Euro
+        Surveillance"},{"key":"bib20","doi-asserted-by":"publisher","first-page":"662","DOI":"10.1111\/1469-0691.12694","article-title":"Globalization
+        of chikungunya: 10 years to invade the world","volume":"20","author":"Charrel","year":"2014","journal-title":"Clinical
+        Microbiology and Infection"},{"key":"bib21","doi-asserted-by":"publisher","first-page":"364","DOI":"10.1093\/jmedent\/37.3.364","article-title":"Invertebrate
+        carcasses as a resource for competing Aedes albopictus and Aedes aegypti (Diptera:
+        Culicidae)","volume":"37","author":"Daugherty","year":"2000","journal-title":"Journal
+        of Medical Entomology"},{"key":"bib22","doi-asserted-by":"publisher","first-page":"33","DOI":"10.1603\/033.046.0105","article-title":"Influence
+        of temperature on immature development, survival, longevity, fecundity, and
+        gonotrophic cycles of Aedes albopictus, vector of chikungunya and dengue in
+        the Indian Ocean","volume":"46","author":"Delatte","year":"2009","journal-title":"Journal
+        of Medical Entomology"},{"key":"bib23","doi-asserted-by":"publisher","first-page":"249","DOI":"10.1089\/vbz.2009.0026","article-title":"Blood-feeding
+        behavior of Aedes albopictus, a vector of chikungunya on La Reunion","volume":"10","author":"Delatte","year":"2010","journal-title":"Vector-Borne
+        and Zoonotic Diseases"},{"key":"bib24","volume-title":"Dengue outbreak in
+        Madeira, Portugal, March 2013","author":"ECDC","year":"2014"},{"key":"bib25","doi-asserted-by":"publisher","first-page":"467","DOI":"10.1603\/ME12245","article-title":"Aedes
+        (Stegomyia) aegypti in the continental United States: a vector at the cool
+        margin of its geographic range","volume":"50","author":"Eisen","year":"2013","journal-title":"Journal
+        of Medical Entomology"},{"key":"bib26","doi-asserted-by":"publisher","first-page":"129","DOI":"10.1111\/j.2006.0906-7590.04596.x","article-title":"Novel
+        methods improve prediction of species'' distributions from occurrence data","volume":"29","author":"Elith","year":"2006","journal-title":"Ecogeography"},{"key":"bib27","doi-asserted-by":"publisher","first-page":"677","DOI":"10.1146\/annurev.ecolsys.110308.120159","article-title":"Species
+        distribution models: ecological explanation and prediction across space and
+        time","volume":"40","author":"Elith","year":"2009","journal-title":"Annual
+        Review of Ecology, Evolution, and Systematics"},{"key":"bib28","doi-asserted-by":"publisher","first-page":"802","DOI":"10.1111\/j.1365-2656.2008.01390.x","article-title":"A
+        working guide to boosted regression trees","volume":"77","author":"Elith","year":"2008","journal-title":"The
+        Journal of Animal Ecology"},{"key":"bib29","doi-asserted-by":"publisher","first-page":"368","DOI":"10.2987\/5705.1","article-title":"Models
+        for predicting Aedes aegypti larval indices based on satellite images and
+        climatic variables","volume":"24","author":"Estallo","year":"2008","journal-title":"Journal
+        of American Mosquito Control Association"},{"key":"bib30","doi-asserted-by":"publisher","first-page":"54","DOI":"10.1016\/j.gloplacha.2011.05.008","article-title":"Projection
+        of climatic suitability for Aedes albopictus Skuse (Culicidae) in Europe under
+        climate change conditions","volume":"78","author":"Fischer","year":"2011","journal-title":"Global
+        and Planetary Change"},{"key":"bib31","doi-asserted-by":"publisher","first-page":"1189","DOI":"10.1214\/aos\/1013203451","article-title":"Greedy
+        function approximation: a gradient boosting machine","volume":"29","author":"Friedman","year":"2001","journal-title":"The
+        Annals of Statistics"},{"key":"bib32","doi-asserted-by":"publisher","first-page":"1365","DOI":"10.1002\/sim.1501","article-title":"Multiple
+        additive regression trees with application in epidemiology","volume":"22","author":"Friedman","year":"2003","journal-title":"Statistics
+        in Medicine"},{"key":"bib33","doi-asserted-by":"publisher","first-page":"140111","DOI":"10.1088\/1748-9326\/4\/1\/014011","article-title":"El
+        Ni\u00f1o Southern Oscillation and vegetation dynamics as predictors of dengue
+        fecer cases in Costa Rica","volume":"4","author":"Fuller","year":"2009","journal-title":"Environmental
+        Research Letters"},{"key":"bib34","doi-asserted-by":"publisher","first-page":"103679","DOI":"10.1155\/2012\/103679","article-title":"A
+        predictive spatial model to quantify the risk of air-travel-associated dengue
+        importation into the United States and Europe","volume":"2012","author":"Gardner","year":"2012","journal-title":"Journal
+        of Tropical Medicine"},{"key":"bib35","doi-asserted-by":"publisher","first-page":"e1001638","DOI":"10.1371\/journal.pmed.1001638","article-title":"Yellow
+        Fever in Africa: estimating the burden of disease and impact of mass vaccination
+        from outbreak and serological data","volume":"11","author":"Garske","year":"2014","journal-title":"PLOS
+        Medicine"},{"key":"bib36","doi-asserted-by":"publisher","first-page":"92","DOI":"10.1186\/1756-3305-4-92","article-title":"Modelling
+        the global constraints of temperature on transmission of Plasmodium falciparum
+        and P. vivax","volume":"4","author":"Gething","year":"2011","journal-title":"Parasites
+        & Vectors"},{"key":"bib37","doi-asserted-by":"publisher","first-page":"e3029","DOI":"10.1371\/journal.pntd.0003029","article-title":"Origin
+        of the dengue fever mosquito, Aedes aegypti, in California","volume":"8","author":"Gloria-Soria","year":"2014","journal-title":"PLOS
+        Neglected Tropical Diseases"},{"key":"bib38","article-title":"Streamlined
+        functions for species distribution modelling in the seeg research group","author":"Golding","year":"2014"},{"key":"bib39","doi-asserted-by":"publisher","first-page":"910","DOI":"10.3201\/eid1705.101873","article-title":"Chikungunya
+        virus, southeastern France","volume":"17","author":"Grandadam","year":"2011","journal-title":"Emerging
+        Infectious Diseases"},{"key":"bib40","doi-asserted-by":"publisher","first-page":"215","DOI":"10.1111\/j.0269-283X.2004.00513.x","article-title":"Critical
+        review of the vector status of Aedes albopictus","volume":"18","author":"Gratz","year":"2004","journal-title":"Medical
+        and Veterinary Entomology"},{"key":"bib41","doi-asserted-by":"publisher","first-page":"e85725","DOI":"10.1371\/journal.pone.0085725","article-title":"Influence
+        of deforestation, logging, and fire on malaria in the Brazilian Amazon","volume":"9","author":"Hahn","year":"2014","journal-title":"PLOS
+        ONE"},{"key":"bib42","doi-asserted-by":"publisher","first-page":"37","DOI":"10.1016\/S0065-308X(05)62002-7","article-title":"Global
+        environmental data for mapping infectious disease distribution","volume":"62","author":"Hay","year":"2006","journal-title":"Advances
+        in Parasitology"},{"key":"bib43","doi-asserted-by":"publisher","first-page":"679","DOI":"10.1890\/11-0826.1","article-title":"Cross-validation
+        of species distribution models: removing spatial sorting bias and calibration
+        with a null model","volume":"93","author":"Hijmans","year":"2012","journal-title":"Ecology"},{"key":"bib44","article-title":"Geographic
+        data analysis and modeling","author":"Hijmans","year":"2014"},{"key":"bib45","doi-asserted-by":"publisher","first-page":"1965","DOI":"10.1002\/joc.1276","article-title":"Very
+        high resolution interpolated climate surfaces for global land areas","volume":"25","author":"Hijmans","year":"2005","journal-title":"International
+        Journal of Climatology"},{"key":"bib46","doi-asserted-by":"publisher","first-page":"217","DOI":"10.1089\/vbz.2008.0071","article-title":"The
+        hidden passenger of lucky bamboo: do imported Aedes albopictus mosquitoes
+        cause dengue virus transmission in the Netherlands?","volume":"9","author":"Hofhuis","year":"2009","journal-title":"Vector
+        Borne and Zoonotic Diseases"},{"key":"bib47","doi-asserted-by":"publisher","first-page":"191","DOI":"10.1590\/S0074-02762003000200005","article-title":"Dispersal
+        of Aedes aegypti and Aedes albopictus (Diptera: Culicidae) in an urban endemic
+        dengue area in the State of Rio de Janeiro, Brazil","volume":"98","author":"Hon\u00f3rio","year":"2003","journal-title":"Mem\u00f3rias
+        do Instituto Oswaldo Cruz"},{"key":"bib48","doi-asserted-by":"publisher","first-page":"622","DOI":"10.1016\/S1473-3099(11)70147-5","article-title":"The
+        revised global yellow fever risk map and recommendations for vaccination,
+        2010: consensus of the informal WHO Working Group on Geographic Risk for Yellow
+        Fever","volume":"11","author":"Jentes","year":"2011","journal-title":"The
+        Lancet. Infectious Diseases"},{"key":"bib49","doi-asserted-by":"publisher","first-page":"43","DOI":"10.1016\/j.pt.2014.12.008","article-title":"Chikungunya
+        on the move","volume":"31","author":"Johansson","year":"2015","journal-title":"Trends
+        in Parasitology"},{"key":"bib50","doi-asserted-by":"publisher","first-page":"e104915","DOI":"10.1371\/journal.pone.0104915","article-title":"Nowcasting
+        the spread of chikungunya virus in the Americas","volume":"9","author":"Johansson","year":"2014","journal-title":"PLOS
+        ONE"},{"key":"bib51","doi-asserted-by":"publisher","first-page":"583","DOI":"10.1007\/s00442-004-1532-4","article-title":"A
+        field test for competitive effects of Aedes albopictus on A. aegypti in South
+        Florida: differences between sites of coexistence and exclusion?","volume":"139","author":"Juliano","year":"2007","journal-title":"Oecologia"},{"key":"bib52","doi-asserted-by":"publisher","first-page":"558","DOI":"10.1111\/j.1461-0248.2005.00755","article-title":"Ecology
+        of invasive mosquitoes: effects on resident species and on human health","volume":"8","author":"Juliano","year":"2005","journal-title":"Ecology
+        Letters"},{"key":"bib53","doi-asserted-by":"publisher","DOI":"10.1371\/currents.outbreaks.2134a0a7bf37fd8d388181539fea2da5","article-title":"Assessing
+        the origin of and potential for international spread of Chikungunya virus
+        from the Caribbean","volume":"6","author":"Khan","year":"2014","journal-title":"PLOS
+        Currents"},{"key":"bib54","doi-asserted-by":"publisher","first-page":"405","DOI":"10.4081\/gh.2014.29","article-title":"Climate
+        change and the potential global distribution of Aedes aegypti: spatial modelling
+        using geographical information system and CLIMEX","volume":"8","author":"Khormi","year":"2014","journal-title":"Geospatial
+        Health"},{"key":"bib55","doi-asserted-by":"publisher","first-page":"4","DOI":"10.1603\/0022-2585-39.1.4","article-title":"Analysis
+        of northern distribution of Aedes albopictus (Diptera: Culicidae) in Japan
+        by geographical information system","volume":"39","author":"Kobayashi","year":"2002","journal-title":"Journal
+        of Medical Entomology"},{"key":"bib124","doi-asserted-by":"publisher","first-page":"150035","DOI":"10.1038\/sdata.2015.35","article-title":"The
+        global compendium of Aedes aegypti and Ae. albopictus occurrence","volume":"2","author":"Kraemer","year":"2015a","journal-title":"Scientific
+        Data"},{"key":"bib125","doi-asserted-by":"publisher","article-title":"Data
+        from: The global compendium of Aedes aegypti and Ae. albopictus occurrence","author":"Kraemer","year":"2015b","journal-title":"Dryad
+        Digital Repository","DOI":"10.5061\/dryad.47v3c"},{"key":"bib56","first-page":"19676","article-title":"First
+        two autochthonous dengue virus infections in metropolitan France, September
+        2010","volume":"15","author":"La Ruche","year":"2010","journal-title":"Euro
+        Surveillance"},{"key":"bib57","doi-asserted-by":"publisher","first-page":"7460","DOI":"10.1073\/pnas.1101377108","article-title":"Impact
+        of daily temperature fluctuations on dengue virus transmission by Aedes aegypti","volume":"108","author":"Lambrechts","year":"2011","journal-title":"Proceedings
+        of the National Academy of Sciences of USA"},{"key":"bib58","doi-asserted-by":"publisher","first-page":"267","DOI":"10.3354\/meps321267","article-title":"Variation
+        in demersal fish species richness in the oceans surrounding New Zealand: an
+        analysis using boosted regression trees","volume":"321","author":"Leathwick","year":"2006","journal-title":"Marine
+        Ecology Progress Series"},{"key":"bib59","doi-asserted-by":"publisher","first-page":"514","DOI":"10.1016\/S0140-6736(14)60185-9","article-title":"Chikungunya
+        in the Americas","volume":"383","author":"Leparc-Goffart","year":"2014","journal-title":"Lancet"},{"key":"bib60","doi-asserted-by":"publisher","first-page":"e3301","DOI":"10.1371\/journal.pntd.0003301","article-title":"Urbanization
+        increases Aedes albopictus larval habitats and accelerates mosquito development
+        and survivorship","volume":"8","author":"Li","year":"2014","journal-title":"PLOS
+        Neglected Tropical Diseases"},{"key":"bib61","doi-asserted-by":"publisher","first-page":"397","DOI":"10.1126\/science.285.5426.397","article-title":"Climate
+        and satellite indicators to forecast Rift Valley fever epidemics in Kenya","volume":"285","author":"Linthicum","year":"1999","journal-title":"Science"},{"key":"bib62","doi-asserted-by":"publisher","first-page":"233","DOI":"10.1146\/annurev.ento.47.091201.145206","article-title":"Invasion
+        by insect vectors of human disease","volume":"47","author":"Lounibos","year":"2002","journal-title":"Annual
+        Review of Entomology"},{"key":"bib63","first-page":"86","article-title":"Does
+        temperature affect the outcome of larval competition between Aedes aegypti
+        and Aedes albopictus?","volume":"27","author":"Lounibos","year":"2002","journal-title":"Journal
+        of Vector Ecology"},{"key":"bib64","doi-asserted-by":"publisher","first-page":"214","DOI":"10.1590\/S0074-02762008000200016","article-title":"Impact
+        of moisture on survival of Aedes aegypti eggs and ovicidal activity of Metarhizium
+        anisopliae under laboratory conditions","volume":"103","author":"Luz","year":"2008","journal-title":"Memorias
+        do Instituto Oswaldo Cruz"},{"key":"bib65","doi-asserted-by":"publisher","first-page":"933","DOI":"10.1586\/14760584.2013.815412","article-title":"Dengue
+        vaccines: recent developments, ongoing challenges and current candidates","volume":"12","author":"McArthur","year":"2013","journal-title":"Expert
+        Review of Vaccines"},{"key":"bib66","doi-asserted-by":"publisher","first-page":"122","DOI":"10.1111\/j.1466-8238.2009.00497.x","article-title":"Niche
+        shifts during the global invasion of the Asian tiger mosquito, Aedes albopictus
+        Skuse (Culicidae), revealed by reciprocal distribution models","volume":"19","author":"Medley","year":"2010","journal-title":"Global
+        Ecology and Biogeography"},{"key":"bib67","doi-asserted-by":"publisher","first-page":"435","DOI":"10.1089\/vbz.2011.0814","article-title":"A
+        review of the invasive mosquitoes in Europe: ecology, public health risks,
+        and control options","volume":"12","author":"Medlock","year":"2012","journal-title":"Vector
+        Borne and Zoonotic Diseases"},{"key":"bib68","doi-asserted-by":"publisher","first-page":"588","DOI":"10.1016\/j.ecolmodel.2010.11.016","article-title":"Null
+        models reveal preferential sampling, spatial autocorrelation and overfitting
+        in habitat suitability modelling","volume":"222","author":"Merckx","year":"2010","journal-title":"Ecological
+        Modelling"},{"key":"bib69","doi-asserted-by":"publisher","first-page":"230","DOI":"10.1038\/nrmicro3430","article-title":"The
+        many projected futures of dengue","volume":"13","author":"Messina","year":"2015","journal-title":"Nature
+        Reviews. Microbiology"},{"key":"bib70","doi-asserted-by":"publisher","first-page":"885","DOI":"10.1056\/NEJMp1408509","article-title":"Chikungunya
+        at the door\u2014deja vu all over again?","volume":"371","author":"Morens","year":"2014","journal-title":"The
+        New England Journal of Medicine"},{"key":"bib71","doi-asserted-by":"publisher","first-page":"1123","DOI":"10.1603\/0022-2585-41.6.1123","article-title":"Temporal
+        and geographic patterns of Aedes aegypti (Diptera: Culicidae) production in
+        Iquitos, Peru","volume":"41","author":"Morrison","year":"2004","journal-title":"Journal
+        of Medical Entomology"},{"key":"bib72","first-page":"314","article-title":"Estimation
+        of the northern limits of distribution of Aedes albopictus in North America","volume":"3","author":"Nawrocki","year":"1987","journal-title":"Journal
+        of the American Mosquito Control Association"},{"key":"bib73","doi-asserted-by":"publisher","first-page":"417","DOI":"10.4081\/gh.2014.30","article-title":"Geospatial
+        analysis of invasion of the Asian tiger mosquito Aedes albopictus: competition
+        with Aedes japonicus japonicus in its northern limit area in Japan","volume":"8","author":"Nihei","year":"2014","journal-title":"Geospatial
+        Health"},{"key":"bib74","doi-asserted-by":"publisher","first-page":"554","DOI":"10.1093\/jmedent\/32.4.554","article-title":"Spread
+        of Aedes albopictus and decline of Ae. aegypti (Diptera: Culicidae) in Florida","volume":"32","author":"O''Meara","year":"1995","journal-title":"Journal
+        of Medical Entomology"},{"key":"bib75","doi-asserted-by":"publisher","first-page":"32","DOI":"10.1016\/j.mbs.2009.10.005","article-title":"Stochastic
+        eco-epidemiological model of dengue disease transmission by Aedes aegypti
+        mosquito","volume":"223","author":"Otero","year":"2010","journal-title":"Mathematical
+        Biosciences"},{"key":"bib76","doi-asserted-by":"publisher","first-page":"20856","DOI":"10.2807\/1560-7917.ES2014.19.28.20856","article-title":"Large
+        number of imported chikungunya cases in mainland France, 2014: a challenge
+        for surveillance and response","volume":"19","author":"Paty","year":"2014","journal-title":"Euro
+        Surveillance"},{"key":"bib77","doi-asserted-by":"publisher","first-page":"1177","DOI":"10.1016\/j.micinf.2009.05.005","article-title":"Aedes
+        albopictus, an arbovirus vector: from the darkness to the light","volume":"11","author":"Paupy","year":"2009","journal-title":"Microbes
+        and Infection"},{"key":"bib78","doi-asserted-by":"publisher","first-page":"181","DOI":"10.1890\/07-2153.1","article-title":"Sample
+        selection bias and presence-only distribution model: implications for background
+        and pseudo-absence data","volume":"19","author":"Phillips","year":"2009","journal-title":"Ecological
+        Applications"},{"key":"bib79","doi-asserted-by":"publisher","first-page":"e02851","DOI":"10.7554\/eLife.02851","article-title":"Global
+        distribution maps of the leishmaniases","volume":"3","author":"Pigott","year":"2014a","journal-title":"eLife"},{"key":"bib80","doi-asserted-by":"publisher","first-page":"e04395","DOI":"10.7554\/eLife.04395","article-title":"Mapping
+        the zoonotic niche of Ebola virus disease in Africa","volume":"3","author":"Pigott","year":"2014b","journal-title":"eLife"},{"key":"bib81","article-title":"Enhancing
+        infectious disease mapping with open access resources","volume":"19","author":"Pigott","year":"2014","journal-title":"Euro
+        Surveillance"},{"key":"bib82","first-page":"895","article-title":"Persistence
+        of neutralizing antibody 30-35 years after immunization with 17D yellow fever
+        vaccine","volume":"59","author":"Poland","year":"1981","journal-title":"Bulletin
+        of the World Health Organization"},{"key":"bib83","doi-asserted-by":"publisher","first-page":"844","DOI":"10.1093\/jmedent\/42.5.844","article-title":"Blood
+        feeding patterns of Aedes aegypti and Aedes albopictus in Thailand","volume":"42","author":"Ponlawat","year":"2005","journal-title":"Journal
+        of Medical Entomology"},{"key":"bib84","doi-asserted-by":"publisher","first-page":"11","DOI":"10.1590\/0074-0276130395","article-title":"History
+        of domestication and spread of Aedes aegypti\u2014a review","volume":"108","author":"Powell","year":"2013","journal-title":"Memorias
+        do Instituto Oswaldo Cruz"},{"key":"bib85","doi-asserted-by":"publisher","first-page":"2008","DOI":"10.1016\/S0140-6736(14)61290-3","article-title":"Chikungunya
+        virus control: is a vaccine on the horizon?","volume":"384","author":"Powers","year":"2014","journal-title":"Lancet"},{"key":"bib86","volume-title":"R:
+        a language and environment for computing","author":"R Core Team","year":"2014"},{"key":"bib87","doi-asserted-by":"crossref","first-page":"364","DOI":"10.4269\/ajtmh.2008.78.364","article-title":"Epidemic
+        dengue and dengue hemorrhagic fever at the Texas-Mexico border: results of
+        a household-based seroepidemiologic survey, December 2005","volume":"78","author":"Ramos","year":"2008","journal-title":"The
+        American Journal of Tropical Medicine and Hygiene"},{"key":"bib88","doi-asserted-by":"publisher","first-page":"700","DOI":"10.1111\/j.1096-3642.2009.00570.x","article-title":"Phylogeny
+        and classification of tribe Aedini (Diptera: Culicidae)","volume":"157","author":"Reinert","year":"2009","journal-title":"Zoological
+        Journal of the Linnean Society"},{"key":"bib89","doi-asserted-by":"publisher","first-page":"141","DOI":"10.1289\/ehp.01109s1141","article-title":"Climate
+        change and mosquito-borne disease","volume":"109","author":"Reiter","year":"2001","journal-title":"Environmental
+        Health Perspectives"},{"key":"bib90","doi-asserted-by":"publisher","first-page":"86","DOI":"10.3201\/eid0901.020220","article-title":"Texas
+        lifestyle limits transmission of dengue virus","volume":"9","author":"Reiter","year":"2003","journal-title":"Emerging
+        Infectious Diseases"},{"key":"bib91","doi-asserted-by":"publisher","first-page":"1840","DOI":"10.1016\/S0140-6736(07)61779-6","article-title":"Infection
+        with chikungunya virus in Italy: an outbreak in a temperate region","volume":"370","author":"Rezza","year":"2007","journal-title":"Lancet"},{"key":"bib92","article-title":"Generalized
+        boosted regression models","author":"Ridgeway","year":"2013"},{"key":"bib93","doi-asserted-by":"publisher","first-page":"15","DOI":"10.2987\/8756-971X(2005)21[15:IORBAA]2.0.CO;2","article-title":"Investigation
+        of relationships between Aedes aegypti egg, larvae, pupae, and adult density
+        indices where their main breeding sites were located indoors","volume":"21","author":"Romero-Vivas","year":"2005","journal-title":"Journal
+        of the American Mosquito Control Association"},{"key":"bib94","doi-asserted-by":"publisher","first-page":"1891","DOI":"10.1093\/infdis\/jiu014","article-title":"Chikungunya
+        vaccine candidate is highly attenuated and protects nonhuman primates against
+        telemetrically-monitored disease following a single dose","volume":"209","author":"Roy","year":"2014","journal-title":"Journal
+        of Infectious Diseases"},{"key":"bib95","doi-asserted-by":"publisher","first-page":"441","DOI":"10.1603\/0022-2585-38.3.441","article-title":"Survival
+        of Aedes aegypti (Diptera: Culicidae) eggs in surface and subterranean breeding
+        sites during the northern Queensland dry season","volume":"38","author":"Russell","year":"2001","journal-title":"Journal
+        of Medical Entomology"},{"key":"bib96","doi-asserted-by":"publisher","first-page":"1271","DOI":"10.1016\/S1473-3099(14)70834-5","article-title":"Dengue
+        and dengue vectors in the WHO European region: past, present, and scenarios
+        for the future","volume":"14","author":"Schaffner","year":"2014","journal-title":"The
+        Lancet Infectious Diseases"},{"key":"bib97","doi-asserted-by":"publisher","first-page":"689","DOI":"10.1016\/j.rse.2012.06.006","article-title":"Monitoring
+        land cover change in urban and peri-urban areas using dense time stacks of
+        Landsat satellite data and a data mining approach","volume":"124","author":"Schneider","year":"2012","journal-title":"Remote
+        Sensing of Environment"},{"key":"bib98","doi-asserted-by":"publisher","first-page":"89","DOI":"10.1603\/0022-2585-37.1.89","article-title":"Longitudinal
+        studies of Aedes aegypti ( Diptera: Culicidae) in Thailand and Puerto Rico:
+        Blood feeding frequency","volume":"37","author":"Scott","year":"2000","journal-title":"Journal
+        of Medical Entomology"},{"key":"bib99","doi-asserted-by":"publisher","first-page":"114","DOI":"10.1016\/j.pt.2012.01.001","article-title":"Feeding
+        strategies of anthropophilic mosquitoes result in increased risk of pathogen
+        transmission","volume":"28","author":"Scott","year":"2012","journal-title":"Trends
+        in Parasitology"},{"key":"bib100","doi-asserted-by":"publisher","first-page":"782","DOI":"10.1111\/ele.12111","article-title":"The
+        risk of marine bioinvasion caused by global shipping","volume":"16","author":"Seebens","year":"2013","journal-title":"Ecology
+        Letters"},{"key":"bib101","doi-asserted-by":"publisher","first-page":"e3278","DOI":"10.1371\/journal.pntd.0003278","article-title":"International
+        dispersal of dengue through air travel: importation risk for Europe","volume":"8","author":"Semenza","year":"2014","journal-title":"PLOS
+        Neglected Tropical Diseases"},{"key":"bib102","doi-asserted-by":"publisher","first-page":"1423","DOI":"10.1056\/NEJMra1110265","article-title":"Dengue","volume":"366","author":"Simmons","year":"2012","journal-title":"The
+        New England Journal of Medicine"},{"key":"bib103","doi-asserted-by":"publisher","first-page":"89","DOI":"10.1186\/1756-3305-4-89","article-title":"The
+        dominant Anopheles vectors of human malaria in the Asia-Pacific region: occurrence
+        data, distribution maps and bionomic pr\u00e9cis","volume":"4","author":"Sinka","year":"2011","journal-title":"Parasites
+        & Vectors"},{"key":"bib104","doi-asserted-by":"publisher","first-page":"117","DOI":"10.1186\/1756-3305-3-117","article-title":"The
+        dominant Anopheles vectors of human malaria in Africa, Europe and the Middle
+        East: occurrence data, distribution maps and bionomic pr\u00e9cis","volume":"3","author":"Sinka","year":"2010a","journal-title":"Parasites
+        & Vectors"},{"key":"bib105","doi-asserted-by":"publisher","first-page":"72","DOI":"10.1186\/1756-3305-3-72","article-title":"The
+        dominant Anopheles vectors of human malaria in the Americas: occurrence data,
+        distribution maps and bionomic pr\u00e9cis","volume":"3","author":"Sinka","year":"2010b","journal-title":"Parasites
+        & Vectors"},{"key":"bib106","doi-asserted-by":"publisher","first-page":"353","DOI":"10.1007\/BF00317691","article-title":"Interspecific
+        variation in desiccation survival time of Aedes (Stegomyia) mosquito eggs
+        is correlated with habitat and egg size","volume":"90","author":"Sota","year":"1992","journal-title":"Oecologia"},{"key":"bib107","doi-asserted-by":"publisher","first-page":"942","DOI":"10.1086\/605496","article-title":"Chikungunya
+        fever: an epidemiological review of a re-emerging infectious disease","volume":"49","author":"Staples","year":"2009","journal-title":"Clinical
+        Infectious Diseases"},{"key":"bib108","doi-asserted-by":"publisher","first-page":"191","DOI":"10.1089\/vbz.2008.0038","article-title":"Introduction,
+        scenarios for establishment and seasonal activity of Aedes albopictus in The
+        Netherlands","volume":"9","author":"Takumi","year":"2009","journal-title":"Vector
+        Borne and Zoonotic Diseases"},{"key":"bib109","doi-asserted-by":"publisher","first-page":"6242","DOI":"10.1073\/pnas.0508391103","article-title":"Global
+        traffic and disease vector dispersal","volume":"103","author":"Tatem","year":"2006","journal-title":"Proceedings
+        of the National Academy of Sciences of USA"},{"key":"bib110","doi-asserted-by":"publisher","first-page":"100","DOI":"10.1186\/1756-3305-5-100","article-title":"Low-temperature
+        threshold for egg survival of a post-diapause and non-diapause European aedine
+        strain, Aedes albopictus (Diptera: Culicidae)","volume":"5","author":"Thomas","year":"2012","journal-title":"Parasites
+        & Vectors"},{"key":"bib111","doi-asserted-by":"publisher","first-page":"274","DOI":"10.1016\/j.tmaid.2013.07.006","article-title":"Chikungunya
+        and dengue autochthonous cases in Europe, 2007\u20132012","volume":"11","author":"Tomasello","year":"2013","journal-title":"Travel
+        Medicine and Infectious Disease"},{"key":"bib112","doi-asserted-by":"publisher","first-page":"e201","DOI":"10.1371\/journal.ppat.0030201","article-title":"A
+        single mutation in chikungunya virus affects vector specificity and epidemic
+        potential","volume":"3","author":"Tsetsarkin","year":"2007","journal-title":"PLOS
+        Pathogens"},{"key":"bib113","doi-asserted-by":"publisher","first-page":"e1002412","DOI":"10.1371\/journal.ppat.1002412","article-title":"Sequential
+        adaptive mutations enhance efficient vector switching by chikungunya virus
+        and its epidemic emergence","volume":"7","author":"Tsetsarkin","year":"2011","journal-title":"PLOS
+        Pathogens"},{"key":"bib114","doi-asserted-by":"publisher","first-page":"855","DOI":"10.1603\/0046-225X-30.5.855","article-title":"Survivial
+        and development of Aedes aegypti and Aedes albopictus (Diptera: Culicidae)
+        Larvae under a seasonally changing environment in Nagasaki, Japan","volume":"30","author":"Tsuda","year":"2001","journal-title":"Environmental
+        Entomology"},{"key":"bib115","doi-asserted-by":"publisher","first-page":"e1168","DOI":"10.1371\/journal.pone.0001168","article-title":"Two
+        chikungunya isolates from the outbreak of La Reunion (Indian Ocean) exhibit
+        different patterns of infection in the mosquito, Aedes albopictus","volume":"2","author":"Vazeille","year":"2007","journal-title":"PLOS
+        ONE"},{"key":"bib116","doi-asserted-by":"publisher","first-page":"113","DOI":"10.1056\/NEJMoa1411037","article-title":"Efficacy
+        of a Tetravalent dengue vaccine in Children in Latin america","volume":"372","author":"Villar","year":"2015","journal-title":"The
+        New England Journal of Medicine"},{"key":"bib117","doi-asserted-by":"publisher","first-page":"e2921","DOI":"10.1371\/journal.pntd.0002921","article-title":"Arrival
+        of chikungunya virus in the new world: prospects for spread and impact on
+        public health","volume":"8","author":"Weaver","year":"2014","journal-title":"PLOS
+        Neglected Tropical Diseases"},{"key":"bib118","doi-asserted-by":"publisher","first-page":"1231","DOI":"10.1056\/NEJMra1406035","article-title":"Chikungunya
+        virus and the global spread of a mosquito-borne disease","volume":"372","author":"Weaver","year":"2015","journal-title":"The
+        New England Journal of Medicine"},{"key":"bib119","doi-asserted-by":"publisher","first-page":"106","DOI":"10.1016\/j.isprsjprs.2014.10.001","article-title":"An
+        effective approach for gap-filling continental scale remotely sensed time-series","volume":"98","author":"Weiss","year":"2014","journal-title":"ISPRS
+        Journal of Photogrammetry and Remote Sensing"},{"key":"bib120","first-page":"213","article-title":"Yellow
+        fever in 1988","volume":"65","author":"World Health Organization","year":"1990","journal-title":"Weekly
+        Epidemiological Record"},{"key":"bib121","doi-asserted-by":"publisher","first-page":"664","DOI":"10.4269\/ajtmh.2010.09-0755","article-title":"Dengue
+        fever in Mainland China","volume":"83","author":"Wu","year":"2010","journal-title":"The
+        American Journal of Tropical Medicine and Hygiene"},{"key":"bib122","doi-asserted-by":"publisher","first-page":"17","DOI":"10.1016\/j.actatropica.2013.10.013","article-title":"Discriminable
+        roles of Aedes aegypti and Aedes albopictus in establishment of dengue outbreaks
+        in Taiwan","volume":"130","author":"Yang","year":"2014","journal-title":"Acta
+        Tropica"},{"key":"bib123","doi-asserted-by":"publisher","DOI":"10.1098\/rspb.2014.1078","article-title":"Three-way
+        interactions between mosquito population, viral strain and temperature underlying
+        chikungunya virus transmission potential","volume":"281","author":"Zouache","year":"2014","journal-title":"Proceedings.
+        Biological Sciences\/The Royal Society"}],"container-title":"eLife","original-title":[],"language":"en","link":[{"URL":"http:\/\/elifesciences.org\/lookup\/doi\/10.7554\/eLife.08347","content-type":"application\/pdf","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/cdn.elifesciences.org\/articles\/08347\/elife-08347-v3.pdf","content-type":"application\/pdf","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/cdn.elifesciences.org\/articles\/08347\/elife-08347-v3.xml","content-type":"application\/xml","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/elifesciences.org\/articles\/08347","content-type":"unspecified","content-version":"vor","intended-application":"similarity-checking"}],"deposited":{"date-parts":[[2023,10,12]],"date-time":"2023-10-12T00:50:37Z","timestamp":1697071837000},"score":1,"resource":{"primary":{"URL":"https:\/\/elifesciences.org\/articles\/08347"}},"subtitle":[],"short-title":[],"issued":{"date-parts":[[2015,6,30]]},"references-count":125,"alternative-id":["10.7554\/eLife.08347"],"URL":"http:\/\/dx.doi.org\/10.7554\/elife.08347","relation":{"is-supplemented-by":[{"id-type":"doi","id":"10.5061\/dryad.47v3c","asserted-by":"subject"}]},"ISSN":["2050-084X"],"subject":["General
+        Immunology and Microbiology","General Biochemistry, Genetics and Molecular
+        Biology","General Medicine","General Neuroscience"],"published":{"date-parts":[[2015,6,30]]}}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-encoding:
+      - gzip
+      content-length:
+      - '12018'
+      content-type:
+      - application/vnd.citationstyles.csl+json
+      date:
+      - Mon, 22 Jan 2024 14:06:30 GMT
+      link:
+      - <http://dx.doi.org/10.7554/elife.08347>; rel="canonical", <http://elifesciences.org/lookup/doi/10.7554/eLife.08347>;
+        version="vor"; type="application/pdf"; rel="item", <https://cdn.elifesciences.org/articles/08347/elife-08347-v3.pdf>;
+        version="vor"; type="application/pdf"; rel="item", <https://cdn.elifesciences.org/articles/08347/elife-08347-v3.xml>;
+        version="vor"; type="application/xml"; rel="item", <https://elifesciences.org/articles/08347>;
+        version="vor"; rel="item", <http://creativecommons.org/publicdomain/zero/1.0/>;
+        version="vor"; rel="license", <http://creativecommons.org/publicdomain/zero/1.0/>;
+        version="am"; rel="license", <http://creativecommons.org/publicdomain/zero/1.0/>;
+        version="tdm"; rel="license", <http://orcid.org/0000-0002-7941-346X>; title="Christopher
+        M Barker"; rel="author", <http://orcid.org/0000-0001-9166-7617>; title="Francis
+        Schaffner"; rel="author", <http://orcid.org/0000-0002-6731-4034>; title="David
+        M Pigott"; rel="author", <http://orcid.org/0000-0003-4367-3849>; title="David
+        L Smith"; rel="author", <http://orcid.org/0000-0001-8916-5570>; title="Nick
+        Golding"; rel="author", <http://orcid.org/0000-0002-0611-7272>; title="Simon
+        I Hay"; rel="author"
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept, Accept-Encoding
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    status:
+      code: 200
+      message: OK
 version: 1

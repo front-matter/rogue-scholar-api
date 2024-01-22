@@ -19,9 +19,9 @@ interactions:
       host:
       - db.rogue-scholar.org
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: GET
     uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20content_text%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28%2A%29&id=eq.77b2102f-fec5-425a-90a3-4a97c768bdc4
   response:
@@ -89,7 +89,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b1f58989f28749-DUS
+      - 849867d2fecd717a-DUS
       Connection:
       - keep-alive
       Content-Location:
@@ -101,7 +101,7 @@ interactions:
       Content-Type:
       - application/vnd.pgrst.object+json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 15:01:24 GMT
+      - Mon, 22 Jan 2024 14:14:50 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -115,7 +115,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '6'
+      - '8'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:

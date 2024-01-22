@@ -349,7 +349,6 @@ def convert_to_commonmeta(meta: dict) -> Commonmeta:
     subjects = py_.human_case(py_.get(meta, "blog.category"))
     publisher = py_.get(meta, "blog.title")
     provider = get_known_doi_ra(doi) or get_doi_ra(doi)
-    references = json_feed_reader.get_references(meta.get("reference", None))
     alternate_identifiers = [
         {"alternateIdentifier": meta.get("id"), "alternateIdentifierType": "UUID"}
     ]
@@ -376,7 +375,7 @@ def convert_to_commonmeta(meta: dict) -> Commonmeta:
         ),
         "subjects": [{"subject": subjects}],
         "language": meta.get("language", None),
-        "references": references,
+        "references": meta.get("reference", None),
         "funding_references": [],
         "license": {
             "id": "CC-BY-4.0",

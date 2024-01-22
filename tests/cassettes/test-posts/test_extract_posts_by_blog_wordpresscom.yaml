@@ -19,9 +19,9 @@ interactions:
       host:
       - db.rogue-scholar.org
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: GET
     uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20generator_raw%2C%20language%2C%20category%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.wisspub
   response:
@@ -33,7 +33,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2ab0f437a48-DUS
+      - 84985f5b5f4c7a3a-DUS
       Connection:
       - keep-alive
       Content-Location:
@@ -45,7 +45,7 @@ interactions:
       Content-Type:
       - application/vnd.pgrst.object+json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:20:59 GMT
+      - Mon, 22 Jan 2024 14:09:03 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -59,7 +59,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '6'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -6892,6 +6892,8 @@ interactions:
         0,\n  \"message\": \"[unauthorized]. Expired access token. Timestamp: 1475949516403\",\n  \"requestId\":
         \"MDPDF048UM\",\n  \"status\": 401,\n  \"timestamp\": 1484915998712\n}","response":{"code":401,"message":"Unauthorized"},"cookies":[{"name":"lidc","value":"\"b=VB43:g=729:u=346:i=1484915998:t=1484957670:s=AQHjWCFYq8yHNBCg6mJLL3RvxI9j9sye\"","expires":1484957670,"path":"\/","domain":"linkedin.com","port":null,"host_only":null}],"filename":null,"http_response":{"data":null,"headers":null,"status":null}}]},"error_data":[]}},{"id":"5747","key":"_wpas_skip_15193236","value":"1"}],"meta":{"links":{"self":"https:\/\/public-api.wordpress.com\/rest\/v1.1\/sites\/7070983\/posts\/14777","help":"https:\/\/public-api.wordpress.com\/rest\/v1.1\/sites\/7070983\/posts\/14777\/help","site":"https:\/\/public-api.wordpress.com\/rest\/v1.1\/sites\/7070983","replies":"https:\/\/public-api.wordpress.com\/rest\/v1.1\/sites\/7070983\/posts\/14777\/replies\/","likes":"https:\/\/public-api.wordpress.com\/rest\/v1.1\/sites\/7070983\/posts\/14777\/likes\/"}},"capabilities":{"publish_post":false,"delete_post":false,"edit_post":false},"other_URLs":{}}],"meta":{"links":{"counts":"https:\/\/public-api.wordpress.com\/rest\/v1.1\/sites\/7070983\/post-counts\/post"},"next_page":"value=2017-01-20T13%3A39%3A52%2B01%3A00&id=14777","wpcom":true}}'
     headers:
+      Alt-Svc:
+      - h3=":443"; ma=86400
       Cache-Control:
       - no-cache, must-revalidate, max-age=0
       Connection:
@@ -6901,7 +6903,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 25 Dec 2023 11:21:01 GMT
+      - Mon, 22 Jan 2024 14:09:05 GMT
       Expires:
       - Wed, 11 Jan 1984 05:00:00 GMT
       Host-Header:
@@ -6918,6 +6920,1574 @@ interactions:
       - 2.ams _dfw BYPASS
       X-hacker:
       - 'Oh, Awesome: Opossum'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: HEAD
+    uri: https://coara.eu/
+  response:
+    body:
+      string: ''
+    headers:
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Mon, 22 Jan 2024 14:09:05 GMT
+      Last-Modified:
+      - Mon, 22 Jan 2024 13:58:32 GMT
+      Server:
+      - nginx
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: HEAD
+    uri: https://creativecommons.org/licenses/by/4.0
+  response:
+    body:
+      string: ''
+    headers:
+      Age:
+      - '1890'
+      CF-Cache-Status:
+      - HIT
+      CF-RAY:
+      - 84985f6db958b8a0-AMS
+      Cache-Control:
+      - max-age=1800
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/html; charset=iso-8859-1
+      Date:
+      - Mon, 22 Jan 2024 14:09:06 GMT
+      Location:
+      - https://creativecommons.org/licenses/by/4.0/
+      Server:
+      - cloudflare
+      Vary:
+      - Accept-Encoding
+    status:
+      code: 301
+      message: Moved Permanently
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: HEAD
+    uri: https://curvenote.com/
+  response:
+    body:
+      string: ''
+    headers:
+      Age:
+      - '0'
+      Cache-Control:
+      - public, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - frame-ancestors 'self'
+      Content-Type:
+      - text/html
+      Date:
+      - Mon, 22 Jan 2024 14:09:06 GMT
+      Server:
+      - Vercel
+      Strict-Transport-Security:
+      - max-age=63072000
+      Vary:
+      - x-wf-forwarded-proto, Accept-Encoding
+      X-Cache:
+      - HIT
+      X-Cache-Hits:
+      - '1'
+      X-Cluster-Name:
+      - us-east-1-prod-hosting-red
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Lambda-Id:
+      - f888ff19-861a-438a-ad50-5b12dc66f8a1
+      X-Served-By:
+      - cache-iad-kjyo7100024-IAD
+      X-Timer:
+      - S1705932546.488870,VS0,VE2
+      X-Vercel-Cache:
+      - MISS
+      X-Vercel-Execution-Region:
+      - cle1
+      X-Vercel-Id:
+      - fra1::cle1::lqklh-1705932546335-a7f0d1da0bd0
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://doi.org/10.53731/r294649-6f79289-8cw4c
+  response:
+    body:
+      string: '<html><head><title>Handle Redirect</title></head>
+
+        <body><a href="https://api.crossref.org/v1/works/10.53731%2Fr294649-6f79289-8cw4c/transform">https://api.crossref.org/v1/works/10.53731%2Fr294649-6f79289-8cw4c/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 84985f71089a0e94-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '237'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:09:06 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=MQsk6Yrj61OEVAi6Gks9j4A0BMuJ3YUwQg7R1NmMaqmkwiDUlQ%2BHggagkglqjE%2FxBFrLPNG51WyYwYDvStYRAGJiT9BzvaDTyvItRnTLd91%2BqQW36U%2BClz2RXJMTD2CI8nGxEGA%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Mon, 22 Jan 2024 14:38:44 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.53731%2Fr294649-6f79289-8cw4c/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.53731%2Fr294649-6f79289-8cw4c/transform
+  response:
+    body:
+      string: '{"institution":[{"name":"Front Matter"}],"indexed":{"date-parts":[[2023,9,25]],"date-time":"2023-09-25T09:58:50Z","timestamp":1695635930155},"posted":{"date-parts":[[2008,12,22]]},"group-title":"Feature","reference-count":0,"publisher":"Front
+        Matter","license":[{"start":{"date-parts":[[2008,12,22]],"date-time":"2008-12-22T00:00:00Z","timestamp":1229904000000},"content-version":"vor","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"},{"start":{"date-parts":[[2008,12,22]],"date-time":"2008-12-22T00:00:00Z","timestamp":1229904000000},"content-version":"tdm","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"}],"content-domain":{"domain":[],"crossmark-restriction":false},"abstract":"<p>With
+        the December 18 issue Nature started to support XMP markup in article PDFs
+        (reported last week on the Nascent blog by Tony Hammond)1. XMP stands for
+        Extensible Metadata Platform and is a technology to embed metadata in files,
+        including PDFs2. ...<\/p>","DOI":"10.53731\/r294649-6f79289-8cw4c","type":"posted-content","created":{"date-parts":[[2021,10,17]],"date-time":"2021-10-17T18:15:10Z","timestamp":1634494510000},"source":"Crossref","is-referenced-by-count":2,"title":"Just
+        DOI it!","prefix":"10.53731","author":[{"ORCID":"http:\/\/orcid.org\/0000-0003-1419-2405","authenticated-orcid":false,"given":"Martin","family":"Fenner","sequence":"first","affiliation":[]}],"member":"31795","container-title":[],"original-title":[],"link":[{"URL":"https:\/\/blog.front-matter.io\/posts\/just-doi-it","content-type":"text\/html","content-version":"vor","intended-application":"text-mining"}],"deposited":{"date-parts":[[2021,10,17]],"date-time":"2021-10-17T18:15:11Z","timestamp":1634494511000},"score":1,"resource":{"primary":{"URL":"https:\/\/blog.front-matter.io\/posts\/just-doi-it"}},"subtitle":[],"short-title":[],"issued":{"date-parts":[[2008,12,22]]},"references-count":0,"URL":"http:\/\/dx.doi.org\/10.53731\/r294649-6f79289-8cw4c","relation":{},"published":{"date-parts":[[2008,12,22]]},"subtype":"other"}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-encoding:
+      - gzip
+      content-length:
+      - '936'
+      content-type:
+      - application/vnd.citationstyles.csl+json
+      date:
+      - Mon, 22 Jan 2024 14:09:07 GMT
+      link:
+      - <http://dx.doi.org/10.53731/r294649-6f79289-8cw4c>; rel="canonical", <https://blog.front-matter.io/posts/just-doi-it>;
+        version="vor"; type="text/html"; rel="item", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="vor"; rel="license", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="tdm"; rel="license", <http://orcid.org/0000-0003-1419-2405>; title="Martin
+        Fenner"; rel="author"
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept, Accept-Encoding
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://doi.org/10.53731/r294649-6f79289-8cw1h
+  response:
+    body:
+      string: '<html><head><title>Handle Redirect</title></head>
+
+        <body><a href="https://api.crossref.org/v1/works/10.53731%2Fr294649-6f79289-8cw1h/transform">https://api.crossref.org/v1/works/10.53731%2Fr294649-6f79289-8cw1h/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 84985f760cd165f5-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '237'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:09:07 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=biQ9DTdvtxw%2Bdu4J55KkLB335EucT2c8ilR4Al%2F0pr%2BWG9MVeC9q7xWYFQZkHIh7ziu6zHi8XVkBWr53w7ANf%2FqzxvrEAkAKlbVgvoCjdL9a3RUif3BxWnya2PPhL0st0umAFyk%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Mon, 22 Jan 2024 14:32:27 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.53731%2Fr294649-6f79289-8cw1h/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.53731%2Fr294649-6f79289-8cw1h/transform
+  response:
+    body:
+      string: '{"institution":[{"name":"Front Matter"}],"indexed":{"date-parts":[[2024,1,19]],"date-time":"2024-01-19T23:27:58Z","timestamp":1705706878485},"posted":{"date-parts":[[2009,2,17]]},"group-title":"Interview","reference-count":0,"publisher":"Front
+        Matter","license":[{"start":{"date-parts":[[2009,2,17]],"date-time":"2009-02-17T00:00:00Z","timestamp":1234828800000},"content-version":"vor","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"},{"start":{"date-parts":[[2009,2,17]],"date-time":"2009-02-17T00:00:00Z","timestamp":1234828800000},"content-version":"tdm","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"}],"content-domain":{"domain":[],"crossmark-restriction":false},"abstract":"<p>Almost
+        exactly two years ago, CrossRef invited a number of people to discuss unique
+        identifiers for researchers (CrossRef Author ID meeting). One year ago Thomson
+        Reuters launched ResearcherID (Thomson Scientific launches ResearcherID to
+        uniquely identify authors). ...<\/p>","DOI":"10.53731\/r294649-6f79289-8cw1h","type":"posted-content","created":{"date-parts":[[2021,10,13]],"date-time":"2021-10-13T06:22:21Z","timestamp":1634106141000},"source":"Crossref","is-referenced-by-count":5,"title":"Interview
+        with Geoffrey Bilder","prefix":"10.53731","author":[{"ORCID":"http:\/\/orcid.org\/0000-0003-1419-2405","authenticated-orcid":false,"given":"Martin","family":"Fenner","sequence":"first","affiliation":[]}],"member":"31795","container-title":[],"original-title":[],"link":[{"URL":"https:\/\/blog.front-matter.io\/posts\/interview-with-geoffrey-bilder","content-type":"text\/html","content-version":"vor","intended-application":"text-mining"}],"deposited":{"date-parts":[[2021,10,17]],"date-time":"2021-10-17T13:05:00Z","timestamp":1634475900000},"score":1,"resource":{"primary":{"URL":"https:\/\/blog.front-matter.io\/posts\/interview-with-geoffrey-bilder"}},"subtitle":[],"short-title":[],"issued":{"date-parts":[[2009,2,17]]},"references-count":0,"URL":"http:\/\/dx.doi.org\/10.53731\/r294649-6f79289-8cw1h","relation":{},"published":{"date-parts":[[2009,2,17]]},"subtype":"other"}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-encoding:
+      - gzip
+      content-length:
+      - '956'
+      content-type:
+      - application/vnd.citationstyles.csl+json
+      date:
+      - Mon, 22 Jan 2024 14:09:08 GMT
+      link:
+      - <http://dx.doi.org/10.53731/r294649-6f79289-8cw1h>; rel="canonical", <https://blog.front-matter.io/posts/interview-with-geoffrey-bilder>;
+        version="vor"; type="text/html"; rel="item", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="vor"; rel="license", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="tdm"; rel="license", <http://orcid.org/0000-0003-1419-2405>; title="Martin
+        Fenner"; rel="author"
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept, Accept-Encoding
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://doi.org/10.53731/r294649-6f79289-8cw50
+  response:
+    body:
+      string: '<html><head><title>Handle Redirect</title></head>
+
+        <body><a href="https://api.crossref.org/v1/works/10.53731%2Fr294649-6f79289-8cw50/transform">https://api.crossref.org/v1/works/10.53731%2Fr294649-6f79289-8cw50/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 84985f7a5fbd796d-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '237'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:09:08 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=2N%2F7f67rnk3MscMYtEuC59nrtoFaaWbEt%2FHsAA6pF3qvJKbOzWNTmRRKVEYZ5%2FArXReAQ5rJ0NXhGZAWAEtNVnaWNmAhxwfKhXaJUhBtkHur8rnFntcKTno4NzSW5ro1G%2FG4W1I%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Mon, 22 Jan 2024 14:34:40 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.53731%2Fr294649-6f79289-8cw50/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.53731%2Fr294649-6f79289-8cw50/transform
+  response:
+    body:
+      string: '{"indexed":{"date-parts":[[2023,9,25]],"date-time":"2023-09-25T09:57:46Z","timestamp":1695635866428},"posted":{"date-parts":[[2010,5,3]]},"group-title":"Feature","reference-count":0,"publisher":"Front
+        Matter","license":[{"start":{"date-parts":[[2010,5,3]],"date-time":"2010-05-03T00:00:00Z","timestamp":1272844800000},"content-version":"vor","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"}],"content-domain":{"domain":[],"crossmark-restriction":false},"abstract":"<p>Friday
+        afternoon discussions can be dangerous. Last Friday I talked with Heinz Pampel
+        from the Helmholtz Open Access Initiative via email about the upcoming BibCamp
+        Hannover (a barcamp for librarians and others interested in online science
+        that will take place this weekend). ...<\/p>","DOI":"10.53731\/r294649-6f79289-8cw50","type":"posted-content","created":{"date-parts":[[2021,10,13]],"date-time":"2021-10-13T15:05:30Z","timestamp":1634137530000},"source":"Crossref","is-referenced-by-count":2,"title":"BibApp:
+        Mashups for Universities","prefix":"10.53731","author":[{"ORCID":"http:\/\/orcid.org\/0000-0003-1419-2405","authenticated-orcid":false,"given":"Martin","family":"Fenner","sequence":"first","affiliation":[]}],"member":"31795","container-title":[],"original-title":[],"deposited":{"date-parts":[[2021,10,13]],"date-time":"2021-10-13T15:05:36Z","timestamp":1634137536000},"score":1,"resource":{"primary":{"URL":"https:\/\/blog.front-matter.io\/posts\/bibapp-mashups-for-universities"}},"subtitle":[],"short-title":[],"issued":{"date-parts":[[2010,5,3]]},"references-count":0,"URL":"http:\/\/dx.doi.org\/10.53731\/r294649-6f79289-8cw50","relation":{},"published":{"date-parts":[[2010,5,3]]},"subtype":"other"}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-encoding:
+      - gzip
+      content-length:
+      - '904'
+      content-type:
+      - application/vnd.citationstyles.csl+json
+      date:
+      - Mon, 22 Jan 2024 14:09:08 GMT
+      link:
+      - <http://dx.doi.org/10.53731/r294649-6f79289-8cw50>; rel="canonical", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="vor"; rel="license", <http://orcid.org/0000-0003-1419-2405>; title="Martin
+        Fenner"; rel="author"
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept, Accept-Encoding
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://doi.org/10.53731/r294649-6f79289-8cw56
+  response:
+    body:
+      string: '<html><head><title>Handle Redirect</title></head>
+
+        <body><a href="https://api.crossref.org/v1/works/10.53731%2Fr294649-6f79289-8cw56/transform">https://api.crossref.org/v1/works/10.53731%2Fr294649-6f79289-8cw56/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 84985f7e4eaa0a7b-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '237'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:09:08 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=Kbw%2FMNWzRCp2Sy6vT5SAWU07oQA4QkAUgm4GRSZtWGRw%2BoxamALUw3Vhq%2FJiPVDZdct0hX15FakZehMsgmnB43a%2BZnpOyWqGDvLw7R1BJpHb%2FXPSrS%2BJKf4db1uYkvQsLR6nQik%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Mon, 22 Jan 2024 14:32:35 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.53731%2Fr294649-6f79289-8cw56/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.53731%2Fr294649-6f79289-8cw56/transform
+  response:
+    body:
+      string: '{"indexed":{"date-parts":[[2023,9,25]],"date-time":"2023-09-25T09:40:02Z","timestamp":1695634802186},"posted":{"date-parts":[[2010,7,26]]},"group-title":"Perspective","reference-count":0,"publisher":"Front
+        Matter","license":[{"start":{"date-parts":[[2010,7,26]],"date-time":"2010-07-26T00:00:00Z","timestamp":1280102400000},"content-version":"vor","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"}],"content-domain":{"domain":[],"crossmark-restriction":false},"abstract":"<p>The
+        last few days we have seen a number of blog posts reflecting on the pros and
+        cons of science blogging networks. Bora Zivkovic last week announced his departure
+        from scienceblogs.com, and in his must-read post reflected on the history
+        of science ...<\/p>","DOI":"10.53731\/r294649-6f79289-8cw56","type":"posted-content","created":{"date-parts":[[2021,10,13]],"date-time":"2021-10-13T17:56:11Z","timestamp":1634147771000},"source":"Crossref","is-referenced-by-count":2,"title":"Yet
+        another look at blogging networks","prefix":"10.53731","author":[{"ORCID":"http:\/\/orcid.org\/0000-0003-1419-2405","authenticated-orcid":false,"given":"Martin","family":"Fenner","sequence":"first","affiliation":[]}],"member":"31795","container-title":[],"original-title":[],"deposited":{"date-parts":[[2021,10,13]],"date-time":"2021-10-13T17:56:12Z","timestamp":1634147772000},"score":1,"resource":{"primary":{"URL":"https:\/\/blog.front-matter.io\/posts\/yet-another-look-at-blogging-networks"}},"subtitle":[],"short-title":[],"issued":{"date-parts":[[2010,7,26]]},"references-count":0,"URL":"http:\/\/dx.doi.org\/10.53731\/r294649-6f79289-8cw56","relation":{},"published":{"date-parts":[[2010,7,26]]},"subtype":"other"}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-encoding:
+      - gzip
+      content-length:
+      - '864'
+      content-type:
+      - application/vnd.citationstyles.csl+json
+      date:
+      - Mon, 22 Jan 2024 14:09:09 GMT
+      link:
+      - <http://dx.doi.org/10.53731/r294649-6f79289-8cw56>; rel="canonical", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="vor"; rel="license", <http://orcid.org/0000-0003-1419-2405>; title="Martin
+        Fenner"; rel="author"
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept, Accept-Encoding
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://doi.org/10.53731/r294649-6f79289-8cw07
+  response:
+    body:
+      string: '<html><head><title>Handle Redirect</title></head>
+
+        <body><a href="https://api.crossref.org/v1/works/10.53731%2Fr294649-6f79289-8cw07/transform">https://api.crossref.org/v1/works/10.53731%2Fr294649-6f79289-8cw07/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 84985f8269d3b7d3-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '237'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:09:09 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=t3OUmGmbhKLty761%2BBmTtskZtk9bqtg3xnselugBorayAmSKLJEXAphNxdC0pTIjDAz2WCQybNGJtCyLmm%2BMAePWlrUKfteMKZSvLkHmq7qAdeSfxAmN%2Fn36OB8ZLifBU7Btcxc%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Mon, 22 Jan 2024 14:32:35 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.53731%2Fr294649-6f79289-8cw07/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.53731%2Fr294649-6f79289-8cw07/transform
+  response:
+    body:
+      string: '{"indexed":{"date-parts":[[2023,9,25]],"date-time":"2023-09-25T09:52:35Z","timestamp":1695635555158},"posted":{"date-parts":[[2014,8,25]]},"group-title":"Science
+        Hack","reference-count":0,"publisher":"Front Matter","license":[{"start":{"date-parts":[[2014,8,25]],"date-time":"2014-08-25T00:00:00Z","timestamp":1408924800000},"content-version":"vor","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"}],"content-domain":{"domain":[],"crossmark-restriction":false},"abstract":"<p>One
+        of the major challenges of writing a journal article is to keep track of versions
+        - both the different versions you create as the document progresses, and to
+        merge in the changes made by your collaborators. For most academics Microsoft
+        Word is the default writing tool, ...<\/p>","DOI":"10.53731\/r294649-6f79289-8cw07","type":"posted-content","created":{"date-parts":[[2021,10,13]],"date-time":"2021-10-13T06:24:22Z","timestamp":1634106262000},"source":"Crossref","is-referenced-by-count":2,"title":"Using
+        Microsoft Word with git","prefix":"10.53731","author":[{"ORCID":"http:\/\/orcid.org\/0000-0003-1419-2405","authenticated-orcid":false,"given":"Martin","family":"Fenner","sequence":"first","affiliation":[]}],"member":"31795","container-title":[],"original-title":[],"deposited":{"date-parts":[[2021,10,13]],"date-time":"2021-10-13T06:24:23Z","timestamp":1634106263000},"score":1,"resource":{"primary":{"URL":"https:\/\/blog.front-matter.io\/posts\/using-microsoft-word-with-git"}},"subtitle":[],"short-title":[],"issued":{"date-parts":[[2014,8,25]]},"references-count":0,"URL":"http:\/\/dx.doi.org\/10.53731\/r294649-6f79289-8cw07","relation":{},"published":{"date-parts":[[2014,8,25]]},"subtype":"other"}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-encoding:
+      - gzip
+      content-length:
+      - '874'
+      content-type:
+      - application/vnd.citationstyles.csl+json
+      date:
+      - Mon, 22 Jan 2024 14:09:09 GMT
+      link:
+      - <http://dx.doi.org/10.53731/r294649-6f79289-8cw07>; rel="canonical", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="vor"; rel="license", <http://orcid.org/0000-0003-1419-2405>; title="Martin
+        Fenner"; rel="author"
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept, Accept-Encoding
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://doi.org/10.53731/89zgc-ptr93
+  response:
+    body:
+      string: '<html><head><title>Handle Redirect</title></head>
+
+        <body><a href="https://api.crossref.org/v1/works/10.53731%2F89zgc-ptr93/transform">https://api.crossref.org/v1/works/10.53731%2F89zgc-ptr93/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 84985f8659cf0bad-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '217'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:09:10 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=6yfEKATdbKjYc7fY35LuPFLykmmhosLGo6tOWYVQyLaFZqxf0p2TGNkSLi8mLbYfqQjlxyT09JRctBEdgh1ZaSIU29%2Fw2qdH5u6AAtcDoDumo0x6ipYAoOwdhTwgvTo2Hb3UMqY%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Mon, 22 Jan 2024 14:40:23 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.53731%2F89zgc-ptr93/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.53731%2F89zgc-ptr93/transform
+  response:
+    body:
+      string: '{"institution":[{"name":"Front Matter"}],"indexed":{"date-parts":[[2024,1,20]],"date-time":"2024-01-20T00:18:15Z","timestamp":1705709895408},"posted":{"date-parts":[[2023,7,3]]},"group-title":"Computer
+        and information sciences","reference-count":4,"publisher":"Front Matter","license":[{"start":{"date-parts":[[2023,7,3]],"date-time":"2023-07-03T00:00:00Z","timestamp":1688342400000},"content-version":"vor","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"},{"start":{"date-parts":[[2023,7,3]],"date-time":"2023-07-03T00:00:00Z","timestamp":1688342400000},"content-version":"tdm","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"}],"content-domain":{"domain":[],"crossmark-restriction":false},"abstract":"<p>The
+        Rogue Scholar science blog archive launched in April and I have been busy
+        building out the core features of archiving the full-text of blog posts, establishing
+        a full-text search, and registering DOIs and metadata for all posts. My announced
+        goal was to complete this work by the end of the second quarter.<\/p>","DOI":"10.53731\/89zgc-ptr93","type":"posted-content","created":{"date-parts":[[2023,7,4]],"date-time":"2023-07-04T15:36:53Z","timestamp":1688485013000},"source":"Crossref","is-referenced-by-count":2,"title":"The
+        Rogue Scholar archive reaches a milestone: 1000 searchable full-text science
+        blog posts with DOIs","prefix":"10.53731","author":[{"ORCID":"http:\/\/orcid.org\/0000-0003-1419-2405","authenticated-orcid":false,"given":"Martin","family":"Fenner","sequence":"first","affiliation":[]}],"member":"31795","reference":[{"key":"ref1","doi-asserted-by":"publisher","article-title":"The
+        Rogue Scholar: An Archive for Scholarly blogs","year":"2023","DOI":"10.54900\/bj4g7p2-2f0fn9b"},{"key":"ref2","doi-asserted-by":"publisher","article-title":"The
+        Rogue Scholar is now open for business","year":"2023","DOI":"10.53731\/z9v2s-bh329"},{"key":"ref3","doi-asserted-by":"publisher","article-title":"Starting
+        to register DOIs for all blog posts included in the Rogue Scholar","year":"2023","DOI":"10.53731\/m9fs5-nap05"},{"key":"ref4","doi-asserted-by":"publisher","article-title":"Principles
+        for Open Scholarly Infrastructures-v1","year":"2015","DOI":"10.6084\/m9.figshare.1314859"}],"container-title":[],"original-title":[],"link":[{"URL":"https:\/\/blog.front-matter.io\/posts\/the-rogue-scholar-milestone","content-type":"text\/html","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/89zgc-ptr93.md","content-type":"text\/plain","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/89zgc-ptr93.pdf","content-type":"application\/pdf","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/89zgc-ptr93.epub","content-type":"application\/epub+zip","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/89zgc-ptr93.xml","content-type":"application\/xml","content-version":"vor","intended-application":"text-mining"}],"deposited":{"date-parts":[[2024,1,19]],"date-time":"2024-01-19T19:54:08Z","timestamp":1705694048000},"score":1,"resource":{"primary":{"URL":"https:\/\/blog.front-matter.io\/posts\/the-rogue-scholar-milestone"}},"subtitle":[],"short-title":[],"issued":{"date-parts":[[2023,7,3]]},"references-count":4,"URL":"http:\/\/dx.doi.org\/10.53731\/89zgc-ptr93","relation":{},"published":{"date-parts":[[2023,7,3]]},"subtype":"other"}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-encoding:
+      - gzip
+      content-length:
+      - '1279'
+      content-type:
+      - application/vnd.citationstyles.csl+json
+      date:
+      - Mon, 22 Jan 2024 14:09:10 GMT
+      link:
+      - <http://dx.doi.org/10.53731/89zgc-ptr93>; rel="canonical", <https://blog.front-matter.io/posts/the-rogue-scholar-milestone>;
+        version="vor"; type="text/html"; rel="item", <https://api.rogue-scholar.org/posts/10.53731/89zgc-ptr93.md>;
+        version="vor"; type="text/plain"; rel="item", <https://api.rogue-scholar.org/posts/10.53731/89zgc-ptr93.pdf>;
+        version="vor"; type="application/pdf"; rel="item", <https://api.rogue-scholar.org/posts/10.53731/89zgc-ptr93.epub>;
+        version="vor"; type="application/epub+zip"; rel="item", <https://api.rogue-scholar.org/posts/10.53731/89zgc-ptr93.xml>;
+        version="vor"; type="application/xml"; rel="item", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="vor"; rel="license", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="tdm"; rel="license", <http://orcid.org/0000-0003-1419-2405>; title="Martin
+        Fenner"; rel="author"
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept, Accept-Encoding
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: HEAD
+    uri: https://blog.front-matter.io/
+  response:
+    body:
+      string: ''
+    headers:
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '9453'
+      Alt-Svc:
+      - clear
+      Cache-Control:
+      - public, max-age=0
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '8297'
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:09:10 GMT
+      Ghost-Age:
+      - '0'
+      Ghost-Cache:
+      - MISS
+      Ghost-Fastly:
+      - 'true'
+      Server:
+      - openresty
+      Status:
+      - 200 OK
+      Vary:
+      - Cookie, Accept-Encoding
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - HIT
+      X-Cache-Hits:
+      - '2'
+      X-Served-By:
+      - cache-ams21049-AMS
+      X-Timer:
+      - S1705932551.832642,VS0,VE0
+      etag:
+      - W/"14c23-gkNzbcX76G2kzjJF/R5dKzCHXJs"
+      x-request-id:
+      - bf0794e7-ab0a-4004-a849-a4e673385cc2
+      - bf0794e7-ab0a-4004-a849-a4e673385cc2
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: HEAD
+    uri: https://archive.org/web
+  response:
+    body:
+      string: ''
+    headers:
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Mon, 22 Jan 2024 14:09:11 GMT
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+      Server:
+      - nginx/1.25.1
+      Set-Cookie:
+      - donation-identifier=636330a1a5585e620e16d6b45a13adc1; expires=Tue, 21-Jan-2025
+        14:09:11 GMT; Max-Age=31536000; path=/; domain=.archive.org
+      - abtest-identifier=63056e73059d227b7e0812ef22a54ac4; expires=Tue, 21-Jan-2025
+        14:09:11 GMT; Max-Age=31536000; path=/; domain=.archive.org
+      - PHPSESSID=4edtu1u98oftgjlompkoitfa9s; path=/; domain=.archive.org
+      Strict-Transport-Security:
+      - max-age=15724800
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://doi.org/10.59350/tfqe7-ptn14
+  response:
+    body:
+      string: '<html><head><title>Handle Redirect</title></head>
+
+        <body><a href="https://api.crossref.org/v1/works/10.59350%2Ftfqe7-ptn14/transform">https://api.crossref.org/v1/works/10.59350%2Ftfqe7-ptn14/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 84985f8f5851b76d-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '217'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:09:11 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=RuuFF1Wy6aCQUR13F4WB%2FzG%2Bt5rHzAPMrdEJJtnv%2FTwa7FkSGtnmVy2mOP5JP2k%2Fje9TtIaq4Z%2FSk3nrkMaOyc2KQSehjuwTZ6xHTb5I3200BUDBE9rZQmsEI9VOvl38HMuGg2w%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Mon, 22 Jan 2024 14:40:23 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.59350%2Ftfqe7-ptn14/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.59350%2Ftfqe7-ptn14/transform
+  response:
+    body:
+      string: '{"institution":[{"name":"wisspub.net"}],"indexed":{"date-parts":[[2023,9,25]],"date-time":"2023-09-25T10:00:35Z","timestamp":1695636035456},"posted":{"date-parts":[[2023,6,7]]},"group-title":"Verschiedenes","reference-count":0,"publisher":"Front
+        Matter","license":[{"start":{"date-parts":[[2023,6,7]],"date-time":"2023-06-07T00:00:00Z","timestamp":1686096000000},"content-version":"vor","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"},{"start":{"date-parts":[[2023,6,7]],"date-time":"2023-06-07T00:00:00Z","timestamp":1686096000000},"content-version":"tdm","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"}],"content-domain":{"domain":[],"crossmark-restriction":false},"abstract":"<p>Im
+        Rahmen der 16. Berliner Open-Access-Konferenz der Max-Planck-Gesellschaft,
+        die aktuell unter dem Titel \u201cTogether for Transformation\u201d Berlin
+        stattfindet, wurden gestern Leitlinien von Bund und L\u00e4ndern zu Open Access
+        vorgestellt. Diese Leitlinien wurden von der Kultusministerkonferenz (KMK)
+        im M\u00e4rz verabschiedet. Auf der Webseite der KMK findet sich eine knappe
+        Pressemitteilung zu dem Papier. In dieser hei\u00dft es zum Prozess der Erarbeitung:
+        \u201cDas Bundesministerium f\u00fcr Bildung und...<\/p>","DOI":"10.59350\/tfqe7-ptn14","type":"posted-content","created":{"date-parts":[[2023,6,11]],"date-time":"2023-06-11T14:25:15Z","timestamp":1686493515000},"source":"Crossref","is-referenced-by-count":2,"title":"Bund
+        und L\u00e4nder legen Leitlinien zu Open Access vor","prefix":"10.59350","author":[{"ORCID":"http:\/\/orcid.org\/0000-0003-3334-2771","authenticated-orcid":false,"given":"Heinz","family":"Pampel","sequence":"first","affiliation":[]}],"member":"31795","container-title":[],"original-title":[],"link":[{"URL":"https:\/\/wisspub.net\/2023\/06\/07\/bund-und-lander-legen-leitlinien-zu-open-access-vor","content-type":"text\/html","content-version":"vor","intended-application":"text-mining"}],"deposited":{"date-parts":[[2023,6,17]],"date-time":"2023-06-17T13:41:50Z","timestamp":1687009310000},"score":1,"resource":{"primary":{"URL":"https:\/\/wisspub.net\/2023\/06\/07\/bund-und-lander-legen-leitlinien-zu-open-access-vor"}},"subtitle":[],"short-title":[],"issued":{"date-parts":[[2023,6,7]]},"references-count":0,"URL":"http:\/\/dx.doi.org\/10.59350\/tfqe7-ptn14","relation":{},"published":{"date-parts":[[2023,6,7]]},"subtype":"other"}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-encoding:
+      - gzip
+      content-length:
+      - '1102'
+      content-type:
+      - application/vnd.citationstyles.csl+json
+      date:
+      - Mon, 22 Jan 2024 14:09:12 GMT
+      link:
+      - <http://dx.doi.org/10.59350/tfqe7-ptn14>; rel="canonical", <https://wisspub.net/2023/06/07/bund-und-lander-legen-leitlinien-zu-open-access-vor>;
+        version="vor"; type="text/html"; rel="item", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="vor"; rel="license", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="tdm"; rel="license", <http://orcid.org/0000-0003-3334-2771>; title="Heinz
+        Pampel"; rel="author"
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept, Accept-Encoding
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: HEAD
+    uri: https://quarto.org/
+  response:
+    body:
+      string: ''
+    headers:
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '0'
+      Cache-Control:
+      - public,max-age=0,must-revalidate
+      Cache-Status:
+      - '"Netlify Edge"; fwd=stale'
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Mon, 22 Jan 2024 14:09:12 GMT
+      Etag:
+      - '"54b2879588dfda2280f3389c8a5d5ff2-ssl-df"'
+      Server:
+      - Netlify
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Accept-Encoding
+      X-Nf-Request-Id:
+      - 01HMRR1Y4ZX1J4JHB6YJHAYFS4
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: HEAD
+    uri: https://oaspa.org/why-cc-by
+  response:
+    body:
+      string: ''
+    headers:
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - text/html
+      Date:
+      - Mon, 22 Jan 2024 14:09:12 GMT
+      ETag:
+      - W/"655b1984-34"
+      Host-Header:
+      - 8441280b0c35cbc1147f8ba998a563a7
+      Server:
+      - nginx
+      Vary:
+      - Accept-Encoding
+      X-Proxy-Cache-Info:
+      - DT:1
+    status:
+      code: 403
+      message: Forbidden
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: HEAD
+    uri: https://rogue-scholar.org/de
+  response:
+    body:
+      string: ''
+    headers:
+      Age:
+      - '0'
+      Cache-Control:
+      - private, no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:09:13 GMT
+      Etag:
+      - '"v4hyr8ajl64jht"'
+      Server:
+      - Vercel
+      Strict-Transport-Security:
+      - max-age=63072000
+      X-Matched-Path:
+      - /de
+      X-Powered-By:
+      - Next.js
+      X-Vercel-Cache:
+      - MISS
+      X-Vercel-Id:
+      - fra1::iad1::49n8s-1705932552796-314b5e136081
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: HEAD
+    uri: https://stratechery.com/2023/threads-and-the-social-communications-map
+  response:
+    body:
+      string: ''
+    headers:
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      Cache-Control:
+      - max-age=3600
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Mon, 22 Jan 2024 14:09:14 GMT
+      Expires:
+      - Mon, 22 Jan 2024 15:09:14 GMT
+      Host-Header:
+      - Pressable
+      Last-Modified:
+      - Mon, 22 Jan 2024 14:09:14 GMT
+      Location:
+      - https://stratechery.com/2023/threads-and-the-social-communications-map/
+      Server:
+      - nginx
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Cookie
+      X-Redirect-By:
+      - WordPress
+      X-ac:
+      - 1.ams _atomic_ams BYPASS
+      X-nananana:
+      - Batcache-Set
+    status:
+      code: 301
+      message: Moved Permanently
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: HEAD
+    uri: https://typst.app/
+  response:
+    body:
+      string: ''
+    headers:
+      Accept-Ranges:
+      - bytes
+      Cache-Control:
+      - no-cache, private
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '21244'
+      Content-MD5:
+      - xkp51Z+cBaNl36QDV6wz7w==
+      Content-Type:
+      - text/html
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Date:
+      - Mon, 22 Jan 2024 14:09:14 GMT
+      ETag:
+      - '"0x8DC1AD34AA6EEE0"'
+      Last-Modified:
+      - Sun, 21 Jan 2024 22:49:57 GMT
+      Vary:
+      - Origin, Cookie
+      X-Cache:
+      - CONFIG_NOCACHE
+      x-azure-ref:
+      - 20240122T140914Z-n45vv0my31023c846wn4vxr05c000000051g00000000dp89
+      x-ms-request-id:
+      - 2b2b3363-d01e-0038-0f3c-4d8ead000000
+      x-ms-version:
+      - '2018-03-28'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: HEAD
+    uri: https://support.crossref.org/hc/en-us/articles/215578403
+  response:
+    body:
+      string: ''
+    headers:
+      CF-RAY:
+      - 84985fbbbe6921bd-DUS
+      Cache-Control:
+      - private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Connection:
+      - close
+      Content-Length:
+      - '6217'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Cross-Origin-Embedder-Policy:
+      - require-corp
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Cross-Origin-Resource-Policy:
+      - same-origin
+      Date:
+      - Mon, 22 Jan 2024 14:09:18 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:01 GMT
+      NEL:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Origin-Agent-Cluster:
+      - ?1
+      Permissions-Policy:
+      - accelerometer=(),autoplay=(),browsing-topics=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),interest-cohort=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=()
+      Referrer-Policy:
+      - same-origin
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=7cMZvMqBU5izldpBW9cgygeUPUcuS97WnNUmQYqLWunj%2FmYqTN5cKswSTlu6EWmUgL6dXoJpPZr96CBFz0kcKXTD8ha11c8FmgRnTj%2F7AfQMSRs02GTAmW5JwOG%2FXFWRtT7dpRRV"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - SAMEORIGIN
+      cf-mitigated:
+      - challenge
+    status:
+      code: 403
+      message: Forbidden
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: HEAD
+    uri: http://api.crossref.org/works/10.1364/oe.24.010512
+  response:
+    body:
+      string: ''
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-type:
+      - application/json;charset=utf-8
+      date:
+      - Mon, 22 Jan 2024 14:09:18 GMT
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: HEAD
+    uri: http://api.crossref.org/works/10.1007/bf03372847
+  response:
+    body:
+      string: ''
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-type:
+      - application/json;charset=utf-8
+      date:
+      - Mon, 22 Jan 2024 14:09:19 GMT
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: HEAD
+    uri: https://opencitations.net/
+  response:
+    body:
+      string: ''
+    headers:
+      Content-Length:
+      - '11779'
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:09:19 GMT
+      Server:
+      - lighttpd/1.4.53
+      Set-Cookie:
+      - webpy_session_id=33c831dd11f41d581ac8b39b9e214148d7fca37c; Path=/; httponly
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: HEAD
+    uri: https://opencitations.net/download
+  response:
+    body:
+      string: ''
+    headers:
+      Content-Length:
+      - '16490'
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:09:19 GMT
+      Server:
+      - lighttpd/1.4.53
+      Set-Cookie:
+      - webpy_session_id=ae1d79c12341b22f97ada4cc18d07a1e4faf6ecd; Path=/; httponly
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: HEAD
+    uri: https://i4oc.org/
+  response:
+    body:
+      string: ''
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 84985fc329ea0b3c-AMS
+      Cache-Control:
+      - max-age=600
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:09:20 GMT
+      Last-Modified:
+      - Wed, 14 Sep 2022 03:18:43 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=yVp%2FsrUGr%2BcsnUSOI8F58gzkDf6WB2L%2Fj0oRzdiBrLLCX8hFm8IJUQKe8AJqS2A2hK2Oy8HACd55Ey9iBi5HrE9qnNkf%2BxGJpNJ1AzrRRddP82XQCqnhbjj8As%2BumeC%2FfrZHZRio1g%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Vary:
+      - Accept-Encoding
+      X-GitHub-Request-Id:
+      - 5B2A:453E:46C8712:595BE7C:65AE7710
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Mon, 22 Jan 2024 14:19:20 GMT
+      x-proxy-cache:
+      - MISS
     status:
       code: 200
       message: OK
@@ -7061,13 +8631,20 @@ interactions:
       "updated_at": 1689236362, "published_at": 1689230699, "image": "https://wisspub.files.wordpress.com/2023/07/rogue-scholar.org_-1.png?w=1024",
       "language": "de", "category": "socialSciences", "reference": [{"key": "ref1",
       "url": "https://coara.eu"}, {"key": "ref2", "url": "https://creativecommons.org/licenses/by/4.0"},
-      {"key": "ref3", "url": "https://curvenote.com"}, {"key": "ref4", "doi": "https://doi.org/10.53731/r294649-6f79289-8cw4c"},
-      {"key": "ref5", "doi": "https://doi.org/10.53731/r294649-6f79289-8cw1h"}, {"key":
-      "ref6", "doi": "https://doi.org/10.53731/r294649-6f79289-8cw50"}, {"key": "ref7",
-      "doi": "https://doi.org/10.53731/r294649-6f79289-8cw56"}, {"key": "ref8", "doi":
-      "https://doi.org/10.53731/r294649-6f79289-8cw07"}, {"key": "ref9", "doi": "https://doi.org/10.53731/89zgc-ptr93"},
-      {"key": "ref10", "url": "https://blog.front-matter.io"}, {"key": "ref11", "url":
-      "https://archive.org/web"}, {"key": "ref12", "doi": "https://doi.org/10.59350/tfqe7-ptn14"},
+      {"key": "ref3", "url": "https://curvenote.com"}, {"key": "ref4", "doi": "https://doi.org/10.53731/r294649-6f79289-8cw4c",
+      "title": "Just DOI it!", "publicationYear": "2008"}, {"key": "ref5", "doi":
+      "https://doi.org/10.53731/r294649-6f79289-8cw1h", "title": "Interview with Geoffrey
+      Bilder", "publicationYear": "2009"}, {"key": "ref6", "doi": "https://doi.org/10.53731/r294649-6f79289-8cw50",
+      "title": "BibApp: Mashups for Universities", "publicationYear": "2010"}, {"key":
+      "ref7", "doi": "https://doi.org/10.53731/r294649-6f79289-8cw56", "title": "Yet
+      another look at blogging networks", "publicationYear": "2010"}, {"key": "ref8",
+      "doi": "https://doi.org/10.53731/r294649-6f79289-8cw07", "title": "Using Microsoft
+      Word with git", "publicationYear": "2014"}, {"key": "ref9", "doi": "https://doi.org/10.53731/89zgc-ptr93",
+      "title": "The Rogue Scholar archive reaches a milestone: 1000 searchable full-text
+      science blog posts with DOIs", "publicationYear": "2023"}, {"key": "ref10",
+      "url": "https://blog.front-matter.io"}, {"key": "ref11", "url": "https://archive.org/web"},
+      {"key": "ref12", "doi": "https://doi.org/10.59350/tfqe7-ptn14", "title": "Bund
+      und L\u00e4nder legen Leitlinien zu Open Access vor", "publicationYear": "2023"},
       {"key": "ref13", "url": "https://quarto.org"}, {"key": "ref14", "url": "https://oaspa.org/why-cc-by"},
       {"key": "ref15", "url": "https://rogue-scholar.org/de"}, {"key": "ref16", "url":
       "https://stratechery.com/2023/threads-and-the-social-communications-map"}, {"key":
@@ -7090,7 +8667,7 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '14718'
+      - '15295'
       content-profile:
       - public
       content-type:
@@ -7100,9 +8677,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -7116,16 +8693,24 @@ interactions:
       \"https://orcid.org/0000-0003-3334-2771\", \"name\": \"Heinz Pampel\"}],\"doi\":\"https://doi.org/10.59350/5c7kb-zvg49\",\"id\":\"7f06d247-61c5-4877-ade2-77e8e677d763\",\"reference\":[{\"key\":
       \"ref1\", \"url\": \"https://coara.eu\"}, {\"key\": \"ref2\", \"url\": \"https://creativecommons.org/licenses/by/4.0\"},
       {\"key\": \"ref3\", \"url\": \"https://curvenote.com\"}, {\"doi\": \"https://doi.org/10.53731/r294649-6f79289-8cw4c\",
-      \"key\": \"ref4\"}, {\"doi\": \"https://doi.org/10.53731/r294649-6f79289-8cw1h\",
-      \"key\": \"ref5\"}, {\"doi\": \"https://doi.org/10.53731/r294649-6f79289-8cw50\",
-      \"key\": \"ref6\"}, {\"doi\": \"https://doi.org/10.53731/r294649-6f79289-8cw56\",
-      \"key\": \"ref7\"}, {\"doi\": \"https://doi.org/10.53731/r294649-6f79289-8cw07\",
-      \"key\": \"ref8\"}, {\"doi\": \"https://doi.org/10.53731/89zgc-ptr93\", \"key\":
-      \"ref9\"}, {\"key\": \"ref10\", \"url\": \"https://blog.front-matter.io\"},
-      {\"key\": \"ref11\", \"url\": \"https://archive.org/web\"}, {\"doi\": \"https://doi.org/10.59350/tfqe7-ptn14\",
-      \"key\": \"ref12\"}, {\"key\": \"ref13\", \"url\": \"https://quarto.org\"},
-      {\"key\": \"ref14\", \"url\": \"https://oaspa.org/why-cc-by\"}, {\"key\": \"ref15\",
-      \"url\": \"https://rogue-scholar.org/de\"}, {\"key\": \"ref16\", \"url\": \"https://stratechery.com/2023/threads-and-the-social-communications-map\"},
+      \"key\": \"ref4\", \"title\": \"Just DOI it!\", \"publicationYear\": \"2008\"},
+      {\"doi\": \"https://doi.org/10.53731/r294649-6f79289-8cw1h\", \"key\": \"ref5\",
+      \"title\": \"Interview with Geoffrey Bilder\", \"publicationYear\": \"2009\"},
+      {\"doi\": \"https://doi.org/10.53731/r294649-6f79289-8cw50\", \"key\": \"ref6\",
+      \"title\": \"BibApp: Mashups for Universities\", \"publicationYear\": \"2010\"},
+      {\"doi\": \"https://doi.org/10.53731/r294649-6f79289-8cw56\", \"key\": \"ref7\",
+      \"title\": \"Yet another look at blogging networks\", \"publicationYear\": \"2010\"},
+      {\"doi\": \"https://doi.org/10.53731/r294649-6f79289-8cw07\", \"key\": \"ref8\",
+      \"title\": \"Using Microsoft Word with git\", \"publicationYear\": \"2014\"},
+      {\"doi\": \"https://doi.org/10.53731/89zgc-ptr93\", \"key\": \"ref9\", \"title\":
+      \"The Rogue Scholar archive reaches a milestone: 1000 searchable full-text science
+      blog posts with DOIs\", \"publicationYear\": \"2023\"}, {\"key\": \"ref10\",
+      \"url\": \"https://blog.front-matter.io\"}, {\"key\": \"ref11\", \"url\": \"https://archive.org/web\"},
+      {\"doi\": \"https://doi.org/10.59350/tfqe7-ptn14\", \"key\": \"ref12\", \"title\":
+      \"Bund und L\xE4nder legen Leitlinien zu Open Access vor\", \"publicationYear\":
+      \"2023\"}, {\"key\": \"ref13\", \"url\": \"https://quarto.org\"}, {\"key\":
+      \"ref14\", \"url\": \"https://oaspa.org/why-cc-by\"}, {\"key\": \"ref15\", \"url\":
+      \"https://rogue-scholar.org/de\"}, {\"key\": \"ref16\", \"url\": \"https://stratechery.com/2023/threads-and-the-social-communications-map\"},
       {\"key\": \"ref17\", \"url\": \"https://typst.app\"}],\"updated_at\":1689236362,\"published_at\":1689230699,\"blog_name\":\"wisspub.net\",\"indexed_at\":1689246996,\"indexed\":true,\"images\":[{\"src\":
       \"https://wisspub.files.wordpress.com/2023/07/rogue-scholar.org_-1.png?w=1024\",
       \"sizes\": \"(max-width: 1024px) 100vw, 1024px\", \"width\": \"1024\", \"height\":
@@ -7266,7 +8851,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2eb6f75cb22-DUS
+      - 84985fddea757a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -7276,7 +8861,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:09 GMT
+      - Mon, 22 Jan 2024 14:09:24 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -7290,9 +8875,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '8'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -7321,9 +8906,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.7f06d247-61c5-4877-ade2-77e8e677d763
   response:
@@ -7337,16 +8922,24 @@ interactions:
       \"https://orcid.org/0000-0003-3334-2771\", \"name\": \"Heinz Pampel\"}],\"doi\":\"https://doi.org/10.59350/5c7kb-zvg49\",\"id\":\"7f06d247-61c5-4877-ade2-77e8e677d763\",\"reference\":[{\"key\":
       \"ref1\", \"url\": \"https://coara.eu\"}, {\"key\": \"ref2\", \"url\": \"https://creativecommons.org/licenses/by/4.0\"},
       {\"key\": \"ref3\", \"url\": \"https://curvenote.com\"}, {\"doi\": \"https://doi.org/10.53731/r294649-6f79289-8cw4c\",
-      \"key\": \"ref4\"}, {\"doi\": \"https://doi.org/10.53731/r294649-6f79289-8cw1h\",
-      \"key\": \"ref5\"}, {\"doi\": \"https://doi.org/10.53731/r294649-6f79289-8cw50\",
-      \"key\": \"ref6\"}, {\"doi\": \"https://doi.org/10.53731/r294649-6f79289-8cw56\",
-      \"key\": \"ref7\"}, {\"doi\": \"https://doi.org/10.53731/r294649-6f79289-8cw07\",
-      \"key\": \"ref8\"}, {\"doi\": \"https://doi.org/10.53731/89zgc-ptr93\", \"key\":
-      \"ref9\"}, {\"key\": \"ref10\", \"url\": \"https://blog.front-matter.io\"},
-      {\"key\": \"ref11\", \"url\": \"https://archive.org/web\"}, {\"doi\": \"https://doi.org/10.59350/tfqe7-ptn14\",
-      \"key\": \"ref12\"}, {\"key\": \"ref13\", \"url\": \"https://quarto.org\"},
-      {\"key\": \"ref14\", \"url\": \"https://oaspa.org/why-cc-by\"}, {\"key\": \"ref15\",
-      \"url\": \"https://rogue-scholar.org/de\"}, {\"key\": \"ref16\", \"url\": \"https://stratechery.com/2023/threads-and-the-social-communications-map\"},
+      \"key\": \"ref4\", \"title\": \"Just DOI it!\", \"publicationYear\": \"2008\"},
+      {\"doi\": \"https://doi.org/10.53731/r294649-6f79289-8cw1h\", \"key\": \"ref5\",
+      \"title\": \"Interview with Geoffrey Bilder\", \"publicationYear\": \"2009\"},
+      {\"doi\": \"https://doi.org/10.53731/r294649-6f79289-8cw50\", \"key\": \"ref6\",
+      \"title\": \"BibApp: Mashups for Universities\", \"publicationYear\": \"2010\"},
+      {\"doi\": \"https://doi.org/10.53731/r294649-6f79289-8cw56\", \"key\": \"ref7\",
+      \"title\": \"Yet another look at blogging networks\", \"publicationYear\": \"2010\"},
+      {\"doi\": \"https://doi.org/10.53731/r294649-6f79289-8cw07\", \"key\": \"ref8\",
+      \"title\": \"Using Microsoft Word with git\", \"publicationYear\": \"2014\"},
+      {\"doi\": \"https://doi.org/10.53731/89zgc-ptr93\", \"key\": \"ref9\", \"title\":
+      \"The Rogue Scholar archive reaches a milestone: 1000 searchable full-text science
+      blog posts with DOIs\", \"publicationYear\": \"2023\"}, {\"key\": \"ref10\",
+      \"url\": \"https://blog.front-matter.io\"}, {\"key\": \"ref11\", \"url\": \"https://archive.org/web\"},
+      {\"doi\": \"https://doi.org/10.59350/tfqe7-ptn14\", \"key\": \"ref12\", \"title\":
+      \"Bund und L\xE4nder legen Leitlinien zu Open Access vor\", \"publicationYear\":
+      \"2023\"}, {\"key\": \"ref13\", \"url\": \"https://quarto.org\"}, {\"key\":
+      \"ref14\", \"url\": \"https://oaspa.org/why-cc-by\"}, {\"key\": \"ref15\", \"url\":
+      \"https://rogue-scholar.org/de\"}, {\"key\": \"ref16\", \"url\": \"https://stratechery.com/2023/threads-and-the-social-communications-map\"},
       {\"key\": \"ref17\", \"url\": \"https://typst.app\"}],\"updated_at\":1689236362,\"published_at\":1689230699,\"blog_name\":\"wisspub.net\",\"indexed_at\":1689246996,\"indexed\":true,\"images\":[{\"src\":
       \"https://wisspub.files.wordpress.com/2023/07/rogue-scholar.org_-1.png?w=1024\",
       \"sizes\": \"(max-width: 1024px) 100vw, 1024px\", \"width\": \"1024\", \"height\":
@@ -7487,7 +9080,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2ecc91ccb22-DUS
+      - 84985fde9b2d7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -7499,7 +9092,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:09 GMT
+      - Mon, 22 Jan 2024 14:09:24 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -7513,7 +9106,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '8'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -7646,9 +9239,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -7758,7 +9351,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2ed3983cb22-DUS
+      - 84985fdf3bfc7a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -7768,7 +9361,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:10 GMT
+      - Mon, 22 Jan 2024 14:09:24 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -7782,9 +9375,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '10'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -7813,9 +9406,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.d985bbe2-66b0-416c-b826-436d14d39b19
   response:
@@ -7925,7 +9518,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2edb9fdcb22-DUS
+      - 84985fdfcc7f7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -7937,7 +9530,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:10 GMT
+      - Mon, 22 Jan 2024 14:09:24 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -7949,9 +9542,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -8097,9 +9690,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -8224,7 +9817,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2ee4a7ecb22-DUS
+      - 84985fe06d207a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -8234,7 +9827,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:10 GMT
+      - Mon, 22 Jan 2024 14:09:24 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -8248,9 +9841,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '5'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -8279,9 +9872,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.1c578558-1324-4493-b8af-84c49eabc52f
   response:
@@ -8406,7 +9999,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2eeaae4cb22-DUS
+      - 84985fe0edcd7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -8418,7 +10011,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:10 GMT
+      - Mon, 22 Jan 2024 14:09:24 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -8432,7 +10025,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -8518,9 +10111,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -8586,7 +10179,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2ef1b43cb22-DUS
+      - 84985fe17e997a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -8596,7 +10189,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:10 GMT
+      - Mon, 22 Jan 2024 14:09:24 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -8641,9 +10234,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.cd8ddd2e-b506-431f-9167-c1358845d85a
   response:
@@ -8709,7 +10302,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2efabd5cb22-DUS
+      - 84985fe1ef127a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -8721,7 +10314,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:10 GMT
+      - Mon, 22 Jan 2024 14:09:24 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -8733,9 +10326,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -8823,9 +10416,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -8892,7 +10485,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2f01c33cb22-DUS
+      - 84985fe27f9c7a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -8902,7 +10495,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:10 GMT
+      - Mon, 22 Jan 2024 14:09:24 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -8916,7 +10509,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '4'
       alt-svc:
@@ -8947,9 +10540,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.75b22643-5fb5-472b-8da9-18112941c284
   response:
@@ -9016,7 +10609,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2f08c8fcb22-DUS
+      - 84985fe3183c7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -9028,7 +10621,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:10 GMT
+      - Mon, 22 Jan 2024 14:09:25 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -9040,9 +10633,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '5'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -9129,9 +10722,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -9197,7 +10790,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2f0fcf7cb22-DUS
+      - 84985fe388b87a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -9207,7 +10800,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:10 GMT
+      - Mon, 22 Jan 2024 14:09:25 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -9221,9 +10814,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '8'
+      - '7'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -9252,9 +10845,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.f0eac2c5-899e-481d-a814-d3ab45a06649
   response:
@@ -9320,7 +10913,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2f17d65cb22-DUS
+      - 84985fe4194d7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -9332,7 +10925,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:10 GMT
+      - Mon, 22 Jan 2024 14:09:25 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -9346,7 +10939,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -9597,9 +11190,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -9831,7 +11424,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2f1ede1cb22-DUS
+      - 84985fe4aa067a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -9841,7 +11434,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:10 GMT
+      - Mon, 22 Jan 2024 14:09:25 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -9857,7 +11450,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '9'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -9886,9 +11479,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.0793a1da-661c-4957-a9c8-e3cbbac9530f
   response:
@@ -10120,7 +11713,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2f2cf0ecb22-DUS
+      - 84985fe55aca7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -10132,7 +11725,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:10 GMT
+      - Mon, 22 Jan 2024 14:09:25 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -10256,9 +11849,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -10352,7 +11945,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2f33f94cb22-DUS
+      - 84985fe5fb727a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -10362,7 +11955,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:10 GMT
+      - Mon, 22 Jan 2024 14:09:25 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -10376,9 +11969,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '5'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -10407,9 +12000,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.2bc1daa1-464f-4764-91ad-e094a326a723
   response:
@@ -10503,7 +12096,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2f3a84dcb22-DUS
+      - 84985fe66bf87a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -10515,7 +12108,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:11 GMT
+      - Mon, 22 Jan 2024 14:09:25 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -10766,9 +12359,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -10987,7 +12580,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2f408bdcb22-DUS
+      - 84985fe6ec907a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -10997,7 +12590,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:11 GMT
+      - Mon, 22 Jan 2024 14:09:25 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -11011,9 +12604,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '6'
+      - '8'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -11042,9 +12635,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.50ddb445-36d9-4798-aa9d-ead33155f727
   response:
@@ -11263,7 +12856,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2f4995fcb22-DUS
+      - 84985fe82dd97a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -11275,7 +12868,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:11 GMT
+      - Mon, 22 Jan 2024 14:09:25 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -11287,9 +12880,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -11422,9 +13015,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -11537,7 +13130,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2f509c9cb22-DUS
+      - 84985fe8aeef7a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -11547,7 +13140,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:11 GMT
+      - Mon, 22 Jan 2024 14:09:25 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -11563,7 +13156,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '5'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -11592,9 +13185,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.79b28f5b-bbd6-43e8-86e7-dd129bac8a69
   response:
@@ -11707,7 +13300,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2f57a1ccb22-DUS
+      - 84985fe93fb47a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -11719,7 +13312,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:11 GMT
+      - Mon, 22 Jan 2024 14:09:26 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -11731,9 +13324,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '2'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -11900,9 +13493,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -12045,7 +13638,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2f5da81cb22-DUS
+      - 84985fe9b8527a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -12055,7 +13648,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:11 GMT
+      - Mon, 22 Jan 2024 14:09:26 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -12071,7 +13664,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '6'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -12100,9 +13693,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.a9553df4-62c0-4938-b165-992963bf9f5f
   response:
@@ -12245,7 +13838,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2f64ae3cb22-DUS
+      - 84985fea491e7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -12257,7 +13850,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:11 GMT
+      - Mon, 22 Jan 2024 14:09:26 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -12271,7 +13864,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -12514,9 +14107,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -12747,7 +14340,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2f6bb54cb22-DUS
+      - 84985feaf9e67a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -12757,7 +14350,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:11 GMT
+      - Mon, 22 Jan 2024 14:09:26 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -12773,7 +14366,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '6'
+      - '7'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -12802,9 +14395,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.3c7a0582-2fb2-4303-ae95-3024370045fb
   response:
@@ -13035,7 +14628,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2f72ba5cb22-DUS
+      - 84985feb8a8b7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -13047,7 +14640,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:11 GMT
+      - Mon, 22 Jan 2024 14:09:26 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -13061,7 +14654,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -13192,9 +14785,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -13305,7 +14898,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2f79c09cb22-DUS
+      - 84985febfb247a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -13315,7 +14908,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:11 GMT
+      - Mon, 22 Jan 2024 14:09:26 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -13329,9 +14922,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -13360,9 +14953,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.2568ba74-7fe5-4558-84c3-73c779349637
   response:
@@ -13473,7 +15066,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2f80c67cb22-DUS
+      - 84985fec7b997a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -13485,7 +15078,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:11 GMT
+      - Mon, 22 Jan 2024 14:09:26 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -13499,7 +15092,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -13622,9 +15215,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -13728,7 +15321,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2f88ce6cb22-DUS
+      - 84985fed0c637a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -13738,7 +15331,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:11 GMT
+      - Mon, 22 Jan 2024 14:09:26 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -13783,9 +15376,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.14b5d3c9-342d-425a-9930-42f61bb8c9b3
   response:
@@ -13889,7 +15482,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2f98defcb22-DUS
+      - 84985fed9cec7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -13901,7 +15494,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:11 GMT
+      - Mon, 22 Jan 2024 14:09:26 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -13913,7 +15506,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -14037,9 +15630,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -14140,7 +15733,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2f9ee90cb22-DUS
+      - 84985fee1d617a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -14150,7 +15743,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:12 GMT
+      - Mon, 22 Jan 2024 14:09:26 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -14164,9 +15757,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '7'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -14195,9 +15788,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.db292872-b8d6-4b23-b69e-7bc18fc87cb8
   response:
@@ -14298,7 +15891,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2fa5f07cb22-DUS
+      - 84985feeae017a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -14310,7 +15903,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:12 GMT
+      - Mon, 22 Jan 2024 14:09:26 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -14324,7 +15917,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -14392,9 +15985,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -14440,7 +16033,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2fabf5fcb22-DUS
+      - 84985fef2ec77a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -14450,7 +16043,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:12 GMT
+      - Mon, 22 Jan 2024 14:09:26 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -14495,9 +16088,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.da2f509f-a629-4886-a09d-9f98d26e744c
   response:
@@ -14543,7 +16136,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2fb2fbbcb22-DUS
+      - 84985fefaf547a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -14555,7 +16148,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:12 GMT
+      - Mon, 22 Jan 2024 14:09:27 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -14567,9 +16160,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -14707,9 +16300,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -14824,7 +16417,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2fba841cb22-DUS
+      - 84985ff01fb57a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -14834,7 +16427,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:12 GMT
+      - Mon, 22 Jan 2024 14:09:27 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -14850,7 +16443,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '6'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -14879,9 +16472,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.8d4f34a1-821c-47b0-b50b-83ed9dbb5d84
   response:
@@ -14996,7 +16589,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2fc18a2cb22-DUS
+      - 84985ff098367a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -15008,7 +16601,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:12 GMT
+      - Mon, 22 Jan 2024 14:09:27 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -15219,9 +16812,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -15400,7 +16993,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2fca92bcb22-DUS
+      - 84985ff0f8917a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -15410,7 +17003,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:12 GMT
+      - Mon, 22 Jan 2024 14:09:27 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -15424,9 +17017,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '6'
+      - '8'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -15455,9 +17048,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.37f99bc9-f910-4a55-8c86-e0f8b0424b31
   response:
@@ -15636,7 +17229,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2fd29a7cb22-DUS
+      - 84985ff189767a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -15648,7 +17241,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:12 GMT
+      - Mon, 22 Jan 2024 14:09:27 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -15662,7 +17255,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '6'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -15929,7 +17522,7 @@ interactions:
       https://wisspub.files.wordpress.com/2019/11/bildschirmfoto-2019-11-18-um-10.31.05.png",
       "width": "1024", "height": "859", "sizes": "(max-width: 1024px) 100vw, 1024px"}],
       "updated_at": 1574115177, "published_at": 1574082029, "image": "https://wisspub.files.wordpress.com/2019/11/image.png?w=1024",
-      "language": "ca", "category": "socialSciences", "reference": [], "relationships":
+      "language": "en", "category": "socialSciences", "reference": [], "relationships":
       [], "summary": "Crossref wurde im Januar 2000 von einer Gruppe der grossen Verlage
       (AAAS, AIP, ACM, Elsevier, IEEE, Springer, Kluwer, NPG, OUP, Wiley) mit folgenden
       Ziel gegr\u00fcndet: To promote the development and cooperative use of new and
@@ -15958,9 +17551,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -15970,7 +17563,7 @@ interactions:
       OUP, Wiley) mit folgenden Ziel gegr\xFCndet: To promote the development and
       cooperative use of new and innovative technologies to speed and facilitate scientific
       and other scholarly research.\\n\",\"image\":\"https://wisspub.files.wordpress.com/2019/11/image.png?w=1024\",\"tags\":[\"Forschungsinformation\",\"Open
-      Access Transformation\",\"Szientometrie / Bibliometrie\",\"Verlagswesen\"],\"language\":\"ca\",\"authors\":[{\"url\":
+      Access Transformation\",\"Szientometrie / Bibliometrie\",\"Verlagswesen\"],\"language\":\"en\",\"authors\":[{\"url\":
       \"https://orcid.org/0000-0002-7265-1692\", \"name\": \"Christian Gutknecht\"}],\"doi\":\"https://doi.org/10.59350/s6yxb-vzz25\",\"id\":\"a15f5d60-ab7c-4633-ba7b-cb5dfd93837c\",\"reference\":[],\"updated_at\":1574115177,\"published_at\":1574082029,\"blog_name\":\"wisspub.net\",\"indexed_at\":1689006804,\"indexed\":true,\"images\":[{\"src\":
       \"https://wisspub.files.wordpress.com/2019/11/image.png?w=1024\", \"sizes\":
       \"(max-width: 580px) 100vw, 580px\", \"width\": \"580\", \"height\": \"325\",
@@ -16238,7 +17831,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2fd9a11cb22-DUS
+      - 84985ff20a337a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -16248,7 +17841,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:12 GMT
+      - Mon, 22 Jan 2024 14:09:27 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -16293,9 +17886,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.a15f5d60-ab7c-4633-ba7b-cb5dfd93837c
   response:
@@ -16305,7 +17898,7 @@ interactions:
       OUP, Wiley) mit folgenden Ziel gegr\xFCndet: To promote the development and
       cooperative use of new and innovative technologies to speed and facilitate scientific
       and other scholarly research.\\n\",\"image\":\"https://wisspub.files.wordpress.com/2019/11/image.png?w=1024\",\"tags\":[\"Forschungsinformation\",\"Open
-      Access Transformation\",\"Szientometrie / Bibliometrie\",\"Verlagswesen\"],\"language\":\"ca\",\"authors\":[{\"url\":
+      Access Transformation\",\"Szientometrie / Bibliometrie\",\"Verlagswesen\"],\"language\":\"en\",\"authors\":[{\"url\":
       \"https://orcid.org/0000-0002-7265-1692\", \"name\": \"Christian Gutknecht\"}],\"doi\":\"https://doi.org/10.59350/s6yxb-vzz25\",\"id\":\"a15f5d60-ab7c-4633-ba7b-cb5dfd93837c\",\"reference\":[],\"updated_at\":1574115177,\"published_at\":1574082029,\"blog_name\":\"wisspub.net\",\"indexed_at\":1689006804,\"indexed\":true,\"images\":[{\"src\":
       \"https://wisspub.files.wordpress.com/2019/11/image.png?w=1024\", \"sizes\":
       \"(max-width: 580px) 100vw, 580px\", \"width\": \"580\", \"height\": \"325\",
@@ -16573,7 +18166,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2fe3abbcb22-DUS
+      - 84985ff2bb967a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -16585,7 +18178,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:12 GMT
+      - Mon, 22 Jan 2024 14:09:27 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -16597,7 +18190,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -16851,9 +18444,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -17091,7 +18684,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2feab34cb22-DUS
+      - 84985ff34c887a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -17101,7 +18694,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:12 GMT
+      - Mon, 22 Jan 2024 14:09:27 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -17117,7 +18710,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '7'
+      - '8'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -17146,9 +18739,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.45cb7027-b04b-4416-b528-39bb17c2f2dd
   response:
@@ -17386,7 +18979,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b2ffdcdfcb22-DUS
+      - 84985ff3cd997a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -17398,7 +18991,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:12 GMT
+      - Mon, 22 Jan 2024 14:09:27 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -17410,9 +19003,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -17712,7 +19305,7 @@ interactions:
       https://wisspub.files.wordpress.com/2019/10/image-10.png", "width": "939", "height":
       "1023", "sizes": "(max-width: 939px) 100vw, 939px"}], "updated_at": 1574594181,
       "published_at": 1570978395, "image": "https://wisspub.files.wordpress.com/2019/10/image.png?w=1024",
-      "language": "en", "category": "socialSciences", "reference": [{"key": "ref1",
+      "language": "it", "category": "socialSciences", "reference": [{"key": "ref1",
       "url": "https://support.crossref.org/hc/en-us/articles/215578403"}, {"key":
       "ref2", "url": "http://api.crossref.org/works/10.1364/oe.24.010512"}, {"key":
       "ref3", "url": "http://api.crossref.org/works/10.1007/bf03372847"}, {"key":
@@ -17743,16 +19336,16 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
     content: "[{\"url\":\"https://wisspub.net/2019/10/13/dois-und-metadaten-bei-crossref\",\"title\":\"DOIs
       und umfangreiche Metadaten bei Crossref\",\"summary\":\"Ein DOI ist ein eindeutiger
       Identifier und eine URL, die zum wissenschaftlichen Beitrag f\xFChrt.\\n\",\"image\":\"https://wisspub.files.wordpress.com/2019/10/image.png?w=1024\",\"tags\":[\"Forschungsinformation\",\"Szientometrie
-      / Bibliometrie\",\"Verlagswesen\"],\"language\":\"en\",\"authors\":[{\"url\":
+      / Bibliometrie\",\"Verlagswesen\"],\"language\":\"it\",\"authors\":[{\"url\":
       \"https://orcid.org/0000-0002-7265-1692\", \"name\": \"Christian Gutknecht\"}],\"doi\":\"https://doi.org/10.59350/4mp79-0v030\",\"id\":\"dadcdcaa-ba95-4652-a66b-133e410367ea\",\"reference\":[{\"key\":
       \"ref1\", \"url\": \"https://support.crossref.org/hc/en-us/articles/215578403\"},
       {\"key\": \"ref2\", \"url\": \"http://api.crossref.org/works/10.1364/oe.24.010512\"},
@@ -18066,7 +19659,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b3003d26cb22-DUS
+      - 84985ff44e707a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -18076,7 +19669,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:13 GMT
+      - Mon, 22 Jan 2024 14:09:27 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -18121,16 +19714,16 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.dadcdcaa-ba95-4652-a66b-133e410367ea
   response:
     content: "[{\"url\":\"https://wisspub.net/2019/10/13/dois-und-metadaten-bei-crossref\",\"title\":\"DOIs
       und umfangreiche Metadaten bei Crossref\",\"summary\":\"Ein DOI ist ein eindeutiger
       Identifier und eine URL, die zum wissenschaftlichen Beitrag f\xFChrt.\\n\",\"image\":\"https://wisspub.files.wordpress.com/2019/10/image.png?w=1024\",\"tags\":[\"Forschungsinformation\",\"Szientometrie
-      / Bibliometrie\",\"Verlagswesen\"],\"language\":\"en\",\"authors\":[{\"url\":
+      / Bibliometrie\",\"Verlagswesen\"],\"language\":\"it\",\"authors\":[{\"url\":
       \"https://orcid.org/0000-0002-7265-1692\", \"name\": \"Christian Gutknecht\"}],\"doi\":\"https://doi.org/10.59350/4mp79-0v030\",\"id\":\"dadcdcaa-ba95-4652-a66b-133e410367ea\",\"reference\":[{\"key\":
       \"ref1\", \"url\": \"https://support.crossref.org/hc/en-us/articles/215578403\"},
       {\"key\": \"ref2\", \"url\": \"http://api.crossref.org/works/10.1364/oe.24.010512\"},
@@ -18444,7 +20037,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b3017e42cb22-DUS
+      - 84985ff4ffe17a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -18456,7 +20049,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:13 GMT
+      - Mon, 22 Jan 2024 14:09:27 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -18468,7 +20061,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -18551,9 +20144,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -18613,7 +20206,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b3020ec5cb22-DUS
+      - 84985ff579107a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -18623,7 +20216,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:13 GMT
+      - Mon, 22 Jan 2024 14:09:27 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -18639,7 +20232,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '6'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -18668,9 +20261,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.9adc1ecc-61ef-41c4-8a72-1c3000cb61d5
   response:
@@ -18730,7 +20323,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b3026f10cb22-DUS
+      - 84985ff61a787a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -18742,7 +20335,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:13 GMT
+      - Mon, 22 Jan 2024 14:09:28 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -18847,9 +20440,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -18920,7 +20513,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b302df74cb22-DUS
+      - 84985ff67b787a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -18930,7 +20523,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:13 GMT
+      - Mon, 22 Jan 2024 14:09:28 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -18946,7 +20539,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '8'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -18975,9 +20568,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.8a3013c3-d4c8-4554-ab1e-f79996386402
   response:
@@ -19048,7 +20641,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b303a871cb22-DUS
+      - 84985ff71cb67a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -19060,7 +20653,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:13 GMT
+      - Mon, 22 Jan 2024 14:09:28 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -19170,9 +20763,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -19245,7 +20838,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b3041911cb22-DUS
+      - 84985ff78d337a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -19255,7 +20848,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:13 GMT
+      - Mon, 22 Jan 2024 14:09:28 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -19271,7 +20864,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -19300,9 +20893,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.29c3d680-4ee4-4772-92f5-a0c102597c7c
   response:
@@ -19375,7 +20968,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b304b9e5cb22-DUS
+      - 84985ff7fdbb7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -19387,7 +20980,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:13 GMT
+      - Mon, 22 Jan 2024 14:09:28 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -19399,7 +20992,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -19493,9 +21086,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -19566,7 +21159,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b3055b22cb22-DUS
+      - 84985ff86e777a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -19576,7 +21169,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:13 GMT
+      - Mon, 22 Jan 2024 14:09:28 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -19590,9 +21183,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '7'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -19621,9 +21214,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.796117fa-12f1-4a6c-8740-cc6e9ee5f068
   response:
@@ -19694,7 +21287,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b306cd33cb22-DUS
+      - 84985ff91f6a7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -19706,7 +21299,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:14 GMT
+      - Mon, 22 Jan 2024 14:09:28 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -19838,9 +21431,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -19941,7 +21534,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b3075e1dcb22-DUS
+      - 84985ff98fd47a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -19951,7 +21544,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:14 GMT
+      - Mon, 22 Jan 2024 14:09:28 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -19996,9 +21589,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.782be2ef-735c-44d4-a5e0-f71022393ece
   response:
@@ -20099,7 +21692,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b3082f48cb22-DUS
+      - 84985ff9f84f7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -20111,7 +21704,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:14 GMT
+      - Mon, 22 Jan 2024 14:09:28 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -20123,7 +21716,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -20335,9 +21928,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -20527,7 +22120,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b3088fcecb22-DUS
+      - 84985ffa792f7a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -20537,7 +22130,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:14 GMT
+      - Mon, 22 Jan 2024 14:09:28 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -20553,7 +22146,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '7'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -20582,9 +22175,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.98602632-8071-44eb-bd17-e069dfadb271
   response:
@@ -20774,7 +22367,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b30928d5cb22-DUS
+      - 84985ffaf9bd7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -20786,7 +22379,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:14 GMT
+      - Mon, 22 Jan 2024 14:09:28 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -20960,9 +22553,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -21103,7 +22696,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b309b9fecb22-DUS
+      - 84985ffb6a3f7a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -21113,7 +22706,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:14 GMT
+      - Mon, 22 Jan 2024 14:09:28 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -21129,7 +22722,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '7'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -21158,9 +22751,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.46150773-9b57-4604-b1a2-042b0530dee1
   response:
@@ -21301,7 +22894,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b30a2aa1cb22-DUS
+      - 84985ffbfae77a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -21313,7 +22906,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:14 GMT
+      - Mon, 22 Jan 2024 14:09:28 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -21325,7 +22918,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -21574,9 +23167,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -21800,7 +23393,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b30a9b3acb22-DUS
+      - 84985ffc6b5d7a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -21810,7 +23403,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:14 GMT
+      - Mon, 22 Jan 2024 14:09:29 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -21826,7 +23419,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '10'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -21855,9 +23448,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.0e374aad-7a14-4f70-81cf-08e23f1a07ee
   response:
@@ -22081,7 +23674,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b30b0beecb22-DUS
+      - 84985ffd1c087a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -22093,7 +23686,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:14 GMT
+      - Mon, 22 Jan 2024 14:09:29 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -22105,9 +23698,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '6'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -22267,9 +23860,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -22410,7 +24003,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b30b7c9bcb22-DUS
+      - 84985ffd7c767a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -22420,7 +24013,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:14 GMT
+      - Mon, 22 Jan 2024 14:09:29 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -22436,7 +24029,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '6'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -22465,9 +24058,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.2e66eafa-45d4-4f60-b08b-cedf1254ffea
   response:
@@ -22608,7 +24201,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b30c1dadcb22-DUS
+      - 84985ffe1d307a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -22620,7 +24213,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:14 GMT
+      - Mon, 22 Jan 2024 14:09:29 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -22634,7 +24227,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '9'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -22765,9 +24358,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -22878,7 +24471,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b30d1f42cb22-DUS
+      - 84985ffe8e297a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -22888,7 +24481,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:15 GMT
+      - Mon, 22 Jan 2024 14:09:29 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -22904,7 +24497,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '7'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -22933,9 +24526,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.aca8a8b3-96d9-4490-8dc8-27bd878c88fc
   response:
@@ -23046,7 +24639,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b30d883bcb22-DUS
+      - 84985fff0f0a7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -23058,7 +24651,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:15 GMT
+      - Mon, 22 Jan 2024 14:09:29 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -23070,7 +24663,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '2'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -23219,9 +24812,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -23347,7 +24940,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b30df927cb22-DUS
+      - 84985fff9fe97a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -23357,7 +24950,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:15 GMT
+      - Mon, 22 Jan 2024 14:09:29 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -23371,9 +24964,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '5'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -23402,9 +24995,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.bd2153c1-6c24-4ea6-b240-0959362f4b77
   response:
@@ -23530,7 +25123,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b30e69decb22-DUS
+      - 8498600038ba7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -23542,7 +25135,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:15 GMT
+      - Mon, 22 Jan 2024 14:09:29 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -23556,7 +25149,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -23635,9 +25228,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -23694,7 +25287,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b30efaabcb22-DUS
+      - 84986000b98c7a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -23704,7 +25297,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:15 GMT
+      - Mon, 22 Jan 2024 14:09:29 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -23718,9 +25311,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -23749,9 +25342,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.f585ff0d-d66f-4a03-b886-a84b4edc1080
   response:
@@ -23808,7 +25401,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b30f6b49cb22-DUS
+      - 849860013a4a7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -23820,7 +25413,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:15 GMT
+      - Mon, 22 Jan 2024 14:09:29 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -23832,7 +25425,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -24004,9 +25597,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -24157,7 +25750,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b30fdc07cb22-DUS
+      - 84986001baf07a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -24167,7 +25760,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:15 GMT
+      - Mon, 22 Jan 2024 14:09:29 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -24183,7 +25776,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '7'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -24212,9 +25805,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.deb5eead-025e-451e-b337-f97e3a3b89aa
   response:
@@ -24365,7 +25958,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b3105d12cb22-DUS
+      - 849860024b6f7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -24377,7 +25970,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:15 GMT
+      - Mon, 22 Jan 2024 14:09:29 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -24389,7 +25982,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -24665,9 +26258,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -24924,7 +26517,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b310cdcbcb22-DUS
+      - 84986002bbed7a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -24934,7 +26527,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:15 GMT
+      - Mon, 22 Jan 2024 14:09:30 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -24950,7 +26543,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '9'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -24979,9 +26572,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.41cce6bf-0708-4cb2-b6a7-d6d57e009a2a
   response:
@@ -25238,7 +26831,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b3114e7bcb22-DUS
+      - 849860036cca7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -25250,7 +26843,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:15 GMT
+      - Mon, 22 Jan 2024 14:09:30 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -25264,7 +26857,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -25347,9 +26940,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -25410,7 +27003,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b311bf07cb22-DUS
+      - 84986003dd527a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -25420,7 +27013,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:15 GMT
+      - Mon, 22 Jan 2024 14:09:30 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -25434,9 +27027,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -25465,9 +27058,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.ea2f6230-1c66-4326-9b03-3896b4e4759a
   response:
@@ -25528,7 +27121,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b3122f88cb22-DUS
+      - 849860047e117a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -25540,7 +27133,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:15 GMT
+      - Mon, 22 Jan 2024 14:09:30 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -25901,9 +27494,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -26235,7 +27828,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b312984ecb22-DUS
+      - 84986004febb7a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -26245,7 +27838,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:15 GMT
+      - Mon, 22 Jan 2024 14:09:30 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -26259,9 +27852,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '2'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '8'
+      - '10'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -26290,9 +27883,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.407cdfe3-a3b0-4b65-bcc5-d74f46bb18cd
   response:
@@ -26624,7 +28217,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b31399b8cb22-DUS
+      - 84986005af5b7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -26636,7 +28229,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:16 GMT
+      - Mon, 22 Jan 2024 14:09:30 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -26650,7 +28243,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -26738,9 +28331,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -26806,7 +28399,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b3140a55cb22-DUS
+      - 849860060fc77a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -26816,7 +28409,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:16 GMT
+      - Mon, 22 Jan 2024 14:09:30 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -26832,7 +28425,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -26861,9 +28454,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.d16f869a-ddd9-412f-bbe5-191e473f0ffc
   response:
@@ -26929,7 +28522,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b3149b28cb22-DUS
+      - 8498600688417a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -26941,7 +28534,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:16 GMT
+      - Mon, 22 Jan 2024 14:09:30 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -27028,9 +28621,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -27081,7 +28674,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b3158c90cb22-DUS
+      - 84986006e8a17a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -27091,7 +28684,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:16 GMT
+      - Mon, 22 Jan 2024 14:09:30 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -27105,9 +28698,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '6'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -27136,9 +28729,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.ebdaa698-bcb3-4677-9f1c-8930fe5a1e32
   response:
@@ -27189,7 +28782,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b315fd1ccb22-DUS
+      - 8498600759327a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -27201,7 +28794,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:16 GMT
+      - Mon, 22 Jan 2024 14:09:30 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -27278,9 +28871,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -27322,7 +28915,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b3166dd2cb22-DUS
+      - 84986007c9ad7a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -27332,7 +28925,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:16 GMT
+      - Mon, 22 Jan 2024 14:09:30 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -27346,9 +28939,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -27377,9 +28970,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.09cd28c5-25f4-40e9-9b83-3f9805f4e369
   response:
@@ -27421,7 +29014,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b316de9ccb22-DUS
+      - 849860085a497a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -27433,7 +29026,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:16 GMT
+      - Mon, 22 Jan 2024 14:09:30 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -27565,9 +29158,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -27665,7 +29258,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b3174f7fcb22-DUS
+      - 84986008cad97a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -27675,7 +29268,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:16 GMT
+      - Mon, 22 Jan 2024 14:09:31 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -27689,9 +29282,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '6'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -27720,9 +29313,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.27c49791-12d4-4027-ba87-008909978a98
   response:
@@ -27820,7 +29413,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b317b816cb22-DUS
+      - 849860098c3e7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -27832,7 +29425,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:16 GMT
+      - Mon, 22 Jan 2024 14:09:31 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -27929,9 +29522,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -27994,7 +29587,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b31828c7cb22-DUS
+      - 8498600a2d707a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -28004,7 +29597,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:16 GMT
+      - Mon, 22 Jan 2024 14:09:31 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -28018,9 +29611,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '5'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -28049,9 +29642,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.5398f252-244f-4d41-9406-ba8380b5b7ee
   response:
@@ -28114,7 +29707,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b3188973cb22-DUS
+      - 8498600aceae7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -28126,7 +29719,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:16 GMT
+      - Mon, 22 Jan 2024 14:09:31 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -28138,7 +29731,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -28231,9 +29824,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -28302,7 +29895,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b3191a6bcb22-DUS
+      - 8498600b3f6c7a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -28312,7 +29905,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:17 GMT
+      - Mon, 22 Jan 2024 14:09:31 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -28328,7 +29921,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '5'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -28357,9 +29950,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.0db80b3d-2f3e-490f-971a-af543e5b19a9
   response:
@@ -28428,7 +30021,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b31a1bffcb22-DUS
+      - 8498600bafc27a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -28440,7 +30033,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:17 GMT
+      - Mon, 22 Jan 2024 14:09:31 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -28452,7 +30045,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '3'
       alt-svc:
@@ -28532,9 +30125,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -28591,7 +30184,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b31a8cc5cb22-DUS
+      - 8498600c28437a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -28601,7 +30194,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:17 GMT
+      - Mon, 22 Jan 2024 14:09:31 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -28617,7 +30210,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -28646,9 +30239,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.bde23050-2e73-401c-878a-0737e1b2e673
   response:
@@ -28705,7 +30298,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b31b0da4cb22-DUS
+      - 8498600ca8f97a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -28717,7 +30310,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:17 GMT
+      - Mon, 22 Jan 2024 14:09:31 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -28959,9 +30552,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -29169,7 +30762,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b31b6e39cb22-DUS
+      - 8498600d298b7a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -29179,7 +30772,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:17 GMT
+      - Mon, 22 Jan 2024 14:09:31 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -29224,9 +30817,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.d71348d0-ea17-4284-83ef-1a44e3d76e5d
   response:
@@ -29434,7 +31027,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b31bff20cb22-DUS
+      - 8498600dba477a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -29446,7 +31039,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:17 GMT
+      - Mon, 22 Jan 2024 14:09:31 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -29593,9 +31186,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -29706,7 +31299,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b31cc880cb22-DUS
+      - 8498600e2adb7a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -29716,7 +31309,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:17 GMT
+      - Mon, 22 Jan 2024 14:09:31 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -29730,9 +31323,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '7'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -29761,9 +31354,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.c1c4a6e4-1d11-4965-9119-dbd10e9ce864
   response:
@@ -29874,7 +31467,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b31d3944cb22-DUS
+      - 8498600eab837a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -29886,7 +31479,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:17 GMT
+      - Mon, 22 Jan 2024 14:09:31 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -30369,9 +31962,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -30828,7 +32421,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b31dca97cb22-DUS
+      - 8498600f1c277a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -30838,7 +32431,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:17 GMT
+      - Mon, 22 Jan 2024 14:09:32 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -30852,9 +32445,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '2'
       X-Kong-Upstream-Latency:
-      - '8'
+      - '14'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -30883,9 +32476,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.8ec47315-cf28-40a3-aa7c-2a1be499e2d6
   response:
@@ -31342,7 +32935,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b31e5b96cb22-DUS
+      - 8498600fdd4b7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -31354,7 +32947,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:17 GMT
+      - Mon, 22 Jan 2024 14:09:32 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -31366,9 +32959,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '4'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -31501,9 +33094,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -31614,7 +33207,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b31eec91cb22-DUS
+      - 849860104de17a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -31624,7 +33217,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:17 GMT
+      - Mon, 22 Jan 2024 14:09:32 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -31640,7 +33233,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '4'
+      - '6'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -31669,9 +33262,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.cb5574a6-87a9-492b-8126-05ba8b5a8f2a
   response:
@@ -31782,7 +33375,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b31f4d8acb22-DUS
+      - 84986010de6f7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -31794,7 +33387,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:18 GMT
+      - Mon, 22 Jan 2024 14:09:32 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -31806,9 +33399,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '6'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -31910,9 +33503,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -31991,7 +33584,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b31fce3acb22-DUS
+      - 849860113ef37a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -32001,7 +33594,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:18 GMT
+      - Mon, 22 Jan 2024 14:09:32 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -32015,7 +33608,7 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
       - '4'
       alt-svc:
@@ -32046,9 +33639,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.d22e6515-c92d-48ff-b472-b8a8ae22bb35
   response:
@@ -32127,7 +33720,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b320bfc5cb22-DUS
+      - 84986011cf857a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -32139,7 +33732,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:18 GMT
+      - Mon, 22 Jan 2024 14:09:32 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -32151,9 +33744,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '2'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -32221,9 +33814,9 @@ interactions:
       prefer:
       - return=representation,resolution=merge-duplicates
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -32270,7 +33863,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b321187ccb22-DUS
+      - 849860123ffb7a5e-DUS
       Connection:
       - keep-alive
       Content-Profile:
@@ -32280,7 +33873,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:18 GMT
+      - Mon, 22 Jan 2024 14:09:32 GMT
       Preference-Applied:
       - resolution=merge-duplicates
       Server:
@@ -32294,9 +33887,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '3'
+      - '6'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -32325,9 +33918,9 @@ interactions:
       prefer:
       - return=representation
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.479fc1b9-437b-4fa4-b03f-a126eef41d84
   response:
@@ -32374,7 +33967,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b3218958cb22-DUS
+      - 84986012b8ad7a5e-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -32386,7 +33979,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:18 GMT
+      - Mon, 22 Jan 2024 14:09:32 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -32398,9 +33991,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '2'
+      - '3'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:

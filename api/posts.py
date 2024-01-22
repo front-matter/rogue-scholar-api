@@ -3,6 +3,7 @@ from os import environ
 from furl import furl
 import aiohttp
 import asyncio
+import requests
 import re
 import pydash as py_
 import nh3
@@ -12,7 +13,7 @@ import xmltodict
 import time
 import traceback
 from urllib.parse import unquote
-from commonmeta import validate_doi
+from commonmeta import validate_doi, normalize_doi, validate_url
 
 from api.utils import (
     unix_timestamp,
@@ -836,18 +837,39 @@ def get_references(content_html: str):
 
         def format_reference(url, index):
             """Format reference."""
-            doi = validate_doi(url)
-
-            if doi:
-                return {
-                    "key": f"ref{index + 1}",
-                    "doi": url,
-                }
-            else:
+            if validate_url(url) == "DOI":
+                doi = normalize_doi(url)
+                response = requests.get(
+                    doi,
+                    headers={"Accept": "application/vnd.citationstyles.csl+json"},
+                    timeout=10,
+                )
+                if response.status_code not in [200, 301, 302]:
+                    return None
+                csl = response.json()
+                publication_year = py_.get(csl, "issued.date-parts.0.0", None)
+                return compact(
+                    {
+                        "key": f"ref{index + 1}",
+                        "doi": doi,
+                        "title": csl.get("title", None),
+                        "publicationYear": str(publication_year)
+                        if publication_year
+                        else None,
+                    }
+                )
+            elif validate_url(url) == "URL":
+                response = requests.head(url, timeout=10)
+                # check that URL resolves.
+                # TODO: check for redirects
+                if response.status_code in [404]:
+                    return None
                 return {
                     "key": f"ref{index + 1}",
                     "url": url,
                 }
+            else:
+                return None
 
         references = [format_reference(url, index) for index, url in enumerate(urls)]
         return references

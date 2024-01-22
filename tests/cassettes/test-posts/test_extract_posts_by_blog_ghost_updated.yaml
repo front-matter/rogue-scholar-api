@@ -19,13 +19,13 @@ interactions:
       host:
       - db.rogue-scholar.org
       user-agent:
-      - python-httpx/0.24.1
+      - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.0
+      - supabase-py/2.3.4
     method: GET
     uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20use_mastodon%2C%20generator%2C%20generator_raw%2C%20language%2C%20category%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.front_matter
   response:
-    content: '{"id":"f0m0e38","slug":"front_matter","feed_url":"https://blog.front-matter.io/atom-complete/","current_feed_url":"https://blog.front-matter.io/atom/","home_page_url":"https://blog.front-matter.io","archive_prefix":"https://wayback.archive-it.org/22096/20231101172748/","feed_format":"application/atom+xml","created_at":1672617600,"updated_at":1702317872,"use_mastodon":true,"generator":"Ghost","generator_raw":"Ghost
+    content: '{"id":"f0m0e38","slug":"front_matter","feed_url":"https://blog.front-matter.io/atom-complete/","current_feed_url":"https://blog.front-matter.io/atom/","home_page_url":"https://blog.front-matter.io","archive_prefix":"https://wayback.archive-it.org/22096/20231101172748/","feed_format":"application/atom+xml","created_at":1672617600,"updated_at":1705502015,"use_mastodon":true,"generator":"Ghost","generator_raw":"Ghost
       5.52","language":"en","category":"computerAndInformationSciences","favicon":"https://blog.front-matter.io/favicon.png","title":"Front
       Matter","description":"The Front Matter Blog covers the intersection of science
       and technology since 2007.","category":"computerAndInformationSciences","status":"active","user_id":"8498eaf6-8c58-4b58-bc15-27eda292b1aa","authors":null,"plan":"Team","use_api":true,"relative_url":null,"filter":null,"secure":true}'
@@ -35,7 +35,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 83b0b37668ba2193-DUS
+      - 849862636a21cadd-DUS
       Connection:
       - keep-alive
       Content-Location:
@@ -47,7 +47,7 @@ interactions:
       Content-Type:
       - application/vnd.pgrst.object+json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:31 GMT
+      - Mon, 22 Jan 2024 14:11:07 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -61,7 +61,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '5'
+      - '6'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -77,7 +77,347 @@ interactions:
     uri: https://front-matter.ghost.io/ghost/api/content/posts/?page=1&limit=50&filter=visibility:public&include=tags,authors&key=b099ebe9ce894979c77431e6d3
   response:
     body:
-      string: "{\"posts\":[{\"id\":\"6577338e3ab8810001a95843\",\"uuid\":\"d708c2da-b017-449b-8592-9dba901226de\",\"title\":\"Archiving
+      string: "{\"posts\":[{\"id\":\"65a7d37e3ab8810001a95c8b\",\"uuid\":\"fd34d240-61c7-419e-bce4-6e4d30ede5a9\",\"title\":\"Making
+        it easier to register a science blog with Rogue Scholar\",\"slug\":\"making-it-easier-to-register\",\"html\":\"<p>Yesterday
+        I had to fix a bug in the Rogue Scholar registration form (a <a href=\\\"https://en.wikipedia.org/wiki/Software_regression\\\"
+        rel=\\\"noreferrer\\\">software regression</a> that happened over the holidays
+        related to database row level security). This was a reminder that registering
+        a science blog with the <a href=\\\"https://rogue-scholar.org\\\" rel=\\\"noreferrer\\\">Rogue
+        Scholar science blog archive</a> should be quick and painless.</p><p>Today
+        I made one change that hopefully simplifies registration: Ask for the blog
+        homepage instead of the RSS feed URL. </p><figure class=\\\"kg-card kg-image-card
+        kg-card-hascaption\\\"><img src=\\\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-17-um-14.36.20-2.png\\\"
+        class=\\\"kg-image\\\" alt=\\\"\\\" loading=\\\"lazy\\\" width=\\\"1866\\\"
+        height=\\\"1127\\\" srcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/01/Bildschirmfoto-2024-01-17-um-14.36.20-2.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/01/Bildschirmfoto-2024-01-17-um-14.36.20-2.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/01/Bildschirmfoto-2024-01-17-um-14.36.20-2.png
+        1600w, https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-17-um-14.36.20-2.png
+        1866w\\\" sizes=\\\"(min-width: 720px) 720px\\\"><figcaption><span style=\\\"white-space:
+        pre-wrap;\\\">Rogue Scholar blog registration form in English</span></figcaption></figure><p>Finding
+        the feed URL is not trivial, as the feed URL is sometimes hard to find and
+        multiple feed formats exist (RSS, Atom, and JSON Feed). RSS is the most popular
+        format but has important limitations compared to Atom and JSON Feed: it doesn't
+        support multiple authors or author attributes (e.g., the ORCID ID), and it
+        doesn't show the update date of posts. And some blogging platforms (e.g. Wordpress,
+        Ghost, Substack) have an API, which is easier to work with than the RSS feed,
+        and thus preferred when available.</p><p>Behind the scenes, the Rogue Scholar
+        API is trying to discover the feed URL (and format) from the homepage provided
+        in the registration form and then uses the feed URL to fetch the remaining
+        information (blog name, description, language, feature image, etc.).</p><p>The
+        category field lets you pick the <a href=\\\"https://en.wikipedia.org/wiki/Fields_of_Science_and_Technology\\\"
+        rel=\\\"noreferrer\\\">OECD Field of Science and Technology</a> for your blog.
+        All the remaining information needed by Rogue Scholar is either fetched automatically
+        by Rogue Scholar or can be sorted out by email.</p><p>An important aspect
+        of the registration form is agreeing to a Creative Commons 4.0 Attribution
+        (<a href=\\\"https://creativecommons.org/licenses/by/4.0/legalcode\\\" rel=\\\"noreferrer\\\">CC-BY</a>)
+        license for the blog posts, which is needed to extract metadata, enable full-text
+        search, and export content to other formats (e.g. PDF).</p><p>The registration
+        form is available in six languages (pick the language in the upper right corner)
+        of every Rogue Scholar page:</p><figure class=\\\"kg-card kg-image-card\\\"><img
+        src=\\\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-17-um-14.54.51.png\\\"
+        class=\\\"kg-image\\\" alt=\\\"\\\" loading=\\\"lazy\\\" width=\\\"2000\\\"
+        height=\\\"1142\\\" srcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/01/Bildschirmfoto-2024-01-17-um-14.54.51.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/01/Bildschirmfoto-2024-01-17-um-14.54.51.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/01/Bildschirmfoto-2024-01-17-um-14.54.51.png
+        1600w, https://blog.front-matter.io/content/images/size/w2400/2024/01/Bildschirmfoto-2024-01-17-um-14.54.51.png
+        2400w\\\" sizes=\\\"(min-width: 720px) 720px\\\"></figure><p>You reach the
+        registration form via the <a href=\\\"https://rogue-scholar.org/auth/signin\\\"
+        rel=\\\"noreferrer\\\">sign-in button</a>, and you can create a Rogue Scholar
+        account via email/password, Google, or GitHub.</p><p>With this streamlined
+        workflow it should typically not take longer than 24 hours to approve the
+        science blog, archive the full-text content, and start DOI registration.</p><p>Cost
+        should not be a reason to stop you from registering your science blog with
+        Rogue Scholar. Up to <a href=\\\"https://rogue-scholar.org/about#pricing\\\"
+        rel=\\\"noreferrer\\\">50 blog posts per year are free</a>, and more blog
+        posts cost a one-time fee of $1 per post \u2013 mainly an issue for high-volume
+        blogs or if the blog has been running for many years. Archiving a backlog
+        of older posts can always happen later, and can also be paid for with <a href=\\\"https://ko-fi.com/rogue_scholar\\\"
+        rel=\\\"noreferrer\\\">donations to Rogue Scholar</a>.</p><figure class=\\\"kg-card
+        kg-image-card\\\"><img src=\\\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-17-um-15.10.04.png\\\"
+        class=\\\"kg-image\\\" alt=\\\"\\\" loading=\\\"lazy\\\" width=\\\"2000\\\"
+        height=\\\"1073\\\" srcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/01/Bildschirmfoto-2024-01-17-um-15.10.04.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/01/Bildschirmfoto-2024-01-17-um-15.10.04.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/01/Bildschirmfoto-2024-01-17-um-15.10.04.png
+        1600w, https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-17-um-15.10.04.png
+        2356w\\\" sizes=\\\"(min-width: 720px) 720px\\\"></figure><p>If you have questions
+        regarding registering your science blog with Rogue Scholar, reach out via
+        <a href=\\\"mailto:info@front-matter.io\\\" rel=\\\"noreferrer\\\">email</a>,
+        or the comments below. You can also check the <a href=\\\"https://docs.rogue-scholar.org/\\\"
+        rel=\\\"noreferrer\\\">Rogue Scholar documentation</a>.</p>\",\"comment_id\":\"65a7d37e3ab8810001a95c8b\",\"feature_image\":\"https://images.unsplash.com/photo-1522709553816-36115b3cc2ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDcyfHxyZWdpc3RlcnxlbnwwfHx8fDE3MDU0OTc2NTF8MA&ixlib=rb-4.0.3&q=80&w=2000\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2024-01-17T13:17:50.000+00:00\",\"updated_at\":\"2024-01-17T14:33:35.000+00:00\",\"published_at\":\"2024-01-17T14:26:11.000+00:00\",\"custom_excerpt\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":\"https://doi.org/10.53731/sgavn-wr288\",\"tags\":[{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
+        explore issues raised by news stories in more depth.\",\"feature_image\":\"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHJlc2VhcmNofGVufDB8fHx8MTYxODEyMzQxNQ&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/feature/\"}],\"authors\":[{\"id\":\"1\",\"name\":\"Martin
+        Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"}],\"primary_author\":{\"id\":\"1\",\"name\":\"Martin
+        Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"},\"primary_tag\":{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
+        explore issues raised by news stories in more depth.\",\"feature_image\":\"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHJlc2VhcmNofGVufDB8fHx8MTYxODEyMzQxNQ&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/feature/\"},\"url\":\"https://blog.front-matter.io/posts/making-it-easier-to-register/\",\"excerpt\":\"Yesterday
+        I had to fix a bug in the Rogue Scholar registration form (a software regression
+        that happened over the holidays related to database row level security). This
+        was a reminder that registering a science blog with the Rogue Scholar science
+        blog archive should be quick and painless.\\n\\nToday I made one change that
+        hopefully simplifies registration: Ask for the blog homepage instead of the
+        RSS feed URL.\\n\\nFinding the feed URL is not trivial, as the feed URL is
+        sometimes hard to find and multip\",\"reading_time\":2,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":null,\"feature_image_caption\":\"<span
+        style=\\\"white-space: pre-wrap;\\\">Photo by </span><a href=\\\"https://unsplash.com/@tim_arterbury?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\\\"><span
+        style=\\\"white-space: pre-wrap;\\\">Tim Arterbury</span></a><span style=\\\"white-space:
+        pre-wrap;\\\"> / </span><a href=\\\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\\\"><span
+        style=\\\"white-space: pre-wrap;\\\">Unsplash</span></a>\"},{\"id\":\"65a63ea93ab8810001a95bb0\",\"uuid\":\"34cc1664-5527-4c4a-a67a-519581ece9f9\",\"title\":\"Improving
+        Rogue Scholar metadata conversions\",\"slug\":\"improving-rogue-scholar-metadata-conversions\",\"html\":\"<p>Last
+        week the Rogue Scholar science blog archive added <a href=\\\"https://doi.org/10.53731/1dfxr-hs665\\\"
+        rel=\\\"noreferrer\\\">export of blog post content in various formats</a>
+        (Markdown, ePub, PDF, JATS XML). This week Rogue Scholar is improving the
+        existing metadata export, and adding metadata export in Schema.org JSON-LD
+        format.</p><p>Until now Rogue Scholar metadata export depended on <a href=\\\"https://citation.crosscite.org/docs.html\\\"
+        rel=\\\"noreferrer\\\">DOI content negotiation</a>, returning the DOI metadata
+        registered with Crossref (and in some cases DataCite) in BibTex or <a href=\\\"https://citationstyles.org/\\\"
+        rel=\\\"noreferrer\\\">CSL JSON</a> formats, or as formatted citations. While
+        this approach worked reasonably well and allowed Rogue Scholar to offload
+        the metadata conversion to an external service, it had major limitations:</p><ul><li>Delay
+        of up to 24 hours after DOI registration until metadata are available in DOI
+        content negotiation</li><li>Long-standing issues with some of the metadata
+        in BibTeX or CSL JSON</li><li>Missing support for some formats, especially
+        Schema.org JSON-LD</li><li>Missing support for converting metadata in bulk,
+        e.g. for all Rogue Scholar blog posts published last week</li></ul><p>To address
+        these issues, the Rogue Scholar API this week started using <a href=\\\"https://doi.org/10.53731/xszpd-6z265\\\"
+        rel=\\\"noreferrer\\\">commonmeta-py</a>, the metadata conversion Python library
+        I wrote last year. This allows Rogue Scholar to show the metadata immediately
+        after DOI registration, which now happens within 20 min after a blog post
+        is published or updated. This also addresses some issues with the metadata
+        returned by DOI content negotiation, e.g. the missing blog name. And this
+        adds additional metadata formats, most notably <a href=\\\"https://schema.org\\\"
+        rel=\\\"noreferrer\\\">Schema.org JSON-LD</a>.</p><p>Going forward this change
+        will allow us to address another limitation of the Rogue Scholar service:
+        DOI registration and updates happen via GitHub Actions, <a href=\\\"https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule\\\"
+        rel=\\\"noreferrer\\\">scheduled via cron</a>. While this workflow works well,
+        it is currently limited to one DOI registration or update every 10 min, so
+        updates to the metadata of all 13K Rogue Scholar DOIs would take weeks. One
+        example is the changes last week that added links to the full-text Markdown,
+        ePub, PDF, and JATS XML versions to all Rogue Scholar DOIs. </p><p>commonmeta-py
+        already generates Crossref XML metadata needed for Crossref DOI registration.
+        More work is needed to add background workers to the Rogue Scholar API that
+        can replace the current GitHub Actions, and increase the frequency DOI metadata
+        are updated with Crossref. As commonmeta-py can also generate DataCite metadata
+        needed for DOI registration, Rogue Scholar could also help scholarly blogs
+        that use DataCite DOIs (currently two of the blogs participating in Rogue
+        Scholar).</p><p>These changes again highlight the importance of <a href=\\\"https://doi.org/10.53731/r79vxn1-97aq74v-ag58n\\\"
+        rel=\\\"noreferrer\\\">eating your own dog food</a>: organizations should
+        themselves use the products and services they provide.&nbsp;</p><h2 id=\\\"references\\\">References</h2><p>Fenner,
+        M. (2024). Every Rogue Scholar blog post now available in Markdown, ePub,
+        and PDF formats. <em>Front Matter</em>. <a href=\\\"https://doi.org/10.53731/1dfxr-hs665\\\">https://doi.org/10.53731/1dfxr-hs665</a></p><p>Fenner,
+        M. (2023). Releasing commonmeta-py v0.8. <em>Front Matter</em>. <a href=\\\"https://doi.org/10.53731/xszpd-6z265\\\">https://doi.org/10.53731/xszpd-6z265</a></p><p>Fenner,
+        M. (2016). Eating your own dog food. <em>Front Matter</em>. <a href=\\\"https://doi.org/10.53731/r79vxn1-97aq74v-ag58n\\\">https://doi.org/10.53731/r79vxn1-97aq74v-ag58n</a></p>\",\"comment_id\":\"65a63ea93ab8810001a95bb0\",\"feature_image\":\"https://blog.front-matter.io/content/images/2024/01/winter-1.png\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2024-01-16T08:30:33.000+00:00\",\"updated_at\":\"2024-01-16T09:39:12.000+00:00\",\"published_at\":\"2024-01-16T09:31:54.000+00:00\",\"custom_excerpt\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":\"https://doi.org/10.53731/n4vfp-nwb08\",\"tags\":[{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
+        explore issues raised by news stories in more depth.\",\"feature_image\":\"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHJlc2VhcmNofGVufDB8fHx8MTYxODEyMzQxNQ&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/feature/\"}],\"authors\":[{\"id\":\"1\",\"name\":\"Martin
+        Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"}],\"primary_author\":{\"id\":\"1\",\"name\":\"Martin
+        Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"},\"primary_tag\":{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
+        explore issues raised by news stories in more depth.\",\"feature_image\":\"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHJlc2VhcmNofGVufDB8fHx8MTYxODEyMzQxNQ&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/feature/\"},\"url\":\"https://blog.front-matter.io/posts/improving-rogue-scholar-metadata-conversions/\",\"excerpt\":\"Last
+        week the Rogue Scholar science blog archive added export of blog post content
+        in various formats (Markdown, ePub, PDF, JATS XML). This week Rogue Scholar
+        is improving the existing metadata export, and adding metadata export in Schema.org
+        JSON-LD format.\\n\\nUntil now Rogue Scholar metadata export depended on DOI
+        content negotiation, returning the DOI metadata registered with Crossref (and
+        in some cases DataCite) in BibTex or CSL JSON formats, or as formatted citations.
+        While this approach work\",\"reading_time\":2,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":null,\"feature_image_caption\":\"<span
+        style=\\\"white-space: pre-wrap;\\\">This morning in M\xFCnster</span>\"},{\"id\":\"65a160193ab8810001a95b1c\",\"uuid\":\"705f8f33-7d68-4c30-ab17-ca696e622b8b\",\"title\":\"Improved
+        PDF-formatted Rogue Scholar blog posts\",\"slug\":\"improved-pdf-formatted-rogue-scholar-blog-posts\",\"html\":\"<p>On
+        Monday the Rogue Scholar science blog archive <a href=\\\"https://doi.org/10.53731/1dfxr-hs665\\\"
+        rel=\\\"noreferrer\\\">launched the export of blog posts in PDF and other
+        formats</a>. Over the last few days I have been busy improving the PDF output,
+        and today I am releasing a new version, available for all the more than 13K
+        science blog posts archived by Rogue Scholar.</p><p>The PDF is generated using
+        the open source Pandoc universal document converter in combination with the
+        <a href=\\\"https://weasyprint.org/\\\" rel=\\\"noreferrer\\\">Weasyprint</a>
+        library. There are many other options for automatic PDF generation, but Weasyprint
+        is a nice option for the flexible generation of beautiful PDF. The PDF files
+        are generated on demand by the Rogue Scholar API based on the metadata and
+        content stored in the Rogue Scholar search index, using the markdown format.
+        The first page of the PDF shows the main metadata, including the abstract
+        and feature image, just what you expect from a typical scholarly article.</p><figure
+        class=\\\"kg-card kg-image-card\\\"><img src=\\\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-12-um-17.07.11.png\\\"
+        class=\\\"kg-image\\\" alt=\\\"\\\" loading=\\\"lazy\\\" width=\\\"1360\\\"
+        height=\\\"988\\\" srcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/01/Bildschirmfoto-2024-01-12-um-17.07.11.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/01/Bildschirmfoto-2024-01-12-um-17.07.11.png
+        1000w, https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-12-um-17.07.11.png
+        1360w\\\" sizes=\\\"(min-width: 720px) 720px\\\"></figure><p>Links in the
+        PDF are clickable, including the author ORCID ID(s), DOI of the citation (formatted
+        in APA style), and references in the fulltext:</p><figure class=\\\"kg-card
+        kg-image-card\\\"><img src=\\\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-12-um-17.13.55.png\\\"
+        class=\\\"kg-image\\\" alt=\\\"\\\" loading=\\\"lazy\\\" width=\\\"1386\\\"
+        height=\\\"748\\\" srcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/01/Bildschirmfoto-2024-01-12-um-17.13.55.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/01/Bildschirmfoto-2024-01-12-um-17.13.55.png
+        1000w, https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-12-um-17.13.55.png
+        1386w\\\" sizes=\\\"(min-width: 720px) 720px\\\"></figure><p>Because the PDF
+        generation is fully automated, it doesn't handle all possible edge cases and
+        some metadata (e.g. funding information) aren't included yet. But the Rogue
+        Scholar PDF is fully functional, nice looking, and will only get better over
+        time. Please let me know (e.g. in the comments) if you discover issues with
+        the PDF or have a feature request.</p><h2 id=\\\"references\\\">References</h2><p>Fenner,
+        M. (2024). Every Rogue Scholar blog post now available in Markdown, ePub,
+        and PDF formats. <em>Front Matter</em>. <a href=\\\"https://doi.org/10.53731/1dfxr-hs665\\\">https://doi.org/10.53731/1dfxr-hs665</a></p>\",\"comment_id\":\"65a160193ab8810001a95b1c\",\"feature_image\":\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-12-um-16.53.20.png\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2024-01-12T15:51:53.000+00:00\",\"updated_at\":\"2024-01-12T16:35:13.000+00:00\",\"published_at\":\"2024-01-12T16:27:02.000+00:00\",\"custom_excerpt\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":\"https://doi.org/10.53731/mndd9-1d509\",\"tags\":[{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
+        explore issues raised by news stories in more depth.\",\"feature_image\":\"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHJlc2VhcmNofGVufDB8fHx8MTYxODEyMzQxNQ&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/feature/\"}],\"authors\":[{\"id\":\"1\",\"name\":\"Martin
+        Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"}],\"primary_author\":{\"id\":\"1\",\"name\":\"Martin
+        Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"},\"primary_tag\":{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
+        explore issues raised by news stories in more depth.\",\"feature_image\":\"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHJlc2VhcmNofGVufDB8fHx8MTYxODEyMzQxNQ&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/feature/\"},\"url\":\"https://blog.front-matter.io/posts/improved-pdf-formatted-rogue-scholar-blog-posts/\",\"excerpt\":\"On
+        Monday the Rogue Scholar science blog archive launched the export of blog
+        posts in PDF and other formats. Over the last few days I have been busy improving
+        the PDF output, and today I am releasing a new version, available for all
+        the more than 13K science blog posts archived by Rogue Scholar.\\n\\nThe PDF
+        is generated using the open source Pandoc universal document converter in
+        combination with the Weasyprint library. There are many other options for
+        automatic PDF generation, but Weasyprint is a \",\"reading_time\":2,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":null,\"feature_image_caption\":null},{\"id\":\"659ea5293ab8810001a95a69\",\"uuid\":\"52889678-1f10-4a04-9b45-b687c47565fe\",\"title\":\"Every
+        Rogue Scholar blog post now also available in JATS XML format\",\"slug\":\"rogue-scholar-blog-posts-jats-xml\",\"html\":\"<p>On
+        Monday the Rogue Scholar science blog archive added support for <a href=\\\"https://doi.org/10.53731/1dfxr-hs665\\\"
+        rel=\\\"noreferrer\\\">exporting the blog posts in various formats</a>: markdown,
+        ePub, and PDF. Today I am adding another export format: <a href=\\\"https://jats.nlm.nih.gov/\\\"
+        rel=\\\"noreferrer\\\">JATS XML</a>, the standard format for scholarly articles.
+        JATS is again automatically generated with the <a href=\\\"https://pandoc.org/\\\"
+        rel=\\\"noreferrer\\\">Pandoc</a> universal document converter, with some
+        initial tweaks of the Rogue Scholar metadata.</p><p><a href=\\\"https://rogue-scholar.org\\\"
+        rel=\\\"noreferrer\\\">Rogue Scholar Search</a> now displays several output
+        options for each of the currently 13,301 science blog posts:</p><figure class=\\\"kg-card
+        kg-image-card\\\"><img src=\\\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-10-um-15.26.08.png\\\"
+        class=\\\"kg-image\\\" alt=\\\"\\\" loading=\\\"lazy\\\" width=\\\"1860\\\"
+        height=\\\"796\\\" srcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/01/Bildschirmfoto-2024-01-10-um-15.26.08.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/01/Bildschirmfoto-2024-01-10-um-15.26.08.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/01/Bildschirmfoto-2024-01-10-um-15.26.08.png
+        1600w, https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-10-um-15.26.08.png
+        1860w\\\" sizes=\\\"(min-width: 720px) 720px\\\"></figure><p>Similar to the
+        ePub and PDF formats, this is an initial version of JATS XML, expect to see
+        improvements in the next three months.</p><p>The blog posts in markdown, ePub,
+        PDF, and JATS XML formats are available via the <a href=\\\"https://api.rogue-scholar.org/posts\\\"
+        rel=\\\"noreferrer\\\">Rogue Scholar API</a>, either fetched from the search
+        index (markdown), or generated on the fly (ePub, PDF, JATS XML) from the markdown
+        format. To make automated machine access easier, I have also started to update
+        the DOI metadata, which now include links to these full-text versions (it
+        will take a few weeks to update all 10K+ metadata records). This will hopefully
+        simplify the discovery of these output formats, e.g. the <a href=\\\"https://forums.zotero.org/discussion/103321/how-does-find-available-pdf-works\\\"
+        rel=\\\"noreferrer\\\">Find available PDF</a> functionality in the reference
+        manager Zotero.</p><p>There is a lot more work needed to improve these output
+        formats, and all help from the Rogue Scholar community is greatly appreciated.
+        PDF is generated with the help of the <a href=\\\"https://weasyprint.org/\\\"
+        rel=\\\"noreferrer\\\">Weasyprint</a> open source library and currently uses
+        the Pandoc default template and CSS. ePub and JATS XML are generated from
+        Pandoc without additional tools, but allow a great deal of customization via
+        Pandoc templates, CSS, and Lua or Python filters.</p><p>Pandoc JATS XML support
+        has a special place in my heart, as I <a href=\\\"https://doi.org/10.53731/r294649-6f79289-8cw0k\\\"
+        rel=\\\"noreferrer\\\">wrote a Pandoc custom writer</a> in Lua 10 years ago
+        that helped adding JATS support to the main Pandoc application (added in <a
+        href=\\\"https://github.com/jgm/pandoc/releases/tag/2.0\\\" rel=\\\"noreferrer\\\">Pandoc
+        2.0</a> October 2017).</p><p>Finally, the addition of JATS XML support again
+        demonstrates that scholar publishing doesn't have to be complicated, expensive,
+        or take forever.</p><h2 id=\\\"references\\\">References</h2><p>Fenner, M.
+        (2024). Every Rogue Scholar blog post now available in Markdown, ePub, and
+        PDF formats. <em>Front Matter</em>. <a href=\\\"https://doi.org/10.53731/1dfxr-hs665\\\">https://doi.org/10.53731/1dfxr-hs665</a></p><p>Fenner,
+        M. (2013). <em>From Markdown to JATS XML in one Step</em>. <a href=\\\"https://doi.org/10.53731/r294649-6f79289-8cw0k\\\">https://doi.org/10.53731/r294649-6f79289-8cw0k</a></p>\",\"comment_id\":\"659ea5293ab8810001a95a69\",\"feature_image\":\"https://blog.front-matter.io/content/images/2024/01/bookcase_jats-1.png\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2024-01-10T14:09:45.000+00:00\",\"updated_at\":\"2024-01-10T15:15:10.000+00:00\",\"published_at\":\"2024-01-10T15:09:11.000+00:00\",\"custom_excerpt\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":\"https://doi.org/10.53731/3w1ye-q6z42\",\"tags\":[{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
+        explore issues raised by news stories in more depth.\",\"feature_image\":\"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHJlc2VhcmNofGVufDB8fHx8MTYxODEyMzQxNQ&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/feature/\"}],\"authors\":[{\"id\":\"1\",\"name\":\"Martin
+        Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"}],\"primary_author\":{\"id\":\"1\",\"name\":\"Martin
+        Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"},\"primary_tag\":{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
+        explore issues raised by news stories in more depth.\",\"feature_image\":\"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHJlc2VhcmNofGVufDB8fHx8MTYxODEyMzQxNQ&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/feature/\"},\"url\":\"https://blog.front-matter.io/posts/rogue-scholar-blog-posts-jats-xml/\",\"excerpt\":\"On
+        Monday the Rogue Scholar science blog archive added support for exporting
+        the blog posts in various formats: markdown, ePub, and PDF. Today I am adding
+        another export format: JATS XML, the standard format for scholarly articles.
+        JATS is again automatically generated with the Pandoc universal document converter,
+        with some initial tweaks of the Rogue Scholar metadata.\\n\\nRogue Scholar
+        Search now displays several output options for each of the currently 13,301
+        science blog posts:\\n\\nSimilar to the e\",\"reading_time\":2,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":null,\"feature_image_caption\":null},{\"id\":\"659bc2953ab8810001a95961\",\"uuid\":\"f851f2d7-d892-4dc1-ade1-74302c53e8a1\",\"title\":\"Every
+        Rogue Scholar blog post now available in Markdown, ePub, and PDF formats\",\"slug\":\"rogue-scholar-blog-posts-markdown-epub-and-pdf-formats\",\"html\":\"<p>The
+        <a href=\\\"https://rogue-scholar.org\\\" rel=\\\"noreferrer\\\">Rogue Scholar
+        science blog archive</a> starts 2024 with an important release: all blog posts
+        (more than 13,000) are now available for download in Markdown, ePub, and PDF
+        formats. This builds on <a href=\\\"https://doi.org/10.53731/5vvnh-tnm55\\\"
+        rel=\\\"noreferrer\\\">work completed in December</a> to store the full text
+        of every Rogue Scholar blog post in Markdown format in the Rogue Scholar backend.
+        Combined with the metadata in <a href=\\\"https://jekyllrb.com/docs/front-matter/\\\"
+        rel=\\\"noreferrer\\\">YAML format</a>, these posts can now be downloaded
+        via the Rogue Scholar API, e.g. <a href=\\\"https://api.rogue-scholar.org/posts/10.53731/5vvnh-tnm55?format=markdown\\\">https://api.rogue-scholar.org/posts/10.53731/5vvnh-tnm55?format=markdown</a>.</p><p>This
+        format is compatible with all static site generators used by Rogue Scholar
+        blogs, including <a href=\\\"https://gohugo.io/\\\" rel=\\\"noreferrer\\\">Hugo</a>,
+        <a href=\\\"https://jekyllrb.com/\\\" rel=\\\"noreferrer\\\">Jekyll</a>, and
+        <a href=\\\"https://quarto.org/\\\" rel=\\\"noreferrer\\\">Quarto</a>. And
+        it can be used to import blog posts into blogs powered by a database, including
+        <a href=\\\"https://wordpress.org/\\\" rel=\\\"noreferrer\\\">Wordpress</a>
+        and <a href=\\\"https://ghost.org/\\\" rel=\\\"noreferrer\\\">Ghost</a>. This
+        addresses an important Rogue Scholar use case: making it easier to migrate
+        from one blogging platform to another. More work is needed to update the <a
+        href=\\\"https://docs.rogue-scholar.org/\\\" rel=\\\"noreferrer\\\">Rogue
+        Scholar documentation</a>, and to enable downloading content and metadata
+        in bulk, i.e. all posts from a blog.</p><p>The availability of content and
+        metadata in easily downloadable form enables another important use case, described
+        by <a href=\\\"https://doi.org/10.59350/psmbr-f6p84\\\" rel=\\\"noreferrer\\\">Ross
+        Mounce in November</a>: </p><blockquote><strong>Resilience: another advantage
+        of openly-licensed content</strong><br>As I allude to in the title of this
+        post. The key differentiators here in open access systems, that make open
+        access more resilient to downtime overall are a) availability on multiple
+        independent platforms and b) open licencing that makes it legally easier to
+        host content in multiple places.</blockquote><p>This nicely complements the
+        integration with the Internet Archive <a href=\\\"https://doi.org/10.53731/g60vh-3ng48\\\"
+        rel=\\\"noreferrer\\\">that Rogue Scholar started in November</a>, archiving
+        all posts from blogs participating in Rogue Scholar via the <a href=\\\"https://archive-it.org/home/rogue-scholar\\\"
+        rel=\\\"noreferrer\\\">Archive-It service</a>. The Rogue Scholar API makes
+        it easy to programmatically download content and metadata from scholarly blog
+        posts, and all content is available with an open license (<a href=\\\"https://creativecommons.org/licenses/by/4.0/legalcode\\\"
+        rel=\\\"noreferrer\\\">CC-BY</a>) that enables unrestricted reuse.</p><p>One
+        limitation of the Markdown format is that for most users it is not the preferred
+        format to read content. Markdown is typically used to safely render content
+        on the web, but for reading scholarly content stored on their computers, most
+        users prefer PDF. That is why Rogue Scholar also offers blog posts converted
+        to PDF format, using the <a href=\\\"https://pandoc.org/\\\" rel=\\\"noreferrer\\\">Pandoc</a>
+        universal document converter. An important use case is storing important blog
+        posts in a reference manager. Storing the metadata has always been supported
+        by Rogue Scholar, but now you can also easily attach the full text in PDF
+        format and for example add annotations.</p><figure class=\\\"kg-card kg-image-card
+        kg-card-hascaption\\\"><img src=\\\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-08-um-11.40.09.png\\\"
+        class=\\\"kg-image\\\" alt=\\\"\\\" loading=\\\"lazy\\\" width=\\\"2000\\\"
+        height=\\\"846\\\" srcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/01/Bildschirmfoto-2024-01-08-um-11.40.09.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/01/Bildschirmfoto-2024-01-08-um-11.40.09.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/01/Bildschirmfoto-2024-01-08-um-11.40.09.png
+        1600w, https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-08-um-11.40.09.png
+        2356w\\\" sizes=\\\"(min-width: 720px) 720px\\\"><figcaption><span style=\\\"white-space:
+        pre-wrap;\\\">Reading Rogue Scholar posts in Zotero</span></figcaption></figure><p>Automated
+        PDF generation is not trivial, and the initial implementation still has issues.
+        Some PDFs are not generated properly, and the default layout can be improved.
+        One major challenge is the images attached to blog posts - they are still
+        stored with the respective blogs.</p><p>More fundamentally PDF has two important
+        major limitations: it is an output format and can't be used to convert to
+        other formats, and it doesn't easily adapt to smaller screen sizes. <a href=\\\"https://en.wikipedia.org/wiki/EPUB\\\"
+        rel=\\\"noreferrer\\\">ePub</a> overcomes both these limitations and therefore
+        Rogue Scholar also provides an ePub version of every blog post, again using
+        Pandoc. As with PDF, there is a lot of work to do to improve the look and
+        feel of the ePub output, and to fix bugs. Look for many small improvements
+        in the coming three months \u2013 and please provide feedback via comments
+        and issues at the <a href=\\\"https://github.com/front-matter/rogue-scholar-api\\\"
+        rel=\\\"noreferrer\\\">Rogue Scholar API open source repository</a>. The popular
+        open source reference manager Zotero is adding ePub support in its upcoming
+        version 7, available in <a href=\\\"https://forums.zotero.org/discussion/105094/announcing-the-zotero-7-beta\\\"
+        rel=\\\"noreferrer\\\">Zotero 7 Beta since May 2023</a>, and thus ePub can
+        also be used to store the full-text content of Rogue Scholar blog posts.</p><figure
+        class=\\\"kg-card kg-image-card kg-card-hascaption\\\"><img src=\\\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-08-um-12.06.06.png\\\"
+        class=\\\"kg-image\\\" alt=\\\"\\\" loading=\\\"lazy\\\" width=\\\"2000\\\"
+        height=\\\"944\\\" srcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/01/Bildschirmfoto-2024-01-08-um-12.06.06.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/01/Bildschirmfoto-2024-01-08-um-12.06.06.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/01/Bildschirmfoto-2024-01-08-um-12.06.06.png
+        1600w, https://blog.front-matter.io/content/images/size/w2400/2024/01/Bildschirmfoto-2024-01-08-um-12.06.06.png
+        2400w\\\" sizes=\\\"(min-width: 720px) 720px\\\"><figcaption><span style=\\\"white-space:
+        pre-wrap;\\\">Reading Rogue Scholar posts in Zotero (ePub version)</span></figcaption></figure><p>Blog
+        posts in ePub format have been discussed on this blog before. In <a href=\\\"https://doi.org/10.53731/r294649-6f79289-8cw76\\\"
+        rel=\\\"noreferrer\\\">February 2011</a> I released a Wordpress plugin that
+        turns blog posts into ePub files. Has the time for ePub finally arrived or
+        will PDF remain the preferred format for (shorter) scholarly documents? Or
+        should Rogue Scholar support other output formats, e.g. Journal Article Tag
+        Suite (<a href=\\\"https://pandoc.org/jats.html\\\" rel=\\\"noreferrer\\\">JATS</a>),
+        the standard format for scholarly articles?</p><h2 id=\\\"references\\\">References</h2><p>Fenner,
+        M. (2023). <em>Archiving individual science blog posts</em>. <a href=\\\"https://doi.org/10.53731/5vvnh-tnm55\\\">https://doi.org/10.53731/5vvnh-tnm55</a></p><p>Mounce,
+        R. (2023). <em>Resilience: Another advantage of openly-licensed content</em>.
+        <a href=\\\"https://doi.org/10.59350/psmbr-f6p84\\\">https://doi.org/10.59350/psmbr-f6p84</a></p><p>Fenner,
+        M. (2023). <em>Archiving Rogue Scholar blogs with the Internet Archive</em>.
+        <a href=\\\"https://doi.org/10.53731/g60vh-3ng48\\\">https://doi.org/10.53731/g60vh-3ng48</a></p><p>Fenner,
+        M. (2011). <em>ePub WordPress plugin released today</em>. <a href=\\\"https://doi.org/10.53731/r294649-6f79289-8cw76\\\">https://doi.org/10.53731/r294649-6f79289-8cw76</a></p>\",\"comment_id\":\"659bc2953ab8810001a95961\",\"feature_image\":\"https://blog.front-matter.io/content/images/2024/01/bookcase.png\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2024-01-08T09:38:29.000+00:00\",\"updated_at\":\"2024-01-10T08:54:03.000+00:00\",\"published_at\":\"2024-01-08T11:23:55.000+00:00\",\"custom_excerpt\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":\"https://doi.org/10.53731/1dfxr-hs665\",\"tags\":[{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
+        explore issues raised by news stories in more depth.\",\"feature_image\":\"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHJlc2VhcmNofGVufDB8fHx8MTYxODEyMzQxNQ&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/feature/\"}],\"authors\":[{\"id\":\"1\",\"name\":\"Martin
+        Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"}],\"primary_author\":{\"id\":\"1\",\"name\":\"Martin
+        Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"},\"primary_tag\":{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
+        explore issues raised by news stories in more depth.\",\"feature_image\":\"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHJlc2VhcmNofGVufDB8fHx8MTYxODEyMzQxNQ&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/feature/\"},\"url\":\"https://blog.front-matter.io/posts/rogue-scholar-blog-posts-markdown-epub-and-pdf-formats/\",\"excerpt\":\"The
+        Rogue Scholar science blog archive starts 2024 with an important release:
+        all blog posts (more than 13,000) are now available for download in Markdown,
+        ePub, and PDF formats. This builds on work completed in December to store
+        the full text of every Rogue Scholar blog post in Markdown format in the Rogue
+        Scholar backend. Combined with the metadata in YAML format, these posts can
+        now be downloaded via the Rogue Scholar API, e.g. https://api.rogue-scholar.org/posts/10.53731/5vvnh-tnm55?format=m\",\"reading_time\":3,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":null,\"feature_image_caption\":null},{\"id\":\"6577338e3ab8810001a95843\",\"uuid\":\"d708c2da-b017-449b-8592-9dba901226de\",\"title\":\"Archiving
         individual science blog posts\",\"slug\":\"archiving-individual-science-blog-posts\",\"html\":\"<p>Sometimes
         we want to preserve a blog post to read or reuse later. There are generic
         tools for that purpose, including read-it-later apps such as <a href=\\\"https://www.instapaper.com\\\"
@@ -3511,391 +3851,14 @@ interactions:
         strange in the context of scholarly blog po\",\"reading_time\":5,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":\"James
         Brown\",\"feature_image_caption\":\"<strong>James Brown</strong>. Photo by
         Roger Woolman, <a href=\\\"https://creativecommons.org/licenses/by/3.0\\\">CC
-        BY 3.0</a>, via Wikimedia Commons\"},{\"id\":\"63a065635b7024003dd39b91\",\"uuid\":\"91ae440f-dba5-430f-bc16-57728819ccb8\",\"title\":\"Launching
-        the Front Matter Roadmap\",\"slug\":\"front-matter-roadmap\",\"html\":\"<p>In
-        a <a href=\\\"https://doi.org/10.53731/br9f5xa-a556w2t\\\">blog post last
-        week</a> I talked about what I am currently working on, namely a) helping
-        to make it easier (and safer) to run the <a href=\\\"https://inveniordm.docs.cern.ch/\\\">InvenioRDM</a>
-        digital repository software in Docker container infrastructure, and b) working
-        on converting the bolognese metadata conversion Ruby gem <a href=\\\"https://github.com/front-matter/talbot\\\">to
-        Python</a> to enhance InvenioRDM functionality. </p><p>To get updates on this
-        work you can follow the <a href=\\\"https://github.com/front-matter\\\">Front
-        Matter GitHub repositories</a> \u2013 the work I am doing at Front Matter
-        is mostly happening in public code repositories. But maybe you are really
-        only interested in basic information, e.g. what I am working on, when it is
-        ready, and providing some high-level input. There are several ways one can
-        provide this high-level information, but usually, that is too much information
-        for a blog like this one, and too much technical detail in a code repository.
-        There are plenty of tools and services available for this typical <a href=\\\"https://www.atlassian.com/agile/product-management\\\">product
-        management work</a>, but most of them are not a good fit more a small startup
-        like Front Matter.</p><p>Today I am announcing four new (and related) ways
-        you can follow the work Front Matter is doing, and provide feedback and other
-        input:</p><ul><li>the <a href=\\\"https://feedback.front-matter.io/b/8mywxw07/feature-ideas\\\">Front
-        Matter Ideas</a> Forum, where users can suggest features and improvements
-        for Front Matter services \u2013 currently that is services planned to launch
-        in 2023 like the Scholarly Blog Archive mentioned above,</li><li>the <a href=\\\"https://feedback.front-matter.io/roadmap\\\">Front
-        Matter Roadmap</a> gives a high-level view (planned/in development/launched)
-        of the work that Front Matter is doing,</li><li>the <a href=\\\"https://feedback.front-matter.io/announcements\\\">Front
-        Matter Announcements</a> are a changelog of smaller achievements and bug fixes
-        that don't make it into the Front Matter blog, and</li><li>the <a href=\\\"https://discord.gg/AZHDtKP3\\\">Front
-        Matter Discord Server</a> for problems, ideas, and general discussions related
-        to Front Matter.</li></ul><p>And of course, you can also interact with Front
-        Matter via <a href=\\\"mailto:info@front-matter.io\\\">email</a> or <a href=\\\"https://hachyderm.io/@mfenner\\\">Mastodon</a>.
-        You no longer find Front Matter or me personally on Twitter, as this has become
-        a chaotic, unfriendly, and toxic place with an uncertain future.</p><p>With
-        that, I wish all of you a peaceful and relaxing holiday season and a good
-        start into 2023.</p>\",\"comment_id\":\"63a065635b7024003dd39b91\",\"feature_image\":\"https://blog.front-matter.io/content/images/2022/12/Bildschirm-foto-2022-12-19-um-15.16.52.png\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2022-12-19T13:21:39.000+00:00\",\"updated_at\":\"2022-12-19T14:20:17.000+00:00\",\"published_at\":\"2022-12-19T14:20:17.000+00:00\",\"custom_excerpt\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":\"https://doi.org/10.53731/cbdtfp1-1798beh\",\"tags\":[{\"id\":\"62d42a7be1424c003158c328\",\"name\":\"News\",\"slug\":\"news\",\"description\":null,\"feature_image\":\"https://images.unsplash.com/photo-1546422904-90eab23c3d7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fG5ld3N8ZW58MHx8fHwxNjYwNTk1NzUy&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/news/\"}],\"authors\":[{\"id\":\"1\",\"name\":\"Martin
-        Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"}],\"primary_author\":{\"id\":\"1\",\"name\":\"Martin
-        Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"},\"primary_tag\":{\"id\":\"62d42a7be1424c003158c328\",\"name\":\"News\",\"slug\":\"news\",\"description\":null,\"feature_image\":\"https://images.unsplash.com/photo-1546422904-90eab23c3d7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fG5ld3N8ZW58MHx8fHwxNjYwNTk1NzUy&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/news/\"},\"url\":\"https://blog.front-matter.io/posts/front-matter-roadmap/\",\"excerpt\":\"In
-        a blog post last week I talked about what I am currently working on, namely
-        a) helping to make it easier (and safer) to run the InvenioRDM digital repository
-        software in Docker container infrastructure, and b) working on converting
-        the bolognese metadata conversion Ruby gem to Python to enhance InvenioRDM
-        functionality.\\n\\nTo get updates on this work you can follow the Front Matter
-        GitHub repositories \u2013 the work I am doing at Front Matter is mostly happening
-        in public code repositories. But may\",\"reading_time\":1,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":\"In
-        a blog post last week I talked about what I am currently working on, namely
-        a) helping to make it easier (and safer) to run the InvenioRDM digital repository
-        software in Docker container infrastructure, and b) working on converting
-        the bolognese metadata conversion Ruby gem to Python to enhance InvenioRDM
-        functionality.\",\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":null,\"feature_image_caption\":null},{\"id\":\"639702744774c5004dd5ed83\",\"uuid\":\"ea6d2d56-1efe-433c-937a-fb166da9cdd9\",\"title\":\"Building
-        an archive for scholarly blog posts\",\"slug\":\"building-an-archive-for-scholarly-blog-posts\",\"html\":\"<p>This
-        blog post is a follow-up to a post in September (Fenner 2022a), where I announced
-        that I had started working on an archive for scholarly blog posts based on
-        the <a href=\\\"https://inveniordm.docs.cern.ch/\\\">InvenioRDM</a> open-source
-        repository software. In the last two months, I focussed on two activities
-        \u2013 besides lots of physical therapy and other training following a stroke
-        earlier this year (Fenner 2022b): helping to make it easier (and safer) to
-        run InvenioRDM in Docker container infrastructure, and working on converting
-        the bolognese metadata conversion Ruby gem (Fenner 2017) to Python (work in
-        progress on <a href=\\\"https://github.com/front-matter/talbot\\\">GitHub</a>)
-        to enhance InvenioRDM functionality. </p><p>Building an archive of scholarly
-        blog posts faces the same fundamental challenges as repositories for other
-        types of scholarly content, whether data, software, preprints, or journal
-        articles. You have to collect metadata and content, and that approach only
-        scales with standardization and open licenses.</p><p>Luckily we already know
-        a lot about required and optional but desired scholarly metadata, and they
-        are fundamentally not different for scholarly blog posts. This means we can
-        take similar approaches as we have for example taken for research data:</p><figure
-        class=\\\"kg-card kg-image-card kg-card-hascaption\\\"><img src=\\\"https://blog.front-matter.io/content/images/2022/12/guidelines-3.png\\\"
-        class=\\\"kg-image\\\" alt loading=\\\"lazy\\\" width=\\\"815\\\" height=\\\"363\\\"
-        srcset=\\\"https://blog.front-matter.io/content/images/size/w600/2022/12/guidelines-3.png
-        600w, https://blog.front-matter.io/content/images/2022/12/guidelines-3.png
-        815w\\\" sizes=\\\"(min-width: 720px) 720px\\\"><figcaption><strong>Guidelines
-        for Repositories. </strong>Fenner et al. 2019.</figcaption></figure><p>Persistent
-        identifiers for blog posts can be DOIs, as this blog is doing since earlier
-        this year (Fenner 2022). The main advantage of using DOIs is registering standard
-        metadata stored independently of the blogging platform, in case the platform
-        changes or disappears (as has happened several times in the 15 years this
-        blog exists). While there are several blogs using DOIs for their posts, they
-        often fail in guideline #4: <em>the persistent identifier must be embedded
-        in the landing page in machine-readable format. </em>This is important so
-        that reference managers can capture the DOI and retrieve the associated metadata.</p><p>When
-        the metadata are embedded directly in the blog post, schema.org markup in
-        JSON-LD format (guideline #7) is much more convenient than HTML meta tags
-        (guideline #8), but for the time being reference managers only work with the
-        latter. The blogging platform used for this blog (<a href=\\\"https://ghost.org/\\\">https://ghost.org/</a>)
-        has schema.org metadata built in, and there was only a small amount of work
-        needed to expose all metadata needed (or desired) for DOI registration:</p><ul><li><a
-        href=\\\"https://support.google.com/webmasters/answer/10347851\\\"><strong>Canonical
-        URL</strong></a>: the DOI for the blog post</li><li><strong>License</strong>:
-        the Creative Commons license for the content (this blog uses the <a href=\\\"https://creativecommons.org/licenses/by/4.0/legalcode\\\">Creative
-        Commons Attribution 4.0 License</a>)</li><li><strong>ISSN</strong>: the Internal
-        Standard Serial Number of this blog (2749-9952)</li></ul><p>An issue I have
-        seen with schema.org metadata is that sometimes they are added by a script
-        running in the browser instead of coming from the server, and this makes metadata
-        harvesting unreliable. Multiple versions and different levels of granularity
-        \u2013 a major challenge when working with data and software \u2013 luckily
-        is not a major issue with scholarly blogs, in this regard, they behave similarly
-        to preprints and journal articles.</p><h3 id=\\\"infrastructure-for-archiving-scientific-blog-posts\\\">Infrastructure
-        for Archiving Scientific Blog Posts</h3><p>There are several possible approaches
-        to building infrastructure for scholarly blog posts, and they all have well-known
-        real-world examples:</p><ul><li><strong>A central repository</strong><br>A
-        good example is the <a href=\\\"https://arxiv.org/\\\">ArXiv.org e-Print archive</a>,
-        which hosts more than two million preprints in physics, mathematics, computer
-        science, and some other fields, and is doing that for more than 25 years.
-        All content and metadata are registered and stored in a central location (<a
-        href=\\\"https://blog.arxiv.org/2022/02/17/new-arxiv-articles-are-now-automatically-assigned-dois/\\\">since
-        earlier this year using DOIs</a>), and then distributed elsewhere, often domain-specific
-        resources such as <a href=\\\"https://ui.adsabs.harvard.edu/\\\">ADS</a> (astrophysics)
-        and <a href=\\\"https://inspirehep.net/\\\">InspireHEP</a> (high-energy physics).
-        ArXiv is hosted by Cornell University.</li><li><strong>A central archive with
-        content published in many places</strong><br><a href=\\\" https://pubmed.ncbi.nlm.nih.gov\\\">PubMed</a>
-        (metadata) and <a href=\\\" https://www.ncbi.nlm.nih.gov\\\">PubMed Central</a>
-        (metadata and content) are the main archives of biomedical and life sciences
-        journal literature, again doing this for more than 25 years. The content with
-        metadata is published in many different places but aggregated in PubMed/PubMed
-        Central. Just like ADS and InspireHEP, PubMed and PubMed Central (and <a href=\\\"https://europepmc.org/\\\">Europe
-        PMC</a>) are the central resources for scientists in the field to discover
-        the relevant literature. PubMed uses the <a href=\\\"https://en.wikipedia.org/wiki/PubMed#PubMed_identifier\\\">PMID</a>,
-        which can be mapped to the corresponding DOI as persistent identifier. For
-        full-text content not included in PubMed Central, PubMed links out to publisher
-        websites. PubMed is hosted by the <a href=\\\"https://www.nlm.nih.gov/\\\">National
-        Library of Medicine</a> at the U.S. National Institutes of Health (NIH). NIH
-        is the largest funder in the biomedical and life sciences, and its policies
-        help PubMed Central host content.</li><li><strong>A central archive with content
-        published elsewhere</strong><br>The repository <a href=\\\"https://zenodo.org/\\\">Zenodo</a>
-        is the largest generic repository of scholarly content with more than 1.5
-        million publications, and a million datasets, software, images, and presentations.
-        Almost all content uses open licenses (either one of the Creative Commons
-        licenses or <a href=\\\"https://opensource.org/licenses\\\">Open Source Initiative
-        approved licenses</a> for software), facilitating the reuse of the content.
-        Zenodo issues DOIs for its content, the DOI points to the Zenodo repository
-        also for content originally registered elsewhere (e.g. software hosted on
-        GitHub). Zenodo is particularly relevant for the planned blog posts archive,
-        as the InvenioRDM software is based on Zenodo software and work is in progress
-        for InvenioRDM to power Zenodo. Zenodo is hosted by <a href=\\\"https://home.cern/\\\">CERN</a>,
-        the European Organization of Nuclear Research, the central resource for high-energy
-        physics research.</li></ul><p>Based on the above, what makes sense for a scholarly
-        blog post archive?</p><ul><li>Blogs are very decentralized based on their
-        technology and 20-year history. While blogging platforms also have a long
-        history (and Wordpress is the elephant in the room powering more than <a href=\\\"https://blog.hubspot.com/website/wordpress-stats\\\">40%
-        of all websites</a>), a central blogging platform for science blogs similar
-        to what ArXiv is doing in several fields is neither realistic nor desirable.</li><li>DOIs
-        are a good fit as persistent identifiers for scholarly blogs. A lot of tools
-        and services exist for them (including the InvenioRDM open source software),
-        and the required and desired metadata for blogs are basically covered by DOI
-        metadata (at least for Crossref and DataCite DOIs). Minor issues are that
-        there is no dedicated content type for blog posts and that <strong>feature
-        image</strong> metadata (supported by schema.org) would be beneficial.</li><li>The
-        business models for DOI registrations need to be adapted to work better for
-        scholarly blogs. A high fixed annual fee (DataCite) or a DOI pointing to a
-        central archive instead of the original content (software in Zenodo) are hurdles
-        for the long tail of independent science bloggers.</li><li>We need business
-        models for sustainable science blogging infrastructure. Advertisements aren't
-        working (the German platform scienceblogs.de is for example closing at the
-        end of year) and individual readers paying for content might work for popular
-        newsletters but doesn't align with Open Science practices. More work is needed,
-        but one key element is cheap and simple infrastructure.</li><li>Existing blogging
-        software (e.g. <a href=\\\"https://wordpress.org/\\\">Wordpress</a>, <a href=\\\"https://ghost.org/\\\">Ghost</a>,
-        <a href=\\\"https://gohugo.io/\\\">Hugo</a>, or <a href=\\\"https://jekyllrb.com/\\\">Jekyll</a>)
-        <em>almost</em> works for scholar blogs. Some minor changes (particularly
-        around the canonical URL/persistent identifier) are required to improve the
-        use in reference managers and archiving services.</li><li>We need a standard
-        archiving format for scholarly blogs. <a href=\\\"https://jats.nlm.nih.gov/\\\">JATS</a>
-        (Journal Article Tag Suite) is a standard for scholarly articles, but probably
-        too heavy for blog posts. More work is needed and it should align with <a
-        href=\\\"https://en.wikipedia.org/wiki/RSS\\\">RSS</a> (Really Simple Syndication),
-        the 20-year-old standard for distributing content from blogs and similar sources.
-        \_The biggest gap is maybe a standard way to describe links and references.</li><li>We
-        need aggregation of science blog metadata and content in a central archive.
-        This enables much easier discovery and long-term archiving, I still enjoy
-        reading an interview I did with Geoff Bilder in 2009 (Fenner 2009), and the
-        points he makes are still relevant. The blog posts had moved at least three
-        times over the years and would have greatly benefitted from a DOI, standard
-        archiving format, and a long-term archive as home.</li><li>I have started
-        the work of building the infrastructure for archiving scholarly blogs, but
-        I am fully aware that this is not only a technical challenge but even more
-        so one of governance and community engagement. This needs much more work in
-        2023 and onwards, and something I look forward to working on jointly with
-        others.</li></ul><h3 id=\\\"references\\\">References</h3><p>Fenner, M. (2022a).
-        <em>Starting Work on the Front Matter Archive</em> [Blog]. Front Matter. <a
-        href=\\\"https://doi.org/10.53731/9z6rz5d-djbay0y\\\">https://doi.org/10.53731/9z6rz5d-djbay0y</a></p><p>Fenner,
-        M. (2022b). <em>I spent the last five months in the hospital</em> [Blog].
-        Front Matter. <a href=\\\"https://doi.org/10.53731/bkkzj8g-gd14mb6\\\">https://doi.org/10.53731/bkkzj8g-gd14mb6</a></p><p>Fenner,
-        M. (2017). <em>Bolognese: A Ruby library for conversion of DOI Metadata</em>.
-        DataCite. <a href=\\\"https://doi.org/10.5438/N138-Z3MK\\\">https://doi.org/10.5438/N138-Z3MK</a></p><p>Fenner,
-        M., Crosas, M., Grethe, J. S., Kennedy, D., Hermjakob, H., Rocca-Serra, P.,
-        Durand, G., Berjon, R., Karcher, S., Martone, M., &amp; Clark, T. (2019).
-        A data citation roadmap for scholarly data repositories. <em>Scientific Data</em>,
-        <em>6</em>(1), Article. <a href=\\\"https://doi.org/10.1038/s41597-019-0031-8\\\">https://doi.org/10.1038/s41597-019-0031-8</a></p><p>Fenner,
-        M. (2022c). <em>DOI Registrations for all Ghost Blogs</em> [Blog]. Front Matter.
-        <a href=\\\"https://doi.org/10.53731/fezg09h-hgn1gzm\\\">https://doi.org/10.53731/fezg09h-hgn1gzm</a></p><p>Fenner,
-        M. (2009). <em>Interview with Geoffrey Bilder</em> [Blog]. Front Matter. <a
-        href=\\\"https://doi.org/10.53731/r294649-6f79289-8cw1h\\\">https://doi.org/10.53731/r294649-6f79289-8cw1h</a></p>\",\"comment_id\":\"639702744774c5004dd5ed83\",\"feature_image\":\"https://blog.front-matter.io/content/images/2022/12/guidelines-4.png\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2022-12-12T10:29:08.000+00:00\",\"updated_at\":\"2023-06-28T13:39:53.000+00:00\",\"published_at\":\"2022-12-12T12:58:33.000+00:00\",\"custom_excerpt\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":\"https://doi.org/10.53731/br9f5xa-a556w2t\",\"tags\":[{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
-        explore issues raised by news stories in more depth.\",\"feature_image\":\"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHJlc2VhcmNofGVufDB8fHx8MTYxODEyMzQxNQ&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/feature/\"}],\"authors\":[{\"id\":\"1\",\"name\":\"Martin
-        Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"}],\"primary_author\":{\"id\":\"1\",\"name\":\"Martin
-        Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"},\"primary_tag\":{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
-        explore issues raised by news stories in more depth.\",\"feature_image\":\"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHJlc2VhcmNofGVufDB8fHx8MTYxODEyMzQxNQ&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/feature/\"},\"url\":\"https://blog.front-matter.io/posts/building-an-archive-for-scholarly-blog-posts/\",\"excerpt\":\"This
-        blog post is a follow-up to a post in September (Fenner 2022a), where I announced
-        that I had started working on an archive for scholarly blog posts based on
-        the InvenioRDM open-source repository software. In the last two months, I
-        focussed on two activities \u2013 besides lots of physical therapy and other
-        training following a stroke earlier this year (Fenner 2022b): helping to make
-        it easier (and safer) to run InvenioRDM in Docker container infrastructure,
-        and working on converting the bolognes\",\"reading_time\":6,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":null,\"feature_image_caption\":null},{\"id\":\"6334542a03f092003d16ca5b\",\"uuid\":\"728d6c13-05ae-4416-8827-b705a4b3abc7\",\"title\":\"Starting
-        Work on the Front Matter Archive\",\"slug\":\"starting-work-on-the-front-matter-archive\",\"html\":\"<p>In
-        August 2021 <a href=\\\"https://doi.org/10.53731/r8c26t1-97aq74v-ag66m\\\">I
-        joined the InvenioRDM project</a> to help develop and host a modern repository
-        platform for scholarly content. Things didn't exactly go as planned at the
-        beginning of 2022, and I spent <a href=\\\"https://doi.org/10.53731/bkkzj8g-gd14mb6\\\">five
-        months in the hospital</a> with serious personal health issues. Since returning
-        home in early June, my health has improved considerably, and in September
-        I was able to slowly start working again. This has worked well for me, so
-        it is time to time to set goals for my work on the InvenioRDM project again.</p><h3
-        id=\\\"announcing-the-front-matter-archive\\\">Announcing the Front Matter
-        Archive</h3><blockquote>Front Matter will be launching a repository to host
-        the full-text content of scholarly blogs in the first quarter of 2023. </blockquote><p>The
-        starting point will be the over 450 blog posts that I have published <a href=\\\"https://doi.org/10.53731/bs60jms-sqaehsk\\\">over
-        the last 15 years</a>, but the archive is of course open to content from all
-        scholarly blogs. The goal is to both offer a useful resource for the scholarly
-        community and to learn something about hosting InvenioRDM. An archive of scholarly
-        blog posts is a good starting point, as blogs tend to change technology or
-        location every few years, and older content then often becomes unavailable.
-        Issuing DOIs for blog posts is part of the solution (e.g. this makes citing
-        the blog posts much easier), but a stable long-term archive of the content
-        is equally important. A challenge that scholarly blog posts share with many
-        other often ephemeral scholarly resources, e.g. data and software.</p><h3
-        id=\\\"setting-up-the-inveniordm-software\\\">Setting up the InvenioRDM Software</h3><p>The
-        <a href=\\\"https://inveniosoftware.org/products/rdm/\\\">InvenioRDM</a> open-source
-        software has seen a lot of work in the last several years and is currently
-        at <a href=\\\"https://inveniordm.docs.cern.ch/releases/versions/version-v9.1.0/\\\">version
-        9.1</a>. Several project partners are working on releasing a production version
-        within the next twelve months, and the Caltech Library was the<a href=\\\"https://library.caltech.edu/blog/CaltechDATA-InvenioRDM\\\">
-        first to do so last week</a>. Repository software is a complex piece of infrastructure,
-        and a lot of work is expected for the proper configuration of the Front Matter
-        Archive, including customization of the theme, authentication, etc.</p><h3
-        id=\\\"running-the-front-matter-archive-in-a-kubernetes-cluster\\\">Running
-        the Front Matter Archive in a Kubernetes Cluster</h3><p><a href=\\\"https://kubernetes.io/\\\">Kubernetes</a>
-        in the last few years has become the de facto standard for deploying containerized
-        applications such as InvenioRDM. Unfortunately running a Kubernetes cluster
-        is not easy, but it will make things easier eventually (e.g. monitoring, scaling,
-        and security), and it can be set up in a variety of environments from private
-        clouds to public cloud providers. Front Matter will be using a managed Kubernetes
-        cluster provided by <a href=\\\"https://www.digitalocean.com/\\\">Digitalocean</a>
-        and provisioned by the infrastructure as code open source software tool <a
-        href=\\\"https://www.terraform.io/\\\">Terraform</a>. Kubernetes will not
-        host everything. At least in the initial version Front Matter will use hosted
-        databases and hosted cloud object storage to store files and metadata, as
-        Kubernetes (and containers) excel when running stateless applications, but
-        more work is needed for <a href=\\\"https://cloud.google.com/kubernetes-engine/docs/how-to/stateful-apps\\\">stateful
-        applications</a>.</p><h3 id=\\\"archiving-full-text-blog-content\\\">Archiving
-        full-text Blog Content</h3><p>Front Matter will aim to archive blog posts
-        via available APIs (as can be done with the Front Matter Blog), but we will
-        have to take a flexible approach as full-text content will be provided in
-        a variety of formats, e.g. RSS feeds. The initial focus will be on the <a
-        href=\\\"https://ghost.org/\\\">Ghost</a> and <a href=\\\"https://wordpress.org/\\\">Wordpress</a>
-        blogging platforms. We will help with issuing DOIs for this content and help
-        to archive associated images. We are only interested in content with an open
-        license (<a href=\\\"https://creativecommons.org/licenses/by/4.0/\\\">CC-BY</a>
-        or <a href=\\\"https://creativecommons.org/publicdomain/zero/1.0/\\\">CCO</a>)
-        to maximize the potential reuse of the blog archive.</p><h3 id=\\\"future-of-the-archive\\\">Future
-        of the Archive</h3><p>After the initial setup of the blog archive, the focus
-        will be on expanding content and on providing added value. Please reach out
-        via email, Discord, or comments if you have scholarly blog content you want
-        to be archived by Front Matter, or have suggestions for added functionality.
-        One feature I want to see improved in InvenioRDM is better support for full-text
-        HTML in addition to embedding PDF and other formats. In the coming months,
-        I will also work on the cost model. There is a moderate cost to archive a
-        blog post (mostly for ingesting content), but these costs would add up if
-        blog posts are added by the thousands.</p>\",\"comment_id\":\"6334542a03f092003d16ca5b\",\"feature_image\":\"https://images.unsplash.com/photo-1628046902759-c94ab525fdaf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDE1fHxhcmNoaXZlfGVufDB8fHx8MTY2NDM3NDk3OA&ixlib=rb-1.2.1&q=80&w=2000\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2022-09-28T14:03:22.000+00:00\",\"updated_at\":\"2022-09-28T16:11:52.000+00:00\",\"published_at\":\"2022-09-28T16:10:57.000+00:00\",\"custom_excerpt\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":\"https://doi.org/10.53731/9z6rz5d-djbay0y\",\"tags\":[{\"id\":\"62d42a7be1424c003158c328\",\"name\":\"News\",\"slug\":\"news\",\"description\":null,\"feature_image\":\"https://images.unsplash.com/photo-1546422904-90eab23c3d7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fG5ld3N8ZW58MHx8fHwxNjYwNTk1NzUy&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/news/\"}],\"authors\":[{\"id\":\"1\",\"name\":\"Martin
-        Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"}],\"primary_author\":{\"id\":\"1\",\"name\":\"Martin
-        Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"},\"primary_tag\":{\"id\":\"62d42a7be1424c003158c328\",\"name\":\"News\",\"slug\":\"news\",\"description\":null,\"feature_image\":\"https://images.unsplash.com/photo-1546422904-90eab23c3d7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fG5ld3N8ZW58MHx8fHwxNjYwNTk1NzUy&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/news/\"},\"url\":\"https://blog.front-matter.io/posts/starting-work-on-the-front-matter-archive/\",\"excerpt\":\"In
-        August 2021 I joined the InvenioRDM project to help develop and host a modern
-        repository platform for scholarly content. Things didn't exactly go as planned
-        at the beginning of 2022, and I spent five months in the hospital with serious
-        personal health issues. Since returning home in early June, my health has
-        improved considerably, and in September I was able to slowly start working
-        again. This has worked well for me, so it is time to time to set goals for
-        my work on the InvenioRDM project aga\",\"reading_time\":3,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":null,\"feature_image_caption\":\"Photo
-        by <a href=\\\"https://unsplash.com/@unarchive?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\\\">Jeremy
-        Bezanger</a> / <a href=\\\"https://unsplash.com/?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\\\">Unsplash</a>\"},{\"id\":\"630c96b3683f4b003d5cd484\",\"uuid\":\"57ec5c34-8f10-4130-adcd-f6ae0e6f18cf\",\"title\":\"Adding
-        Feature Images to Blog Posts\",\"slug\":\"adding-feature-images\",\"html\":\"<p>Feature
-        images are commonly used for blog posts, including on this blog. We can use
-        our screenshots or photos or stock photos (ideally license free or with an
-        open license) from sites like <a href=\\\"https://flickr.com/\\\">Flickr</a>,
-        <a href=\\\"https://unsplash.com/\\\">Unsplash</a>, or <a href=\\\"https://www.pexels.com/\\\">Pexels</a>.
-        More recently, we can also use artificial intelligence tools such as <a href=\\\"https://openai.com/dall-e-2/\\\">DALL\xB7E
-        2</a> that generate images from a description in natural language.</p><p>As
-        today is the launch of the first <a href=\\\"https://www.nasa.gov/specials/artemis-i/\\\">NASA
-        mission</a> to the moon in fifty years, it seems appropriate to commemorate
-        that historic event with a feature image showing a rocket, in this case with
-        a garden gnome in the style of a Picasso painting generated by DALL\xB7E 2.
-        I've added about a dozen feature images to this blog with various motives
-        and styles all generated DALL\xB7E 2. The only thing they have in common is
-        that they feature a garden gnome with an umbrella. Try to find them and tell
-        me in the comments which one you like best.</p>\",\"comment_id\":\"630c96b3683f4b003d5cd484\",\"feature_image\":\"https://blog.front-matter.io/content/images/2022/08/DALL-E-2022-08-29-12.35.48---Picasso-painting-of-a-garden-gnome-with-an-umbrella-in-front-of-the-Artemis-launch-rocket.png\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2022-08-29T10:36:35.000+00:00\",\"updated_at\":\"2022-12-11T21:47:40.000+00:00\",\"published_at\":\"2022-08-29T11:08:23.000+00:00\",\"custom_excerpt\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":\"https://doi.org/10.53731/c6dwz6z-zzz0b3q\",\"tags\":[{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
-        explore issues raised by news stories in more depth.\",\"feature_image\":\"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHJlc2VhcmNofGVufDB8fHx8MTYxODEyMzQxNQ&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/feature/\"}],\"authors\":[{\"id\":\"1\",\"name\":\"Martin
-        Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"}],\"primary_author\":{\"id\":\"1\",\"name\":\"Martin
-        Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"},\"primary_tag\":{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
-        explore issues raised by news stories in more depth.\",\"feature_image\":\"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHJlc2VhcmNofGVufDB8fHx8MTYxODEyMzQxNQ&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/feature/\"},\"url\":\"https://blog.front-matter.io/posts/adding-feature-images/\",\"excerpt\":\"Feature
-        images are commonly used for blog posts, including on this blog. We can use
-        our screenshots or photos or stock photos (ideally license free or with an
-        open license) from sites like Flickr, Unsplash, or Pexels. More recently,
-        we can also use artificial intelligence tools such as DALL\xB7E 2 that generate
-        images from a description in natural language.\\n\\nAs today is the launch
-        of the first NASA mission to the moon in fifty years, it seems appropriate
-        to commemorate that historic event with a fe\",\"reading_time\":1,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":null,\"feature_image_caption\":null},{\"id\":\"6307a551683f4b003d5cd43b\",\"uuid\":\"f6fdb202-2a93-4f60-85b9-b92664f1d4d0\",\"title\":\"DOI
-        Registrations for all Ghost Blogs\",\"slug\":\"doi-registrations-for-all-blog\",\"html\":\"<p>This
-        blog since earlier this month is no longer using a <a href=\\\"https://doi.org/10.53731/cgdnpqv-vxss4fm\\\">JAMStack</a>
-        setup but a regular Ghost setup using <a href=\\\"https://ghost.org/pricing/\\\">Ghost
-        Pro </a>for hosting. The primary driver were the new native search and native
-        comments, but I needed to do a little bit of work to keep the DOI registration
-        working. This is done now, and an added benefit is that DOI registration is
-        now straightforward for any blog that uses Ghost as a platform.</p><h3 id=\\\"requirements\\\">Requirements</h3><ul><li>An
-        account to register DOIs with Crossref or DataCite</li><li>A Ghost blog that
-        allows custom themes (e.g via <a href=\\\"https://ghost.org/pricing/\\\">Ghost
-        Pro</a>, <a href=\\\"https://www.digitalpress.blog/pricing\\\">DigitalPress</a>,
-        or self-hosted)</li></ul><h3 id=\\\"blog-configuration\\\">Blog Configuration</h3><p>We
-        expose all metadata via schema.org upon publication, which is parsed and converted
-        to Crossref or DataCite XML using a GitHub Action. All the metadata we need
-        (e.g. author, title, and publication date) are already exposed as schema.org.
-        The only required element missing is the DOI.</p><p>You can come up with your
-        own unique DOI scheme, but it is easier (and <a href=\\\"https://blog.front-matter.io/posts/cool-dois/\\\">cooler</a>)
-        using the <a href=\\\"https://rubygems.org/gems/briard\\\">briard Ruby gem</a>
-        (version 2.4.2 and up) to generate a random DOI using your DOI prefix:</p><!--kg-card-begin:
-        html--><code>briard encode 10.53731\\n  => https://doi.org/10.53731/cgdnpqv-vxss4fm\\n</code><!--kg-card-end:
-        html--><p>This DOI is then entered in the post settings for the <a href=\\\"https://en.wikipedia.org/wiki/Canonical_link_element\\\">canonical
-        URL</a>:</p><figure class=\\\"kg-card kg-image-card kg-card-hascaption\\\"><img
-        src=\\\"https://blog.front-matter.io/content/images/2022/08/Bildschirm-foto-2022-08-29-um-13.28.01.png\\\"
-        class=\\\"kg-image\\\" alt loading=\\\"lazy\\\" width=\\\"487\\\" height=\\\"102\\\"><figcaption>Canonical
-        URL in Post -&gt; Post settings -&gt; Meta data</figcaption></figure><p>There
-        are some optional metadata that you can add as well:</p><ul><li>The canonical
-        URL should be displayed on each blog post:</li><li>The author ORCID, put the
-        ID in the website settings of your author profile:</li><li>The license for
-        the blog post content, put into a <strong>DCTERMS.license</strong> meta tag,
-        and the ISSN:</li></ul><figure class=\\\"kg-card kg-image-card\\\"><img src=\\\"https://blog.front-matter.io/content/images/2022/08/Bildschirm-foto-2022-08-25-um-17.49.23.png\\\"
-        class=\\\"kg-image\\\" alt loading=\\\"lazy\\\" width=\\\"579\\\" height=\\\"111\\\"></figure><figure
-        class=\\\"kg-card kg-image-card\\\"><img src=\\\"https://blog.front-matter.io/content/images/2022/08/Bildschirm-foto-2022-08-25-um-17.51.43.png\\\"
-        class=\\\"kg-image\\\" alt loading=\\\"lazy\\\" width=\\\"774\\\" height=\\\"62\\\"
-        srcset=\\\"https://blog.front-matter.io/content/images/size/w600/2022/08/Bildschirm-foto-2022-08-25-um-17.51.43.png
-        600w, https://blog.front-matter.io/content/images/2022/08/Bildschirm-foto-2022-08-25-um-17.51.43.png
-        774w\\\" sizes=\\\"(min-width: 720px) 720px\\\"></figure><p>To make working
-        with these small changes easier, I forked the official <strong>headline</strong>
-        theme, and you can download my forked version (renamed <strong>schlagzeile</strong>)
-        as ZIP file from its <a href=\\\"https://github.com/front-matter/schlagzeile\\\">GitHub
-        page.</a> After uploading the theme to your Ghost site, activate <strong>schlagzeile</strong>
-        in the settings:</p><figure class=\\\"kg-card kg-image-card\\\"><img src=\\\"https://blog.front-matter.io/content/images/2022/08/Bildschirm-foto-2022-08-25-um-17.59.09.png\\\"
-        class=\\\"kg-image\\\" alt loading=\\\"lazy\\\" width=\\\"950\\\" height=\\\"421\\\"
-        srcset=\\\"https://blog.front-matter.io/content/images/size/w600/2022/08/Bildschirm-foto-2022-08-25-um-17.59.09.png
-        600w, https://blog.front-matter.io/content/images/2022/08/Bildschirm-foto-2022-08-25-um-17.59.09.png
-        950w\\\" sizes=\\\"(min-width: 720px) 720px\\\"></figure><p>You can use the
-        site design settings to add license information and ISSN for your blog:</p><figure
-        class=\\\"kg-card kg-image-card\\\"><img src=\\\"https://blog.front-matter.io/content/images/2022/08/Bildschirm-foto-2022-08-25-um-18.02.05.png\\\"
-        class=\\\"kg-image\\\" alt loading=\\\"lazy\\\" width=\\\"369\\\" height=\\\"269\\\"></figure><h3
-        id=\\\"github-action\\\">GitHub Action</h3><p>Once the blog is configured
-        as above, and you have a new post, use a GitHub Action to trigger the DOI
-        registration. You can copy my <a href=\\\"https://github.com/front-matter/bloggable/blob/main/.github/workflows/webhook.yml\\\">webhook</a>
-        GitHub Action and need to set these variables (for Crossref, similar variables
-        for DataCite):</p><ul><li>CROSSREF_DEPOSITOR_NAME</li><li>CROSSREF_DEPOSITOR_EMAIL</li><li>CROSSREF_REGISTRANT</li><li>CROSSREF_USERNAME_WITH_ROLE</li><li>CROSSREF_PASSWORD</li></ul><p>You
-        then trigger the workflow action by entering the path to the published blog
-        post:</p><figure class=\\\"kg-card kg-image-card\\\"><img src=\\\"https://blog.front-matter.io/content/images/2022/08/Bildschirm-foto-2022-08-25-um-18.11.37.png\\\"
-        class=\\\"kg-image\\\" alt loading=\\\"lazy\\\" width=\\\"473\\\" height=\\\"326\\\"></figure><p>If
-        your blog doesn't publish more than weekly, this semi-automated workflow is
-        probably ok (and takes under a minute). Reach out to me in the comments for
-        further questions or feedback. </p><p>Not every scholarly blog is using Ghost,
-        but I currently can't provide guidance for other blogging platforms, for example
-        Wordpress.</p>\",\"comment_id\":\"6307a551683f4b003d5cd43b\",\"feature_image\":\"https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDV8fHJlZ2lzdHJhdGlvbnxlbnwwfHx8fDE2NjE0NDU1MTA&ixlib=rb-1.2.1&q=80&w=2000\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2022-08-25T16:37:37.000+00:00\",\"updated_at\":\"2022-08-29T11:28:27.000+00:00\",\"published_at\":\"2022-08-25T16:39:40.000+00:00\",\"custom_excerpt\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":\"https://doi.org/10.53731/fezg09h-hgn1gzm\",\"tags\":[{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
-        explore issues raised by news stories in more depth.\",\"feature_image\":\"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHJlc2VhcmNofGVufDB8fHx8MTYxODEyMzQxNQ&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/feature/\"}],\"authors\":[{\"id\":\"1\",\"name\":\"Martin
-        Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"}],\"primary_author\":{\"id\":\"1\",\"name\":\"Martin
-        Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"},\"primary_tag\":{\"id\":\"62d42bbc41e317003df48d4e\",\"name\":\"Feature\",\"slug\":\"feature\",\"description\":\"Features
-        explore issues raised by news stories in more depth.\",\"feature_image\":\"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHJlc2VhcmNofGVufDB8fHx8MTYxODEyMzQxNQ&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/feature/\"},\"url\":\"https://blog.front-matter.io/posts/doi-registrations-for-all-blog/\",\"excerpt\":\"This
-        blog since earlier this month is no longer using a JAMStack setup but a regular
-        Ghost setup using Ghost Pro for hosting. The primary driver were the new native
-        search and native comments, but I needed to do a little bit of work to keep
-        the DOI registration working. This is done now, and an added benefit is that
-        DOI registration is now straightforward for any blog that uses Ghost as a
-        platform.\\n\\n\\nRequirements\\n\\n * An account to register DOIs with Crossref
-        or DataCite\\n * A Ghost blog that allo\",\"reading_time\":3,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":null,\"feature_image_caption\":\"Photo
-        by <a href=\\\"https://unsplash.com/@chuklanov?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\\\">Avel
-        Chuklanov</a> / <a href=\\\"https://unsplash.com/?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\\\">Unsplash</a>\"}],\"meta\":{\"pagination\":{\"page\":1,\"limit\":50,\"pages\":11,\"total\":516,\"next\":2,\"prev\":null}}}"
+        BY 3.0</a>, via Wikimedia Commons\"}],\"meta\":{\"pagination\":{\"page\":1,\"limit\":50,\"pages\":11,\"total\":521,\"next\":2,\"prev\":null}}}"
     headers:
       Accept-Ranges:
       - bytes
       Access-Control-Allow-Origin:
       - '*'
       Age:
-      - '495240'
+      - '9220'
       Alt-Svc:
       - clear
       Cache-Control:
@@ -3905,13 +3868,13 @@ interactions:
       Content-Encoding:
       - gzip
       Content-Length:
-      - '94595'
+      - '92084'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 25 Dec 2023 11:21:32 GMT
+      - Mon, 22 Jan 2024 14:11:07 GMT
       Etag:
-      - W/"7070e-46KJ64lQkq/p1iQ1C2y+9u/YIKQ"
+      - W/"6ff5a-iA3d2dFnQMbrcjubDFlYNbTowyU"
       Ghost-Age:
       - '0'
       Ghost-Cache:
@@ -3931,15 +3894,15 @@ interactions:
       X-Cache-Hits:
       - '1'
       X-Request-ID:
-      - b7ba1b4d-be4c-4d72-9692-43e5aece2143
+      - 17bae8c8-baba-42df-a6ab-65b1f5e51efb
       X-Served-By:
-      - cache-ams21032-AMS
+      - cache-ams21065-AMS
       X-Timer:
-      - S1703503292.047152,VS0,VE1
+      - S1705932668.591097,VS0,VE1
       content-version:
-      - v5.75
+      - v5.76
       x-request-id:
-      - b7ba1b4d-be4c-4d72-9692-43e5aece2143
+      - 17bae8c8-baba-42df-a6ab-65b1f5e51efb
     status:
       code: 200
       message: OK
