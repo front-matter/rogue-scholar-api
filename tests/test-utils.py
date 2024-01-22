@@ -62,23 +62,14 @@ def test_convert_to_commonmeta_default():
         "published": "2024-01-13T19:10:51",
         "updated": "2024-01-13T19:10:51",
     }
-    assert result["publisher"] == {
-        "id": "https://api.crossref.org/members/31795",
-        "name": "Front Matter",
-    }
+    assert result["publisher"] == {"name": "GigaBlog"}
     assert len(result["references"]) == 0
     assert result["funding_references"] == []
     assert result["container"] == {"type": "Periodical", "title": "GigaBlog"}
     assert py_.get(result, "descriptions.0.description").startswith(
         "<em>\n Marking the 10\n <sup>\n  th\n </sup>\n anniversary"
     )
-    assert result["subjects"] == [
-        "Technology",
-        "Computational Biology",
-        "FAIR",
-        "FAIR Data",
-        "FORCE11",
-    ]
+    assert result["subjects"] == [{'subject': 'Biological sciences'}]
     assert result["provider"] == "Crossref"
     assert len(result["files"]) == 5
     assert py_.get(result, "files.2") == {
@@ -113,7 +104,7 @@ def test_get_doi_metadata_csl():
     result = get_doi_metadata(data, format_="csl")
     csl = json.loads(result["data"])
     assert csl["title"] == "The rise of the (science) newsletter"
-    assert csl["author"] == [{'family': 'Fenner', 'given': 'Martin'}]
+    assert csl["author"] == [{"family": "Fenner", "given": "Martin"}]
 
 
 def test_get_doi_metadata_ris():
@@ -190,7 +181,7 @@ def test_get_doi_metadata_citation():
     result = get_doi_metadata(data, format_="citation")
     assert (
         result["data"]
-        == "Fenner, M. (2023). <i>The rise of the (science) newsletter</i>. Front Matter. https://doi.org/10.53731/ybhah-9jy85"
+        == "Fenner, M. (2023). <i>The rise of the (science) newsletter</i>. https://doi.org/10.53731/ybhah-9jy85"
     )
 
 

@@ -332,10 +332,11 @@ async def test_post_route_by_doi():
     assert response.status_code == 200
     result = await response.get_json()
     assert (
-        result["titles"][0].get("title")
+        result["title"]
         == "¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?"
     )
-    assert result["id"] == "https://doi.org/10.59350/sfzv4-xdb68"
+    assert result["doi"] == "https://doi.org/10.59350/sfzv4-xdb68"
+    assert result["id"] == "77b2102f-fec5-425a-90a3-4a97c768bdc4"
 
 
 async def test_post_route_by_doi_not_found():

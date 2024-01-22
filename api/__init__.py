@@ -358,7 +358,6 @@ async def post(slug: str, suffix: Optional[str] = None):
             "bib",
             "ris",
             "jsonld",
-            "json",
         ]:
             format_ = path.pop()
             suffix = ".".join(path)
@@ -366,145 +365,8 @@ async def post(slug: str, suffix: Optional[str] = None):
             format_ = "bibtex"
         elif format_ == "jsonld":
             format_ = "schema_org"
-        elif format_ == "json":
-            format_ = "commonmeta"
-        doi = f"https://doi.org/{slug}/{suffix}"
-        try:
-            response = (
-                supabase.table("posts")
-                .select(postsWithContentSelect)
-                .eq("doi", doi)
-                .maybe_single()
-                .execute()
-            )
-            content = response.data.get("content_text", None)
-            metadata = py_.omit(response.data, ["content_text"])
-            meta_str = json.dumps(convert_to_commonmeta(metadata))
-        except Exception as e:
-            logger.warning(e.args[0])
-            return {"error": "Post not found"}, 404
-        if format_ in ["md", "epub", "pdf", "xml"]:
-            basename = doi_from_url(doi).replace("/", "-")
-            metadata = py_.rename_keys(
-                metadata,
-                {
-                    "authors": "author",
-                    "doi": "identifier",
-                    "language": "lang",
-                    "published_at": "date",
-                    "summary": "abstract",
-                    "tags": "keywords",
-                    "updated_at": "date_updated",
-                },
-            )
-            markdown = format_markdown(content, metadata)
-            if format_ == "epub":
-                markdown["date"] = format_datetime(markdown["date"], markdown["lang"])
-                markdown["author"] = format_authors(markdown["author"])
-                markdown["rights"] = None
-                markdown = frontmatter.dumps(markdown)
-                epub = write_epub(markdown)
-                return (
-                    epub,
-                    200,
-                    {
-                        "Content-Type": "application/epub+zip",
-                        "Content-Disposition": f"attachment; filename={basename}.epub",
-                    },
-                )
-            elif format_ == "pdf":
-                markdown["author"] = format_authors_with_orcid(markdown["author"])
-                markdown["license"] = {
-                    "text": format_license(markdown["author"], markdown["date"]),
-                    "link": markdown["rights"],
-                }
-                markdown["date"] = format_datetime(markdown["date"], markdown["lang"])
-                markdown["blog_name"] = markdown["blog_name"][:40] + (
-                    markdown["blog_name"][40:] and "..."
-                )
-                citation = get_doi_metadata(meta_str, "citation", style, locale)
-                if citation:
-                    markdown["citation"] = citation["data"]
-                else:
-                    markdown["citation"] = markdown["identifier"]
-                markdown["relationships"] = format_relationships(
-                    markdown["relationships"]
-                )
-                markdown = translate_titles(markdown)
-                markdown = frontmatter.dumps(markdown)
-                pdf = write_pdf(markdown)
-                return (
-                    pdf,
-                    200,
-                    {
-                        "Content-Type": "application/pdf",
-                        "Content-Disposition": f"attachment; filename={basename}.pdf",
-                    },
-                )
-            elif format_ == "xml":
-                markdown["author"] = format_authors_full(markdown["author"])
-                markdown["date"] = {
-                    "iso-8601": markdown["date"],
-                    "year": markdown["date"][:4],
-                    "month": markdown["date"][5:7],
-                    "day": markdown["date"][8:10],
-                }
-                markdown["article"] = {"doi": markdown["identifier"]}
-                markdown["license"] = {
-                    "text": "Creative Commons Attribution 4.0",
-                    "type": "open-access",
-                    "link": markdown["rights"],
-                }
-                markdown["journal"] = {"title": markdown["blog_name"]}
-                markdown = frontmatter.dumps(markdown)
-                jats = write_jats(markdown)
-                return (
-                    jats,
-                    200,
-                    {
-                        "Content-Type": "application/xml",
-                        "Content-Disposition": f"attachment; filename={basename}.xml",
-                    },
-                )
-            else:
-                return (
-                    frontmatter.dumps(markdown),
-                    200,
-                    {
-                        "Content-Type": "text/markdown;charset=UTF-8",
-                        "Content-Disposition": f"attachment; filename={basename}.md",
-                    },
-                )
-        elif format_ in [
-            "bibtex",
-            "ris",
-            "csl",
-            "schema_org",
-            "datacite",
-            "crossref_xml",
-            "commonmeta",
-            "citation",
-        ]:
-            response = get_doi_metadata(meta_str, format_, style, locale)
-            if not response:
-                logger.warning("Metadata not found")
-                return {"error": "Metadata not found."}, 404
-            return (response["data"], 200, response["options"])
-        else:
-            try:
-                response = (
-                    supabase.table("posts")
-                    .select(postsWithContentSelect)
-                    .eq("doi", doi)
-                    .maybe_single()
-                    .execute()
-                )
-            except Exception as e:
-                logger.warning(e.args[0])
-                return {"error": "Post not found"}, 404
-            return jsonify(response.data)
-    else:
-        try:
+    try:
+        if validate_uuid(slug):
             response = (
                 supabase.table("posts")
                 .select(postsWithContentSelect)
@@ -512,10 +374,131 @@ async def post(slug: str, suffix: Optional[str] = None):
                 .maybe_single()
                 .execute()
             )
-        except Exception as e:
-            logger.warning(e.args[0])
-            return {"error": "Post not found"}, 404
-        return jsonify(response.data)
+            basename = slug
+        else:
+            doi = f"https://doi.org/{slug}/{suffix}"
+            response = (
+                supabase.table("posts")
+                .select(postsWithContentSelect)
+                .eq("doi", doi)
+                .maybe_single()
+                .execute()
+            )
+            basename = doi_from_url(doi).replace("/", "-")
+        content = response.data.get("content_text", None)
+        if format_ == "json":
+            return jsonify(response.data)
+        metadata = py_.omit(response.data, ["content_text"])
+        meta_str = json.dumps(convert_to_commonmeta(metadata))
+    except Exception as e:
+        logger.warning(e.args[0])
+        return {"error": "Post not found"}, 404
+    if format_ in ["md", "epub", "pdf", "xml"]:
+        metadata = py_.rename_keys(
+            metadata,
+            {
+                "authors": "author",
+                "doi": "identifier",
+                "language": "lang",
+                "published_at": "date",
+                "summary": "abstract",
+                "tags": "keywords",
+                "updated_at": "date_updated",
+            },
+        )
+        markdown = format_markdown(content, metadata)
+        if format_ == "epub":
+            markdown["date"] = format_datetime(markdown["date"], markdown["lang"])
+            markdown["author"] = format_authors(markdown["author"])
+            markdown["rights"] = None
+            markdown = frontmatter.dumps(markdown)
+            epub = write_epub(markdown)
+            return (
+                epub,
+                200,
+                {
+                    "Content-Type": "application/epub+zip",
+                    "Content-Disposition": f"attachment; filename={basename}.epub",
+                },
+            )
+        elif format_ == "pdf":
+            markdown["author"] = format_authors_with_orcid(markdown["author"])
+            markdown["license"] = {
+                "text": format_license(markdown["author"], markdown["date"]),
+                "link": markdown["rights"],
+            }
+            markdown["date"] = format_datetime(markdown["date"], markdown["lang"])
+            markdown["blog_name"] = markdown["blog_name"][:40] + (
+                markdown["blog_name"][40:] and "..."
+            )
+            citation = get_doi_metadata(meta_str, "citation", style, locale)
+            if citation:
+                markdown["citation"] = citation["data"]
+            else:
+                markdown["citation"] = markdown["identifier"]
+            markdown["relationships"] = format_relationships(markdown["relationships"])
+            markdown = translate_titles(markdown)
+            markdown = frontmatter.dumps(markdown)
+            pdf = write_pdf(markdown)
+            return (
+                pdf,
+                200,
+                {
+                    "Content-Type": "application/pdf",
+                    "Content-Disposition": f"attachment; filename={basename}.pdf",
+                },
+            )
+        elif format_ == "xml":
+            markdown["author"] = format_authors_full(markdown["author"])
+            markdown["date"] = {
+                "iso-8601": markdown["date"],
+                "year": markdown["date"][:4],
+                "month": markdown["date"][5:7],
+                "day": markdown["date"][8:10],
+            }
+            markdown["article"] = {"doi": markdown["identifier"]}
+            markdown["license"] = {
+                "text": "Creative Commons Attribution 4.0",
+                "type": "open-access",
+                "link": markdown["rights"],
+            }
+            markdown["journal"] = {"title": markdown["blog_name"]}
+            markdown = frontmatter.dumps(markdown)
+            jats = write_jats(markdown)
+            return (
+                jats,
+                200,
+                {
+                    "Content-Type": "application/xml",
+                    "Content-Disposition": f"attachment; filename={basename}.xml",
+                },
+            )
+        else:
+            return (
+                frontmatter.dumps(markdown),
+                200,
+                {
+                    "Content-Type": "text/markdown;charset=UTF-8",
+                    "Content-Disposition": f"attachment; filename={basename}.md",
+                },
+            )
+    elif format_ in [
+        "bibtex",
+        "ris",
+        "csl",
+        "schema_org",
+        "datacite",
+        "crossref_xml",
+        "commonmeta",
+        "citation",
+    ]:
+        response = get_doi_metadata(meta_str, format_, style, locale)
+        if not response:
+            logger.warning("Metadata not found")
+            return {"error": "Metadata not found."}, 404
+        return (response["data"], 200, response["options"])
+    else:
+        return {"error": "Post not found"}, 404
 
 
 @app.errorhandler(RequestSchemaValidationError)

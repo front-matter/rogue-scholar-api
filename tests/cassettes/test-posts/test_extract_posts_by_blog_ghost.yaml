@@ -30515,8 +30515,6 @@ interactions:
       - nginx/1.18.0 + Phusion Passenger(R) 6.0.19
       Status:
       - 200 OK
-      Transfer-Encoding:
-      - chunked
       Vary:
       - Accept, Accept-Encoding, Origin
       X-Content-Type-Options:
@@ -31262,8 +31260,6 @@ interactions:
       - nginx/1.18.0 + Phusion Passenger(R) 6.0.19
       Status:
       - 200 OK
-      Transfer-Encoding:
-      - chunked
       Vary:
       - Accept, Accept-Encoding, Origin
       X-Content-Type-Options:
@@ -31282,6 +31278,571 @@ interactions:
       - '0.036160'
       X-XSS-Protection:
       - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://data.crosscite.org/10.14454%2F3w3z-sa82
+  response:
+    body:
+      string: "{\n  \"type\": \"article-journal\",\n  \"id\": \"https://doi.org/10.14454/3w3z-sa82\",\n
+        \ \"language\": \"en\",\n  \"author\": [\n    {\n      \"literal\": \"DataCite
+        Metadata Working Group\"\n    }\n  ],\n  \"contributor\": [\n    {\n      \"family\":
+        \"de Smaele\",\n      \"given\": \"Madeleine\"\n    },\n    {\n      \"family\":
+        \"Bernal Marti\u0301nez\",\n      \"given\": \"Isabel\"\n    },\n    {\n      \"family\":
+        \"Dasler\",\n      \"given\": \"Robin\"\n    },\n    {\n      \"family\":
+        \"Ashton\",\n      \"given\": \"Jan\"\n    },\n    {\n      \"family\": \"Roy\",\n
+        \     \"given\": \"Sophie\"\n    },\n    {\n      \"family\": \"Fenner\",\n
+        \     \"given\": \"Martin\"\n    },\n    {\n      \"family\": \"Chiloane\",\n
+        \     \"given\": \"Leo\"\n    },\n    {\n      \"family\": \"Burger\",\n      \"given\":
+        \"Marleen\"\n    },\n    {\n      \"family\": \"Yahia\",\n      \"given\":
+        \"Mohamed\"\n    },\n    {\n      \"family\": \"Zolly\",\n      \"given\":
+        \"Lisa\"\n    },\n    {\n      \"family\": \"Habermann\",\n      \"given\":
+        \"Ted\"\n    },\n    {\n      \"family\": \"Raugh\",\n      \"given\": \"Anne\"\n
+        \   },\n    {\n      \"family\": \"Ilik\",\n      \"given\": \"Violeta\"\n
+        \   },\n    {\n      \"family\": \"Foulger\",\n      \"given\": \"Samantha\"\n
+        \   }\n  ],\n  \"issued\": {\n    \"date-parts\": [\n      [\n        2021\n
+        \     ]\n    ]\n  },\n  \"abstract\": \"1 Introduction 1.1 The DataCite Consortium
+        1.2 DataCite Community Participation 1.3 The Metadata Schema 1.4 Version 4.4
+        Update 2 DataCite Metadata Properties 2.1 Overview 2.2 Citation 2.3 DataCite
+        Properties 3 XML Example 4 XML Schema 5 Other DataCite Services Appendices
+        Appendix 1: Controlled List Definitions Appendix 2: Earlier Version Update
+        Notes Appendix 3: Standard values for unknown information Appendix 4: Version
+        4.1 Changes in support of software citation Appendix 5: FORCE11 Software Citation
+        Principles Mapping\",\n  \"container-title\": \"DataCite\",\n  \"DOI\": \"10.14454/3W3Z-SA82\",\n
+        \ \"publisher\": \"DataCite\",\n  \"title\": \"DataCite Metadata Schema Documentation
+        for the Publication and Citation of Research Data and Other Research Outputs
+        v4.4\",\n  \"URL\": \"https://schema.datacite.org/meta/kernel-4.4/\",\n  \"version\":
+        \"4.4\"\n}"
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/vnd.citationstyles.csl+json; charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:26:23 GMT
+      ETag:
+      - W/"28d8727c773973752616d91c95f39411"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx/1.18.0 + Phusion Passenger(R) 6.0.19
+      Status:
+      - 200 OK
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept, Accept-Encoding, Origin
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Powered-By:
+      - Phusion Passenger(R) 6.0.19
+      X-Request-Id:
+      - ee127fdf-3c51-491e-932a-aa9e5f657ef2
+      X-Runtime:
+      - '0.018795'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://data.crosscite.org/10.24343%2Fc34w2h
+  response:
+    body:
+      string: The resource you are looking for doesn't exist.
+    headers:
+      Cache-Control:
+      - no-cache
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - text/plain; charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:26:25 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx/1.18.0 + Phusion Passenger(R) 6.0.19
+      Status:
+      - 404 Not Found
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept, Accept-Encoding, Origin
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Powered-By:
+      - Phusion Passenger(R) 6.0.19
+      X-Request-Id:
+      - e112994b-b97a-4477-a3f5-cc5ae6bbf60c
+      X-Runtime:
+      - '0.005053'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 404
+      message: Not Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://doi.org/10.53731/9cdnt-2k006
+  response:
+    body:
+      string: '<html><head><title>Handle Redirect</title></head>
+
+        <body><a href="https://api.crossref.org/v1/works/10.53731%2F9cdnt-2k006/transform">https://api.crossref.org/v1/works/10.53731%2F9cdnt-2k006/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 849878d18ab1b918-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '217'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:26:26 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=uKMa8Y9OzrkpBV3S1S0TzNgxUy68WTjh6epdnfxTqM2YSa7iJuttITRglxusAZpbsXCrUCVmYT15vlJ6BpBGObkDpUekws28cTdgbnnJ7%2Bekwje42KaDFzDxyqRC1Kg8GgcvB9E%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Mon, 22 Jan 2024 14:40:23 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.53731%2F9cdnt-2k006/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.53731%2F9cdnt-2k006/transform
+  response:
+    body:
+      string: '{"institution":[{"name":"Front Matter"}],"indexed":{"date-parts":[[2024,1,20]],"date-time":"2024-01-20T00:18:25Z","timestamp":1705709905017},"posted":{"date-parts":[[2023,7,31]]},"group-title":"Computer
+        and information sciences","reference-count":0,"publisher":"Front Matter","license":[{"start":{"date-parts":[[2023,7,31]],"date-time":"2023-07-31T00:00:00Z","timestamp":1690761600000},"content-version":"vor","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"},{"start":{"date-parts":[[2023,7,31]],"date-time":"2023-07-31T00:00:00Z","timestamp":1690761600000},"content-version":"tdm","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"}],"content-domain":{"domain":[],"crossmark-restriction":false},"abstract":"<p>The
+        Rogue Scholar science blog archive is growing nicely, reaching more than 1,500
+        blog posts this week, and 5-10 new posts every week. You can subscribe to
+        all the blogs you are interested in via an RSS Reader and use various strategies
+        to find and read interesting content, but some people prefer to receive regular
+        email updates instead.<\/p>","DOI":"10.53731\/9cdnt-2k006","type":"posted-content","created":{"date-parts":[[2023,7,31]],"date-time":"2023-07-31T17:24:54Z","timestamp":1690824294000},"source":"Crossref","is-referenced-by-count":3,"title":"The
+        Rogue Scholar weekly newsletter launches on Wednesday","prefix":"10.53731","author":[{"ORCID":"http:\/\/orcid.org\/0000-0003-1419-2405","authenticated-orcid":false,"given":"Martin","family":"Fenner","sequence":"first","affiliation":[]}],"member":"31795","container-title":[],"original-title":[],"link":[{"URL":"https:\/\/blog.front-matter.io\/posts\/rogue-scholar-weekly-newsletter","content-type":"text\/html","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/9cdnt-2k006.md","content-type":"text\/plain","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/9cdnt-2k006.pdf","content-type":"application\/pdf","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/9cdnt-2k006.epub","content-type":"application\/epub+zip","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/9cdnt-2k006.xml","content-type":"application\/xml","content-version":"vor","intended-application":"text-mining"}],"deposited":{"date-parts":[[2024,1,19]],"date-time":"2024-01-19T12:41:46Z","timestamp":1705668106000},"score":1,"resource":{"primary":{"URL":"https:\/\/blog.front-matter.io\/posts\/rogue-scholar-weekly-newsletter"}},"subtitle":[],"short-title":[],"issued":{"date-parts":[[2023,7,31]]},"references-count":0,"URL":"http:\/\/dx.doi.org\/10.53731\/9cdnt-2k006","relation":{},"published":{"date-parts":[[2023,7,31]]},"subtype":"other"}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-encoding:
+      - gzip
+      content-length:
+      - '1076'
+      content-type:
+      - application/vnd.citationstyles.csl+json
+      date:
+      - Mon, 22 Jan 2024 14:26:26 GMT
+      link:
+      - <http://dx.doi.org/10.53731/9cdnt-2k006>; rel="canonical", <https://blog.front-matter.io/posts/rogue-scholar-weekly-newsletter>;
+        version="vor"; type="text/html"; rel="item", <https://api.rogue-scholar.org/posts/10.53731/9cdnt-2k006.md>;
+        version="vor"; type="text/plain"; rel="item", <https://api.rogue-scholar.org/posts/10.53731/9cdnt-2k006.pdf>;
+        version="vor"; type="application/pdf"; rel="item", <https://api.rogue-scholar.org/posts/10.53731/9cdnt-2k006.epub>;
+        version="vor"; type="application/epub+zip"; rel="item", <https://api.rogue-scholar.org/posts/10.53731/9cdnt-2k006.xml>;
+        version="vor"; type="application/xml"; rel="item", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="vor"; rel="license", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="tdm"; rel="license", <http://orcid.org/0000-0003-1419-2405>; title="Martin
+        Fenner"; rel="author"
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept, Accept-Encoding
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://doi.org/10.1371/journal.pone.0115253
+  response:
+    body:
+      string: '<html><head><title>Handle Redirect</title></head>
+
+        <body><a href="https://api.crossref.org/v1/works/10.1371%2Fjournal.pone.0115253/transform">https://api.crossref.org/v1/works/10.1371%2Fjournal.pone.0115253/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 849878dbfd84286a-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '233'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Mon, 22 Jan 2024 14:26:28 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=HfC4s%2Fcpg9hoyFzFWvOd8vY6qSayff5nZhvKoC6G1JPaaWmkZFSwxrHPmWC%2B25BGovfz%2FClJvbrNC0iQ7gQLzXtjqp3C3gb5Ymj5%2FLAsraOieeVRAJ64cgTofoR0sksUBTEYTyY%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Mon, 22 Jan 2024 14:34:40 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.1371%2Fjournal.pone.0115253/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    status:
+      code: 302
+      message: Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/vnd.citationstyles.csl+json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.1371%2Fjournal.pone.0115253/transform
+  response:
+    body:
+      string: '{"indexed":{"date-parts":[[2024,1,19]],"date-time":"2024-01-19T10:19:41Z","timestamp":1705659581409},"reference-count":66,"publisher":"Public
+        Library of Science (PLoS)","issue":"12","license":[{"start":{"date-parts":[[2014,12,26]],"date-time":"2014-12-26T00:00:00Z","timestamp":1419552000000},"content-version":"unspecified","delay-in-days":0,"URL":"http:\/\/creativecommons.org\/licenses\/by\/4.0\/"}],"content-domain":{"domain":["www.plosone.org"],"crossmark-restriction":false},"DOI":"10.1371\/journal.pone.0115253","type":"journal-article","created":{"date-parts":[[2014,12,26]],"date-time":"2014-12-26T19:00:08Z","timestamp":1419620408000},"page":"e115253","update-policy":"http:\/\/dx.doi.org\/10.1371\/journal.pone.corrections_policy","source":"Crossref","is-referenced-by-count":94,"title":"Scholarly
+        Context Not Found: One in Five Articles Suffers from Reference Rot","prefix":"10.1371","volume":"9","author":[{"given":"Martin","family":"Klein","sequence":"first","affiliation":[]},{"given":"Herbert","family":"Van
+        de Sompel","sequence":"additional","affiliation":[]},{"given":"Robert","family":"Sanderson","sequence":"additional","affiliation":[]},{"given":"Harihar","family":"Shankar","sequence":"additional","affiliation":[]},{"given":"Lyudmila","family":"Balakireva","sequence":"additional","affiliation":[]},{"given":"Ke","family":"Zhou","sequence":"additional","affiliation":[]},{"given":"Richard","family":"Tobin","sequence":"additional","affiliation":[]}],"member":"340","published-online":{"date-parts":[[2014,12,26]]},"reference":[{"key":"ref1","unstructured":"Hiberlink
+        (2014) Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"
+        ext-link-type=\"uri\" xlink:href=\"http:\/\/hiberlink.org\/\" xlink:type=\"simple\">http:\/\/hiberlink.org\/<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref2","unstructured":"Resolve a DOI Name
+        (2014) Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"
+        ext-link-type=\"uri\" xlink:href=\"http:\/\/dx.doi.org\" xlink:type=\"simple\">http:\/\/dx.doi.org<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref3","unstructured":"LOCKSS (2014) Available:
+        <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" ext-link-type=\"uri\"
+        xlink:href=\"http:\/\/lockss.org\/\" xlink:type=\"simple\">http:\/\/lockss.org\/<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref4","unstructured":"CLOCKSS (2014)
+        Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" ext-link-type=\"uri\"
+        xlink:href=\"http:\/\/www.clockss.org\/\" xlink:type=\"simple\">http:\/\/www.clockss.org\/<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref5","unstructured":"Portico - A Digital
+        Preservation and Electronic Archiving Service (2014) Available: <ext-link
+        xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" ext-link-type=\"uri\" xlink:href=\"http:\/\/www.portico.org\/\"
+        xlink:type=\"simple\">http:\/\/www.portico.org\/<\/ext-link>. Accessed: 2014
+        November 1."},{"key":"ref6","unstructured":"The Keepers Registry (2014) Available:
+        <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" ext-link-type=\"uri\"
+        xlink:href=\"http:\/\/thekeepers.org\/\" xlink:type=\"simple\">http:\/\/thekeepers.org\/<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref7","doi-asserted-by":"crossref","first-page":"55","DOI":"10.1007\/978-1-4612-2544-7_5","article-title":"Wavelab
+        and reproducible research","volume":"volume 103","author":"JB Buckheit","year":"1995","journal-title":"Wavelets
+        and Statistics"},{"key":"ref8","unstructured":"Berners-Lee T (1998) Cool URIs
+        don&apos;t change. Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"
+        ext-link-type=\"uri\" xlink:href=\"http:\/\/www.w3.org\/Provider\/Style\/URI.html\"
+        xlink:type=\"simple\">http:\/\/www.w3.org\/Provider\/Style\/URI.html<\/ext-link>.
+        Accessed: 2014 November 26."},{"key":"ref9","doi-asserted-by":"crossref","first-page":"162","DOI":"10.1002\/asi.10018","article-title":"Web
+        Page Change and Persistence - A Four-Year Longitudinal Study","volume":"53","author":"WC
+        Koehler","year":"2002","journal-title":"Journal of the American Society for
+        Information Science and Technology"},{"key":"ref10","unstructured":"The Chesapeake
+        Digital Preservation Group (2013) \u201cLink Rot\u201d and Legal Resources
+        on the Web: A 2013 Analysis by the Chesapeake Digital Preservation Group."},{"key":"ref11","article-title":"Perma:
+        Scoping and addressing the problem of link and reference rot in legal citations","volume":"127","author":"J
+        Zittrain","year":"2014","journal-title":"Harward Law Review Forum"},{"key":"ref12","doi-asserted-by":"crossref","first-page":"668","DOI":"10.1093\/bioinformatics\/btg465","article-title":"404
+        not found: the stability and persistence of urls published in medline","volume":"20","author":"JD
+        Wren","year":"2004","journal-title":"Bioinformatics"},{"key":"ref13","doi-asserted-by":"crossref","first-page":"1381","DOI":"10.1093\/bioinformatics\/btn127","article-title":"Url
+        decay in medlinea 4-year follow-up study","volume":"24","author":"JD Wren","year":"2008","journal-title":"Bioinformatics"},{"key":"ref14","doi-asserted-by":"crossref","first-page":"145","DOI":"10.1890\/070022","article-title":"Ecology
+        in the information age: patterns of use and attrition rates of internet-based
+        citations in esa journals, 1997\u20132005","volume":"6","author":"JJ Duda","year":"2008","journal-title":"Frontiers
+        in Ecology and the Environment"},{"key":"ref15","doi-asserted-by":"crossref","first-page":"26","DOI":"10.1109\/2.901164","article-title":"Persistence
+        of Web References in Scientific Research","volume":"34","author":"S Lawrence","year":"2001","journal-title":"Computer"},{"key":"ref16","doi-asserted-by":"crossref","first-page":"71","DOI":"10.1145\/602421.602422","article-title":"The
+        decay and failures of web references","volume":"46","author":"D Spinellis","year":"2003","journal-title":"Communications
+        of the ACM"},{"key":"ref17","doi-asserted-by":"crossref","first-page":"811","DOI":"10.1177\/1461444807081226","article-title":"The
+        half-life of internet references cited in communication journals","volume":"9","author":"DV
+        Dimitrova","year":"2007","journal-title":"New Media & Society"},{"key":"ref18","doi-asserted-by":"crossref","first-page":"232","DOI":"10.1197\/jamia.M2243","article-title":"The
+        prevalence and inaccessibility of internet references in the biomedical literature
+        at the time of publication","volume":"14","author":"D Aronsky","year":"2007","journal-title":"Journal
+        of the American Medical Informatics Association"},{"key":"ref19","doi-asserted-by":"crossref","first-page":"787","DOI":"10.1126\/science.1088234","article-title":"Information
+        Science: Going, Going, Gone: Lost Internet References","volume":"302","author":"RP
+        Dellavalle","year":"2003","journal-title":"Science"},{"key":"ref20","doi-asserted-by":"crossref","DOI":"10.1186\/1471-2105-14-S14-S5","article-title":"A
+        cross disciplinary study of link decay and the effectiveness of mitigation
+        techniques","volume":"14","author":"J Hennessey","year":"2013","journal-title":"BMC
+        Bioinformatics"},{"key":"ref21","doi-asserted-by":"crossref","first-page":"178","DOI":"10.1108\/00012531211215196","article-title":"Accessibility
+        of online resources cited in scholarly LIS journals: A study of emerald ISI-ranked
+        journals","volume":"64","author":"A Sadat-Moosavi","year":"2012","journal-title":"Aslib
+        Proceedings"},{"key":"ref22","article-title":"Raising the dead: Recovery of
+        decayed online citations","volume":"9","author":"DV Dimitrova","year":"2007","journal-title":"American
+        Communication Journal"},{"key":"ref23","doi-asserted-by":"crossref","first-page":"122","DOI":"10.3163\/1536-5050.97.2.009","article-title":"Disappearing
+        act: decay of uniform resource locators in health care management journals","volume":"97","author":"C
+        Wagner","year":"2009","journal-title":"Journal of the Medical Library Association:
+        JMLA"},{"key":"ref24","unstructured":"Sanderson R, Phillips M, Van de Sompel
+        H (2011) Analyzing the Persistence of Referenced Web Resources with Memento.
+        Technical Report arXiv: 1105.3459."},{"key":"ref25","doi-asserted-by":"crossref","first-page":"52","DOI":"10.1109\/2.841784","article-title":"Keeping
+        Up With the Changing Web","volume":"33","author":"B Brewington","year":"2000","journal-title":"Computer"},{"key":"ref26","unstructured":"Cho
+        J, Garcia-Molina H (2000) The Evolution of the Web and Implications for an
+        Incremental Crawler. In: Proceedings of VLDB \u203200. pp. 200\u2013209."},{"key":"ref27","doi-asserted-by":"crossref","unstructured":"Fetterly
+        D, Manasse M, Najork M, Wiener J (2003) A Large-Scale Study of the Evolution
+        of Web Pages. In: Proceedings of WWW \u203203. pp. 669\u2013678.","DOI":"10.1145\/775152.775246"},{"key":"ref28","unstructured":"Ntoulas
+        A, Cho J, Olston C (2004) What&apos;s New on the Web? The Evolution of the
+        Web from a Search Engine Perspective. In: Proceedings of WWW \u203204. pp.
+        1\u201312."},{"key":"ref29","doi-asserted-by":"crossref","unstructured":"Adar
+        E, Teevan J, Dumais ST, Elsas JL (2009) The Web Changes Everything: Understanding
+        the Dynamics of Web Content. In: Proceedings of WSDM \u203209. pp. 282\u2013291.","DOI":"10.1145\/1498759.1498837"},{"key":"ref30","doi-asserted-by":"crossref","unstructured":"Adar
+        E, Dontcheva M, Fogarty J, Weld DS (2008) Zoetrope: Interacting with the Ephemeral
+        Web. In: Proceedings of UIST \u203208. pp. 239\u2013248.","DOI":"10.1145\/1449715.1449756"},{"key":"ref31","doi-asserted-by":"crossref","first-page":"17","DOI":"10.1007\/s00799-014-0108-0","article-title":"Moved
+        but not gone: an evaluation of real-time methods for discovering replacement
+        web pages","volume":"14","author":"M Klein","year":"2014","journal-title":"International
+        Journal on Digital Libraries"},{"key":"ref32","doi-asserted-by":"crossref","unstructured":"Klein
+        M, Nelson ML (2008) Revisiting Lexical Signatures to (Re-)Discover Web Pages.
+        In: Proceedings of ECDL \u203208. pp. 371\u2013382.","DOI":"10.1007\/978-3-540-87599-4_38"},{"key":"ref33","doi-asserted-by":"crossref","unstructured":"Van
+        de Sompel H, Nelson ML, Sanderson R (2013) RFC 7089: HTTP Framework for Time-Based
+        Access to Resource States \u2013 Memento.","DOI":"10.17487\/rfc7089"},{"key":"ref34","unstructured":"arXiv.org
+        e-Print archive (2014) Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"
+        ext-link-type=\"uri\" xlink:href=\"http:\/\/arxiv.org\/\" xlink:type=\"simple\">http:\/\/arxiv.org\/<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref35","unstructured":"Elsevier (2014)
+        Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" ext-link-type=\"uri\"
+        xlink:href=\"http:\/\/www.elsevier.com\/\" xlink:type=\"simple\">http:\/\/www.elsevier.com\/<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref36","unstructured":"Randoim (2014)
+        Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" ext-link-type=\"uri\"
+        xlink:href=\"http:\/\/labs.crossref.org\/randoim\/\" xlink:type=\"simple\">http:\/\/labs.crossref.org\/randoim\/<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref37","unstructured":"CrossRef Text
+        and Data Mining (2014) Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"
+        ext-link-type=\"uri\" xlink:href=\"http:\/\/tdmsupport.crossref.org\/\" xlink:type=\"simple\">http:\/\/tdmsupport.crossref.org\/<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref38","unstructured":"PubMed Central
+        (2014) Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"
+        ext-link-type=\"uri\" xlink:href=\"http:\/\/www.ncbi.nlm.nih.gov\/pmc\/\"
+        xlink:type=\"simple\">http:\/\/www.ncbi.nlm.nih.gov\/pmc\/<\/ext-link>. Accessed:
+        2014 November 1."},{"key":"ref39","unstructured":"Ulrich&apos;s knowledgebase
+        (2014) Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"
+        ext-link-type=\"uri\" xlink:href=\"http:\/\/www.proquest.com\/products-services\/Ulrichsweb.html\"
+        xlink:type=\"simple\">http:\/\/www.proquest.com\/products-services\/Ulrichsweb.html<\/ext-link>.Ulrich&apos;s
+        Periodicals Directory. \u00a9 [2014] ProQuest LLC. All rights reserved. Used
+        with permission. Accessed: 2014 November 1."},{"key":"ref40","unstructured":"National
+        Science Board (2014) Science and Engineering Indicators 2014. Arlington VA:
+        National Science Foundation (NSB 14-01)."},{"key":"ref41","unstructured":"PDFTOHTML
+        (2014) Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"
+        ext-link-type=\"uri\" xlink:href=\"http:\/\/pdftohtml.sourceforge.net\/\"
+        xlink:type=\"simple\">http:\/\/pdftohtml.sourceforge.net\/<\/ext-link>. Accessed:
+        2014 November 1."},{"key":"ref42","doi-asserted-by":"crossref","unstructured":"Zhou
+        K, Tobin R, Grover C (2014) Large-Scale Extraction and Analysis of Web Link
+        References in Scholarly Articles. In: Proceedings of DL \u203214 (to appear).","DOI":"10.1109\/JCDL.2014.6970220"},{"key":"ref43","unstructured":"Reverse
+        domain lookup (2014) Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"
+        ext-link-type=\"uri\" xlink:href=\"http:\/\/labs.crossref.org\/reverse-domain-lookup\/\"
+        xlink:type=\"simple\">http:\/\/labs.crossref.org\/reverse-domain-lookup\/<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref44","unstructured":"IANA (2012) Available:
+        <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" ext-link-type=\"uri\"
+        xlink:href=\"https:\/\/www.icann.org\/resources\/pages\/tlds-2012-02-25-en\"
+        xlink:type=\"simple\">https:\/\/www.icann.org\/resources\/pages\/tlds-2012-02-25-en<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref45","doi-asserted-by":"crossref","unstructured":"Cheshire
+        S, Krochmal M (2013) RFC 6761: Special-Use Domain Names.","DOI":"10.17487\/rfc6761"},{"key":"ref46","doi-asserted-by":"crossref","first-page":"149","DOI":"10.1007\/s00799-014-0118-y","article-title":"Profiling
+        web archive coverage for top-level domain and content language","volume":"14","author":"A
+        AlSum","year":"2014","journal-title":"International Journal on Digital Libraries"},{"key":"ref47","unstructured":"(2009)
+        NIH open access mandate made permanent. Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"
+        ext-link-type=\"uri\" xlink:href=\"http:\/\/sciencecommons.org\/weblog\/archives\/2009\/03\/17\/nih-mandate-made-permanent\/\"
+        xlink:type=\"simple\">http:\/\/sciencecommons.org\/weblog\/archives\/2009\/03\/17\/nih-mandate-made-permanent\/<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref48","unstructured":"NIHMS statistics
+        (2014) Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"
+        ext-link-type=\"uri\" xlink:href=\"http:\/\/www.nihms.nih.gov\/stats\/index.shtml\"
+        xlink:type=\"simple\">http:\/\/www.nihms.nih.gov\/stats\/index.shtml<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref49","unstructured":"DOI display guidelines
+        (2014) Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"
+        ext-link-type=\"uri\" xlink:href=\"http:\/\/www.crossref.org\/02publishers\/doi_display_guidelines.html\"
+        xlink:type=\"simple\">http:\/\/www.crossref.org\/02publishers\/doi_display_guidelines.html<\/ext-link>.
+        Accessed: 2014 November 26."},{"key":"ref50","article-title":"Rate of change
+        and other metrics: a live study of the world wide web","volume":"volume 119","author":"F
+        Douglis","year":"1997","journal-title":"In: USENIX Symposium on Internet Technologies
+        and Systems"},{"key":"ref51","doi-asserted-by":"crossref","first-page":"615","DOI":"10.1353\/pla.2003.0098","article-title":"Librarians
+        and link rot: A comparative analysis with some methodological considerations","volume":"3","author":"DC
+        Tyler","year":"2003","journal-title":"portal: Libraries and the Academy"},{"key":"ref52","unstructured":"Ware
+        M, Mabe M (2012). The STM report. An overview of scientific and scholarly
+        journal publishing."},{"key":"ref53","unstructured":"WebCite (2014) Available:
+        <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" ext-link-type=\"uri\"
+        xlink:href=\"http:\/\/webcitation.org\/\" xlink:type=\"simple\">http:\/\/webcitation.org\/<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref54","unstructured":"Figshare (2014)
+        Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" ext-link-type=\"uri\"
+        xlink:href=\"http:\/\/figshare.com\/\" xlink:type=\"simple\">http:\/\/figshare.com\/<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref55","unstructured":"ZENODO (2014)
+        Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" ext-link-type=\"uri\"
+        xlink:href=\"http:\/\/zenodo.org\/\" xlink:type=\"simple\">http:\/\/zenodo.org\/<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref56","unstructured":"GitHub (2014)
+        Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" ext-link-type=\"uri\"
+        xlink:href=\"https:\/\/github.com\/\" xlink:type=\"simple\">https:\/\/github.com\/<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref57","unstructured":"Zotero extension
+        (2014) Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"
+        ext-link-type=\"uri\" xlink:href=\"https:\/\/github.com\/rwincewicz\/zotero_hiberlink\"
+        xlink:type=\"simple\">https:\/\/github.com\/rwincewicz\/zotero_hiberlink<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref58","doi-asserted-by":"crossref","first-page":"12","DOI":"10.1007\/978-3-319-08434-3_2","article-title":"Towards
+        robust hyperlinks for web-based scholarly communication","volume":"volume
+        8543","author":"H Van de Sompel","year":"2014","journal-title":"Intelligent
+        Computer Mathematics"},{"key":"ref59","unstructured":"Van de Sompel H, Klein
+        M, Sanderson R, Nelson ML (2014) Thoughts on Referencing, Linking, Reference
+        Rot. Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"
+        ext-link-type=\"uri\" xlink:href=\"http:\/\/mementoweb.org\/missing-link\/\"
+        xlink:type=\"simple\">http:\/\/mementoweb.org\/missing-link\/<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref60","unstructured":"Memento Time Travel
+        (2014) Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"
+        ext-link-type=\"uri\" xlink:href=\"https:\/\/chrome.google.com\/webstore\/detail\/memento-time-travel\/jgbfpjledahoajcppakbgilmojkaghgm?hl=engl=US\"
+        xlink:type=\"simple\">https:\/\/chrome.google.com\/webstore\/detail\/memento-time-travel\/jgbfpjledahoajcppakbgilmojkaghgm?hl=engl=US<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref61","doi-asserted-by":"crossref","unstructured":"Bechhofer
+        S, De Roure D, Gamble M, Goble C, Buchan I (2010) Research objects: Towards
+        exchange and reuse of digital knowledge. The Future of the Web for Collaborative
+        Science.","DOI":"10.1038\/npre.2010.4626.1"},{"key":"ref62","unstructured":"Wikipedia
+        talk: Link rot (2014) Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"
+        ext-link-type=\"uri\" xlink:href=\"http:\/\/en.wikipedia.org\/wiki\/Wikipedia_talk:Link_rot\"
+        xlink:type=\"simple\">http:\/\/en.wikipedia.org\/wiki\/Wikipedia_talk:Link_rot<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref63","unstructured":"The New York Times
+        (2013) In supreme court opinions, web links to nowhere. Available: <ext-link
+        xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" ext-link-type=\"uri\" xlink:href=\"http:\/\/www.nytimes.com\/2013\/09\/24\/us\/politics\/in-supreme-court-opinions-clicks-that-lead-nowhere.html\"
+        xlink:type=\"simple\">http:\/\/www.nytimes.com\/2013\/09\/24\/us\/politics\/in-supreme-court-opinions-clicks-that-lead-nowhere.html<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref64","unstructured":"The National Archives
+        (2014) Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"
+        ext-link-type=\"uri\" xlink:href=\"http:\/\/nationalarchives.gov.uk\/webarchive\/webmasters.htm\"
+        xlink:type=\"simple\">http:\/\/nationalarchives.gov.uk\/webarchive\/webmasters.htm<\/ext-link>.
+        Accessed: 2014 November 1."},{"key":"ref65","unstructured":"SalahEldeen H,
+        Nelson ML (2012) Losing My Revolution: How Many Resources Shared on Social
+        Media Have Been Lost? In: Proceedings of TPDL \u203212. pp. 125\u2013137."},{"key":"ref66","unstructured":"Broken
+        wordpress links (2014)Available: <ext-link xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"
+        ext-link-type=\"uri\" xlink:href=\"http:\/\/inkdroid.org\/journal\/2013\/10\/28\/broken-wordpress-links\/\"
+        xlink:type=\"simple\">http:\/\/inkdroid.org\/journal\/2013\/10\/28\/broken-wordpress-links\/<\/ext-link>.
+        Accessed: 2014 November 1."}],"container-title":"PLoS ONE","original-title":[],"language":"en","link":[{"URL":"http:\/\/dx.plos.org\/10.1371\/journal.pone.0115253","content-type":"unspecified","content-version":"vor","intended-application":"similarity-checking"}],"deposited":{"date-parts":[[2019,8,19]],"date-time":"2019-08-19T01:10:33Z","timestamp":1566177033000},"score":1,"resource":{"primary":{"URL":"https:\/\/dx.plos.org\/10.1371\/journal.pone.0115253"}},"subtitle":[],"editor":[{"given":"Judit","family":"Bar-Ilan","sequence":"first","affiliation":[]}],"short-title":[],"issued":{"date-parts":[[2014,12,26]]},"references-count":66,"journal-issue":{"issue":"12","published-online":{"date-parts":[[2014,12,26]]}},"URL":"http:\/\/dx.doi.org\/10.1371\/journal.pone.0115253","relation":{},"ISSN":["1932-6203"],"subject":["Multidisciplinary"],"container-title-short":"PLoS
+        ONE","published":{"date-parts":[[2014,12,26]]}}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-encoding:
+      - gzip
+      content-length:
+      - '5498'
+      content-type:
+      - application/vnd.citationstyles.csl+json
+      date:
+      - Mon, 22 Jan 2024 14:26:29 GMT
+      link:
+      - <http://dx.doi.org/10.1371/journal.pone.0115253>; rel="canonical", <http://dx.plos.org/10.1371/journal.pone.0115253>;
+        version="vor"; rel="item", <http://creativecommons.org/licenses/by/4.0/>;
+        rel="license"
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept, Accept-Encoding
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
     status:
       code: 200
       message: OK

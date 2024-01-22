@@ -22,7 +22,7 @@ def vcr_config():
 async def test_extract_all_posts():
     """Extract all posts"""
     result = await extract_all_posts()
-    assert len(result) == 0
+    assert len(result) > 0
     # post = result[0]
     # assert post["title"] is not None
 
@@ -39,7 +39,10 @@ async def test_extract_posts_by_blog_wordpressorg():
     assert post["authors"][0] == {"name": "Gastautor(en)"}
     assert post["tags"] == [
         "Elektronisches Publizieren",
-        "Forschungsinformationssysteme",
+        "Forschungsinformationen &amp; Systeme",
+        "Identitfier",
+        "Projekt",
+        "PID",
     ]
     assert post["language"] == "de"
 
@@ -161,9 +164,9 @@ async def test_extract_posts_by_blog_json_feed():
         "name": "Maëlle Salmon",
         "url": "https://orcid.org/0000-0002-2815-0399",
     }
-    assert post["url"] == "https://ropensci.org/blog/2023/12/22/news-december-2023"
+    assert post["url"] == "https://ropensci.org/blog/2024/01/16/deepl-update-babeldown"
     assert len(post["reference"]) == 0
-    assert post["tags"] == ["Newsletter"]
+    assert post["tags"] == ["Tech Notes", "Multilingual"]
 
 
 @pytest.mark.vcr
@@ -192,8 +195,8 @@ async def test_extract_posts_by_blog_json_feed_with_pagination():
         "R-universe",
         "Tech Notes",
         "Registry",
+        "Search",
         "Packages",
-        "Dashboard",
     ]
 
 
