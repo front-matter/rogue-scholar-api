@@ -15,7 +15,13 @@ from datetime import datetime
 from furl import furl
 from langdetect import detect
 from bs4 import BeautifulSoup
-from commonmeta import Metadata, get_one_author, validate_orcid, normalize_orcid
+from commonmeta import (
+    Metadata,
+    get_one_author,
+    validate_orcid,
+    normalize_orcid,
+    json_feed_reader,
+)
 from commonmeta.constants import Commonmeta
 from commonmeta.date_utils import get_date_from_unix_timestamp
 from commonmeta.doi_utils import validate_prefix, get_doi_ra
@@ -343,6 +349,7 @@ def convert_to_commonmeta(meta: dict) -> Commonmeta:
     subjects = py_.human_case(py_.get(meta, "blog.category"))
     publisher = py_.get(meta, "blog.title")
     provider = get_known_doi_ra(doi) or get_doi_ra(doi)
+    references = json_feed_reader.get_references(meta.get("reference", None))
     alternate_identifiers = [
         {"alternateIdentifier": meta.get("id"), "alternateIdentifierType": "UUID"}
     ]
@@ -369,7 +376,7 @@ def convert_to_commonmeta(meta: dict) -> Commonmeta:
         ),
         "subjects": [{"subject": subjects}],
         "language": meta.get("language", None),
-        "references": meta.get("reference", None),
+        "references": references,
         "funding_references": [],
         "license": {
             "id": "CC-BY-4.0",
@@ -404,7 +411,10 @@ def convert_to_commonmeta(meta: dict) -> Commonmeta:
 
 
 def get_doi_metadata(
-    data: str = "{}", format_: str = "commonmeta", style: str = "apa", locale: str = "en-US"
+    data: str = "{}",
+    format_: str = "commonmeta",
+    style: str = "apa",
+    locale: str = "en-US",
 ):
     """use commonmeta library to get metadata in various formats.
     format_ can be bibtex, ris, csl, citation, with bibtex as default."""
@@ -625,16 +635,10 @@ def get_known_doi_ra(doi: str) -> str:
         return "DataCite"
     return None
 
+
 def translate_titles(markdown):
     """Translate titles into respective language"""
-    lastsep = {
-        "en": "and",
-        "de": "und",
-        "es": "y",
-        "fr": "et",
-        "it": "e",
-        "pt": "e"
-    }
+    lastsep = {"en": "and", "de": "und", "es": "y", "fr": "et", "it": "e", "pt": "e"}
     date_title = {
         "en": "Published",
         "de": "Veröffentlicht",
