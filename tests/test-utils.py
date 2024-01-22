@@ -40,7 +40,7 @@ def test_convert_to_commonmeta_default():
     result = convert_to_commonmeta(data)
     assert result["id"] == "https://doi.org/10.59350/ps8tw-rpk77"
     assert result["schema_version"] == "https://commonmeta.org/commonmeta_v0.10.5.json"
-    assert result["type"] == "JournalArticle"
+    assert result["type"] == "Article"
     assert result["url"] == "http://gigasciencejournal.com/blog/fair-workflows"
     assert py_.get(result, "titles.0") == {
         "title": "A Decade of FAIR – what happens next? Q&amp;A on FAIR workflows with the Netherlands X-omics Initiative"

@@ -18,6 +18,7 @@ from bs4 import BeautifulSoup
 from commonmeta import Metadata, get_one_author, validate_orcid, normalize_orcid
 from commonmeta.constants import Commonmeta
 from commonmeta.date_utils import get_date_from_unix_timestamp
+from commonmeta.doi_utils import validate_prefix, get_doi_ra
 import frontmatter
 import pandoc
 # from pandoc.types import Str
@@ -339,10 +340,16 @@ def convert_to_commonmeta(meta: dict) -> Commonmeta:
     container_title = py_.get(meta, "blog.title")
     identifier = py_.get(meta, "blog.issn")
     identifier_type = "ISSN" if identifier else None
+    subjects = py_.human_case(py_.get(meta, "blog.category"))
+    publisher = py_.get(meta, "blog.title")
+    provider = get_known_doi_ra(doi) or get_doi_ra(doi)
+    alternate_identifiers = [
+        {"alternateIdentifier": meta.get("id"), "alternateIdentifierType": "UUID"}
+    ]
     return {
         "id": meta.get("doi", None),
         "url": meta.get("url", None),
-        "type": "JournalArticle",
+        "type": "Article",
         "contributors": format_authors_commonmeta(meta.get("authors", None)),
         "titles": [{"title": meta.get("title", None)}],
         "descriptions": [
@@ -350,8 +357,7 @@ def convert_to_commonmeta(meta: dict) -> Commonmeta:
         ],
         "date": {"published": published, "updated": updated},
         "publisher": {
-            "id": "https://api.crossref.org/members/31795",
-            "name": "Front Matter",
+            "name": publisher,
         },
         "container": compact(
             {
@@ -361,7 +367,7 @@ def convert_to_commonmeta(meta: dict) -> Commonmeta:
                 "identifierType": identifier_type,
             }
         ),
-        "subjects": meta.get("tags", None),
+        "subjects": [{"subject": subjects}],
         "language": meta.get("language", None),
         "references": meta.get("reference", None),
         "funding_references": [],
@@ -369,7 +375,8 @@ def convert_to_commonmeta(meta: dict) -> Commonmeta:
             "id": "CC-BY-4.0",
             "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
         },
-        "provider": "Crossref",
+        "provider": provider,
+        "alternateIdentifiers": alternate_identifiers,
         "files": [
             {
                 "url": meta.get("url", None),
@@ -405,10 +412,11 @@ def get_doi_metadata(
     content_types = {
         "commonmeta": "application/vnd.commonmeta+json",
         "bibtex": "application/x-bibtex",
-        "ris": "application/x-research-info-systems",
+        "ris": "application/x-research-infJoo-systems",
         "csl": "application/vnd.citationstyles.csl+json",
         "schema_org": "application/vnd.schemaorg.ld+json",
         "datacite": "application/vnd.datacite.datacite+json",
+        "crossref_xml": "application/vnd.crossref.unixref+xml",
         "citation": f"text/x-bibliography; style={style}; locale={locale}",
     }
     content_type = content_types.get(format_)
@@ -438,6 +446,8 @@ def get_doi_metadata(
         result = subject.datacite()
     else:
         ext = "txt"
+        # workaround for properly formatting blog posts
+        subject.type = "JournalArticle"
         result = subject.citation()
     options = {
         "Content-Type": content_type,
@@ -590,6 +600,30 @@ def format_markdown(content: str, metadata) -> str:
     post["rights"] = "https://creativecommons.org/licenses/by/4.0/legalcode"
     return post
 
+
+def get_known_doi_ra(doi: str) -> str:
+    """Get DOI registration agency from prefixes used in Rogue Scholar"""
+    crossref_prefixes = [
+        "10.53731",
+        "10.54900",
+        "10.59348",
+        "10.59349",
+        "10.59350",
+    ]
+    datacite_prefixes = [
+        "10.34732",
+        "10.57689",
+    ]
+    if doi is None:
+        return None
+    prefix = validate_prefix(doi)
+    if prefix is None:
+        return None
+    if prefix in crossref_prefixes:
+        return "Crossref"
+    if prefix in datacite_prefixes:
+        return "DataCite"
+    return None
 
 def translate_titles(markdown):
     """Translate titles into respective language"""

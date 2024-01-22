@@ -481,6 +481,7 @@ async def post(slug: str, suffix: Optional[str] = None):
             "csl",
             "schema_org",
             "datacite",
+            "crossref_xml",
             "commonmeta",
             "citation",
         ]:

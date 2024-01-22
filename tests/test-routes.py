@@ -433,7 +433,7 @@ async def test_post_as_csl():
     response = await test_client.get("/posts/10.59350/sfzv4-xdb68?format=csl")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["type"] == "article-journal"
+    assert result["type"] == "article"
     assert result["title"] == "¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?"
     assert result["container-title"] == "Edición y comunicación de la Ciencia"
     assert result["DOI"] == "10.59350/sfzv4-xdb68"

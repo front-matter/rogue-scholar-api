@@ -63,8 +63,9 @@ async def extract_all_posts(page: int = 1, update_all: bool = False):
 
 async def update_posts(posts: list):
     """Update posts."""
-    
+
     try:
+
         def update_post(post):
             id_ = py_.get(post, "document.id")
             if len(id_) == 5:
@@ -166,7 +167,9 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
 
         if generator == "Substack":
             async with aiohttp.ClientSession() as session:
-                async with session.get(feed_url, timeout=30, raise_for_status=True) as resp:
+                async with session.get(
+                    feed_url, timeout=30, raise_for_status=True
+                ) as resp:
                     posts = await resp.json()
                     # only include posts that have been modified since last update
                     if not update_all:
@@ -175,7 +178,9 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "WordPress" and blog["use_api"]:
             async with aiohttp.ClientSession() as session:
-                async with session.get(feed_url, timeout=30, raise_for_status=True) as resp:
+                async with session.get(
+                    feed_url, timeout=30, raise_for_status=True
+                ) as resp:
                     posts = await resp.json()
                     if not update_all:
                         posts = filter_updated_posts(posts, blog, key="modified_gmt")
@@ -183,7 +188,9 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "WordPress.com" and blog["use_api"]:
             async with aiohttp.ClientSession() as session:
-                async with session.get(feed_url, timeout=30, raise_for_status=True) as resp:
+                async with session.get(
+                    feed_url, timeout=30, raise_for_status=True
+                ) as resp:
                     json = await resp.json()
                     posts = json.get("posts", [])
                     if not update_all:
@@ -193,7 +200,9 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
         elif generator == "Ghost" and blog["use_api"]:
             headers = {"Accept-Version": "v5.0"}
             async with aiohttp.ClientSession() as session:
-                async with session.get(feed_url, headers=headers, timeout=30, raise_for_status=True) as resp:
+                async with session.get(
+                    feed_url, headers=headers, timeout=30, raise_for_status=True
+                ) as resp:
                     json = await resp.json()
                     posts = json.get("posts", [])
                     if not update_all:
@@ -202,7 +211,9 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/feed+json":
             async with aiohttp.ClientSession() as session:
-                async with session.get(feed_url, timeout=30, raise_for_status=True) as resp:
+                async with session.get(
+                    feed_url, timeout=30, raise_for_status=True
+                ) as resp:
                     json = await resp.json()
                     posts = json.get("items", [])
                     if not update_all:
@@ -212,7 +223,9 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/atom+xml":
             async with aiohttp.ClientSession() as session:
-                async with session.get(feed_url, timeout=30, raise_for_status=True) as resp:
+                async with session.get(
+                    feed_url, timeout=30, raise_for_status=True
+                ) as resp:
                     # fix malformed xml
                     xml = fix_xml(await resp.read())
                     json = xmltodict.parse(xml)
@@ -226,7 +239,9 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/rss+xml":
             async with aiohttp.ClientSession() as session:
-                async with session.get(feed_url, timeout=30, raise_for_status=True) as resp:
+                async with session.get(
+                    feed_url, timeout=30, raise_for_status=True
+                ) as resp:
                     # fix malformed xml
                     xml = fix_xml(await resp.read())
                     json = xmltodict.parse(xml)
@@ -490,6 +505,7 @@ async def extract_json_feed_post(post, blog):
     """Extract JSON Feed post."""
 
     try:
+
         def format_author(author):
             """Format author."""
             return normalize_author(author.get("name", None), author.get("url", None))
@@ -637,6 +653,7 @@ async def extract_rss_post(post, blog):
     """Extract RSS post."""
 
     try:
+
         def format_author(author):
             """Format author."""
             return normalize_author(author.get("name", None), author.get("url", None))
@@ -790,6 +807,7 @@ def sanitize_html(content_html: str):
             "a": ["href", "rel"],
             "img": ["src", "srcset", "width", "height", "sizes", "alt"],
         },
+        link_rel=None,
     )
 
 
