@@ -343,7 +343,7 @@ def normalize_tag(tag: str) -> str:
 def convert_to_commonmeta(meta: dict) -> Commonmeta:
     """Convert post metadata to commonmeta format"""
 
-    doi = doi_from_url(meta.get("doi", None))
+    doi = doi_from_url(meta.get("doi", None)) or "https://doi.org/10.5555/test"
     published = get_date_from_unix_timestamp(meta.get("published_at", 0))
     updated = get_date_from_unix_timestamp(meta.get("updated_at", None))
     container_title = py_.get(meta, "blog.title")
