@@ -371,20 +371,20 @@ tests = ["check-manifest (>=0.25)", "coverage (>=4.0)", "isort (>=4.2.2)", "pydo
 
 [[package]]
 name = "beartype"
-version = "0.16.4"
+version = "0.17.0"
 description = "Unbearably fast runtime type checking in pure Python."
 optional = false
 python-versions = ">=3.8.0"
 files = [
-    {file = "beartype-0.16.4-py3-none-any.whl", hash = "sha256:64865952f9dff1e17f22684b3c7286fc79754553b47eaefeb1286224ae8c1bd9"},
-    {file = "beartype-0.16.4.tar.gz", hash = "sha256:1ada89cf2d6eb30eb6e156eed2eb5493357782937910d74380918e53c2eae0bf"},
+    {file = "beartype-0.17.0-py3-none-any.whl", hash = "sha256:fa84b77a8d037f2a39c4aa2f3dc71854afc7d79312e55a66b338da68fdd48c60"},
+    {file = "beartype-0.17.0.tar.gz", hash = "sha256:3226fbba8c53b4e698acdb47dcaf3c0640151c4d405618c281e6631f4112947d"},
 ]
 
 [package.extras]
 all = ["typing-extensions (>=3.10.0.0)"]
-dev = ["autoapi (>=0.9.0)", "coverage (>=5.5)", "mypy (>=0.800)", "numpy", "pandera", "pydata-sphinx-theme (<=0.7.2)", "pytest (>=4.0.0)", "sphinx", "sphinx (>=4.2.0,<6.0.0)", "sphinxext-opengraph (>=0.7.5)", "tox (>=3.20.1)", "typing-extensions (>=3.10.0.0)"]
+dev = ["autoapi (>=0.9.0)", "coverage (>=5.5)", "equinox", "mypy (>=0.800)", "numpy", "pandera", "pydata-sphinx-theme (<=0.7.2)", "pytest (>=4.0.0)", "sphinx", "sphinx (>=4.2.0,<6.0.0)", "sphinxext-opengraph (>=0.7.5)", "torch", "tox (>=3.20.1)", "typing-extensions (>=3.10.0.0)"]
 doc-rtd = ["autoapi (>=0.9.0)", "pydata-sphinx-theme (<=0.7.2)", "sphinx (>=4.2.0,<6.0.0)", "sphinxext-opengraph (>=0.7.5)"]
-test-tox = ["mypy (>=0.800)", "numpy", "pandera", "pytest (>=4.0.0)", "sphinx", "typing-extensions (>=3.10.0.0)"]
+test-tox = ["equinox", "mypy (>=0.800)", "numpy", "pandera", "pytest (>=4.0.0)", "sphinx", "torch", "typing-extensions (>=3.10.0.0)"]
 test-tox-coverage = ["coverage (>=5.5)"]
 
 [[package]]
@@ -882,13 +882,13 @@ test = ["pytest"]
 
 [[package]]
 name = "commonmeta-py"
-version = "0.10.5"
+version = "0.11.1"
 description = "Library for conversions to/from the Commonmeta scholarly metadata format"
 optional = false
 python-versions = ">=3.9,<4.0.0"
 files = [
-    {file = "commonmeta_py-0.10.5-py3-none-any.whl", hash = "sha256:28b58dd4520237cc30c4635bfceb004aee28cf633d72ddce0ad7ade8614b051e"},
-    {file = "commonmeta_py-0.10.5.tar.gz", hash = "sha256:fa91ca6ef8cfbc4ced4f0c513c963f0c8b4ef6f2224e8656c33fdba738da2dae"},
+    {file = "commonmeta_py-0.11.1-py3-none-any.whl", hash = "sha256:e911bafb25ad8480756143804a6be86a0744ed3770ac29c2c730af2276f8bd3f"},
+    {file = "commonmeta_py-0.11.1.tar.gz", hash = "sha256:b12f906a5347284a54f37eb9bee042f2edb99370788347fa21249f1872307818"},
 ]
 
 [package.dependencies]
@@ -1909,13 +1909,13 @@ test = ["flaky", "ipykernel", "pre-commit", "pytest (>=7.0)", "pytest-console-sc
 
 [[package]]
 name = "jupyter-server-terminals"
-version = "0.5.1"
+version = "0.5.2"
 description = "A Jupyter Server Extension Providing Terminals."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "jupyter_server_terminals-0.5.1-py3-none-any.whl", hash = "sha256:5e63e947ddd97bb2832db5ef837a258d9ccd4192cd608c1270850ad947ae5dd7"},
-    {file = "jupyter_server_terminals-0.5.1.tar.gz", hash = "sha256:16d3be9cf48be6a1f943f3a6c93c033be259cf4779184c66421709cf63dccfea"},
+    {file = "jupyter_server_terminals-0.5.2-py3-none-any.whl", hash = "sha256:1b80c12765da979513c42c90215481bbc39bd8ae7c0350b4f85bc3eb58d0fa80"},
+    {file = "jupyter_server_terminals-0.5.2.tar.gz", hash = "sha256:396b5ccc0881e550bf0ee7012c6ef1b53edbde69e67cab1d56e89711b46052e8"},
 ]
 
 [package.dependencies]
@@ -2642,13 +2642,13 @@ test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=7.4)", "pytest-co
 
 [[package]]
 name = "pluggy"
-version = "1.3.0"
+version = "1.4.0"
 description = "plugin and hook calling mechanisms for python"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "pluggy-1.3.0-py3-none-any.whl", hash = "sha256:d89c696a773f8bd377d18e5ecda92b7a3793cbe66c87060a6fb58c7b6e1061f7"},
-    {file = "pluggy-1.3.0.tar.gz", hash = "sha256:cf61ae8f126ac6f7c451172cf30e3e43d3ca77615509771b3a984a0730651e12"},
+    {file = "pluggy-1.4.0-py3-none-any.whl", hash = "sha256:7db9f7b503d67d1c5b95f59773ebb58a8c1c288129a88665838012cfb07b8981"},
+    {file = "pluggy-1.4.0.tar.gz", hash = "sha256:8c85c2876142a764e5b7548e7d9a0e0ddb46f5185161049a79b7e974454223be"},
 ]
 
 [package.extras]
@@ -3222,13 +3222,13 @@ six = ">=1.5"
 
 [[package]]
 name = "python-dotenv"
-version = "1.0.0"
+version = "1.0.1"
 description = "Read key-value pairs from a .env file and set them as environment variables"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "python-dotenv-1.0.0.tar.gz", hash = "sha256:a8df96034aae6d2d50a4ebe8216326c61c3eb64836776504fcca410e5937a3ba"},
-    {file = "python_dotenv-1.0.0-py3-none-any.whl", hash = "sha256:f5971a9226b701070a4bf2c38c89e5a3f0d64de8debda981d1db98583009122a"},
+    {file = "python-dotenv-1.0.1.tar.gz", hash = "sha256:e324ee90a023d808f1959c46bcbc04446a10ced277783dc6ee09987c37ec10ca"},
+    {file = "python_dotenv-1.0.1-py3-none-any.whl", hash = "sha256:f7b63ef50f1b690dddf550d03497b66d609393b40b564ed0d674909a68ebf16a"},
 ]
 
 [package.extras]
@@ -4607,13 +4607,13 @@ files = [
 
 [[package]]
 name = "types-requests"
-version = "2.31.0.20240106"
+version = "2.31.0.20240125"
 description = "Typing stubs for requests"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "types-requests-2.31.0.20240106.tar.gz", hash = "sha256:0e1c731c17f33618ec58e022b614a1a2ecc25f7dc86800b36ef341380402c612"},
-    {file = "types_requests-2.31.0.20240106-py3-none-any.whl", hash = "sha256:da997b3b6a72cc08d09f4dba9802fdbabc89104b35fe24ee588e674037689354"},
+    {file = "types-requests-2.31.0.20240125.tar.gz", hash = "sha256:03a28ce1d7cd54199148e043b2079cdded22d6795d19a2c2a6791a4b2b5e2eb5"},
+    {file = "types_requests-2.31.0.20240125-py3-none-any.whl", hash = "sha256:9592a9a4cb92d6d75d9b491a41477272b710e021011a2a3061157e2fb1f1a5d1"},
 ]
 
 [package.dependencies]
@@ -5173,4 +5173,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "f3e23bcdf4aaa6d55a218548255c8a01b052335f11932a1a4ce29a24fdea2c12"
+content-hash = "0de21cd4129a6210772a496c1a87bae47bc180ba0e315075e0229e3dd9af11f7"

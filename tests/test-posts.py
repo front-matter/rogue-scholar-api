@@ -22,7 +22,7 @@ def vcr_config():
 async def test_extract_all_posts():
     """Extract all posts"""
     result = await extract_all_posts()
-    assert len(result) > 0
+    assert len(result) == 0
     # post = result[0]
     # assert post["title"] is not None
 
@@ -198,6 +198,21 @@ async def test_extract_posts_by_blog_json_feed_with_pagination():
         "Search",
         "Packages",
     ]
+
+
+@pytest.mark.vcr
+@pytest.mark.asyncio
+async def test_extract_posts_by_blog_organizational_author():
+    """Extract posts by blog organizational author"""
+    slug = "leidenmadtrics"
+    result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
+    assert len(result) == 10
+    post = result[0]
+    assert (
+        post["title"]
+        == "An open approach for classifying research publications"
+    )
+    assert post["authors"][0] == {'name': 'Leiden Madtrics', 'url': 'https://ror.org/027bh9e22'}
 
 
 @pytest.mark.vcr

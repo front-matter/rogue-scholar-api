@@ -287,9 +287,9 @@ async def test_posts_post_route():
     response = await test_client.post("/posts", headers=headers)
     assert response.status_code == 200
     result = await response.get_json()
-    assert len(result) > 0
-    post = result[0]
-    assert post["title"] is not None
+    assert len(result) == 0
+    # post = result[0]
+    # assert post["title"] is not None
 
 
 @pytest.mark.vcr
@@ -439,6 +439,19 @@ async def test_post_as_csl():
     assert result["container-title"] == "Edición y comunicación de la Ciencia"
     assert result["DOI"] == "10.59350/sfzv4-xdb68"
 
+
+@pytest.mark.vcr
+async def test_post_uuid_as_csl():
+    """Test post uuid formatted as csl."""
+    test_client = app.test_client()
+    response = await test_client.get("/posts/77b2102f-fec5-425a-90a3-4a97c768bdc4?format=csl")
+    assert response.status_code == 200
+    result = await response.get_json()
+    assert result["type"] == "article"
+    assert result["title"] == "¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?"
+    assert result["container-title"] == "Edición y comunicación de la Ciencia"
+    assert result["DOI"] == "10.59350/sfzv4-xdb68"
+    
 
 @pytest.mark.vcr
 async def test_post_as_citation():

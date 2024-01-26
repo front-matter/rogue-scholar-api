@@ -67,6 +67,8 @@ AUTHOR_IDS = {
     "David M. Shotton": "https://orcid.org/0000-0001-5506-523X",
     "Heinz Pampel": "https://orcid.org/0000-0003-3334-2771",
     "Martin Paul Eve": "https://orcid.org/0000-0002-5589-8511",
+    "Leiden Madtrics": "https://ror.org/027bh9e22",
+    "Liberate Science": "https://ror.org/0342dzm54",
 }
 
 AUTHOR_NAMES = {
@@ -99,6 +101,7 @@ AUTHOR_NAMES = {
     "schradera": "Antonia Schrader",
     "arningu": "Ursula Arning",
     "rmounce": "Ross Mounce",
+    "pedroandretta": "Pedro Andretta",
 }
 
 
