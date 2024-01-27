@@ -69,6 +69,7 @@ AUTHOR_IDS = {
     "Martin Paul Eve": "https://orcid.org/0000-0002-5589-8511",
     "Leiden Madtrics": "https://ror.org/027bh9e22",
     "Liberate Science": "https://ror.org/0342dzm54",
+    "Elephant in the Lab": "https://ror.org/02h1qnm70",
 }
 
 AUTHOR_NAMES = {

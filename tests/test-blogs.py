@@ -318,7 +318,7 @@ def test_update_single_blog():
         "plan": "Team",
         "user_id": "a9e3541e-1e00-4bf3-8a4d-fc9b1c505651",
         "authors": None,
-        "use_mastodon": False,
+        "mastodon": None,
         "use_api": True,
         "relative_url": None,
         "filter": None,

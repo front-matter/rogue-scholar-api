@@ -8488,4 +8488,72 @@ interactions:
       - '1'
     http_version: HTTP/1.1
     status_code: 200
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      user-agent:
+      - python-httpx/0.25.2
+      x-client-info:
+      - supabase-py/2.3.4
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20mastodon%2C%20generator%2C%20generator_raw%2C%20language%2C%20category%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.tarleb
+  response:
+    content: '{"id":"c6e3ab7a-a0d9-4ee8-9b16-efa5b5c541b8","slug":"tarleb","feed_url":"https://tarleb.com/index.xml","current_feed_url":null,"home_page_url":"https://tarleb.com/index.html","archive_prefix":"https://wayback.archive-it.org/22161/20231101171515/","feed_format":"application/rss+xml","created_at":1681948800,"updated_at":1679616000,"mastodon":null,"generator":"Quarto","generator_raw":"Quarto
+      1.2.475","language":"en","category":"computerAndInformationSciences","favicon":null,"title":"tarleb","description":"tarleb''s
+      blog","category":"computerAndInformationSciences","status":"active","user_id":"dead81b3-8a8b-45c9-85fe-f01bb3948c77","authors":null,"plan":"Starter","use_api":null,"relative_url":null,"filter":null,"secure":true}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 84c069075da7cb09-DUS
+      Connection:
+      - keep-alive
+      Content-Location:
+      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20mastodon%2C%20generator%2C%20generator_raw%2C%20language%2C%20category%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.tarleb
+      Content-Profile:
+      - public
+      Content-Range:
+      - 0-0/*
+      Content-Type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      Date:
+      - Sat, 27 Jan 2024 10:46:09 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/2.8.1
+      X-Kong-Proxy-Latency:
+      - '1'
+      X-Kong-Upstream-Latency:
+      - '5'
+      alt-svc:
+      - h3=":443"; ma=86400
+      sb-gateway-version:
+      - '1'
+    http_version: HTTP/1.1
+    status_code: 200
 version: 1

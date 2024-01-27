@@ -36649,8 +36649,6 @@ interactions:
       - nginx/1.18.0 + Phusion Passenger(R) 6.0.19
       Status:
       - 200 OK
-      Transfer-Encoding:
-      - chunked
       Vary:
       - Accept, Accept-Encoding, Origin
       X-Content-Type-Options:
@@ -37172,4 +37170,76 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      user-agent:
+      - python-httpx/0.25.2
+      x-client-info:
+      - supabase-py/2.3.4
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20mastodon%2C%20generator%2C%20generator_raw%2C%20language%2C%20category%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.iphylo
+  response:
+    content: '{"id":"7c15a409-cf9e-440b-9be0-cd831327bd55","slug":"iphylo","feed_url":"https://iphylo.blogspot.com/feeds/posts/default","current_feed_url":null,"home_page_url":"https://iphylo.blogspot.com/","archive_prefix":null,"feed_format":"application/atom+xml","created_at":1675641600,"updated_at":1701257664,"mastodon":"https://scicomm.xyz/@rdmpage","generator":"Blogger","generator_raw":"Blogger
+      7.00","language":"en","category":"computerAndInformationSciences","favicon":null,"title":"iPhylo","description":"Rants,
+      raves (and occasionally considered opinions) on phyloinformatics, taxonomy,
+      and biodiversity informatics.  For more ranty and less considered opinions,
+      see my <a href=\"https://twitter.com/rdmpage\">Twitter feed</a>.<br />ISSN 2051-8188.
+      Written content on this site is licensed under a <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative
+      Commons Attribution 4.0 International license</a>.","category":"computerAndInformationSciences","status":"active","user_id":"b98bb1b6-b96b-4e8a-94d3-4285ea715f5b","authors":null,"plan":"Team","use_api":null,"relative_url":null,"filter":null,"secure":true}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 84c0689248321619-DUS
+      Connection:
+      - keep-alive
+      Content-Location:
+      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20mastodon%2C%20generator%2C%20generator_raw%2C%20language%2C%20category%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.iphylo
+      Content-Profile:
+      - public
+      Content-Range:
+      - 0-0/*
+      Content-Type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      Date:
+      - Sat, 27 Jan 2024 10:45:51 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/2.8.1
+      X-Kong-Proxy-Latency:
+      - '2'
+      X-Kong-Upstream-Latency:
+      - '6'
+      alt-svc:
+      - h3=":443"; ma=86400
+      sb-gateway-version:
+      - '1'
+    http_version: HTTP/1.1
+    status_code: 200
 version: 1
