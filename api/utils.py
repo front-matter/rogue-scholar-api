@@ -363,7 +363,7 @@ def convert_to_commonmeta(meta: dict) -> Commonmeta:
         "contributors": format_authors_commonmeta(meta.get("authors", None)),
         "titles": [{"title": meta.get("title", None)}],
         "descriptions": [
-            {"description": meta.get("summary", None), "descriptionType": "Abstract"}
+            {"description": meta.get("summary", None), "descriptionType": "Summary"}
         ],
         "date": {"published": published, "updated": updated},
         "publisher": {
@@ -609,8 +609,8 @@ def format_markdown(content: str, metadata) -> str:
     post["date_updated"] = (
         datetime.utcfromtimestamp(metadata.get("date_updated", 0)).isoformat() + "Z"
     )
-    post["abstract"] = metadata.get("abstract", "").strip()
     post["rights"] = "https://creativecommons.org/licenses/by/4.0/legalcode"
+    post["summary"] = metadata.get("summary", "").strip()
     return post
 
 

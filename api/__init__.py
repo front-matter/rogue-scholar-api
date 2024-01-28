@@ -398,13 +398,32 @@ async def post(slug: str, suffix: Optional[str] = None):
             metadata,
             {
                 "authors": "author",
+                "blog_name": "container",
                 "doi": "identifier",
                 "language": "lang",
                 "published_at": "date",
-                "summary": "abstract",
+                "reference:": "references",
                 "tags": "keywords",
                 "updated_at": "date_updated",
             },
+        )
+        metadata = py_.pick(
+            metadata,
+            [
+                "author",
+                "container",
+                "date",
+                "date_updated",
+                "image",
+                "identifier",
+                "keywords",
+                "lang",
+                "references",
+                "relationships",
+                "summary",
+                "title",
+                "url"
+            ],
         )
         markdown = format_markdown(content, metadata)
         if format_ == "epub":
@@ -428,8 +447,8 @@ async def post(slug: str, suffix: Optional[str] = None):
                 "link": markdown["rights"],
             }
             markdown["date"] = format_datetime(markdown["date"], markdown["lang"])
-            markdown["blog_name"] = markdown["blog_name"][:40] + (
-                markdown["blog_name"][40:] and "..."
+            markdown["container"] = markdown["container"][:40] + (
+                markdown["container"][40:] and "..."
             )
             citation = get_doi_metadata(meta_str, "citation", style, locale)
             if citation:
@@ -462,7 +481,7 @@ async def post(slug: str, suffix: Optional[str] = None):
                 "type": "open-access",
                 "link": markdown["rights"],
             }
-            markdown["journal"] = {"title": markdown["blog_name"]}
+            markdown["journal"] = {"title": markdown["container"]}
             markdown = frontmatter.dumps(markdown)
             jats = write_jats(markdown)
             return (
