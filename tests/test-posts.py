@@ -9,6 +9,7 @@ from api.posts import (
     get_relationships,
     # get_title,
     get_abstract,
+    get_summary,
 )
 
 
@@ -737,10 +738,10 @@ def test_get_relationships_funding():
 #     assert result == "<strong>Bla</strong><i>bla</i>"
 
 
-def test_get_abstract():
-    """Sanitize and truncate abstract."""
-    abstract = """
+def test_get_summary():
+    """Sanitize and truncate summary."""
+    summary = """
     There’s something special about language. It is ‘our own’, it is ‘us’, in a profound way, and quite surprisingly, more so than art. I was deeply struck by this when I first saw reactions to large generative language models that created realistic, human-ish prose. Notably, those mature enough to reach a non-professional audience – ChatGPT based on GPT-3 and later GPT-4 – came quite some time after models that could create fairly acceptable visual ‘art’.1 The appearance of synthetic language-like products (SLLPs), as I like to call the output of such generative models, came well after the appearance of synthetic simulacra of visual art,2 yet elicited much less fervent responses."""
-    result = get_abstract(abstract)
+    result = get_summary(summary)
     assert len(result) <= 450
     assert result.endswith("human-ish prose.\n")

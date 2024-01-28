@@ -14,6 +14,7 @@ import time
 import traceback
 from urllib.parse import unquote
 from commonmeta import validate_doi, normalize_doi, validate_url
+from Levenshtein import ratio
 
 from api.utils import (
     unix_timestamp,
@@ -160,6 +161,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
 
         feed_url = url.set(params).url
         blog_with_posts = {}
+        print(feed_url)
 
         # use pagination of results only for non-API blogs
         if params:
@@ -289,6 +291,9 @@ async def extract_wordpress_post(post, blog):
         authors = [format_author(i) for i in authors_]
         content_html = py_.get(post, "content.rendered", "")
         content_text = get_markdown(content_html)
+        summary = get_summary(content_html)
+        abstract = get_summary(py_.get(post, "excerpt.rendered", ""))
+        abstract = get_abstract(summary, abstract)
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("link", None), secure=blog.get("secure", True))
@@ -319,7 +324,8 @@ async def extract_wordpress_post(post, blog):
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_text": content_text,
-            "summary": get_abstract(content_html),
+            "summary": summary,
+            "abstract": abstract,
             "published_at": unix_timestamp(post.get("date_gmt", None)),
             "updated_at": unix_timestamp(post.get("modified_gmt", None)),
             "image": image,
@@ -353,9 +359,9 @@ async def extract_wordpresscom_post(post, blog):
         authors = [format_author(i) for i in wrap(post.get("author", None))]
         content_html = post.get("content", "")
         content_text = get_markdown(content_html)
-        summary = get_abstract(post.get("excerpt", None)) or get_title(
-            post.get("title", None)
-        )
+        summary = get_summary(post.get("content", ""))
+        abstract = get_summary(post.get("excerpt", None))
+        abstract = get_abstract(summary, abstract)
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("URL", None), secure=blog.get("secure", True))
@@ -374,6 +380,7 @@ async def extract_wordpresscom_post(post, blog):
             "blog_slug": blog.get("slug", None),
             "content_text": content_text,
             "summary": summary,
+            "abstract": abstract,
             "published_at": unix_timestamp(post.get("date", None)),
             "updated_at": unix_timestamp(post.get("modified", None)),
             "image": image,
@@ -409,7 +416,9 @@ async def extract_ghost_post(post, blog):
         content_text = get_markdown(content_html)
 
         # don't use excerpt as summary, because it's not html
-        summary = get_abstract(content_html)
+        summary = get_summary(content_html)
+        abstract = get_summary(post.get("excerpt", ""))
+        abstract = get_abstract(summary, abstract)
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
@@ -428,6 +437,7 @@ async def extract_ghost_post(post, blog):
             "blog_slug": blog.get("slug", None),
             "content_text": content_text,
             "summary": summary,
+            "abstract": abstract,
             "published_at": unix_timestamp(post.get("published_at", None)),
             "updated_at": unix_timestamp(post.get("updated_at", None)),
             "image": image,
@@ -459,7 +469,9 @@ async def extract_substack_post(post, blog):
         authors = [format_author(i) for i in wrap(post.get("publishedBylines", None))]
         content_html = post.get("body_html", "")
         content_text = get_markdown(content_html)
-        summary = get_abstract(post.get("description", None))
+        summary = get_summary(post.get("description", None))
+        abstract = get_summary(content_html)
+        abstract = get_abstract(summary, abstract)
         published_at = unix_timestamp(post.get("post_date", None))
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
@@ -483,6 +495,7 @@ async def extract_substack_post(post, blog):
             "blog_slug": blog.get("slug", None),
             "content_text": content_text,
             "summary": summary,
+            "abstract": abstract,
             "published_at": published_at,
             "updated_at": published_at,
             "image": image,
@@ -518,7 +531,8 @@ async def extract_json_feed_post(post, blog):
         authors = [format_author(i) for i in authors_]
         content_html = post.get("content_html", "")
         content_text = get_markdown(content_html)
-        summary = get_abstract(content_html)
+        summary = get_summary(content_html)
+        abstract = None
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
@@ -540,6 +554,7 @@ async def extract_json_feed_post(post, blog):
             "blog_slug": blog.get("slug", None),
             "content_text": content_text,
             "summary": summary,
+            "abstract": abstract,
             "published_at": unix_timestamp(post.get("date_published", None)),
             "updated_at": unix_timestamp(post.get("date_modified", None)),
             "image": image,
@@ -580,7 +595,8 @@ async def extract_atom_post(post, blog):
         title = get_title(py_.get(post, "title.#text", None)) or get_title(
             post.get("title", None)
         )
-        summary = get_abstract(content_html)
+        summary = get_summary(content_html)
+        abstract = None
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         published_at = get_date(post.get("published", None))
@@ -631,6 +647,7 @@ async def extract_atom_post(post, blog):
             "blog_slug": blog.get("slug", None),
             "content_text": content_text,
             "summary": summary,
+            "abstract": abstract,
             "published_at": unix_timestamp(published_at),
             "updated_at": unix_timestamp(updated_at or published_at),
             "image": image,
@@ -670,7 +687,8 @@ async def extract_rss_post(post, blog):
             "description", ""
         )
         content_text = get_markdown(content_html)
-        summary = get_abstract(content_html) or ""
+        summary = get_summary(content_html) or ""
+        abstract = None
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         raw_url = post.get("link", None)
@@ -702,6 +720,7 @@ async def extract_rss_post(post, blog):
             "blog_slug": blog.get("slug", None),
             "content_text": content_text,
             "summary": summary,
+            "abstract": abstract,
             "published_at": unix_timestamp(published_at),
             "updated_at": unix_timestamp(published_at),
             "image": image,
@@ -767,6 +786,7 @@ def upsert_single_post(post):
                     "reference": post.get("reference", None),
                     "relationships": post.get("relationships", None),
                     "summary": post.get("summary", ""),
+                    "abstract": post.get("abstract", None),
                     "tags": post.get("tags", None),
                     "title": post.get("title", None),
                     "url": post.get("url", None),
@@ -894,8 +914,8 @@ def get_title(content_html: str):
     return sanitized
 
 
-def get_abstract(content_html: str = None, maxlen: int = 450):
-    """Get abstract from content_html."""
+def get_summary(content_html: str = None, maxlen: int = 450):
+    """Get summary from excerpt or content_html."""
     if not content_html:
         return None
     content_html = re.sub(r"(<br>|<br/>|<p>|</pr>)", " ", content_html)
@@ -919,6 +939,14 @@ def get_abstract(content_html: str = None, maxlen: int = 450):
     return soup.prettify()
 
 
+def get_abstract(summary: str, abstract: str):
+    """Get abstract if not beginning of post.
+    Use Levenshtein distance to compare summary and abstract."""
+    le = min(len(abstract), 100)
+    rat = ratio(summary[:le], abstract[:le])
+    return abstract if rat <= 0.75 else None
+    
+    
 def get_relationships(content_html: str):
     """Get relationships from content_html. Extract links from
     Acknowledgments section,defined as the text after the tag
