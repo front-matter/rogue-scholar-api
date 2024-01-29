@@ -611,6 +611,8 @@ def format_markdown(content: str, metadata) -> str:
     )
     post["rights"] = "https://creativecommons.org/licenses/by/4.0/legalcode"
     post["summary"] = metadata.get("summary", "").strip()
+    if post.get("abstract", None) is not None:
+        post["abstract"] = metadata.get("abstract").strip()
     return post
 
 
