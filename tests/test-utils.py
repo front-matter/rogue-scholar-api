@@ -39,7 +39,7 @@ def test_convert_to_commonmeta_default():
     data = json.loads(string)
     result = convert_to_commonmeta(data)
     assert result["id"] == "https://doi.org/10.59350/ps8tw-rpk77"
-    assert result["schema_version"] == "https://commonmeta.org/commonmeta_v0.10.5.json"
+    assert result["schema_version"] == "https://commonmeta.org/commonmeta_v0.10"
     assert result["type"] == "Article"
     assert result["url"] == "http://gigasciencejournal.com/blog/fair-workflows"
     assert py_.get(result, "titles.0") == {
@@ -69,7 +69,7 @@ def test_convert_to_commonmeta_default():
     assert py_.get(result, "descriptions.0.description").startswith(
         "<em>\n Marking the 10\n <sup>\n  th\n </sup>\n anniversary"
     )
-    assert result["subjects"] == [{'subject': 'Biological sciences'}]
+    assert result["subjects"] == [{"subject": "Biological sciences"}]
     assert result["provider"] == "Crossref"
     assert len(result["files"]) == 5
     assert py_.get(result, "files.2") == {
@@ -267,7 +267,9 @@ def test_detect_language_german():
 
 def test_detect_language_french():
     """detect language french"""
-    text = "Ceci est un test"
+    text = """Le logiciel libre Pandoc par John MacFarlane est un outil très utile : 
+    par exemple, Yanina Bellini Saibene, community manager de rOpenSci, a récemment 
+    demandé à Maëlle si elle pouvait convertir un document Google en livre Quarto."""
     assert detect_language(text) == "fr"
 
 

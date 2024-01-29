@@ -67,6 +67,7 @@ AUTHOR_IDS = {
     "David M. Shotton": "https://orcid.org/0000-0001-5506-523X",
     "Heinz Pampel": "https://orcid.org/0000-0003-3334-2771",
     "Martin Paul Eve": "https://orcid.org/0000-0002-5589-8511",
+    "Matías Castillo-Aguilar": "https://orcid.org/0000-0001-7291-247X",
     "Leiden Madtrics": "https://ror.org/027bh9e22",
     "Liberate Science": "https://ror.org/0342dzm54",
     "Elephant in the Lab": "https://ror.org/02h1qnm70",
@@ -409,7 +410,7 @@ def convert_to_commonmeta(meta: dict) -> Commonmeta:
                 "mimeType": "application/xml",
             },
         ],
-        "schema_version": "https://commonmeta.org/commonmeta_v0.10.5.json",
+        "schema_version": "https://commonmeta.org/commonmeta_v0.10",
     }
 
 
@@ -610,9 +611,9 @@ def format_markdown(content: str, metadata) -> str:
         datetime.utcfromtimestamp(metadata.get("date_updated", 0)).isoformat() + "Z"
     )
     post["rights"] = "https://creativecommons.org/licenses/by/4.0/legalcode"
-    post["summary"] = metadata.get("summary", "").strip()
+    post["summary"] = metadata.get("summary", "")
     if post.get("abstract", None) is not None:
-        post["abstract"] = metadata.get("abstract").strip()
+        post["abstract"] = metadata.get("abstract")
     return post
 
 

@@ -230,7 +230,9 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                 ) as resp:
                     # fix malformed xml
                     xml = fix_xml(await resp.read())
-                    json = xmltodict.parse(xml)
+                    json = xmltodict.parse(
+                        xml, dict_constructor=dict, force_list={"entry"}
+                    )
                     posts = py_.get(json, "feed.entry", [])
                     if not update_all:
                         posts = filter_updated_posts(posts, blog, key="published")
@@ -246,7 +248,9 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                 ) as resp:
                     # fix malformed xml
                     xml = fix_xml(await resp.read())
-                    json = xmltodict.parse(xml)
+                    json = xmltodict.parse(
+                        xml, dict_constructor=dict, force_list={"category", "item"}
+                    )
                     posts = py_.get(json, "rss.channel.item", [])
                     if not update_all:
                         posts = filter_updated_posts(posts, blog, key="pubDate")
@@ -920,7 +924,10 @@ def get_summary(content_html: str = None, maxlen: int = 450):
     content_html = re.sub(r"(<br>|<br/>|<p>|</pr>)", " ", content_html)
     content_html = re.sub(r"(h1>|h2>|h3>|h4>)", "strong> ", content_html)
     sanitized = nh3.clean(
-        content_html, tags={"b", "i", "em", "strong", "sub", "sup"}, attributes={}
+        content_html,
+        tags={"b", "i", "em", "strong", "sub", "sup"},
+        clean_content_tags={"figcaption"},
+        attributes={},
     )
     sanitized = re.sub(r"\n+", " ", sanitized).strip()
     truncated = py_.truncate(sanitized, maxlen, omission="", separator=" ")
@@ -933,9 +940,10 @@ def get_summary(content_html: str = None, maxlen: int = 450):
         else:
             truncated = sentences[0]
 
-    # make sure html tags are closed
+    # make sure html tags are closed and trailing whitespace is removed
     soup = get_soup(truncated)
-    return soup.prettify()
+    string = soup.prettify()
+    return string.strip()
 
 
 def get_abstract(summary: str, abstract: str):
@@ -944,8 +952,8 @@ def get_abstract(summary: str, abstract: str):
     le = min(len(abstract), 100)
     rat = ratio(summary[:le], abstract[:le])
     return abstract if rat <= 0.75 else None
-    
-    
+
+
 def get_relationships(content_html: str):
     """Get relationships from content_html. Extract links from
     Acknowledgments section,defined as the text after the tag
