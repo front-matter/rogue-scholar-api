@@ -101,6 +101,10 @@ async def blogs():
     """Search blogs by query, category, generator, language.
     Options to change page, per_page and include fields."""
     query = request.args.get("query") or ""
+    query_by = (
+        request.args.get("query_by")
+        or "slug,title,description,category,language,generator,prefix,funding"
+    )
     category = request.args.get("category")
     generator = request.args.get("generator")
     language = request.args.get("language")
@@ -108,7 +112,11 @@ async def blogs():
     per_page = int(request.args.get("per_page") or "10")
     # default sort depends on whether a query is provided
     _text_match = "_text_match" if request.args.get("query") else "title"
-    sort = request.args.get("sort") or _text_match
+    sort = (
+        f"{request.args.get('sort')}(missing_values: last)"
+        if request.args.get("sort")
+        else _text_match
+    )
     order = request.args.get("order") or "asc"
     include_fields = request.args.get("include_fields")
 
@@ -120,7 +128,7 @@ async def blogs():
     search_parameters = compact(
         {
             "q": query,
-            "query_by": "slug,title,description,category,language,generator,prefix,funding",
+            "query_by": query_by,
             "filter_by": filter_by,
             "sort_by": f"{sort}:{order}",
             "per_page": min(per_page, 50),
@@ -216,6 +224,10 @@ async def posts_redirect():
 async def posts():
     """Search posts by query, tags, language, category. Options to change page, per_page and include fields."""
     query = request.args.get("query") or ""
+    query_by = (
+        request.args.get("query_by")
+        or "tags,title,doi,authors.name,authors.url,summary,abstract,content_text,reference"
+    )
     tags = request.args.get("tags")
     language = request.args.get("language")
     category = request.args.get("category")
@@ -223,7 +235,11 @@ async def posts():
     per_page = int(request.args.get("per_page") or "10")
     # default sort depends on whether a query is provided
     _text_match = "_text_match" if request.args.get("query") else "published_at"
-    sort = request.args.get("sort") or _text_match
+    sort = (
+        f"{request.args.get('sort')}(missing_values: last)"
+        if request.args.get("sort")
+        else _text_match
+    )
     order = request.args.get("order") or "desc"
     include_fields = request.args.get("include_fields")
     blog_slug = request.args.get("blog_slug")
@@ -248,7 +264,7 @@ async def posts():
     search_parameters = compact(
         {
             "q": query,
-            "query_by": "tags,title,doi,authors.name,authors.url,summary,abstract,content_text,reference",
+            "query_by": query_by,
             "filter_by": filter_by,
             "sort_by": f"{sort}:{order}",
             "per_page": min(per_page, 50),
@@ -423,7 +439,7 @@ async def post(slug: str, suffix: Optional[str] = None):
                 "summary",
                 "abstract",
                 "title",
-                "url"
+                "url",
             ],
         )
         markdown = format_markdown(content, metadata)

@@ -122,4 +122,127 @@ interactions:
       - '1'
     http_version: HTTP/1.1
     status_code: 200
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      user-agent:
+      - python-httpx/0.25.2
+      x-client-info:
+      - supabase-py/2.3.4
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20abstract%2C%20content_text%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28%2A%29&doi=eq.https%3A%2F%2Fdoi.org%2F10.59350%2Fsfzv4-xdb68
+  response:
+    content: "{\"id\":\"77b2102f-fec5-425a-90a3-4a97c768bdc4\",\"guid\":\"https://norbisley.wordpress.com/?p=517\",\"doi\":\"https://doi.org/10.59350/sfzv4-xdb68\",\"url\":\"https://norbisley.wordpress.com/2023/10/06/que-libros-cientificos-publicamos\",\"archive_url\":\"https://wayback.archive-it.org/22132/20231107222423/https://norbisley.wordpress.com/2023/10/06/que-libros-cientificos-publicamos\",\"title\":\"\xBFQu\xE9
+      libros cient\xEDficos publicamos en Ediciones Universidad de Camag\xFCey?\",\"summary\":\"Con
+      frecuencia a la editorial llegan textos que terminan siendo muy diferentes a
+      la idea de libro que el autor tra\xEDa inicialmente. Esto se debe en parte,
+      a que es insuficiente el abordaje de las clasificaciones de textos cient\xEDficos
+      que se divulga institucionalmente.\\n\",\"abstract\":null,\"content_text\":\"![](https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png){.wp-image-523\\nattachment-id=\\\"523\\\"\\npermalink=\\\"https://norbisley.wordpress.com/2023/10/06/que-libros-cientificos-publicamos/rrm1esyb-3/\\\"\\norig-file=\\\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png\\\"\\norig-size=\\\"1008,301\\\"
+      comments-opened=\\\"1\\\"\\nimage-meta=\\\"{\\\\\\\"aperture\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"credit\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"camera\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"caption\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"created_timestamp\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"copyright\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"focal_length\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"iso\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"shutter_speed\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"title\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"orientation\\\\\\\":\\\\\\\"0\\\\\\\"}\\\"\\nimage-title=\\\"rrm1esyb\\\"
+      image-description=\\\"\\\" image-caption=\\\"\\\"\\nmedium-file=\\\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png?w=300\\\"\\nlarge-file=\\\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png?w=1008\\\"\\nstyle=\\\"width:
+      500px\\\"}\\n\\nCon frecuencia a la editorial llegan textos que terminan siendo
+      muy\\ndiferentes a la idea de libro que el autor tra\xEDa inicialmente. Esto
+      se\\ndebe en parte, a que es insuficiente el abordaje de las clasificaciones\\nde
+      textos cient\xEDficos que se divulga institucionalmente. Aqu\xED comento\\nbrevemente
+      algunos tipos de libros que publicamos en [Ediciones\\nUniversidad de Camag\xFCey.](https://edicionesuc.reduc.edu.cu/)\\n\\n-
+      **Libros de texto:** se utilizan para mejorar la comprensi\xF3n de una\\n  asignatura.
+      Enriquecen los procesos de aprendizaje mediante la\\n  explicaci\xF3n te\xF3rica
+      de los principales conceptos, su aplicaci\xF3n\\n  explicada en ejemplos concretos
+      y la presentaci\xF3n de ejercicios que\\n  responden a las habilidades o competencias
+      de un programa.\\n- **Gu\xEDas de estudio o de ejercicios:** proporcionan informaci\xF3n\\n
+      \ detallada sobre un tema espec\xEDfico mediante la resoluci\xF3n de\\n  problemas.
+      Pueden incluir consejos, estrategias, tutoriales. Culminan\\n  con la lista
+      de soluciones de manera tal que pueda facilitar el\\n  autoaprendizaje.\\n-
+      **Ciclos de conferencias:** se publica el programa con su\\n  justificaci\xF3n
+      y todas las conferencias que debe desarrollar un docente\\n  de la asignatura.\\n-
+      **Libros de consulta o de referencia:** no son de lectura continuada,\\n  sino
+      que el lector los consulta cuando quiere conocer un dato\\n  determinado. Debe
+      contar con entradas organizadas alfab\xE9tica o\\n  cronol\xF3gicamente de acuerdo
+      al tema y puede ser o no ilustrado\\n  (enciclopedias, diccionarios, vocabularios,
+      gu\xEDas telef\xF3nicas,\\n  cat\xE1logos, directorios, etc.).\\n- **Libros
+      de ensayo:** presentan una posici\xF3n argumentativa sobre un\\n  tema, resultado
+      de una investigaci\xF3n exhaustiva en la que el autor\\n  defiende un punto
+      de vista.\\n- **Manual:** proporciona instrucciones detalladas sobre c\xF3mo
+      utilizar\\n  un producto o realizar un proceso. Los manuales suelen incluir\\n
+      \ diagramas, gr\xE1ficos y otros elementos visuales para hacer que la\\n  informaci\xF3n
+      sea m\xE1s f\xE1cil de comprender. Son libros instructivos.\\n- **Compilaciones:**
+      este texto re\xFAne los principales textos (o partes\\n  de textos) y aportes
+      existentes sobre un tema. Puede reunir diferentes\\n  g\xE9neros con una estructura
+      tem\xE1tica l\xF3gica seg\xFAn el objetivo que\\n  persiga el compilador.\\n-
+      **Compendios:** presenta una materia en extenso, abracando todas las\\n  aristas
+      posibles. Recopila informaci\xF3n de manera descriptiva.\\n- **Monograf\xEDa:**
+      analiza una materia en profundidad, dejando partes\\n  ---debidamente limitadas
+      en la descripci\xF3n del objeto de estudio---\\n  sin ser estudiadas.\\n- **Tratados:**
+      se caracteriza por la exposici\xF3n objetiva, integral y\\n  ordenada de conocimientos
+      sobre un t\xF3pico espec\xEDfico. Se relata o\\n  escribe tal como un discurso,
+      usando el texto expositivo y en tercera\\n  persona; se subdivide en numerosos
+      apartados que ayudan a organizarlo\\n  de forma correlativa y l\xF3gica. El
+      tratado debe incluir gran cantidad\\n  de datos precisos.\\n- **Memorias:**
+      Presenta conclusiones y trabajos presentados a un\\n  evento.\\n\\nTodos los
+      libros de este sello editorial son digitales y est\xE1n\\ndisponibles, en acceso
+      abierto.\\n\\n**Bibliograf\xEDas:**\\n\\nMoyano, Estela. \\\"Una clasificaci\xF3n
+      de g\xE9neros cient\xEDficos.\\\" XIX Congreso\\naesla. Vol. 1. No. 9. 2001.\\n\\nM\xE9ndez,
+      Misael. \\\"Categor\xEDas de trabajo en edici\xF3n de textos: breve\\nexperiencia
+      con publicaciones cubanas y extranjeras.\\\" Islas 135 (2003):\\n27-48.\\n\\nM\xE9ndez,
+      Misael. Ser manual pero no parecerlo. Editorial Samuel Feijoo,\\nLas Villas,
+      2020.\\n\",\"published_at\":1696588740,\"updated_at\":1696673881,\"indexed_at\":1698172158,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-9373-4622\", \"name\": \"Norbisley Fern\xE1ndez\"}],\"image\":\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png\",\"tags\":[\"Presentaci\xF3n
+      De La Informaci\xF3n Cient\xEDfica\",\"Sin Categor\xEDa\"],\"language\":\"es\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Edici\xF3n
+      y comunicaci\xF3n de la Ciencia\",\"blog_slug\":\"norbisley\",\"blog\":{\"title\":\"Edici\xF3n
+      y comunicaci\xF3n de la Ciencia\",\"description\":null,\"language\":\"es\",\"favicon\":\"https://norbisley.files.wordpress.com/2023/08/cropped-cropped-logo-1.png?w=32\",\"feed_url\":\"https://norbisley.wordpress.com/feed/atom/\",\"home_page_url\":\"https://norbisley.wordpress.com\",\"user_id\":\"126368cd-e941-4e6f-8316-f5fe574e595b\",\"feed_format\":\"application/atom+xml\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"generator\":\"WordPress.com\",\"category\":\"mediaAndCommunications\",\"prefix\":\"10.59350\",\"version\":\"https://jsonfeed.org/version/1.1\",\"current_feed_url\":null,\"status\":\"active\",\"issn\":null,\"backlog\":0,\"authors\":null,\"plan\":\"Starter\",\"slug\":\"norbisley\",\"use_mastodon\":false,\"api\":true,\"funding\":null,\"archive_prefix\":\"https://wayback.archive-it.org/22132/20231107222423/\",\"use_api\":true,\"relative_url\":null,\"canonical_url\":null,\"filter\":null,\"updated_at\":1699014419,\"secure\":true,\"created_at\":1692662400,\"indexed\":false,\"generator_raw\":\"WordPress.com\",\"id\":\"bfa416f0-e34b-407f-bcf8-08ab8f5334ff\",\"ror\":null,\"mastodon\":null}}"
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 84d3d9285ea2caf1-DUS
+      Connection:
+      - keep-alive
+      Content-Location:
+      - /posts?doi=eq.https%3A%2F%2Fdoi.org%2F10.59350%2Fsfzv4-xdb68&select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20abstract%2C%20content_text%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28%2A%29
+      Content-Profile:
+      - public
+      Content-Range:
+      - 0-0/*
+      Content-Type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      Date:
+      - Mon, 29 Jan 2024 19:23:12 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/2.8.1
+      X-Kong-Proxy-Latency:
+      - '1'
+      X-Kong-Upstream-Latency:
+      - '4'
+      alt-svc:
+      - h3=":443"; ma=86400
+      sb-gateway-version:
+      - '1'
+    http_version: HTTP/1.1
+    status_code: 200
 version: 1

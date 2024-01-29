@@ -182,6 +182,18 @@ async def test_posts_with_query_and_pagination_route():
 
 
 @pytest.mark.vcr
+async def test_posts_with_query_by_author_url():
+    """Test posts route with query by author url."""
+    test_client = app.test_client()
+    response = await test_client.get("/posts?query=0000-0003-1419-2405&query_by=authors.url")
+    assert response.status_code == 200
+    result = await response.get_json()
+    assert result["found"] > 500
+    post = py_.get(result, "hits[0].document")
+    assert post["title"] is not None
+
+
+@pytest.mark.vcr
 async def test_posts_with_blog_slug_route():
     """Test posts route with blog_slug."""
     test_client = app.test_client()
@@ -287,7 +299,7 @@ async def test_posts_post_route():
     response = await test_client.post("/posts", headers=headers)
     assert response.status_code == 200
     result = await response.get_json()
-    assert len(result) == 0
+    assert len(result) > 0
     # post = result[0]
     # assert post["title"] is not None
 

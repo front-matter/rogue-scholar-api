@@ -229,4 +229,249 @@ interactions:
       - '1'
     http_version: HTTP/1.1
     status_code: 200
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      user-agent:
+      - python-httpx/0.25.2
+      x-client-info:
+      - supabase-py/2.3.4
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20abstract%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%29&blogs.prefix=not.is.null&updated=is.True&doi=not.is.null&order=updated_at.desc&limit=15
+  response:
+    content: "[{\"id\":\"4e281a16-05ec-4120-8386-1127113cf716\",\"guid\":\"tag:blogger.com,1999:blog-16081779.post-2976849535694913766\",\"doi\":\"https://doi.org/10.59350/c99tm-az135\",\"url\":\"https://iphylo.blogspot.com/2020/01/orcid-serves-schemaorg-linked-data-via.html\",\"archive_url\":null,\"title\":\"ORCID
+      serves schema.org linked data via content negotiation - who knew?\",\"summary\":\"Just
+      a note that ORCID serves data using terms from schema.org, and has done for
+      a while (since April 2018), but somehow I missed this. You can get linked data
+      in JSON-LD using content negotiation.\\n\",\"abstract\":null,\"published_at\":1578481140,\"updated_at\":1578481190,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-7101-9767\", \"name\": \"Roderic Page\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iPhylo\",\"blog_slug\":\"iphylo\",\"blog\":{\"slug\":\"iphylo\",\"title\":\"iPhylo\",\"description\":\"Rants,
+      raves (and occasionally considered opinions) on phyloinformatics, taxonomy,
+      and biodiversity informatics.  For more ranty and less considered opinions,
+      see my <a href=\\\"https://twitter.com/rdmpage\\\">Twitter feed</a>.<br />ISSN
+      2051-8188. Written content on this site is licensed under a <a href=\\\"https://creativecommons.org/licenses/by/4.0/\\\">Creative
+      Commons Attribution 4.0 International license</a>.\",\"feed_url\":\"https://iphylo.blogspot.com/feeds/posts/default\",\"home_page_url\":\"https://iphylo.blogspot.com/\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Blogger\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1701257664}},
+      \n {\"id\":\"77d5a984-a955-40d4-a663-b9b1cf0eb8c0\",\"guid\":\"https://irights.info/?post_type=custom_artikel&p=29875\",\"doi\":\"https://doi.org/10.59350/afh1c-w5091\",\"url\":\"https://irights.info/artikel/unesco-foerdert-offene-bildungsmaterialien/29875\",\"archive_url\":\"https://wayback.archive-it.org/22135/20231101173016/https://irights.info/artikel/unesco-foerdert-offene-bildungsmaterialien/29875\",\"title\":\"UNESCO
+      f\xF6rdert offene Bildungsmaterialien\",\"summary\":\"Offene Bildungsmaterialien
+      sollen zuk\xFCnftig weltweit umfassend gef\xF6rdert werden. Darauf verst\xE4ndigte
+      sich k\xFCrzlich die UNESCO und bekam viel Zuspruch. Ein gestrichener Passus
+      in den OER-Definitionen zu Kopien erntet allerdings Kritik von OER-Verfechter
+      David Wiley. Die von der UNESCO-Generalkonferenz Ende November in Paris angenommenen\_OER-Empfehlungen
+      (PDF) enthalten f\xFCnf zentrale Zielsetzungen.\\n\",\"abstract\":null,\"published_at\":1576849759,\"updated_at\":1578474636,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
+      \"Henry Steinhau\"}],\"image\":null,\"tags\":[\"Bildung + OER\",\"David Wiley\",\"UNESCO\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
+      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info/\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706091728}},
+      \n {\"id\":\"66cb44f4-2bb9-4f86-96a8-ce90703cd378\",\"guid\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?p=21846\",\"doi\":\"https://doi.org/10.59350/p9j30-hr943\",\"url\":\"https://www.ch.imperial.ac.uk/rzepa/blog?p=21846\",\"archive_url\":null,\"title\":\"Comment
+      on &#8220;Resolving the Quadruple Bonding Conundrum in C2 Using Insights Derived
+      from Excited State Potential Energy Surfaces&#8221;: The 7\u03A3 heptet excited
+      states for related molecules.\",\"summary\":\"I noted in an earlier blog, a
+      potential (if difficult) experimental test of the properties of the singlet
+      state of dicarbon, C\\n<sub>\\n 2\\n</sub>\\n. Now, just a few days ago, a ChemRxiv
+      article has been published suggesting another (probably much more realistic)
+      test.[1]\_This looks at the so-called\\n<sup>\\n 7\\n</sup>\\n\u03A3 open shell
+      state of the molecule where three electrons from one \u03C3 and two \u03C0 orbitals
+      are excited into the corresponding \u03C3\\n<sup>\\n *\\n</sup>\\nand\\n\",\"abstract\":null,\"published_at\":1577959536,\"updated_at\":1578040916,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-8635-8390\", \"name\": \"Henry Rzepa\"}],\"image\":\"https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2020/01/checkpoint_10062095-300x169.jpg\",\"tags\":[\"Interesting
+      Chemistry\"],\"language\":\"en\",\"reference\":[{\"doi\": \"https://doi.org/10.26434/chemrxiv.11446224.v1\",
+      \"key\": \"ref1\"}],\"relationships\":[],\"blog_name\":\"Henry Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"blog\":{\"slug\":\"rzepa\",\"title\":\"Henry
+      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"language\":\"en\",\"category\":\"chemicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706372328}},
+      \n {\"id\":\"eaa2ea1f-8fb5-49c4-a680-b28b3988fc15\",\"guid\":\"https://www.andrewheiss.com/blog/2020/01/01/flexdashboard-dynamic-data/\",\"doi\":\"https://doi.org/10.59350/8vtys-s0p68\",\"url\":\"https://www.andrewheiss.com/blog/2020/01/01/flexdashboard-dynamic-data\",\"archive_url\":\"https://wayback.archive-it.org/22114/20231101175222/https://www.andrewheiss.com/blog/2020/01/01/flexdashboard-dynamic-data\",\"title\":\"Create
+      a dynamic dashboard with R, flexdashboard, and Shiny\",\"summary\":\"Now that
+      I\u2019m on the tenure track, I\u2019ve been looking for a way to keep track
+      of my different research projects so I can get them all finished and published.
+      Matt Lebo\u2019s \u201CManaging Your Research Pipeline\u201D presents a neat
+      way of quantifying and tracking the progress of your research, and I recently
+      adopted it for my own stuff. I even made a fancy R Markdown +\\n<strong>\\n
+      flexdashboard\\n</strong>\\ndashboard to show the status of the pipeline interactively.\\n\",\"abstract\":null,\"published_at\":1577854800,\"updated_at\":1577854800,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2020/01/01/flexdashboard-dynamic-data/shiny.png\",\"tags\":[\"R
+      Markdown\",\"Shiny\",\"R\",\"Google Sheets\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Andrew
+      Heiss's blog\",\"blog_slug\":\"andrewheiss\",\"blog\":{\"slug\":\"andrewheiss\",\"title\":\"Andrew
+      Heiss's blog\",\"description\":\"Andrew Heiss's blog\",\"feed_url\":\"https://www.andrewheiss.com/atom.xml\",\"home_page_url\":\"https://www.andrewheiss.com\",\"language\":\"en\",\"category\":\"politicalScience\",\"status\":\"active\",\"generator\":\"Quarto\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1705035600}},
+      \n {\"id\":\"925557db-c413-44a4-ad0b-b867611ece18\",\"guid\":\"http://svpow.com/?p=16992\",\"doi\":\"https://doi.org/10.59350/k6900-z0x23\",\"url\":\"https://svpow.com/2019/12/30/christmas-came-late-in-the-form-of-a-dead-otter\",\"archive_url\":\"https://wayback.archive-it.org/22153/20231105213934/https://svpow.com/2019/12/30/christmas-came-late-in-the-form-of-a-dead-otter\",\"title\":\"Christmas
+      came late \u2014 in the form of a dead otter\",\"summary\":\"Otters are a \u201Cnear-threatened\u201D
+      species in the UK, so it\u2019s a tragedy when one is killed by a car. That
+      said, when a roadkill otter is spotted by a friend and delivered to me five
+      days after Christmas, that goes some way to redeeming the tragedy.\\n\",\"abstract\":null,\"published_at\":1577709078,\"updated_at\":1577709078,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
+      \"Mike Taylor\"}],\"image\":\"https://svpow.files.wordpress.com/2019/12/img_20191230_100443.jpg?w=480&h=360\",\"tags\":[\"Otter\",\"Stinkin'
+      Mammals\",\"T2M&amp;D\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Sauropod
+      Vertebra Picture of the Week\",\"blog_slug\":\"svpow\",\"blog\":{\"slug\":\"svpow\",\"title\":\"Sauropod
+      Vertebra Picture of the Week\",\"description\":\"SV-POW!  ...  All sauropod
+      vertebrae, except when we're talking about Open Access\",\"feed_url\":\"https://svpow.com/feed/atom/\",\"home_page_url\":\"https://svpow.com\",\"language\":\"en\",\"category\":\"earthAndRelatedEnvironmentalSciences\",\"status\":\"active\",\"generator\":\"WordPress.com\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706487498}},
+      \n {\"id\":\"da4d520d-bcab-42b4-8761-cfd8311ebbaa\",\"guid\":\"http://svpow.com/?p=13179\",\"doi\":\"https://doi.org/10.59350/h96fz-m7012\",\"url\":\"https://svpow.com/2016/03/28/defleshing-a-badger-head-a-pictorial-guide\",\"archive_url\":\"https://wayback.archive-it.org/22153/20231105213934/https://svpow.com/2016/03/28/defleshing-a-badger-head-a-pictorial-guide\",\"title\":\"Defleshing
+      a badger head: a pictorial guide\",\"summary\":\"There\u2019s no sense in decapitating
+      a badger if you\u2019re not going to make good use of the severed head. So here\u2019s
+      what I did with mine.\\n\",\"abstract\":null,\"published_at\":1459189845,\"updated_at\":1577708779,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
+      \"Mike Taylor\"}],\"image\":\"https://svpow.files.wordpress.com/2016/03/2016-03-27-17-37-31.jpg?w=1024&h=768\",\"tags\":[\"Badger\",\"Stinkin'
+      Heads\",\"Stinkin' Mammals\",\"T2M&amp;D\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Sauropod
+      Vertebra Picture of the Week\",\"blog_slug\":\"svpow\",\"blog\":{\"slug\":\"svpow\",\"title\":\"Sauropod
+      Vertebra Picture of the Week\",\"description\":\"SV-POW!  ...  All sauropod
+      vertebrae, except when we're talking about Open Access\",\"feed_url\":\"https://svpow.com/feed/atom/\",\"home_page_url\":\"https://svpow.com\",\"language\":\"en\",\"category\":\"earthAndRelatedEnvironmentalSciences\",\"status\":\"active\",\"generator\":\"WordPress.com\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706487498}},
+      \n {\"id\":\"2f706933-1312-4b5b-839f-bcff3c615b27\",\"guid\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?p=21772\",\"doi\":\"https://doi.org/10.59350/vhkmz-vwp08\",\"url\":\"https://www.ch.imperial.ac.uk/rzepa/blog?p=21772\",\"archive_url\":null,\"title\":\"Carbon
+      as a hydrogen bond acceptor: can dicarbon (C2) act in this manner?\",\"summary\":\"In
+      the previous post, I showed that carbon can act as a hydrogen bond acceptor
+      (of a proton) to form strong hydrogen bond complexes. Which brings me to a conceptual
+      connection: can singlet dicarbon form such a hydrogen bond?\_ Dicarbon can be
+      variously represented as above. The first form shows it as a bis-carbene, with
+      an unbonded lone pair of electrons at each end of a carbon double bond.\\n\",\"abstract\":null,\"published_at\":1577429833,\"updated_at\":1577704123,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-8635-8390\", \"name\": \"Henry Rzepa\"}],\"image\":\"https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2019/12/dicarbon.svg\",\"tags\":[\"Interesting
+      Chemistry\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Henry
+      Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"blog\":{\"slug\":\"rzepa\",\"title\":\"Henry
+      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"language\":\"en\",\"category\":\"chemicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706372328}},
+      \n {\"id\":\"03c3faa3-400b-4e17-be25-096d54820472\",\"guid\":\"http://www.ch.imperial.ac.uk/rzepa/blog/?p=8860\",\"doi\":\"https://doi.org/10.59350/wz0z1-8x547\",\"url\":\"https://www.ch.imperial.ac.uk/rzepa/blog?p=8860\",\"archive_url\":null,\"title\":\"Hydrogen
+      bond strength as a function of ring size.\",\"summary\":\"One frequently has
+      to confront the question: will a hydrogen bond form between a suitable donor
+      (lone pair or \u03C0) and an acceptor? One of the factors to be taken into consideration
+      for hydrogen bonds which are part of a cycle is the ring size. Here I explore
+      one way of quantifying the effect for the series below, n=1-5 (4-8 membered
+      rings).      I will use the NBO approach.\\n\",\"abstract\":null,\"published_at\":1357231716,\"updated_at\":1577610168,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-8635-8390\", \"name\": \"Henry Rzepa\"}],\"image\":\"https://www.ch.imperial.ac.uk/rzepa/blog/wp-content/uploads/2013/01/h-bond.svg\",\"tags\":[\"Interesting
+      Chemistry\",\"Cambridge\",\"Energy\",\"Energy Gap\",\"Interaction Energy\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Henry
+      Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"blog\":{\"slug\":\"rzepa\",\"title\":\"Henry
+      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"language\":\"en\",\"category\":\"chemicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706372328}},
+      \n {\"id\":\"460f5894-31a5-44fe-962e-dcc22212fc07\",\"guid\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?p=21798\",\"doi\":\"https://doi.org/10.59350/rbeqv-9wr09\",\"url\":\"https://www.ch.imperial.ac.uk/rzepa/blog?p=21798\",\"archive_url\":null,\"title\":\"Can
+      a carbon radical act as a hydrogen bond acceptor?\",\"summary\":\"Having shown
+      that carbon as a carbene centre, C\\n<strong>\\n :\\n</strong>\\ncan act as
+      a hydrogen bond acceptor, as seen from a search of crystal structures, I began
+      to wonder if there is any chance that carbon as a radical centre, C\u2022 could
+      do so as well.\_Definitely a subversive thought, since radical centres are supposed
+      to abstract hydrogens rather than to hydrogen bond to them.\\n\",\"abstract\":null,\"published_at\":1577563664,\"updated_at\":1577606680,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-8635-8390\", \"name\": \"Henry Rzepa\"}],\"image\":\"https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2019/12/query-1.jpg\",\"tags\":[\"Crystal_structure_mining\",\"Interesting
+      Chemistry\"],\"language\":\"en\",\"reference\":[{\"doi\": \"https://doi.org/10.1021/jacs.7b05471\",
+      \"key\": \"ref1\"}],\"relationships\":[],\"blog_name\":\"Henry Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"blog\":{\"slug\":\"rzepa\",\"title\":\"Henry
+      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"language\":\"en\",\"category\":\"chemicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706372328}},
+      \n {\"id\":\"be82c316-8bae-49ef-b0ac-2caac215050e\",\"guid\":\"http://svpow.com/?p=16982\",\"doi\":\"https://doi.org/10.59350/dfhnh-j6072\",\"url\":\"https://svpow.com/2019/12/25/merry-christmas-have-some-memes\",\"archive_url\":\"https://wayback.archive-it.org/22153/20231105213934/https://svpow.com/2019/12/25/merry-christmas-have-some-memes\",\"title\":\"Merry
+      Christmas, have some memes\",\"summary\":\"In lieu of any new science today,
+      have some memes, and a wonderful day! A timeless classic. In case you\u2019re
+      wondering, that\u2019s \u201Crolling on the beach laughing my telson off\u201D.
+      Horseshoe crabs have been around for 445 million years, about twice as long
+      as mammals, turtles, and dinosaurs.\\n\",\"abstract\":null,\"published_at\":1577306277,\"updated_at\":1577306277,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
+      \"Matt Wedel\"}],\"image\":\"https://svpow.files.wordpress.com/2019/12/distracted-boyfriend-meme-meme.jpg?w=1024&h=683\",\"tags\":[\"Meme\",\"Stinkin&039;
+      Every Thing That&039;s Not A Sauropod\",\"Stinkin' Invertebrates\",\"Stinkin'
+      Mammals\",\"Stinkin' Theropods\"],\"language\":\"ca\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Sauropod
+      Vertebra Picture of the Week\",\"blog_slug\":\"svpow\",\"blog\":{\"slug\":\"svpow\",\"title\":\"Sauropod
+      Vertebra Picture of the Week\",\"description\":\"SV-POW!  ...  All sauropod
+      vertebrae, except when we're talking about Open Access\",\"feed_url\":\"https://svpow.com/feed/atom/\",\"home_page_url\":\"https://svpow.com\",\"language\":\"en\",\"category\":\"earthAndRelatedEnvironmentalSciences\",\"status\":\"active\",\"generator\":\"WordPress.com\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706487498}},
+      \n {\"id\":\"dd89c958-f66b-4bbe-a24d-11876c25477f\",\"guid\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?p=21499\",\"doi\":\"https://doi.org/10.59350/re4b5-5b644\",\"url\":\"https://www.ch.imperial.ac.uk/rzepa/blog?p=21499\",\"archive_url\":null,\"title\":\"Prediction
+      preceding experiment in chemistry &#8211; how unlucky was John Kirkwood?\",\"summary\":\"Some
+      areas of science progressed\\n<em>\\n via\\n</em>\\nvery famous predictions
+      that were subsequently verified by experiments. Think of Einstein and gravitational
+      waves or of Dirac and the positron. There are fewer well-known examples in chemistry;
+      perhaps Watson and Crick\u2019s prediction of the structure of DNA, albeit based
+      on the interpretation of an existing experimental result.\\n\",\"abstract\":null,\"published_at\":1575104503,\"updated_at\":1577189172,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-8635-8390\", \"name\": \"Henry Rzepa\"}],\"image\":\"https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2019/11/Figure1.jpg\",\"tags\":[\"Chiroptics\",\"Historical\"],\"language\":\"en\",\"reference\":[{\"doi\":
+      \"https://doi.org/10.1038/168271a0\", \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.1063/1.1700491\",
+      \"key\": \"ref2\"}, {\"doi\": \"https://doi.org/10.1063/1.1750060\", \"key\":
+      \"ref3\"}, {\"doi\": \"https://doi.org/10.1021/ja803119p\", \"key\": \"ref4\"},
+      {\"doi\": \"https://doi.org/10.1039/JR9480000340\", \"key\": \"ref5\"}],\"relationships\":[],\"blog_name\":\"Henry
+      Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"blog\":{\"slug\":\"rzepa\",\"title\":\"Henry
+      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"language\":\"en\",\"category\":\"chemicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706372328}},
+      \n {\"id\":\"a364bd88-23d4-4cf0-8aab-1b578779a1f8\",\"guid\":\"tag:blogger.com,1999:blog-16081779.post-9031362190001498385\",\"doi\":\"https://doi.org/10.59350/7qpst-zmk93\",\"url\":\"https://iphylo.blogspot.com/2019/12/gbif-metagenomics-and-metacrap.html\",\"archive_url\":null,\"title\":\"GBIF
+      metagenomics and metacrap\",\"summary\":\"Yes, this is a clickbait headline,
+      and yes, it may seem like shooting fish in a barrel to complain about crappy
+      data in GBIF, but my point here is raise concerns about the impact of metagenomic
+      data on GBIF, and how difficult it may be to track down the causes of errors.\\n\",\"abstract\":null,\"published_at\":1576843920,\"updated_at\":1577183683,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-7101-9767\", \"name\": \"Roderic Page\"}],\"image\":\"https://1.bp.blogspot.com/-_EWA4-aFpFI/Xfy8bZ6JGjI/AAAAAAAAQk8/IOGMYk645tk67P74Uw4Kv5V5_fAkbXa_QCLcBGAsYHQ/s72-c/Rafflesia_sumatra.jpg\",\"tags\":[\"BLAST\",\"Data
+      Quality\",\"GBIF\",\"Metacrap\",\"Metagenomics\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iPhylo\",\"blog_slug\":\"iphylo\",\"blog\":{\"slug\":\"iphylo\",\"title\":\"iPhylo\",\"description\":\"Rants,
+      raves (and occasionally considered opinions) on phyloinformatics, taxonomy,
+      and biodiversity informatics.  For more ranty and less considered opinions,
+      see my <a href=\\\"https://twitter.com/rdmpage\\\">Twitter feed</a>.<br />ISSN
+      2051-8188. Written content on this site is licensed under a <a href=\\\"https://creativecommons.org/licenses/by/4.0/\\\">Creative
+      Commons Attribution 4.0 International license</a>.\",\"feed_url\":\"https://iphylo.blogspot.com/feeds/posts/default\",\"home_page_url\":\"https://iphylo.blogspot.com/\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Blogger\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1701257664}},
+      \n {\"id\":\"569a1210-6bdb-44a8-a164-205d1ac217b7\",\"guid\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?p=21726\",\"doi\":\"https://doi.org/10.59350/svm9t-r3480\",\"url\":\"https://www.ch.imperial.ac.uk/rzepa/blog?p=21726\",\"archive_url\":null,\"title\":\"Hydrogen
+      bonds: carbon as an acceptor rather than as a donor?\",\"summary\":\"A hydrogen
+      bond donor is considered as an electronegative element carrying a hydrogen that
+      is accepted by an atom carrying a lone pair of electrons, as in X:\u2026H-Y
+      where X: is the acceptor and H-Y the donor. Wikipedia asserts that carbon can
+      act as a donor, as we saw in the post on the incredible chloride cage, where
+      six Cl\\n<strong>\\n :\\n</strong>\\n\u2026H-C interactions trapped the chloride
+      ion inside the cage.\\n\",\"abstract\":null,\"published_at\":1577125474,\"updated_at\":1577132954,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-8635-8390\", \"name\": \"Henry Rzepa\"}],\"image\":\"https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2019/12/query-1024x598.jpg\",\"tags\":[\"Interesting
+      Chemistry\"],\"language\":\"en\",\"reference\":[{\"doi\": \"https://doi.org/10.1039/c0ob00999g\",
+      \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.1021/jacs.9b04864\", \"key\":
+      \"ref2\"}, {\"doi\": \"https://doi.org/10.1016/j.jorganchem.2006.03.018\", \"key\":
+      \"ref3\"}, {\"doi\": \"https://doi.org/10.1016/j.phytochem.2010.09.004\", \"key\":
+      \"ref4\"}],\"relationships\":[],\"blog_name\":\"Henry Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"blog\":{\"slug\":\"rzepa\",\"title\":\"Henry
+      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"language\":\"en\",\"category\":\"chemicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706372328}},
+      \n {\"id\":\"37c70518-bff4-4a1a-8811-42753232c5a4\",\"guid\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?p=21720\",\"doi\":\"https://doi.org/10.59350/3g9fe-y7702\",\"url\":\"https://www.ch.imperial.ac.uk/rzepa/blog?p=21720\",\"archive_url\":null,\"title\":\"Molecules
+      of the year \u2013 2019: twisty tetracene.\",\"summary\":\"All of the molecules
+      in this year\u2019s C&amp;EN list are fascinating in their very different ways.
+      Here I take a look at the twisty tetracene (dodecaphenyltetracene) which is
+      indeed very very twisty.[1]   Click on image to view 3D model   Unfortunately,
+      the authors point that the twisty-ness does not lead to a stable helical configuration
+      at room temperatures and so separate enantiomers cannot be isolated.\\n\",\"abstract\":null,\"published_at\":1577017802,\"updated_at\":1577017802,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-8635-8390\", \"name\": \"Henry Rzepa\"}],\"image\":\"https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2019/12/tetracene-1024x726.jpg\",\"tags\":[\"Interesting
+      Chemistry\"],\"language\":\"en\",\"reference\":[{\"doi\": \"https://doi.org/10.1002/anie.201812418\",
+      \"key\": \"ref1\"}],\"relationships\":[],\"blog_name\":\"Henry Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"blog\":{\"slug\":\"rzepa\",\"title\":\"Henry
+      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"language\":\"en\",\"category\":\"chemicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706372328}},
+      \n {\"id\":\"12ef1dcf-c511-4723-b0fa-70641fb463ce\",\"guid\":\"http://www.ch.imperial.ac.uk/rzepa/blog/?p=6438\",\"doi\":\"https://doi.org/10.59350/ca2jh-hd376\",\"url\":\"https://www.ch.imperial.ac.uk/rzepa/blog?p=6438\",\"archive_url\":null,\"title\":\"Confirming
+      the Fischer convention as a structurally correct representation of absolute
+      configuration.\",\"summary\":\"I wrote in an earlier post\_how Pauling\u2019s\_Nobel
+      prize-winning suggestion in February 1951 of a (left-handed)\_\u03B1-helical
+      structure for proteins[1] was based on the wrong absolute configuration of the
+      amino acids (hence his helix should really have been the right-handed enantiomer).
+      This was most famously established a few months later by Bijvoet\u2019s[2] definitive
+      crystallographic determination of the absolute configuration of rubidium\\n\",\"abstract\":null,\"published_at\":1331643417,\"updated_at\":1576913721,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-8635-8390\", \"name\": \"Henry Rzepa\"}],\"image\":\"http://osulibrary.orst.edu/specialcollections/images/facilities-lpoffice2-large.jpg\",\"tags\":[\"Chiroptics\",\"Historical\",\"California\",\"Chiroptical
+      Spectroscopies\",\"Computational Chemistry\"],\"language\":\"en\",\"reference\":[{\"doi\":
+      \"https://doi.org/10.1073/pnas.37.4.205\", \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.1038/168271a0\",
+      \"key\": \"ref2\"}, {\"doi\": \"https://doi.org/10.1063/1.1700491\", \"key\":
+      \"ref3\"}, {\"doi\": \"https://doi.org/10.1063/1.1750060\", \"key\": \"ref4\"},
+      {\"doi\": \"https://doi.org/10.1021/ja803119p\", \"key\": \"ref5\"}],\"relationships\":[],\"blog_name\":\"Henry
+      Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"blog\":{\"slug\":\"rzepa\",\"title\":\"Henry
+      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"language\":\"en\",\"category\":\"chemicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706372328}}]"
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 84d3d8965b94fad8-DUS
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Location:
+      - /posts?blogs.prefix=not.is.null&doi=not.is.null&limit=15&order=updated_at.desc&select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20abstract%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%29&updated=is.True
+      Content-Profile:
+      - public
+      Content-Range:
+      - 0-14/*
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 29 Jan 2024 19:22:48 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/2.8.1
+      X-Kong-Proxy-Latency:
+      - '1'
+      X-Kong-Upstream-Latency:
+      - '64'
+      alt-svc:
+      - h3=":443"; ma=86400
+      sb-gateway-version:
+      - '1'
+    http_version: HTTP/1.1
+    status_code: 200
 version: 1

@@ -161,7 +161,6 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
 
         feed_url = url.set(params).url
         blog_with_posts = {}
-        print(feed_url)
 
         # use pagination of results only for non-API blogs
         if params:
