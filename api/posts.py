@@ -336,7 +336,7 @@ async def extract_wordpress_post(post, blog):
         ]
         terms = categories + tags
         terms = py_.uniq(terms)[:5]
-        print(terms)
+
         return {
             "authors": authors,
             "blog_name": blog.get("title", None),
@@ -938,10 +938,12 @@ def get_summary(content_html: str = None, maxlen: int = 450):
         return None
     content_html = re.sub(r"(<br>|<br/>|<p>|</pr>)", " ", content_html)
     content_html = re.sub(r"(h1>|h2>|h3>|h4>)", "strong> ", content_html)
+    # print(content_html)
+    # TODO: remove more content not appropriate for summary 
     sanitized = nh3.clean(
         content_html,
         tags={"b", "i", "em", "strong", "sub", "sup"},
-        clean_content_tags={"figcaption"},
+        clean_content_tags={"figcaption", "figure", "blockquote"},
         attributes={},
     )
     sanitized = re.sub(r"\n+", " ", sanitized).strip()
