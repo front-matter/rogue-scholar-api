@@ -320,18 +320,23 @@ async def extract_wordpress_post(post, blog):
         )
         if not image and len(images) > 0 and int(images[0].get("width", 200)) >= 200:
             image = images[0].get("src", None)
-        # ignore doi category, used to filter posts that should be registered with a DOI
-        categories = [
+
+        # optionally remove category that is used to filter posts
+        if blog.get("filter", None):
+            cat = blog.get("filter", "").split(":")[1]
+            categories = [normalize_tag(i.get("name", None)) for i in wrap(py_.get(post, "_embedded.wp:term.0", None)) if i.get("id", None) != int(cat)]
+        else:
+            categories = [
             normalize_tag(i.get("name", None))
-            for i in wrap(py_.get(post, "_embedded.wp:term.0", None)) if i.get("name", None) != "doi"
-        ]
+                for i in wrap(py_.get(post, "_embedded.wp:term.0", None))
+            ]
         tags = [
             normalize_tag(i.get("name", None))
             for i in wrap(py_.get(post, "_embedded.wp:term.1", None))
         ]
         terms = categories + tags
         terms = py_.uniq(terms)[:5]
-
+        print(terms)
         return {
             "authors": authors,
             "blog_name": blog.get("title", None),

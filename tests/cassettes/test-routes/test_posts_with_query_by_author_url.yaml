@@ -3765,4 +3765,627 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=0000-0003-1419-2405&query_by=authors.url&filter_by=published_at%3A%3E%3D+0+%26%26+published_at%3A%3C%3D+1706607766&sort_by=_text_match%3Adesc&per_page=10&page=1
+  response:
+    body:
+      string: "{\"facet_counts\":[],\"found\":537,\"hits\":[{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/an-update-on-the-rogue-scholar-fediverse\",\"authors\":[{\"name\":\"Martin
+        Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"The
+        Rogue Scholar science blogging archive [joined the\\nfediverse](https://doi.org/10.53731/f1mhr-wps22){rel=\\\"noreferrer\\\"}
+        in\\nAugust of last year. This week I want to report on an updated strategy\\nfor
+        Rogue Scholar, and what it means for science blogs participating in\\nRogue
+        Scholar.\\n\\n> The fediverse is a collection of community-owned, ad-free,\\n>
+        decentralised, and privacy-centric social networks.  \\n> [To the Fediverse!](https://www.fediverse.to/){rel=\\\"noreferrer\\\"}\\n\\nIn
+        August\_I launched a Mastodon instance at\_[Rogue Scholar\\nSocial](https://rogue-scholar.social/)\_that
+        accepted Science Blog bots\\nas accounts, (semi-)automatically publishing
+        summaries of blog posts via\\nRogue Scholar. The idea was to help increase
+        the visibility of\\nparticipating science blogs and foster a discussion around
+        interesting\\nblog posts.\\n\\nFrom the beginning, it was clear that many
+        science blogs or bloggers\\nalready had a presence in the fediverse, or preferred
+        a human over a\\nbot. In the following months, the [Wordpress ActivityPub\\nPlugin](https://wordpress.org/plugins/activitypub/){rel=\\\"noreferrer\\\"}\\nevolved
+        with [support in all Wordpress.com plans in\\nOctober](https://www.theverge.com/2023/10/11/23913278/wordpress-activitypub-official-plugin-automattic-fediverse-mastodon){rel=\\\"noreferrer\\\"}\\nand
+        a [version 2.0 released this\\nJanuary](https://fediversereport.com/wordpress-activitypub-plugin-updates-to-v2-0/){rel=\\\"noreferrer\\\"}.\\nWordpress
+        is the most common blogging platform on Rogue Scholar with\\ncurrently [40%
+        of\\nparticipating](https://rogue-scholar.org/de/about#stats){rel=\\\"noreferrer\\\"}\\nblogs
+        using it. Other blogging platforms (e.g.\\n[Write.as](https://howto.write.as/enabling-federation){rel=\\\"noreferrer\\\"}\\nor\\n[micro.blog](https://help.micro.blog/t/make-micro-blog-a-full-citizen-of-the-mastodon-universe/2138){rel=\\\"noreferrer\\\"})\\nalso
+        had or improved fediverse support, and I hope other blogging\\nplatforms follow,
+        including [Ghost](https://ghost.org){rel=\\\"noreferrer\\\"}\\nused by this
+        blog.\\n\\nThese developments and the overall momentum behind fediverse adoption\\n([Threads](https://www.zdnet.com/article/why-your-threads-posts-will-soon-be-accessible-on-mastodon/){rel=\\\"noreferrer\\\"},\\n[Flipboard](https://about.flipboard.com/inside-flipboard/flipboard-begins-to-federate/){rel=\\\"noreferrer\\\"})\\nmeans
+        that going forward federation via the ActivityPub protocol is\\nprobably best
+        done by the blogs themselves, rather than Rogue Scholar.\\nFor these reasons,
+        I will retire the Rogue Scholar [Mastodon\\nserver](https://rogue-scholar.social){rel=\\\"noreferrer\\\"}
+        on March 31 and\\nwill help migrate accounts to other fediverse instances.\\n\\nAs
+        of today the Mastodon account for the Rogue Scholar service itself\\ncan be
+        found at\\n[https://wisskomm.social/@rogue_scholar](https://wisskomm.social/@rogue_scholar){rel=\\\"noreferrer\\\"}.\\nMy
+        personal Mastodon account continues to be at\\n[https://mozilla.social/@martin](https://mozilla.social/@martin){rel=\\\"noreferrer\\\"}.\\nAlso
+        as of today, blogs participating in Rogue Scholar can add their\\nMastodon
+        (or rather ActivityPub) instance to their account settings\\n\\n<figure class=\\\"kg-card
+        kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-29-um-13.57.02.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/01/Bildschirmfoto-2024-01-29-um-13.57.02.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/01/Bildschirmfoto-2024-01-29-um-13.57.02.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/01/Bildschirmfoto-2024-01-29-um-13.57.02.png
+        1600w, https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-29-um-13.57.02.png
+        1914w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"1914\\\" height=\\\"1352\\\"
+        />\\n</figure>\\n\\nThis setting shows up on the public Rogue Scholar page
+        for the blog,\\nmaking it easy to follow the fediverse accounts for these
+        blogs:\\n\\n<figure class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-29-um-13.59.09.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/01/Bildschirmfoto-2024-01-29-um-13.59.09.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/01/Bildschirmfoto-2024-01-29-um-13.59.09.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/01/Bildschirmfoto-2024-01-29-um-13.59.09.png
+        1600w, https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-29-um-13.59.09.png
+        1856w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"1856\\\" height=\\\"338\\\"
+        />\\n</figure>\\n\\nI encourage all blogs participating in Rogue Scholar to
+        add their\\nfediverse accounts to the Rogue Scholar settings. The work done
+        last\\nyear on Rogue Scholar fediverse integration also includes automatically\\ngenerated
+        summaries and link extraction for feature images, plus of\\ncourse the use
+        of DOIs for persistent identification of blog posts. All\\nthis continues
+        to be helpful for generating social media posts going\\nforward.\\n\\n## References\\n\\nFenner,
+        M. (2023). Rogue scholar joins the fediverse. *Front Matter*.\\n<https://doi.org/10.53731/f1mhr-wps22>\\n\",\"doi\":\"https://doi.org/10.53731/dnfg0-hge29\",\"guid\":\"65b794cec28c930001fa98f8\",\"id\":\"41447489-a042-4c94-ab6e-ca21f2dbb16e\",\"image\":\"https://blog.front-matter.io/content/images/2024/01/51387246685_0c704e4647_c.jpg\",\"language\":\"en\",\"published_at\":1706534103,\"reference\":[{\"doi\":\"https://doi.org/10.53731/f1mhr-wps22\",\"key\":\"ref1\",\"publicationYear\":\"2023\",\"title\":\"Rogue
+        Scholar joins the Fediverse\"}],\"relationships\":[],\"summary\":\"The Rogue
+        Scholar science blogging archive joined the fediverse in August of last year.
+        This week I want to report on an updated strategy for Rogue Scholar, and what
+        it means for science blogs participating in Rogue Scholar.The fediverse is
+        a collection of community-owned, ad-free, decentralised, and privacy-centric
+        social networks. To the Fediverse!\",\"tags\":[\"News\"],\"title\":\"An update
+        on Rogue Scholar in the fediverse\",\"updated_at\":1706537903,\"url\":\"https://blog.front-matter.io/posts/an-update-on-the-rogue-scholar-fediverse\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/commonmeta-adds-datacite-schema-45-support\",\"authors\":[{\"name\":\"Martin
+        Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"On
+        Wednesday DataCite [released version\\n4.5](https://doi.org/10.5438/JVKK-8198){rel=\\\"noreferrer\\\"}
+        of the\\nDataCite metadata schema. Today I released updated versions of the\\ncommonmeta
+        [Ruby](https://ruby.commonmeta.org/){rel=\\\"noreferrer\\\"} and\\n[Python](https://python.commonmeta.org/){rel=\\\"noreferrer\\\"}
+        libraries\\nthat fully support the new schema. You can install them via\\n[Rubygems](https://rubygems.org/gems/commonmeta-ruby){rel=\\\"noreferrer\\\"}\\nand
+        [PyPI](https://pypi.org/project/commonmeta-py/){rel=\\\"noreferrer\\\"},\\nrespectively.\\n\\nDataCite
+        schema 4.5 is a minor update, the first schema update since\\nschema 4.4 was
+        released in March 2021 (when I was still DataCite\\nTechnical Director). The
+        new version adds support for\\nresourceTypeGeneral **Instrument** and **StudyProtocol**,
+        and allows an\\noptional publisher identifier in the required publisher field.\\n\\nPIDs
+        for instruments have been discussed for several years, coordinated\\nby a
+        dedicated [Research Data Alliance Working\\nGroup](https://www.rd-alliance.org/groups/persistent-identification-instruments-wg){rel=\\\"noreferrer\\\"}.\\nPIDs
+        for instruments make it easy to connect research outputs to the\\ninstruments
+        that helped generate them in metadata, via a new relation\\ntype **Collects**/**IsCollectedBy**.\\n\\n**Publisher**
+        is a required DataCite metadata field since the launch of\\nDataCite. With
+        schema 4.5 this property can now include an optional\\nidentifier, typically
+        a Research Organization Registry\\n([ROR](https://ror.org){rel=\\\"noreferrer\\\"})
+        ID. This will make it easier\\nto find all scholarly resources with DataCite
+        DOIs published by a\\nparticular publisher.\\n\\n[Commonmeta](https://www.commonmeta.org/){rel=\\\"noreferrer\\\"}
+        is a\\nmetadata standard for scholarly metadata that I [launched in early\\n2023](https://doi.org/10.53731/cp7apdj-jk5f471){rel=\\\"noreferrer\\\"}.\\nCurrently
+        implemented via open source libraries for the Ruby and Python\\nlanguages,
+        commonmeta allows easy conversion between common scholarly\\nmetadata formats,
+        including Crossref and DataCite metadata, BibTex, RIS,\\nSchema.org, and formatted
+        citations in any of the available 1000s of\\ncitation styles.\\n\\nWhile this
+        is a minor update to the *commonmeta-ruby* library\\n(commonmeta already supported
+        publisher identifiers and the Instrument\\nresource type), the changes for
+        *commonmeta-py* are bigger, as I am\\nworking towards a version 1.0 release
+        in the next few months. The main\\ndriver at the moment is DOI registrations
+        for science blog posts\\nincluded in the [Rogue Scholar science blog\\narchive](https://rogue-scholar.org){rel=\\\"noreferrer\\\"},
+        and I want to\\nmigrate the current workflow using GitHub Actions and *commonmeta-ruby*\\nto
+        background workers in the Rogue Scholar API written with\\n*commonmeta-py*.
+        The [main\\nreason](https://doi.org/10.53731/n4vfp-nwb08){rel=\\\"noreferrer\\\"}
+        is the\\nperformance bottleneck using GitHub Actions, which work great for\\ncontinuous
+        integration, but are not the best fit for very frequent\\nbackground jobs.\\n\\nYou
+        can see *commonmeta-py* at work generating DataCite or Crossref\\nmetadata
+        on the fly via the Rogue Scholar API using the following links\\n([Crossref](https://api.rogue-scholar.org/posts/10.59350/3jb9h-jcd77?format=crossref_xml){rel=\\\"noreferrer\\\"},\\n[DataCite](https://api.rogue-scholar.org/posts/10.59350/3jb9h-jcd77?format=datacite){rel=\\\"noreferrer\\\"})\\nfor
+        the 2020 blog post by Henry Rzepa mentioned earlier. Similar links\\nwork
+        for all Rogue Scholar blog post DOIs. The publisher metadata of\\nthese DataCite
+        DOIs don\\\\'t include a publisher identifier yet, as this\\ninformation has
+        not been systematically collected for Rogue Scholar\\nblogs, and/or ROR identifiers
+        are not (yet) available for single-person\\norganizations such as Front Matter.
+        Work to do in 2024.\\n\\n## References\\n\\nStathis, K., Ross, C., Vogt, S.,
+        & Siziva, K. (2024). Introducing\\nDataCite Metadata Schema 4.5. *DataCite
+        Blog*.\\n<https://doi.org/10.5438/JVKK-8198>\\n\\nRzepa, H. (2020). The Persistent
+        Identifier ecosystem expands -- to\\ninstruments! *Henry Rzepa's Blog*.\\n<https://doi.org/10.59350/3jb9h-jcd77>\\n\\nFenner,
+        M. (2023). Announcing commonmeta. *Front Matter*.\\n<https://doi.org/10.53731/cp7apdj-jk5f471>\\n\\nFenner,
+        M. (2024). Improving rogue scholar metadata conversions. *Front\\nMatter*.
+        <https://doi.org/10.53731/n4vfp-nwb08>\\n\",\"doi\":\"https://doi.org/10.53731/293b8-kbq75\",\"guid\":\"65b3d49e4b1a620001bdce02\",\"id\":\"a9f5cbf1-f3e9-4294-bac5-b8a9c7a15304\",\"image\":\"https://blog.front-matter.io/content/images/2024/01/6945517654_7726ff0e74_c.jpg\",\"language\":\"en\",\"published_at\":1706288854,\"reference\":[{\"doi\":\"https://doi.org/10.5438/jvkk-8198\",\"key\":\"ref1\",\"publicationYear\":\"2024\",\"title\":\"Introducing
+        DataCite Metadata Schema 4.5\"},{\"doi\":\"https://doi.org/10.59350/3jb9h-jcd77\",\"key\":\"ref2\",\"publicationYear\":\"2020\",\"title\":\"The
+        Persistent Identifier ecosystem expands \u2013 to instruments!\"},{\"doi\":\"https://doi.org/10.53731/cp7apdj-jk5f471\",\"key\":\"ref3\",\"publicationYear\":\"2023\",\"title\":\"Announcing
+        Commonmeta\"},{\"doi\":\"https://doi.org/10.53731/n4vfp-nwb08\",\"key\":\"ref4\",\"publicationYear\":\"2024\",\"title\":\"Improving
+        Rogue Scholar metadata conversions\"}],\"relationships\":[],\"summary\":\"On
+        Wednesday DataCite released version 4.5 of the DataCite metadata schema. Today
+        I released updated versions of the commonmeta Ruby and Python libraries that
+        fully support the new schema. You can install them via Rubygems and PyPI,
+        respectively.\",\"tags\":[\"Feature\"],\"title\":\"Commonmeta adds DataCite
+        schema 4.5 support\",\"updated_at\":1706289327,\"url\":\"https://blog.front-matter.io/posts/commonmeta-adds-datacite-schema-45-support\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/adding-automated-end-to-end-testing\",\"authors\":[{\"name\":\"Martin
+        Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"Last
+        week [I reported a small\\nchange](https://doi.org/10.53731/sgavn-wr288){rel=\\\"noreferrer\\\"}
+        to the\\nRogue Scholar science blog submission form. By asking for the homepage\\nURL
+        of the blog instead of the feed URL, I hope to make it easier for\\nusers
+        to register their blog. At the same time, I fixed a bug in the\\nsubmission
+        form, caused by an issue with the database backend.\\n\\nUnfortunately, that
+        bug fix didn\\\\'t work as expected. There were again\\nissues with submitting
+        new blogs, or with updating the information in\\nthe form. As a quick fix,
+        I have now disabled the automated background\\nprocess that automatically
+        syncs the database record to the search\\nindex. And the submission form now
+        contains an email link at the bottom\\nfor users who run into problems or
+        have questions:\\n\\n<figure class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-25-um-16.45.55.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/01/Bildschirmfoto-2024-01-25-um-16.45.55.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/01/Bildschirmfoto-2024-01-25-um-16.45.55.png
+        1000w, https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-25-um-16.45.55.png
+        1460w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"1460\\\" height=\\\"1026\\\"
+        />\\n</figure>\\n\\nBefore investigating the underlying issue further, I decided
+        to add\\nend-to-end testing of the Rogue Scholar user interface using the\\n[Cypress](https://cypress.io){rel=\\\"noreferrer\\\"}
+        open source platform.\\nThis makes it easier to address and test more complex
+        issues with the\\nRogue Scholar user interface such as\\n\\n- forms (currently
+        blog registration and search),\\n- mobile views,\\n- translations (Rogue Scholar
+        is available in six languages),\\n- download of metadata and/or content in
+        multiple formats.\\n\\nMore importantly, these tests can be fully automated
+        and starting today\\nrun on every new deployment of the Rogue Scholar platform
+        to production\\nor [staging](https://preview.rogue-scholar.org){rel=\\\"noreferrer\\\"}.\\n\\n<figure
+        class=\\\"kg-card kg-image-card kg-card-hascaption\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-25-um-17.07.36.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/01/Bildschirmfoto-2024-01-25-um-17.07.36.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/01/Bildschirmfoto-2024-01-25-um-17.07.36.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/01/Bildschirmfoto-2024-01-25-um-17.07.36.png
+        1600w, https://blog.front-matter.io/content/images/size/w2400/2024/01/Bildschirmfoto-2024-01-25-um-17.07.36.png
+        2400w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"2000\\\" height=\\\"1195\\\"
+        />\\n<figcaption><span style=\\\"white-space: pre-wrap;\\\">Cypress end-to-end\\ntesting
+        for Rogue Scholar blog pages</span></figcaption>\\n</figure>\\n\\nThis allows
+        better handling of regression errors like this one\\n(functionality that used
+        to work and then breaks). These kinds of errors\\nare a particular risk when
+        refactoring a service (e.g. using a different\\nlibrary for the same functionality),
+        something that young services like\\nRogue Scholar frequently do. The initial
+        set of tests doesn\\\\'t yet\\nhandle the blog registration workflow, but
+        I plan to add that coverage\\nin the coming weeks -- and properly fix the
+        underlying issue. The Rogue\\nScholar API already has good test coverage using
+        the\\n[pytest](https://docs.pytest){rel=\\\"noreferrer\\\"} framework, and
+        the\\ncombination should become a solid foundation for Rogue Scholar going\\nforward.\\n\\n##
+        References\\n\\nFenner, M. (2024). Making it easier to register a science
+        blog with\\nRogue Scholar. *Front Matter*. <https://doi.org/10.53731/sgavn-wr288>\\n\",\"doi\":\"https://doi.org/10.53731/bxgh0-dhj87\",\"guid\":\"65b281434b1a620001bdcd4e\",\"id\":\"b3fd2c5f-235b-4ca4-b5bf-de86b0a7ace9\",\"image\":\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-25-um-16.41.03.png\",\"language\":\"en\",\"published_at\":1706200527,\"reference\":[{\"doi\":\"https://doi.org/10.53731/sgavn-wr288\",\"key\":\"ref1\",\"publicationYear\":\"2024\",\"title\":\"Making
+        it easier to register a science blog with Rogue Scholar\"}],\"relationships\":[],\"summary\":\"Last
+        week I reported a small change to the Rogue Scholar science blog submission
+        form. By asking for the homepage URL of the blog instead of the feed URL,
+        I hope to make it easier for users to register their blog. At the same time,
+        I fixed a bug in the submission form, caused by an issue with the database
+        backend. Unfortunately, that bug fix didn't work as expected.\",\"tags\":[\"Feature\"],\"title\":\"Adding
+        automated end-to-end testing to Rogue Scholar\",\"updated_at\":1706201240,\"url\":\"https://blog.front-matter.io/posts/adding-automated-end-to-end-testing\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/making-it-easier-to-register\",\"authors\":[{\"name\":\"Martin
+        Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"Yesterday
+        I had to fix a bug in the Rogue Scholar registration form (a\\n[software\\nregression](https://en.wikipedia.org/wiki/Software_regression){rel=\\\"noreferrer\\\"}\\nthat
+        happened over the holidays related to database row level security).\\nThis
+        was a reminder that registering a science blog with the [Rogue\\nScholar science
+        blog\\narchive](https://rogue-scholar.org){rel=\\\"noreferrer\\\"} should
+        be quick\\nand painless.\\n\\nToday I made one change that hopefully simplifies
+        registration: Ask for\\nthe blog homepage instead of the RSS feed URL.\\n\\n<figure
+        class=\\\"kg-card kg-image-card kg-card-hascaption\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-17-um-14.36.20-2.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/01/Bildschirmfoto-2024-01-17-um-14.36.20-2.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/01/Bildschirmfoto-2024-01-17-um-14.36.20-2.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/01/Bildschirmfoto-2024-01-17-um-14.36.20-2.png
+        1600w, https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-17-um-14.36.20-2.png
+        1866w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"1866\\\" height=\\\"1127\\\"
+        />\\n<figcaption><span style=\\\"white-space: pre-wrap;\\\">Rogue Scholar
+        blog\\nregistration form in English</span></figcaption>\\n</figure>\\n\\nFinding
+        the feed URL is not trivial, as the feed URL is sometimes hard\\nto find and
+        multiple feed formats exist (RSS, Atom, and JSON Feed). RSS\\nis the most
+        popular format but has important limitations compared to\\nAtom and JSON Feed:
+        it doesn\\\\'t support multiple authors or author\\nattributes (e.g., the
+        ORCID ID), and it doesn\\\\'t show the update date of\\nposts. And some blogging
+        platforms (e.g. Wordpress, Ghost, Substack)\\nhave an API, which is easier
+        to work with than the RSS feed, and thus\\npreferred when available.\\n\\nBehind
+        the scenes, the Rogue Scholar API is trying to discover the feed\\nURL (and
+        format) from the homepage provided in the registration form and\\nthen uses
+        the feed URL to fetch the remaining information (blog name,\\ndescription,
+        language, feature image, etc.).\\n\\nThe category field lets you pick the
+        [OECD Field of Science and\\nTechnology](https://en.wikipedia.org/wiki/Fields_of_Science_and_Technology){rel=\\\"noreferrer\\\"}\\nfor
+        your blog. All the remaining information needed by Rogue Scholar is\\neither
+        fetched automatically by Rogue Scholar or can be sorted out by\\nemail.\\n\\nAn
+        important aspect of the registration form is agreeing to a Creative\\nCommons
+        4.0 Attribution\\n([CC-BY](https://creativecommons.org/licenses/by/4.0/legalcode){rel=\\\"noreferrer\\\"})\\nlicense
+        for the blog posts, which is needed to extract metadata, enable\\nfull-text
+        search, and export content to other formats (e.g. PDF).\\n\\nThe registration
+        form is available in six languages (pick the language\\nin the upper right
+        corner) of every Rogue Scholar page:\\n\\n<figure class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-17-um-14.54.51.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/01/Bildschirmfoto-2024-01-17-um-14.54.51.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/01/Bildschirmfoto-2024-01-17-um-14.54.51.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/01/Bildschirmfoto-2024-01-17-um-14.54.51.png
+        1600w, https://blog.front-matter.io/content/images/size/w2400/2024/01/Bildschirmfoto-2024-01-17-um-14.54.51.png
+        2400w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"2000\\\" height=\\\"1142\\\"
+        />\\n</figure>\\n\\nYou reach the registration form via the [sign-in\\nbutton](https://rogue-scholar.org/auth/signin){rel=\\\"noreferrer\\\"},
+        and\\nyou can create a Rogue Scholar account via email/password, Google, or\\nGitHub.\\n\\nWith
+        this streamlined workflow it should typically not take longer than\\n24 hours
+        to approve the science blog, archive the full-text content, and\\nstart DOI
+        registration.\\n\\nCost should not be a reason to stop you from registering
+        your science\\nblog with Rogue Scholar. Up to [50 blog posts per year are\\nfree](https://rogue-scholar.org/about#pricing){rel=\\\"noreferrer\\\"},
+        and\\nmore blog posts cost a one-time fee of \\\\$1 per post -- mainly an
+        issue\\nfor high-volume blogs or if the blog has been running for many years.\\nArchiving
+        a backlog of older posts can always happen later, and can also\\nbe paid for
+        with [donations to Rogue\\nScholar](https://ko-fi.com/rogue_scholar){rel=\\\"noreferrer\\\"}.\\n\\n<figure
+        class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-17-um-15.10.04.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/01/Bildschirmfoto-2024-01-17-um-15.10.04.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/01/Bildschirmfoto-2024-01-17-um-15.10.04.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/01/Bildschirmfoto-2024-01-17-um-15.10.04.png
+        1600w, https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-17-um-15.10.04.png
+        2356w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"2000\\\" height=\\\"1073\\\"
+        />\\n</figure>\\n\\nIf you have questions regarding registering your science
+        blog with Rogue\\nScholar, reach out via\\n[email](mailto:info@front-matter.io){rel=\\\"noreferrer\\\"},
+        or the comments\\nbelow. You can also check the [Rogue Scholar\\ndocumentation](https://docs.rogue-scholar.org/){rel=\\\"noreferrer\\\"}.\\n\",\"doi\":\"https://doi.org/10.53731/sgavn-wr288\",\"guid\":\"65a7d37e3ab8810001a95c8b\",\"id\":\"29d9dc0d-3644-42d2-92fa-7b2512f30ffd\",\"image\":\"https://images.unsplash.com/photo-1522709553816-36115b3cc2ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDcyfHxyZWdpc3RlcnxlbnwwfHx8fDE3MDU0OTc2NTF8MA&ixlib=rb-4.0.3&q=80&w=2000\",\"language\":\"en\",\"published_at\":1705501571,\"reference\":[],\"relationships\":[],\"summary\":\"Yesterday
+        I had to fix a bug in the Rogue Scholar registration form (a software regression
+        that happened over the holidays related to database row level security). This
+        was a reminder that registering a science blog with the Rogue Scholar science
+        blog archive should be quick and painless. Today I made one change that hopefully
+        simplifies registration: Ask for the blog homepage instead of the RSS feed
+        URL.\",\"tags\":[\"Feature\"],\"title\":\"Making it easier to register a science
+        blog with Rogue Scholar\",\"updated_at\":1705502015,\"url\":\"https://blog.front-matter.io/posts/making-it-easier-to-register\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/improving-rogue-scholar-metadata-conversions\",\"authors\":[{\"name\":\"Martin
+        Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"Last
+        week the Rogue Scholar science blog archive added [export of blog\\npost content
+        in various\\nformats](https://doi.org/10.53731/1dfxr-hs665){rel=\\\"noreferrer\\\"}\\n(Markdown,
+        ePub, PDF, JATS XML). This week Rogue Scholar is improving\\nthe existing
+        metadata export, and adding metadata export in Schema.org\\nJSON-LD format.\\n\\nUntil
+        now Rogue Scholar metadata export depended on [DOI content\\nnegotiation](https://citation.crosscite.org/docs.html){rel=\\\"noreferrer\\\"},\\nreturning
+        the DOI metadata registered with Crossref (and in some cases\\nDataCite) in
+        BibTex or [CSL\\nJSON](https://citationstyles.org/){rel=\\\"noreferrer\\\"}
+        formats, or as\\nformatted citations. While this approach worked reasonably
+        well and\\nallowed Rogue Scholar to offload the metadata conversion to an
+        external\\nservice, it had major limitations:\\n\\n- Delay of up to 24 hours
+        after DOI registration until metadata are\\n  available in DOI content negotiation\\n-
+        Long-standing issues with some of the metadata in BibTeX or CSL JSON\\n- Missing
+        support for some formats, especially Schema.org JSON-LD\\n- Missing support
+        for converting metadata in bulk, e.g. for all Rogue\\n  Scholar blog posts
+        published last week\\n\\nTo address these issues, the Rogue Scholar API this
+        week started using\\n[commonmeta-py](https://doi.org/10.53731/xszpd-6z265){rel=\\\"noreferrer\\\"},\\nthe
+        metadata conversion Python library I wrote last year. This allows\\nRogue
+        Scholar to show the metadata immediately after DOI registration,\\nwhich now
+        happens within 20 min after a blog post is published or\\nupdated. This also
+        addresses some issues with the metadata returned by\\nDOI content negotiation,
+        e.g. the missing blog name. And this adds\\nadditional metadata formats, most
+        notably [Schema.org\\nJSON-LD](https://schema.org){rel=\\\"noreferrer\\\"}.\\n\\nGoing
+        forward this change will allow us to address another limitation of\\nthe Rogue
+        Scholar service: DOI registration and updates happen via\\nGitHub Actions,
+        [scheduled via\\ncron](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule){rel=\\\"noreferrer\\\"}.\\nWhile
+        this workflow works well, it is currently limited to one DOI\\nregistration
+        or update every 10 min, so updates to the metadata of all\\n13K Rogue Scholar
+        DOIs would take weeks. One example is the changes last\\nweek that added links
+        to the full-text Markdown, ePub, PDF, and JATS XML\\nversions to all Rogue
+        Scholar DOIs.\\n\\ncommonmeta-py already generates Crossref XML metadata needed
+        for\\nCrossref DOI registration. More work is needed to add background workers\\nto
+        the Rogue Scholar API that can replace the current GitHub Actions,\\nand increase
+        the frequency DOI metadata are updated with Crossref. As\\ncommonmeta-py can
+        also generate DataCite metadata needed for DOI\\nregistration, Rogue Scholar
+        could also help scholarly blogs that use\\nDataCite DOIs (currently two of
+        the blogs participating in Rogue\\nScholar).\\n\\nThese changes again highlight
+        the importance of [eating your own dog\\nfood](https://doi.org/10.53731/r79vxn1-97aq74v-ag58n){rel=\\\"noreferrer\\\"}:\\norganizations
+        should themselves use the products and services they\\nprovide.\_\\n\\n##
+        References\\n\\nFenner, M. (2024). Every Rogue Scholar blog post now available
+        in\\nMarkdown, ePub, and PDF formats. *Front Matter*.\\n<https://doi.org/10.53731/1dfxr-hs665>\\n\\nFenner,
+        M. (2023). Releasing commonmeta-py v0.8. *Front Matter*.\\n<https://doi.org/10.53731/xszpd-6z265>\\n\\nFenner,
+        M. (2016). Eating your own dog food. *Front Matter*.\\n<https://doi.org/10.53731/r79vxn1-97aq74v-ag58n>\\n\",\"doi\":\"https://doi.org/10.53731/n4vfp-nwb08\",\"guid\":\"65a63ea93ab8810001a95bb0\",\"id\":\"6fb357f5-80e7-4fd9-8ea8-4eb27be54866\",\"image\":\"https://blog.front-matter.io/content/images/2024/01/winter-1.png\",\"language\":\"en\",\"published_at\":1705397514,\"reference\":[{\"doi\":\"https://doi.org/10.53731/1dfxr-hs665\",\"key\":\"ref1\",\"publicationYear\":\"2024\",\"title\":\"Every
+        Rogue Scholar blog post now available in Markdown, ePub, and PDF formats\"},{\"doi\":\"https://doi.org/10.53731/xszpd-6z265\",\"key\":\"ref2\",\"publicationYear\":\"2023\",\"title\":\"Releasing
+        commonmeta-py v0.8\"},{\"doi\":\"https://doi.org/10.53731/r79vxn1-97aq74v-ag58n\",\"key\":\"ref3\",\"publicationYear\":\"2016\",\"title\":\"Eating
+        your own Dog Food\"}],\"relationships\":[],\"summary\":\"Last week the Rogue
+        Scholar science blog archive added export of blog post content in various
+        formats (Markdown, ePub, PDF, JATS XML). This week Rogue Scholar is improving
+        the existing metadata export, and adding metadata export in Schema.org JSON-LD
+        format.\",\"tags\":[\"Feature\"],\"title\":\"Improving Rogue Scholar metadata
+        conversions\",\"updated_at\":1705397952,\"url\":\"https://blog.front-matter.io/posts/improving-rogue-scholar-metadata-conversions\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/improved-pdf-formatted-rogue-scholar-blog-posts\",\"authors\":[{\"name\":\"Martin
+        Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"On
+        Monday the Rogue Scholar science blog archive [launched the export of\\nblog
+        posts in PDF and other\\nformats](https://doi.org/10.53731/1dfxr-hs665){rel=\\\"noreferrer\\\"}.
+        Over\\nthe last few days I have been busy improving the PDF output, and today
+        I\\nam releasing a new version, available for all the more than 13K science\\nblog
+        posts archived by Rogue Scholar.\\n\\nThe PDF is generated using the open
+        source Pandoc universal document\\nconverter in combination with the\\n[Weasyprint](https://weasyprint.org/){rel=\\\"noreferrer\\\"}
+        library. There\\nare many other options for automatic PDF generation, but
+        Weasyprint is a\\nnice option for the flexible generation of beautiful PDF.
+        The PDF files\\nare generated on demand by the Rogue Scholar API based on
+        the metadata\\nand content stored in the Rogue Scholar search index, using
+        the markdown\\nformat. The first page of the PDF shows the main metadata,
+        including the\\nabstract and feature image, just what you expect from a typical\\nscholarly
+        article.\\n\\n<figure class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-12-um-17.07.11.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/01/Bildschirmfoto-2024-01-12-um-17.07.11.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/01/Bildschirmfoto-2024-01-12-um-17.07.11.png
+        1000w, https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-12-um-17.07.11.png
+        1360w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"1360\\\" height=\\\"988\\\"
+        />\\n</figure>\\n\\nLinks in the PDF are clickable, including the author ORCID
+        ID(s), DOI of\\nthe citation (formatted in APA style), and references in the
+        fulltext:\\n\\n<figure class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-12-um-17.13.55.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/01/Bildschirmfoto-2024-01-12-um-17.13.55.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/01/Bildschirmfoto-2024-01-12-um-17.13.55.png
+        1000w, https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-12-um-17.13.55.png
+        1386w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"1386\\\" height=\\\"748\\\"
+        />\\n</figure>\\n\\nBecause the PDF generation is fully automated, it doesn\\\\'t
+        handle all\\npossible edge cases and some metadata (e.g. funding information)
+        aren\\\\'t\\nincluded yet. But the Rogue Scholar PDF is fully functional,
+        nice\\nlooking, and will only get better over time. Please let me know (e.g.
+        in\\nthe comments) if you discover issues with the PDF or have a feature\\nrequest.\\n\\n##
+        References\\n\\nFenner, M. (2024). Every Rogue Scholar blog post now available
+        in\\nMarkdown, ePub, and PDF formats. *Front Matter*.\\n<https://doi.org/10.53731/1dfxr-hs665>\\n\",\"doi\":\"https://doi.org/10.53731/mndd9-1d509\",\"guid\":\"65a160193ab8810001a95b1c\",\"id\":\"a18c1799-0bf0-466e-8917-2510fd504a25\",\"image\":\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-12-um-16.53.20.png\",\"language\":\"en\",\"published_at\":1705076822,\"reference\":[{\"doi\":\"https://doi.org/10.53731/1dfxr-hs665\",\"key\":\"ref1\",\"publicationYear\":\"2024\",\"title\":\"Every
+        Rogue Scholar blog post now available in Markdown, ePub, and PDF formats\"}],\"relationships\":[],\"summary\":\"On
+        Monday the Rogue Scholar science blog archive launched the export of blog
+        posts in PDF and other formats. Over the last few days I have been busy improving
+        the PDF output, and today I am releasing a new version, available for all
+        the more than 13K science blog posts archived by Rogue Scholar. The PDF is
+        generated using the open source Pandoc universal document converter in combination
+        with the Weasyprint library.\",\"tags\":[\"Feature\"],\"title\":\"Improved
+        PDF-formatted Rogue Scholar blog posts\",\"updated_at\":1705077313,\"url\":\"https://blog.front-matter.io/posts/improved-pdf-formatted-rogue-scholar-blog-posts\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/rogue-scholar-blog-posts-jats-xml\",\"authors\":[{\"name\":\"Martin
+        Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"On
+        Monday the Rogue Scholar science blog archive added support for\\n[exporting
+        the blog posts in various\\nformats](https://doi.org/10.53731/1dfxr-hs665){rel=\\\"noreferrer\\\"}:\\nmarkdown,
+        ePub, and PDF. Today I am adding another export format: [JATS\\nXML](https://jats.nlm.nih.gov/){rel=\\\"noreferrer\\\"},
+        the standard format\\nfor scholarly articles. JATS is again automatically
+        generated with the\\n[Pandoc](https://pandoc.org/){rel=\\\"noreferrer\\\"}
+        universal document\\nconverter, with some initial tweaks of the Rogue Scholar
+        metadata.\\n\\n[Rogue Scholar Search](https://rogue-scholar.org){rel=\\\"noreferrer\\\"}
+        now\\ndisplays several output options for each of the currently 13,301 science\\nblog
+        posts:\\n\\n<figure class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-10-um-15.26.08.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/01/Bildschirmfoto-2024-01-10-um-15.26.08.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/01/Bildschirmfoto-2024-01-10-um-15.26.08.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/01/Bildschirmfoto-2024-01-10-um-15.26.08.png
+        1600w, https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-10-um-15.26.08.png
+        1860w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"1860\\\" height=\\\"796\\\"
+        />\\n</figure>\\n\\nSimilar to the ePub and PDF formats, this is an initial
+        version of JATS\\nXML, expect to see improvements in the next three months.\\n\\nThe
+        blog posts in markdown, ePub, PDF, and JATS XML formats are\\navailable via
+        the [Rogue Scholar\\nAPI](https://api.rogue-scholar.org/posts){rel=\\\"noreferrer\\\"},
+        either\\nfetched from the search index (markdown), or generated on the fly
+        (ePub,\\nPDF, JATS XML) from the markdown format. To make automated machine\\naccess
+        easier, I have also started to update the DOI metadata, which now\\ninclude
+        links to these full-text versions (it will take a few weeks to\\nupdate all
+        10K+ metadata records). This will hopefully simplify the\\ndiscovery of these
+        output formats, e.g. the [Find available\\nPDF](https://forums.zotero.org/discussion/103321/how-does-find-available-pdf-works){rel=\\\"noreferrer\\\"}\\nfunctionality
+        in the reference manager Zotero.\\n\\nThere is a lot more work needed to improve
+        these output formats, and all\\nhelp from the Rogue Scholar community is greatly
+        appreciated. PDF is\\ngenerated with the help of the\\n[Weasyprint](https://weasyprint.org/){rel=\\\"noreferrer\\\"}
+        open source\\nlibrary and currently uses the Pandoc default template and CSS.
+        ePub and\\nJATS XML are generated from Pandoc without additional tools, but
+        allow a\\ngreat deal of customization via Pandoc templates, CSS, and Lua or
+        Python\\nfilters.\\n\\nPandoc JATS XML support has a special place in my heart,
+        as I [wrote a\\nPandoc custom\\nwriter](https://doi.org/10.53731/r294649-6f79289-8cw0k){rel=\\\"noreferrer\\\"}\\nin
+        Lua 10 years ago that helped adding JATS support to the main Pandoc\\napplication
+        (added in [Pandoc\\n2.0](https://github.com/jgm/pandoc/releases/tag/2.0){rel=\\\"noreferrer\\\"}\\nOctober
+        2017).\\n\\nFinally, the addition of JATS XML support again demonstrates that\\nscholar
+        publishing doesn\\\\'t have to be complicated, expensive, or take\\nforever.\\n\\n##
+        References\\n\\nFenner, M. (2024). Every Rogue Scholar blog post now available
+        in\\nMarkdown, ePub, and PDF formats. *Front Matter*.\\n<https://doi.org/10.53731/1dfxr-hs665>\\n\\nFenner,
+        M. (2013). *From Markdown to JATS XML in one Step*.\\n<https://doi.org/10.53731/r294649-6f79289-8cw0k>\\n\",\"doi\":\"https://doi.org/10.53731/3w1ye-q6z42\",\"guid\":\"659ea5293ab8810001a95a69\",\"id\":\"2e55b2f4-88cd-4a18-98cd-ec4b25a63f65\",\"image\":\"https://blog.front-matter.io/content/images/2024/01/bookcase_jats-1.png\",\"language\":\"en\",\"published_at\":1704899351,\"reference\":[{\"doi\":\"https://doi.org/10.53731/1dfxr-hs665\",\"key\":\"ref1\",\"publicationYear\":\"2024\",\"title\":\"Every
+        Rogue Scholar blog post now available in Markdown, ePub, and PDF formats\"},{\"doi\":\"https://doi.org/10.53731/r294649-6f79289-8cw0k\",\"key\":\"ref2\",\"publicationYear\":\"2013\",\"title\":\"From
+        Markdown to JATS XML in one Step\"}],\"relationships\":[],\"summary\":\"On
+        Monday the Rogue Scholar science blog archive added support for exporting
+        the blog posts in various formats: markdown, ePub, and PDF. Today I am adding
+        another export format: JATS XML, the standard format for scholarly articles.
+        JATS is again automatically generated with the Pandoc universal document converter,
+        with some initial tweaks of the Rogue Scholar metadata.\",\"tags\":[\"Feature\"],\"title\":\"Every
+        Rogue Scholar blog post now also available in JATS XML format\",\"updated_at\":1704899710,\"url\":\"https://blog.front-matter.io/posts/rogue-scholar-blog-posts-jats-xml\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/rogue-scholar-blog-posts-markdown-epub-and-pdf-formats\",\"authors\":[{\"name\":\"Martin
+        Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"The
+        [Rogue Scholar science blog\\narchive](https://rogue-scholar.org){rel=\\\"noreferrer\\\"}
+        starts 2024 with\\nan important release: all blog posts (more than 13,000)
+        are now\\navailable for download in Markdown, ePub, and PDF formats. This
+        builds\\non [work completed in\\nDecember](https://doi.org/10.53731/5vvnh-tnm55){rel=\\\"noreferrer\\\"}
+        to\\nstore the full text of every Rogue Scholar blog post in Markdown format\\nin
+        the Rogue Scholar backend. Combined with the metadata in [YAML\\nformat](https://jekyllrb.com/docs/front-matter/){rel=\\\"noreferrer\\\"},\\nthese
+        posts can now be downloaded via the Rogue Scholar API, e.g.\\n<https://api.rogue-scholar.org/posts/10.53731/5vvnh-tnm55?format=markdown>.\\n\\nThis
+        format is compatible with all static site generators used by Rogue\\nScholar
+        blogs, including [Hugo](https://gohugo.io/){rel=\\\"noreferrer\\\"},\\n[Jekyll](https://jekyllrb.com/){rel=\\\"noreferrer\\\"},
+        and\\n[Quarto](https://quarto.org/){rel=\\\"noreferrer\\\"}. And it can be
+        used to\\nimport blog posts into blogs powered by a database, including\\n[Wordpress](https://wordpress.org/){rel=\\\"noreferrer\\\"}
+        and\\n[Ghost](https://ghost.org/){rel=\\\"noreferrer\\\"}. This addresses
+        an\\nimportant Rogue Scholar use case: making it easier to migrate from one\\nblogging
+        platform to another. More work is needed to update the [Rogue\\nScholar\\ndocumentation](https://docs.rogue-scholar.org/){rel=\\\"noreferrer\\\"},
+        and\\nto enable downloading content and metadata in bulk, i.e. all posts from\\na
+        blog.\\n\\nThe availability of content and metadata in easily downloadable
+        form\\nenables another important use case, described by [Ross Mounce in\\nNovember](https://doi.org/10.59350/psmbr-f6p84){rel=\\\"noreferrer\\\"}:\\n\\n>
+        **Resilience: another advantage of openly-licensed content**  \\n> As I allude
+        to in the title of this post. The key differentiators here\\n> in open access
+        systems, that make open access more resilient to\\n> downtime overall are
+        a) availability on multiple independent platforms\\n> and b) open licencing
+        that makes it legally easier to host content in\\n> multiple places.\\n\\nThis
+        nicely complements the integration with the Internet Archive [that\\nRogue
+        Scholar started in\\nNovember](https://doi.org/10.53731/g60vh-3ng48){rel=\\\"noreferrer\\\"},\\narchiving
+        all posts from blogs participating in Rogue Scholar via the\\n[Archive-It\\nservice](https://archive-it.org/home/rogue-scholar){rel=\\\"noreferrer\\\"}.\\nThe
+        Rogue Scholar API makes it easy to programmatically download content\\nand
+        metadata from scholarly blog posts, and all content is available\\nwith an
+        open license\\n([CC-BY](https://creativecommons.org/licenses/by/4.0/legalcode){rel=\\\"noreferrer\\\"})\\nthat
+        enables unrestricted reuse.\\n\\nOne limitation of the Markdown format is
+        that for most users it is not\\nthe preferred format to read content. Markdown
+        is typically used to\\nsafely render content on the web, but for reading scholarly
+        content\\nstored on their computers, most users prefer PDF. That is why Rogue\\nScholar
+        also offers blog posts converted to PDF format, using the\\n[Pandoc](https://pandoc.org/){rel=\\\"noreferrer\\\"}
+        universal document\\nconverter. An important use case is storing important
+        blog posts in a\\nreference manager. Storing the metadata has always been
+        supported by\\nRogue Scholar, but now you can also easily attach the full
+        text in PDF\\nformat and for example add annotations.\\n\\n<figure class=\\\"kg-card
+        kg-image-card kg-card-hascaption\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-08-um-11.40.09.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/01/Bildschirmfoto-2024-01-08-um-11.40.09.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/01/Bildschirmfoto-2024-01-08-um-11.40.09.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/01/Bildschirmfoto-2024-01-08-um-11.40.09.png
+        1600w, https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-08-um-11.40.09.png
+        2356w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"2000\\\" height=\\\"846\\\"
+        />\\n<figcaption><span style=\\\"white-space: pre-wrap;\\\">Reading Rogue
+        Scholar\\nposts in Zotero</span></figcaption>\\n</figure>\\n\\nAutomated PDF
+        generation is not trivial, and the initial implementation\\nstill has issues.
+        Some PDFs are not generated properly, and the default\\nlayout can be improved.
+        One major challenge is the images attached to\\nblog posts - they are still
+        stored with the respective blogs.\\n\\nMore fundamentally PDF has two important
+        major limitations: it is an\\noutput format and can\\\\'t be used to convert
+        to other formats, and it\\ndoesn\\\\'t easily adapt to smaller screen sizes.\\n[ePub](https://en.wikipedia.org/wiki/EPUB){rel=\\\"noreferrer\\\"}
+        overcomes\\nboth these limitations and therefore Rogue Scholar also provides
+        an ePub\\nversion of every blog post, again using Pandoc. As with PDF, there
+        is a\\nlot of work to do to improve the look and feel of the ePub output,
+        and\\nto fix bugs. Look for many small improvements in the coming three months\\n--
+        and please provide feedback via comments and issues at the [Rogue\\nScholar
+        API open source\\nrepository](https://github.com/front-matter/rogue-scholar-api){rel=\\\"noreferrer\\\"}.\\nThe
+        popular open source reference manager Zotero is adding ePub support\\nin its
+        upcoming version 7, available in [Zotero 7 Beta since May\\n2023](https://forums.zotero.org/discussion/105094/announcing-the-zotero-7-beta){rel=\\\"noreferrer\\\"},\\nand
+        thus ePub can also be used to store the full-text content of Rogue\\nScholar
+        blog posts.\\n\\n<figure class=\\\"kg-card kg-image-card kg-card-hascaption\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/01/Bildschirmfoto-2024-01-08-um-12.06.06.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/01/Bildschirmfoto-2024-01-08-um-12.06.06.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/01/Bildschirmfoto-2024-01-08-um-12.06.06.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/01/Bildschirmfoto-2024-01-08-um-12.06.06.png
+        1600w, https://blog.front-matter.io/content/images/size/w2400/2024/01/Bildschirmfoto-2024-01-08-um-12.06.06.png
+        2400w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"2000\\\" height=\\\"944\\\"
+        />\\n<figcaption><span style=\\\"white-space: pre-wrap;\\\">Reading Rogue
+        Scholar\\nposts in Zotero (ePub version)</span></figcaption>\\n</figure>\\n\\nBlog
+        posts in ePub format have been discussed on this blog before. In\\n[February\\n2011](https://doi.org/10.53731/r294649-6f79289-8cw76){rel=\\\"noreferrer\\\"}\\nI
+        released a Wordpress plugin that turns blog posts into ePub files. Has\\nthe
+        time for ePub finally arrived or will PDF remain the preferred\\nformat for
+        (shorter) scholarly documents? Or should Rogue Scholar\\nsupport other output
+        formats, e.g. Journal Article Tag Suite\\n([JATS](https://pandoc.org/jats.html){rel=\\\"noreferrer\\\"}),
+        the standard\\nformat for scholarly articles?\\n\\n## References\\n\\nFenner,
+        M. (2023). *Archiving individual science blog posts*.\\n<https://doi.org/10.53731/5vvnh-tnm55>\\n\\nMounce,
+        R. (2023). *Resilience: Another advantage of openly-licensed\\ncontent*. <https://doi.org/10.59350/psmbr-f6p84>\\n\\nFenner,
+        M. (2023). *Archiving Rogue Scholar blogs with the Internet\\nArchive*. <https://doi.org/10.53731/g60vh-3ng48>\\n\\nFenner,
+        M. (2011). *ePub WordPress plugin released today*.\\n<https://doi.org/10.53731/r294649-6f79289-8cw76>\\n\",\"doi\":\"https://doi.org/10.53731/1dfxr-hs665\",\"guid\":\"659bc2953ab8810001a95961\",\"id\":\"ec6ee1cf-ec7c-4898-b80e-09956a450b07\",\"image\":\"https://blog.front-matter.io/content/images/2024/01/bookcase.png\",\"language\":\"en\",\"published_at\":1704713035,\"reference\":[{\"doi\":\"https://doi.org/10.53731/5vvnh-tnm55\",\"key\":\"ref1\",\"publicationYear\":\"2023\",\"title\":\"Archiving
+        individual science blog posts\"},{\"doi\":\"https://doi.org/10.59350/psmbr-f6p84\",\"key\":\"ref2\",\"publicationYear\":\"2023\",\"title\":\"Resilience:
+        another advantage of openly-licensed content\"},{\"doi\":\"https://doi.org/10.53731/g60vh-3ng48\",\"key\":\"ref3\",\"publicationYear\":\"2023\",\"title\":\"Archiving
+        Rogue Scholar blogs with the Internet Archive\"},{\"doi\":\"https://doi.org/10.53731/r294649-6f79289-8cw76\",\"key\":\"ref4\",\"publicationYear\":\"2011\",\"title\":\"ePub
+        WordPress plugin released today\"}],\"relationships\":[],\"summary\":\"The
+        Rogue Scholar science blog archive starts 2024 with an important release:
+        all blog posts (more than 13,000) are now available for download in Markdown,
+        ePub, and PDF formats. This builds on work completed in December to store
+        the full text of every Rogue Scholar blog post in Markdown format in the Rogue
+        Scholar backend. Combined with the metadata in YAML format, these posts can
+        now be downloaded via the Rogue Scholar API, e.g.\",\"tags\":[\"Feature\"],\"title\":\"Every
+        Rogue Scholar blog post now available in Markdown, ePub, and PDF formats\",\"updated_at\":1704876843,\"url\":\"https://blog.front-matter.io/posts/rogue-scholar-blog-posts-markdown-epub-and-pdf-formats\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/archiving-individual-science-blog-posts\",\"authors\":[{\"name\":\"Martin
+        Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"Sometimes
+        we want to preserve a blog post to read or reuse later. There\\nare generic
+        tools for that purpose, including read-it-later apps such as\\n[Instapaper](https://www.instapaper.com){rel=\\\"noreferrer\\\"}
+        or\\n[Pocket](https://getpocket.com){rel=\\\"noreferrer\\\"}. For scholarly
+        blog\\nposts, the right place can also be a reference manager, which stores
+        the\\ncontent and the metadata, especially if a DOI was registered for each\\nblog
+        post.\\n\\nReference managers can store full-text documents and typically
+        use PDF\\nas the file format. Zotero 7 ([currently in\\ndevelopment](https://www.zotero.org/support/dev/zotero_7_for_developers){rel=\\\"noreferrer\\\"})\\nadds
+        support for ePub documents. ePub is not as widely supported as PDF\\nfor scholarly
+        journal articles but is popular with books and works\\nbetter on smaller screens.\\n\\nHow
+        can the [Rogue Scholar](https://rogue-scholar.org){rel=\\\"noreferrer\\\"}\\nscience
+        blog archive support the download of individual blog posts in a\\nway that
+        facilitates reading and reuse? Another important use case for\\nblog authors
+        is the migration to a different blogging platform (e.g.\\nfrom WordPress to
+        Hugo), and a generic import/export format would be\\nvery helpful for this.\\n\\nFull-text
+        content of blogs included in the Rogue Scholar is currently\\nstored in HTML
+        format, as that is the format used to distribute blog\\nposts via RSS feed,
+        webpage, or newsletter. One challenge with HTML is\\nthat it is not typically
+        used for standalone documents, different from\\nePub and PDF.\\n\\nJust as
+        scholarly metadata can be converted into different formats --\\nincluding
+        the [Commonmeta](https://commonmeta.org){rel=\\\"noreferrer\\\"}\\nformat
+        with libraries written in Ruby and Python that I created in early\\n2023 --
+        scholarly content can be converted into different formats using\\na variety
+        of tools, most notably the\\n[Pandoc](https://pandoc.org){rel=\\\"noreferrer\\\"}
+        open-source library.\\nPandoc not only converts HTML documents to PDF and
+        ePub, but also\\nsupports converting documents authored in Microsoft Word,
+        LaTeX, or\\nmarkdown formats. Markdown is particularly important, as it is
+        the\\nauthoring format used by blogs powered by static site generators, about\\n25%
+        of all blogs participating in the Rogue Scholar science blog\\narchive. In
+        the last few days, I have added Pandoc to the Rogue Scholar\\nAPI to convert
+        HTML to markdown. I am still exploring, but you can see\\nsome [markdown-formatted
+        blog\\nposts](https://api.rogue-scholar.org/posts?blog_slug=front_matter){rel=\\\"noreferrer\\\"}\\nin
+        the `content_text` field.\\n\\n## Conclusions\\n\\n- There is sometimes a
+        need to download individual science blog posts -\\n  to keep a local copy
+        to read again later, to reference in another\\n  scholarly work, or to migrate
+        to a different blogging platform if you\\n  are a blog author.\\n- Conversion
+        of content and metadata into different formats is\\n  relatively straightforward,
+        and existing open-source tools are already\\n  integrated into the Rogue Scholar
+        blog archive. DOI registration uses\\n  the [commonmeta-ruby](https://ruby.commonmeta.org/){rel=\\\"noreferrer\\\"}\\n
+        \ library, and basic Pandoc support has recently been added.\\n- The best
+        canonical format for science blog posts is not known yet. PDF\\n  is not part
+        of standard workflows for blogging and is not an authoring\\n  (input) format.
+        [JATS](https://jats.nlm.nih.gov/){rel=\\\"noreferrer\\\"} is\\n  a standard
+        format for scholarly articles but is not typically used by\\n  scientists
+        for local files. HTML works better for collections of\\n  files. ePub and
+        Markdown are interesting options but more exploration\\n  is needed.\\n\",\"doi\":\"https://doi.org/10.53731/5vvnh-tnm55\",\"guid\":\"6577338e3ab8810001a95843\",\"id\":\"cf0b821a-2b0a-49e5-a71c-b118d24bc267\",\"image\":\"https://blog.front-matter.io/content/images/2023/12/mfenner_1960s_color_photo_of_woman_looking_at_several_books_on__14781267-0eec-4511-a05c-1ccb9d3011f2.png\",\"language\":\"en\",\"published_at\":1702317174,\"reference\":[],\"relationships\":[],\"summary\":\"Sometimes
+        we want to preserve a blog post to read or reuse later. There are generic
+        tools for that purpose, including read-it-later apps such as Instapaper or
+        Pocket. For scholarly blog posts, the right place can also be a reference
+        manager, which stores the content and the metadata, especially if a DOI was
+        registered for each blog post. Reference managers can store full-text documents
+        and typically use PDF as the file format.\",\"tags\":[\"Feature\"],\"title\":\"Archiving
+        individual science blog posts\",\"updated_at\":1702317872,\"url\":\"https://blog.front-matter.io/posts/archiving-individual-science-blog-posts\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/documentation-documentation-documentation\",\"authors\":[{\"name\":\"Martin
+        Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"Writing
+        software is more than writing code -- good documentation is one\\nessential
+        aspect. A lot of the tools and libraries that make writing\\ndocumentation
+        easier use `markdown` as a file format, combined with\\nmetadata in `yaml`
+        format and optionally some additional functionality,\\ne.g. `mdx` -- which
+        combines markdown with `jsx` for JSX-based projects\\nsuch as React.\\n\\nIf
+        you think this sounds like the open-source tooling developed for\\nblogs,
+        you are right, as technical and scientific writing overlap. Some\\npopular
+        libraries for documentation, e.g.\\n[MkDocs](https://www.mkdocs.org/){rel=\\\"noreferrer\\\"}
+        (Python) or\\n[Docusaurus](https://docusaurus.io/){rel=\\\"noreferrer\\\"}
+        (Javascript)\\ncould be tweaked and used for blogging, and\\n[Quarto](https://quarto.org){rel=\\\"noreferrer\\\"}
+        launched last year as *an\\nopen-source scientific and technical publishing
+        system.*\\n\\nGiven my investment in building [tools and\\nservices](https://rogue-scholar.org){rel=\\\"noreferrer\\\"}
+        around science\\nblogging, it should not come as a surprise that I am consolidating
+        the\\ntooling for the documentation of my open-source software projects. Three\\nweeks
+        ago [I relaunched one of my two\\nblogs](https://doi.org/10.53731/ch2e1-1cm64){rel=\\\"noreferrer\\\"}
+        using\\nQuarto. This week I am relaunching the following documentation sites\\nalso
+        using the Quarto:\\n\\n- [Commonmeta](https://commonmeta.org){rel=\\\"noreferrer\\\"}
+        - a metadata\\n  standard for scholarly metadata\\n- [Commonmeta-py](https://python.commonmeta.org){rel=\\\"noreferrer\\\"}
+        - a\\n  Python implementation of commonmeta\\n- [Commonmeta-ruby](https://ruby.commonmeta.org){rel=\\\"noreferrer\\\"}
+        - a\\n  Ruby implementation of commonmeta\\n- [Rogue Scholar](https://docs.rogue-scholar.org){rel=\\\"noreferrer\\\"}
+        - an\\n  archive for scholarly blog posts\\n\\nPreviously, the documentation
+        for these libraries and services used\\n`MkDocs` and `Nextra` ([using React,
+        Next.js, and\\nMDX](https://nextra.site/){rel=\\\"noreferrer\\\"}) with markdown
+        files and\\nYAML front matter. The\\n[commonmeta-py](https://python.commonmeta.org){rel=\\\"noreferrer\\\"}\\ndocumentation
+        also included several Jupyter notebooks, which are nicely\\nsupported by Quarto
+        out of the box:\\n\\n<figure class=\\\"kg-card kg-image-card kg-card-hascaption\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2023/12/Bildschirmfoto-2023-12-07-um-18.57.38.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2023/12/Bildschirmfoto-2023-12-07-um-18.57.38.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2023/12/Bildschirmfoto-2023-12-07-um-18.57.38.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2023/12/Bildschirmfoto-2023-12-07-um-18.57.38.png
+        1600w, https://blog.front-matter.io/content/images/2023/12/Bildschirmfoto-2023-12-07-um-18.57.38.png
+        1616w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"1616\\\" height=\\\"858\\\"
+        />\\n<figcaption><a\\nhref=\\\"https://python.commonmeta.org/writers/bibtex_writer\\\"\\nrel=\\\"noreferrer\\\"><span
+        style=\\\"white-space: pre-wrap;\\\">commonmeta-py\\ndocumentation for the
+        BibTex Writer</span></a></figcaption>\\n</figure>\\n\\nThere is still a lot
+        of work to do to improve the documentation --\\nalways the hardest part. I
+        wrote a [new\\npage](https://docs.rogue-scholar.org/wordpress){rel=\\\"noreferrer\\\"}
+        about\\nusing Rogue Scholar with a Wordpress blog and plan to document my\\nexperience
+        with other popular blogging platforms. The\\n[commonmeta-ruby](https://ruby.commonmeta.org){rel=\\\"noreferrer\\\"}\\ndocumentation
+        is still rudimentary, and I have started to experiment\\nwith Jupyter notebooks
+        written in Ruby. The [OpenAPI\\ndocumentation](https://api.rogue-scholar.org/docs){rel=\\\"noreferrer\\\"}
+        of\\nthe Rogue Scholar API is not integrated into the Quarto Rogue Scholar\\ndocumentation
+        yet, and I am evaluating\\n[Quartodoc](https://github.com/machow/quartodoc){rel=\\\"noreferrer\\\"}
+        to\\nautomate the documentation of Python methods and classes similar to what\\n[Sphinx](https://www.sphinx-doc.org/en/master/){rel=\\\"noreferrer\\\"}
+        is\\nproviding.\\n\\nOne feature that Quarto has in common with other open-source\\ndocumentation
+        systems is that the source code, including the markdown\\nfiles, is hosted
+        in a public code repository, so questions, comments, or\\nsuggested changes
+        are easy:\\n\\n<figure class=\\\"kg-card kg-image-card kg-card-hascaption\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2023/12/Bildschirmfoto-2023-12-07-um-18.52.19.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2023/12/Bildschirmfoto-2023-12-07-um-18.52.19.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2023/12/Bildschirmfoto-2023-12-07-um-18.52.19.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2023/12/Bildschirmfoto-2023-12-07-um-18.52.19.png
+        1600w, https://blog.front-matter.io/content/images/2023/12/Bildschirmfoto-2023-12-07-um-18.52.19.png
+        1956w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"1956\\\" height=\\\"998\\\"
+        />\\n<figcaption><a href=\\\"https://docs.rogue-scholar.org/wordpress\\\"\\nrel=\\\"noreferrer\\\"><span
+        style=\\\"white-space: pre-wrap;\\\">Rogue Scholar\\nDocumentation for Wordpress</span></a></figcaption>\\n</figure>\\n\\nPlease
+        use this functionality if you want to help improve the\\ndocumentation, or
+        if you find functionalities that should be documented\\nbetter.\\n\\n## References\\n\\nFenner,
+        M. (2023). *The programmable blog*.\\n<https://doi.org/10.53731/ch2e1-1cm64>\\n\",\"doi\":\"https://doi.org/10.53731/fgyjr-hg721\",\"guid\":\"6571fb2194603f00017976ef\",\"id\":\"cba7c066-c906-45ff-8600-a0bd485a8fb9\",\"image\":\"https://images.unsplash.com/photo-1583521214690-73421a1829a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDl8fGRvY3VtZW50fGVufDB8fHx8MTcwMTk2ODc1Nnww&ixlib=rb-4.0.3&q=80&w=2000\",\"language\":\"en\",\"published_at\":1701973128,\"reference\":[{\"doi\":\"https://doi.org/10.53731/ch2e1-1cm64\",\"key\":\"ref1\",\"publicationYear\":\"2023\",\"title\":\"The
+        programmable blog\"}],\"relationships\":[],\"summary\":\"Writing software
+        is more than writing code \u2013 good documentation is one essential aspect.
+        A lot of the tools and libraries that make writing documentation easier use
+        markdown as a file format, combined with metadata in yaml format and optionally
+        some additional functionality, e.g. mdx \u2013 which combines markdown with
+        jsx for JSX-based projects such as React.\",\"tags\":[\"Feature\"],\"title\":\"Documentation,
+        documentation, documentation\",\"updated_at\":1701973683,\"url\":\"https://blog.front-matter.io/posts/documentation-documentation-documentation\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}}],\"out_of\":13435,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"0000-0003-1419-2405\"},\"search_cutoff\":false,\"search_time_ms\":7}"
+    headers:
+      Connection:
+      - keep-alive
+      accept-ranges:
+      - none
+      access-control-allow-origin:
+      - '*'
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: OK
 version: 1
