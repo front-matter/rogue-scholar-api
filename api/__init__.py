@@ -111,13 +111,13 @@ async def blogs():
     page = int(request.args.get("page") or "1")
     per_page = int(request.args.get("per_page") or "10")
     # default sort depends on whether a query is provided
-    _text_match = "_text_match" if request.args.get("query") else "title"
+    _text_match = "_text_match" if request.args.get("query") else "updated_at"
     sort = (
         f"{request.args.get('sort')}(missing_values: last)"
         if request.args.get("sort")
         else _text_match
     )
-    order = request.args.get("order") or "asc"
+    order = request.args.get("order") or "desc"
     include_fields = request.args.get("include_fields")
 
     # filter blogs by category, generator, and/or language
