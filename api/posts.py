@@ -123,6 +123,15 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                         "per_page": 50,
                         "_embed": 1,
                     }
+                    if blog.get("filter", None):
+                        filters = blog.get("filter", "").split(":")
+                        if len(filters) == 2 and filters[0] == "category":
+                            if int(filters[1]) < 0: 
+                                # exclude category if prefixed with minus sign
+                                params["categories_exclude"] = filters[1][1:]
+                            else:
+                                # otherwise include category
+                                params["categories"] = filters[1]
 
                 else:
                     params = {"paged": page}
@@ -311,9 +320,10 @@ async def extract_wordpress_post(post, blog):
         )
         if not image and len(images) > 0 and int(images[0].get("width", 200)) >= 200:
             image = images[0].get("src", None)
+        # ignore doi category, used to filter posts that should be registered with a DOI
         categories = [
             normalize_tag(i.get("name", None))
-            for i in wrap(py_.get(post, "_embedded.wp:term.0", None))
+            for i in wrap(py_.get(post, "_embedded.wp:term.0", None)) if i.get("name", None) != "doi"
         ]
         tags = [
             normalize_tag(i.get("name", None))
@@ -755,7 +765,7 @@ def filter_updated_posts(posts, blog, key):
 
 
 def filter_posts(posts, blog, key):
-    """Filter posts if filter is set in blog settings."""
+    """Filter posts if filter is set in blog settings. Used for RSS and Atom feeds."""
     filters = blog.get("filter", "").split(":")
     if len(filters) != 2 or filters[0] != key:
         return posts
