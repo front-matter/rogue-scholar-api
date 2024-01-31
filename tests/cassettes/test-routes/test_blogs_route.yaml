@@ -52,4 +52,55 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/blogs/documents/search?q=&query_by=slug%2Ctitle%2Cdescription%2Ccategory%2Clanguage%2Cgenerator%2Cprefix%2Cfunding&filter_by=status%3A%21%3D%5Bsubmitted%5D&sort_by=updated_at%3Adesc&per_page=10&page=1
+  response:
+    body:
+      string: "{\"facet_counts\":[],\"found\":74,\"hits\":[{\"document\":{\"archive_prefix\":\"https://wayback.archive-it.org/22135/20231101173016/\",\"backlog\":0,\"category\":\"law\",\"created_at\":1694736000,\"description\":\"Urheberrecht
+        und kreatives Schaffen in der digitalen Welt\",\"feed_format\":\"application/atom+xml\",\"feed_url\":\"https://irights.info/feed/atom\",\"generator\":\"WordPress\",\"home_page_url\":\"https://irights.info/\",\"id\":\"26f4046a-7e6f-4c1c-8866-f4e055096c30\",\"language\":\"de\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"plan\":\"Team\",\"prefix\":\"10.59350\",\"slug\":\"irights\",\"status\":\"active\",\"title\":\"iRights.info\",\"updated_at\":1706685438},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"backlog\":0,\"category\":\"languagesAndLiterature\",\"created_at\":1705393153,\"description\":\"Editando
+        el \xABLucidario\xBB de Sancho IV\",\"feed_format\":\"application/feed+json\",\"feed_url\":\"https://lucidarios.hypotheses.org/feed/atom/\",\"generator\":\"WordPress\",\"home_page_url\":\"https://lucidarios.hypotheses.org\",\"id\":\"9e41cc54-c38e-495d-b65c-38cf327d3c73\",\"issn\":\"2952-1580\",\"language\":\"es\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"plan\":\"Team\",\"prefix\":\"10.59350\",\"slug\":\"lucidarios\",\"status\":\"active\",\"title\":\"Lucidarios\",\"updated_at\":1706662889},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"backlog\":0,\"category\":\"languagesAndLiterature\",\"created_at\":1706627953,\"description\":\"Sounding
+        out ideas on language, interaction, and iconicity\",\"favicon\":\"https://ideophone.org/files/cropped-android-chrome-512x512-1-32x32.png\",\"feed_format\":\"application/atom+xml\",\"feed_url\":\"https://ideophone.org/feed/atom/\",\"generator\":\"WordPress\",\"home_page_url\":\"https://ideophone.org/\",\"id\":\"191184bc-efcf-4f0f-a1ee-09436542d408\",\"language\":\"en\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"mastodon\":\"https://scholar.social/@dingemansemark\",\"plan\":\"Starter\",\"prefix\":\"10.59350\",\"slug\":\"ideophone\",\"status\":\"active\",\"title\":\"The
+        Ideophone\",\"updated_at\":1706647300},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_prefix\":\"https://wayback.archive-it.org/22141/20231105110201/\",\"backlog\":0,\"category\":\"otherHumanities\",\"created_at\":1694476800,\"favicon\":\"https://blogs.fu-berlin.de/open-access-berlin/files/2021/09/cropped-banner-1-32x32.jpg\",\"feed_format\":\"application/atom+xml\",\"feed_url\":\"https://blogs.fu-berlin.de/open-access-berlin/feed/atom/\",\"generator\":\"WordPress\",\"home_page_url\":\"https://blogs.fu-berlin.de/open-access-berlin\",\"id\":\"575d6b2d-c555-4fc7-99fb-055a400f9163\",\"language\":\"de\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"mastodon\":\"https://berlin.social/@openaccess\",\"plan\":\"Team\",\"prefix\":\"10.59350\",\"slug\":\"oaberlin\",\"status\":\"active\",\"title\":\"Open
+        Access Blog Berlin\",\"updated_at\":1706622033},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"backlog\":134,\"category\":\"socialSciences\",\"created_at\":1682899200,\"description\":\"Leiden
+        Madtrics\",\"feed_format\":\"application/rss+xml\",\"feed_url\":\"https://www.leidenmadtrics.nl/feed/\",\"generator\":\"Other\",\"home_page_url\":\"https://www.leidenmadtrics.nl/\",\"id\":\"a0920819-e194-4514-bca4-5f0837e10c51\",\"language\":\"en\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"plan\":\"Starter\",\"slug\":\"leidenmadtrics\",\"status\":\"active\",\"title\":\"Leiden
+        Madtrics\",\"updated_at\":1706616060},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_prefix\":\"https://wayback.archive-it.org/22125/20231105110316/\",\"backlog\":0,\"category\":\"socialSciences\",\"created_at\":1681862400,\"description\":\"The
+        blog of the OpenCitations Infrastructure\",\"favicon\":\"https://opencitations.hypotheses.org/files/2022/08/cropped-OpenCitations-logo-512x512-1-32x32.jpg\",\"feed_format\":\"application/feed+json\",\"feed_url\":\"https://opencitations.hypotheses.org/feed/atom/\",\"generator\":\"WordPress\",\"home_page_url\":\"https://opencitations.hypotheses.org\",\"id\":\"1e1a0f67-e922-4977-b5b8-c5ec19c2f43a\",\"language\":\"en\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"mastodon\":\"https://@scicomm.xyz/@opencitations\",\"plan\":\"Team\",\"prefix\":\"10.59350\",\"slug\":\"opencitations\",\"status\":\"active\",\"title\":\"OpenCitations
+        blog\",\"updated_at\":1706613987},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_prefix\":\"https://wayback.archive-it.org/22116/20231105104636/\",\"backlog\":9999,\"category\":\"socialSciences\",\"created_at\":1672790400,\"description\":\"Chris
+        Hartgerink\",\"favicon\":\"https://www.chjh.nl/favicon.png\",\"feed_format\":\"application/rss+xml\",\"feed_url\":\"https://www.chjh.nl/rss/\",\"generator\":\"Ghost\",\"home_page_url\":\"https://www.chjh.nl/\",\"id\":\"fc3de606-4709-444b-8bc5-f5d013b9cd20\",\"language\":\"en\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"plan\":\"Starter\",\"prefix\":\"10.59350\",\"slug\":\"chjh\",\"status\":\"active\",\"title\":\"Chris
+        Hartgerink\",\"updated_at\":1706599810},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_prefix\":\"https://wayback.archive-it.org/22139/20231105110053/\",\"backlog\":0,\"category\":\"computerAndInformationSciences\",\"created_at\":1682294400,\"description\":\"Better
+        sit thus, and observe thy strange things\",\"feed_format\":\"application/atom+xml\",\"feed_url\":\"https://lab.sub.uni-goettingen.de/atom.xml\",\"generator\":\"Jekyll\",\"home_page_url\":\"https://lab.sub.uni-goettingen.de/\",\"id\":\"88818791-dea6-44c7-8065-02a1cfd050dc\",\"language\":\"en\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"plan\":\"Starter\",\"prefix\":\"10.59350\",\"slug\":\"lab_sub\",\"status\":\"active\",\"title\":\"lab.sub
+        - Articles\",\"updated_at\":1706572801},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_prefix\":\"https://wayback.archive-it.org/22096/20231101172748/\",\"backlog\":0,\"category\":\"computerAndInformationSciences\",\"created_at\":1672561153,\"current_feed_url\":\"https://blog.front-matter.io/atom/\",\"description\":\"The
+        Front Matter Blog covers the intersection of science and technology since
+        2007.\",\"favicon\":\"https://blog.front-matter.io/favicon.png\",\"feed_format\":\"application/atom+xml\",\"feed_url\":\"https://blog.front-matter.io/atom\",\"generator\":\"Ghost\",\"home_page_url\":\"https://blog.front-matter.io\",\"id\":\"74659bc5-e36e-4a27-901f-f0c8d5769cb8\",\"issn\":\"2749-9952\",\"language\":\"en\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"mastodon\":\"https://mozilla.social/@martin\",\"plan\":\"Team\",\"prefix\":\"10.53731\",\"slug\":\"front_matter\",\"status\":\"active\",\"title\":\"Front
+        Matter\",\"updated_at\":1706537903},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_prefix\":\"https://wayback.archive-it.org/22107/20231105105918/\",\"backlog\":0,\"category\":\"humanities\",\"created_at\":1672617600,\"favicon\":\"https://flavoursofopen.science/wp-content/uploads/2022/05/cropped-open-padlock-32x32.png\",\"feed_format\":\"application/atom+xml\",\"feed_url\":\"https://flavoursofopen.science/feed/atom/\",\"generator\":\"WordPress\",\"home_page_url\":\"https://flavoursofopen.science\",\"id\":\"8a481fb5-0b67-4ae9-8caf-6c164305de56\",\"language\":\"en\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"plan\":\"Team\",\"prefix\":\"10.59350\",\"slug\":\"flavoursofopen\",\"status\":\"active\",\"title\":\"Flavours
+        of Open\",\"updated_at\":1706535015},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}}],\"out_of\":77,\"page\":1,\"request_params\":{\"collection_name\":\"blogs\",\"per_page\":10,\"q\":\"\"},\"search_cutoff\":false,\"search_time_ms\":0}"
+    headers:
+      Connection:
+      - keep-alive
+      accept-ranges:
+      - none
+      access-control-allow-origin:
+      - '*'
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: OK
 version: 1

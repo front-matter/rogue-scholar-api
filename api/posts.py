@@ -132,6 +132,13 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                             else:
                                 # otherwise include category
                                 params["categories"] = filters[1]
+                        elif len(filters) == 2 and filters[0] == "tag":
+                            if int(filters[1]) < 0: 
+                                # exclude tag if prefixed with minus sign
+                                params["tags_exclude"] = filters[1][1:]
+                            else:
+                                # otherwise include tag
+                                params["tags"] = filters[1]
 
                 else:
                     params = {"paged": page}
@@ -170,7 +177,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
 
         feed_url = url.set(params).url
         blog_with_posts = {}
-
+        # print(feed_url)
         # use pagination of results only for non-API blogs
         if params:
             start_page = 0
@@ -322,7 +329,7 @@ async def extract_wordpress_post(post, blog):
             image = images[0].get("src", None)
 
         # optionally remove category that is used to filter posts
-        if blog.get("filter", None):
+        if blog.get("filter", None) and blog.get("filter", "").startswith("category"):
             cat = blog.get("filter", "").split(":")[1]
             categories = [normalize_tag(i.get("name", None)) for i in wrap(py_.get(post, "_embedded.wp:term.0", None)) if i.get("id", None) != int(cat)]
         else:
@@ -330,6 +337,11 @@ async def extract_wordpress_post(post, blog):
             normalize_tag(i.get("name", None))
                 for i in wrap(py_.get(post, "_embedded.wp:term.0", None))
             ]
+        
+        # optionally remove tag that is used to filter posts
+        if blog.get("filter", None) and blog.get("filter", "").startswith("tag"):
+            tag = blog.get("filter", "").split(":")[1]
+            tags = [normalize_tag(i.get("name", None)) for i in wrap(py_.get(post, "_embedded.wp:term.1", None)) if i.get("id", None) != int(tag)]
         tags = [
             normalize_tag(i.get("name", None))
             for i in wrap(py_.get(post, "_embedded.wp:term.1", None))
