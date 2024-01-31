@@ -71,7 +71,6 @@ AUTHOR_IDS = {
     "Leiden Madtrics": "https://ror.org/027bh9e22",
     "Liberate Science": "https://ror.org/0342dzm54",
     "Elephant in the Lab": "https://ror.org/02h1qnm70",
-    "Research Graph": "https://ror.org/031rekg67",
 }
 
 AUTHOR_NAMES = {
