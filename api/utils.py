@@ -338,6 +338,7 @@ def normalize_tag(tag: str) -> str:
         "WikiData": "WikiData",
     }
 
+    tag = html.unescape(tag)
     tag = tag.replace("#", "")
     return fixed_tags.get(tag, start_case(tag))
 

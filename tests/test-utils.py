@@ -253,6 +253,12 @@ def test_normalize_tag_fixed():
     assert normalize_tag(tag) == "OSTP"
 
 
+def test_normalize_tag_escaped():
+    """normalize tag escaped"""
+    tag = "Forschungsinformationen &amp; Systeme"
+    assert normalize_tag(tag) == "Forschungsinformationen & Systeme"
+
+
 def test_detect_language_english():
     """detect language english"""
     text = "This is a test"
