@@ -71,6 +71,9 @@ AUTHOR_IDS = {
     "Leiden Madtrics": "https://ror.org/027bh9e22",
     "Liberate Science": "https://ror.org/0342dzm54",
     "Elephant in the Lab": "https://ror.org/02h1qnm70",
+    "Ben Kaden": "https://orcid.org/0000-0002-8021-1785",
+    "Maxi Kindling": "https://orcid.org/0000-0002-0167-0466",
+    "LIBREAS": "https://ror.org/01hcx6992",
 }
 
 AUTHOR_NAMES = {
@@ -104,6 +107,10 @@ AUTHOR_NAMES = {
     "arningu": "Ursula Arning",
     "rmounce": "Ross Mounce",
     "pedroandretta": "Pedro Andretta",
+    "Ben": "Ben Kaden",
+    "maxiki": "Maxi Kindling",
+    "libreas": "LIBREAS",
+    "szepanski": "Christoph Szepanski",
 }
 
 
