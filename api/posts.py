@@ -29,6 +29,7 @@ from api.utils import (
     compact,
     fix_xml,
     get_markdown,
+    EXCLUDED_TAGS,
 )
 from api.supabase import (
     supabase_admin_client as supabase_admin,
@@ -126,14 +127,14 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                     if blog.get("filter", None):
                         filters = blog.get("filter", "").split(":")
                         if len(filters) == 2 and filters[0] == "category":
-                            if int(filters[1]) < 0: 
+                            if int(filters[1]) < 0:
                                 # exclude category if prefixed with minus sign
                                 params["categories_exclude"] = filters[1][1:]
                             else:
                                 # otherwise include category
                                 params["categories"] = filters[1]
                         elif len(filters) == 2 and filters[0] == "tag":
-                            if int(filters[1]) < 0: 
+                            if int(filters[1]) < 0:
                                 # exclude tag if prefixed with minus sign
                                 params["tags_exclude"] = filters[1][1:]
                             else:
@@ -331,20 +332,32 @@ async def extract_wordpress_post(post, blog):
         # optionally remove category that is used to filter posts
         if blog.get("filter", None) and blog.get("filter", "").startswith("category"):
             cat = blog.get("filter", "").split(":")[1]
-            categories = [normalize_tag(i.get("name", None)) for i in wrap(py_.get(post, "_embedded.wp:term.0", None)) if i.get("id", None) != int(cat)]
+            categories = [
+                normalize_tag(i.get("name", None))
+                for i in wrap(py_.get(post, "_embedded.wp:term.0", None))
+                if i.get("id", None) != int(cat)
+                and i.get("name", None) not in EXCLUDED_TAGS
+            ]
         else:
             categories = [
-            normalize_tag(i.get("name", None))
+                normalize_tag(i.get("name", None))
                 for i in wrap(py_.get(post, "_embedded.wp:term.0", None))
+                if i.get("name", None) not in EXCLUDED_TAGS
             ]
-        
+
         # optionally remove tag that is used to filter posts
         if blog.get("filter", None) and blog.get("filter", "").startswith("tag"):
             tag = blog.get("filter", "").split(":")[1]
-            tags = [normalize_tag(i.get("name", None)) for i in wrap(py_.get(post, "_embedded.wp:term.1", None)) if i.get("id", None) != int(tag)]
+            tags = [
+                normalize_tag(i.get("name", None))
+                for i in wrap(py_.get(post, "_embedded.wp:term.1", None))
+                if i.get("id", None) != int(tag)
+                and i.get("name", None) not in EXCLUDED_TAGS
+            ]
         tags = [
             normalize_tag(i.get("name", None))
             for i in wrap(py_.get(post, "_embedded.wp:term.1", None))
+            if i.get("name", None) not in EXCLUDED_TAGS
         ]
         terms = categories + tags
         terms = py_.uniq(terms)[:5]
@@ -402,7 +415,11 @@ async def extract_wordpresscom_post(post, blog):
         image = None
         if len(images) > 0 and int(images[0].get("width", 200)) >= 200:
             image = images[0].get("src", None)
-        tags = [normalize_tag(i) for i in post.get("categories", None).keys()][:5]
+        tags = [
+            normalize_tag(i)
+            for i in post.get("categories", None).keys()
+            if i not in EXCLUDED_TAGS
+        ][:5]
 
         return {
             "authors": authors,
@@ -459,7 +476,11 @@ async def extract_ghost_post(post, blog):
         image = post.get("feature_image", None)
         if not image and len(images) > 0 and int(images[0].get("width", 200)) >= 200:
             image = images[0].get("src", None)
-        tags = [normalize_tag(i.get("name", None)) for i in post.get("tags", None)][:5]
+        tags = [
+            normalize_tag(i.get("name", None))
+            for i in post.get("tags", None)
+            if i.get("name", None) not in EXCLUDED_TAGS
+        ][:5]
 
         return {
             "authors": authors,
@@ -515,9 +536,11 @@ async def extract_substack_post(post, blog):
         image = post.get("cover_image", None)
         if not image and len(images) > 0 and int(images[0].get("width", 200)) >= 200:
             image = images[0].get("src", None)
-        tags = [normalize_tag(i.get("name")) for i in wrap(post.get("postTags", None))][
-            :5
-        ]
+        tags = [
+            normalize_tag(i.get("name"))
+            for i in wrap(post.get("postTags", None))
+            if i.get("name", None) not in EXCLUDED_TAGS
+        ][:5]
 
         return {
             "authors": authors,
@@ -576,7 +599,11 @@ async def extract_json_feed_post(post, blog):
         image = py_.get(post, "media:thumbnail.@url", None)
         if not image and len(images) > 0 and int(images[0].get("width", 200)) >= 200:
             image = images[0].get("src", None)
-        tags = [normalize_tag(i) for i in wrap(post.get("tags", None))][:5]
+        tags = [
+            normalize_tag(i)
+            for i in wrap(post.get("tags", None))
+            if i not in EXCLUDED_TAGS
+        ][:5]
 
         return {
             "authors": authors,
@@ -669,6 +696,7 @@ async def extract_atom_post(post, blog):
         tags = [
             normalize_tag(i.get("@term", None))
             for i in wrap(post.get("category", None))
+            if i.get("@term", None) not in EXCLUDED_TAGS
         ][:5]
 
         return {
@@ -742,7 +770,11 @@ async def extract_rss_post(post, blog):
             and furl(images[0].get("src", None)).host not in ["latex.codecogs.com"]
         ):
             image = images[0].get("src", None)
-        tags = [normalize_tag(i) for i in wrap(post.get("category", None))][:5]
+        tags = [
+            normalize_tag(i)
+            for i in wrap(post.get("category", None))
+            if i not in EXCLUDED_TAGS
+        ][:5]
 
         return {
             "authors": authors,
@@ -951,7 +983,7 @@ def get_summary(content_html: str = None, maxlen: int = 450):
     content_html = re.sub(r"(<br>|<br/>|<p>|</pr>)", " ", content_html)
     content_html = re.sub(r"(h1>|h2>|h3>|h4>)", "strong> ", content_html)
     # print(content_html)
-    # TODO: remove more content not appropriate for summary 
+    # TODO: remove more content not appropriate for summary
     sanitized = nh3.clean(
         content_html,
         tags={"b", "i", "em", "strong", "sub", "sup"},

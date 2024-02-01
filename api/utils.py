@@ -114,6 +114,9 @@ AUTHOR_NAMES = {
 }
 
 
+EXCLUDED_TAGS = ["Uncategorized"]
+
+
 def wrap(item) -> list:
     """Turn None, dict, or list into list"""
     if item is None:
