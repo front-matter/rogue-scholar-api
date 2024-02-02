@@ -111,6 +111,7 @@ AUTHOR_NAMES = {
     "maxiki": "Maxi Kindling",
     "libreas": "LIBREAS",
     "szepanski": "Christoph Szepanski",
+    "Open Access Brandenburg": "Team OA Brandenburg",
 }
 
 
