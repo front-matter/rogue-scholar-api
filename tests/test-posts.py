@@ -8,7 +8,6 @@ from api.posts import (
     get_references,
     get_relationships,
     # get_title,
-    get_abstract,
     get_summary,
 )
 
@@ -209,11 +208,11 @@ async def test_extract_posts_by_blog_organizational_author():
     result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
     assert len(result) == 10
     post = result[0]
-    assert (
-        post["title"]
-        == "An open approach for classifying research publications"
-    )
-    assert post["authors"][0] == {'name': 'Leiden Madtrics', 'url': 'https://ror.org/027bh9e22'}
+    assert post["title"] == "An open approach for classifying research publications"
+    assert post["authors"][0] == {
+        "name": "Leiden Madtrics",
+        "url": "https://ror.org/027bh9e22",
+    }
 
 
 @pytest.mark.vcr

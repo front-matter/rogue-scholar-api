@@ -2,7 +2,7 @@
 from hypercorn.config import Config
 import logging
 from typing import Optional
-from datetime import timedelta, datetime
+from datetime import timedelta
 import time
 import json
 from os import environ

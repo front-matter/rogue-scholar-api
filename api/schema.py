@@ -6,6 +6,7 @@ from datetime import datetime
 @dataclass
 class PostQuery:
     """Query parameters for posts."""
+
     query: Optional[str] = None
     tags: Optional[str] = None
     language: Optional[str] = None
@@ -16,9 +17,11 @@ class PostQuery:
     include_fields: Optional[str] = None
     blog_slug: Optional[str] = None
 
+
 @dataclass
 class Blog:
     """Blog schema."""
+
     slug: str
     title: str
     description: str
@@ -40,6 +43,7 @@ class Blog:
 @dataclass
 class Post:
     """Post schema."""
+
     id: str
     guid: str
     doi: str

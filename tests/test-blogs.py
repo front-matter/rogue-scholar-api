@@ -122,8 +122,8 @@ async def test_find_feed_quarto():
     url = "https://www.andrewheiss.com/"
     result = await find_feed(url)
     assert result is None
-    
-    
+
+
 @pytest.mark.vcr
 @pytest.mark.asyncio
 async def test_find_feed_blogger():
@@ -171,7 +171,7 @@ def test_parse_generator_wordpress():
 
 def test_parse_generator_wordpress_alternate():
     """Parse generator wordpress alternate format"""
-    generator = {'name': 'https://wordpress.org/?v=6.4.2'}
+    generator = {"name": "https://wordpress.org/?v=6.4.2"}
     result = parse_generator(generator)
     assert result == "WordPress 6.4.2"
 

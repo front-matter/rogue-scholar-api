@@ -12,7 +12,14 @@ from api.supabase import (
     supabase_client as supabase,
     supabase_admin_client as supabase_admin,
 )
-from api.utils import start_case, get_date, unix_timestamp, wrap, normalize_url, is_valid_url
+from api.utils import (
+    start_case,
+    get_date,
+    unix_timestamp,
+    wrap,
+    normalize_url,
+    is_valid_url,
+)
 
 
 async def find_feed(url: str) -> Optional[str]:
@@ -24,11 +31,32 @@ async def find_feed(url: str) -> Optional[str]:
     feeds = html.findAll("link", rel="alternate")
     if len(feeds) == 0:
         return None
-    feed_url = next((feed.get("href", None) for feed in feeds if feed.get('type', None) == "application/feed+json"), None)
+    feed_url = next(
+        (
+            feed.get("href", None)
+            for feed in feeds
+            if feed.get("type", None) == "application/feed+json"
+        ),
+        None,
+    )
     if feed_url is None:
-       feed_url = next((feed.get("href", None) for feed in feeds if feed.get('type', None) == "application/atom+xml"), None)
+        feed_url = next(
+            (
+                feed.get("href", None)
+                for feed in feeds
+                if feed.get("type", None) == "application/atom+xml"
+            ),
+            None,
+        )
     if feed_url is None:
-       feed_url = next((feed.get("href", None) for feed in feeds if feed.get('type', None) == "application/rss+xml"), None)
+        feed_url = next(
+            (
+                feed.get("href", None)
+                for feed in feeds
+                if feed.get("type", None) == "application/rss+xml"
+            ),
+            None,
+        )
     if is_valid_url(feed_url):
         return feed_url
     # else feed_url is relative url
@@ -145,7 +173,7 @@ def parse_generator(generator):
             f = furl(name)
             name = f.host.split(".")[0]
             version = f.args.get("v", None)
-            
+
         names = name.split(" ")
 
         # split name and version
@@ -158,11 +186,11 @@ def parse_generator(generator):
 
         # capitalize first letter without lowercasing the rest
         name = start_case(name)
-        
+
         # versions prior to 6.1
         if name == "Wordpress":
             name = "WordPress"
-            
+
         elif name == "Wowchemy":
             name = "Hugo"
         elif name == "Site Server":

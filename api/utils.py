@@ -3,12 +3,9 @@ from uuid import UUID
 from typing import Optional, Union
 import re
 from babel.dates import format_date
-import requests
-import json
 import iso8601
 import html
 from lxml import etree
-import bibtexparser
 import pydash as py_
 from dateutil import parser, relativedelta
 from datetime import datetime
@@ -20,7 +17,6 @@ from commonmeta import (
     get_one_author,
     validate_orcid,
     normalize_orcid,
-    json_feed_reader,
 )
 from commonmeta.constants import Commonmeta
 from commonmeta.date_utils import get_date_from_unix_timestamp

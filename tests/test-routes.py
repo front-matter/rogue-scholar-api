@@ -185,7 +185,9 @@ async def test_posts_with_query_and_pagination_route():
 async def test_posts_with_query_by_author_url():
     """Test posts route with query by author url."""
     test_client = app.test_client()
-    response = await test_client.get("/posts?query=0000-0003-1419-2405&query_by=authors.url")
+    response = await test_client.get(
+        "/posts?query=0000-0003-1419-2405&query_by=authors.url"
+    )
     assert response.status_code == 200
     result = await response.get_json()
     assert result["found"] > 500
@@ -396,7 +398,10 @@ async def test_post_as_ris():
     type_ = result.splitlines()[0]
     title = result.splitlines()[1]
     assert type_ == "TY  - JOUR"
-    assert title == "T1  - ¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?"
+    assert (
+        title
+        == "T1  - ¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?"
+    )
 
 
 @pytest.mark.vcr
@@ -437,7 +442,7 @@ async def test_post_as_pdf():
     assert response.status_code == 200
     result = await response.get_data()
     assert result is not None
-    
+
 
 @pytest.mark.vcr
 async def test_post_as_csl():
@@ -447,7 +452,10 @@ async def test_post_as_csl():
     assert response.status_code == 200
     result = await response.get_json()
     assert result["type"] == "article"
-    assert result["title"] == "¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?"
+    assert (
+        result["title"]
+        == "¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?"
+    )
     assert result["container-title"] == "Edición y comunicación de la Ciencia"
     assert result["DOI"] == "10.59350/sfzv4-xdb68"
 
@@ -456,14 +464,19 @@ async def test_post_as_csl():
 async def test_post_uuid_as_csl():
     """Test post uuid formatted as csl."""
     test_client = app.test_client()
-    response = await test_client.get("/posts/77b2102f-fec5-425a-90a3-4a97c768bdc4?format=csl")
+    response = await test_client.get(
+        "/posts/77b2102f-fec5-425a-90a3-4a97c768bdc4?format=csl"
+    )
     assert response.status_code == 200
     result = await response.get_json()
     assert result["type"] == "article"
-    assert result["title"] == "¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?"
+    assert (
+        result["title"]
+        == "¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?"
+    )
     assert result["container-title"] == "Edición y comunicación de la Ciencia"
     assert result["DOI"] == "10.59350/sfzv4-xdb68"
-    
+
 
 @pytest.mark.vcr
 async def test_post_as_citation():
@@ -515,4 +528,4 @@ async def test_post_not_found():
     response = await test_client.get("/posts/10.59350/sfzv4-xdb69")
     assert response.status_code == 429
     result = await response.get_json()
-    assert result is None # == {"error": "Post not found"}
+    assert result is None  # == {"error": "Post not found"}
