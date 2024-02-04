@@ -10,8 +10,6 @@ import pydash as py_
 from dotenv import load_dotenv
 import sentry_sdk
 import frontmatter
-
-# import importlib.metadata
 from quart import Quart, request, jsonify, redirect
 from quart_schema import (
     QuartSchema,
