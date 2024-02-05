@@ -442,35 +442,35 @@ def get_doi_metadata(
         "citation": f"text/x-bibliography; style={style}; locale={locale}",
     }
     content_type = content_types.get(format_)
-    subject = Metadata(data, via="commonmeta")
+    subject = Metadata(data, via="commonmeta", style=style, locale=locale)
     doi = doi_from_url(subject.id)
     basename = doi_from_url(doi).replace("/", "-")
     if format_ == "commonmeta":
         ext = "json"
-        result = subject.commonmeta()
+        result = subject.write()
     elif format_ == "csl":
         ext = "json"
-        result = subject.csl()
+        result = subject.write(to="csl")
     elif format_ == "ris":
         ext = "ris"
-        result = subject.ris()
+        result = subject.write(to="ris")
     elif format_ == "bibtex":
         ext = "bib"
-        result = subject.bibtex()
+        result = subject.write(to="bibtex")
     elif format_ == "schema_org":
         ext = "jsonld"
-        result = subject.schema_org()
+        result = subject.write(to="schema_org")
     elif format_ == "crossref_xml":
         ext = "xml"
-        result = subject.crossref_xml()
+        result = subject.write(to="crossref_xml")
     elif format_ == "datacite":
         ext = "json"
-        result = subject.datacite()
+        result = subject.write(to="datacite")
     else:
         ext = "txt"
         # workaround for properly formatting blog posts
         subject.type = "JournalArticle"
-        result = subject.citation()
+        result = subject.write(to="citation")
     options = {
         "Content-Type": content_type,
         "Content-Disposition": f"attachment; filename={basename}.{ext}",
