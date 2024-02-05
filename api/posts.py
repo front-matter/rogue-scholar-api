@@ -929,12 +929,13 @@ def get_references(content_html: str):
                 if response.status_code not in [200, 301, 302]:
                     return None
                 csl = response.json()
+                title = py_.get(csl, "title", None)
                 publication_year = py_.get(csl, "issued.date-parts.0.0", None)
                 return compact(
                     {
                         "key": f"ref{index + 1}",
                         "doi": doi,
-                        "title": csl.get("title", None),
+                        "title": str(title) if title else None,
                         "publicationYear": str(publication_year)
                         if publication_year
                         else None,
