@@ -20,6 +20,7 @@ from quart_schema import (
     RequestSchemaValidationError,
 )
 from quart_rate_limiter import RateLimiter, RateLimit
+from quart_cors import cors
 
 from api.supabase import (
     supabase_client as supabase,
@@ -57,7 +58,7 @@ config.from_toml("hypercorn.toml")
 load_dotenv()
 rate_limiter = RateLimiter()
 logger = logging.getLogger(__name__)
-version = "0.7.1"  # TODO: importlib.metadata.version('rogue-scholar-api')
+version = "0.8.0"  # TODO: importlib.metadata.version('rogue-scholar-api')
 
 sentry_sdk.init(
     dsn=environ["QUART_SENTRY_DSN"],
@@ -66,7 +67,7 @@ app = Quart(__name__)
 app.config.from_prefixed_env()
 QuartSchema(app, info=Info(title="Rogue Scholar API", version=version))
 rate_limiter = RateLimiter(app, default_limits=[RateLimit(15, timedelta(seconds=60))])
-
+app = cors(app, allow_origin="*")
 
 def run() -> None:
     """Run the app."""
