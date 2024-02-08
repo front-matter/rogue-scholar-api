@@ -280,7 +280,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         else:
             blog_with_posts["entries"] = []
-        if blog.get("status", None) != "active":
+        if blog.get("status", None) not in ["pending", "active"]:
             return blog_with_posts["entries"]
         return [upsert_single_post(i) for i in blog_with_posts["entries"]]
     except TimeoutError:
@@ -382,6 +382,7 @@ async def extract_wordpress_post(post, blog):
             "url": url,
             "archive_url": archive_url,
             "guid": py_.get(post, "guid.rendered", None),
+            "status": blog.get("status", "active"),
         }
     except Exception:
         print(blog.get("slug", None), traceback.format_exc())
@@ -441,6 +442,7 @@ async def extract_wordpresscom_post(post, blog):
             "url": url,
             "archive_url": archive_url,
             "guid": post.get("guid", None),
+            "status": blog.get("status", "active"),
         }
     except Exception:
         print(blog.get("slug", None), traceback.format_exc())
@@ -502,6 +504,7 @@ async def extract_ghost_post(post, blog):
             "url": url,
             "archive_url": archive_url,
             "guid": post.get("id", None),
+            "status": blog.get("status", "active"),
         }
     except Exception:
         print(blog.get("slug", None), traceback.format_exc())
@@ -562,6 +565,7 @@ async def extract_substack_post(post, blog):
             "url": url,
             "archive_url": archive_url,
             "guid": post.get("id", None),
+            "status": blog.get("status", "active"),
         }
     except Exception:
         print(blog.get("slug", None), traceback.format_exc())
@@ -625,6 +629,7 @@ async def extract_json_feed_post(post, blog):
             "url": url,
             "archive_url": archive_url,
             "guid": post.get("id", None),
+            "status": blog.get("status", "active"),
         }
     except Exception:
         print(blog.get("slug", None), traceback.format_exc())
@@ -719,6 +724,7 @@ async def extract_atom_post(post, blog):
             "url": url,
             "archive_url": archive_url,
             "guid": post.get("id", None),
+            "status": blog.get("status", "active"),
         }
     except Exception:
         print(blog.get("slug", None), traceback.format_exc())
@@ -796,6 +802,7 @@ async def extract_rss_post(post, blog):
             "url": url,
             "archive_url": archive_url,
             "guid": guid,
+            "status": blog.get("status", "active"),
         }
     except Exception:
         print(blog.get("slug", None), traceback.format_exc())
@@ -853,6 +860,7 @@ def upsert_single_post(post):
                     "title": post.get("title", None),
                     "url": post.get("url", None),
                     "guid": post.get("guid", None),
+                    "status": post.get("status", "active"),
                     "archive_url": post.get("archive_url", None),
                 },
                 returning="representation",

@@ -69,6 +69,7 @@ QuartSchema(app, info=Info(title="Rogue Scholar API", version=version))
 rate_limiter = RateLimiter(app, default_limits=[RateLimit(15, timedelta(seconds=60))])
 app = cors(app, allow_origin="*")
 
+
 def run() -> None:
     """Run the app."""
     app.run()
@@ -99,6 +100,7 @@ async def blogs_redirect():
 async def blogs():
     """Search blogs by query, category, generator, language.
     Options to change page, per_page and include fields."""
+    status = request.args.get("status") or "pending"
     query = request.args.get("query") or ""
     query_by = (
         request.args.get("query_by")
@@ -120,7 +122,7 @@ async def blogs():
     include_fields = request.args.get("include_fields")
 
     # filter blogs by category, generator, and/or language
-    filter_by = "status:!=[submitted]"
+    filter_by = f"status:!=[{status}]"
     filter_by = f"category:>= {category}" if category else filter_by
     filter_by = filter_by + f" && generator:=[{generator}]" if generator else filter_by
     filter_by = filter_by + f" && language:=[{language}]" if language else filter_by
@@ -222,6 +224,7 @@ async def posts_redirect():
 @app.route("/posts")
 async def posts():
     """Search posts by query, tags, language, category. Options to change page, per_page and include fields."""
+    status = request.args.get("status") or "pending"
     query = request.args.get("query") or ""
     query_by = (
         request.args.get("query_by")
@@ -252,9 +255,10 @@ async def posts():
         if request.args.get("published_until")
         else int(time.time())
     )
-    # filter posts by date published, blog, tags, and/or language
-    filter_by = (
-        f"published_at:>= {published_since} && published_at:<= {published_until}"
+    # filter posts by status, date published, blog, tags, and/or language
+    filter_by = f"status:!=[{status}]"
+    filter_by = filter_by + (
+        f" && published_at:>= {published_since} && published_at:<= {published_until}"
     )
     filter_by = filter_by + f" && blog_slug:{blog_slug}" if blog_slug else filter_by
     filter_by = filter_by + f" && tags:=[{tags}]" if tags else filter_by
@@ -332,6 +336,7 @@ async def post(slug: str, suffix: Optional[str] = None):
         "10.59348",
         "10.59349",
         "10.59350",
+        "10.59704",
     ]
     permitted_slugs = ["unregistered", "updated"] + prefixes
     if slug not in permitted_slugs and not validate_uuid(slug):
