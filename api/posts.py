@@ -112,7 +112,15 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
         page = min(page, 5) if blog.get("plan", None) == "Starter" else page
         start_page = (page - 1) * 50 if page > 0 else 0
         end_page = (page - 1) * 50 + 50 if page > 0 else 50
-
+        per_page = 50
+        
+        # limit number of pages to 1 (10 posts) for blogs with pending status
+        if blog.get("status", None) == "pending":
+            page = 1
+            start_page = 0
+            end_page = 10
+            per_page = 10
+            
         # handle pagination depending on blogging platform and whether we use their API
         match generator:
             case "WordPress":
@@ -121,7 +129,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                     params = {
                         "rest_route": "/wp/v2/posts",
                         "page": page,
-                        "per_page": 50,
+                        "per_page": per_page,
                         "_embed": 1,
                     }
                     if blog.get("filter", None):
@@ -151,7 +159,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                         scheme="https" if blog.get("secure", True) else "http",
                         path="/rest/v1.1/sites/" + site + "/posts/",
                     )
-                    params = {"page": page, "number": 50}
+                    params = {"page": page, "number": per_page}
                 else:
                     params = {"paged": page}
             case "Ghost":
@@ -161,7 +169,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                     url = url.set(host=host, path="/ghost/api/content/posts/")
                     params = {
                         "page": page,
-                        "limit": 50,
+                        "limit": per_page,
                         "filter": blog.get("filter", None) or "visibility:public",
                         "include": "tags,authors",
                         "key": key,
@@ -169,10 +177,10 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                 else:
                     params = {}
             case "Blogger":
-                params = {"start-index": start_page + 1, "max-results": 50}
+                params = {"start-index": start_page + 1, "max-results": per_page}
             case "Substack":
                 url = url.set(path="/api/v1/posts/")
-                params = {"sort": "new", "offset": start_page, "limit": 50}
+                params = {"sort": "new", "offset": start_page, "limit": per_page}
             case _:
                 params = {}
 
@@ -182,7 +190,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
         # use pagination of results only for non-API blogs
         if params:
             start_page = 0
-            end_page = 50
+            end_page = per_page
 
         if generator == "Substack":
             async with aiohttp.ClientSession() as session:
@@ -772,7 +780,7 @@ async def extract_rss_post(post, blog):
         if (
             not image
             and len(images) > 0
-            and int(images[0].get("width", 200)) >= 200
+            and isinstance(images[0].get("width", None), int) and int(images[0].get("width", 200)) >= 200
             and furl(images[0].get("src", None)).host not in ["latex.codecogs.com"]
         ):
             image = images[0].get("src", None)

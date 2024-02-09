@@ -100,7 +100,7 @@ async def blogs_redirect():
 async def blogs():
     """Search blogs by query, category, generator, language.
     Options to change page, per_page and include fields."""
-    status = request.args.get("status") or "pending"
+    preview = request.args.get("preview")
     query = request.args.get("query") or ""
     query_by = (
         request.args.get("query_by")
@@ -121,8 +121,8 @@ async def blogs():
     order = request.args.get("order") or "desc"
     include_fields = request.args.get("include_fields")
 
-    # filter blogs by category, generator, and/or language
-    filter_by = f"status:!=[{status}]"
+    # filter blogs by status, category, generator, and/or language
+    filter_by = "status:!=[submitted]" if preview else "status:!=[submitted,pending]"
     filter_by = f"category:>= {category}" if category else filter_by
     filter_by = filter_by + f" && generator:=[{generator}]" if generator else filter_by
     filter_by = filter_by + f" && language:=[{language}]" if language else filter_by
@@ -224,7 +224,7 @@ async def posts_redirect():
 @app.route("/posts")
 async def posts():
     """Search posts by query, tags, language, category. Options to change page, per_page and include fields."""
-    status = request.args.get("status") or "pending"
+    preview = request.args.get("preview")
     query = request.args.get("query") or ""
     query_by = (
         request.args.get("query_by")
@@ -256,7 +256,7 @@ async def posts():
         else int(time.time())
     )
     # filter posts by status, date published, blog, tags, and/or language
-    filter_by = f"status:!=[{status}]"
+    filter_by = "status:=[pending,active]" if preview else "status:!=[pending]"
     filter_by = filter_by + (
         f" && published_at:>= {published_since} && published_at:<= {published_until}"
     )
@@ -329,6 +329,7 @@ async def post_posts():
 async def post(slug: str, suffix: Optional[str] = None):
     """Get post by slug."""
     prefixes = [
+        "10.13003",
         "10.34732",
         "10.53731",
         "10.54900",
