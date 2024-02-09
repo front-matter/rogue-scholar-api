@@ -386,6 +386,32 @@ async def test_post_as_bibtex():
     year = {2023}
 }"""
     )
+    
+    
+@pytest.mark.vcr
+async def test_post_as_bibtex_no_doi():
+    """Test post formatted as bibtex (no doi)."""
+    test_client = app.test_client()
+    response = await test_client.get("/posts/c314bfea-2151-4ccc-8fa8-dd0d1000dfbe?format=bibtex")
+    assert response.status_code == 200
+    result = await response.get_data(as_text=True)
+    assert (
+        result
+        == """@article{10.59350/sfzv4-xdb68,
+    abstract = {Con frecuencia a la editorial llegan textos que terminan siendo muy diferentes a la idea de libro que el autor traía inicialmente. Esto se debe en parte, a que es insuficiente el abordaje de las clasificaciones de textos científicos que se divulga institucionalmente.
+},
+    author = {Fernández, Norbisley},
+    copyright = {https://creativecommons.org/licenses/by/4.0/legalcode},
+    doi = {10.59350/sfzv4-xdb68},
+    journal = {Edición y comunicación de la Ciencia},
+    language = {es},
+    month = oct,
+    title = {¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?},
+    url = {https://norbisley.wordpress.com/2023/10/06/que-libros-cientificos-publicamos},
+    urldate = {2023-10-06},
+    year = {2023}
+}"""
+    )
 
 
 @pytest.mark.vcr

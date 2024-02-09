@@ -17,6 +17,7 @@ from commonmeta import (
     get_one_author,
     validate_orcid,
     normalize_orcid,
+    doi_from_url,
 )
 from commonmeta.constants import Commonmeta
 from commonmeta.date_utils import get_date_from_unix_timestamp
@@ -133,17 +134,6 @@ def compact(dict_or_list: Union[dict, list]) -> Optional[Union[dict, list]]:
         return lst if len(lst) > 0 else None
 
     return None
-
-
-def doi_from_url(url: str) -> Optional[str]:
-    """Return a DOI from a URL"""
-    match = re.search(
-        r"\A(?:(http|https)://(dx\.)?(doi\.org|handle\.stage\.datacite\.org|handle\.test\.datacite\.org)/)?(doi:)?(10\.\d{4,5}/.+)\Z",
-        url,
-    )
-    if match is None:
-        return None
-    return match.group(5).lower()
 
 
 def normalize_author(name: str, url: str = None) -> dict:
@@ -354,7 +344,7 @@ def normalize_tag(tag: str) -> str:
 def convert_to_commonmeta(meta: dict) -> Commonmeta:
     """Convert post metadata to commonmeta format"""
 
-    doi = doi_from_url(meta.get("doi", None)) or "https://doi.org/10.5555/test"
+    doi = doi_from_url(meta.get("doi"))
     published = get_date_from_unix_timestamp(meta.get("published_at", 0))
     updated = get_date_from_unix_timestamp(meta.get("updated_at", None))
     container_title = py_.get(meta, "blog.title")
@@ -367,7 +357,7 @@ def convert_to_commonmeta(meta: dict) -> Commonmeta:
         {"alternateIdentifier": meta.get("id"), "alternateIdentifierType": "UUID"}
     ]
     return {
-        "id": meta.get("doi", None),
+        "id": meta.get("doi", None) or meta.get("id", None),
         "url": meta.get("url", None),
         "type": "Article",
         "contributors": format_authors_commonmeta(meta.get("authors", None)),
@@ -444,8 +434,8 @@ def get_doi_metadata(
     }
     content_type = content_types.get(format_)
     subject = Metadata(data, via="commonmeta", style=style, locale=locale)
-    doi = doi_from_url(subject.id)
-    basename = doi_from_url(doi).replace("/", "-")
+    doi = doi_from_url(subject.id) if subject.id else None
+    basename = doi_from_url(doi).replace("/", "-") if doi else data
     if format_ == "commonmeta":
         ext = "json"
         result = subject.write()

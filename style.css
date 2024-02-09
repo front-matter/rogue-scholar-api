@@ -86,7 +86,7 @@ h2, h3, h4 {
   padding-top: 12pt;
   margin: 0;
 }
-h2 {
+h2, .footnote_reference_container_label {
   margin-bottom: -4pt;
   line-height: 1.15;
   color: #3b82f6;
@@ -344,4 +344,16 @@ pre {
   margin-bottom: 6pt;
   margin-top: 6pt;
   white-space: pre;
+}
+sup, sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+  font-size: 8pt;
+}
+sub { 
+  top: 0.4em; 
+}
+th, td {
+  vertical-align: top;
 }

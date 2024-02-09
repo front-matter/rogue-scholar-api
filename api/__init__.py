@@ -29,8 +29,8 @@ from api.supabase import (
     postsWithContentSelect,
 )
 from api.typesense import typesense_client as typesense
+from commonmeta import doi_from_url
 from api.utils import (
-    doi_from_url,
     get_doi_metadata,
     convert_to_commonmeta,
     write_epub,

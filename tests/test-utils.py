@@ -96,6 +96,25 @@ def test_get_doi_metadata_bibtex():
     year = {2023}
 }"""
     )
+    
+    
+def test_get_url_metadata_bibtex():
+    "get url metadata in bibtex format"
+    data = path.join(path.dirname(__file__), "fixtures", "commonmeta-no-doi.json")
+    result = get_doi_metadata(data, format_="bibtex")
+    assert (
+        result["data"]
+        == """@article{https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter,
+    abstract = {Newsletters have been around forever, but their popularity has significantly increased in the past few years, also thanks to platforms such as Ghost, Medium, and Substack. Which of course also includes science newsletters.Failure of advertising as a revenue model The most important driver of this trend is probably the realization that advertising is a poor revenue model for content published on the web, including blogs.},
+    author = {Fenner, Martin},
+    copyright = {https://creativecommons.org/licenses/by/4.0/legalcode},
+    month = oct,
+    title = {The rise of the (science) newsletter},
+    url = {https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter},
+    urldate = {2023-10-04},
+    year = {2023}
+}"""
+    )
 
 
 def test_get_doi_metadata_csl():
@@ -105,6 +124,16 @@ def test_get_doi_metadata_csl():
     csl = json.loads(result["data"])
     assert csl["title"] == "The rise of the (science) newsletter"
     assert csl["author"] == [{"family": "Fenner", "given": "Martin"}]
+
+
+def test_get_url_metadata_csl():
+    "get url metadata in csl format"
+    data = path.join(path.dirname(__file__), "fixtures", "commonmeta-no-doi.json")
+    result = get_doi_metadata(data, format_="csl")
+    csl = json.loads(result["data"])
+    assert csl["title"] == "The rise of the (science) newsletter"
+    assert csl["author"] == [{"family": "Fenner", "given": "Martin"}]
+    assert csl["URL"] == "https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter"
 
 
 def test_get_doi_metadata_ris():
