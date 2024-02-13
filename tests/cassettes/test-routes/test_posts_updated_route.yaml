@@ -23,423 +23,165 @@ interactions:
       x-client-info:
       - supabase-py/2.3.4
     method: GET
-    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%29&blogs.prefix=not.is.null&updated=is.True&doi=not.is.null&order=updated_at.desc&limit=15
-  response:
-    content: "[{\"id\":\"dfc32ca4-f435-487a-a837-b2fd9f378eb5\",\"guid\":\"62d42bbd41e317003df48e43\",\"doi\":\"https://doi.org/10.53731/r294649-6f79289-8cw78\",\"url\":\"https://blog.front-matter.io/posts/beyond-the-pdf-is-epub\",\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/beyond-the-pdf-is-epub\",\"title\":\"Beyond
-      the PDF \u2026 is ePub\",\"summary\":\"Having breakfast at the end of a conference
-      is a good way to recap what was discussed and can help to generate new ideas.
-      Two years ago at ScienceOnline09 a conversation with Cameron Neylon that followed
-      up on the session Reputation, authority and incentives. Or: How to get rid of
-      the Impact Factor (moderated by Bj\xF6rn Brembs and Pete Binfield) was started
-      my interest in unique author identifiers for researchers.\\n\",\"published_at\":1295740800,\"updated_at\":1660898928,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":\"https://blog.front-matter.io/content/images/2022/08/5376544624_9914bebffa.jpeg\",\"tags\":[\"Meeting
-      Report\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Front
-      Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
-      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
-      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1705502015}},
-      \n {\"id\":\"44c9d2b1-2944-4671-a1c5-3f3c25686f74\",\"guid\":\"62d42bbd41e317003df48e42\",\"doi\":\"https://doi.org/10.53731/r294649-6f79289-8cw77\",\"url\":\"https://blog.front-matter.io/posts/nature-com-ipad-app-released-today\",\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/nature-com-ipad-app-released-today\",\"title\":\"Nature.com
-      iPad app released today\",\"summary\":\"Today nature.com released their iPad
-      reader application.\\n\",\"published_at\":1295827200,\"updated_at\":1660898818,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":\"https://blog.front-matter.io/content/images/2022/08/IMG_0039-500x375.jpeg\",\"tags\":[\"News\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Front
-      Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
-      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
-      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1705502015}},
-      \n {\"id\":\"d467889a-424a-460e-9d9b-02f01af6a173\",\"guid\":\"62d42bbd41e317003df48e2e\",\"doi\":\"https://doi.org/10.53731/r294649-6f79289-8cw6k\",\"url\":\"https://blog.front-matter.io/posts/conference-microblogging-friendfeed-twitter-and-now-google\",\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/conference-microblogging-friendfeed-twitter-and-now-google\",\"title\":\"Conference
-      microblogging: FriendFeed, Twitter and now Google+ ?\",\"summary\":\"Blogging
-      is a great format to report from conferences. The regular blog format works
-      best for posts written at the end of the day \u2013 unless you are typing really
-      fast. Microblogging, i.e. a number of short or very short posts by a group of
-      people, works better for live blogging of an event and has become very popular.\\n\",\"published_at\":1309737600,\"updated_at\":1660898748,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":null,\"tags\":[\"Meeting
-      Report\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Front
-      Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
-      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
-      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1705502015}},
-      \n {\"id\":\"c9d65498-e795-4262-8bea-eb8aaeee7a89\",\"guid\":\"62d42bbd41e317003df48d85\",\"doi\":\"https://doi.org/10.53731/r294649-6f79289-8cw1a\",\"url\":\"https://blog.front-matter.io/posts/what-flavor-is-scholarly-markdown\",\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/what-flavor-is-scholarly-markdown\",\"title\":\"What
-      Flavor is Scholarly Markdown?\",\"summary\":\"One important outcome of the recent
-      Markdown for Science workshop was an overall agreement that all the different
-      implementations (or flavors) of markdown that currently exist are a big problem
-      for the adoption of Scholarly Markdown and that we need:A reference implementation
-      with documentation and tests As described by Karthik Ram (31 flavors is great
-      for ice cream but not markdown), me and others, there is really a large number
-      of markdown\\n\",\"published_at\":1371834660,\"updated_at\":1660898551,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":null,\"tags\":[\"Meeting
-      Report\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Front
-      Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
-      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
-      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1705502015}},
-      \n {\"id\":\"04490554-82be-4ca6-b547-43a0d955af61\",\"guid\":\"62d42bbd41e317003df48d84\",\"doi\":\"https://doi.org/10.53731/r294649-6f79289-8cw19\",\"url\":\"https://blog.front-matter.io/posts/citations-in-markdown-part-3\",\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/citations-in-markdown-part-3\",\"title\":\"Citations
-      in Markdown Part 3\",\"summary\":\"After the post last week and the crazy discussion
-      that followed I would understand that you feel you have heard enough about citations
-      in markdown. But I had the feeling last week that something was still missing,
-      and I have done some more thinking.\\n\",\"published_at\":1372093680,\"updated_at\":1660898467,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":null,\"tags\":[\"Feature\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Front
-      Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
-      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
-      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1705502015}},
-      \n {\"id\":\"3502015b-cc45-4529-b20e-5de2056c22d2\",\"guid\":\"62d42bbd41e317003df48d80\",\"doi\":\"https://doi.org/10.53731/r294649-6f79289-8cw15\",\"url\":\"https://blog.front-matter.io/posts/creating-charts-with-datawrapper\",\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/creating-charts-with-datawrapper\",\"title\":\"Creating
-      charts with Datawrapper\",\"summary\":\"Figures are an important part of any
-      scientific document. While the kind of figure commonly used obviously varies
-      between disciplines, charts are an important part of many publications.\\n\",\"published_at\":1374252840,\"updated_at\":1660898323,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":null,\"tags\":[\"Chart\"],\"language\":\"en\",\"reference\":[{\"doi\":
-      \"https://doi.org/10.1371/journal.pmed.1000075\", \"key\": \"ref1\"}, {\"doi\":
-      \"https://doi.org/10.1371/journal.pmed.1000097\", \"key\": \"ref2\"}],\"relationships\":[],\"blog_name\":\"Front
-      Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
-      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
-      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1705502015}},
-      \n {\"id\":\"95f17caa-91f5-4428-aac5-3d5c170bd458\",\"guid\":\"62d42bbd41e317003df48d7d\",\"doi\":\"https://doi.org/10.53731/r294649-6f79289-8cw12\",\"url\":\"https://blog.front-matter.io/posts/citeproc-yaml-for-bibliographies\",\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/citeproc-yaml-for-bibliographies\",\"title\":\"Citeproc
-      YAML for bibliographies\",\"summary\":\"The standard local file formats for
-      bibliographic data are probably bibtex and RIS. They have been around for a
-      long time, and are supported by all reference managers and many other tools
-      and services.\\n\",\"published_at\":1375202340,\"updated_at\":1660898203,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":\"https://blog.front-matter.io/content/images/2022/08/standards.png\",\"tags\":[\"Feature\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Front
-      Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
-      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
-      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1705502015}},
-      \n {\"id\":\"97e1525e-8884-42f9-9a4f-ad12de99f49b\",\"guid\":\"62d42bbd41e317003df48d74\",\"doi\":\"https://doi.org/10.53731/r294649-6f79289-8cw0s\",\"url\":\"https://blog.front-matter.io/posts/what-is-the-value-of-hack-days\",\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/what-is-the-value-of-hack-days\",\"title\":\"What
-      is the Value of Hack Days?\",\"summary\":\"This Friday and Saturday the SpotOn
-      London Conference will take place at the British Library in London. I am very
-      excited, as I have come to this conference since the first one in 2008, and
-      have helped organize the event since 2009.\\n\",\"published_at\":1383581880,\"updated_at\":1660897483,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":\"https://blog.front-matter.io/content/images/2022/08/spoton12_hack-1.jpeg\",\"tags\":[\"Meeting
-      Report\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Front
-      Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
-      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
-      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1705502015}},
-      \n {\"id\":\"649967ab-7e1d-4adb-8d1d-57cd4f8fe0ba\",\"guid\":\"62d42bbd41e317003df48d82\",\"doi\":\"https://doi.org/10.53731/r294649-6f79289-8cw17\",\"url\":\"https://blog.front-matter.io/posts/metadata-in-scholarly-markdown\",\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/metadata-in-scholarly-markdown\",\"title\":\"Metadata
-      in Scholarly Markdown\",\"summary\":\"Scholarly documents often need metadata
-      that describe them: typically author(s), title and location (DOI or URL), but
-      possibly many other things. For some metadata it makes sense to store them in
-      the document text, e.g. as is typically done for citations. The problem is that
-      this can make it hard to make the metadata machine-readable.\\n\",\"published_at\":1372525260,\"updated_at\":1660897091,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":null,\"tags\":[\"Feature\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Front
-      Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
-      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
-      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1705502015}},
-      \n {\"id\":\"e35e1aab-5dab-4d9e-99ca-24ce58256978\",\"guid\":\"62d42bbd41e317003df48d76\",\"doi\":\"https://doi.org/10.53731/r294649-6f79289-8cw0v\",\"url\":\"https://blog.front-matter.io/posts/what-can-article-level-metrics-do-for-you-2\",\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/what-can-article-level-metrics-do-for-you-2\",\"title\":\"What
-      Can Article-Level Metrics Do for You?\",\"summary\":\"Yesterday PLOS Biology
-      published an essay by me: What Can Article Level Metrics Do for You? (Fenner,
-      2013). I had help from many others in writing the essay, in particular PLOS
-      Biology editor Emma Ganley. I hope that the essay can help researchers get introduced
-      to article-level metrics, and I am honored that the essay is part of the PLOS
-      Biology 10th anniversary collection.\\n\",\"published_at\":1382545380,\"updated_at\":1660896910,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":\"https://blog.front-matter.io/content/images/2022/08/2013-12-11_figure_5-3.svg\",\"tags\":[\"Feature\"],\"language\":\"en\",\"reference\":[{\"doi\":
-      \"https://doi.org/10.1371/journal.pbio.1001687\", \"key\": \"ref1\"}],\"relationships\":[],\"blog_name\":\"Front
-      Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
-      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
-      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1705502015}},
-      \n {\"id\":\"d9f506c0-8c5f-44d2-8a30-01e6e67e697d\",\"guid\":\"62d42bbd41e317003df48d70\",\"doi\":\"https://doi.org/10.53731/r294649-6f79289-8cw0n\",\"url\":\"https://blog.front-matter.io/posts/example-article-with-embedded-code-and-data\",\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/example-article-with-embedded-code-and-data\",\"title\":\"Example
-      article with embedded code and data\",\"summary\":\"In October I published an
-      essay on Article-Level Metrics (ALM) in PLOS Biology (Fenner, 2013). The essay
-      is a good introduction into Article-Level Metrics, and I am proud that it is
-      part of the Tenth Anniversary PLOS Biology Collection. Like all PLOS content,
-      the article was published with a Creative Commons attribution license, allowing
-      me to republish the article on this blog. I have now done so and the article
-      is available here.\\n\",\"published_at\":1386777840,\"updated_at\":1660896681,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":\"https://blog.front-matter.io/content/images/2022/08/pbio.1001687.g003.png\",\"tags\":[\"Feature\"],\"language\":\"en\",\"reference\":[{\"doi\":
-      \"https://doi.org/10.1371/journal.pbio.1001687\", \"key\": \"ref1\"}],\"relationships\":[],\"blog_name\":\"Front
-      Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
-      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
-      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1705502015}},
-      \n {\"id\":\"93b2cbe0-9021-4362-98bd-ea7fbe4be832\",\"guid\":\"62d42bbd41e317003df48d66\",\"doi\":\"https://doi.org/10.53731/r294649-6f79289-8cw0b\",\"url\":\"https://blog.front-matter.io/posts/fragment-identifiers-and-dois\",\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/fragment-identifiers-and-dois\",\"title\":\"Fragment
-      Identifiers and DOIs\",\"summary\":\"Before all our content turned digital,
-      we already used\\n<strong>\\n <strong>\\n  page numbers\\n </strong>\\n</strong>\\nto
-      describe a specific section of a book or longer document, with older manuscripts
-      using the folio before that. Page numbers have transitioned to electronic books
-      with readers such as the Kindle supporting them eventually. For content on the
-      web we can use the # fragment identifier, e.g.\\n\",\"published_at\":1406993160,\"updated_at\":1660896349,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":\"https://blog.front-matter.io/content/images/2022/08/Folio_-number-.jpg\",\"tags\":[\"Feature\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Front
-      Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
-      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
-      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1705502015}},
-      \n {\"id\":\"579fbcdf-c7c4-4cc7-8d06-1b44883577ae\",\"guid\":\"62d42bbd41e317003df48ef6\",\"doi\":\"https://doi.org/10.53731/r79tfth-97aq74v-ag53f\",\"url\":\"https://blog.front-matter.io/posts/using-yaml-frontmatter-with-csv\",\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/using-yaml-frontmatter-with-csv\",\"title\":\"Using
-      YAML Frontmatter with CSV\",\"summary\":\"CSV (comma-separated values) is a
-      popular file format for data. It is popular because it is very simple: CSV is
-      text-based and any application that can open text files can read or write CSV.
-      This makes it a good fit for digital preservation. We don't know how many of
-      the datasets in DataCite use CSV because the format metadata attribute is not
-      used much (this query gives you some examples), but we know that the number
-      is big.\\n\",\"published_at\":1441238400,\"updated_at\":1660896235,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":null,\"tags\":[\"Feature\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Front
-      Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
-      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
-      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1705502015}},
-      \n {\"id\":\"19a29496-323e-406e-95f5-48bb7f359fa2\",\"guid\":\"62d42bbd41e317003df48dfc\",\"doi\":\"https://doi.org/10.53731/r294649-6f79289-8cw51\",\"url\":\"https://blog.front-matter.io/posts/action-points\",\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/action-points\",\"title\":\"Action
-      points\",\"summary\":\"Last weekend was\\n<em>\\n <em>\\n  BibCamp Hannover\\n
-      </em>\\n</em>\\n, a \u201CBarCamp for librarians and other hackers\u201D. If
-      you understand German, you can read about the sessions, discussions and people
-      in the Blog, Wiki, and FriendFeed Room. And Steffi Suhr wrote a nice post about
-      The most beautiful library in the world in her\\n<em>\\n <em>\\n  Nature Network\\n
-      </em>\\n</em>\\nblog.\\n\",\"published_at\":1273536000,\"updated_at\":1660895789,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":\"https://blog.front-matter.io/content/images/2022/08/p1060059.jpeg\",\"tags\":[\"Meeting
-      Report\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Front
-      Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
-      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
-      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1705502015}},
-      \n {\"id\":\"3d53b142-00af-452f-bcf0-4c58f6da15d7\",\"guid\":\"62d42bbd41e317003df48e6b\",\"doi\":\"https://doi.org/10.53731/r294649-6f79289-8cw8g\",\"url\":\"https://blog.front-matter.io/posts/readermeter-researcher-level-metrics-based-on-readership\",\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/readermeter-researcher-level-metrics-based-on-readership\",\"title\":\"ReaderMeter:
-      researcher-level metrics based on readership\",\"summary\":\"In a blog post
-      last week, Dario Taraborelli officially announced ReaderMeter. ReaderMeter takes
-      the usage data from reference managers (starting with Mendeley) to analyze the
-      impact of publications by a particular author. ReaderMeter is a welcome addition
-      to other metrics of researcher impact, most of which are citation-based. And
-      ReaderMeter was hacked together in a few nights, so the service should improve
-      over time.\\n\",\"published_at\":1286064000,\"updated_at\":1660895645,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":null,\"tags\":[\"News\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Front
-      Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"slug\":\"front_matter\",\"title\":\"Front
-      Matter\",\"description\":\"The Front Matter Blog covers the intersection of
-      science and technology since 2007.\",\"feed_url\":\"https://blog.front-matter.io/atom-complete/\",\"home_page_url\":\"https://blog.front-matter.io\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Ghost\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1705502015}}]"
-    headers:
-      Access-Control-Allow-Origin:
-      - '*'
-      CF-Cache-Status:
-      - DYNAMIC
-      CF-Ray:
-      - 8498674bd8f81627-DUS
-      Connection:
-      - keep-alive
-      Content-Encoding:
-      - gzip
-      Content-Location:
-      - /posts?blogs.prefix=not.is.null&doi=not.is.null&limit=15&order=updated_at.desc&select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%29&updated=is.True
-      Content-Profile:
-      - public
-      Content-Range:
-      - 0-14/*
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Mon, 22 Jan 2024 14:14:28 GMT
-      Server:
-      - cloudflare
-      Strict-Transport-Security:
-      - max-age=2592000; includeSubDomains
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
-      Via:
-      - kong/2.8.1
-      X-Kong-Proxy-Latency:
-      - '1'
-      X-Kong-Upstream-Latency:
-      - '70'
-      alt-svc:
-      - h3=":443"; ma=86400
-      sb-gateway-version:
-      - '1'
-    http_version: HTTP/1.1
-    status_code: 200
-- request:
-    body: '{}'
-    headers:
-      accept:
-      - '*/*'
-      accept-encoding:
-      - gzip, deflate
-      accept-profile:
-      - public
-      connection:
-      - keep-alive
-      content-length:
-      - '2'
-      content-profile:
-      - public
-      content-type:
-      - application/json
-      host:
-      - db.rogue-scholar.org
-      user-agent:
-      - python-httpx/0.25.2
-      x-client-info:
-      - supabase-py/2.3.4
-    method: GET
     uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20abstract%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20indexed%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28slug%2C%20title%2C%20description%2C%20feed_url%2C%20home_page_url%2C%20language%2C%20category%2C%20status%2C%20generator%2C%20license%2C%20updated_at%29&blogs.prefix=not.is.null&updated=is.True&doi=not.is.null&order=updated_at.desc&limit=15
   response:
-    content: "[{\"id\":\"4e281a16-05ec-4120-8386-1127113cf716\",\"guid\":\"tag:blogger.com,1999:blog-16081779.post-2976849535694913766\",\"doi\":\"https://doi.org/10.59350/c99tm-az135\",\"url\":\"https://iphylo.blogspot.com/2020/01/orcid-serves-schemaorg-linked-data-via.html\",\"archive_url\":null,\"title\":\"ORCID
-      serves schema.org linked data via content negotiation - who knew?\",\"summary\":\"Just
-      a note that ORCID serves data using terms from schema.org, and has done for
-      a while (since April 2018), but somehow I missed this. You can get linked data
-      in JSON-LD using content negotiation.\\n\",\"abstract\":null,\"published_at\":1578481140,\"updated_at\":1578481190,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-7101-9767\", \"name\": \"Roderic Page\"}],\"image\":null,\"tags\":[],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iPhylo\",\"blog_slug\":\"iphylo\",\"blog\":{\"slug\":\"iphylo\",\"title\":\"iPhylo\",\"description\":\"Rants,
-      raves (and occasionally considered opinions) on phyloinformatics, taxonomy,
-      and biodiversity informatics.  For more ranty and less considered opinions,
-      see my <a href=\\\"https://twitter.com/rdmpage\\\">Twitter feed</a>.<br />ISSN
-      2051-8188. Written content on this site is licensed under a <a href=\\\"https://creativecommons.org/licenses/by/4.0/\\\">Creative
-      Commons Attribution 4.0 International license</a>.\",\"feed_url\":\"https://iphylo.blogspot.com/feeds/posts/default\",\"home_page_url\":\"https://iphylo.blogspot.com/\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Blogger\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1701257664}},
-      \n {\"id\":\"77d5a984-a955-40d4-a663-b9b1cf0eb8c0\",\"guid\":\"https://irights.info/?post_type=custom_artikel&p=29875\",\"doi\":\"https://doi.org/10.59350/afh1c-w5091\",\"url\":\"https://irights.info/artikel/unesco-foerdert-offene-bildungsmaterialien/29875\",\"archive_url\":\"https://wayback.archive-it.org/22135/20231101173016/https://irights.info/artikel/unesco-foerdert-offene-bildungsmaterialien/29875\",\"title\":\"UNESCO
-      f\xF6rdert offene Bildungsmaterialien\",\"summary\":\"Offene Bildungsmaterialien
-      sollen zuk\xFCnftig weltweit umfassend gef\xF6rdert werden. Darauf verst\xE4ndigte
-      sich k\xFCrzlich die UNESCO und bekam viel Zuspruch. Ein gestrichener Passus
-      in den OER-Definitionen zu Kopien erntet allerdings Kritik von OER-Verfechter
-      David Wiley. Die von der UNESCO-Generalkonferenz Ende November in Paris angenommenen\_OER-Empfehlungen
-      (PDF) enthalten f\xFCnf zentrale Zielsetzungen.\\n\",\"abstract\":null,\"published_at\":1576849759,\"updated_at\":1578474636,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
-      \"Henry Steinhau\"}],\"image\":null,\"tags\":[\"Bildung + OER\",\"David Wiley\",\"UNESCO\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
-      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info/\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706091728}},
-      \n {\"id\":\"66cb44f4-2bb9-4f86-96a8-ce90703cd378\",\"guid\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?p=21846\",\"doi\":\"https://doi.org/10.59350/p9j30-hr943\",\"url\":\"https://www.ch.imperial.ac.uk/rzepa/blog?p=21846\",\"archive_url\":null,\"title\":\"Comment
-      on &#8220;Resolving the Quadruple Bonding Conundrum in C2 Using Insights Derived
-      from Excited State Potential Energy Surfaces&#8221;: The 7\u03A3 heptet excited
-      states for related molecules.\",\"summary\":\"I noted in an earlier blog, a
-      potential (if difficult) experimental test of the properties of the singlet
-      state of dicarbon, C\\n<sub>\\n 2\\n</sub>\\n. Now, just a few days ago, a ChemRxiv
-      article has been published suggesting another (probably much more realistic)
-      test.[1]\_This looks at the so-called\\n<sup>\\n 7\\n</sup>\\n\u03A3 open shell
-      state of the molecule where three electrons from one \u03C3 and two \u03C0 orbitals
-      are excited into the corresponding \u03C3\\n<sup>\\n *\\n</sup>\\nand\\n\",\"abstract\":null,\"published_at\":1577959536,\"updated_at\":1578040916,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-8635-8390\", \"name\": \"Henry Rzepa\"}],\"image\":\"https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2020/01/checkpoint_10062095-300x169.jpg\",\"tags\":[\"Interesting
-      Chemistry\"],\"language\":\"en\",\"reference\":[{\"doi\": \"https://doi.org/10.26434/chemrxiv.11446224.v1\",
-      \"key\": \"ref1\"}],\"relationships\":[],\"blog_name\":\"Henry Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"blog\":{\"slug\":\"rzepa\",\"title\":\"Henry
-      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"language\":\"en\",\"category\":\"chemicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706372328}},
-      \n {\"id\":\"eaa2ea1f-8fb5-49c4-a680-b28b3988fc15\",\"guid\":\"https://www.andrewheiss.com/blog/2020/01/01/flexdashboard-dynamic-data/\",\"doi\":\"https://doi.org/10.59350/8vtys-s0p68\",\"url\":\"https://www.andrewheiss.com/blog/2020/01/01/flexdashboard-dynamic-data\",\"archive_url\":\"https://wayback.archive-it.org/22114/20231101175222/https://www.andrewheiss.com/blog/2020/01/01/flexdashboard-dynamic-data\",\"title\":\"Create
-      a dynamic dashboard with R, flexdashboard, and Shiny\",\"summary\":\"Now that
-      I\u2019m on the tenure track, I\u2019ve been looking for a way to keep track
-      of my different research projects so I can get them all finished and published.
-      Matt Lebo\u2019s \u201CManaging Your Research Pipeline\u201D presents a neat
-      way of quantifying and tracking the progress of your research, and I recently
-      adopted it for my own stuff. I even made a fancy R Markdown +\\n<strong>\\n
-      flexdashboard\\n</strong>\\ndashboard to show the status of the pipeline interactively.\\n\",\"abstract\":null,\"published_at\":1577854800,\"updated_at\":1577854800,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-3948-3914\", \"name\": \"Andrew Heiss\"}],\"image\":\"https://www.andrewheiss.com/blog/2020/01/01/flexdashboard-dynamic-data/shiny.png\",\"tags\":[\"R
-      Markdown\",\"Shiny\",\"R\",\"Google Sheets\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Andrew
-      Heiss's blog\",\"blog_slug\":\"andrewheiss\",\"blog\":{\"slug\":\"andrewheiss\",\"title\":\"Andrew
-      Heiss's blog\",\"description\":\"Andrew Heiss's blog\",\"feed_url\":\"https://www.andrewheiss.com/atom.xml\",\"home_page_url\":\"https://www.andrewheiss.com\",\"language\":\"en\",\"category\":\"politicalScience\",\"status\":\"active\",\"generator\":\"Quarto\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1705035600}},
-      \n {\"id\":\"925557db-c413-44a4-ad0b-b867611ece18\",\"guid\":\"http://svpow.com/?p=16992\",\"doi\":\"https://doi.org/10.59350/k6900-z0x23\",\"url\":\"https://svpow.com/2019/12/30/christmas-came-late-in-the-form-of-a-dead-otter\",\"archive_url\":\"https://wayback.archive-it.org/22153/20231105213934/https://svpow.com/2019/12/30/christmas-came-late-in-the-form-of-a-dead-otter\",\"title\":\"Christmas
-      came late \u2014 in the form of a dead otter\",\"summary\":\"Otters are a \u201Cnear-threatened\u201D
-      species in the UK, so it\u2019s a tragedy when one is killed by a car. That
-      said, when a roadkill otter is spotted by a friend and delivered to me five
-      days after Christmas, that goes some way to redeeming the tragedy.\\n\",\"abstract\":null,\"published_at\":1577709078,\"updated_at\":1577709078,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
-      \"Mike Taylor\"}],\"image\":\"https://svpow.files.wordpress.com/2019/12/img_20191230_100443.jpg?w=480&h=360\",\"tags\":[\"Otter\",\"Stinkin'
-      Mammals\",\"T2M&amp;D\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Sauropod
-      Vertebra Picture of the Week\",\"blog_slug\":\"svpow\",\"blog\":{\"slug\":\"svpow\",\"title\":\"Sauropod
-      Vertebra Picture of the Week\",\"description\":\"SV-POW!  ...  All sauropod
-      vertebrae, except when we're talking about Open Access\",\"feed_url\":\"https://svpow.com/feed/atom/\",\"home_page_url\":\"https://svpow.com\",\"language\":\"en\",\"category\":\"earthAndRelatedEnvironmentalSciences\",\"status\":\"active\",\"generator\":\"WordPress.com\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706487498}},
-      \n {\"id\":\"da4d520d-bcab-42b4-8761-cfd8311ebbaa\",\"guid\":\"http://svpow.com/?p=13179\",\"doi\":\"https://doi.org/10.59350/h96fz-m7012\",\"url\":\"https://svpow.com/2016/03/28/defleshing-a-badger-head-a-pictorial-guide\",\"archive_url\":\"https://wayback.archive-it.org/22153/20231105213934/https://svpow.com/2016/03/28/defleshing-a-badger-head-a-pictorial-guide\",\"title\":\"Defleshing
-      a badger head: a pictorial guide\",\"summary\":\"There\u2019s no sense in decapitating
-      a badger if you\u2019re not going to make good use of the severed head. So here\u2019s
-      what I did with mine.\\n\",\"abstract\":null,\"published_at\":1459189845,\"updated_at\":1577708779,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
-      \"Mike Taylor\"}],\"image\":\"https://svpow.files.wordpress.com/2016/03/2016-03-27-17-37-31.jpg?w=1024&h=768\",\"tags\":[\"Badger\",\"Stinkin'
-      Heads\",\"Stinkin' Mammals\",\"T2M&amp;D\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Sauropod
-      Vertebra Picture of the Week\",\"blog_slug\":\"svpow\",\"blog\":{\"slug\":\"svpow\",\"title\":\"Sauropod
-      Vertebra Picture of the Week\",\"description\":\"SV-POW!  ...  All sauropod
-      vertebrae, except when we're talking about Open Access\",\"feed_url\":\"https://svpow.com/feed/atom/\",\"home_page_url\":\"https://svpow.com\",\"language\":\"en\",\"category\":\"earthAndRelatedEnvironmentalSciences\",\"status\":\"active\",\"generator\":\"WordPress.com\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706487498}},
-      \n {\"id\":\"2f706933-1312-4b5b-839f-bcff3c615b27\",\"guid\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?p=21772\",\"doi\":\"https://doi.org/10.59350/vhkmz-vwp08\",\"url\":\"https://www.ch.imperial.ac.uk/rzepa/blog?p=21772\",\"archive_url\":null,\"title\":\"Carbon
-      as a hydrogen bond acceptor: can dicarbon (C2) act in this manner?\",\"summary\":\"In
-      the previous post, I showed that carbon can act as a hydrogen bond acceptor
-      (of a proton) to form strong hydrogen bond complexes. Which brings me to a conceptual
-      connection: can singlet dicarbon form such a hydrogen bond?\_ Dicarbon can be
-      variously represented as above. The first form shows it as a bis-carbene, with
-      an unbonded lone pair of electrons at each end of a carbon double bond.\\n\",\"abstract\":null,\"published_at\":1577429833,\"updated_at\":1577704123,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-8635-8390\", \"name\": \"Henry Rzepa\"}],\"image\":\"https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2019/12/dicarbon.svg\",\"tags\":[\"Interesting
-      Chemistry\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Henry
-      Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"blog\":{\"slug\":\"rzepa\",\"title\":\"Henry
-      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"language\":\"en\",\"category\":\"chemicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706372328}},
-      \n {\"id\":\"03c3faa3-400b-4e17-be25-096d54820472\",\"guid\":\"http://www.ch.imperial.ac.uk/rzepa/blog/?p=8860\",\"doi\":\"https://doi.org/10.59350/wz0z1-8x547\",\"url\":\"https://www.ch.imperial.ac.uk/rzepa/blog?p=8860\",\"archive_url\":null,\"title\":\"Hydrogen
-      bond strength as a function of ring size.\",\"summary\":\"One frequently has
-      to confront the question: will a hydrogen bond form between a suitable donor
-      (lone pair or \u03C0) and an acceptor? One of the factors to be taken into consideration
-      for hydrogen bonds which are part of a cycle is the ring size. Here I explore
-      one way of quantifying the effect for the series below, n=1-5 (4-8 membered
-      rings).      I will use the NBO approach.\\n\",\"abstract\":null,\"published_at\":1357231716,\"updated_at\":1577610168,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-8635-8390\", \"name\": \"Henry Rzepa\"}],\"image\":\"https://www.ch.imperial.ac.uk/rzepa/blog/wp-content/uploads/2013/01/h-bond.svg\",\"tags\":[\"Interesting
-      Chemistry\",\"Cambridge\",\"Energy\",\"Energy Gap\",\"Interaction Energy\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Henry
-      Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"blog\":{\"slug\":\"rzepa\",\"title\":\"Henry
-      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"language\":\"en\",\"category\":\"chemicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706372328}},
-      \n {\"id\":\"460f5894-31a5-44fe-962e-dcc22212fc07\",\"guid\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?p=21798\",\"doi\":\"https://doi.org/10.59350/rbeqv-9wr09\",\"url\":\"https://www.ch.imperial.ac.uk/rzepa/blog?p=21798\",\"archive_url\":null,\"title\":\"Can
-      a carbon radical act as a hydrogen bond acceptor?\",\"summary\":\"Having shown
-      that carbon as a carbene centre, C\\n<strong>\\n :\\n</strong>\\ncan act as
-      a hydrogen bond acceptor, as seen from a search of crystal structures, I began
-      to wonder if there is any chance that carbon as a radical centre, C\u2022 could
-      do so as well.\_Definitely a subversive thought, since radical centres are supposed
-      to abstract hydrogens rather than to hydrogen bond to them.\\n\",\"abstract\":null,\"published_at\":1577563664,\"updated_at\":1577606680,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-8635-8390\", \"name\": \"Henry Rzepa\"}],\"image\":\"https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2019/12/query-1.jpg\",\"tags\":[\"Crystal_structure_mining\",\"Interesting
-      Chemistry\"],\"language\":\"en\",\"reference\":[{\"doi\": \"https://doi.org/10.1021/jacs.7b05471\",
-      \"key\": \"ref1\"}],\"relationships\":[],\"blog_name\":\"Henry Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"blog\":{\"slug\":\"rzepa\",\"title\":\"Henry
-      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"language\":\"en\",\"category\":\"chemicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706372328}},
-      \n {\"id\":\"be82c316-8bae-49ef-b0ac-2caac215050e\",\"guid\":\"http://svpow.com/?p=16982\",\"doi\":\"https://doi.org/10.59350/dfhnh-j6072\",\"url\":\"https://svpow.com/2019/12/25/merry-christmas-have-some-memes\",\"archive_url\":\"https://wayback.archive-it.org/22153/20231105213934/https://svpow.com/2019/12/25/merry-christmas-have-some-memes\",\"title\":\"Merry
-      Christmas, have some memes\",\"summary\":\"In lieu of any new science today,
-      have some memes, and a wonderful day! A timeless classic. In case you\u2019re
-      wondering, that\u2019s \u201Crolling on the beach laughing my telson off\u201D.
-      Horseshoe crabs have been around for 445 million years, about twice as long
-      as mammals, turtles, and dinosaurs.\\n\",\"abstract\":null,\"published_at\":1577306277,\"updated_at\":1577306277,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
-      \"Matt Wedel\"}],\"image\":\"https://svpow.files.wordpress.com/2019/12/distracted-boyfriend-meme-meme.jpg?w=1024&h=683\",\"tags\":[\"Meme\",\"Stinkin&039;
-      Every Thing That&039;s Not A Sauropod\",\"Stinkin' Invertebrates\",\"Stinkin'
-      Mammals\",\"Stinkin' Theropods\"],\"language\":\"ca\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Sauropod
-      Vertebra Picture of the Week\",\"blog_slug\":\"svpow\",\"blog\":{\"slug\":\"svpow\",\"title\":\"Sauropod
-      Vertebra Picture of the Week\",\"description\":\"SV-POW!  ...  All sauropod
-      vertebrae, except when we're talking about Open Access\",\"feed_url\":\"https://svpow.com/feed/atom/\",\"home_page_url\":\"https://svpow.com\",\"language\":\"en\",\"category\":\"earthAndRelatedEnvironmentalSciences\",\"status\":\"active\",\"generator\":\"WordPress.com\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706487498}},
-      \n {\"id\":\"dd89c958-f66b-4bbe-a24d-11876c25477f\",\"guid\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?p=21499\",\"doi\":\"https://doi.org/10.59350/re4b5-5b644\",\"url\":\"https://www.ch.imperial.ac.uk/rzepa/blog?p=21499\",\"archive_url\":null,\"title\":\"Prediction
-      preceding experiment in chemistry &#8211; how unlucky was John Kirkwood?\",\"summary\":\"Some
-      areas of science progressed\\n<em>\\n via\\n</em>\\nvery famous predictions
-      that were subsequently verified by experiments. Think of Einstein and gravitational
-      waves or of Dirac and the positron. There are fewer well-known examples in chemistry;
-      perhaps Watson and Crick\u2019s prediction of the structure of DNA, albeit based
-      on the interpretation of an existing experimental result.\\n\",\"abstract\":null,\"published_at\":1575104503,\"updated_at\":1577189172,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-8635-8390\", \"name\": \"Henry Rzepa\"}],\"image\":\"https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2019/11/Figure1.jpg\",\"tags\":[\"Chiroptics\",\"Historical\"],\"language\":\"en\",\"reference\":[{\"doi\":
-      \"https://doi.org/10.1038/168271a0\", \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.1063/1.1700491\",
-      \"key\": \"ref2\"}, {\"doi\": \"https://doi.org/10.1063/1.1750060\", \"key\":
-      \"ref3\"}, {\"doi\": \"https://doi.org/10.1021/ja803119p\", \"key\": \"ref4\"},
-      {\"doi\": \"https://doi.org/10.1039/JR9480000340\", \"key\": \"ref5\"}],\"relationships\":[],\"blog_name\":\"Henry
-      Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"blog\":{\"slug\":\"rzepa\",\"title\":\"Henry
-      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"language\":\"en\",\"category\":\"chemicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706372328}},
-      \n {\"id\":\"a364bd88-23d4-4cf0-8aab-1b578779a1f8\",\"guid\":\"tag:blogger.com,1999:blog-16081779.post-9031362190001498385\",\"doi\":\"https://doi.org/10.59350/7qpst-zmk93\",\"url\":\"https://iphylo.blogspot.com/2019/12/gbif-metagenomics-and-metacrap.html\",\"archive_url\":null,\"title\":\"GBIF
-      metagenomics and metacrap\",\"summary\":\"Yes, this is a clickbait headline,
-      and yes, it may seem like shooting fish in a barrel to complain about crappy
-      data in GBIF, but my point here is raise concerns about the impact of metagenomic
-      data on GBIF, and how difficult it may be to track down the causes of errors.\\n\",\"abstract\":null,\"published_at\":1576843920,\"updated_at\":1577183683,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-7101-9767\", \"name\": \"Roderic Page\"}],\"image\":\"https://1.bp.blogspot.com/-_EWA4-aFpFI/Xfy8bZ6JGjI/AAAAAAAAQk8/IOGMYk645tk67P74Uw4Kv5V5_fAkbXa_QCLcBGAsYHQ/s72-c/Rafflesia_sumatra.jpg\",\"tags\":[\"BLAST\",\"Data
-      Quality\",\"GBIF\",\"Metacrap\",\"Metagenomics\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iPhylo\",\"blog_slug\":\"iphylo\",\"blog\":{\"slug\":\"iphylo\",\"title\":\"iPhylo\",\"description\":\"Rants,
-      raves (and occasionally considered opinions) on phyloinformatics, taxonomy,
-      and biodiversity informatics.  For more ranty and less considered opinions,
-      see my <a href=\\\"https://twitter.com/rdmpage\\\">Twitter feed</a>.<br />ISSN
-      2051-8188. Written content on this site is licensed under a <a href=\\\"https://creativecommons.org/licenses/by/4.0/\\\">Creative
-      Commons Attribution 4.0 International license</a>.\",\"feed_url\":\"https://iphylo.blogspot.com/feeds/posts/default\",\"home_page_url\":\"https://iphylo.blogspot.com/\",\"language\":\"en\",\"category\":\"computerAndInformationSciences\",\"status\":\"active\",\"generator\":\"Blogger\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1701257664}},
-      \n {\"id\":\"569a1210-6bdb-44a8-a164-205d1ac217b7\",\"guid\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?p=21726\",\"doi\":\"https://doi.org/10.59350/svm9t-r3480\",\"url\":\"https://www.ch.imperial.ac.uk/rzepa/blog?p=21726\",\"archive_url\":null,\"title\":\"Hydrogen
-      bonds: carbon as an acceptor rather than as a donor?\",\"summary\":\"A hydrogen
-      bond donor is considered as an electronegative element carrying a hydrogen that
-      is accepted by an atom carrying a lone pair of electrons, as in X:\u2026H-Y
-      where X: is the acceptor and H-Y the donor. Wikipedia asserts that carbon can
-      act as a donor, as we saw in the post on the incredible chloride cage, where
-      six Cl\\n<strong>\\n :\\n</strong>\\n\u2026H-C interactions trapped the chloride
-      ion inside the cage.\\n\",\"abstract\":null,\"published_at\":1577125474,\"updated_at\":1577132954,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-8635-8390\", \"name\": \"Henry Rzepa\"}],\"image\":\"https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2019/12/query-1024x598.jpg\",\"tags\":[\"Interesting
-      Chemistry\"],\"language\":\"en\",\"reference\":[{\"doi\": \"https://doi.org/10.1039/c0ob00999g\",
-      \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.1021/jacs.9b04864\", \"key\":
-      \"ref2\"}, {\"doi\": \"https://doi.org/10.1016/j.jorganchem.2006.03.018\", \"key\":
-      \"ref3\"}, {\"doi\": \"https://doi.org/10.1016/j.phytochem.2010.09.004\", \"key\":
-      \"ref4\"}],\"relationships\":[],\"blog_name\":\"Henry Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"blog\":{\"slug\":\"rzepa\",\"title\":\"Henry
-      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"language\":\"en\",\"category\":\"chemicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706372328}},
-      \n {\"id\":\"37c70518-bff4-4a1a-8811-42753232c5a4\",\"guid\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?p=21720\",\"doi\":\"https://doi.org/10.59350/3g9fe-y7702\",\"url\":\"https://www.ch.imperial.ac.uk/rzepa/blog?p=21720\",\"archive_url\":null,\"title\":\"Molecules
-      of the year \u2013 2019: twisty tetracene.\",\"summary\":\"All of the molecules
-      in this year\u2019s C&amp;EN list are fascinating in their very different ways.
-      Here I take a look at the twisty tetracene (dodecaphenyltetracene) which is
-      indeed very very twisty.[1]   Click on image to view 3D model   Unfortunately,
-      the authors point that the twisty-ness does not lead to a stable helical configuration
-      at room temperatures and so separate enantiomers cannot be isolated.\\n\",\"abstract\":null,\"published_at\":1577017802,\"updated_at\":1577017802,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-8635-8390\", \"name\": \"Henry Rzepa\"}],\"image\":\"https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2019/12/tetracene-1024x726.jpg\",\"tags\":[\"Interesting
-      Chemistry\"],\"language\":\"en\",\"reference\":[{\"doi\": \"https://doi.org/10.1002/anie.201812418\",
-      \"key\": \"ref1\"}],\"relationships\":[],\"blog_name\":\"Henry Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"blog\":{\"slug\":\"rzepa\",\"title\":\"Henry
-      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"language\":\"en\",\"category\":\"chemicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706372328}},
-      \n {\"id\":\"12ef1dcf-c511-4723-b0fa-70641fb463ce\",\"guid\":\"http://www.ch.imperial.ac.uk/rzepa/blog/?p=6438\",\"doi\":\"https://doi.org/10.59350/ca2jh-hd376\",\"url\":\"https://www.ch.imperial.ac.uk/rzepa/blog?p=6438\",\"archive_url\":null,\"title\":\"Confirming
-      the Fischer convention as a structurally correct representation of absolute
-      configuration.\",\"summary\":\"I wrote in an earlier post\_how Pauling\u2019s\_Nobel
-      prize-winning suggestion in February 1951 of a (left-handed)\_\u03B1-helical
-      structure for proteins[1] was based on the wrong absolute configuration of the
-      amino acids (hence his helix should really have been the right-handed enantiomer).
-      This was most famously established a few months later by Bijvoet\u2019s[2] definitive
-      crystallographic determination of the absolute configuration of rubidium\\n\",\"abstract\":null,\"published_at\":1331643417,\"updated_at\":1576913721,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-8635-8390\", \"name\": \"Henry Rzepa\"}],\"image\":\"http://osulibrary.orst.edu/specialcollections/images/facilities-lpoffice2-large.jpg\",\"tags\":[\"Chiroptics\",\"Historical\",\"California\",\"Chiroptical
-      Spectroscopies\",\"Computational Chemistry\"],\"language\":\"en\",\"reference\":[{\"doi\":
-      \"https://doi.org/10.1073/pnas.37.4.205\", \"key\": \"ref1\"}, {\"doi\": \"https://doi.org/10.1038/168271a0\",
-      \"key\": \"ref2\"}, {\"doi\": \"https://doi.org/10.1063/1.1700491\", \"key\":
-      \"ref3\"}, {\"doi\": \"https://doi.org/10.1063/1.1750060\", \"key\": \"ref4\"},
-      {\"doi\": \"https://doi.org/10.1021/ja803119p\", \"key\": \"ref5\"}],\"relationships\":[],\"blog_name\":\"Henry
-      Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"blog\":{\"slug\":\"rzepa\",\"title\":\"Henry
-      Rzepa's Blog\",\"description\":\"Chemistry with a twist\",\"feed_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?feed=atom\",\"home_page_url\":\"https://www.ch.imperial.ac.uk/rzepa/blog\",\"language\":\"en\",\"category\":\"chemicalSciences\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1706372328}}]"
+    content: "[{\"id\":\"f7298995-eb0c-4a74-956a-07be6d5fa1a0\",\"guid\":\"https://irights.info/?post_type=custom_webschau&p=25234\",\"doi\":\"https://doi.org/10.59350/hdzc0-hnj47\",\"url\":\"https://irights.info/webschau/bgh-bibliotheken-duerfen-digitalisierte-werke-zum-ausdrucken-und-speichern-anbieten/25234\",\"archive_url\":\"https://wayback.archive-it.org/22135/20231101173016/https://irights.info/webschau/bgh-bibliotheken-duerfen-digitalisierte-werke-zum-ausdrucken-und-speichern-anbieten/25234\",\"title\":\"BGH:
+      Bibliotheken d\xFCrfen digitalisierte Werke zum Ausdrucken und Speichern anbieten
+      (Update)\",\"summary\":\"Bibliotheken d\xFCrfen ihre Best\xE4nde auch ohne Erlaubnis
+      der Verlage digitalisieren und an elektronischen Lesepl\xE4tzen zug\xE4nglich
+      machen. Der Bundesgerichtshof hat dazu jetzt entschieden, dass sie diese auch
+      zum Ausdrucken und Speichern anbieten d\xFCrfen. Wie der Bundesgerichtshof in
+      einer Pressemitteilung bekannt gibt, hat er eine Klage des Eugen-Ulmer-Verlags
+      gegen die Technische Universit\xE4t Darmstadt heute insgesamt abgewiesen.\\n\",\"abstract\":null,\"published_at\":1429200306,\"updated_at\":1474299142,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
+      \"David Pachali\"}],\"image\":null,\"tags\":[\"Autor + Text\",\"Bildung + OER\",\"B\xFCcher\",\"E-Books
+      + H\xF6rb\xFCcher\",\"Urheberrecht\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
+      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info/\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1707292625}},
+      \n {\"id\":\"61ba75f5-cbe0-4d90-a69b-73b8c067ec76\",\"guid\":\"https://irights.info/?post_type=custom_webschau&p=26034\",\"doi\":\"https://doi.org/10.59350/q2v78-dq887\",\"url\":\"https://irights.info/webschau/eth-bildarchiv-mit-freier-lizenz-250-000-fotos-online/26034\",\"archive_url\":\"https://wayback.archive-it.org/22135/20231101173016/https://irights.info/webschau/eth-bildarchiv-mit-freier-lizenz-250-000-fotos-online/26034\",\"title\":\"ETH-Bildarchiv
+      mit freier Lizenz, 250.000 Fotos online\",\"summary\":\"Bereits\_seit einigen
+      Jahren zeigt\_die Bibliothek der ETH Z\xFCrich manche digitalisierte Sammlung
+      aus ihrem\_Bildarchiv im Netz, seit Ende Juli stehen\_rund 250.000 Bilder online\_und
+      d\xFCrfen zugleich\_weiterverwendet werden, wie die Bibliothek mitgeteilt hat.\\n\",\"abstract\":null,\"published_at\":1441695541,\"updated_at\":1474299130,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
+      \"David Pachali\"}],\"image\":null,\"tags\":[\"Creative Commons + Lizenzen\",\"Fotos
+      + Grafiken\",\"Museen + Archive\",\"Urheberrecht\",\"Bibliotheken\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
+      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info/\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1707292625}},
+      \n {\"id\":\"cd76a9c2-62dd-402d-b6eb-960b4a22ea86\",\"guid\":\"https://irights.info/?post_type=custom_webschau&p=26219\",\"doi\":\"https://doi.org/10.59350/fjx27-3em56\",\"url\":\"https://irights.info/webschau/hamburger-museum-fuer-kunst-und-gewerbe-stellt-3-000-werke-online/26219\",\"archive_url\":\"https://wayback.archive-it.org/22135/20231101173016/https://irights.info/webschau/hamburger-museum-fuer-kunst-und-gewerbe-stellt-3-000-werke-online/26219\",\"title\":\"Hamburger
+      Museum f\xFCr Kunst und Gewerbe stellt 3.000 Werke online\",\"summary\":\"Das
+      Hamburger Museum f\xFCr Kunst und Gewerbe stellt seit heute rund 3.000 digitalisierte
+      Kunstwerke aus seiner Sammlung online, wie das Museum mitteilt. Zum Teil sind
+      die Werke gemeinfrei und k\xF6nnen beliebig weiterverwendet werden. Diese sind
+      in der digitalen Sammlung an\_der Public-Domain-Widmung CC0\_zu erkennen.\\n\",\"abstract\":null,\"published_at\":1443768059,\"updated_at\":1474299121,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
+      \"David Pachali\"}],\"image\":null,\"tags\":[\"Fotos + Grafiken\",\"Museen +
+      Archive\",\"Urheberrecht\",\"Gemeinfreiheit\",\"Hamburger Museum F\xFCr Kunst
+      Und Gewerbe\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
+      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info/\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1707292625}},
+      \n {\"id\":\"8e4b05a2-2a26-4da7-9da5-17f5fcc5c292\",\"guid\":\"https://irights.info/?post_type=custom_webschau&p=26347\",\"doi\":\"https://doi.org/10.59350/4pzh3-hah52\",\"url\":\"https://irights.info/webschau/linguisten-verlassen-wissenschaftsverlag-elsevier/26347\",\"archive_url\":\"https://wayback.archive-it.org/22135/20231101173016/https://irights.info/webschau/linguisten-verlassen-wissenschaftsverlag-elsevier/26347\",\"title\":\"Linguisten
+      verlassen Wissenschaftsverlag Elsevier\",\"summary\":\"Die Macher der sprachwissenschaftlichen
+      Fachzeitschrift \u201ELingua\u201C protestieren gegen den Wissenschaftsverlag
+      Elsevier, wie \u201EInside\_Higher Ed\u201C berichtet. Sechs Herausgeber und
+      die 31 Mitglieder des wissenschaftlichen Beirats haben demnach gemeinsam beschlossen,
+      ihre Aufgaben an dem Journal ruhen zu lassen, das bei Elsevier erscheint.\\n\",\"abstract\":null,\"published_at\":1446545290,\"updated_at\":1474299109,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
+      \"David Pachali\"}],\"image\":null,\"tags\":[\"Autor + Text\",\"Urheberrecht\",\"Wissen
+      + Open Access\",\"Wissenschaft\",\"Bibliotheken\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
+      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info/\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1707292625}},
+      \n {\"id\":\"94944446-ce7e-4ce7-98c1-5035f39a7440\",\"guid\":\"https://irights.info/?post_type=custom_webschau&p=26592\",\"doi\":\"https://doi.org/10.59350/4crfb-3dg56\",\"url\":\"https://irights.info/webschau/arte-ueber-das-digitale-gedaechtnis-speichermedien-der-zukunft/26592\",\"archive_url\":\"https://wayback.archive-it.org/22135/20231101173016/https://irights.info/webschau/arte-ueber-das-digitale-gedaechtnis-speichermedien-der-zukunft/26592\",\"title\":\"Arte
+      zeigt Doku \u201EDas digitale Ged\xE4chtnis \u2013 Speichermedien der Zukunft\u201C\",\"summary\":\"In
+      der Arte-Mediathek ist derzeit die Dokumentation \u201EUnser digitales Ged\xE4chtnis
+      \u2013 Speichermedien der Zukunft\u201C zu sehen. In der Beschreibung zur Doku
+      des franz\xF6sischen Filmemachers Vincent Amouroux hei\xDFt es:   Wie lassen
+      sich Daten dauerhaft speichern, sei es f\xFCr ein Menschenleben oder \xFCber
+      Generationen hinweg? \xDCberall auf der Welt besch\xE4ftigen sich Labors der
+      Spitzenforschung mit neuen Speichermedien.\\n\",\"abstract\":null,\"published_at\":1450086699,\"updated_at\":1474299084,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
+      \"David Pachali\"}],\"image\":null,\"tags\":[\"Museen + Archive\",\"Technologie\",\"Urheberrecht\",\"Kulturelles
+      Ged\xE4chtnis\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
+      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info/\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1707292625}},
+      \n {\"id\":\"71700c3e-9ac8-4ee8-b164-9266cb8e41ee\",\"guid\":\"https://irights.info/?post_type=custom_webschau&p=26679\",\"doi\":\"https://doi.org/10.59350/548vg-14d96\",\"url\":\"https://irights.info/webschau/new-york-public-library-laedt-ein-ihre-digitalisate-frei-zu-verwenden/26679\",\"archive_url\":\"https://wayback.archive-it.org/22135/20231101173016/https://irights.info/webschau/new-york-public-library-laedt-ein-ihre-digitalisate-frei-zu-verwenden/26679\",\"title\":\"New
+      York Public Library l\xE4dt ein, ihre Digitalisate frei zu verwenden\",\"summary\":\"Die
+      New York Public Library hat am Mittwoch das gemacht, was vor ein paar Jahren
+      das Rijksmuseum in Amsterdam mit so gro\xDFem Erfolg vorgemacht hat: Sie stellen
+      Digitalisate gemeinfreier Inhalte in hoher Aufl\xF6sung frei zu Verf\xFCgung.
+      Und zwar \xFCber 187.000 (!) digitalisierte Fotos, Postkarten, Karten, Drucke
+      usw.\\n\",\"abstract\":null,\"published_at\":1452238936,\"updated_at\":1474299073,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
+      \"Markus Trapp\"}],\"image\":\"https://irights.info/wp-content/uploads/2016/01/nypl-digital-collections-490x320.jpg\",\"tags\":[\"Fotos
+      + Grafiken\",\"Museen + Archive\",\"Urheberrecht\",\"Wissen + Open Access\",\"Bibliotheken\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
+      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info/\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1707292625}},
+      \n {\"id\":\"c2cce422-61ec-4930-84d8-46f8cee9ed5f\",\"guid\":\"https://irights.info/?post_type=custom_webschau&p=26854\",\"doi\":\"https://doi.org/10.59350/pzzbb-07k33\",\"url\":\"https://irights.info/webschau/kurz-verlinkt-forschungsdaten-stallman-vs-jacobs-privacy-shield/26854\",\"archive_url\":\"https://wayback.archive-it.org/22135/20231101173016/https://irights.info/webschau/kurz-verlinkt-forschungsdaten-stallman-vs-jacobs-privacy-shield/26854\",\"title\":\"Kurz
+      verlinkt: Forschungsdaten, Stallman vs. Jacobs, Privacy Shield\",\"summary\":\"<strong>\\n
+      Forschungsdaten\\n</strong>\\naus Universit\xE4ten und Forschungseinrichtungen
+      bleiben unzug\xE4nglich oder landen in Insell\xF6sungen einzelner Projekte \u2013
+      was fehlt, sind gemeinsame Strategien und Standards, berichtet Astrid Herbold
+      im Tagesspiegel und merkt passend\_an: \u201EDas klingt komplizierter, als es
+      ist.\\n\",\"abstract\":null,\"published_at\":1454486040,\"updated_at\":1474299064,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
+      \"David Pachali\"}],\"image\":null,\"tags\":[\"Datenschutz + Sicherheit\",\"Politik
+      + Recht\",\"Software + Open Source\",\"Wissen + Open Access\",\"Wissenschaft\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
+      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info/\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1707292625}},
+      \n {\"id\":\"ac1c5967-1264-42cb-97a4-ee03d7c1b62d\",\"guid\":\"https://irights.info/?post_type=custom_webschau&p=26865\",\"doi\":\"https://doi.org/10.59350/nn7j6-7fh09\",\"url\":\"https://irights.info/webschau/kurz-verlinkt-kunstgeschichte-ip-adresse-blindenvertrag/26865\",\"archive_url\":\"https://wayback.archive-it.org/22135/20231101173016/https://irights.info/webschau/kurz-verlinkt-kunstgeschichte-ip-adresse-blindenvertrag/26865\",\"title\":\"Kurz
+      verlinkt: Kunstgeschichte, IP-Adresse, WIPO-Blindenvertrag\",\"summary\":\"Der\\n<strong>\\n
+      Kanon\\n</strong>\\n<strong>\\n der Kunstgeschichte\\n</strong>\\nwird durch
+      mehrere Entwicklungen aufgewirbelt, schreibt Annekathrin Kohout: Kurioses und
+      Obsz\xF6nes wird besonders gern im Netz geteilt; was als Meisterwerk galt, durch
+      Meme und Mash-ups banalisiert. Und alles wird mit allem in Beziehung gesetzt.\\n\",\"abstract\":null,\"published_at\":1454661425,\"updated_at\":1474299049,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
+      \"David Pachali\"}],\"image\":null,\"tags\":[\"Datenschutz + Sicherheit\",\"Gesellschaft
+      + Kunst\",\"Politik + Recht\",\"TPP\",\"WIPO-Blindenvertrag\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
+      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info/\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1707292625}},
+      \n {\"id\":\"f16060da-6f9e-421e-bc25-dfb5ecaa5aaa\",\"guid\":\"https://irights.info/?post_type=custom_webschau&p=26874\",\"doi\":\"https://doi.org/10.59350/zjp04-hmb24\",\"url\":\"https://irights.info/webschau/kurz-verlinkt-standortvorteil-open-source-grosses-verlagssterben-dark-content/26874\",\"archive_url\":\"https://wayback.archive-it.org/22135/20231101173016/https://irights.info/webschau/kurz-verlinkt-standortvorteil-open-source-grosses-verlagssterben-dark-content/26874\",\"title\":\"Kurz
+      verlinkt: Standortvorteil Open Source, gro\xDFes Verlagssterben, Dark Content\",\"summary\":\"Freie
+      Software ist nicht nur etwas f\xFCr Menschenfreunde: Laut Christoph Kappes kann
+      sie ein handfester wirtschaftlicher\\n<strong>\\n Standortvorteil\\n</strong>\\nsein.
+      Durch die verteilte Arbeitsweise k\xF6nnen Unternehmen\_Anwendungen schneller
+      entwickeln und Kosten sparen. Der Artikel ist der Anfang einer Wirtschaftskolumne
+      in Merton, einem neuen\_Onlinemagazin des Stifterverbandes.\\n\",\"abstract\":null,\"published_at\":1454914842,\"updated_at\":1474299033,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
+      \"Valie Djordjevic\"}],\"image\":null,\"tags\":[\"Creative Commons + Lizenzen\",\"Facebook
+      + Social Networks\",\"Museen + Archive\",\"\xD6konomie\",\"Software + Open Source\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
+      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info/\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1707292625}},
+      \n {\"id\":\"955fbb96-2a12-42f8-b269-f0a4d3fc6206\",\"guid\":\"https://irights.info/?post_type=custom_webschau&p=27127\",\"doi\":\"https://doi.org/10.59350/jsrm0-m1194\",\"url\":\"https://irights.info/webschau/kurz-verlinkt-apples-verschluesselung-piraterie-in-der-wissenschaft/27127\",\"archive_url\":\"https://wayback.archive-it.org/22135/20231101173016/https://irights.info/webschau/kurz-verlinkt-apples-verschluesselung-piraterie-in-der-wissenschaft/27127\",\"title\":\"Pl\xE4doyer
+      zur WLAN-St\xF6rerhaftung, Sharing unter Forschern, Apples Verschl\xFCsselung\",\"summary\":\"Im
+      Streit um die\\n<strong>\\n WLAN-St\xF6rerhaftung\\n</strong>\\nhat der Generalanwalt
+      am Europ\xE4ischen Gerichtshof sein\\n<strong>\\n Pl\xE4doyer\\n</strong>\\nver\xF6ffentlicht.
+      Er sieht einen gewerblichen WLAN-Betreiber unter anderem nicht in der Pflicht,
+      sein WLAN mit einem Passwort abzuriegeln, um m\xF6gliche Urheberrechts\xADverletzungen
+      dar\xFCber zu verhindern.\\n\",\"abstract\":null,\"published_at\":1458289209,\"updated_at\":1474298983,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
+      \"Valie Djordjevic\"}],\"image\":null,\"tags\":[\"Filesharing + Streaming\",\"Urheberrecht\",\"Wissen
+      + Open Access\",\"Wissenschaft\",\"Apple\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
+      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info/\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1707292625}},
+      \n {\"id\":\"85d0010d-2800-4ca6-b432-9229d93dacd0\",\"guid\":\"https://irights.info/?post_type=custom_webschau&p=27361\",\"doi\":\"https://doi.org/10.59350/4cfq5-t4c79\",\"url\":\"https://irights.info/webschau/smarte-diktatur-50-shades-of-open-wikipedia-piraten-in-bangladesch/27361\",\"archive_url\":\"https://wayback.archive-it.org/22135/20231101173016/https://irights.info/webschau/smarte-diktatur-50-shades-of-open-wikipedia-piraten-in-bangladesch/27361\",\"title\":\"Smarte
+      Diktatur, 50 Shades of Open, Wikipedia-Piraten in Bangladesch\",\"summary\":\"Der
+      Soziologe\\n<strong>\\n Harald Welzer\\n</strong>\\nwarnt in seinem neuen Buch
+      vor einer \u201E\\n<strong>\\n smarten Diktatur\\n</strong>\\n\u201C und erl\xE4utert
+      im Interview im\\n<em>\\n Deutschlandradio\\n</em>\\nseine These (\u201EHerr
+      Welzer, unter einem Untergang pro Buch machen Sie es nicht.\u201C). Etwas bem\xFCht
+      liest sich die Erwiderung auf \u201E\\n<strong>\\n 11 irre Thesen\\n</strong>\\nzur
+      Digitalisierung\u201C bei\\n<em>\\n Gr\xFCnderszene\\n</em>\\n. Bemerkenswert
+      an Welzers Thesen ist vielleicht weniger das\\n\",\"abstract\":null,\"published_at\":1462177316,\"updated_at\":1474298959,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
+      \"David Pachali\"}],\"image\":null,\"tags\":[\"Software + Open Source\",\"Urheberrecht\",\"Wissen
+      + Open Access\",\"Harald Welzer\",\"Netzneutralit\xE4t\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
+      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info/\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1707292625}},
+      \n {\"id\":\"61d0dd8e-9b48-47db-9dcd-3c77cadf33bb\",\"guid\":\"https://irights.info/sandbox/?page_id=6248\",\"doi\":\"https://doi.org/10.59350/h56ae-ndj49\",\"url\":\"https://irights.info/artikel/anhrung-zum-neuen-urheberrecht-wissenschaftsschranken-und-privatkopie/6248\",\"archive_url\":\"https://wayback.archive-it.org/22135/20231101173016/https://irights.info/artikel/anhrung-zum-neuen-urheberrecht-wissenschaftsschranken-und-privatkopie/6248\",\"title\":\"Anh\xF6rung
+      zum neuen Urheberrecht: Wissenschaftsschranken und Privatkopie\",\"summary\":\"Vergangenen
+      Montag wurden die Anh\xF6rungen zur Novelle des Urheberrechts durch den so genannten
+      Zweiten Korb fortgesetzt. Hierbei ging es vor allem um besondere Schranken f\xFCr
+      Bildung und Wissenschaft, die Zukunft der Privatkopie und die Einf\xFChrung
+      einer Bagatellklausel. Auch ein Mitglied der iRights-Redaktion war als Sachverst\xE4ndiger
+      geladen.\\n\",\"abstract\":null,\"published_at\":1164754800,\"updated_at\":1474298846,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
+      \"Till Kreutzer\"}],\"image\":null,\"tags\":[\"News\",\"Politik + Recht\",\"Urheberrecht\",\"Wissen
+      + Open Access\",\"Wissenschaft\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
+      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info/\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1707292625}},
+      \n {\"id\":\"0e85dafb-f2b6-47ae-908b-ea1dc6ef9c2a\",\"guid\":\"https://irights.info/sandbox/?page_id=6249\",\"doi\":\"https://doi.org/10.59350/an7sc-zcy85\",\"url\":\"https://irights.info/artikel/folgerecht-berarbeitet-wissenschaftsparagraf-verlngert/6249\",\"archive_url\":\"https://wayback.archive-it.org/22135/20231101173016/https://irights.info/artikel/folgerecht-berarbeitet-wissenschaftsparagraf-verlngert/6249\",\"title\":\"Folgerecht
+      \xFCberarbeitet, \u201CWissenschaftsparagraf\u201D verl\xE4ngert\",\"summary\":\"Im
+      Zuge der andauernden \xDCberarbeitung des Urheberrechtsgesetzes wurde die G\xFCltigkeit
+      des Paragrafen 52a, der Ausnahmen f\xFCr Unterrichtszwecke vorsieht, bis Ende
+      2008 verl\xE4ngert. Der Bundestag ist damit der Empfehlung des Rechtsausschusses
+      gefolgt. Von der \xD6ffentlichkeit weitgehend unbemerkt, hat am 10. November
+      der Bundestag das F\xFCnfte Gesetz zur \xC4nderung des Urheberrechtsgesetzes
+      beschlossen.\\n\",\"abstract\":null,\"published_at\":1165014000,\"updated_at\":1474298830,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
+      \"Robert A. Gehring\"}],\"image\":null,\"tags\":[\"Politik + Recht\",\"Urheberrecht\",\"Wissen
+      + Open Access\",\"Wissenschaft\",\"Intranet-Paragraf\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
+      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info/\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1707292625}},
+      \n {\"id\":\"c903e60d-9307-434b-87dd-31988c6bf033\",\"guid\":\"https://irights.info/sandbox/?page_id=6267\",\"doi\":\"https://doi.org/10.59350/ctj7v-m1c62\",\"url\":\"https://irights.info/artikel/tauziehen-um-zugang-zu-wissenschaftlichen-publikationen/6267\",\"archive_url\":\"https://wayback.archive-it.org/22135/20231101173016/https://irights.info/artikel/tauziehen-um-zugang-zu-wissenschaftlichen-publikationen/6267\",\"title\":\"Tauziehen
+      um Zugang zu wissenschaftlichen Publikationen\",\"summary\":\"Der US-Verlegerverband
+      AAP beauftragt eine PR-Agentur, Stimmung gegen Open Access zu machen. In der
+      EU erarbeitet eine Kommission Empfehlungen zur Open-Access-Publikation von Forschungsergebnissen.
+      Und in Deutschland legen Bibliotheken und Verlage ihren Streit \xFCber die Bereitstellung
+      wissenschaftlicher Publikationen bei.\\n\",\"abstract\":null,\"published_at\":1171062000,\"updated_at\":1474298816,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
+      \"Robert A. Gehring\"}],\"image\":null,\"tags\":[\"News\",\"Urheberrecht\",\"Wissen
+      + Open Access\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
+      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info/\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1707292625}},
+      \n {\"id\":\"7f619644-e3df-40d3-bffc-ef9791c3ff02\",\"guid\":\"https://irights.info/sandbox/?page_id=6268\",\"doi\":\"https://doi.org/10.59350/7m5hw-01w84\",\"url\":\"https://irights.info/artikel/wissenschaft-einigung-zum-kopienversand-schafft-mehr-probleme-als-sie-lst/6268\",\"archive_url\":\"https://wayback.archive-it.org/22135/20231101173016/https://irights.info/artikel/wissenschaft-einigung-zum-kopienversand-schafft-mehr-probleme-als-sie-lst/6268\",\"title\":\"Wissenschaft:
+      Einigung zum Kopienversand schafft mehr Probleme, als sie l\xF6st\",\"summary\":\"Das
+      Aktionsb\xFCndnis \u201EUrheberrecht f\xFCr Bildung und Wissenschaft\u201D kritisiert
+      die Vereinbarung \xFCber den Zugang zu wissenschaftlichen Fachpublikationen,
+      die Bibliothekenverband und B\xF6rsenverein getroffen haben. Sie schaffe \u201Ebeim
+      elektronischen Dokumentenversand mehr Probleme als die l\xF6st\u201D, hei\xDFt
+      es in der Pressemitteilung des B\xFCndnisses.\\n\",\"abstract\":null,\"published_at\":1171321200,\"updated_at\":1474298806,\"indexed_at\":1,\"indexed\":true,\"authors\":[{\"name\":
+      \"Robert A. Gehring\"}],\"image\":null,\"tags\":[\"News\",\"Urheberrecht\",\"Wissen
+      + Open Access\",\"Wissenschaft\",\"Kopienversand\"],\"language\":\"de\",\"reference\":[],\"relationships\":[],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"blog\":{\"slug\":\"irights\",\"title\":\"iRights.info\",\"description\":\"Urheberrecht
+      und kreatives Schaffen in der digitalen Welt\",\"feed_url\":\"https://irights.info/feed/atom\",\"home_page_url\":\"https://irights.info/\",\"language\":\"de\",\"category\":\"law\",\"status\":\"active\",\"generator\":\"WordPress\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"updated_at\":1707292625}}]"
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 84d3d8965b94fad8-DUS
+      - 852f2f09e88a161a-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -453,7 +195,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 29 Jan 2024 19:22:48 GMT
+      - Fri, 09 Feb 2024 21:25:14 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -465,9 +207,9 @@ interactions:
       Via:
       - kong/2.8.1
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '64'
+      - '54'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:

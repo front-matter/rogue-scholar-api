@@ -397,19 +397,17 @@ async def test_post_as_bibtex_no_doi():
     result = await response.get_data(as_text=True)
     assert (
         result
-        == """@article{10.59350/sfzv4-xdb68,
-    abstract = {Con frecuencia a la editorial llegan textos que terminan siendo muy diferentes a la idea de libro que el autor traía inicialmente. Esto se debe en parte, a que es insuficiente el abordaje de las clasificaciones de textos científicos que se divulga institucionalmente.
-},
-    author = {Fernández, Norbisley},
+        == """@article{c314bfea-2151-4ccc-8fa8-dd0d1000dfbe,
+    abstract = {Das demokratische Haus in Deutschland brennt. Es ist höchste Zeit, die Instrumente der streitbaren Demokratie gegen Landesverbände der AfD einzusetzen, die mit hoher Wahrscheinlichkeit verfassungswidrig sind, wie die in Thüringen, Sachsen und Sachsen-Anhalt. Warum die Voraussetzungen für Grundrechtsverwirkung und Parteiverbot dort vorliegen, und die Verfassungstreue es auch verlangt, sie zu beantragen, soll dieser dreiteilige Beitrag begründen.},
+    author = {Hong, Mathias},
     copyright = {https://creativecommons.org/licenses/by/4.0/legalcode},
-    doi = {10.59350/sfzv4-xdb68},
-    journal = {Edición y comunicación de la Ciencia},
-    language = {es},
-    month = oct,
-    title = {¿Qué libros científicos publicamos en Ediciones Universidad de Camagüey?},
-    url = {https://norbisley.wordpress.com/2023/10/06/que-libros-cientificos-publicamos},
-    urldate = {2023-10-06},
-    year = {2023}
+    journal = {Verfassungsblog},
+    language = {de},
+    month = feb,
+    title = {Grundrechtsverwirkung und Parteiverbote gegen radikale AfD-Landesverbände (Teil\xa0III)},
+    url = {https://verfassungsblog.de/grundrechtsverwirkung-und-parteiverbote-gegen-radikale-afd-landesverbande-iii},
+    urldate = {2024-02-08},
+    year = {2024}
 }"""
     )
 

@@ -2,7 +2,7 @@
 import socket
 import asyncio
 from typing import Optional
-import requests
+import httpx
 import feedparser
 import re
 from bs4 import BeautifulSoup as bs4
@@ -26,7 +26,7 @@ async def find_feed(url: str) -> Optional[str]:
     """Find RSS feed in homepage. Based on https://gist.github.com/alexmill/9bc634240531d81c3abe
     Prefer JSON Feed over Atom over RSS"""
     url = normalize_url(url)
-    raw = requests.get(url).text
+    raw = httpx.get(url, follow_redirects=True).text
     html = bs4(raw, features="lxml")
     feeds = html.findAll("link", rel="alternate")
     if len(feeds) == 0:

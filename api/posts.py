@@ -1,9 +1,8 @@
 """Posts module."""
 from os import environ
 from furl import furl
-import aiohttp
+import httpx
 import asyncio
-import requests
 import re
 import pydash as py_
 import nh3
@@ -113,14 +112,14 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
         start_page = (page - 1) * 50 if page > 0 else 0
         end_page = (page - 1) * 50 + 50 if page > 0 else 50
         per_page = 50
-        
+
         # limit number of pages to 1 (10 posts) for blogs with pending status
         if blog.get("status", None) == "pending":
             page = 1
             start_page = 0
             end_page = 10
             per_page = 10
-            
+
         # handle pagination depending on blogging platform and whether we use their API
         match generator:
             case "WordPress":
@@ -187,101 +186,88 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
         feed_url = url.set(params).url
         blog_with_posts = {}
         # print(feed_url)
+
         # use pagination of results only for non-API blogs
         if params:
             start_page = 0
             end_page = per_page
 
         if generator == "Substack":
-            async with aiohttp.ClientSession() as session:
-                async with session.get(
-                    feed_url, timeout=30, raise_for_status=True
-                ) as resp:
-                    posts = await resp.json()
-                    # only include posts that have been modified since last update
-                    if not update_all:
-                        posts = filter_updated_posts(posts, blog, key="post_date")
-                    extract_posts = [extract_substack_post(x, blog) for x in posts]
+            async with httpx.AsyncClient() as client:
+                response = await client.get(feed_url)
+                posts = response.json()
+                # only include posts that have been modified since last update
+                if not update_all:
+                    posts = filter_updated_posts(posts, blog, key="post_date")
+                extract_posts = [extract_substack_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "WordPress" and blog["use_api"]:
-            async with aiohttp.ClientSession() as session:
-                async with session.get(
-                    feed_url, timeout=30, raise_for_status=True
-                ) as resp:
-                    posts = await resp.json()
-                    if not update_all:
-                        posts = filter_updated_posts(posts, blog, key="modified_gmt")
-                    extract_posts = [extract_wordpress_post(x, blog) for x in posts]
+            async with httpx.AsyncClient() as client:
+                response = await client.get(feed_url)
+                posts = response.json()
+                if not update_all:
+                    posts = filter_updated_posts(posts, blog, key="modified_gmt")
+                extract_posts = [extract_wordpress_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "WordPress.com" and blog["use_api"]:
-            async with aiohttp.ClientSession() as session:
-                async with session.get(
-                    feed_url, timeout=30, raise_for_status=True
-                ) as resp:
-                    json = await resp.json()
-                    posts = json.get("posts", [])
-                    if not update_all:
-                        posts = filter_updated_posts(posts, blog, key="modified")
-                    extract_posts = [extract_wordpresscom_post(x, blog) for x in posts]
+            async with httpx.AsyncClient() as client:
+                response = await client.get(feed_url)
+                json = response.json()
+                posts = json.get("posts", [])
+                if not update_all:
+                    posts = filter_updated_posts(posts, blog, key="modified")
+                extract_posts = [extract_wordpresscom_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "Ghost" and blog["use_api"]:
             headers = {"Accept-Version": "v5.0"}
-            async with aiohttp.ClientSession() as session:
-                async with session.get(
-                    feed_url, headers=headers, timeout=30, raise_for_status=True
-                ) as resp:
-                    json = await resp.json()
-                    posts = json.get("posts", [])
-                    if not update_all:
-                        posts = filter_updated_posts(posts, blog, key="updated_at")
-                    extract_posts = [extract_ghost_post(x, blog) for x in posts]
+            async with httpx.AsyncClient() as client:
+                response = await client.get(feed_url, headers=headers)
+                json = response.json()
+                posts = json.get("posts", [])
+                if not update_all:
+                    posts = filter_updated_posts(posts, blog, key="updated_at")
+                extract_posts = [extract_ghost_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/feed+json":
-            async with aiohttp.ClientSession() as session:
-                async with session.get(
-                    feed_url, timeout=30, raise_for_status=True
-                ) as resp:
-                    json = await resp.json()
-                    posts = json.get("items", [])
-                    if not update_all:
-                        posts = filter_updated_posts(posts, blog, key="date_modified")
-                    posts = posts[start_page:end_page]
-            extract_posts = [extract_json_feed_post(x, blog) for x in posts]
+            async with httpx.AsyncClient() as client:
+                response = await client.get(feed_url)
+                json = response.json()
+                posts = json.get("items", [])
+                if not update_all:
+                    posts = filter_updated_posts(posts, blog, key="date_modified")
+                posts = posts[start_page:end_page]
+                extract_posts = [extract_json_feed_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/atom+xml":
-            async with aiohttp.ClientSession() as session:
-                async with session.get(
-                    feed_url, timeout=30, raise_for_status=True
-                ) as resp:
-                    # fix malformed xml
-                    xml = fix_xml(await resp.read())
-                    json = xmltodict.parse(
-                        xml, dict_constructor=dict, force_list={"entry"}
-                    )
-                    posts = py_.get(json, "feed.entry", [])
-                    if not update_all:
-                        posts = filter_updated_posts(posts, blog, key="published")
-                    posts = posts[start_page:end_page]
+            async with httpx.AsyncClient() as client:
+                response = await client.get(feed_url)
+                # fix malformed xml
+                xml = fix_xml(response.read())
+                json = xmltodict.parse(
+                    xml, dict_constructor=dict, force_list={"entry"}
+                )
+                posts = py_.get(json, "feed.entry", [])
+                if not update_all:
+                    posts = filter_updated_posts(posts, blog, key="published")
+                posts = posts[start_page:end_page]
             extract_posts = [
                 extract_atom_post(jsn.loads(jsn.dumps(x)), blog) for x in posts
             ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/rss+xml":
-            async with aiohttp.ClientSession() as session:
-                async with session.get(
-                    feed_url, timeout=30, raise_for_status=True
-                ) as resp:
-                    # fix malformed xml
-                    xml = fix_xml(await resp.read())
-                    json = xmltodict.parse(
-                        xml, dict_constructor=dict, force_list={"category", "item"}
-                    )
-                    posts = py_.get(json, "rss.channel.item", [])
-                    if not update_all:
-                        posts = filter_updated_posts(posts, blog, key="pubDate")
-                    if blog.get("filter", None):
-                        posts = filter_posts(posts, blog, key="category")
-                    posts = posts[start_page:end_page]
+            async with httpx.AsyncClient() as client:
+                response = await client.get(feed_url)
+                # fix malformed xml
+                xml = fix_xml(response.read())
+                json = xmltodict.parse(
+                    xml, dict_constructor=dict, force_list={"category", "item"}
+                )
+                posts = py_.get(json, "rss.channel.item", [])
+                if not update_all:
+                    posts = filter_updated_posts(posts, blog, key="pubDate")
+                if blog.get("filter", None):
+                    posts = filter_posts(posts, blog, key="category")
+                posts = posts[start_page:end_page]
             extract_posts = [
                 extract_rss_post(jsn.loads(jsn.dumps(x)), blog) for x in posts
             ]
@@ -780,7 +766,8 @@ async def extract_rss_post(post, blog):
         if (
             not image
             and len(images) > 0
-            and isinstance(images[0].get("width", None), int) and int(images[0].get("width", 200)) >= 200
+            and isinstance(images[0].get("width", None), int)
+            and int(images[0].get("width", 200)) >= 200
             and furl(images[0].get("src", None)).host not in ["latex.codecogs.com"]
         ):
             image = images[0].get("src", None)
@@ -937,7 +924,7 @@ def get_references(content_html: str):
             """Format reference."""
             if validate_url(url) == "DOI":
                 doi = normalize_doi(url)
-                response = requests.get(
+                response = httpx.get(
                     doi,
                     headers={"Accept": "application/vnd.citationstyles.csl+json"},
                     timeout=10,
@@ -958,7 +945,7 @@ def get_references(content_html: str):
                     }
                 )
             elif validate_url(url) == "URL":
-                response = requests.head(url, timeout=10)
+                response = httpx.head(url, timeout=10)
                 # check that URL resolves.
                 # TODO: check for redirects
                 if response.status_code in [404]:
