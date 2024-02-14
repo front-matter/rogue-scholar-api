@@ -349,7 +349,7 @@ async def post(slug: str, suffix: Optional[str] = None):
     if slug == "unregistered":
         response = (
             supabase.table("posts")
-            .select(postsWithConfigSelect)
+            .select(postsWithContentSelect)
             .not_.is_("blogs.prefix", "null")
             .is_("doi", "null")
             .order("published_at", desc=True)
@@ -360,7 +360,7 @@ async def post(slug: str, suffix: Optional[str] = None):
     elif slug == "updated":
         response = (
             supabase.table("posts")
-            .select(postsWithConfigSelect)
+            .select(postsWithContentSelect)
             .not_.is_("blogs.prefix", "null")
             .is_("updated", True)
             .not_.is_("doi", "null")
