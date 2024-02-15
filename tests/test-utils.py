@@ -21,6 +21,7 @@ from api.utils import (
     write_epub,
     write_pdf,
     format_markdown,
+    is_valid_url,
 )
 
 
@@ -371,6 +372,13 @@ def test_normalize_url_with_slash_param():
     result = normalize_url(url)
     assert result == "https://www.ch.imperial.ac.uk/rzepa/blog?p=25304"
 
+
+def test_is_valid_url():
+    """is valid url"""
+    assert True == is_valid_url("https://www.example.com")
+    assert True == is_valid_url("http://www.example.com")
+    assert True == is_valid_url("//www.example.com")
+    
 
 def test_get_markdown():
     """get markdown from html"""

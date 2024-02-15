@@ -519,9 +519,12 @@ def get_src_url(src: str, url: str, home_page_url: str):
 
 
 def is_valid_url(url: str) -> bool:
-    """Check if url is valid"""
+    """Check if url is valid. Use https as default scheme
+    for relative urls starting with //"""
     try:
         f = furl(url)
+        if f.scheme is None and f.host is not None:
+            return True
         return f.scheme in ["http", "https", "data", "mailto"]
     except Exception:
         return False
