@@ -352,7 +352,7 @@ async def post(slug: str, suffix: Optional[str] = None):
             .not_.is_("blogs.prefix", "null")
             .is_("doi", "null")
             .order("published_at", desc=True)
-            .limit(20)
+            .limit(40)
             .execute()
         )
         return jsonify(response.data)
@@ -364,7 +364,7 @@ async def post(slug: str, suffix: Optional[str] = None):
             .is_("updated", True)
             .not_.is_("doi", "null")
             .order("updated_at", desc=True)
-            .limit(20)
+            .limit(40
             .execute()
         )
         return jsonify({"total-results": response.count, "items": response.data})
