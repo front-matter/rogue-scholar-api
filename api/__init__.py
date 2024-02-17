@@ -25,7 +25,6 @@ from quart_cors import cors
 from api.supabase import (
     supabase_client as supabase,
     blogWithPostsSelect,
-    postsWithConfigSelect,
     postsWithContentSelect,
 )
 from api.typesense import typesense_client as typesense
@@ -360,7 +359,7 @@ async def post(slug: str, suffix: Optional[str] = None):
     elif slug == "updated":
         response = (
             supabase.table("posts")
-            .select(postsWithContentSelect)
+            .select(postsWithContentSelect, count="exact")
             .not_.is_("blogs.prefix", "null")
             .is_("updated", True)
             .not_.is_("doi", "null")
@@ -368,7 +367,7 @@ async def post(slug: str, suffix: Optional[str] = None):
             .limit(20)
             .execute()
         )
-        return jsonify(response.data)
+        return jsonify({"total-results": response.count, "items": response.data})
     elif slug in prefixes and suffix:
         path = suffix.split(".")
         if len(path) > 1 and path[-1] in [
