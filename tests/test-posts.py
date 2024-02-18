@@ -685,13 +685,13 @@ def test_get_references():
     <a href="https://doi.org/10.13003/c23rw1d9">https://doi.org/10.13003/c23rw1d9</a></p>"""
 
     result = get_references(html)
-    assert len(result) == 0
-    # assert result[0] == {
-    #     "key": "ref1",
-    #     "doi": "https://doi.org/10.53731/ar11b-5ea39",
-    #     "title": "Rogue Scholar has an API",
-    #     "publicationYear": "2023",
-    # }
+    assert len(result) == 2
+    assert result[0] == {
+        "key": "ref1",
+        "doi": "https://doi.org/10.53731/ar11b-5ea39",
+        "title": "Rogue Scholar has an API",
+        "publicationYear": "2023",
+    }
 
 
 def test_get_relationships():
