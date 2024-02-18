@@ -243,9 +243,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                 response = await client.get(feed_url)
                 # fix malformed xml
                 xml = fix_xml(response.read())
-                json = xmltodict.parse(
-                    xml, dict_constructor=dict, force_list={"entry"}
-                )
+                json = xmltodict.parse(xml, dict_constructor=dict, force_list={"entry"})
                 posts = py_.get(json, "feed.entry", [])
                 if not update_all:
                     posts = filter_updated_posts(posts, blog, key="published")
@@ -928,6 +926,7 @@ def get_references(content_html: str):
                     doi,
                     headers={"Accept": "application/vnd.citationstyles.csl+json"},
                     timeout=10,
+                    follow_redirects=True,
                 )
                 if response.status_code not in [200, 301, 302]:
                     return None
