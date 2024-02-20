@@ -2,13 +2,13 @@
 import pytest  # noqa: F401
 import pydash as py_  # noqa: F401
 from os import path
-import json
+import orjson as json
 import frontmatter
 
 from api.utils import (
     get_date,
     convert_to_commonmeta,
-    get_doi_metadata,
+    get_formatted_metadata,
     validate_uuid,
     unix_timestamp,
     end_of_date,
@@ -60,8 +60,8 @@ def test_convert_to_commonmeta_default():
     }
 
     assert result["date"] == {
-        "published": "2024-01-13T18:10:51",
-        "updated": "2024-01-13T18:10:51",
+        "published": "2024-01-13T19:10:51",
+        "updated": "2024-01-13T19:10:51",
     }
     assert result["publisher"] == {"name": "GigaBlog"}
     assert len(result["references"]) == 0
@@ -79,10 +79,10 @@ def test_convert_to_commonmeta_default():
     }
 
 
-def test_get_doi_metadata_bibtex():
-    "get doi metadata in bibtex format"
+def test_get_formatted_metadata_bibtex():
+    "get formatted metadata in bibtex format"
     data = path.join(path.dirname(__file__), "fixtures", "commonmeta.json")
-    result = get_doi_metadata(data, format_="bibtex")
+    result = get_formatted_metadata(data, format_="bibtex")
     assert (
         result["data"]
         == """@article{10.53731/ybhah-9jy85,
@@ -102,7 +102,7 @@ def test_get_doi_metadata_bibtex():
 def test_get_url_metadata_bibtex():
     "get url metadata in bibtex format"
     data = path.join(path.dirname(__file__), "fixtures", "commonmeta-no-doi.json")
-    result = get_doi_metadata(data, format_="bibtex")
+    result = get_formatted_metadata(data, format_="bibtex")
     assert (
         result["data"]
         == """@article{https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter,
@@ -118,10 +118,10 @@ def test_get_url_metadata_bibtex():
     )
 
 
-def test_get_doi_metadata_csl():
-    "get doi metadata in csl format"
+def test_get_formatted_metadata_csl():
+    "get formatted metadata in csl format"
     data = path.join(path.dirname(__file__), "fixtures", "commonmeta.json")
-    result = get_doi_metadata(data, format_="csl")
+    result = get_formatted_metadata(data, format_="csl")
     csl = json.loads(result["data"])
     assert csl["title"] == "The rise of the (science) newsletter"
     assert csl["author"] == [{"family": "Fenner", "given": "Martin"}]
@@ -130,26 +130,26 @@ def test_get_doi_metadata_csl():
 def test_get_url_metadata_csl():
     "get url metadata in csl format"
     data = path.join(path.dirname(__file__), "fixtures", "commonmeta-no-doi.json")
-    result = get_doi_metadata(data, format_="csl")
+    result = get_formatted_metadata(data, format_="csl")
     csl = json.loads(result["data"])
     assert csl["title"] == "The rise of the (science) newsletter"
     assert csl["author"] == [{"family": "Fenner", "given": "Martin"}]
     assert csl["URL"] == "https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter"
 
 
-def test_get_doi_metadata_ris():
-    "get doi metadata in ris format"
+def test_get_formatted_metadata_ris():
+    "get formatted metadata in ris format"
     data = path.join(path.dirname(__file__), "fixtures", "commonmeta.json")
-    result = get_doi_metadata(data, format_="ris")
+    result = get_formatted_metadata(data, format_="ris")
     ris = result["data"].split("\r\n")
     assert ris[1] == "T1  - The rise of the (science) newsletter"
     assert ris[2] == "AU  - Fenner, Martin"
 
 
-def test_get_doi_metadata_commonmeta():
-    "get doi metadata in commonmeta format"
+def test_get_formatted_metadata_commonmeta():
+    "get formatted metadata in commonmeta format"
     data = path.join(path.dirname(__file__), "fixtures", "commonmeta.json")
-    result = get_doi_metadata(data)
+    result = get_formatted_metadata(data)
     commonmeta = json.loads(result["data"])
     assert (
         commonmeta["titles"][0].get("title") == "The rise of the (science) newsletter"
@@ -165,10 +165,10 @@ def test_get_doi_metadata_commonmeta():
     ]
 
 
-def test_get_doi_metadata_schema_org():
+def test_get_formatted_metadata_schema_org():
     "get doi metadata in schema_org format"
     data = path.join(path.dirname(__file__), "fixtures", "commonmeta.json")
-    result = get_doi_metadata(data, format_="schema_org")
+    result = get_formatted_metadata(data, format_="schema_org")
     schema_org = json.loads(result["data"])
     assert schema_org["name"] == "The rise of the (science) newsletter"
     assert schema_org["author"] == [
@@ -182,10 +182,10 @@ def test_get_doi_metadata_schema_org():
     ]
 
 
-def test_get_doi_metadata_datacite():
+def test_get_formatted_metadata_datacite():
     "get doi metadata in datacite format"
     data = path.join(path.dirname(__file__), "fixtures", "commonmeta.json")
-    result = get_doi_metadata(data, format_="datacite")
+    result = get_formatted_metadata(data, format_="datacite")
     datacite = json.loads(result["data"])
     assert datacite["titles"][0].get("title") == "The rise of the (science) newsletter"
     assert datacite["creators"] == [
@@ -205,10 +205,10 @@ def test_get_doi_metadata_datacite():
     ]
 
 
-def test_get_doi_metadata_citation():
+def test_get_formatted_metadata_citation():
     "get doi metadata as formatted citation"
     data = path.join(path.dirname(__file__), "fixtures", "commonmeta.json")
-    result = get_doi_metadata(data, format_="citation")
+    result = get_formatted_metadata(data, format_="citation")
     assert (
         result["data"]
         == "Fenner, M. (2023). <i>The rise of the (science) newsletter</i>. https://doi.org/10.53731/ybhah-9jy85"

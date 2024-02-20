@@ -24408,4 +24408,861 @@ interactions:
       - '50'
     http_version: HTTP/1.1
     status_code: 200
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.citationstyles.csl+json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - doi.org
+      user-agent:
+      - python-httpx/0.25.2
+    method: GET
+    uri: https://doi.org/10.53731/hhtx0-wb293
+  response:
+    content: '<html><head><title>Handle Redirect</title></head>
+
+      <body><a href="https://api.crossref.org/v1/works/10.53731%2Fhhtx0-wb293/transform">https://api.crossref.org/v1/works/10.53731%2Fhhtx0-wb293/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 85860a0e9aef66fa-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '217'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Tue, 20 Feb 2024 10:24:20 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=dJmwNbJKMR4a3%2Bs%2Fu7CVnzXifkhF%2Fj%2BrN790lO4qJoRdATIUdRXHpxjGxGS4tl9ktytFtX7xvIGsJ2C2lTIA2rb2Oed4vDHwUIw%2FklP2zs%2BZqcM3l2RXO7CUfPcXToPp8FKM9Tc%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Tue, 20 Feb 2024 10:32:15 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.53731%2Fhhtx0-wb293/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    http_version: HTTP/1.1
+    status_code: 302
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.citationstyles.csl+json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.crossref.org
+      user-agent:
+      - python-httpx/0.25.2
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.53731%2Fhhtx0-wb293/transform
+  response:
+    content: '{"institution":[{"name":"Front Matter"}],"indexed":{"date-parts":[[2024,2,8]],"date-time":"2024-02-08T01:39:17Z","timestamp":1707356357531},"posted":{"date-parts":[[2023,10,30]]},"group-title":"Computer
+      and information sciences","reference-count":3,"publisher":"Front Matter","license":[{"start":{"date-parts":[[2023,10,30]],"date-time":"2023-10-30T00:00:00Z","timestamp":1698624000000},"content-version":"vor","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"},{"start":{"date-parts":[[2023,10,30]],"date-time":"2023-10-30T00:00:00Z","timestamp":1698624000000},"content-version":"tdm","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"}],"content-domain":{"domain":[],"crossmark-restriction":false},"abstract":"<p>Today
+      I am happy to announce an important milestone for the Rogue Scholar science
+      blog archive. Starting November 1st, all blog posts from participating blogs
+      will automatically be archived by the Internet Archive. Front Matter has signed
+      a contract with Internet Archive to use their Archive-It service, and archiving
+      will start in November.<\/p>","DOI":"10.53731\/hhtx0-wb293","type":"posted-content","created":{"date-parts":[[2023,10,30]],"date-time":"2023-10-30T15:04:44Z","timestamp":1698678284000},"source":"Crossref","is-referenced-by-count":2,"title":"Starting
+      November, all Rogue Scholar blog posts will be archived by the Internet Archive","prefix":"10.53731","author":[{"ORCID":"http:\/\/orcid.org\/0000-0003-1419-2405","authenticated-orcid":false,"given":"Martin","family":"Fenner","sequence":"first","affiliation":[]}],"member":"31795","reference":[{"key":"ref1","doi-asserted-by":"publisher","article-title":"Use
+      cases for science blogs: grant-funded projects","year":"2023","DOI":"10.53731\/mh9a1-dw902"},{"key":"ref2","unstructured":"https:\/\/www.crossref.org\/blog\/a-request-for-comment-automatic-digital-preservation-and-self-healing-dois"},{"key":"ref3","doi-asserted-by":"publisher","article-title":"The
+      Rogue Scholar API now automatically indexes blog posts","year":"2023","DOI":"10.53731\/qq4a5-6zc45"}],"container-title":[],"original-title":[],"link":[{"URL":"https:\/\/blog.front-matter.io\/posts\/rogue-scholar-blog-posts-archived-by-internet-archive","content-type":"text\/html","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/hhtx0-wb293.md","content-type":"text\/plain","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/hhtx0-wb293.pdf","content-type":"application\/pdf","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/hhtx0-wb293.epub","content-type":"application\/epub+zip","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/hhtx0-wb293.xml","content-type":"application\/xml","content-version":"vor","intended-application":"text-mining"}],"deposited":{"date-parts":[[2024,1,11]],"date-time":"2024-01-11T09:43:52Z","timestamp":1704966232000},"score":1,"resource":{"primary":{"URL":"https:\/\/blog.front-matter.io\/posts\/rogue-scholar-blog-posts-archived-by-internet-archive"}},"subtitle":[],"short-title":[],"issued":{"date-parts":[[2023,10,30]]},"references-count":3,"URL":"http:\/\/dx.doi.org\/10.53731\/hhtx0-wb293","relation":{},"published":{"date-parts":[[2023,10,30]]},"subtype":"other"}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-encoding:
+      - gzip
+      content-length:
+      - '1245'
+      content-type:
+      - application/vnd.citationstyles.csl+json
+      date:
+      - Tue, 20 Feb 2024 10:24:20 GMT
+      link:
+      - <http://dx.doi.org/10.53731/hhtx0-wb293>; rel="canonical", <https://blog.front-matter.io/posts/rogue-scholar-blog-posts-archived-by-internet-archive>;
+        version="vor"; type="text/html"; rel="item", <https://api.rogue-scholar.org/posts/10.53731/hhtx0-wb293.md>;
+        version="vor"; type="text/plain"; rel="item", <https://api.rogue-scholar.org/posts/10.53731/hhtx0-wb293.pdf>;
+        version="vor"; type="application/pdf"; rel="item", <https://api.rogue-scholar.org/posts/10.53731/hhtx0-wb293.epub>;
+        version="vor"; type="application/epub+zip"; rel="item", <https://api.rogue-scholar.org/posts/10.53731/hhtx0-wb293.xml>;
+        version="vor"; type="application/xml"; rel="item", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="vor"; rel="license", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="tdm"; rel="license", <http://orcid.org/0000-0003-1419-2405>; title="Martin
+        Fenner"; rel="author"
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept, Accept-Encoding
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    http_version: HTTP/1.1
+    status_code: 200
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.citationstyles.csl+json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - doi.org
+      user-agent:
+      - python-httpx/0.25.2
+    method: GET
+    uri: https://doi.org/10.53731/ar11b-5ea39
+  response:
+    content: '<html><head><title>Handle Redirect</title></head>
+
+      <body><a href="https://api.crossref.org/v1/works/10.53731%2Far11b-5ea39/transform">https://api.crossref.org/v1/works/10.53731%2Far11b-5ea39/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 858613bf6f750b87-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '217'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Tue, 20 Feb 2024 10:30:57 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=i4Z85TCCHrtJ3jCP8zPs5YmG18db%2FQ9lsF%2FZuvs9bMAA7m4ZrGze31eF4IpnkrdbxxSM%2FncMM%2B6TVkCTbCvAi3trbkOsfJrx%2FEBxeDXB8sVbP0JgXWdSMuG3mx%2FfUGKhgoWStgU%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Tue, 20 Feb 2024 10:38:25 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.53731%2Far11b-5ea39/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    http_version: HTTP/1.1
+    status_code: 302
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.citationstyles.csl+json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.crossref.org
+      user-agent:
+      - python-httpx/0.25.2
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.53731%2Far11b-5ea39/transform
+  response:
+    content: '{"institution":[{"name":"Front Matter"}],"indexed":{"date-parts":[[2024,2,8]],"date-time":"2024-02-08T04:40:06Z","timestamp":1707367206351},"posted":{"date-parts":[[2023,10,9]]},"group-title":"Computer
+      and information sciences","reference-count":2,"publisher":"Front Matter","license":[{"start":{"date-parts":[[2023,10,9]],"date-time":"2023-10-09T00:00:00Z","timestamp":1696809600000},"content-version":"vor","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"},{"start":{"date-parts":[[2023,10,9]],"date-time":"2023-10-09T00:00:00Z","timestamp":1696809600000},"content-version":"tdm","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"}],"content-domain":{"domain":[],"crossmark-restriction":false},"abstract":"<p>The
+      Rogue Scholar science blog archive has launched a dedicated API today, publicly
+      available at https:\/\/api.rogue-scholar.org and complementing the website.
+      Rogue Scholar had an API before but with two important limitations.<\/p>","DOI":"10.53731\/ar11b-5ea39","type":"posted-content","created":{"date-parts":[[2023,10,9]],"date-time":"2023-10-09T12:11:58Z","timestamp":1696853518000},"source":"Crossref","is-referenced-by-count":0,"title":"Rogue
+      Scholar has an API","prefix":"10.53731","author":[{"ORCID":"http:\/\/orcid.org\/0000-0003-1419-2405","authenticated-orcid":false,"given":"Martin","family":"Fenner","sequence":"first","affiliation":[]}],"member":"31795","reference":[{"key":"ref1","doi-asserted-by":"publisher","article-title":"front-matter\/rogue-scholar-api:
+      Initial public release","year":"2023","DOI":"10.5281\/zenodo.8433679"},{"key":"ref2","doi-asserted-by":"publisher","article-title":"JOSS
+      publishes 2000th paper","year":"2023","DOI":"10.59349\/zh4g1-q7e26"}],"container-title":[],"original-title":[],"link":[{"URL":"https:\/\/blog.front-matter.io\/posts\/rogue-scholar-has-an-api","content-type":"text\/html","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/ar11b-5ea39.md","content-type":"text\/plain","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/ar11b-5ea39.pdf","content-type":"application\/pdf","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/ar11b-5ea39.epub","content-type":"application\/epub+zip","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/ar11b-5ea39.xml","content-type":"application\/xml","content-version":"vor","intended-application":"text-mining"}],"deposited":{"date-parts":[[2024,2,7]],"date-time":"2024-02-07T18:34:07Z","timestamp":1707330847000},"score":1,"resource":{"primary":{"URL":"https:\/\/blog.front-matter.io\/posts\/rogue-scholar-has-an-api"}},"subtitle":[],"short-title":[],"issued":{"date-parts":[[2023,10,9]]},"references-count":2,"URL":"http:\/\/dx.doi.org\/10.53731\/ar11b-5ea39","relation":{},"published":{"date-parts":[[2023,10,9]]},"subtype":"other"}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-encoding:
+      - gzip
+      content-length:
+      - '1093'
+      content-type:
+      - application/vnd.citationstyles.csl+json
+      date:
+      - Tue, 20 Feb 2024 10:30:57 GMT
+      link:
+      - <http://dx.doi.org/10.53731/ar11b-5ea39>; rel="canonical", <https://blog.front-matter.io/posts/rogue-scholar-has-an-api>;
+        version="vor"; type="text/html"; rel="item", <https://api.rogue-scholar.org/posts/10.53731/ar11b-5ea39.md>;
+        version="vor"; type="text/plain"; rel="item", <https://api.rogue-scholar.org/posts/10.53731/ar11b-5ea39.pdf>;
+        version="vor"; type="application/pdf"; rel="item", <https://api.rogue-scholar.org/posts/10.53731/ar11b-5ea39.epub>;
+        version="vor"; type="application/epub+zip"; rel="item", <https://api.rogue-scholar.org/posts/10.53731/ar11b-5ea39.xml>;
+        version="vor"; type="application/xml"; rel="item", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="vor"; rel="license", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="tdm"; rel="license", <http://orcid.org/0000-0003-1419-2405>; title="Martin
+        Fenner"; rel="author"
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept, Accept-Encoding
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    http_version: HTTP/1.1
+    status_code: 200
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.citationstyles.csl+json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - doi.org
+      user-agent:
+      - python-httpx/0.25.2
+    method: GET
+    uri: https://doi.org/10.5281/zenodo.8433675
+  response:
+    content: '<html><head><title>Handle Redirect</title></head>
+
+      <body><a href="https://data.crosscite.org/10.5281%2Fzenodo.8433675">https://data.crosscite.org/10.5281%2Fzenodo.8433675</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 858613c3cf68b89c-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '187'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Tue, 20 Feb 2024 10:30:57 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=0n1mygeXxV%2BT02ZeQjw%2BIlsX2ldHS7Qrhsz6XRSOPgK8Ea7SsDCC0Tju3wmaIQE3lyqs1g4J5dSPKxPUslbPqGs94ICMkidY61mfoaW8ZsdDJjSno1uVzMFFpq3b9uHXkG%2FBp04%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Tue, 20 Feb 2024 10:38:44 GMT
+      location:
+      - https://data.crosscite.org/10.5281%2Fzenodo.8433675
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    http_version: HTTP/1.1
+    status_code: 302
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.citationstyles.csl+json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - data.crosscite.org
+      user-agent:
+      - python-httpx/0.25.2
+    method: GET
+    uri: https://data.crosscite.org/10.5281%2Fzenodo.8433675
+  response:
+    content: "{\n  \"type\": \"book\",\n  \"id\": \"https://doi.org/10.5281/zenodo.8433675\",\n
+      \ \"author\": [\n    {\n      \"family\": \"Fenner\",\n      \"given\": \"Martin\"\n
+      \   }\n  ],\n  \"issued\": {\n    \"date-parts\": [\n      [\n        2023,\n
+      \       10,\n        12\n      ]\n    ]\n  },\n  \"abstract\": \"No description
+      provided.\",\n  \"DOI\": \"10.5281/ZENODO.8433675\",\n  \"publisher\": \"Zenodo\",\n
+      \ \"title\": \"front-matter/rogue-scholar-notebooks: Initial public release\",\n
+      \ \"URL\": \"https://zenodo.org/record/8433675\",\n  \"copyright\": \"Open Access\",\n
+      \ \"version\": \"0.8\"\n}"
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/vnd.citationstyles.csl+json; charset=utf-8
+      Date:
+      - Tue, 20 Feb 2024 10:30:58 GMT
+      ETag:
+      - W/"14680f4f7671c956e42212f247173b49"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx/1.18.0 + Phusion Passenger(R) 6.0.19
+      Status:
+      - 200 OK
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept, Accept-Encoding, Origin
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Powered-By:
+      - Phusion Passenger(R) 6.0.19
+      X-Request-Id:
+      - 602db103-26ba-4642-8ae2-01c430261f74
+      X-Runtime:
+      - '0.020959'
+      X-XSS-Protection:
+      - 1; mode=block
+    http_version: HTTP/1.1
+    status_code: 200
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.citationstyles.csl+json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - doi.org
+      user-agent:
+      - python-httpx/0.25.2
+    method: GET
+    uri: https://doi.org/10.13003/c23rw1d9
+  response:
+    content: '<html><head><title>Handle Redirect</title></head>
+
+      <body><a href="https://api.crossref.org/v1/works/10.13003%2Fc23rw1d9/transform">https://api.crossref.org/v1/works/10.13003%2Fc23rw1d9/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 858613c6fae10e00-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '211'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Tue, 20 Feb 2024 10:30:58 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=%2FtYRqKrgvwGv98oAm%2B5N%2BsxfofY2Xm7xAVpaiAjmXLdYMJO28uQvo7CJNOG0cQa07kpPmp4RtGIIqdDaV36Mo5zjwrB4eMD%2FrEIvDLflwmGUPG2EfeAABFMi1E6SwS3NUEhYrPQ%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Tue, 20 Feb 2024 11:26:08 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.13003%2Fc23rw1d9/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    http_version: HTTP/1.1
+    status_code: 302
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.citationstyles.csl+json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.crossref.org
+      user-agent:
+      - python-httpx/0.25.2
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.13003%2Fc23rw1d9/transform
+  response:
+    content: '{"indexed":{"date-parts":[[2024,2,8]],"date-time":"2024-02-08T00:34:07Z","timestamp":1707352447888},"reference-count":0,"publisher":"Crossref","content-domain":{"domain":[],"crossmark-restriction":false},"published-print":{"date-parts":[[2023,9,12]]},"abstract":"<jats:p>Agreement
+      to combine and publicly distribute data about tens of thousands of retracted
+      research papers, and grow the service together. The Center for Scientific Integrity,
+      the organisation behind the Retraction Watch blog and database, and Crossref,
+      the global infrastructure underpinning research communications, both not-for-profits,
+      announced today that the Retraction Watch database has been acquired by Crossref
+      and made a public resource. An agreement between the two organisations will
+      allow Retraction Watch to keep the data populated on an ongoing basis and always
+      open, alongside publishers registering their retraction notices directly with
+      Crossref.<\/jats:p>","DOI":"10.13003\/c23rw1d9","type":"report","created":{"date-parts":[[2023,9,12]],"date-time":"2023-09-12T12:12:41Z","timestamp":1694520761000},"source":"Crossref","is-referenced-by-count":1,"title":"Crossref
+      acquires Retraction Watch data and opens it for the scientific community","prefix":"10.13003","author":[{"ORCID":"http:\/\/orcid.org\/0000-0002-0353-2702","authenticated-orcid":false,"given":"Ginny","family":"Hendricks","sequence":"first","affiliation":[]},{"name":"Crossref","sequence":"first","affiliation":[]},{"ORCID":"http:\/\/orcid.org\/0000-0001-5800-1434","authenticated-orcid":false,"given":"Rachael","family":"Lammey","sequence":"additional","affiliation":[]},{"name":"Center
+      for Scientific Integrity","sequence":"additional","affiliation":[]}],"member":"10286","published-online":{"date-parts":[[2023,9,12]]},"container-title":[],"original-title":[],"deposited":{"date-parts":[[2023,9,12]],"date-time":"2023-09-12T12:12:53Z","timestamp":1694520773000},"score":1,"resource":{"primary":{"URL":"https:\/\/www.crossref.org\/blog\/news-crossref-and-retraction-watch"}},"subtitle":[],"short-title":[],"issued":{"date-parts":[[2023,9,12]]},"references-count":0,"URL":"http:\/\/dx.doi.org\/10.13003\/c23rw1d9","relation":{},"published":{"date-parts":[[2023,9,12]]}}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-encoding:
+      - gzip
+      content-length:
+      - '1000'
+      content-type:
+      - application/vnd.citationstyles.csl+json
+      date:
+      - Tue, 20 Feb 2024 10:30:58 GMT
+      link:
+      - <http://dx.doi.org/10.13003/c23rw1d9>; rel="canonical", <http://orcid.org/0000-0002-0353-2702>;
+        title="Ginny Hendricks"; rel="author", <http://orcid.org/0000-0001-5800-1434>;
+        title="Rachael Lammey"; rel="author"
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept, Accept-Encoding
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    http_version: HTTP/1.1
+    status_code: 200
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.citationstyles.csl+json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - doi.org
+      user-agent:
+      - python-httpx/0.25.2
+    method: GET
+    uri: https://doi.org/10.53731/gzrse-p5d35
+  response:
+    content: '<html><head><title>Handle Redirect</title></head>
+
+      <body><a href="https://api.crossref.org/v1/works/10.53731%2Fgzrse-p5d35/transform">https://api.crossref.org/v1/works/10.53731%2Fgzrse-p5d35/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 85861735bcb50bba-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '217'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Tue, 20 Feb 2024 10:33:19 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=FGl%2FXiUyt6YKD10MvIHpM5vF%2BCDN76ta8v8rSJ8tJ9wSUgUOYhWsmhGz0ZrSqTRSCWfjzH8U1Rakl%2BpLqpPKVSyS%2Bij6wbQM8RFhxGtuvUqFnRnYS%2BGa23VqegiHcq7bFj5yOTU%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Tue, 20 Feb 2024 11:21:50 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.53731%2Fgzrse-p5d35/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    http_version: HTTP/1.1
+    status_code: 302
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.citationstyles.csl+json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.crossref.org
+      user-agent:
+      - python-httpx/0.25.2
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.53731%2Fgzrse-p5d35/transform
+  response:
+    content: '{"institution":[{"name":"Front Matter"}],"indexed":{"date-parts":[[2024,2,8]],"date-time":"2024-02-08T01:42:42Z","timestamp":1707356562740},"posted":{"date-parts":[[2023,10,11]]},"group-title":"Computer
+      and information sciences","reference-count":3,"publisher":"Front Matter","license":[{"start":{"date-parts":[[2023,10,11]],"date-time":"2023-10-11T00:00:00Z","timestamp":1696982400000},"content-version":"vor","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"},{"start":{"date-parts":[[2023,10,11]],"date-time":"2023-10-11T00:00:00Z","timestamp":1696982400000},"content-version":"tdm","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"}],"content-domain":{"domain":[],"crossmark-restriction":false},"abstract":"<p>On
+      Monday the Rogue Scholar science blog archive launched a dedicated API. Today
+      I am reporting on the first Jupyter notebook using that API to generate an overlay
+      blog post. An &lt;strong&gt; overlay blog post &lt;\/strong&gt; applies the
+      idea of an &lt;strong&gt; overlay journal &lt;\/strong&gt; to science blog posts,
+      and the Rogue Scholar API \u2013 in combination with content that has an open
+      license (CC-BY) \u2013 makes that easy.<\/p>","DOI":"10.53731\/gzrse-p5d35","type":"posted-content","created":{"date-parts":[[2023,10,11]],"date-time":"2023-10-11T16:53:18Z","timestamp":1697043198000},"source":"Crossref","is-referenced-by-count":4,"title":"Generating
+      Overlay blog posts","prefix":"10.53731","author":[{"ORCID":"http:\/\/orcid.org\/0000-0003-1419-2405","authenticated-orcid":false,"given":"Martin","family":"Fenner","sequence":"first","affiliation":[]}],"member":"31795","reference":[{"key":"ref1","doi-asserted-by":"publisher","article-title":"Rogue
+      Scholar has an API","year":"2023","DOI":"10.53731\/ar11b-5ea39"},{"key":"ref2","doi-asserted-by":"publisher","article-title":"front-matter\/rogue-scholar-notebooks:
+      Initial public release","year":"2023","DOI":"10.5281\/zenodo.8433675"},{"key":"ref3","doi-asserted-by":"publisher","article-title":"Crossref
+      acquires Retraction Watch data and opens it for the scientific community","year":"2023","DOI":"10.13003\/c23rw1d9"}],"container-title":[],"original-title":[],"link":[{"URL":"https:\/\/blog.front-matter.io\/posts\/generating-overlay-blog-posts","content-type":"text\/html","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/gzrse-p5d35.md","content-type":"text\/plain","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/gzrse-p5d35.pdf","content-type":"application\/pdf","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/gzrse-p5d35.epub","content-type":"application\/epub+zip","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/gzrse-p5d35.xml","content-type":"application\/xml","content-version":"vor","intended-application":"text-mining"}],"deposited":{"date-parts":[[2024,2,7]],"date-time":"2024-02-07T23:43:37Z","timestamp":1707349417000},"score":1,"resource":{"primary":{"URL":"https:\/\/blog.front-matter.io\/posts\/generating-overlay-blog-posts"}},"subtitle":[],"short-title":[],"issued":{"date-parts":[[2023,10,11]]},"references-count":3,"URL":"http:\/\/dx.doi.org\/10.53731\/gzrse-p5d35","relation":{},"published":{"date-parts":[[2023,10,11]]},"subtype":"other"}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-encoding:
+      - gzip
+      content-length:
+      - '1254'
+      content-type:
+      - application/vnd.citationstyles.csl+json
+      date:
+      - Tue, 20 Feb 2024 10:33:19 GMT
+      link:
+      - <http://dx.doi.org/10.53731/gzrse-p5d35>; rel="canonical", <https://blog.front-matter.io/posts/generating-overlay-blog-posts>;
+        version="vor"; type="text/html"; rel="item", <https://api.rogue-scholar.org/posts/10.53731/gzrse-p5d35.md>;
+        version="vor"; type="text/plain"; rel="item", <https://api.rogue-scholar.org/posts/10.53731/gzrse-p5d35.pdf>;
+        version="vor"; type="application/pdf"; rel="item", <https://api.rogue-scholar.org/posts/10.53731/gzrse-p5d35.epub>;
+        version="vor"; type="application/epub+zip"; rel="item", <https://api.rogue-scholar.org/posts/10.53731/gzrse-p5d35.xml>;
+        version="vor"; type="application/xml"; rel="item", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="vor"; rel="license", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="tdm"; rel="license", <http://orcid.org/0000-0003-1419-2405>; title="Martin
+        Fenner"; rel="author"
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept, Accept-Encoding
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    http_version: HTTP/1.1
+    status_code: 200
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.citationstyles.csl+json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - doi.org
+      user-agent:
+      - python-httpx/0.25.2
+    method: GET
+    uri: https://doi.org/10.53731/xs2mj-epe20
+  response:
+    content: '<html><head><title>Handle Redirect</title></head>
+
+      <body><a href="https://api.crossref.org/v1/works/10.53731%2Fxs2mj-epe20/transform">https://api.crossref.org/v1/works/10.53731%2Fxs2mj-epe20/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8586173969ed1af9-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '217'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Tue, 20 Feb 2024 10:33:19 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=pOS1NN4mP7i8oJFD4nYgvGM7jW4HhyCPHjBEIgsCooJ1938RK2ljvlL%2BbC6xkKNaLbYAX2DwWd61ehKqDSAtArhVDWROqawuIhuc2sjD0kJQum6s5kwm0N1zmIzgSVYf%2BqsHVCc%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Tue, 20 Feb 2024 11:24:30 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.53731%2Fxs2mj-epe20/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    http_version: HTTP/1.1
+    status_code: 302
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.citationstyles.csl+json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.crossref.org
+      user-agent:
+      - python-httpx/0.25.2
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.53731%2Fxs2mj-epe20/transform
+  response:
+    content: '{"institution":[{"name":"Syldavia Gazette"}],"indexed":{"date-parts":[[2024,2,8]],"date-time":"2024-02-08T01:39:17Z","timestamp":1707356357632},"posted":{"date-parts":[[2023,10,24]]},"group-title":"Humanities","reference-count":10,"publisher":"Front
+      Matter","license":[{"start":{"date-parts":[[2023,10,24]],"date-time":"2023-10-24T00:00:00Z","timestamp":1698105600000},"content-version":"vor","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"},{"start":{"date-parts":[[2023,10,24]],"date-time":"2023-10-24T00:00:00Z","timestamp":1698105600000},"content-version":"tdm","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"}],"content-domain":{"domain":[],"crossmark-restriction":false},"abstract":"<p>Happy
+      Birthday, Open Access! Last Sunday, the Berlin Declaration turned twenty years
+      old (Pampel &amp;amp; Kindling, 2023). Its anniversary coincides with the international
+      Open Access Week. During this action week, events promoting Open Access are
+      organized worldwide (an overview can be found at openaccessweek.org.<\/p>","DOI":"10.53731\/xs2mj-epe20","type":"posted-content","created":{"date-parts":[[2023,10,24]],"date-time":"2023-10-24T08:25:21Z","timestamp":1698135921000},"source":"Crossref","is-referenced-by-count":2,"title":"The
+      Open Access Week in the Scholarly Blogosphere","prefix":"10.53731","author":[{"ORCID":"http:\/\/orcid.org\/0000-0003-3334-2771","authenticated-orcid":false,"given":"Heinz","family":"Pampel","sequence":"first","affiliation":[]}],"member":"31795","reference":[{"key":"ref1","doi-asserted-by":"publisher","article-title":"The
+      number and proportion of freely available articles is growing; reaching 45%
+      of the literature published in 2015","year":"2017","DOI":"10.59350\/9abst-wk467"},{"key":"ref2","doi-asserted-by":"publisher","article-title":"The
+      OpenCitations blog posts are now archived on Rogue Scholar with DOIs","year":"2023","DOI":"10.59350\/vwajv-ym488"},{"key":"ref3","doi-asserted-by":"publisher","article-title":"Peer
+      Review Week 2021: Preprints Meet Open Peer Review","year":"2021","DOI":"10.59350\/j2nnd-43b72"},{"key":"ref4","doi-asserted-by":"publisher","article-title":"Open
+      Access Week: a researcher???s perspective","year":"2009","DOI":"10.53731\/r294649-6f79289-8cw3b"},{"key":"ref5","doi-asserted-by":"publisher","article-title":"Generating
+      Overlay blog posts","year":"2023","DOI":"10.53731\/gzrse-p5d35"},{"key":"ref6","doi-asserted-by":"publisher","article-title":"23.
+      bis 29. Oktober: International Open Access Week 2023\u00a0\u201eCommunity over
+      Commercialization\u201c \u2013 Veranstaltungen in Berlin und Brandenburg","year":"2023","DOI":"10.59350\/7hdpg-hm144"},{"key":"ref7","doi-asserted-by":"publisher","article-title":"Podiumsdiskussion:
+      Open Access in der Region Berlin-Brandenburg: Was wurde erreicht und wo geht
+      es hin? (Hybrid)","year":"2023","DOI":"10.59350\/trt30-p4845"},{"key":"ref8","unstructured":"https:\/\/www.tagesspiegel.de\/wissen\/20-jahre-open-access-wie-berlin-das-offene-publizieren-pragte-10657489.html"},{"key":"ref9","doi-asserted-by":"publisher","article-title":"The
+      state of OA: a large-scale analysis of the prevalence and impact of Open Access
+      articles","year":"2018","DOI":"10.7717\/peerj.4375"},{"key":"ref10","doi-asserted-by":"publisher","article-title":"Interview
+      with Open Access Nigeria","year":"2014","DOI":"10.59350\/4v1nk-69837"}],"container-title":[],"original-title":[],"link":[{"URL":"https:\/\/syldavia-gazette.org\/posts\/open-access-week-scholarly-blogosphere","content-type":"text\/html","content-version":"vor","intended-application":"text-mining"}],"deposited":{"date-parts":[[2023,11,14]],"date-time":"2023-11-14T22:44:31Z","timestamp":1700001871000},"score":1,"resource":{"primary":{"URL":"https:\/\/syldavia-gazette.org\/posts\/open-access-week-scholarly-blogosphere"}},"subtitle":[],"short-title":[],"issued":{"date-parts":[[2023,10,24]]},"references-count":10,"URL":"http:\/\/dx.doi.org\/10.53731\/xs2mj-epe20","relation":{},"published":{"date-parts":[[2023,10,24]]},"subtype":"other"}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-encoding:
+      - gzip
+      content-length:
+      - '1670'
+      content-type:
+      - application/vnd.citationstyles.csl+json
+      date:
+      - Tue, 20 Feb 2024 10:33:20 GMT
+      link:
+      - <http://dx.doi.org/10.53731/xs2mj-epe20>; rel="canonical", <https://syldavia-gazette.org/posts/open-access-week-scholarly-blogosphere>;
+        version="vor"; type="text/html"; rel="item", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="vor"; rel="license", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="tdm"; rel="license", <http://orcid.org/0000-0003-3334-2771>; title="Heinz
+        Pampel"; rel="author"
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept, Accept-Encoding
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    http_version: HTTP/1.1
+    status_code: 200
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.citationstyles.csl+json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - doi.org
+      user-agent:
+      - python-httpx/0.25.2
+    method: GET
+    uri: https://doi.org/10.59350/5hxdg-fz574
+  response:
+    content: '<html><head><title>Handle Redirect</title></head>
+
+      <body><a href="https://api.crossref.org/v1/works/10.59350%2F5hxdg-fz574/transform">https://api.crossref.org/v1/works/10.59350%2F5hxdg-fz574/transform</a></body></html>'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8586173e7ab80b85-AMS
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '217'
+      Content-Type:
+      - text/html;charset=utf-8
+      Date:
+      - Tue, 20 Feb 2024 10:33:20 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=ovGUWiMTgY3DgJs%2F271O6AQuwYVZ6FPFxwXJCRkFAdIarMH18KKW5b%2FnpDmJ3YfzMbll4xaySXO9CZJJf1yzd%2BBpf5eJMklDEzNCutbti7nD6AxEPwmytruTsZe1LZGB8c7A6Pw%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      alt-svc:
+      - h3=":443"; ma=86400
+      expires:
+      - Tue, 20 Feb 2024 10:38:25 GMT
+      location:
+      - https://api.crossref.org/v1/works/10.59350%2F5hxdg-fz574/transform
+      permissions-policy:
+      - interest-cohort=(),browsing-topics=()
+      vary:
+      - Accept
+    http_version: HTTP/1.1
+    status_code: 302
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.citationstyles.csl+json
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.crossref.org
+      user-agent:
+      - python-httpx/0.25.2
+    method: GET
+    uri: https://api.crossref.org/v1/works/10.59350%2F5hxdg-fz574/transform
+  response:
+    content: '{"institution":[{"name":"Chris von Csefalvay"}],"indexed":{"date-parts":[[2024,2,8]],"date-time":"2024-02-08T01:39:02Z","timestamp":1707356342136},"posted":{"date-parts":[[2023,11,13]]},"group-title":"Natural
+      sciences","reference-count":0,"publisher":"Front Matter","license":[{"start":{"date-parts":[[2023,11,13]],"date-time":"2023-11-13T00:00:00Z","timestamp":1699833600000},"content-version":"vor","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"},{"start":{"date-parts":[[2023,11,13]],"date-time":"2023-11-13T00:00:00Z","timestamp":1699833600000},"content-version":"tdm","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"}],"content-domain":{"domain":[],"crossmark-restriction":false},"abstract":"<p>I
+      love posts that allow me to merge some of my addictions.<\/p>","DOI":"10.59350\/5hxdg-fz574","type":"posted-content","created":{"date-parts":[[2023,11,13]],"date-time":"2023-11-13T22:15:37Z","timestamp":1699913737000},"source":"Crossref","is-referenced-by-count":1,"title":"Auto-DOI
+      for Quarto posts via Rogue Scholar","prefix":"10.59350","author":[{"given":"Chris","family":"von
+      Csefalvay","sequence":"first","affiliation":[]}],"member":"31795","container-title":[],"original-title":[],"link":[{"URL":"https:\/\/chrisvoncsefalvay.com\/posts\/auto-doi","content-type":"text\/html","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.59350\/5hxdg-fz574.md","content-type":"text\/plain","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.59350\/5hxdg-fz574.pdf","content-type":"application\/pdf","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.59350\/5hxdg-fz574.epub","content-type":"application\/epub+zip","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.59350\/5hxdg-fz574.xml","content-type":"application\/xml","content-version":"vor","intended-application":"text-mining"}],"deposited":{"date-parts":[[2024,1,11]],"date-time":"2024-01-11T09:18:07Z","timestamp":1704964687000},"score":1,"resource":{"primary":{"URL":"https:\/\/chrisvoncsefalvay.com\/posts\/auto-doi"}},"subtitle":[],"short-title":[],"issued":{"date-parts":[[2023,11,13]]},"references-count":0,"URL":"http:\/\/dx.doi.org\/10.59350\/5hxdg-fz574","relation":{},"published":{"date-parts":[[2023,11,13]]},"subtype":"other"}'
+    headers:
+      access-control-allow-headers:
+      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
+        Accept-Ranges, Cache-Control
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Link
+      connection:
+      - close
+      content-encoding:
+      - gzip
+      content-length:
+      - '869'
+      content-type:
+      - application/vnd.citationstyles.csl+json
+      date:
+      - Tue, 20 Feb 2024 10:33:20 GMT
+      link:
+      - <http://dx.doi.org/10.59350/5hxdg-fz574>; rel="canonical", <https://chrisvoncsefalvay.com/posts/auto-doi>;
+        version="vor"; type="text/html"; rel="item", <https://api.rogue-scholar.org/posts/10.59350/5hxdg-fz574.md>;
+        version="vor"; type="text/plain"; rel="item", <https://api.rogue-scholar.org/posts/10.59350/5hxdg-fz574.pdf>;
+        version="vor"; type="application/pdf"; rel="item", <https://api.rogue-scholar.org/posts/10.59350/5hxdg-fz574.epub>;
+        version="vor"; type="application/epub+zip"; rel="item", <https://api.rogue-scholar.org/posts/10.59350/5hxdg-fz574.xml>;
+        version="vor"; type="application/xml"; rel="item", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="vor"; rel="license", <https://creativecommons.org/licenses/by/4.0/legalcode>;
+        version="tdm"; rel="license"
+      permissions-policy:
+      - interest-cohort=()
+      server:
+      - Jetty(9.4.40.v20210413)
+      vary:
+      - Accept, Accept-Encoding
+      x-api-pool:
+      - public
+      x-rate-limit-interval:
+      - 1s
+      x-rate-limit-limit:
+      - '50'
+      x-ratelimit-interval:
+      - 1s
+      x-ratelimit-limit:
+      - '50'
+    http_version: HTTP/1.1
+    status_code: 200
 version: 1

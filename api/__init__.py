@@ -4,7 +4,7 @@ import logging
 from typing import Optional
 from datetime import timedelta
 import time
-import json
+import orjson as json
 from os import environ
 import pydash as py_
 from dotenv import load_dotenv
@@ -30,7 +30,7 @@ from api.supabase import (
 from api.typesense import typesense_client as typesense
 from commonmeta import doi_from_url
 from api.utils import (
-    get_doi_metadata,
+    get_formatted_metadata,
     convert_to_commonmeta,
     write_epub,
     write_pdf,
@@ -409,7 +409,8 @@ async def post(slug: str, suffix: Optional[str] = None):
         if format_ == "json":
             return jsonify(response.data)
         metadata = py_.omit(response.data, ["content_text"])
-        meta_str = json.dumps(convert_to_commonmeta(metadata))
+        meta = convert_to_commonmeta(metadata)
+        print(meta)
     except Exception as e:
         logger.warning(e.args[0])
         return {"error": "Post not found"}, 404
@@ -471,7 +472,7 @@ async def post(slug: str, suffix: Optional[str] = None):
             markdown["container"] = markdown["container"][:40] + (
                 markdown["container"][40:] and "..."
             )
-            citation = get_doi_metadata(meta_str, "citation", style, locale)
+            citation = get_formatted_metadata(meta, "citation", style, locale)
             if citation:
                 markdown["citation"] = citation["data"]
             else:
@@ -532,7 +533,7 @@ async def post(slug: str, suffix: Optional[str] = None):
         "commonmeta",
         "citation",
     ]:
-        response = get_doi_metadata(meta_str, format_, style, locale)
+        response = get_formatted_metadata(meta, format_, style, locale)
         if not response:
             logger.warning("Metadata not found")
             return {"error": "Metadata not found."}, 404

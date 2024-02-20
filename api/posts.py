@@ -7,7 +7,7 @@ import re
 import pydash as py_
 import nh3
 import html
-import json as jsn
+import orjson as json
 import xmltodict
 import time
 import traceback
@@ -108,7 +108,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             else None
         )
         # limit number of pages for free plan to 5 (50 posts)
-        page = min(page, 5) if blog.get("plan", None) == "Starter" else page
+        # page = min(page, 5) if blog.get("plan", None) == "Starter" else page
         start_page = (page - 1) * 50 if page > 0 else 0
         end_page = (page - 1) * 50 + 50 if page > 0 else 50
         per_page = 50
@@ -249,7 +249,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                     posts = filter_updated_posts(posts, blog, key="published")
                 posts = posts[start_page:end_page]
             extract_posts = [
-                extract_atom_post(jsn.loads(jsn.dumps(x)), blog) for x in posts
+                extract_atom_post(x, blog) for x in posts
             ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/rss+xml":
@@ -267,7 +267,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                     posts = filter_posts(posts, blog, key="category")
                 posts = posts[start_page:end_page]
             extract_posts = [
-                extract_rss_post(jsn.loads(jsn.dumps(x)), blog) for x in posts
+                extract_rss_post(x, blog) for x in posts
             ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         else:
