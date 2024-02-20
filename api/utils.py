@@ -71,6 +71,7 @@ AUTHOR_IDS = {
     "Ben Kaden": "https://orcid.org/0000-0002-8021-1785",
     "Maxi Kindling": "https://orcid.org/0000-0002-0167-0466",
     "LIBREAS": "https://ror.org/01hcx6992",
+    "Jorge Saturno": "https://orcid.org/0000-0002-3761-3957"
 }
 
 AUTHOR_NAMES = {
