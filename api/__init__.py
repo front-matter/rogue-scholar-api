@@ -355,7 +355,7 @@ async def post(slug: str, suffix: Optional[str] = None):
             .limit(100)
             .execute()
         )
-        return jsonify(response.data)
+        return jsonify({"total-results": response.count, "items": response.data})
     elif slug == "updated":
         response = (
             supabase.table("posts")
