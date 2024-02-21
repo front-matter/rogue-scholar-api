@@ -194,7 +194,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
 
         if generator == "Substack":
             async with httpx.AsyncClient() as client:
-                response = await client.get(feed_url)
+                response = await client.get(feed_url, follow_redirects=True)
                 posts = response.json()
                 # only include posts that have been modified since last update
                 if not update_all:
@@ -203,7 +203,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "WordPress" and blog["use_api"]:
             async with httpx.AsyncClient() as client:
-                response = await client.get(feed_url)
+                response = await client.get(feed_url, follow_redirects=True)
                 posts = response.json()
                 if not update_all:
                     posts = filter_updated_posts(posts, blog, key="modified_gmt")
@@ -211,7 +211,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "WordPress.com" and blog["use_api"]:
             async with httpx.AsyncClient() as client:
-                response = await client.get(feed_url)
+                response = await client.get(feed_url, follow_redirects=True)
                 json = response.json()
                 posts = json.get("posts", [])
                 if not update_all:
@@ -230,7 +230,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/feed+json":
             async with httpx.AsyncClient() as client:
-                response = await client.get(feed_url)
+                response = await client.get(feed_url, follow_redirects=True)
                 json = response.json()
                 posts = json.get("items", [])
                 if not update_all:
@@ -240,7 +240,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/atom+xml":
             async with httpx.AsyncClient() as client:
-                response = await client.get(feed_url)
+                response = await client.get(feed_url, follow_redirects=True)
                 # fix malformed xml
                 xml = fix_xml(response.read())
                 json = xmltodict.parse(xml, dict_constructor=dict, force_list={"entry"})
@@ -254,7 +254,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/rss+xml":
             async with httpx.AsyncClient() as client:
-                response = await client.get(feed_url)
+                response = await client.get(feed_url, follow_redirects=True)
                 # fix malformed xml
                 xml = fix_xml(response.read())
                 json = xmltodict.parse(
