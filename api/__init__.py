@@ -345,6 +345,7 @@ async def post(slug: str, suffix: Optional[str] = None):
     format_ = request.args.get("format") or "json"
     locale = request.args.get("locale") or "en-US"
     style = request.args.get("style") or "apa"
+    per_page = int(request.args.get("per_page") or "50")
     if slug == "unregistered":
         response = (
             supabase.table("posts")
@@ -352,7 +353,7 @@ async def post(slug: str, suffix: Optional[str] = None):
             .not_.is_("blogs.prefix", "null")
             .is_("doi", "null")
             .order("published_at", desc=True)
-            .limit(100)
+            .limit(min(per_page, 100))
             .execute()
         )
         return jsonify({"total-results": response.count, "items": response.data})
@@ -364,7 +365,7 @@ async def post(slug: str, suffix: Optional[str] = None):
             .is_("updated", True)
             .not_.is_("doi", "null")
             .order("updated_at", desc=True)
-            .limit(100)
+            .limit(min(per_page, 100))
             .execute()
         )
         return jsonify({"total-results": response.count, "items": response.data})

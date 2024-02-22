@@ -22,9 +22,9 @@ def vcr_config():
 async def test_extract_all_posts():
     """Extract all posts"""
     result = await extract_all_posts()
-    assert len(result) == 0
-    # post = result[0]
-    # assert post["title"] is not None
+    assert len(result) > 0
+    post = result[0]
+    assert post["title"] is not None
 
 
 @pytest.mark.vcr
