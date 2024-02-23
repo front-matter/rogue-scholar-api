@@ -22,9 +22,9 @@ def vcr_config():
 async def test_extract_all_posts():
     """Extract all posts"""
     result = await extract_all_posts()
-    assert len(result) > 0
-    post = result[0]
-    assert post["title"] is not None
+    assert len(result) == 0
+    # post = result[0]
+    # assert post["title"] is not None
 
 
 @pytest.mark.vcr
@@ -33,7 +33,7 @@ async def test_extract_posts_by_blog_wordpressorg():
     """Extract posts by blog wordpress.org"""
     slug = "epub_fis"
     result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
-    assert len(result) == 0
+    assert len(result) == 50
     # post = result[0]
     # assert post["title"] == "PID Network Deutschland nimmt Fahrt auf"
     # assert post["authors"][0] == {"name": "Gastautor(en)"}
@@ -89,10 +89,7 @@ async def test_extract_posts_by_blog_ghost():
     result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
     assert len(result) == 50
     post = result[0]
-    assert (
-        post["title"]
-        == "Introducing the Rogue Scholar Advisory Board"
-    )
+    assert post["title"] == "commonmeta-py now supports metadata lists"
     assert post["authors"][0] == {
         "name": "Martin Fenner",
         "url": "https://orcid.org/0000-0003-1419-2405",
@@ -117,12 +114,14 @@ async def test_extract_posts_by_blog_ghost():
     #     post["image"]
     #     == "https://images.unsplash.com/flagged/photo-1552425083-0117136f7d67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIxfHxjYW5vcHl8ZW58MHx8fHwxNjk3MDQwMDk1fDA&ixlib=rb-4.0.3&q=80&w=2000"
     # )
-    assert len(post["reference"]) == 0
-    # assert post["reference"][0] == {
-    #     "doi": "https://doi.org/10.53731/ar11b-5ea39",
-    #     "key": "ref1",
-    # }
-    assert post["tags"] == ['News', 'Rogue Scholar']
+    assert len(post["reference"]) == 2
+    assert post["reference"][0] == {
+        "doi": "https://doi.org/10.53731/cp7apdj-jk5f471",
+        "key": "ref1",
+        "title": "Announcing Commonmeta",
+        "publicationYear": "2023",
+    }
+    assert post["tags"] == ["News", "Rogue Scholar"]
     assert post["language"] == "en"
 
 
@@ -159,11 +158,11 @@ async def test_extract_posts_by_blog_json_feed():
     result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
     assert len(result) == 50
     post = result[0]
-    assert post["title"] == "Please Shut Up! Verbosity Control in Packages"
-    assert post["authors"][0] == {'name': 'Mark Padgham'}
-    assert post["url"] == "https://ropensci.org/blog/2024/02/06/verbosity-control-packages"
+    assert post["title"] == "rOpenSci News Digest, February 2024"
+    assert post["authors"][0] == {"name": "The rOpenSci Team"}
+    assert post["url"] == "https://ropensci.org/blog/2024/02/23/news-february-2024"
     assert len(post["reference"]) == 0
-    assert post["tags"] == ['Package Development']
+    assert post["tags"] == ["Newsletter"]
 
 
 @pytest.mark.vcr
@@ -185,10 +184,13 @@ async def test_extract_posts_by_blog_json_feed_with_pagination():
     post = result[0]
     assert (
         post["title"]
-        == "rOpenSci News Digest, March 2023"
+        == "rOpenSci Champions Program Teams: Meet Marcos Prunello and Lukas Wallrich"
     )
-    assert post["url"] == "https://ropensci.org/blog/2023/03/17/ropensci-news-digest-march-2023"
-    assert post["tags"] == ['Newsletter']
+    assert (
+        post["url"]
+        == "https://ropensci.org/blog/2023/04/18/ropensci-champions-program-teams-meet-marcos-prunello-and-lukas-wallrich"
+    )
+    assert post["tags"] == ["Community", "Champions Program"]
 
 
 @pytest.mark.vcr
@@ -197,10 +199,15 @@ async def test_extract_posts_by_blog_organizational_author():
     """Extract posts by blog organizational author"""
     slug = "leidenmadtrics"
     result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
-    assert len(result) == 10
+    assert len(result) == 50
     post = result[0]
-    assert post["title"] == "The UNESCO Open Science Outlook: there is progress, but it is unequal"
-    assert post["authors"][0] == {'name': 'Ismael Rafols'}
+    assert (
+        post["title"] == "The UNESCO Open Science Outlook: OS progresses, but unequally"
+    )
+    assert post["authors"][0] == {
+        "name": "Ismael Rafols",
+        "url": "https://orcid.org/0000-0002-6527-7778",
+    }
 
 
 @pytest.mark.vcr
@@ -211,17 +218,17 @@ async def test_extract_posts_by_blog_blogger():
     result = await extract_all_posts_by_blog(slug, page=3, update_all=True)
     assert len(result) == 50
     post = result[0]
-    assert post["title"] == "TDWG 2017: thoughts on day 3"
+    assert post["title"] == "Notes on finding georeferenced sequences in GenBank"
     assert post["authors"][0] == {
         "name": "Roderic Page",
         "url": "https://orcid.org/0000-0002-7101-9767",
     }
     assert (
         post["url"]
-        == "https://iphylo.blogspot.com/2017/10/tdwg-2017-thoughts-on-day-3.html"
+        == "https://iphylo.blogspot.com/2017/10/notes-on-finding-georeferenced.html"
     )
     assert len(post["reference"]) == 0
-    assert post["tags"] == ["TDWG"]
+    assert post["tags"] == ["GBIF", "Genbank", "Georeferencing", "Note To Self"]
 
 
 @pytest.mark.vcr

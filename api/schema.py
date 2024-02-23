@@ -32,7 +32,6 @@ class Blog:
     home_page_url: str
     generator: str
     category: str
-    backlog: int
     prefix: str
     status: str
     plan: str

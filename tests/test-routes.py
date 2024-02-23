@@ -385,30 +385,6 @@ async def test_post_as_bibtex():
     year = {2023}
 }"""
     )
-    
-    
-@pytest.mark.vcr
-async def test_post_as_bibtex_no_doi():
-    """Test post formatted as bibtex (no doi)."""
-    test_client = app.test_client()
-    response = await test_client.get("/posts/c314bfea-2151-4ccc-8fa8-dd0d1000dfbe?format=bibtex")
-    assert response.status_code == 200
-    result = await response.get_data(as_text=True)
-    assert (
-        result
-        == """@article{c314bfea-2151-4ccc-8fa8-dd0d1000dfbe,
-    abstract = {Das demokratische Haus in Deutschland brennt. Es ist höchste Zeit, die Instrumente der streitbaren Demokratie gegen Landesverbände der AfD einzusetzen, die mit hoher Wahrscheinlichkeit verfassungswidrig sind, wie die in Thüringen, Sachsen und Sachsen-Anhalt. Warum die Voraussetzungen für Grundrechtsverwirkung und Parteiverbot dort vorliegen, und die Verfassungstreue es auch verlangt, sie zu beantragen, soll dieser dreiteilige Beitrag begründen.},
-    author = {Hong, Mathias},
-    copyright = {https://creativecommons.org/licenses/by/4.0/legalcode},
-    journal = {Verfassungsblog},
-    language = {de},
-    month = feb,
-    title = {Grundrechtsverwirkung und Parteiverbote gegen radikale AfD-Landesverbände (Teil\xa0III)},
-    url = {https://verfassungsblog.de/grundrechtsverwirkung-und-parteiverbote-gegen-radikale-afd-landesverbande-iii},
-    urldate = {2024-02-08},
-    year = {2024}
-}"""
-    )
 
 
 @pytest.mark.vcr

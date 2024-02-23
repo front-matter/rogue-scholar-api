@@ -14,7 +14,7 @@ interactions:
     uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Cabstract%2Ccontent_text%2Creference&filter_by=status%3A%21%3D%5Bpending%5D+%26%26+published_at%3A%3E%3D+1696550400+%26%26+published_at%3A%3C%3D+1697155199&sort_by=published_at%3Adesc&per_page=10&page=1
   response:
     body:
-      string: "{\"facet_counts\":[],\"found\":21,\"hits\":[{\"document\":{\"authors\":[{\"name\":\"Henry
+      string: "{\"facet_counts\":[],\"found\":22,\"hits\":[{\"document\":{\"authors\":[{\"name\":\"Henry
         Rzepa\",\"url\":\"https://orcid.org/0000-0002-8635-8390\"}],\"blog_name\":\"Henry
         Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"category\":\"chemicalSciences\",\"content_text\":\":::
         {.kcite-section kcite-section-id=\\\"26523\\\"}\\nIn an earlier post on this\\ntopic,[[\\\\[1\\\\]](#ITEM-26523-0)]{#cite_ITEM-26523-0}^\u2021^
@@ -332,7 +332,7 @@ interactions:
         f\xFCr diesen Text: <https://doi.org/10.59350/b5cz8-kr253>\_\xB7\\nautomatische
         DOI-Vergabe f\xFCr Blogs \xFCber\_[The Rogue\\nScholar](https://rogue-scholar.org/de/blogs/irights)**\\n:::\\n\\nThe
         post [3D-Scans und das\\nRecht](https://irights.info/artikel/3d-scans-und-das-recht/32063){rel=\\\"nofollow\\\"}\\nappeared
-        first on [iRights.info](https://irights.info){rel=\\\"nofollow\\\"}.\\n\",\"doi\":\"https://doi.org/10.59350/b5cz8-kr253\",\"guid\":\"https://irights.info/?post_type=custom_artikel&p=32063\",\"id\":\"df297a7d-3d64-402d-9287-af7a83ff50f0\",\"image\":\"https://irights.info/wp-content/uploads/2023/10/Thorne.gif\",\"language\":\"de\",\"published_at\":1697105252,\"reference\":[],\"relationships\":[],\"summary\":\"Neue
+        first on [iRights.info](https://irights.info){rel=\\\"nofollow\\\"}.\\n\",\"doi\":\"https://doi.org/10.59350/b5cz8-kr253\",\"guid\":\"https://irights.info/?post_type=custom_artikel&p=32063\",\"id\":\"df297a7d-3d64-402d-9287-af7a83ff50f0\",\"image\":\"https://irights.info/wp-content/uploads/2023/10/Thorne.gif\",\"language\":\"de\",\"published_at\":1697105252,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Neue
         Technologien fordern das Recht heraus. Das gilt besonders f\xFCrs Urheberrecht,
         das immer wieder auf neue Kopiertechniken reagiert. So auch bei sogenannten
         3D-Scans, mit den sich Skulpturen, Bauwerke und andere dreidimensionale Objekte
@@ -837,19 +837,210 @@ interactions:
         B, que debe comenzar en los\\npr\xF3ximos meses y para la que tambi\xE9n se
         utilizar\xE1 Transkribus. En la\\n[pr\xF3xima\\nentrada](https://lucidarios.hypotheses.org/?p=3748){rel=\\\"noreferrer
         noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://lucidarios.hypotheses.org/?p=3748\\\"\\ntarget=\\\"_blank\\\"}
-        hablar\xE9 de la *constitutio textus*.\\n\\n------------------------------------------------------------------------\\n\\n`[Cite
-        este art\xEDculo como: Coss\xEDo Olavide, Mario. \\\"Editando el `*`Lucidario`*`
-        de Sancho IV usando humanidades digitales (5).\\\" `*`Lucidarios. Editando
-        el`*` Lucidario `*`de Sancho IV`*`. 11/10/2023. `[`https://doi.org/10.59350/qpezf-4w626`](https://doi.org/10.59350/qpezf-4w626)`]`\\n\\n------------------------------------------------------------------------\\n\\nImagen
-        de miniatura: detalle del fol. 100r de A en *Transkribus*\\n\",\"doi\":\"https://doi.org/10.59350/qpezf-4w626\",\"guid\":\"https://lucidarios.hypotheses.org/?p=3644\",\"id\":\"ee865a2e-8596-4af5-b9a8-dfee320bf9ad\",\"image\":\"https://lucidarios.hypotheses.org/files/2023/10/Capture-de\u0301cran-2023-10-11-a\u0300-14.37.28.png\",\"language\":\"es\",\"published_at\":1697027883,\"reference\":[],\"relationships\":[],\"summary\":\"En
+        hablar\xE9 de la *constitutio textus*.\\n\\n------------------------------------------------------------------------\\n\\nImagen
+        de miniatura: detalle del fol. 100r de A en *Transkribus*\\n\",\"doi\":\"https://doi.org/10.59350/qpezf-4w626\",\"guid\":\"https://lucidarios.hypotheses.org/?p=3644\",\"id\":\"ee865a2e-8596-4af5-b9a8-dfee320bf9ad\",\"image\":\"https://lucidarios.hypotheses.org/files/2023/10/Capture-de\u0301cran-2023-10-11-a\u0300-14.37.28.png\",\"language\":\"es\",\"published_at\":1697027883,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"En
         la \xFAltima entrada habl\xE9 de las transcripciones semipaleogr\xE1ficas
         de los testimonios del\\n<em>\\n Lucidario\\n</em>\\nemprendidas para esta
         edici\xF3n y sus caracter\xEDsticas. Retomo esa explicaci\xF3n para ahondar
         un poco sobre la experiencia de transcripci\xF3n. La mayor\xEDa de las transcripciones
         fueron realizadas empleando Transkribus, un aplicativo de transcripci\xF3n
-        automatizada del que he hablado en varias entradas.\\n\",\"tags\":[\"Entradas\",\"Edici\xF3n
+        automatizada del que he hablado en varias entradas.\",\"tags\":[\"Entradas\",\"Edici\xF3n
         Cr\xEDtica\",\"Humanidades Digitales\",\"Lucidario A\",\"Lucidario B\"],\"title\":\"Editando
-        el <em>Lucidario</em> de Sancho IV usando humanidades digitales (5)\",\"updated_at\":1705441038,\"url\":\"https://lucidarios.hypotheses.org/3644\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22140/20231105111127/https://libscie.org/onboarding-with-confidence-in-open-science-s03e16\",\"authors\":[{\"name\":\"Chris
+        el <em>Lucidario</em> de Sancho IV usando humanidades digitales (5)\",\"updated_at\":1708639815,\"url\":\"https://lucidarios.hypotheses.org/3644\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Sarah
+        de Rijcke\"}],\"blog_name\":\"Leiden Madtrics\",\"blog_slug\":\"leidenmadtrics\",\"category\":\"socialSciences\",\"content_text\":\"On
+        the occasion of the 2023 Nobel Prize announcements, [the Rijksmuseum\\nBoerhaave
+        symposium\\n\\\"](https://rijksmuseumboerhaave.nl/symposium-does-science-need-heroes/){target=\\\"_blank\\\"}*[Does\\nscience
+        need\\nheroes?\\\"](https://rijksmuseumboerhaave.nl/symposium-does-science-need-heroes/){target=\\\"_blank\\\"}*\\nattempted
+        to explore the evolution of prize cultures over time and\\nexamine the current
+        and potential roles of prizes in contemporary\\nscientific practices. I would
+        like to thank Ad Maas, Curator of Modern\\nNatural Sciences of Rijksmuseum
+        Boerhaave and professor in Museological\\nAspects of the Natural Sciences
+        at the Centre for the Arts in Society of\\nLeiden University, for inviting
+        me to give a comment on the second day\\nof the symposium. This blog post
+        is an adaptation of the talk I gave\\nthere.\\n\\n*Does science need heroes?*
+        Spoken like a proper academic, my answer to\\nthis question would be: yes
+        and no.\\n\\nLet me start with the latter.\\n\\nNo, the last thing contemporary
+        science needs are heroes. What it does\\nneed is structural reform. Science
+        suffers from major flaws, including\\nvarious forms of bias, structural inequality,
+        lack of transparency and\\nrigor, excessive competition, commercialization,
+        and vanity publishing.\\nIt is unhealthy for researchers to want to be a hero
+        in the current\\nsystem.\\n\\nBut also: yes! Science is in dire need of heroes!
+        Because the science\\nsystem needs to reform, we need different types of people
+        who can lead\\nthe way and set an example with good leadership. This is what
+        I want to\\naddress in this commentary.\\n\\n<figure style=\\\"text-align:center;\\\">\\n<img
+        src=\\\"https://www.leidenmadtrics.nl/images/community/boerhaave.jpg\\\"\\ndata-image=\\\"36499\\\"
+        />\\n<figcaption>Rijksmuseum Boerhaave, Leiden. Source: <a\\nhref=\\\"https://commons.wikimedia.org/wiki/File:Gevel_van_entree_Rijksmuseum_Boerhaave.jpg\\\"\\ntarget=\\\"_blank\\\">Wikimedia
+        Commons</a></figcaption>\\n</figure>\\n\\n  \\nBut first, and inspired by
+        Museum Boerhaave\\\\'s wonderful collection, I\\nwill go back to the 19^th^
+        century, when the first university ranking\\nwas conceived. People often think
+        the first ranking appeared around the\\n2000s, with the publication of the
+        first commercial ranking. But that is\\nnot true. As is more often the case,
+        problematic metrics for assessing\\nexcellence are in fact invented by scientists
+        themselves!\\n\\nA few years ago, I examined the work of the American psychologist
+        James\\nMcKeen Cattell [with two of my\\ncolleagues](https://link.springer.com/content/pdf/10.1007/s11024-017-9329-x.pdf){target=\\\"_blank\\\"}.\\nCattell
+        lived from 1860 to 1944, served as the long-time editor of the\\njournal *Science*,
+        and his primary academic interest was the study of\\n\\\\'eminence\\\\', a
+        somewhat ambiguous concept that I translate here as\\nexcellence, eminence,
+        or greatness. There is an interesting connection\\nbetween Cattell\\\\'s work
+        on \\\\'eminence\\\\' as the primary \\\\'virtue\\\\' of\\nindividual researchers
+        and the contemporary university rankings of the\\nmost prestigious, high-performing,
+        Nobel Prize-winning universities with\\nthe most flourishing research and
+        best teaching environments.\\n\\nCattell studied in England and later held
+        an office in Cambridge, where\\nhe eventually came into contact with proponents
+        of eugenics. Cattell,\\nand many other contemporaries interested in \\\\'eminence\\\\'
+        or greatness,\\nobserved a decrease in the number of \\\\'great men\\\\' compared
+        to earlier\\nperiods, which they found concerning. They feared the biological\\ndegeneration
+        of the population, and this fear was exacerbated by a more\\ngeneral concern
+        about the decline of the British Empire. This fear was\\nfurther intensified
+        by the rise of industrialization, democratization,\\nand a growing working
+        class. The preoccupation with \\\\'great men\\\\' was\\nalso reflected in
+        a growing interest in the role of the scientist in a\\ntime when scientific
+        work increasingly became a \\\\'profession\\\\' among\\nother professions.
+        The scientific method of eugenics gave Cattell the\\ntools to classify \\\\'eminence\\\\'
+        in a new way. His idea was that\\nprofessors could be placed on a single ranked
+        list based on peer review.\\nHe asked a large number of scientists to create
+        a list, ranking\\nscientists from the most to the least prominent, based on
+        a selection of\\nnames provided in advance. High \\\\\\\"output\\\\\\\" was
+        insufficient as an\\nindicator of \\\\'eminence\\\\'; it was primarily about
+        reputation among\\npeers. What exactly this reputation was based on remained
+        ambiguous.\\nCattell kept various background and biographical information
+        about the\\nmen on the lists, including data on birthplace, residence, age,
+        and\\nespecially the university where researchers had received their\\neducation.
+        But his lists also quickly started to serve other purposes:\\nhe mapped how
+        \\\\'scientific eminence\\\\' was distributed across cities and\\nuniversities.
+        And I quote from a piece in 1903: \\\\\\\"We can tell whether\\nthe average
+        scientific standard in one part of the country or at a\\ncertain university
+        is higher or lower than elsewhere; we can also\\nquantitatively map the scientific
+        strength of a university or\\ndepartment.\\\\\\\" So, initially, Cattell\\\\'s
+        lists were not compiled with the\\npurpose of comparing institutions, but
+        the information these instruments\\nprovided was indeed used for these comparisons.\\n\\n<figure
+        style=\\\"text-align:center;\\\">\\n<img src=\\\"https://www.leidenmadtrics.nl/images/community/tblCattell.png\\\"\\ndata-image=\\\"36480\\\"
+        />\\n<figcaption>Table from <a href=\\\"https://www.jstor.org/stable/1627220\\\"\\ntarget=\\\"_blank\\\">Cattell,
+        1898</a>: Doctorates in Philosophy from\\nAmerican universities in a single
+        year</figcaption>\\n</figure>\\n\\n  \\n\\nCattell\\\\'s study of scientific
+        men and his subsequent ranking of\\nuniversities was deeply rooted in a larger
+        debate about the role of the\\nscientist. The ideal image of a researcher
+        was evolving significantly at\\nthe end of the 19th and the beginning of the
+        20th century, as I think is\\nhappening again today. But back then, older
+        ideas about the\\ngentleman-scholar, driven by intrinsic motivation, were
+        increasingly\\njuxtaposed with ideals that were more in line with the concept
+        of\\nscience as a paid profession. Just as the current preoccupation with\\nexcellence
+        and ranking is related to a much broader discussion about\\nwhat universities
+        are exactly for today!\\n\\nOver the past 30+ years the Dutch and European
+        governments have\\nintroduced several different policy instruments to foster
+        excellent\\nresearch. These policy instruments worked by stimulating competition
+        in\\nscience, and what I find very interesting is how these research policy\\ninstruments
+        have in the past decades started to shape our perception of\\nexcellent science
+        through an interactive feedback loop between policy on\\nthe one hand and
+        the practice of doing research on the other. An\\nexcellent researcher's standing
+        is now primarily determined by their\\nresearch production. This is partly
+        still science as a profession that\\nCattell and others instigated, but this
+        profession is now saturated with\\nkey performance indicators (like a lot
+        of other professions in\\nneoliberal democratic societies). The primary tactical
+        and strategic\\naims have become competing for (ever decreasing amounts of)
+        research\\nincome, and publishing in prestigious journals, and aiming for
+        a Nobel\\nPrize. Put even stronger, prizes and awards have become important
+        parts\\nof academic CVs. And because of gender and other diversity gaps, this\\nmakes
+        it harder for women and other minority groups to make a career in\\nscience.
+        University rankings use prizes and awards as input, and this\\ntrickles down
+        in university policies. Universities over the past decades\\nhave started
+        to think in terms of globalised economic markets for\\nexcellent researchers.\\n\\nThe
+        motivation behind policies for excellence perhaps at one point made\\nsense,
+        and Dutch science is doing well by the numbers, but obviously,\\nand this
+        is not often acknowledged, there is a big structural issue with\\nthe way
+        we measure excellence. If we are truly honest: current notions\\nof excellence
+        and metrics-driven assessment criteria are threatening to\\nshape the content
+        of the work and the diversity of the subject matter.\\nWe are observing that
+        research is designed and adjusted in a way that\\nensures a good score. We
+        see that people are choosing research questions\\nnot just based on interest
+        or importance, but also to improve their\\nchances of getting a job. This
+        ['thinking with\\nindicators'](https://academic.oup.com/rev/article/26/3/157/3933574){target=\\\"_blank\\\"}\\nis
+        obviously problematic for science when important research questions\\nare
+        not being addressed and even become 'unthinkable'.\\n\\nThis type of thinking
+        also has consequences for the space in academia\\nfor what you could call
+        'social' elements. Think of decreasing\\ncollegiality, less commitment to
+        the community, or bad leadership. And\\nif we\\\\'re mostly noticing and applauding
+        the \\\\'big names,\\\\' those\\nveteran academics with a significant reputation,
+        we are hurting the\\nopportunities for talented newcomers and other team members
+        who play\\ncrucial roles. What worries me is that the pressure in many places
+        is so\\nhigh that ambitious young researchers think they cannot go on holiday\\nbecause
+        otherwise their work will be 'scooped'. Competitiveness can\\ncreate feelings
+        of constant failure among early career researchers, as\\nthey may never feel
+        they meet the required standards. And even those who\\nare at the top, and
+        we have interviewed many, often feel they must\\ncontinue to work ever harder
+        to keep out-competing others. Group leaders\\nand heads of department warn
+        each other about the health risks that they\\nrun by chronically working very
+        hard, year after year. This is an actual\\nquote from an actual interview:
+        \ \\n\\nThe example these senior researchers are setting with that behaviour
+        to\\ntheir younger colleagues is that it is heroic to work eighty hours a\\nweek,
+        and that if people can't keep up, they are not fit for the\\nChampions League.
+        These senior researchers have really internalised that\\nthis is what it takes
+        to play the game, and that if you can't stand the\\nheat, you should get out
+        of the kitchen. But let's face it, that kitchen\\nis on fire.\\n\\nFor one,
+        we have globally had several severe integrity and\\nreproducibility crises.
+        We have seen the shadow side of competition,\\nwhere researchers focus too
+        much on finding new things and trying to do\\nthat quickly, even if that means
+        that they might not be doing\\nhigh-quality research. Of course, we all want
+        to tell our students to\\ndream big and ideally, we also provide them with
+        the protected space to\\ndevelop their own research and strive for the highest
+        quality. However,\\nif in the meantime we also encourage them to focus on
+        chasing after\\ngroundbreaking results and judge success mainly by how many
+        times our\\nwork gets cited by others, we create a culture where short-termism
+        and\\nrisk aversion thrive. This culture is today also driven by a pressure
+        to\\nsecure funding in competitive four-year cycles. This, in turn, makes
+        it\\nvery hard for researchers to do long-term, risky projects, or work in\\nfields
+        that have a big impact on society but don\\\\'t get cited as much,\\nlike
+        applied sciences or social sciences. As a result, research agendas\\ndon\\\\'t
+        always focus on what society really needs. Also, all this\\ncompetition can
+        make scientists less likely to collaborate, which is\\ncrucial for solving
+        complex problems.\\n\\nTo make science better, we need to change our priorities,
+        and support a\\nwider range of research. We very urgently need more diverse
+        perspectives\\nand inclusive participation in science. [We need to collaborate
+        and open\\nup,](https://blogs.lse.ac.uk/impactofsocialsciences/2023/08/14/the-benefits-of-open-science-are-not-inevitable-monitoring-its-development-should-be-value-led/){target=\\\"_blank\\\"}\\nsimply
+        because what is expected of science today greatly exceeds the\\nproblem-solving
+        capacity of science alone. And that is why we also\\nreally need to rethink
+        the criteria for excellent research. These\\ncriteria need to be more inclusive,
+        because research evaluation has the\\npower to affect the culture of research;
+        individual career trajectories\\nand researchers' well-being; the quality
+        of evidence informing policy\\nmaking; and importantly, the priorities in
+        research and research\\nfunding.\\n\\nI would also like to address a misunderstanding
+        about the Dutch\\n['recognition and rewards'\\nprogram](https://recognitionrewards.nl/){target=\\\"_blank\\\"}.
+        I often hear\\na concern that the program wants to wishy-washily include everyone
+        and\\nforgets about upholding excellence. I do not think that this is a fair\\nportrayal
+        of the program. At its core, the program is about an honest\\nlook in the
+        mirror, and about fixing what is broken. The program is part\\nof a much larger
+        set of national, regional, and global initiatives\\nincluding the [DORA Declaration](https://sfdora.org/){target=\\\"_blank\\\"}\\nand
+        the [Leiden Manifesto for research\\nmetrics](https://www.nature.com/articles/520429a){target=\\\"_blank\\\"},
+        the\\n[Manifesto for Reproducible\\nScience](https://www.nature.com/articles/s41562-016-0021;){target=\\\"_blank\\\"}\\nfrom
+        2017, [FOLEC-CLASCO's 2020\\nreport](https://www.clacso.org/en/folec/){target=\\\"_blank\\\"}
+        on reforming\\nresearch assessment in Latin America and the Caribbean, Europe's\\n[CoARA](https://coara.eu/){target=\\\"_blank\\\"},
+        [The Future of Research\\nEvaluation synthesis paper by the International
+        Science Council, The\\nInter Academy Partnership, and the Global Young\\nAcademy](https://www.interacademies.org/news/future-research-evaluation-synthesis-current-debates-and-developments){target=\\\"_blank\\\"},\\nand
+        the global [UNESCO Recommendation on Open\\nScience](https://unesdoc.unesco.org/ark:/48223/pf0000379949){target=\\\"_blank\\\"}.\\n\\nAll
+        these initiatives are part of a global effort to re-think\\nevaluation. And
+        we need other types of leaders and heroes in academia,\\nwho will work together
+        to implement responsible forms of research\\nassessment. We should stop sending
+        each other the message that\\nregardless of how hard we all work, there is
+        always more we need to do\\nto succeed. If we want our work to be meaningful,
+        we need to invest more\\nin building strong academic communities that value
+        collaboration and\\nshare a commitment to advancing research and teaching,
+        while making a\\npositive impact on and with society.\\n\\nOne of my heroes
+        in life is Pippi Langstr\xF6m, or Pippie Langkous in\\nDutch. I used to watch
+        her show when I was little. Pippi has this\\nsaying: \\\"I have never tried
+        this before, so I think I should definitely\\nbe able to do that.\\\" I love
+        it. And I believe that we need to reward\\nthis type of behaviour more than
+        we currently do in academia, sadly. We\\nshould foster taking risks, trying
+        something new, stepping out of our\\ncomfort zone, and being bold whilst not
+        taking ourselves too seriously.\\nBut in fact, we see the opposite happen
+        among early career researchers.\\nMany of them suffer from [anxiety and an
+        unhealthy pressure to conform\\nto a problematic\\nnorm](https://hetpnn.nl/wp-content/uploads/2023/06/202306_Improving-mental-health-of-early-career-researchers-2.pdf){target=\\\"_blank\\\"}.\\nHelping
+        to change that was one of my drivers to be part of [this\\nsymposium](https://rijksmuseumboerhaave.nl/symposium-does-science-need-heroes/){target=\\\"_blank\\\"},\\non
+        a Saturday afternoon.\\n\\n*  \\n*\\n\\n*Header photo: [Adam\\nBaker](https://flickr.com/photos/44124479650@N01/8459286843){target=\\\"_blank\\\"}*\\n\",\"doi\":\"https://doi.org/10.59350/w5cy9-wtb76\",\"guid\":\"https://www.leidenmadtrics.nl/articles/does-science-need-heroes\",\"id\":\"a86f13fa-2084-4e1a-a75a-c194cc313b94\",\"image\":\"https://www.leidenmadtrics.nl/images/community/boerhaave.jpg\",\"language\":\"en\",\"published_at\":1697023980,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"On
+        the occasion of the 2023 Nobel Prize announcements, the Rijksmuseum Boerhaave
+        symposium \u201C\\n<em>\\n Does science need heroes?\u201D\\n</em>\\nattempted
+        to explore the evolution of prize cultures over time and examine the current
+        and potential roles of prizes in contemporary scientific practices.\",\"tags\":[],\"title\":\"Does
+        science need heroes?\",\"updated_at\":1708009146,\"url\":\"https://www.leidenmadtrics.nl/articles/does-science-need-heroes\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22140/20231105111127/https://libscie.org/onboarding-with-confidence-in-open-science-s03e16\",\"authors\":[{\"name\":\"Chris
         Hartgerink\",\"url\":\"https://orcid.org/0000-0003-1050-6809\"},{\"name\":\"Sarahanne
         Field\"}],\"blog_id\":\"h49ct36\",\"blog_name\":\"Liberate Science\",\"blog_slug\":\"libscie\",\"category\":\"socialSciences\",\"content_html\":\"<div
         class=\\\"kg-card kg-callout-card kg-callout-card-grey\\\"><div class=\\\"kg-callout-emoji\\\">\U0001F508</div><div
@@ -1374,577 +1565,7 @@ interactions:
         of open science in the last 10 years, and then also this week we're gonna
         be talking a bit about, what do we foresee for the next 10 years?\\n\",\"tags\":[\"Open
         Update\",\"Labs\"],\"title\":\"Onboarding with confidence in open research
-        (s03e16)\",\"updated_at\":1696929637,\"url\":\"https://libscie.org/onboarding-with-confidence-in-open-science-s03e16\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22155/20231101171916/https://stasis.hypotheses.org/896\",\"authors\":[{\"name\":\"Carsten
-        Hjort Lange\"}],\"blog_id\":\"5knte41\",\"blog_name\":\"Stasis\",\"blog_slug\":\"stasis\",\"category\":\"historyAndArchaeology\",\"content_html\":\"\\n<p
-        class=\\\"has-drop-cap\\\">The words and concepts we use to describe a particular
-        war speak volumes about who we are as individuals and as a community, and
-        where we stand in an unfolding conflict. Concepts have always been used to
-        occupy the moral high ground. Rebellion, for example, is used to delegitimise
-        those who rebel. In Rome, the allied communities were not legally Roman citizens
-        and therefore their rebellion was not a \u2018civil war\u2019. However, these
-        non-citizens were considered part of the same polity as Roman citizens; the
-        idea of an internal war was born, in debates in the Senate and beyond, debates
-        between friends and foes. We debate! And sometimes we use violence, or even
-        go to war against each other. It happens now, and it has happened many times
-        in the past. The writings of contemporaries (and later sources) reflect these
-        debates. From the outbreak of the Second Punic War in 218 to the Social War
-        in 91, the Romans of the long second century had protracted debates about
-        the changing nature of warfare \u2013 including the rebellion of their allies
-        in the midst of the Second Punic War \u2013 conceptual and otherwise \u2013
-        culminating in Rome\u2019s first civil war in 88 BCE.</p>\\n\\n\\n\\n<p>At
-        its core, my forthcoming book, <em>From Hannibal to Sulla: The Birth of Civil
-        War in Republican Rome</em> (<em>Studies in Ancient Civil War</em>, De Gruyter),
-        attempts to trace these debates and to show how, over the course of the second
-        century, the language of external war was slowly adapted to a new language
-        of internal and, ultimately, civil war. It combines two ideas: 1) the formative
-        role of antebellum on the one hand, and 2) the importance of the \u2018great\u2019
-        war before the civil war on the other hand; in preparing for the next conflict,
-        Rome looked back at the last great one. It suggests that the period from the
-        Second Punic War constituted, conceptually speaking, an \u2018antebellum\u2019
-        period to Rome\u2019s later civil wars. It traces the origins not only of
-        the concept and terminology of the <em>bellum civile</em>, but also of related
-        terms.</p>\\n\\n\\n\\n<figure class=\\\"wp-block-image size-full\\\"><a href=\\\"https://www.degruyter.com/document/isbn/9783111335216/html\\\"><img
-        decoding=\\\"async\\\" loading=\\\"lazy\\\" width=\\\"827\\\" height=\\\"1155\\\"
-        src=\\\"https://stasis.hypotheses.org/files/2023/10/2023-Lange_mark_cov_9783111333090.png\\\"
-        alt=\\\"\\\" class=\\\"wp-image-1253\\\" srcset=\\\"https://stasis.hypotheses.org/files/2023/10/2023-Lange_mark_cov_9783111333090.png
-        827w, https://stasis.hypotheses.org/files/2023/10/2023-Lange_mark_cov_9783111333090-215x300.png
-        215w, https://stasis.hypotheses.org/files/2023/10/2023-Lange_mark_cov_9783111333090-358x500.png
-        358w, https://stasis.hypotheses.org/files/2023/10/2023-Lange_mark_cov_9783111333090-768x1073.png
-        768w\\\" sizes=\\\"(max-width: 827px) 100vw, 827px\\\" /></a></figure>\\n\\n\\n\\n<p>However,
-        the book does not really propose a \u2018conceptual history\u2019 (<em>Begriffsgeschichte</em>)
-        in the manner of Reinhart Koselleck. The basic idea that, at some point in
-        modernity, old words have acquired new meanings so that they no longer need
-        to be translated seems overly simplistic, partly because it gives undue weight
-        to modernity (it is close(r) to our contemporary world = it is modern = it
-        is different from the non-modern world, or so the argument often seems to
-        go. I work mostly on old stuff (= a long time ago), but it is just not pre-modern,
-        it is very modern, conceptually speaking certainly so). It is true that some
-        concepts recur throughout history, but even so we must accept, with Quentin
-        Skinner, that they were never immutable and never had a (pre-)determined meaning.
-        We can accept that the phenomenon of civil war recurs (with Thucydides\u2019
-        description of the <em>stasis</em> in Corcyra during the Peloponnesian War,
-        3.81-85) in the understanding that civil wars occur throughout history: Corcyra,
-        the late Roman Republic, the late Roman Empire, the English Civil War, the
-        American Civil War, and so on. More than anything, my book is about the history
-        of the use of concepts rather than a history of concepts.</p>\\n\\n\\n\\n<p>What
-        is more, however coherent definitions may be in theory, in practice they were
-        as contestable in ancient times as they are today. Can we still believe \u2013
-        in the spirit of positivism \u2013 that deciphering the examples from our
-        evidence will provide us with a correct basic definition of the concepts we
-        are considering? Hardly! We should never accept that civil war is a concept
-        that everyone agreed on in ancient times. Language has an unfortunate tendency
-        to obscure the extent to which sources disagree, both in ancient times and
-        today. Is <em>stasis</em> the same as civil war? <em>Stasis</em> can be a
-        <em>polemos</em>, a (civil) war, but it can also be a sedition. The ancients
-        simply never agreed on a definition of such slippery concepts as <em>stasis</em>
-        and civil war. Why would they? Why would we? Concepts naturally change over
-        time as they are used in a particular context.</p>\\n\\n\\n\\n<p>In 43 BCE
-        the warmonger Cicero was trying hard to get the proconsul M. Antonius (<em>cos</em>.
-        44) declared a <em>hostis publicus</em>. He was strenuously opposed in this
-        endeavour by L. Iulius Caesar (<em>cos</em>. 64), who insisted that the term
-        <em>bellum</em> be replaced with <em>tumultus</em> (<em>Phil</em>. 12.17):</p>\\n\\n\\n\\n<figure
-        class=\\\"wp-block-pullquote\\\"><blockquote><p>I consistently called Antonius
-        a public enemy [<em>hostis</em>], while others [L. Iulius Caesar] called him
-        an adversary [<em>adversarius</em>]; I consistently called this a war [<em>bellum</em>],
-        while others called it a public emergency [<em>tumultus</em>].</p><cite>Cic.
-        <em>Phil</em>. 12.17</cite></blockquote></figure>\\n\\n\\n\\n<p>There has
-        never been, and never will be, a single narrative. Reading, for example, David
-        Armitage\u2019s fine 2017 book <em>Civil Wars. A History In Ideas</em>, it
-        quickly becomes clear that the concept of civil war has always been, as I
-        said, a slippery one. Importantly, I firmly believe that scholars should ultimately
-        accept that we can safely assume that some features of ancient civil wars
-        are indeed regular features of any civil war, and that we should therefore
-        accept the civil war in ancient Rome as a valid and instructive example to
-        consider in modern debates about civil war. This should come as no surprise!
-        And it works just fine without history repeating itself.</p>\\n\\n\\n\\n<p>Accordingly,
-        all scholars working on civil war\u2014including social and political scientists\u2014need
-        to learn their history as well as the traditions of the concepts they apply.
-        After all, history is the only laboratory we have. The next question must
-        be about the consequences of such an approach.</p>\\n\\n\\n\\n<p>In the book
-        I write:</p>\\n\\n\\n\\n<blockquote class=\\\"wp-block-quote\\\">\\n<p>Through
-        careful historicization, it is possible to highlight the ahistorical nature
-        of modern definitions of civil war. All modern debates about civil war should
-        ideally take the Late Republic as their conceptual point of departure: its
-        genesis after lies there (a \u201Cwar\u201D between \u201Ccitizens\u201D).
-        Alternatively, the concept needs to be abandoned by moderns altogether and
-        the concept of \u201Cinternal war\u201D used instead (as famously proposed
-        by Eckstein in 1965 [<em>On the Etiology of Internal Wars</em>]). The problem
-        with this alternative new concept of \u201Cinternal war\u201D is that this,
-        too, was already theorised by the Romans in Latin and is not new at all: <em>bellum
-        intestinum</em>, mainly but not exclusively a concept used in connection with
-        wars between Rome and its allies or within the polity of allies. The semantic
-        range of civil wars is today being stretched to encompass ideological differences
-        within for example political parties, so that there is a risk of it losing
-        any conceptual specificity</p>\\n<cite>Lange, <em><em>From Hannibal to Sulla:
-        The Birth of Civil War in Republican Rome</em></em> (forthcoming)</cite></blockquote>\\n\\n\\n\\n<p>The
-        problem today is that the concept of civil war is too often stripped of its
-        basic meaning (citizenship and war). Not surprisingly, this is further complicated
-        by issues such as the definition of war. When is a war a war? It is safe to
-        say that a true civil war requires at least something resembling armies and
-        battles, with actual fighting between citizens. In his famous book <em>The
-        Logic of Violence in Civil War</em>, Stathis Kalyvas gives us a definition:
-        \u201Carmed combat within the borders of a recognised sovereign entity between
-        parties subject to a common authority at the beginning of hostilities\u201D
-        (2006, 17). His definition not only lacks references to and understanding
-        of both <em>war</em> and <em>citizenship</em> (<em>bellum civile</em>), the
-        words that make up the concept it defines, but also lacks the exclusivity
-        necessary for it to function; it is vague. As I wrote in 2017 in a <a rel=\\\"noreferrer
-        noopener\\\" href=\\\"https://cal.library.utoronto.ca/index.php/cal/article/view/28855\\\"
-        target=\\\"_blank\\\">review </a>of David Armitage\u2019s 2017 book:</p>\\n\\n\\n\\n<blockquote
-        class=\\\"wp-block-quote\\\">\\n<p>The terms \u201Cinclusive\u201D [Kalyvas\u2019
-        vague definition] or \u201Cexclusive\u201D [something a kind of conventional
-        war and battles between citizens] are often connected to definitions, as if
-        we will somehow finally understand a concept by having agreed on its definition.
-        Of course we all need definitions, mainly in order to agree that we are talking
-        about the same thing (15-18, 219 n.50).</p>\\n<cite>Lange, Review of David
-        Armitage, <em>Civil Wars: A History In Ideas</em> (2017)</cite></blockquote>\\n\\n\\n\\n<p>Those
-        of us who study civil war must accept that we are studying a spectrum of violence,
-        from <em>stasis</em> and <em>seditio</em> to <em>bellum civile</em>: from
-        <em>antebellum</em> to <em>bellum</em>. In terms of contemporary relevance,
-        what we see today are debates about the naming of conflicts, similar to those
-        in ancient times. I write about this in the book:</p>\\n\\n\\n\\n<blockquote
-        class=\\\"wp-block-quote\\\">\\n<p>Unsurprisingly, similar debates are also
-        part of political landscapes today. On the night of the so-called <em>Capitol
-        Riots</em> in 2021, NBC broadcast journalist Savannah Guthrie described the
-        situation on live television as a \u201C<em>stasis</em>, for lack of a better
-        word\u201D: that is, a period of debilitating and incapacitating civil strife
-        or upheaval, taken directly from the Greek expression for \u201Cstandstill\u201D
-        (\u03C3\u03C4\u03AC\u03C3\u03B9\u03C2), used in this book in its meaning of
-        sedition. We will see in chapter 1 that these so-called riots have themselves
-        already been described using numerous different concepts, all related in some
-        way to <em>stasis</em>; Guthrie\u2019s comment is the ideal point of departure
-        for any discussion about the enduring ambiguity of labels and definitions
-        for internal conflict, in the modern world just as in the ancient. <em>Stasis</em>
-        and civil war exert so profound an influence that societies must confront
-        it in all periods.</p>\\n<cite>Lange, <em><em>From Hannibal to Sulla: The
-        Birth of Civil War in Republican Rome</em></em> (forthcoming)</cite></blockquote>\\n\\n\\n\\n<p>Let\u2019s
-        play around with a hypothetical scenario: what if the United States were to
-        descend into civil war again? Barbara Walter, in her fine book <em>How Civil
-        Wars Start. And How to Stop Them</em> (2022), is already ahead of us. According
-        to her analysis, incidents such as the plot to kidnap Michigan Governor Gretchen
-        Whitmer in 2020, the so-called <em>Capitol Riots</em> in 2021, and the recent
-        attack on Representative Nancy Pelosi and her husband in 2022 are indeed examples
-        of a potentially unfolding civil war. As such, these events may one day be
-        easily described by future historians as part of the \u2018antebellum\u2019
-        period leading up to the <em>Second American Civil War</em>, to explain its
-        genesis.</p>\\n\\n\\n\\n<p>I am an ancient historian specialising in Republican
-        Rome, not a specialist in contemporary American politics, but I will say this
-        as a scholar of civil war: Joanne Freeman, in her wonderful book <em>The Field
-        of Blood: Violence in Congress and the Road to Civil War</em>, focuses on
-        physical violence in the US Congress from 1830 to the outbreak of the Civil
-        War (2018). It sheds new light on the systemic breakdown in the decades leading
-        up to the Civil War. It allows us to ask whether we can have a relatively
-        well-functioning political system and a systemic breakdown at the same time.
-        The prelude to the American Civil War, and indeed Late Republican Rome, suggest
-        just that; suggest that it is possible. There may be a growing fear \u2013
-        with Barbara Walter \u2013 that something similar is afoot in contemporary
-        US politics and society. The concept of polarisation is crucial to our understanding
-        of current events. Another great book can help us decipher modern US politics.
-        Ezra Klein says as much in <em>Why We\u2019re Polarised</em>:</p>\\n\\n\\n\\n<figure
-        class=\\\"wp-block-pullquote\\\"><blockquote><p>To appeal to a more polarized
-        public, political institutions and political actors behave in more polarized
-        ways. As political institutions and actors become more polarized, they further
-        polarize the public.</p><cite>Ezra Klein, <em>Why We\u2019re Polarized</em>
-        (2020), xix</cite></blockquote></figure>\\n\\n\\n\\n<p>Citing once again from
-        my book, \u201CThis could easily be a description of antebellum politics in
-        ancient times, of ancient civil strife and civil war language.\u201D</p>\\n\\n\\n\\n<p>Returning
-        to the above debate about definitions of civil war, Barbara Walter, similar
-        to Stathis Kalyvas, claims that (2022, xiv-xv): \u201CGone are the large battlefields,
-        the armies, and the conventional tactics. Today, civil wars are waged by different
-        ethnic and religious groups, by guerrilla soldiers and militias, who often
-        target civilians.\u201D</p>\\n\\n\\n\\n<p>My answer I give in the book is
-        as follows: \u201CThe issue here is, as mentioned, historicity\u2014an awareness
-        of the repetitive nature of civil war and its features in earlier periods\u2014which
-        is vital for us to compare conflicts over time. Problematically, this historicity
-        is lost in her approach. In any case, what Walter discusses and defines as
-        civil war would seem to any reader of Thucydides to clearly be not civil war
-        but rather <em>stasis</em>. Walter\u2019s basic point regarding an (potentially)
-        unfolding civil war can survive this, as this would, if a civil war happens,
-        be its antebellum period (as mentioned in the introduction). There is however
-        a distinct lack of language and knowledge of history.\u201D I wrote above
-        that concepts change over time as they are used in a specific context. But
-        this is simply too much and makes any comparison over time difficult or even
-        impossible.</p>\\n\\n\\n\\n<p>More than anything else, I fear that the legacy
-        of Rome will be lost. Now, I understand that this may be difficult for non-historians
-        to accept as a major problem, but in doing so we will ultimately lose the
-        ability to understand the legacy of Rome, and we may lose the ability to understand
-        the fundamentally repetitive nature of civil war (understanding historical
-        similarities as opposed to history repeating itself).</p>\\n\\n\\n\\n<p>Taking
-        these issues further, the contemporary unfolding US debate about the 2020
-        election and its aftermath, including the so-called <em>Capitol Riots</em>,
-        is of great interest to an ancient historian working on civil war and related
-        concepts. A debate about which concepts to use to describe what happened and
-        what is happening, which happens to be very similar to debates about the changing
-        nature of warfare and conflict in ancient times.</p>\\n\\n\\n\\n<p>Former
-        President Trump\u2019s incitement to violence (and arguably to a coup) may
-        not be a straightforward repetition of past events in every respect, but there
-        are certainly patterns. These patterns illustrate the fundamental relevance
-        of history to our understanding of the world around us.</p>\\n\\n\\n\\n<p>In
-        the end, <em>Capitol Riots</em> \u2013 a violent disturbance of the peace
-        by a crowd of people \u2013 seems a poor choice of words; it hardly conveys
-        the seriousness of what happened. In the book I write:</p>\\n\\n\\n\\n<blockquote
-        class=\\\"wp-block-quote\\\">\\n<p>The period from the 2020 US election onwards
-        has more than anything shown that we today lack a nuanced language of internal
-        political violence and conflict. Mainstream political discourse channelled
-        through mass media lacks a spectrum of concepts related to organised violence,
-        or perhaps better, we do not use them. Where attempts are made, they often
-        stretch the semantic range of \u2018civil war\u2019 beyond recognition.&nbsp;
-        &#8230; When the so-called Capitol Riots of 2021 are included, the term that
-        springs to mind more readily than civil war is in fact political violence
-        through insurrection\u2014as we shall see further below\u2014and <em>stasis</em>
-        or <em>tumultus</em> or similar. But to claim that we might ultimately have
-        a Second American Civil War is to invoke the legacy of one million military
-        casualties of the American Civil War (1861\u20131865), of which as many as
-        three-quarters died (&#8230;). This is about creating \u2013 perhaps even
-        subconsciously \u2013 a mental picture of the horrors of not just civil war
-        in principle, but the American Civil War in particular. All labels are of
-        course political at the outset. We as scholars may agree that a conflict is
-        either a civil war or not, but that may not reflect the language used to describe
-        the war at the time.</p>\\n<cite>Lange, <em>From Hannibal to Sulla: The Birth
-        of Civil War in Republican Rome</em> (forthcoming)</cite></blockquote>\\n\\n\\n\\n<p>But
-        this post is not about Trump, not about his norm-breaking presidency, not
-        about the US Constitution which presupposes a peaceful transition of power,
-        not about \u201Cthe president\u2019s infamous walk to St John\u2019s with
-        his entourage, including Secretary of Defense Esper and Chairman of the Joint
-        Chiefs of Staff General Mark Milley in camouflage uniform, as well as Attorney
-        General William Barr\u201D (from my book), and not about Trump wanting to
-        send in the armed forces against protesters.</p>\\n\\n\\n\\n<p>But whatever
-        we think of contemporary US politics, the storming of the Capitol on 6 January
-        2021 has already changed the USA forever. The <em>House Select Committee to
-        Investigate the January 6th Attack on the United States Capitol</em> is a
-        testament to an ongoing and still unfolding debate about the so-called <em>Capitol
-        Riots</em>, but it is also a testament to a committee that seeks to inform
-        and shape future debates. The report suggests that Trump took advantage of
-        an unfolding situation of his own making. The evidence seems overwhelming
-        to support this conclusion. Trump was plotting to overturn the outcome of
-        the 2020 election.</p>\\n\\n\\n\\n<p>This is hardly the place to go into detail,
-        but Chapter One is called <em>THE BIG LIE</em>! Suffice it to say that the
-        phrase was used by Adolf Hitler in <em>Mein Kampf</em> (1925 Vol. 1, 244)
-        to explain how people could be made to believe a colossal lie. Whether the
-        comparison is fair or not is not the point. Polarisation is!</p>\\n\\n\\n\\n<p>In
-        terms of the language of crisis, the report uses many terms to describe what
-        has happened: Terrorist attack (3 times), incite/incitement (20 times, but
-        intent 44 times), civil war (20 times), riot(s) (25 times), coup (89 times),
-        sedition (87 times; seditious conspiracy (65 times)), insurrection (100 times),
-        mob (126 times), conspiracy (200 times). One might have wished for some prioritisation,
-        but more than anything this reflects an unfolding debate about what future
-        generations might end up calling the so-called <em>Capitol Riots</em>. Suffice
-        it to say that <em>stasis</em> is perhaps the best concept to use, at least
-        seen from the perspective and through the lens of ancient history.</p>\\n\\n\\n\\n<p>Writing
-        about the American Civil War, Aaron Sheehan-Dean (2018, <em>The Calculus of
-        Violence. How Americans Fought the Civil War</em>, 44) emphasises, \u201C[b]eyond
-        their claims to a defensive and hence just position, the language each side
-        used to frame its recourse to war in 1861 shaped how they behaved in the years
-        to come\u201D. Translated into relevance today this is certainly food for
-        thought. We can learn from history, and we need to accept its relevance today.
-        But this can only happen if we accept the historicity of the concepts we use
-        to describe contemporary (and past) conflicts. Not only do scholars working
-        on the ancient use new words to describe old societies. We also use old words
-        to describe modern society.</p>\\n\\n\\n\\n<h2 class=\\\"wp-block-heading\\\">References</h2>\\n\\n\\n\\n<ul>\\n<li>David
-        Armitage, <em>Civil Wars: A History In Ideas</em>, New Haven: Yale University
-        Press 2017.</li>\\n\\n\\n\\n<li>Ezra Klein, <em>Why We\u2019re Polarized</em>,
-        New York: Avid Reader Press 2020.</li>\\n\\n\\n\\n<li>Carsten H. Lange: <em>From
-        Hannibal to Sulla: The Birth of Civil War in Republican Rome</em> (<em>Studies
-        in Ancient Civil War</em>; vol. 1), Berlin: De Gruyter 2024. ISBN 978-3-111-33309-0
-        (Print), ISBN 978-3-111-33521-6 (eBook) [<a rel=\\\"noreferrer noopener\\\"
-        href=\\\"https://www.degruyter.com/document/isbn/9783111335216/html\\\" target=\\\"_blank\\\">website</a>]</li>\\n\\n\\n\\n<li>Aaron
-        Sheehan-Dean, <em>The Calculus of Violence: How Americans Fought the Civil
-        War</em>, Cambridge Mass.: Harvard University Press 2018.</li>\\n</ul>\\n\\n\\n\\n<p>Featured
-        image (c) Tyler Merbler (<a rel=\\\"noreferrer noopener\\\" href=\\\"https://www.flickr.com/photos/37527185@N05/50820534063\\\"
-        target=\\\"_blank\\\">flickr</a>; <a rel=\\\"noreferrer noopener\\\" href=\\\"https://creativecommons.org/licenses/by/2.0\\\"
-        target=\\\"_blank\\\">CC BY-ND 2.0</a>)</p>\\n\\n\\n\\n<p class=\\\"has-text-align-left\\\">DOI:
-        <a href=\\\"https://doi.org/10.59350/5b9hv-1xz57\\\">10.59350/5b9hv-1xz57</a></p>\\n\\n\\n\\n<div
-        class=\\\"wpcp\\\">Cite this article as: Carsten Hjort Lange, \u201CCivil
-        War Seen Through the Lens of Ancient History,\u201D in <em>Stasis \u2013 Avenues
-        to Ancient Civil War</em>, October 10, 2023, <a href=\\\"https://stasis.hypotheses.org/896\\\">https://stasis.hypotheses.org/896</a>.</div>\\n\\n\\n\\n<div
-        class=\\\"wp-block-group alignwide has-background is-layout-flow\\\" style=\\\"background-color:#ffffff\\\"><div
-        class=\\\"wp-block-group__inner-container\\\">\\n<div class=\\\"wp-block-group
-        is-layout-flow\\\"><div class=\\\"wp-block-group__inner-container\\\">\\n<h2
-        class=\\\"wp-block-heading has-text-align-center\\\">From Hannibal to Sulla:
-        The Birth of Civil War in Republican Rome</h2>\\n\\n\\n\\n<h3 class=\\\"wp-block-heading
-        has-text-align-center\\\">Carsten Hjort Lange</h3>\\n\\n\\n\\n<p class=\\\"has-text-align-center\\\"><em>Studies
-        in Ancient Civil War</em> 1, 2024</p>\\n\\n\\n\\n<div class=\\\"wp-block-button
-        is-style-outline aligncenter\\\"><a class=\\\"wp-block-button__link wp-element-button\\\"
-        href=\\\"https://www.degruyter.com/document/isbn/9783111335216/html\\\" target=\\\"_blank\\\"
-        rel=\\\"noreferrer noopener\\\">publisher\u2019s site</a></div>\\n</div></div>\\n</div></div>\\n\",\"content_text\":\"The
-        words and concepts we use to describe a particular war speak volumes about
-        who we are as individuals and as a community, and where we stand in an unfolding
-        conflict. Concepts have always been used to occupy the moral high ground.
-        Rebellion, for example, is used to delegitimise those who rebel. In Rome,
-        the allied communities were not legally Roman citizens and therefore their
-        rebellion was not a 'civil war'. However, these non-citizens were considered
-        part of the same polity as Roman citizens; the idea of an internal war was
-        born, in debates in the Senate and beyond, debates between friends and foes.
-        We debate! And sometimes we use violence, or even go to war against each other.
-        It happens now, and it has happened many times in the past. The writings of
-        contemporaries (and later sources) reflect these debates. From the outbreak
-        of the Second Punic War in 218 to the Social War in 91, the Romans of the
-        long second century had protracted debates about the changing nature of warfare
-        -- including the rebellion of their allies in the midst of the Second Punic
-        War -- conceptual and otherwise -- culminating in Rome's first civil war in
-        88 BCE.\\n\\nAt its core, my forthcoming book, *From Hannibal to Sulla: The
-        Birth of Civil War in Republican Rome* (*Studies in Ancient Civil War*, De
-        Gruyter), attempts to trace these debates and to show how, over the course
-        of the second century, the language of external war was slowly adapted to
-        a new language of internal and, ultimately, civil war. It combines two ideas:
-        1) the formative role of antebellum on the one hand, and 2) the importance
-        of the 'great' war before the civil war on the other hand; in preparing for
-        the next conflict, Rome looked back at the last great one. It suggests that
-        the period from the Second Punic War constituted, conceptually speaking, an
-        'antebellum' period to Rome's later civil wars. It traces the origins not
-        only of the concept and terminology of the *bellum civile*, but also of related
-        terms.\\n\\n<figure class=\\\"wp-block-image size-full\\\">\\n<a href=\\\"https://www.degruyter.com/document/isbn/9783111335216/html\\\"><img
-        src=\\\"https://stasis.hypotheses.org/files/2023/10/2023-Lange_mark_cov_9783111333090.png\\\"
-        class=\\\"wp-image-1253\\\" decoding=\\\"async\\\" loading=\\\"lazy\\\" srcset=\\\"https://stasis.hypotheses.org/files/2023/10/2023-Lange_mark_cov_9783111333090.png
-        827w, https://stasis.hypotheses.org/files/2023/10/2023-Lange_mark_cov_9783111333090-215x300.png
-        215w, https://stasis.hypotheses.org/files/2023/10/2023-Lange_mark_cov_9783111333090-358x500.png
-        358w, https://stasis.hypotheses.org/files/2023/10/2023-Lange_mark_cov_9783111333090-768x1073.png
-        768w\\\" sizes=\\\"(max-width: 827px) 100vw, 827px\\\" width=\\\"827\\\" height=\\\"1155\\\"
-        /></a>\\n</figure>\\n\\nHowever, the book does not really propose a 'conceptual
-        history' (*Begriffsgeschichte*) in the manner of Reinhart Koselleck. The basic
-        idea that, at some point in modernity, old words have acquired new meanings
-        so that they no longer need to be translated seems overly simplistic, partly
-        because it gives undue weight to modernity (it is close(r) to our contemporary
-        world = it is modern = it is different from the non-modern world, or so the
-        argument often seems to go. I work mostly on old stuff (= a long time ago),
-        but it is just not pre-modern, it is very modern, conceptually speaking certainly
-        so). It is true that some concepts recur throughout history, but even so we
-        must accept, with Quentin Skinner, that they were never immutable and never
-        had a (pre-)determined meaning. We can accept that the phenomenon of civil
-        war recurs (with Thucydides' description of the *stasis* in Corcyra during
-        the Peloponnesian War, 3.81-85) in the understanding that civil wars occur
-        throughout history: Corcyra, the late Roman Republic, the late Roman Empire,
-        the English Civil War, the American Civil War, and so on. More than anything,
-        my book is about the history of the use of concepts rather than a history
-        of concepts.\\n\\nWhat is more, however coherent definitions may be in theory,
-        in practice they were as contestable in ancient times as they are today. Can
-        we still believe -- in the spirit of positivism -- that deciphering the examples
-        from our evidence will provide us with a correct basic definition of the concepts
-        we are considering? Hardly! We should never accept that civil war is a concept
-        that everyone agreed on in ancient times. Language has an unfortunate tendency
-        to obscure the extent to which sources disagree, both in ancient times and
-        today. Is *stasis* the same as civil war? *Stasis* can be a *polemos*, a (civil)
-        war, but it can also be a sedition. The ancients simply never agreed on a
-        definition of such slippery concepts as *stasis* and civil war. Why would
-        they? Why would we? Concepts naturally change over time as they are used in
-        a particular context.\\n\\nIn 43 BCE the warmonger Cicero was trying hard
-        to get the proconsul M. Antonius (*cos*. 44) declared a *hostis publicus*.
-        He was strenuously opposed in this endeavour by L. Iulius Caesar (*cos*. 64),
-        who insisted that the term *bellum* be replaced with *tumultus* (*Phil*. 12.17):\\n\\n<figure
-        class=\\\"wp-block-pullquote\\\">\\n<blockquote>\\n<p>I consistently called
-        Antonius a public enemy [<em>hostis</em>], while others [L. Iulius Caesar]
-        called him an adversary [<em>adversarius</em>]; I consistently called this
-        a war [<em>bellum</em>], while others called it a public emergency [<em>tumultus</em>].</p>\\n<p>Cic.
-        <em>Phil</em>. 12.17</p>\\n</blockquote>\\n</figure>\\n\\nThere has never
-        been, and never will be, a single narrative. Reading, for example, David Armitage's
-        fine 2017 book *Civil Wars. A History In Ideas*, it quickly becomes clear
-        that the concept of civil war has always been, as I said, a slippery one.
-        Importantly, I firmly believe that scholars should ultimately accept that
-        we can safely assume that some features of ancient civil wars are indeed regular
-        features of any civil war, and that we should therefore accept the civil war
-        in ancient Rome as a valid and instructive example to consider in modern debates
-        about civil war. This should come as no surprise! And it works just fine without
-        history repeating itself.\\n\\nAccordingly, all scholars working on civil
-        war---including social and political scientists---need to learn their history
-        as well as the traditions of the concepts they apply. After all, history is
-        the only laboratory we have. The next question must be about the consequences
-        of such an approach.\\n\\nIn the book I write:\\n\\n> Through careful historicization,
-        it is possible to highlight the ahistorical nature of modern definitions of
-        civil war. All modern debates about civil war should ideally take the Late
-        Republic as their conceptual point of departure: its genesis after lies there
-        (a \\\"war\\\" between \\\"citizens\\\"). Alternatively, the concept needs
-        to be abandoned by moderns altogether and the concept of \\\"internal war\\\"
-        used instead (as famously proposed by Eckstein in 1965 \\\\[*On the Etiology
-        of Internal Wars*\\\\]). The problem with this alternative new concept of
-        \\\"internal war\\\" is that this, too, was already theorised by the Romans
-        in Latin and is not new at all: *bellum intestinum*, mainly but not exclusively
-        a concept used in connection with wars between Rome and its allies or within
-        the polity of allies. The semantic range of civil wars is today being stretched
-        to encompass ideological differences within for example political parties,
-        so that there is a risk of it losing any conceptual specificity\\n>\\n> Lange,
-        **From Hannibal to Sulla: The Birth of Civil War in Republican Rome** (forthcoming)\\n\\nThe
-        problem today is that the concept of civil war is too often stripped of its
-        basic meaning (citizenship and war). Not surprisingly, this is further complicated
-        by issues such as the definition of war. When is a war a war? It is safe to
-        say that a true civil war requires at least something resembling armies and
-        battles, with actual fighting between citizens. In his famous book *The Logic
-        of Violence in Civil War*, Stathis Kalyvas gives us a definition: \\\"armed
-        combat within the borders of a recognised sovereign entity between parties
-        subject to a common authority at the beginning of hostilities\\\" (2006, 17).
-        His definition not only lacks references to and understanding of both *war*
-        and *citizenship* (*bellum civile*), the words that make up the concept it
-        defines, but also lacks the exclusivity necessary for it to function; it is
-        vague. As I wrote in 2017 in a [review](https://cal.library.utoronto.ca/index.php/cal/article/view/28855){rel=\\\"noreferrer
-        noopener\\\" target=\\\"_blank\\\"} of David Armitage's 2017 book:\\n\\n>
-        The terms \\\"inclusive\\\" \\\\[Kalyvas' vague definition\\\\] or \\\"exclusive\\\"
-        \\\\[something a kind of conventional war and battles between citizens\\\\]
-        are often connected to definitions, as if we will somehow finally understand
-        a concept by having agreed on its definition. Of course we all need definitions,
-        mainly in order to agree that we are talking about the same thing (15-18,
-        219 n.50).\\n>\\n> Lange, Review of David Armitage, *Civil Wars: A History
-        In Ideas* (2017)\\n\\nThose of us who study civil war must accept that we
-        are studying a spectrum of violence, from *stasis* and *seditio* to *bellum
-        civile*: from *antebellum* to *bellum*. In terms of contemporary relevance,
-        what we see today are debates about the naming of conflicts, similar to those
-        in ancient times. I write about this in the book:\\n\\n> Unsurprisingly, similar
-        debates are also part of political landscapes today. On the night of the so-called
-        *Capitol Riots* in 2021, NBC broadcast journalist Savannah Guthrie described
-        the situation on live television as a \\\"*stasis*, for lack of a better word\\\":
-        that is, a period of debilitating and incapacitating civil strife or upheaval,
-        taken directly from the Greek expression for \\\"standstill\\\" (\u03C3\u03C4\u03AC\u03C3\u03B9\u03C2),
-        used in this book in its meaning of sedition. We will see in chapter 1 that
-        these so-called riots have themselves already been described using numerous
-        different concepts, all related in some way to *stasis*; Guthrie's comment
-        is the ideal point of departure for any discussion about the enduring ambiguity
-        of labels and definitions for internal conflict, in the modern world just
-        as in the ancient. *Stasis* and civil war exert so profound an influence that
-        societies must confront it in all periods.\\n>\\n> Lange, **From Hannibal
-        to Sulla: The Birth of Civil War in Republican Rome** (forthcoming)\\n\\nLet's
-        play around with a hypothetical scenario: what if the United States were to
-        descend into civil war again? Barbara Walter, in her fine book *How Civil
-        Wars Start. And How to Stop Them* (2022), is already ahead of us. According
-        to her analysis, incidents such as the plot to kidnap Michigan Governor Gretchen
-        Whitmer in 2020, the so-called *Capitol Riots* in 2021, and the recent attack
-        on Representative Nancy Pelosi and her husband in 2022 are indeed examples
-        of a potentially unfolding civil war. As such, these events may one day be
-        easily described by future historians as part of the 'antebellum' period leading
-        up to the *Second American Civil War*, to explain its genesis.\\n\\nI am an
-        ancient historian specialising in Republican Rome, not a specialist in contemporary
-        American politics, but I will say this as a scholar of civil war: Joanne Freeman,
-        in her wonderful book *The Field of Blood: Violence in Congress and the Road
-        to Civil War*, focuses on physical violence in the US Congress from 1830 to
-        the outbreak of the Civil War (2018). It sheds new light on the systemic breakdown
-        in the decades leading up to the Civil War. It allows us to ask whether we
-        can have a relatively well-functioning political system and a systemic breakdown
-        at the same time. The prelude to the American Civil War, and indeed Late Republican
-        Rome, suggest just that; suggest that it is possible. There may be a growing
-        fear -- with Barbara Walter -- that something similar is afoot in contemporary
-        US politics and society. The concept of polarisation is crucial to our understanding
-        of current events. Another great book can help us decipher modern US politics.
-        Ezra Klein says as much in *Why We're Polarised*:\\n\\n<figure class=\\\"wp-block-pullquote\\\">\\n<blockquote>\\n<p>To
-        appeal to a more polarized public, political institutions and political actors
-        behave in more polarized ways. As political institutions and actors become
-        more polarized, they further polarize the public.</p>\\n<p>Ezra Klein, <em>Why
-        We\u2019re Polarized</em> (2020), xix</p>\\n</blockquote>\\n</figure>\\n\\nCiting
-        once again from my book, \\\"This could easily be a description of antebellum
-        politics in ancient times, of ancient civil strife and civil war language.\\\"\\n\\nReturning
-        to the above debate about definitions of civil war, Barbara Walter, similar
-        to Stathis Kalyvas, claims that (2022, xiv-xv): \\\"Gone are the large battlefields,
-        the armies, and the conventional tactics. Today, civil wars are waged by different
-        ethnic and religious groups, by guerrilla soldiers and militias, who often
-        target civilians.\\\"\\n\\nMy answer I give in the book is as follows: \\\"The
-        issue here is, as mentioned, historicity---an awareness of the repetitive
-        nature of civil war and its features in earlier periods---which is vital for
-        us to compare conflicts over time. Problematically, this historicity is lost
-        in her approach. In any case, what Walter discusses and defines as civil war
-        would seem to any reader of Thucydides to clearly be not civil war but rather
-        *stasis*. Walter's basic point regarding an (potentially) unfolding civil
-        war can survive this, as this would, if a civil war happens, be its antebellum
-        period (as mentioned in the introduction). There is however a distinct lack
-        of language and knowledge of history.\\\" I wrote above that concepts change
-        over time as they are used in a specific context. But this is simply too much
-        and makes any comparison over time difficult or even impossible.\\n\\nMore
-        than anything else, I fear that the legacy of Rome will be lost. Now, I understand
-        that this may be difficult for non-historians to accept as a major problem,
-        but in doing so we will ultimately lose the ability to understand the legacy
-        of Rome, and we may lose the ability to understand the fundamentally repetitive
-        nature of civil war (understanding historical similarities as opposed to history
-        repeating itself).\\n\\nTaking these issues further, the contemporary unfolding
-        US debate about the 2020 election and its aftermath, including the so-called
-        *Capitol Riots*, is of great interest to an ancient historian working on civil
-        war and related concepts. A debate about which concepts to use to describe
-        what happened and what is happening, which happens to be very similar to debates
-        about the changing nature of warfare and conflict in ancient times.\\n\\nFormer
-        President Trump's incitement to violence (and arguably to a coup) may not
-        be a straightforward repetition of past events in every respect, but there
-        are certainly patterns. These patterns illustrate the fundamental relevance
-        of history to our understanding of the world around us.\\n\\nIn the end, *Capitol
-        Riots* -- a violent disturbance of the peace by a crowd of people -- seems
-        a poor choice of words; it hardly conveys the seriousness of what happened.
-        In the book I write:\\n\\n> The period from the 2020 US election onwards has
-        more than anything shown that we today lack a nuanced language of internal
-        political violence and conflict. Mainstream political discourse channelled
-        through mass media lacks a spectrum of concepts related to organised violence,
-        or perhaps better, we do not use them. Where attempts are made, they often
-        stretch the semantic range of 'civil war' beyond recognition.\_ ... When the
-        so-called Capitol Riots of 2021 are included, the term that springs to mind
-        more readily than civil war is in fact political violence through insurrection---as
-        we shall see further below---and *stasis* or *tumultus* or similar. But to
-        claim that we might ultimately have a Second American Civil War is to invoke
-        the legacy of one million military casualties of the American Civil War (1861--1865),
-        of which as many as three-quarters died (...). This is about creating -- perhaps
-        even subconsciously -- a mental picture of the horrors of not just civil war
-        in principle, but the American Civil War in particular. All labels are of
-        course political at the outset. We as scholars may agree that a conflict is
-        either a civil war or not, but that may not reflect the language used to describe
-        the war at the time.\\n>\\n> Lange, *From Hannibal to Sulla: The Birth of
-        Civil War in Republican Rome* (forthcoming)\\n\\nBut this post is not about
-        Trump, not about his norm-breaking presidency, not about the US Constitution
-        which presupposes a peaceful transition of power, not about \\\"the president's
-        infamous walk to St John's with his entourage, including Secretary of Defense
-        Esper and Chairman of the Joint Chiefs of Staff General Mark Milley in camouflage
-        uniform, as well as Attorney General William Barr\\\" (from my book), and
-        not about Trump wanting to send in the armed forces against protesters.\\n\\nBut
-        whatever we think of contemporary US politics, the storming of the Capitol
-        on 6 January 2021 has already changed the USA forever. The *House Select Committee
-        to Investigate the January 6th Attack on the United States Capitol* is a testament
-        to an ongoing and still unfolding debate about the so-called *Capitol Riots*,
-        but it is also a testament to a committee that seeks to inform and shape future
-        debates. The report suggests that Trump took advantage of an unfolding situation
-        of his own making. The evidence seems overwhelming to support this conclusion.
-        Trump was plotting to overturn the outcome of the 2020 election.\\n\\nThis
-        is hardly the place to go into detail, but Chapter One is called *THE BIG
-        LIE*! Suffice it to say that the phrase was used by Adolf Hitler in *Mein
-        Kampf* (1925 Vol. 1, 244) to explain how people could be made to believe a
-        colossal lie. Whether the comparison is fair or not is not the point. Polarisation
-        is!\\n\\nIn terms of the language of crisis, the report uses many terms to
-        describe what has happened: Terrorist attack (3 times), incite/incitement
-        (20 times, but intent 44 times), civil war (20 times), riot(s) (25 times),
-        coup (89 times), sedition (87 times; seditious conspiracy (65 times)), insurrection
-        (100 times), mob (126 times), conspiracy (200 times). One might have wished
-        for some prioritisation, but more than anything this reflects an unfolding
-        debate about what future generations might end up calling the so-called *Capitol
-        Riots*. Suffice it to say that *stasis* is perhaps the best concept to use,
-        at least seen from the perspective and through the lens of ancient history.\\n\\nWriting
-        about the American Civil War, Aaron Sheehan-Dean (2018, *The Calculus of Violence.
-        How Americans Fought the Civil War*, 44) emphasises, \\\"\\\\[b\\\\]eyond
-        their claims to a defensive and hence just position, the language each side
-        used to frame its recourse to war in 1861 shaped how they behaved in the years
-        to come\\\". Translated into relevance today this is certainly food for thought.
-        We can learn from history, and we need to accept its relevance today. But
-        this can only happen if we accept the historicity of the concepts we use to
-        describe contemporary (and past) conflicts. Not only do scholars working on
-        the ancient use new words to describe old societies. We also use old words
-        to describe modern society.\\n\\n## References {#references .wp-block-heading}\\n\\n-
-        \  David Armitage, *Civil Wars: A History In Ideas*, New Haven: Yale University
-        Press 2017.\\n-   Ezra Klein, *Why We're Polarized*, New York: Avid Reader
-        Press 2020.\\n-   Carsten H. Lange: *From Hannibal to Sulla: The Birth of
-        Civil War in Republican Rome* (*Studies in Ancient Civil War*; vol. 1), Berlin:
-        De Gruyter 2024. ISBN 978-3-111-33309-0 (Print), ISBN 978-3-111-33521-6 (eBook)
-        \\\\[[website](https://www.degruyter.com/document/isbn/9783111335216/html){rel=\\\"noreferrer
-        noopener\\\" target=\\\"_blank\\\"}\\\\]\\n-   Aaron Sheehan-Dean, *The Calculus
-        of Violence: How Americans Fought the Civil War*, Cambridge Mass.: Harvard
-        University Press 2018.\\n\\nFeatured image (c) Tyler Merbler ([flickr](https://www.flickr.com/photos/37527185@N05/50820534063){rel=\\\"noreferrer
-        noopener\\\" target=\\\"_blank\\\"}; [CC BY-ND 2.0](https://creativecommons.org/licenses/by/2.0){rel=\\\"noreferrer
-        noopener\\\" target=\\\"_blank\\\"})\\n\\nDOI: [10.59350/5b9hv-1xz57](https://doi.org/10.59350/5b9hv-1xz57)\\n\\n:::
-        wpcp\\nCite this article as: Carsten Hjort Lange, \\\"Civil War Seen Through
-        the Lens of Ancient History,\\\" in *Stasis -- Avenues to Ancient Civil War*,
-        October 10, 2023, <https://stasis.hypotheses.org/896>.\\n:::\\n\\n::: {.wp-block-group
-        .alignwide .has-background .is-layout-flow style=\\\"background-color:#ffffff\\\"}\\n:::
-        wp-block-group__inner-container\\n::: {.wp-block-group .is-layout-flow}\\n:::
-        wp-block-group__inner-container\\n## From Hannibal to Sulla: The Birth of
-        Civil War in Republican Rome {#from-hannibal-to-sulla-the-birth-of-civil-war-in-republican-rome
-        .wp-block-heading .has-text-align-center}\\n\\n### Carsten Hjort Lange {#carsten-hjort-lange
-        .wp-block-heading .has-text-align-center}\\n\\n*Studies in Ancient Civil War*
-        1, 2024\\n\\n::: {.wp-block-button .is-style-outline .aligncenter}\\n[publisher's
-        site](https://www.degruyter.com/document/isbn/9783111335216/html){.wp-block-button__link
-        .wp-element-button target=\\\"_blank\\\" rel=\\\"noreferrer noopener\\\"}\\n:::\\n:::\\n:::\\n:::\\n:::\\n\",\"doi\":\"https://doi.org/10.59350/5b9hv-1xz57\",\"guid\":\"https://stasis.hypotheses.org/?p=896\",\"id\":\"54eb2ba9-ddc4-4132-9114-439ad52a04ad\",\"image\":\"https://stasis.hypotheses.org/files/2023/09/feature-image-lange_2023.png\",\"language\":\"en\",\"published_at\":1696927158,\"reference\":[{\"key\":\"ref1\",\"url\":\"https://www.degruyter.com/document/isbn/9783111335216/html\"},{\"key\":\"ref2\",\"url\":\"https://www.flickr.com/photos/37527185@n05/50820534063\"},{\"key\":\"ref3\",\"url\":\"https://creativecommons.org/licenses/by/2.0\"},{\"doi\":\"https://doi.org/10.59350/5b9hv-1xz57\",\"key\":\"ref4\"},{\"key\":\"ref5\",\"url\":\"https://stasis.hypotheses.org/896\"}],\"relationships\":[],\"summary\":\"The
-        words and concepts we use to describe a particular war speak volumes about
-        who we are as individuals and as a community, and where we stand in an unfolding
-        conflict. Concepts have always been used to occupy the moral high ground.
-        Rebellion, for example, is used to delegitimise those who rebel.\\n\",\"tags\":[\"Book
-        Launch\",\"Adolf Hitler\",\"Ancient History\",\"Antebellum\",\"Bellum Civile\"],\"title\":\"Civil
-        War Seen Through the Lens of Ancient History\",\"updated_at\":1696930192,\"url\":\"https://stasis.hypotheses.org/896\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}}],\"out_of\":14161,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"\"},\"search_cutoff\":false,\"search_time_ms\":7}"
+        (s03e16)\",\"updated_at\":1696929637,\"url\":\"https://libscie.org/onboarding-with-confidence-in-open-science-s03e16\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}}],\"out_of\":14883,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"\"},\"search_cutoff\":false,\"search_time_ms\":6}"
     headers:
       Connection:
       - keep-alive

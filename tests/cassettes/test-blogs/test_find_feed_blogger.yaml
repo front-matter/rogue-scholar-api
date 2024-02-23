@@ -149,9 +149,9 @@ interactions:
       \ (function() {\n    var ga = document.createElement('script'); ga.type = 'text/javascript';
       ga.async = true;\n    ga.src = ('https:' == document.location.protocol ? 'https://ssl'
       : 'http://www') + '.google-analytics.com/ga.js';\n    var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(ga, s);\n  })();\n\n</script>\n<link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=16081779&amp;zx=3809ad23-a85b-4c30-b068-55973d27d721'
+      s.parentNode.insertBefore(ga, s);\n  })();\n\n</script>\n<link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=16081779&amp;zx=dc353ac7-6b57-40f1-9aa9-52cb46344db2'
       media='none' onload='if(media!=&#39;all&#39;)media=&#39;all&#39;' rel='stylesheet'/><noscript><link
-      href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=16081779&amp;zx=3809ad23-a85b-4c30-b068-55973d27d721'
+      href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=16081779&amp;zx=dc353ac7-6b57-40f1-9aa9-52cb46344db2'
       rel='stylesheet'/></noscript>\n<meta name='google-adsense-platform-account'
       content='ca-host-pub-1556223355139109'/>\n<meta name='google-adsense-platform-domain'
       content='blogspot.com'/>\n\n<!-- data-ad-client=ca-pub-7354682617866492 -->\n\n<script
@@ -223,8 +223,172 @@ interactions:
       corrects IE6 width calculation -->\n<div class='columns-inner'>\n<div class='column-center-outer'>\n<div
       class='column-center-inner'>\n<div class='main section' id='main'><div class='widget
       Blog' data-version='1' id='Blog1'>\n<div class='blog-posts hfeed'>\n\n          <div
-      class=\"date-outer\">\n        \n<h2 class='date-header'><span>Wednesday, November
-      29, 2023</span></h2>\n\n          <div class=\"date-posts\">\n        \n<div
+      class=\"date-outer\">\n        \n<h2 class='date-header'><span>Tuesday, February
+      20, 2024</span></h2>\n\n          <div class=\"date-posts\">\n        \n<div
+      class='post-outer'>\n<div class='post hentry'>\n<a name='1332902500471093017'></a>\n<h3
+      class='post-title entry-title'>\n<a href='https://iphylo.blogspot.com/2024/02/problems-with-datacite-data-citation.html'>Problems
+      with the DataCite Data Citation Corpus</a>\n</h3>\n<div class='post-header'>\n<div
+      class='post-header-line-1'></div>\n</div>\n<div class='post-body entry-content'
+      id='post-body-1332902500471093017'>\n<p>DataCite have released the <a href=\"https://makedatacount.org/data-citation\">Data
+      Citation Corpus</a>, together with a <a href=\"http://corpus.datacite.org/dashboard\">dashboard</a>
+      that summarises the corpus. This is billed as:</p>\n<blockquote>\n<p>A trusted
+      central aggregate of all data citations to further our  <strong>understanding
+      of data usage</strong>  and advance meaningful data metrics</p>\n</blockquote>\n<p>The
+      goal is to build a citation database between scholarly articles and data, such
+      as datasets in repositories, sequences in GenBank, protein structures in PDB,
+      etc. Access to the corpus can be obtained by submitting a form, then having
+      a (very pleasant) conversation with DataCite about the nature of the corpus.
+      This process feels clunky because it introduces friction. If you want people
+      to explore this, why not make it a simple download?</p>\n<p>I downloaded the
+      corpus, which is nearly 7 Gb of JSON, formatted as an array(!), thankfully with
+      one citation per line so it is reasonably easy to parse. (<a href=\"https://jsonlines.org\">JSON
+      Lines</a> would be more convenient).</p>\n<p>I loaded this into a SQLite database
+      to make it easier to query, and I have some thoughts. Before outling why I think
+      the corpus has serious problems, I should emphasise that I&#8217;m a big fan
+      of what DataCite are trying to do. Being able to track data usage to give credit
+      to researchers and repositories (citations to data as well as papers), to track
+      provenance of data (e.g., when a GenBank sequence turns out to be wrong being
+      able to find all the studies that used it), and to find addition links between
+      papers beyond bibliographic links (e.g., when data is cited but not the original
+      publication) are all good things. Obviously, lots of people have talked about
+      this, but this is my blog so I&#8217;ll cite myself as an example \U0001F609.</p>\n<blockquote>\n<p>Page,
+      R. Visualising a scientific article. <em>Nat Prec</em> (2008). <a href=\"https://doi.org/10.1038/npre.2008.2579.1\">https://doi.org/10.1038/npre.2008.2579.1</a></p>\n</blockquote>\n<p>My
+      main interest in the corpus is tracking citations of DNA sequences, which are
+      often not linked to even the original publication in GenBank. I was hopeful
+      the corpus could help in this work.</p>\n<p>Ok, let&#8217;s now look at the
+      actual corpus.</p>\n<h2 id=\"data-structure\">Data structure</h2>\n<p>Each citation
+      comprises a JSON object, with a mix of external identifiers such as DOIs, and
+      internal identifiers as UUIDs. The later are numerous, and make the data file
+      much bigger than it needs to be. For example, there are two sources of citation
+      data, DataCite, and the Chan Zuckerberg Initiative. These have <code>sourceId</code>
+      values of <code>3644e65a-1696-4cdf-9868-64e7539598d2</code> and <code>c66aafc0-cfd6-4bce-9235-661a4a7c6126</code>,
+      respectively. There are a little over 10 million citations in the corpus, so
+      that&#8217;s a lot of bytes that could simply have been <code>1</code> or <code>2</code>.</p>\n<p>More
+      frustrating than the wasted space is the lack of any list of what each UUID
+      means. I figured out that <code>3644e65a-1696-4cdf-9868-64e7539598d2</code>
+      is DataCite only by looking at the data, knowing that CZI had contributed more
+      ecords than DataCite. For other entities such as repositories and publishers,
+      one has to go spelunking in the data to make reasonable guesses as to what the
+      repositories are. Given that most citations seem to be to biomedical entities,
+      why not use something such as the compact identifiers from <a href=\"https://identifiers.org\">Identifiers.org</a>
+      for each reppository?</p>\n<h2 id=\"dashboard\">Dashboard</h2>\n\n<div class=\"separator\"
+      style=\"clear: both;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWpilOoLPSxgTnxeWyCXx39ef-LwSoQ-rkl7dowe8SLIGcAVD0gcNi8Z0DxSg6hU7qDJJmI8EaLK0atYZF3UTRQsTQIGh0G9MULOC48OTe3g2HOqzh9RvouDTSlqvUiEiMAhE_4K4KPgEnchi6DvdwobW8tJKIMOUnwlxv5Dk4GcJCIsqkGMyM/s1788/Screenshot%202024-02-20%20at%2011.58.57.png\"
+      style=\"display: block; padding: 1em 0; text-align: center; \"><img alt=\"\"
+      border=\"0\" data-original-height=\"1788\" data-original-width=\"1534\" height=\"400\"
+      src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWpilOoLPSxgTnxeWyCXx39ef-LwSoQ-rkl7dowe8SLIGcAVD0gcNi8Z0DxSg6hU7qDJJmI8EaLK0atYZF3UTRQsTQIGh0G9MULOC48OTe3g2HOqzh9RvouDTSlqvUiEiMAhE_4K4KPgEnchi6DvdwobW8tJKIMOUnwlxv5Dk4GcJCIsqkGMyM/s400/Screenshot%202024-02-20%20at%2011.58.57.png\"/></a></div>\n<p>DataCite
+      provides a  <a href=\"http://corpus.datacite.org/dashboard\">dashboard</a> to
+      summarise key features of the corpus. There are a couple of aspects of the dashboard
+      that I find frustrating.</p>\n<p>Firstly, the &#8220;citation counts by subject&#8221;
+      is misleading. A quick glance suggests that law and sociology are the subjects
+      that most actively cite data. This would be surprising, especially given that
+      much of the data generated by CZI comes from PubMed Central. Only 50,000 citations
+      out of 10 million comprise articles with subject tags, so this chart is showing
+      results for approximately 0.5% of the corpus. The chart includes the caveat
+      &#8220;The visualization includes the top 20 subiects where metadata is available.&#8221;
+      but omits to tell us that as a result the chart is irrelevant for &gt;99% of
+      the data.</p>\n<p>The dashboard is  interesting in what it says about the stakeholders
+      of this project. We see counts of citations broken down by source (CZI or DataCite),
+      and publisher, but not by repository. This suggests that repositories are second
+      class citizens. Surely they deserve a panel on the dashboard? I suspect researchers
+      are going to be more interested in what kinds of data are being cited than what
+      academic publishers are in the corpus. For instance, 3.75 million (37.5%) citations
+      are to sequences in GenBank, 1.7 million (17.5%) are to the <a href=\"https://www.rcsb.org\">Protein
+      Data Bank (PDB)</a>, and 0.89 million (8.9%) are to SNPs.</p>\n<h2 id=\"chan-zuckerberg-initiative-and-ai\">Chan
+      Zuckerberg Initiative and AI</h2>\n<p>The corpus is a collaboration between
+      DataCite and the Chan Zuckerberg Initiative (CZI) and CZI are responsible for
+      the bulk of the data. Unfortunately there is no description of how those citations
+      were extracted from the source papers. Perhaps CZI used something like SciBERT
+      which they employed in earlier work to extract citations to scientific software
+      <a href=\"https://arxiv.org/abs/2209.00693\">https://arxiv.org/abs/2209.00693</a>?
+      We don&#8217;t know. One reason this matters is that there are lots of cases
+      where the citations are incorrect, and if we are going to figure out why, we
+      need to know how they were obtained. At present it is simply a black box.</p>\n<p>These
+      are just a few examples of incorrect citations:</p>\n<ul>\n<li>The mouse line
+      <em>Prdm</em><sup><em>11tm1.1ahl</em></sup> is conflated with the PDB identifier
+      <a href=\"https://www.rcsb.org/structure/1AHL\">1ahl</a>, see <a href=\"https://hyp.is/c2Xras_KEe6zEGcm97yBRw/journals.plos.org/plosone/article?id=10.1371/journal.pone.0134503\">https://hyp.is/c2Xras_KEe6zEGcm97yBRw/journals.plos.org/plosone/article?id=10.1371/journal.pone.0134503</a></li>\n<li>A
+      museum specimen CR00240699 is mistakenly interpreted as a GenBank accession
+      number, see <a href=\"https://hyp.is/CGTJcM_kEe674TfyvGLC0A/zookeys.pensoft.net/article/21580/download/pdf/287887\">https://hyp.is/CGTJcM_kEe674TfyvGLC0A/zookeys.pensoft.net/article/21580/download/pdf/287887</a></li>\n<li>A
+      grant number Y21026 is is mistakenly interpreted as a GenBank accession number,
+      see <a href=\"https://hyp.is/HpVXhs9PEe6D2UMxrIdqJw/bmjopen.bmj.com/content/12/9/e054887\">https://hyp.is/HpVXhs9PEe6D2UMxrIdqJw/bmjopen.bmj.com/content/12/9/e054887</a></li>\n<li>The
+      time period 24 hours (24hr) is conflated with a PDB record 24hr that doesn&#8217;t
+      exist <a href=\"https://hyp.is/dNfqZs9SEe6U2nMOKHb-Pw/journal.waocp.org/article_89819_8835738205ecaaad36eebfa826a17779.pdf\">https://hyp.is/dNfqZs9SEe6U2nMOKHb-Pw/journal.waocp.org/article_89819_8835738205ecaaad36eebfa826a17779.pdf</a>.
+      There are a lot of these, such as 17<sup>th</sup>, 2016, etc.</li>\n</ul>\n<p>These
+      are just a few examples I came across while pottering around with the corpus.
+      I&#8217;ve not done any large-scale analysis, but one ZooKeys article I came
+      across <a href=\"https://doi.org/10.3897/zookeys.739.21580\">https://doi.org/10.3897/zookeys.739.21580</a>
+      cites 32 entities, only four of which are correct.</p>\n<p>I get that text mining
+      is hard, but I would expect AI would do better than what we could achieve by
+      simply matching dumb regular expressions. For example, surely a tool that claims
+      any measure of intelligence would be able to recognised that this sentence lists
+      grant numbers, not a GenBank accession number?</p>\n<blockquote>\n<p>Funding
+      \ This study was supported by Longhua Hospital Shanghai University of Traditional
+      Chinese Medicine (grant number:  Y21026), and Longhua Hospital Shanghai University
+      of Traditional Chinese Medicine (YW.006.035)</p>\n</blockquote>\n<p>As a fallback,
+      we could also check that a given identifier is valid. For example, there is
+      no sequence with the accession number <a href=\"https://www.ncbi.nlm.nih.gov/nuccore?term=Y21026\">Y21026</a>.
+      The set of possible identifiers is finite (if large), why didn&#8217;t the corpus
+      check whether each identifier extracted actually existed?</p>\n\n<h2>Update:
+      major errors found</h2>\n\n<p>I've created a <a href=\"https://github.com/rdmpage/data-citation-corpus\">GitHub
+      repo</a> to keep track of the errors I'm finding.</p>\n\n<h3>Protein Data Bank</h3>\n\n<p>The
+      <a href=\"https://www.wwpdb.org\">Protein Data Bank</a> (PDB) is the second
+      largest repository in the corpus with 1,729,783 citations. There are 177,220
+      distinct PDB identifiers cited. These identifiers should match the pattern <code>/^[0-9][A-Za-z0-9]{3}$/</code>,
+      that is, a number 0-9 followed by three alphanumeric characters.  However 31,612
+      (18%) do not. Examples include \"//osf.io/6bvcq\" and \"//evs.nci.nih.gov/ftp1/CTCAE/CTCAE_4.03/Archive/CTCAE_4.0_2009-05-29_QuickReference_8.5x11.pdf\".
+      So the tools for finding PDB citations do not understand what a PDB identifier
+      should look like.</p>\n\n<p>Out of curiousity I downloaded all the exiting PDB
+      identifiers from <a href=\"https://files.wwpdb.org/pub/pdb/holdings/current_file_holdings.json.gz\">https://files.wwpdb.org/pub/pdb/holdings/current_file_holdings.json.gz</a>,
+      which gave me 216,225 distinct PDB identifiers. Comparing actual PDB identifiers
+      with ones included in the corpus I got 1,233,993 hits, which is 71% of the total
+      in the corpus. Hence over half a million (a little under a third of the PDB
+      citations) appear to be made up.</p>\n\n<h3>Individual articles</h3>\n\n<h4>Taxonomic
+      revision of Stigmatomma Roger (Hymenoptera: Formicidae) in the Malagasy region</h4>\n\n<p>The
+      paper <a href=\"https://doi.org/10.3897/BDJ.4.e8032\">https://doi.org/10.3897/BDJ.4.e8032</a>
+      is credited with citing 126 entities, including 108 sequences and 14 PDB records.
+      None of this is true. The supposed PDB records are figure numbers, e.g. &#8220;Fig.
+      116d&#8221; becomes PDB 116d, and the sequence accession numbers are specimen
+      codes or field numbers.</p>\n\n<h3>Nucleotide sequences</h3>\n\n<p>Sequence
+      data is the single largest data type cited in the corpus, with 3.8 million citations.
+      I ran a sample of the first 1000 sequences accession numbers in the corpus against
+      GenBank and in 486 cases GenBank didn't recognise the accession number as valid.
+      So potentially half the sequence citations are wrong.</p>\n\n<h2 id=\"summary\">Summary</h2>\n<p>I
+      think the Data Citation Corpus is potentially a great resource, but if it is
+      going to be &#8220;[a] trusted central aggregate of all data citations&#8221;
+      then I think there are a few things it needs to do:</p>\n<ul>\n<li>Make the
+      data more easily accessible so that people can scrutinise it without having
+      to jump through hoops</li>\n<li>Tell us how the Chan Zuckerberg Initiative did
+      the entity matching</li>\n<li>Improve the entity matching</li>\n<li>Add a quality
+      control step that validates extracted identifiers</li>\n<li>Expand the dashboard
+      to give users a better sense of what data is being cited</li>\n</ul>\n<blockquote>\n<p>Written
+      with <a href=\"https://stackedit.io/\">StackEdit</a>.</p>\n</blockquote>\n\n<div
+      style='clear: both;'></div>\n</div>\n<div class='post-footer'>\n<div class='post-footer-line
+      post-footer-line-1'><span class='post-author vcard'>\nPosted by\n<span class='fn'>\n<a
+      href='https://www.blogger.com/profile/00269598293846172649' rel='author' title='author
+      profile'>\nRoderic Page\n</a>\n</span>\n</span>\n<span class='post-timestamp'>\nat\n<a
+      class='timestamp-link' href='https://iphylo.blogspot.com/2024/02/problems-with-datacite-data-citation.html'
+      rel='bookmark' title='permanent link'><abbr class='published' title='2024-02-20T15:32:00Z'>3:32
+      pm</abbr></a>\n</span>\n<span class='post-comment-link'>\n</span>\n<span class='post-icons'>\n<span
+      class='item-control blog-admin pid-386758820'>\n<a href='https://www.blogger.com/post-edit.g?blogID=16081779&postID=1332902500471093017&from=pencil'
+      title='Edit Post'>\n<img alt='' class='icon-action' height='18' src='https://resources.blogblog.com/img/icon18_edit_allbkg.gif'
+      width='18'/>\n</a>\n</span>\n</span>\n<div class='post-share-buttons goog-inline-block'>\n<a
+      class='goog-inline-block share-button sb-email' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=1332902500471093017&target=email'
+      target='_blank' title='Email This'><span class='share-button-link-text'>Email
+      This</span></a><a class='goog-inline-block share-button sb-blog' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=1332902500471093017&target=blog'
+      onclick='window.open(this.href, \"_blank\", \"height=270,width=475\"); return
+      false;' target='_blank' title='BlogThis!'><span class='share-button-link-text'>BlogThis!</span></a><a
+      class='goog-inline-block share-button sb-twitter' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=1332902500471093017&target=twitter'
+      target='_blank' title='Share to Twitter'><span class='share-button-link-text'>Share
+      to Twitter</span></a><a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=1332902500471093017&target=facebook'
+      onclick='window.open(this.href, \"_blank\", \"height=430,width=640\"); return
+      false;' target='_blank' title='Share to Facebook'><span class='share-button-link-text'>Share
+      to Facebook</span></a><a class='goog-inline-block share-button sb-pinterest'
+      href='https://www.blogger.com/share-post.g?blogID=16081779&postID=1332902500471093017&target=pinterest'
+      target='_blank' title='Share to Pinterest'><span class='share-button-link-text'>Share
+      to Pinterest</span></a>\n</div>\n</div>\n<div class='post-footer-line post-footer-line-2'><span
+      class='post-labels'>\n</span>\n</div>\n<div class='post-footer-line post-footer-line-3'><span
+      class='post-location'>\n</span>\n</div>\n</div>\n</div>\n</div>\n\n          </div></div>\n
+      \       \n\n          <div class=\"date-outer\">\n        \n<h2 class='date-header'><span>Wednesday,
+      November 29, 2023</span></h2>\n\n          <div class=\"date-posts\">\n        \n<div
       class='post-outer'>\n<div class='post hentry'>\n<a name='2555847968974825235'></a>\n<h3
       class='post-title entry-title'>\n<a href='https://iphylo.blogspot.com/2023/11/its-2023-why-are-we-still-not-sharing.html'>It's
       2023 - why are we still not sharing phylogenies?</a>\n</h3>\n<div class='post-header'>\n<div
@@ -995,8 +1159,8 @@ interactions:
       interlinked data&#8230;</li>\n<li>&#8230;and responds to complex queries with
       the services provided&#8230;</li>\n</ul>\n<div class=\"separator\" style=\"clear:
       both; text-align: center;\"><iframe allowfullscreen=\"allowfullscreen\" class=\"b-hbp-video
-      b-uploaded\" frameborder=\"0\" height=\"322\" id=\"BLOGGER-video-513335985d9fd302-12961\"
-      mozallowfullscreen=\"mozallowfullscreen\" src=\"https://www.blogger.com/video.g?token=AD6v5dzXXXuHL5-P1DT27p2SseeA2UJ4qrCuvW5rzi0vthqf8FkQmEM8tu3Tdzx9HXIPuSly4ZVtflHFmRULV-DaoZQA4I2nsi9QFKhpboCRdooeDKtbZdb2nN87wbbCee82Dg\"
+      b-uploaded\" frameborder=\"0\" height=\"322\" id=\"BLOGGER-video-513335985d9fd302-11686\"
+      mozallowfullscreen=\"mozallowfullscreen\" src=\"https://www.blogger.com/video.g?token=AD6v5dzQPQdXStBQRH6PocBhsvufcZJrU-zhsLe2uhZle_Mm6SCJU788hFcnFAxHQh8HcIwNM5y2WTe9lp137vgwxMWDAhJO1U6W6hpUG7lRJYKFlku1Z4kO-F451mgYjBirNw\"
       webkitallowfullscreen=\"webkitallowfullscreen\" width=\"400\"></iframe></div>\n<p>Interlinked
       data, complex queries, this all sounds very impressive. The video invites us
       to &#8220;Vist the Biodiversity Knowledge Hub and give it a shot&#8221;. So
@@ -1176,161 +1340,9 @@ interactions:
       target='_blank' title='Share to Pinterest'><span class='share-button-link-text'>Share
       to Pinterest</span></a>\n</div>\n</div>\n<div class='post-footer-line post-footer-line-2'><span
       class='post-labels'>\n</span>\n</div>\n<div class='post-footer-line post-footer-line-3'><span
-      class='post-location'>\n</span>\n</div>\n</div>\n</div>\n</div>\n\n          </div></div>\n
-      \       \n\n          <div class=\"date-outer\">\n        \n<h2 class='date-header'><span>Saturday,
-      June 17, 2023</span></h2>\n\n          <div class=\"date-posts\">\n        \n<div
-      class='post-outer'>\n<div class='post hentry'>\n<a name='7036931647366159941'></a>\n<h3
-      class='post-title entry-title'>\n<a href='https://iphylo.blogspot.com/2023/06/a-taxonomic-search-engine.html'>A
-      taxonomic search engine</a>\n</h3>\n<div class='post-header'>\n<div class='post-header-line-1'></div>\n</div>\n<div
-      class='post-body entry-content' id='post-body-7036931647366159941'>\n<div style=\"padding:1em;border:1px
-      solid #DDD;border-radius:0.2em;\">How to cite: <strong>Page, R. (2023). A taxonomic
-      search engine. <a href=\"https://doi.org/10.59350/r3g44-d5s15\">https://doi.org/10.59350/r3g44-d5s15</a></strong></div>\n\n<p>Tony
-      Rees commented on my recent post <a href=\"https://iphylo.blogspot.com/2023/05/ten-years-and-million-links.html\">Ten
-      years and a million links</a>. I&#8217;ve responded to some of his comments,
-      but I think the bigger question deserves more space, hence this blog post.</p>\n<h2
-      id=\"tony&#8217;s-comment\">Tony&#8217;s comment</h2>\n<blockquote>\n<p>Hi Rod,
-      I like what you&#8217;re doing. Still struggling (a little) to find the exact
-      point where it answers the questions that are my &#8220;entry points&#8221;
-      so to speak, which (paraphrasing a post of yours from some years back) start
-      with:</p>\n</blockquote>\n<blockquote>\n<ul>\n<li>Is this a name that &#8220;we&#8221;
-      (the human race I suppose) recognise as having been used for a taxon (think
-      Global Names Resolver, Taxamatch, etc.) - preferably an automatable query and
-      response (i.e., a machine can ask it and incorporated the result into a workflow)</li>\n<li>Does
-      it refer to a currently accepted taxon or if not, what is the accepted equivalent</li>\n<li>What
-      is its taxonomic placement (according to one or a range of expert systems)</li>\n<li>Also,
-      for reporting/comparison/analysis purposes&#8230;<br>\n- How many accepted taxa
-      (at whatever rank) are currently known in group X (or the whole world)</li>\n<li>How
-      many new names (accepted or unaccepted) were published in year A (or date range
-      A-C)</li>\n<li>How many new names were published (or co-authored) by author
-      Z</li>\n<li>(and probably more)</li>\n</ul>\n</blockquote>\n<blockquote>\n<p>Having
-      access to more of the primary literature is great, and necessary, but does not
-      help me in those respects (since the published works must still be parsed by
-      a human, not a machine). But maybe it does answer some other questions like
-      how many original works were published by author Z, in a particular time frame.</p>\n</blockquote>\n<blockquote>\n<p>Of
-      course as you will be aware, using ORCIDs for authors is only a small portion
-      of the puzzle, since ORCIDs are not issued for deceased authors, or those who
-      never request one, so far as I am aware.</p>\n</blockquote>\n<blockquote>\n<p>None
-      of the above is a criticism of what you are doing! Just trying to see if I can
-      establish any new linkages to what you are doing which will enable me to automate
-      portions of my own efforts to a greater degree (let machines do things that
-      currently still require a human). So far (as evidenced by the most recent ION
-      data dump you were able to supply) it is giving me a DOI in many cases as a
-      supplement to the title of the original work (per ION/Zoological Record) which
-      is something of a time saver in my quest to read the original work (from which
-      I could extract the DOI as well once reached) but does not really automate anything
-      since I still have to try and find it in order to peruse the content.</p>\n</blockquote>\n<blockquote>\n<p>Mostly
-      random thoughts above, possibly of no use, but I do ruminate on the universe
-      of connected &#8220;things not strings&#8221; in the hope that one day life
-      will get easier for biodiversity informatics workers, or maybe that the &#8220;book
-      of life&#8221; will be self-assembling&#8230;</p>\n</blockquote>\n<h2 id=\"my-response\">My
-      response</h2>\n<p>I think there are several ways to approach this. I&#8217;ll
-      walk through them below, but TL;DR</p>\n<ul>\n<li>Define the questions we have
-      and how we would get the answers. For example, what combination database and
-      SQL queries, or web site and API calls, or knowledge graph and SPARQL do we
-      need to answer each question?</li>\n<li>Decide what sort of interface(s) we
-      want. Do we want a web site with a search box, a bunch of API calls, or a natural
-      language interface?</li>\n<li>If we want natural language, how do we do that?
-      Do we want a ChatBot?</li>\n<li>And as an aside, how can we speed up reading
-      the taxonomic literature?</li>\n</ul>\n<p>The following are more notes than
-      a reasoned essay. I wanted to record a bunch of things to help me think about
-      these topics.</p>\n<h3 id=\"build-a-natural-language-search-engine\">Build a
-      natural language search engine</h3>\n<p>One of the first things I read that
-      opened my eyes to the potential of OpenAI-powered tools and how to build them
-      was <a href=\"https://paul-graham-gpt.vercel.app\">Paul Graham GPT</a> which
-      I talked about <a href=\"https://iphylo.blogspot.com/2023/04/chatgpt-semantic-search-and-knowledge.html\">here</a>.
-      This is a simple question and answer tool that takes a question and returns
-      an answer, based on Paul Graham&#8217;s blog posts. We could do something similar
-      for taxonomic names (or indeed, anything where we have some text and want to
-      query it). At its core we have a bunch of blocks of text, embeddings for those
-      blocks, then we get embeddings for the question and find the best-matching embeddings
-      for the blocks of text.</p>\n<h4 id=\"generating-queries\">Generating queries</h4>\n<p>One
-      approach is to use ChatGPT to formulate a database query based on a natural
-      langue question. There have been a bunch of people exploring generating SPARQL
-      queries from natural langue, e.g. <a href=\"https://apex974.com/articles/chatgpt-for-info-retrieval-from-knowledge-graph\">ChatGPT
-      for Information Retrieval from Knowledge Graph</a>, <a href=\"https://medium.com/openlink-software-blog/using-chatgpt-to-generate-a-course-description-knowledge-graph-using-rdf-daa107560776\">ChatGPT
-      Exercises &#8212; Generating a Course Description Knowledge Graph using RDF</a>,
-      and <a href=\"https://finnaarupnielsen.wordpress.com/2023/03/31/wikidata-and-chatgpt/\">Wikidata
-      and ChatGPT</a> and this could be explored for other query languages.</p>\n<p>So
-      in this approach we take natural language questions and get back the queries
-      we need to answer those questions. We then go away and run those queries.</p>\n<h4
-      id=\"generating-answers\">Generating answers</h4>\n<p>This still leaves us with
-      what to do with the answers. Given, say, a SPARQL response, we could have code
-      that generates a bunch of simple sentences from that response, e.g. &#8220;name
-      x is a synonym of name y&#8221;, &#8220;there are ten species in genus x&#8221;,
-      &#8220;name x was published in the paper zzz&#8221;, etc. We then pass those
-      sentences to an AI to summarise into nicer natural language. We should aim for
-      something like the Wikipedia-derived snippets from DBpedia (see <a href=\"https://iphylo.blogspot.com/2019/05/ozymandias-meets-wikipedia-with-notes.html\">Ozymandias
-      meets Wikipedia, with notes on natural language generation</a>). Indeed, we
-      could help make more engaging answers by adding DBpedia snippets for the relevant
-      taxa, abstracts from relevant papers, etc. to the SPARQL results and ask the
-      AI to summarise all of that.</p>\n<h4 id=\"skipping-queries-altogether\">Skipping
-      queries altogether</h4>\n<p>Another approach is to generate all the answers
-      ahead of time. Essentially, we take our database or knowledge graph and generate
-      simplified sentences summarising everything we know: &#8220;species x was described
-      by author y in 1920&#8221;, &#8220;species x was synonymies with species y in
-      1967&#8221;, etc. We then get embeddings for these answers, store them in a
-      vector database, and we can query them using a chatbot-style interface.</p>\n<p>There
-      is a big literature on embedding RDF (see <a href=\"http://rdf2vec.org\">RDF2vec.org</a>),
-      and also converting RDF to sentences. These &#8220;RDF verbalisers&#8221; are
-      further discussed on the  <a href=\"https://synalp.gitlabpages.inria.fr/webnlg-challenge/\">WebNLG
-      Challenge pages</a>, and an example is here: <a href=\"https://github.com/rali-udem/jsRealB\">jsRealB
-      - A JavaScript Bilingual Text Realizer for Web Development</a>.</p>\n<p>This
-      approach is like the game <a href=\"https://en.wikipedia.org/wiki/Jeopardy!\">Jeopardy!</a>:
-      we generate all the answers and the goal is to match the user&#8217;s question
-      to one or more of those answers.</p>\n<h3 id=\"machine-readability\">Machine
-      readability</h3>\n<blockquote>\n<p>Having access to more of the primary literature
-      is great, and necessary, but does not help me in those respects (since the published
-      works must still be parsed by a human, not a machine).</p>\n</blockquote>\n<p>This
-      is a good point, but help is at hand. There are a bunch of AI tools to &#8220;read&#8221;
-      the literature for you, such as <a href=\"https://typeset.io\">SciSpace&#8217;s
-      Copilot</a>. I think there&#8217;s a lot we could do to explore these tools.
-      We could also couple them with the name - publication links in the ten year
-      library. For example, if we know that there is a link between a name and a DOI,
-      and we have the text for the article with that DOI we could then ask targeted
-      questions regarding what the papers says about that name. One way to implement
-      this is to do something similar to the Paul Graham GPT demo described above.
-      We take the text of the paper, chunk it into smaller blocks (e.g., paragraphs),
-      get embeddings for each block, add those to a vector database, and we can then
-      search that paper (and others) using natural language. We could imagine an API
-      that takes a paper and splits out the core &#8220;facts&#8221; or assertions
-      that the paper makes. This also speaks to <a href=\"https://iphylo.blogspot.com/2019/07/notes-on-collections-knowledge-graphs.html\">Notes
-      on collections, knowledge graphs, and Semantic Web browsers</a> where I bemoaned
-      the lack of a semantic web browser.</p>\n<h2 id=\"summary\">Summary</h2>\n<p>I
-      think the questions being asked are all relatively straightforward to answer,
-      we just need to think a little bit about the best way to answer them. Much of
-      what I&#8217;ve written above is focussed on making such a system more broadly
-      useful and engaging, with richer answers that a simple database query. But a
-      first step is to define the questions and the queries that would answer them,
-      then figure out what interface to wrap this up in.</p>\n<blockquote>\n<p>Written
-      with <a href=\"https://stackedit.io/\">StackEdit</a>.</p>\n</blockquote>\n\n<div
-      style='clear: both;'></div>\n</div>\n<div class='post-footer'>\n<div class='post-footer-line
-      post-footer-line-1'><span class='post-author vcard'>\nPosted by\n<span class='fn'>\n<a
-      href='https://www.blogger.com/profile/00269598293846172649' rel='author' title='author
-      profile'>\nRoderic Page\n</a>\n</span>\n</span>\n<span class='post-timestamp'>\nat\n<a
-      class='timestamp-link' href='https://iphylo.blogspot.com/2023/06/a-taxonomic-search-engine.html'
-      rel='bookmark' title='permanent link'><abbr class='published' title='2023-06-17T16:38:00+01:00'>4:38
-      pm</abbr></a>\n</span>\n<span class='post-comment-link'>\n</span>\n<span class='post-icons'>\n<span
-      class='item-control blog-admin pid-386758820'>\n<a href='https://www.blogger.com/post-edit.g?blogID=16081779&postID=7036931647366159941&from=pencil'
-      title='Edit Post'>\n<img alt='' class='icon-action' height='18' src='https://resources.blogblog.com/img/icon18_edit_allbkg.gif'
-      width='18'/>\n</a>\n</span>\n</span>\n<div class='post-share-buttons goog-inline-block'>\n<a
-      class='goog-inline-block share-button sb-email' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=7036931647366159941&target=email'
-      target='_blank' title='Email This'><span class='share-button-link-text'>Email
-      This</span></a><a class='goog-inline-block share-button sb-blog' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=7036931647366159941&target=blog'
-      onclick='window.open(this.href, \"_blank\", \"height=270,width=475\"); return
-      false;' target='_blank' title='BlogThis!'><span class='share-button-link-text'>BlogThis!</span></a><a
-      class='goog-inline-block share-button sb-twitter' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=7036931647366159941&target=twitter'
-      target='_blank' title='Share to Twitter'><span class='share-button-link-text'>Share
-      to Twitter</span></a><a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=7036931647366159941&target=facebook'
-      onclick='window.open(this.href, \"_blank\", \"height=430,width=640\"); return
-      false;' target='_blank' title='Share to Facebook'><span class='share-button-link-text'>Share
-      to Facebook</span></a><a class='goog-inline-block share-button sb-pinterest'
-      href='https://www.blogger.com/share-post.g?blogID=16081779&postID=7036931647366159941&target=pinterest'
-      target='_blank' title='Share to Pinterest'><span class='share-button-link-text'>Share
-      to Pinterest</span></a>\n</div>\n</div>\n<div class='post-footer-line post-footer-line-2'><span
-      class='post-labels'>\n</span>\n</div>\n<div class='post-footer-line post-footer-line-3'><span
       class='post-location'>\n</span>\n</div>\n</div>\n</div>\n</div>\n\n        </div></div>\n
       \     \n</div>\n<div class='blog-pager' id='blog-pager'>\n<span id='blog-pager-older-link'>\n<a
-      class='blog-pager-older-link' href='https://iphylo.blogspot.com/search?updated-max=2023-06-17T16:38:00%2B01:00'
+      class='blog-pager-older-link' href='https://iphylo.blogspot.com/search?updated-max=2023-07-18T16:34:00%2B01:00'
       id='Blog1_blog-pager-older-link' title='Older Posts'>Older Posts</a>\n</span>\n<a
       class='home-link' href='https://iphylo.blogspot.com/'>Home</a>\n</div>\n<div
       class='clear'></div>\n<div class='blog-feeds'>\n<div class='feed-links'>\nSubscribe
@@ -1374,7 +1386,14 @@ interactions:
       class='item-snippet'>This is guest post by Angelique Hjarding in response to
       discussion on this blog  about the paper below. Hjarding, A., Tolley, K. A.,
       &amp; B...</div>\n</div>\n<div style='clear: both;'></div>\n</li>\n<li>\n<div
-      class='item-content'>\n<div class='item-thumbnail'>\n<a href='https://iphylo.blogspot.com/2010/12/how-do-i-know-if-article-is-open-access.html'
+      class='item-content'>\n<div class='item-thumbnail'>\n<a href='https://iphylo.blogspot.com/2024/02/problems-with-datacite-data-citation.html'
+      target='_blank'>\n<img alt='' border='0' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWpilOoLPSxgTnxeWyCXx39ef-LwSoQ-rkl7dowe8SLIGcAVD0gcNi8Z0DxSg6hU7qDJJmI8EaLK0atYZF3UTRQsTQIGh0G9MULOC48OTe3g2HOqzh9RvouDTSlqvUiEiMAhE_4K4KPgEnchi6DvdwobW8tJKIMOUnwlxv5Dk4GcJCIsqkGMyM/w72-h72-p-k-no-nu/Screenshot%202024-02-20%20at%2011.58.57.png'/>\n</a>\n</div>\n<div
+      class='item-title'><a href='https://iphylo.blogspot.com/2024/02/problems-with-datacite-data-citation.html'>Problems
+      with the DataCite Data Citation Corpus</a></div>\n<div class='item-snippet'>DataCite
+      have released the Data Citation Corpus , together with a dashboard  that summarises
+      the corpus. This is billed as:   A trusted cent...</div>\n</div>\n<div style='clear:
+      both;'></div>\n</li>\n<li>\n<div class='item-content'>\n<div class='item-thumbnail'>\n<a
+      href='https://iphylo.blogspot.com/2010/12/how-do-i-know-if-article-is-open-access.html'
       target='_blank'>\n<img alt='' border='0' src='//lh3.ggpht.com/_Gct8lVAxKqQ/TQYTcG6g5KI/AAAAAAAAAzs/X5LcDbnmaIY/w72-h72-p-k-no-nu/open-access-logo.jpg.png?imgmax=800'/>\n</a>\n</div>\n<div
       class='item-title'><a href='https://iphylo.blogspot.com/2010/12/how-do-i-know-if-article-is-open-access.html'>How
       do I know if an article is Open Access?</a></div>\n<div class='item-snippet'>One
@@ -1382,7 +1401,7 @@ interactions:
       iPad (or similar mobile device), so that a reader can see...</div>\n</div>\n<div
       style='clear: both;'></div>\n</li>\n<li>\n<div class='item-content'>\n<div class='item-thumbnail'>\n<a
       href='https://iphylo.blogspot.com/2014/08/seven-percent-of-gbif-data-is-usable.html'
-      target='_blank'>\n<img alt='' border='0' src='https://lh3.googleusercontent.com/blogger_img_proxy/AJ0KDdX0PwigKZogdIjufjghNQJfOHng2GQOk7W_zv73hF-vmf58wbB0spnxVgWQwQuAVs2q5lLJyqkWRYzVvNRByf4V6T3dTSc3QU7jfwdCJ4_vtlra-P1AOBHUFdNChRChZJxKnpkOCw=w72-h72-p-k-no-nu'/>\n</a>\n</div>\n<div
+      target='_blank'>\n<img alt='' border='0' src='https://lh3.googleusercontent.com/blogger_img_proxy/AJ0KDdXzZXxQ5Oh3oNDOgWF0TrF4IpDaFbelVgCzQba3-2R9aaRFJt8sHKYeP0_GVq5Eu7yKDtj-TKdtc2s17FRwuHw-4R63L9yWYITz5NUHT7hmsVnv6G4pzA0Iv08tC6YxrMPgqTSezQ=w72-h72-p-k-no-nu'/>\n</a>\n</div>\n<div
       class='item-title'><a href='https://iphylo.blogspot.com/2014/08/seven-percent-of-gbif-data-is-usable.html'>Seven
       percent of GBIF data is usable  - quick thoughts on Hjarding et al. 2014</a></div>\n<div
       class='item-snippet'>Update: Angelique Hjarding and her co-authors have responded
@@ -1395,15 +1414,8 @@ interactions:
       been playing recently with the Biodiversity Heritage Library  (BHL), and am
       starting to get a sense for the complexities (and limit...</div>\n</div>\n<div
       style='clear: both;'></div>\n</li>\n<li>\n<div class='item-content'>\n<div class='item-thumbnail'>\n<a
-      href='https://iphylo.blogspot.com/2013/04/reconciling-author-names-using-open.html'
-      target='_blank'>\n<img alt='' border='0' src='//lh4.ggpht.com/-HsS8f5sKWWc/Ty_fgRiXiII/AAAAAAAABHg/In4r9NXMkoc/w72-h72-p-k-no-nu/refine.png?imgmax=800'/>\n</a>\n</div>\n<div
-      class='item-title'><a href='https://iphylo.blogspot.com/2013/04/reconciling-author-names-using-open.html'>Reconciling
-      author names using Open Refine and VIAF</a></div>\n<div class='item-snippet'>In
-      an earlier post  I discussed using Open Refine  (formerly Google Refine ) to
-      clean and reconcile taxon names. I&#39;ve added an additiona...</div>\n</div>\n<div
-      style='clear: both;'></div>\n</li>\n<li>\n<div class='item-content'>\n<div class='item-thumbnail'>\n<a
       href='https://iphylo.blogspot.com/2009/02/wiki-demo.html' target='_blank'>\n<img
-      alt='' border='0' src='https://lh3.googleusercontent.com/blogger_img_proxy/AJ0KDdXdGFS5V__Xdgur_84qoJjNa6tFMYhNJugAwVpkFfgM1BlI0Ibpzh08RCUTuGd5jer4ypttScwXh4z9tGsVoGbmlWrwZE5wH_Rngckso5IO31xoUg=w72-h72-p-k-no-nu'/>\n</a>\n</div>\n<div
+      alt='' border='0' src='https://lh3.googleusercontent.com/blogger_img_proxy/AJ0KDdW18sq_WvPvgJNplkkdGFf-0pEiWutnbE1GELCLioBizcuQ0xukngBLAnZ-aDuiAUTiRXvT5Es3uV1msMz2iUMlWznl8-aZqzSqTDaQ0lTxVNzjsg=w72-h72-p-k-no-nu'/>\n</a>\n</div>\n<div
       class='item-title'><a href='https://iphylo.blogspot.com/2009/02/wiki-demo.html'>Wiki
       demo</a></div>\n<div class='item-snippet'>Reading a recent TAXACOM thread (
       Species Pages - purpose ) my sense is that some people are arguing that &quot;species
@@ -1414,19 +1426,19 @@ interactions:
       interfaces, knowledge graphs, and Miller columns</a></div>\n<div class='item-snippet'>Some
       quick notes on interface ideas for digital libraries and/or knowledge graphs.
       \ Recently there&#8217;s been something of an explosion in bibli...</div>\n</div>\n<div
+      style='clear: both;'></div>\n</li>\n<li>\n<div class='item-content'>\n<div class='item-thumbnail'>\n<a
+      href='https://iphylo.blogspot.com/2013/04/reconciling-author-names-using-open.html'
+      target='_blank'>\n<img alt='' border='0' src='//lh4.ggpht.com/-HsS8f5sKWWc/Ty_fgRiXiII/AAAAAAAABHg/In4r9NXMkoc/w72-h72-p-k-no-nu/refine.png?imgmax=800'/>\n</a>\n</div>\n<div
+      class='item-title'><a href='https://iphylo.blogspot.com/2013/04/reconciling-author-names-using-open.html'>Reconciling
+      author names using Open Refine and VIAF</a></div>\n<div class='item-snippet'>In
+      an earlier post  I discussed using Open Refine  (formerly Google Refine ) to
+      clean and reconcile taxon names. I&#39;ve added an additiona...</div>\n</div>\n<div
       style='clear: both;'></div>\n</li>\n<li>\n<div class='item-content'>\n<div class='item-title'><a
       href='https://iphylo.blogspot.com/2009/03/london-calling.html'>London Calling</a></div>\n<div
       class='item-snippet'>Busy day yesterday, giving two talks, one at The Natural
       History Museum, one at the British Library. Slides for the NHM talk are below.
       Kare...</div>\n</div>\n<div style='clear: both;'></div>\n</li>\n<li>\n<div class='item-content'>\n<div
-      class='item-thumbnail'>\n<a href='https://iphylo.blogspot.com/2023/11/its-2023-why-are-we-still-not-sharing.html'
-      target='_blank'>\n<img alt='' border='0' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwn95hB-WqA10yK-CFU120lsc_SiDYHyd1PyqXzUxmWGC7-PdUykllNS1Y3bhEAJzIzXW73nEHhyhDl_wcHekAeUEN9rZIRQl9eoNX91gDzi1aKnORzvIS9pf4m9aElI4lxZ8gNtpbxGyzqm1fYVj7Gh4VrxsoIo9Z1Ii2WarmHgUgrEzSQPzb/w72-h72-p-k-no-nu/Screenshot%202023-11-29%20at%2011.00.47.png'/>\n</a>\n</div>\n<div
-      class='item-title'><a href='https://iphylo.blogspot.com/2023/11/its-2023-why-are-we-still-not-sharing.html'>It's
-      2023 - why are we still not sharing phylogenies?</a></div>\n<div class='item-snippet'>How
-      to cite: Page, R. (2023). It&#8217;s 2023 - why are we still not sharing phylogenies?
-      https://doi.org/10.59350/n681n-syx67   A quick note to s...</div>\n</div>\n<div
-      style='clear: both;'></div>\n</li>\n<li>\n<div class='item-content'>\n<div class='item-thumbnail'>\n<a
-      href='https://iphylo.blogspot.com/2015/12/guest-post-10-years-of-global.html'
+      class='item-thumbnail'>\n<a href='https://iphylo.blogspot.com/2015/12/guest-post-10-years-of-global.html'
       target='_blank'>\n<img alt='' border='0' src='https://lh3.googleusercontent.com/-A99btr6ERMs/Vl1Wvjp2OtI/AAAAAAAAEFI/7bKdRjNG5w0/w72-h72-p-k-no-nu/ytNkVT2U.jpg?imgmax=800'/>\n</a>\n</div>\n<div
       class='item-title'><a href='https://iphylo.blogspot.com/2015/12/guest-post-10-years-of-global.html'>Guest
       post: 10 years of global biodiversity databases: are we there yet?</a></div>\n<div
@@ -1447,14 +1459,21 @@ interactions:
       id='ArchiveList'>\n<div id='BlogArchive1_ArchiveList'>\n<ul class='hierarchy'>\n<li
       class='archivedate expanded'>\n<a class='toggle' href='javascript:void(0)'>\n<span
       class='zippy toggle-open'>\n\n        &#9660;&#160;\n      \n</span>\n</a>\n<a
-      class='post-count-link' href='https://iphylo.blogspot.com/2023/'>\n2023\n</a>\n<span
-      class='post-count' dir='ltr'>(13)</span>\n<ul class='hierarchy'>\n<li class='archivedate
+      class='post-count-link' href='https://iphylo.blogspot.com/2024/'>\n2024\n</a>\n<span
+      class='post-count' dir='ltr'>(1)</span>\n<ul class='hierarchy'>\n<li class='archivedate
       expanded'>\n<a class='toggle' href='javascript:void(0)'>\n<span class='zippy
       toggle-open'>\n\n        &#9660;&#160;\n      \n</span>\n</a>\n<a class='post-count-link'
-      href='https://iphylo.blogspot.com/2023/11/'>\nNovember\n</a>\n<span class='post-count'
-      dir='ltr'>(1)</span>\n<ul class='posts'>\n<li><a href='https://iphylo.blogspot.com/2023/11/its-2023-why-are-we-still-not-sharing.html'>It&#39;s
-      2023 - why are we still not sharing phylogenies?</a></li>\n</ul>\n</li>\n</ul>\n<ul
+      href='https://iphylo.blogspot.com/2024/02/'>\nFebruary\n</a>\n<span class='post-count'
+      dir='ltr'>(1)</span>\n<ul class='posts'>\n<li><a href='https://iphylo.blogspot.com/2024/02/problems-with-datacite-data-citation.html'>Problems
+      with the DataCite Data Citation Corpus</a></li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n<ul
       class='hierarchy'>\n<li class='archivedate collapsed'>\n<a class='toggle' href='javascript:void(0)'>\n<span
+      class='zippy'>\n\n        &#9658;&#160;\n      \n</span>\n</a>\n<a class='post-count-link'
+      href='https://iphylo.blogspot.com/2023/'>\n2023\n</a>\n<span class='post-count'
+      dir='ltr'>(13)</span>\n<ul class='hierarchy'>\n<li class='archivedate collapsed'>\n<a
+      class='toggle' href='javascript:void(0)'>\n<span class='zippy'>\n\n        &#9658;&#160;\n
+      \     \n</span>\n</a>\n<a class='post-count-link' href='https://iphylo.blogspot.com/2023/11/'>\nNovember\n</a>\n<span
+      class='post-count' dir='ltr'>(1)</span>\n</li>\n</ul>\n<ul class='hierarchy'>\n<li
+      class='archivedate collapsed'>\n<a class='toggle' href='javascript:void(0)'>\n<span
       class='zippy'>\n\n        &#9658;&#160;\n      \n</span>\n</a>\n<a class='post-count-link'
       href='https://iphylo.blogspot.com/2023/10/'>\nOctober\n</a>\n<span class='post-count'
       dir='ltr'>(1)</span>\n</li>\n</ul>\n<ul class='hierarchy'>\n<li class='archivedate
@@ -4083,8 +4102,8 @@ interactions:
       werden.',\n          (window.cookieOptions && cookieOptions.close) || 'Ok',\n
       \         (window.cookieOptions && cookieOptions.learn) || 'Weitere Informationen',\n
       \         (window.cookieOptions && cookieOptions.link) || 'https://www.blogger.com/go/blogspot-cookies');\n
-      \   });\n  </script>\n\n<script type=\"text/javascript\" src=\"https://www.blogger.com/static/v1/widgets/1174812514-widgets.js\"></script>\n<script
-      type='text/javascript'>\nwindow['__wavt'] = 'AOuZoY58haWFn5bFoS1hQcIcMXGclTw8CA:1707513597192';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\\x3d16081779','//iphylo.blogspot.com/','16081779');\n_WidgetManager._SetDataContext([{'name':
+      \   });\n  </script>\n\n<script type=\"text/javascript\" src=\"https://www.blogger.com/static/v1/widgets/1221747029-widgets.js\"></script>\n<script
+      type='text/javascript'>\nwindow['__wavt'] = 'AOuZoY44e3uVs-OLVofDxgSNMmHy2CmqJQ:1708703066519';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\\x3d16081779','//iphylo.blogspot.com/','16081779');\n_WidgetManager._SetDataContext([{'name':
       'blog', 'data': {'blogId': '16081779', 'title': 'iPhylo', 'url': 'https://iphylo.blogspot.com/',
       'canonicalUrl': 'https://iphylo.blogspot.com/', 'homepageUrl': 'https://iphylo.blogspot.com/',
       'searchUrl': 'https://iphylo.blogspot.com/search', 'canonicalHomepageUrl': 'https://iphylo.blogspot.com/',
@@ -4104,7 +4123,7 @@ interactions:
       /\\x3e\\n', 'adsenseClientId': 'ca-pub-7354682617866492', 'adsenseHostId': 'ca-host-pub-1556223355139109',
       'adsenseHasAds': false, 'adsenseAutoAds': false, 'boqCommentIframeForm': true,
       'loginRedirectParam': '', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js',
-      'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/f7c23c918c030942',
+      'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/155607c0b9f413c1',
       'plusOneApiSrc': 'https://apis.google.com/js/platform.js', 'disableGComments':
       true, 'interstitialAccepted': false, 'sharing': {'platforms': [{'name': 'Get
       link', 'key': 'link', 'shareMessage': 'Get link', 'target': ''}, {'name': 'Facebook',
@@ -4139,7 +4158,7 @@ interactions:
       new _WidgetInfo('Header1', 'header', document.getElementById('Header1'), {},
       'displayModeFull'));\n_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1',
       'main', document.getElementById('Blog1'), {'cmtInteractionsEnabled': false,
-      'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/75647449-lbx__en_gb.js',
+      'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/1456669154-lbx__en_gb.js',
       'lightboxCssUrl': 'https://www.blogger.com/static/v1/v-css/3268905543-lightbox_bundle.css'},
       'displayModeFull'));\n_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML1',
       'sidebar-right-1', document.getElementById('HTML1'), {}, 'displayModeFull'));\n_WidgetManager._RegisterWidget('_ProfileView',
@@ -4147,7 +4166,7 @@ interactions:
       {}, 'displayModeFull'));\n_WidgetManager._RegisterWidget('_StatsView', new _WidgetInfo('Stats1',
       'sidebar-right-1', document.getElementById('Stats1'), {'title': 'Pageviews from
       the past week', 'showGraphicalCounter': false, 'showAnimatedCounter': false,
-      'showSparkline': true, 'statsUrl': '//iphylo.blogspot.com/b/stats?style\\x3dBLACK_TRANSPARENT\\x26timeRange\\x3dLAST_WEEK\\x26token\\x3dAPq4FmC_0DmdKSxNbHvh85vsmqgm1OxWfq52yNX8Slo9OxyZ65fywoqmq6NKRzaveDNdBStl0l9YjNlm9VRtS-FmiiBDkYvOsg'},
+      'showSparkline': true, 'statsUrl': '//iphylo.blogspot.com/b/stats?style\\x3dBLACK_TRANSPARENT\\x26timeRange\\x3dLAST_WEEK\\x26token\\x3dAPq4FmB1grSokLFVkcJ_HrnjFItopiwSIXpOGhteJpFplfVDQEulVeh46w0OSGim5M1R3ZKWleqKSekgujxwQUYSCplDshwJdQ'},
       'displayModeFull'));\n_WidgetManager._RegisterWidget('_PopularPostsView', new
       _WidgetInfo('PopularPosts1', 'sidebar-right-1', document.getElementById('PopularPosts1'),
       {}, 'displayModeFull'));\n_WidgetManager._RegisterWidget('_LinkListView', new
@@ -4170,13 +4189,13 @@ interactions:
       Content-Type:
       - text/html; charset=UTF-8
       Date:
-      - Fri, 09 Feb 2024 21:19:57 GMT
+      - Fri, 23 Feb 2024 15:44:26 GMT
       ETag:
-      - W/"bee8f11a0e3aa70505c49f228c672fce1ee7c40188e6447868e978e9f656f5d7"
+      - W/"758d952d3688352d7b4bbcdf2ab7f427d391664b671b6450931ba7ed020ffde3"
       Expires:
-      - Fri, 09 Feb 2024 21:19:57 GMT
+      - Fri, 23 Feb 2024 15:44:26 GMT
       Last-Modified:
-      - Wed, 07 Feb 2024 10:41:16 GMT
+      - Thu, 22 Feb 2024 12:14:42 GMT
       Server:
       - GSE
       Transfer-Encoding:

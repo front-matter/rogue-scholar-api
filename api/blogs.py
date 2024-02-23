@@ -130,7 +130,6 @@ async def extract_single_blog(slug: str):
     blog = {
         "id": config["id"],
         "slug": slug,
-        "version": "https://jsonfeed.org/version/1.1",
         "feed_url": feed_url,
         "created_at": config["created_at"],
         "updated_at": updated_at,

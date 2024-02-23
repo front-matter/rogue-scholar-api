@@ -299,7 +299,6 @@ def test_update_single_blog():
     """Upsert single blog"""
     blog = {
         "slug": "epub_fis",
-        "version": "https://jsonfeed.org/version/1.1",
         "feed_url": "https://blog.dini.de/EPub_FIS/feed/atom/",
         "created_at": "2023-07-21",
         "updated_at": 1695639719,

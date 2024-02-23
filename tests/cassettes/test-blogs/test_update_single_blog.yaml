@@ -21,7 +21,7 @@ interactions:
       user-agent:
       - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.4
+      - supabase-py/2.3.5
     method: GET
     uri: https://db.rogue-scholar.org/rest/v1/posts?select=updated_at&blog_slug=eq.epub_fis&order=updated_at.desc&limit=1
   response:
@@ -32,7 +32,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 852f2754bb297a42-DUS
+      - 85a0971eba5f1635-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -46,7 +46,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 09 Feb 2024 21:19:58 GMT
+      - Fri, 23 Feb 2024 15:44:28 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -60,7 +60,7 @@ interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '11'
+      - '13'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
@@ -98,20 +98,20 @@ interactions:
       user-agent:
       - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.4
+      - supabase-py/2.3.5
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/blogs?slug=eq.epub_fis
   response:
     content: '[{"title":"FIS & EPub","description":"Gemeinsamer Blog der DINI AG Forschungsinformationssystem
       und Elektronisches Publizieren","language":"de","favicon":"https://blog.dini.de/EPub_FIS/wp-content/uploads/2018/03/cropped-DINI-AG-FIS-3-1-150x150.png","feed_url":"https://blog.dini.de/EPub_FIS/feed/atom/","home_page_url":"https://blog.dini.de/EPub_FIS","user_id":"a9e3541e-1e00-4bf3-8a4d-fc9b1c505651","feed_format":"application/atom+xml","license":"https://creativecommons.org/licenses/by/4.0/legalcode","generator":"WordPress
-      6.3.2","category":"socialSciences","prefix":null,"version":"https://jsonfeed.org/version/1.1","current_feed_url":null,"status":"active","issn":"2940-1798","backlog":0,"authors":null,"plan":"Team","slug":"epub_fis","use_mastodon":false,"api":true,"funding":null,"archive_prefix":"https://wayback.archive-it.org/22121/20231105105752/","use_api":true,"relative_url":null,"canonical_url":null,"filter":null,"updated_at":1706534803,"secure":null,"created_at":1689897600,"indexed":null,"generator_raw":null,"id":"2e00349e-defb-4459-9653-f284f516ac20","ror":null,"mastodon":null}]'
+      6.3.2","category":"socialSciences","prefix":null,"current_feed_url":null,"status":"active","issn":"2940-1798","backlog":0,"authors":null,"plan":"Team","slug":"epub_fis","use_mastodon":false,"api":true,"funding":null,"archive_prefix":"https://wayback.archive-it.org/22121/20231105105752/","use_api":true,"relative_url":null,"canonical_url":null,"filter":null,"updated_at":1706534803,"secure":null,"created_at":1689897600,"indexed":null,"generator_raw":null,"id":"2e00349e-defb-4459-9653-f284f516ac20","ror":null,"mastodon":null}]'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 852f27553d99716c-DUS
+      - 85a0971f3a52cb09-DUS
       Connection:
       - keep-alive
       Content-Encoding:
@@ -123,7 +123,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 09 Feb 2024 21:19:58 GMT
+      - Fri, 23 Feb 2024 15:44:28 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
