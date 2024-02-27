@@ -114,7 +114,7 @@ AUTHOR_NAMES = {
 }
 
 
-EXCLUDED_TAGS = ["Uncategorized", "Uncategorised", "Blog"]
+EXCLUDED_TAGS = ["Uncategorized", "Uncategorised", "Blog", "Doi"]
 
 
 def wrap(item) -> list:
