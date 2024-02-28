@@ -180,6 +180,8 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             case "Substack":
                 url = url.set(path="/api/v1/posts/")
                 params = {"sort": "new", "offset": start_page, "limit": per_page}
+            case "Squarespace":
+                params = {"format": "json"}
             case _:
                 params = {}
 
@@ -228,6 +230,16 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                     posts = filter_updated_posts(posts, blog, key="updated_at")
                 extract_posts = [extract_ghost_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
+        elif generator == "Squarespace":
+            async with httpx.AsyncClient() as client:
+                response = await client.get(feed_url, follow_redirects=True)
+                json = response.json()
+                posts = json.get("items", [])
+                # only include posts that have been modified since last update
+                if not update_all:
+                    posts = filter_updated_posts(posts, blog, key="updatedOn")
+                extract_posts = [extract_squarespace_post(x, blog) for x in posts]
+            blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/feed+json":
             async with httpx.AsyncClient() as client:
                 response = await client.get(feed_url, follow_redirects=True)
@@ -248,9 +260,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                 if not update_all:
                     posts = filter_updated_posts(posts, blog, key="published")
                 posts = posts[start_page:end_page]
-            extract_posts = [
-                extract_atom_post(x, blog) for x in posts
-            ]
+            extract_posts = [extract_atom_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/rss+xml":
             async with httpx.AsyncClient() as client:
@@ -266,9 +276,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                 if blog.get("filter", None):
                     posts = filter_posts(posts, blog, key="category")
                 posts = posts[start_page:end_page]
-            extract_posts = [
-                extract_rss_post(x, blog) for x in posts
-            ]
+            extract_posts = [extract_rss_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         else:
             blog_with_posts["entries"] = []
@@ -546,6 +554,69 @@ async def extract_substack_post(post, blog):
             "abstract": abstract,
             "published_at": published_at,
             "updated_at": published_at,
+            "image": image,
+            "images": images,
+            "language": detect_language(content_html),
+            "category": blog.get("category", None),
+            "reference": reference,
+            "relationships": relationships,
+            "tags": tags,
+            "title": get_title(post.get("title", None)),
+            "url": url,
+            "archive_url": archive_url,
+            "guid": post.get("id", None),
+            "status": blog.get("status", "active"),
+        }
+    except Exception:
+        print(blog.get("slug", None), traceback.format_exc())
+        return {}
+
+
+async def extract_squarespace_post(post, blog):
+    """Extract Squarespace post from REST API."""
+
+    try:
+        def format_author(author):
+            """Format author."""
+            return {
+                "name": author.get('displayName', None),
+            }
+
+        authors = [format_author(i) for i in wrap(post.get("author", None))]
+        content_html = post.get("body", "")
+        content_text = get_markdown(content_html)
+        summary = get_summary(post.get("excerpt", None))
+        abstract = get_summary(content_html)
+        abstract = get_abstract(summary, abstract)
+        published_at = int(post.get("addedOn", 1) / 1000)
+        updated_at = int(post.get("updatedOn", 1) / 1000)
+        reference = get_references(content_html)
+        relationships = get_relationships(content_html)
+        url = normalize_url(
+            f'{blog.get("home_page_url", "")}/{post.get("urlId","")}', secure=blog.get("secure", True)
+        )
+        archive_url = (
+            blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
+        )
+        images = get_images(content_html, url, blog.get("home_page_url", None))
+        image = post.get("assetUrl", None)
+        if not image and len(images) > 0 and int(images[0].get("width", 200)) >= 200:
+            image = images[0].get("src", None)
+        tags = [
+            normalize_tag(i)
+            for i in wrap(post.get("categories", None))
+            if i not in EXCLUDED_TAGS
+        ][:5]
+
+        return {
+            "authors": authors,
+            "blog_name": blog.get("title", None),
+            "blog_slug": blog.get("slug", None),
+            "content_text": content_text,
+            "summary": summary,
+            "abstract": abstract,
+            "published_at": published_at,
+            "updated_at": updated_at,
             "image": image,
             "images": images,
             "language": detect_language(content_html),

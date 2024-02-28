@@ -40,7 +40,7 @@ def test_convert_to_commonmeta_default():
     data = json.loads(string)
     result = convert_to_commonmeta(data)
     assert result["id"] == "https://doi.org/10.59350/ps8tw-rpk77"
-    assert result["schema_version"] == "https://commonmeta.org/commonmeta_v0.10"
+    assert result["schema_version"] == "https://commonmeta.org/commonmeta_v0.11"
     assert result["type"] == "Article"
     assert result["url"] == "http://gigasciencejournal.com/blog/fair-workflows"
     assert py_.get(result, "titles.0") == {
