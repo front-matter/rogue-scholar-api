@@ -764,7 +764,7 @@ async def extract_rss_post(post, blog):
         if (
             not image
             and len(images) > 0
-            and isinstance(images[0].get("width", None), int)
+            # and isinstance(images[0].get("width", None), int)
             and int(images[0].get("width", 200)) >= 200
             and furl(images[0].get("src", None)).host not in ["latex.codecogs.com"]
         ):
