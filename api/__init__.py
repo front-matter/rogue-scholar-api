@@ -411,7 +411,6 @@ async def post(slug: str, suffix: Optional[str] = None):
             return jsonify(response.data)
         metadata = py_.omit(response.data, ["content_text"])
         meta = convert_to_commonmeta(metadata)
-        print(meta)
     except Exception as e:
         logger.warning(e.args[0])
         return {"error": "Post not found"}, 404
@@ -433,6 +432,7 @@ async def post(slug: str, suffix: Optional[str] = None):
             metadata,
             [
                 "author",
+                "blog",
                 "container",
                 "date",
                 "date_updated",
@@ -466,7 +466,8 @@ async def post(slug: str, suffix: Optional[str] = None):
         elif format_ == "pdf":
             markdown["author"] = format_authors_with_orcid(markdown["author"])
             markdown["license"] = {
-                "text": format_license(markdown["author"], markdown["date"]),
+                "text": format_license(markdown["author"], markdown["date"], markdown["rights"]),
+                "id": "cc-by" if markdown["rights"] == "https://creativecommons.org/licenses/by/4.0/legalcode" else None,
                 "link": markdown["rights"],
             }
             markdown["date"] = format_datetime(markdown["date"], markdown["lang"])

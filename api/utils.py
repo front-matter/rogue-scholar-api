@@ -71,7 +71,7 @@ AUTHOR_IDS = {
     "Ben Kaden": "https://orcid.org/0000-0002-8021-1785",
     "Maxi Kindling": "https://orcid.org/0000-0002-0167-0466",
     "LIBREAS": "https://ror.org/01hcx6992",
-    "Jorge Saturno": "https://orcid.org/0000-0002-3761-3957"
+    "Jorge Saturno": "https://orcid.org/0000-0002-3761-3957",
 }
 
 AUTHOR_NAMES = {
@@ -246,8 +246,12 @@ def format_authors_commonmeta(authors):
     return [format_author(x) for x in authors]
 
 
-def format_license(authors, date):
+def format_license(authors, date, rights):
     """Generate license string"""
+    if rights == "https://creativecommons.org/publicdomain/zero/1.0/legalcode":
+        return """This is an open access article, free of all copyright, 
+    and may be freely reproduced, distributed, transmitted, modified, 
+    built upon, or otherwise used by anyone for any lawful purpose."""
 
     auth = format_authors(authors)
     length = len(auth)
@@ -383,8 +387,11 @@ def convert_to_commonmeta(meta: dict) -> Commonmeta:
         "references": meta.get("reference", None),
         "funding_references": [],
         "license": {
-            "id": "CC-BY-4.0",
-            "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+            "id": "CC-BY-4.0"
+            if py_.get(meta, "blog.license")
+            == "https://creativecommons.org/licenses/by/4.0/legalcode"
+            else "CC0-1.0",
+            "url": py_.get(meta, "blog.license"),
         },
         "provider": provider,
         "alternateIdentifiers": alternate_identifiers,
@@ -410,7 +417,7 @@ def convert_to_commonmeta(meta: dict) -> Commonmeta:
                 "mimeType": "application/xml",
             },
         ],
-        "schema_version": "https://commonmeta.org/commonmeta_v0.10",
+        "schema_version": "https://commonmeta.org/commonmeta_v0.11",
     }
 
 
@@ -613,14 +620,14 @@ def format_markdown(content: str, metadata) -> str:
     post["date_updated"] = (
         datetime.utcfromtimestamp(metadata.get("date_updated", 0)).isoformat() + "Z"
     )
-    post["rights"] = "https://creativecommons.org/licenses/by/4.0/legalcode"
+    post["rights"] = py_.get(metadata, "blog.license")
     post["summary"] = metadata.get("summary", "")
     if post.get("abstract", None) is not None:
         post["abstract"] = metadata.get("abstract")
     return post
 
 
-def get_known_doi_ra(doi: str) -> str:
+def get_known_doi_ra(doi: str) -> Optional[str]:
     """Get DOI registration agency from prefixes used in Rogue Scholar"""
     crossref_prefixes = [
         "10.53731",

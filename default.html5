@@ -112,9 +112,13 @@ $endfor$
   $if(license)$
     <div class="rights">
       <h4>$copyright-title$</h4>
+      $if(license.id)$
       $license.text$ Distributed under the terms of the <a href="$license.link$">Creative Commons Attribution 4.0 International License</a>,
       which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and 
       source are credited.
+      $else$
+      $license.text$ The work is made available under the <a href="$license.link$">Creative Commons CC0 public domain dedication</a>.
+      $endif$ 
     </div>
   $endif$
 </section>
