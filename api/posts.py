@@ -578,9 +578,8 @@ async def extract_squarespace_post(post, blog):
     try:
         def format_author(author):
             """Format author."""
-            return {
-                "name": author.get('displayName', None),
-            }
+            
+            return normalize_author(author.get("displayName", None))
 
         authors = [format_author(i) for i in wrap(post.get("author", None))]
         content_html = post.get("body", "")

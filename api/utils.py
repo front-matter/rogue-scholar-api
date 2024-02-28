@@ -72,6 +72,8 @@ AUTHOR_IDS = {
     "Maxi Kindling": "https://orcid.org/0000-0002-0167-0466",
     "LIBREAS": "https://ror.org/01hcx6992",
     "Jorge Saturno": "https://orcid.org/0000-0002-3761-3957",
+    "Ted Habermann": "https://orcid.org/0000-0003-3585-6733",
+    "Erin Robinson": "https://orcid.org/0000-0001-9998-0114",
 }
 
 AUTHOR_NAMES = {
