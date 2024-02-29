@@ -188,6 +188,7 @@ async def post_blog_posts(slug: str, suffix: Optional[str] = None):
     """Update blog posts by slug."""
 
     page = int(request.args.get("page") or "1")
+    offset = int(request.args.get("offset") or None)
     update = request.args.get("update")
 
     if (
@@ -199,7 +200,7 @@ async def post_blog_posts(slug: str, suffix: Optional[str] = None):
     elif slug and suffix == "posts":
         try:
             result = await extract_all_posts_by_blog(
-                slug, page=page, update_all=(update == "all")
+                slug, page=page, offset=offset, update_all=(update == "all")
             )
             if isinstance(result, dict) and result.get("error", None):
                 return result, 400

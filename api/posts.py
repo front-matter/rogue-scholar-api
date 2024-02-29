@@ -1,5 +1,6 @@
 """Posts module."""
 from os import environ
+from typing import Optional
 from furl import furl
 import httpx
 import asyncio
@@ -7,7 +8,6 @@ import re
 import pydash as py_
 import nh3
 import html
-import orjson as json
 import xmltodict
 import time
 import traceback
@@ -82,7 +82,7 @@ async def update_posts(posts: list):
         return {}
 
 
-async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool = False):
+async def extract_all_posts_by_blog(slug: str, page: int = 1, offset: Optional[int] = None, update_all: bool = False):
     """Extract all posts by blog."""
 
     try:
@@ -181,7 +181,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
                 url = url.set(path="/api/v1/posts/")
                 params = {"sort": "new", "offset": start_page, "limit": per_page}
             case "Squarespace":
-                params = {"format": "json"}
+                params = compact({"format": "json", "offset": offset})
             case _:
                 params = {}
 
@@ -234,6 +234,7 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, update_all: bool =
             async with httpx.AsyncClient() as client:
                 response = await client.get(feed_url, follow_redirects=True)
                 json = response.json()
+                print(py_.get(json, "pagination.nextPageOffset", None))
                 posts = json.get("items", [])
                 # only include posts that have been modified since last update
                 if not update_all:
@@ -583,11 +584,12 @@ async def extract_squarespace_post(post, blog):
 
         authors = [format_author(i) for i in wrap(post.get("author", None))]
         content_html = post.get("body", "")
-        content_text = get_markdown(content_html)
-        summary = get_summary(post.get("excerpt", None))
-        abstract = get_summary(content_html)
-        abstract = get_abstract(summary, abstract)
-        published_at = int(post.get("addedOn", 1) / 1000)
+        content_text = get_markdown(content_html)        
+        summary = get_summary(content_html)
+        abstract = get_summary(post.get("excerpt", ""))
+        if abstract is not None:
+            abstract = get_abstract(summary, abstract)
+        published_at = int(post.get("publishOn", 1) / 1000)
         updated_at = int(post.get("updatedOn", 1) / 1000)
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
@@ -1143,8 +1145,8 @@ def get_images(content_html: str, url: str, home_page_url: str):
         def extract_img(image):
             """Extract url from link."""
             src = image.attrs.get("src", None)
-
-            src = get_src_url(src, url, home_page_url)
+            if src is not None:
+                src = get_src_url(src, url, home_page_url)
             srcset = image.attrs.get("srcset", None)
 
             if isinstance(srcset, str):
