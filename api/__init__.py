@@ -188,7 +188,9 @@ async def post_blog_posts(slug: str, suffix: Optional[str] = None):
     """Update blog posts by slug."""
 
     page = int(request.args.get("page") or "1")
-    offset = int(request.args.get("offset") or None)
+    offset = request.args.get("offset")
+    if offset is not None:
+        offset = int(offset)
     update = request.args.get("update")
 
     if (
