@@ -1,4 +1,5 @@
 """Test utils"""
+
 import pytest  # noqa: F401
 import pydash as py_  # noqa: F401
 from os import path
@@ -97,8 +98,8 @@ def test_get_formatted_metadata_bibtex():
     year = {2023}
 }"""
     )
-    
-    
+
+
 def test_get_url_metadata_bibtex():
     "get url metadata in bibtex format"
     data = path.join(path.dirname(__file__), "fixtures", "commonmeta-no-doi.json")
@@ -134,7 +135,10 @@ def test_get_url_metadata_csl():
     csl = json.loads(result["data"])
     assert csl["title"] == "The rise of the (science) newsletter"
     assert csl["author"] == [{"family": "Fenner", "given": "Martin"}]
-    assert csl["URL"] == "https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter"
+    assert (
+        csl["URL"]
+        == "https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter"
+    )
 
 
 def test_get_formatted_metadata_ris():
@@ -322,6 +326,13 @@ def test_normalize_author_username():
     assert result == {
         "name": "David M. Shotton",
         "url": "https://orcid.org/0000-0001-5506-523X",
+        "affiliation": [
+            {
+                "id": "https://ror.org/052gg0110",
+                "name": "University of Oxford",
+                "start_date": "1981-01-01",
+            }
+        ],
     }
 
 
@@ -378,7 +389,7 @@ def test_is_valid_url():
     assert True == is_valid_url("https://www.example.com")
     assert True == is_valid_url("http://www.example.com")
     assert True == is_valid_url("//www.example.com")
-    
+
 
 def test_get_markdown():
     """get markdown from html"""

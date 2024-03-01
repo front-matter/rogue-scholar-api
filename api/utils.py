@@ -176,10 +176,120 @@ AUTHOR_AFFILIATIONS = {
     ],
     "https://orcid.org/0000-0001-6444-1436": [
         {
-            "name": "BGI Group",
-            "id": "https://ror.org/045pn2j94",
+            "name": "GigaScience Press",
+            "id": "https://ror.org/03yty8687",
             "start_date": "2010-10-01",
         }
+    ],
+    "https://orcid.org/0000-0002-5192-9835": [
+        {
+            "name": "GigaScience Press",
+            "id": "https://ror.org/03yty8687",
+            "start_date": "2016-05-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-1335-0881": [
+        {
+            "name": "GigaScience Press",
+            "id": "https://ror.org/03yty8687",
+            "start_date": "2013-03-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-9373-4622": [
+        {
+            "name": "University of Camagüey",
+            "id": "https://ror.org/040qyzk67",
+            "start_date": "2008-10-01",
+        }
+    ],
+    "https://orcid.org/0000-0001-5506-523X": [
+        {
+            "name": "University of Oxford",
+            "id": "https://ror.org/052gg0110",
+            "start_date": "1981-01-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-5427-8951": [
+        {
+            "name": "rOpenSci",
+            "start_date": "2016-09-01",
+        },
+        {
+            "name": "Openscapes",
+            "start_date": "2022-04-01",
+        },
+    ],
+    "https://orcid.org/0000-0002-7304-3787": [
+        {
+            "name": "Royal Library of Belgium",
+            "id": "https://ror.org/0105w2p42",
+            "start_date": "2021-07-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-3948-3914": [
+        {
+            "name": "Georgia State University",
+            "id": "https://ror.org/03qt6ba18",
+            "start_date": "2019-08-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-7378-2408": [
+        {
+            "name": "University of California Office of the President",
+            "id": "https://ror.org/00dmfq477",
+            "start_date": "2015-10-01",
+        }
+    ],
+    "https://orcid.org/0000-0001-8249-1752": [
+        {
+            "name": "Leiden University",
+            "id": "https://ror.org/027bh9e22",
+            "start_date": "2009-06-01",
+        }
+    ],
+    "https://orcid.org/0000-0001-8448-4521": [
+        {
+            "name": "Leiden University",
+            "id": "https://ror.org/027bh9e22",
+            "start_date": "2009-06-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-1598-7181": [
+        {
+            "name": "DataCite",
+            "id": "https://ror.org/04wxnsj81",
+            "start_date": "2022-05-11",
+        }
+    ],
+    "https://orcid.org/0000-0001-5934-7525": [
+        {
+            "name": "University of Illinois Urbana-Champaign",
+            "id": "https://ror.org/047426m28",
+            "start_date": "2016-03-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-8424-0604": [
+        {
+            "name": "Polyneme LLC",
+            "start_date": "2020-07-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-5589-8511": [
+        {
+            "name": "University of Lincoln",
+            "id": "https://ror.org/03yeq9x20",
+            "start_date": "2013-01-07",
+        },
+        {
+            "name": "Birkbeck, University of London",
+            "id": "https://ror.org/02mb95055",
+            "start_date": "2015-05-01",
+        },
+        {
+            "name": "Crossref",
+            "id": "https://ror.org/02twcfp32",
+            "start_date": "2023-01-01",
+        },
     ],
 }
 
@@ -225,9 +335,11 @@ def normalize_author(
             for i in affiliation
             if unix_timestamp(i.get("start_date", 0)) < published_at
         ]
-        affiliation = py_.pick(affiliation[-1], ["id", "name"]) if affiliation else None
+        affiliation = (
+            [py_.pick(affiliation[-1], ["id", "name"])] if affiliation else None
+        )
 
-    return compact({"name": _name, "url": _url, "affiliation": [affiliation]})
+    return compact({"name": _name, "url": _url, "affiliation": affiliation})
 
 
 def get_date(date: str):
