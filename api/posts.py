@@ -113,13 +113,6 @@ async def extract_all_posts_by_blog(slug: str, page: int = 1, offset: Optional[i
         end_page = (page - 1) * 50 + 50 if page > 0 else 50
         per_page = 50
 
-        # limit number of pages to 1 (10 posts) for blogs with pending status
-        # if blog.get("status", None) == "pending":
-        #     page = 1
-        #     start_page = 0
-        #     end_page = 10
-        #     per_page = 10
-
         # handle pagination depending on blogging platform and whether we use their API
         match generator:
             case "WordPress":

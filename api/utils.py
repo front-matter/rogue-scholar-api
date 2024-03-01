@@ -276,6 +276,16 @@ AUTHOR_AFFILIATIONS = {
     ],
     "https://orcid.org/0000-0002-5589-8511": [
         {
+            "name": "Queen Mary University of London",
+            "id": "https://ror.org/026zzn846",
+            "start_date": "2005-09-01",
+        },
+        {
+            "name": "University of Sussex",
+            "id": "https://ror.org/00ayhx656",
+            "start_date": "2009-09-01",
+        },
+        {
             "name": "University of Lincoln",
             "id": "https://ror.org/03yeq9x20",
             "start_date": "2013-01-07",
