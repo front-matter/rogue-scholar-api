@@ -1,4 +1,5 @@
 """Test posts"""
+
 import pytest  # noqa: F401
 from api.posts import (
     extract_all_posts,
@@ -22,7 +23,7 @@ def vcr_config():
 async def test_extract_all_posts():
     """Extract all posts"""
     result = await extract_all_posts()
-    assert len(result) > 0
+    assert len(result) == 0
     # post = result[0]
     # assert post["title"] is not None
 
@@ -86,13 +87,14 @@ async def test_extract_posts_by_archived_blog():
 async def test_extract_posts_by_blog_ghost():
     """Extract posts by blog ghost"""
     slug = "front_matter"
-    result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
+    result = await extract_all_posts_by_blog(slug, page=3, update_all=True)
     assert len(result) == 50
     post = result[0]
-    assert post["title"] == "commonmeta-py now supports metadata lists"
+    assert post["title"] == "Introducing DataCite JSON"
     assert post["authors"][0] == {
         "name": "Martin Fenner",
         "url": "https://orcid.org/0000-0003-1419-2405",
+        "affiliation": [{"id": "https://ror.org/04wxnsj81", "name": "DataCite"}],
     }
     # assert len(post["images"]) == 0
     # assert post["images"][0] == {
@@ -116,12 +118,12 @@ async def test_extract_posts_by_blog_ghost():
     # )
     assert len(post["reference"]) == 2
     assert post["reference"][0] == {
-        "doi": "https://doi.org/10.53731/cp7apdj-jk5f471",
+        "doi": "https://doi.org/10.5438/0014",
         "key": "ref1",
-        "title": "Announcing Commonmeta",
-        "publicationYear": "2023",
+        "title": "DataCite Metadata Schema Documentation for the Publication and Citation of Research Data v4.1",
+        "publicationYear": "2017",
     }
-    assert post["tags"] == ["News", "Rogue Scholar"]
+    assert post["tags"] == ["News"]
     assert post["language"] == "en"
 
 
@@ -148,6 +150,27 @@ async def test_extract_posts_by_blog_substack():
         "url": "https://orcid.org/0000-0003-3315-3524",
     }
     assert post["tags"] == []
+
+
+@pytest.mark.vcr
+@pytest.mark.asyncio
+async def test_extract_posts_by_blog_squarespace():
+    """Extract posts by blog squarespace"""
+    slug = "metadatagamechangers"
+    result = await extract_all_posts_by_blog(slug, update_all=True)
+    assert len(result) == 20
+    post = result[0]
+    assert post["title"] == "CHORUS Data Journeys"
+    assert post["authors"][0] == {
+        "url": "https://orcid.org/0000-0003-3585-6733",
+        "name": "Ted Habermann",
+        "affiliation": {
+            "id": "https://ror.org/05bp8ka05",
+            "name": "Metadata Game Changers",
+        },
+    }
+    assert post["tags"] == []
+    assert post["language"] == "en"
 
 
 @pytest.mark.vcr

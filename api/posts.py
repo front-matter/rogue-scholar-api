@@ -298,18 +298,19 @@ async def extract_wordpress_post(post, blog):
 
     try:
 
-        def format_author(author):
+        def format_author(author, published_at):
             """Format author. Optionally lookup real name from username,
             and ORCID from name. Ideally this is done in the Wordpress
             user settings."""
 
-            return normalize_author(author.get("name", None), author.get("url", None))
+            return normalize_author(author.get("name", None), published_at, author.get("url", None))
 
+        published_at = unix_timestamp(post.get("date_gmt", None))
         # use default author for blog if no post author found
         authors_ = wrap(py_.get(post, "_embedded.author", None))
         if len(authors_) == 0 or authors_[0].get("name", None) is None:
             authors_ = wrap(blog.get("authors", None))
-        authors = [format_author(i) for i in authors_]
+        authors = [format_author(i, published_at) for i in authors_]
         content_html = py_.get(post, "content.rendered", "")
         content_text = get_markdown(content_html)
         summary = get_summary(content_html)
@@ -370,7 +371,7 @@ async def extract_wordpress_post(post, blog):
             "content_text": content_text,
             "summary": summary,
             "abstract": abstract,
-            "published_at": unix_timestamp(post.get("date_gmt", None)),
+            "published_at": published_at,
             "updated_at": unix_timestamp(post.get("modified_gmt", None)),
             "image": image,
             "images": images,
@@ -394,14 +395,15 @@ async def extract_wordpresscom_post(post, blog):
     """Extract WordPress.com post from REST API."""
     try:
 
-        def format_author(author):
+        def format_author(author, published_at):
             """Format author. Optionally lookup real name from username,
             and ORCID from name. Ideally this is done in the Wordpress
             user settings."""
 
-            return normalize_author(author.get("name", None), author.get("URL", None))
+            return normalize_author(author.get("name", None), published_at, author.get("URL", None))
 
-        authors = [format_author(i) for i in wrap(post.get("author", None))]
+        published_at = unix_timestamp(post.get("date", None))
+        authors = [format_author(i, published_at) for i in wrap(post.get("author", None))]
         content_html = post.get("content", "")
         content_text = get_markdown(content_html)
         summary = get_summary(post.get("content", ""))
@@ -430,7 +432,7 @@ async def extract_wordpresscom_post(post, blog):
             "content_text": content_text,
             "summary": summary,
             "abstract": abstract,
-            "published_at": unix_timestamp(post.get("date", None)),
+            "published_at": published_at,
             "updated_at": unix_timestamp(post.get("modified", None)),
             "image": image,
             "images": images,
@@ -455,13 +457,14 @@ async def extract_ghost_post(post, blog):
 
     try:
 
-        def format_author(author):
+        def format_author(author, published_at):
             """Format author."""
             return normalize_author(
-                author.get("name", None), author.get("website", None)
+                author.get("name", None), published_at, author.get("website", None)
             )
 
-        authors = [format_author(i) for i in wrap(post.get("authors", None))]
+        published_at = unix_timestamp(post.get("published_at", None))
+        authors = [format_author(i, published_at) for i in wrap(post.get("authors", None))]
         content_html = post.get("html", "")
         content_text = get_markdown(content_html)
 
@@ -492,7 +495,7 @@ async def extract_ghost_post(post, blog):
             "content_text": content_text,
             "summary": summary,
             "abstract": abstract,
-            "published_at": unix_timestamp(post.get("published_at", None)),
+            "published_at": published_at,
             "updated_at": unix_timestamp(post.get("updated_at", None)),
             "image": image,
             "images": images,
@@ -517,17 +520,17 @@ async def extract_substack_post(post, blog):
 
     try:
 
-        def format_author(author):
+        def format_author(author, published_at):
             """Format author."""
-            return normalize_author(author.get("name", None))
+            return normalize_author(author.get("name", None), published_at)
 
-        authors = [format_author(i) for i in wrap(post.get("publishedBylines", None))]
+        published_at = unix_timestamp(post.get("post_date", None))
+        authors = [format_author(i, published_at) for i in wrap(post.get("publishedBylines", None))]
         content_html = post.get("body_html", "")
         content_text = get_markdown(content_html)
         summary = get_summary(post.get("description", None))
         abstract = get_summary(content_html)
         abstract = get_abstract(summary, abstract)
-        published_at = unix_timestamp(post.get("post_date", None))
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(
@@ -577,20 +580,21 @@ async def extract_squarespace_post(post, blog):
     """Extract Squarespace post from REST API."""
 
     try:
-        def format_author(author):
+        def format_author(author, published_at):
             """Format author."""
             
-            return normalize_author(author.get("displayName", None))
+            return normalize_author(author.get("displayName", None), published_at)
 
-        authors = [format_author(i) for i in wrap(post.get("author", None))]
+        published_at = int(post.get("publishOn", 1) / 1000)
+        updated_at = int(post.get("updatedOn", 1) / 1000)
+        authors = [format_author(i, published_at) for i in wrap(post.get("author", None))]
         content_html = post.get("body", "")
         content_text = get_markdown(content_html)        
         summary = get_summary(content_html)
         abstract = get_summary(post.get("excerpt", ""))
         if abstract is not None:
             abstract = get_abstract(summary, abstract)
-        published_at = int(post.get("publishOn", 1) / 1000)
-        updated_at = int(post.get("updatedOn", 1) / 1000)
+
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(
@@ -641,15 +645,17 @@ async def extract_json_feed_post(post, blog):
 
     try:
 
-        def format_author(author):
+        def format_author(author, published_at):
             """Format author."""
-            return normalize_author(author.get("name", None), author.get("url", None))
+            return normalize_author(author.get("name", None), published_at, author.get("url", None))
+
+        published_at = unix_timestamp(post.get("date_published", None))
 
         # use default authors for blog if no post authors found
         authors_ = wrap(post.get("authors", None))
         if len(authors_) == 0:
             authors_ = wrap(blog.get("authors", None))
-        authors = [format_author(i) for i in authors_]
+        authors = [format_author(i, published_at) for i in authors_]
         content_html = post.get("content_html", "")
         content_text = get_markdown(content_html)
         summary = get_summary(content_html)
@@ -680,7 +686,7 @@ async def extract_json_feed_post(post, blog):
             "content_text": content_text,
             "summary": summary,
             "abstract": abstract,
-            "published_at": unix_timestamp(post.get("date_published", None)),
+            "published_at": published_at,
             "updated_at": unix_timestamp(post.get("date_modified", None)),
             "image": image,
             "images": images,
@@ -705,15 +711,18 @@ async def extract_atom_post(post, blog):
 
     try:
 
-        def format_author(author):
+        def format_author(author, published_at):
             """Format author."""
-            return normalize_author(author.get("name", None), author.get("uri", None))
+            return normalize_author(author.get("name", None), published_at, author.get("uri", None))
 
+        published_at = get_date(post.get("published", None))
+        published_at = unix_timestamp(published_at)
+        
         # use default authors for blog if no post authors found
         authors_ = wrap(post.get("author", None))
         if len(authors_) == 0 or authors_[0].get("name", None) is None:
             authors_ = wrap(blog.get("authors", None))
-        authors = [format_author(i) for i in authors_]
+        authors = [format_author(i, published_at) for i in authors_]
 
         # workaround, as content should be encodes as CDATA block
         content_html = html.unescape(py_.get(post, "content.#text", ""))
@@ -725,7 +734,6 @@ async def extract_atom_post(post, blog):
         abstract = None
         reference = get_references(content_html)
         relationships = get_relationships(content_html)
-        published_at = get_date(post.get("published", None))
         updated_at = get_date(post.get("updated", None))
 
         def get_url(links):
@@ -775,7 +783,7 @@ async def extract_atom_post(post, blog):
             "content_text": content_text,
             "summary": summary,
             "abstract": abstract,
-            "published_at": unix_timestamp(published_at),
+            "published_at": published_at,
             "updated_at": unix_timestamp(updated_at or published_at),
             "image": image,
             "images": images,
@@ -800,17 +808,20 @@ async def extract_rss_post(post, blog):
 
     try:
 
-        def format_author(author):
+        def format_author(author, published_at):
             """Format author."""
-            return normalize_author(author.get("name", None), author.get("url", None))
+            return normalize_author(author.get("name", None), published_at, author.get("url", None))
 
+        published_at = get_date(post.get("pubDate", None))
+        published_at = unix_timestamp(published_at)
+        
         # use default author for blog if no post author found
         author = post.get("dc:creator", None) or post.get("author", None)
         if author:
             authors_ = [{"name": author}]
         else:
             authors_ = wrap(blog.get("authors", None))
-        authors = [format_author(i) for i in authors_]
+        authors = [format_author(i, published_at) for i in authors_]
         content_html = py_.get(post, "content:encoded", None) or post.get(
             "description", ""
         )
@@ -828,7 +839,6 @@ async def extract_rss_post(post, blog):
         base_url = url
         if blog.get("relative_url", None) == "blog":
             base_url = blog.get("home_page_url", None)
-        published_at = get_date(post.get("pubDate", None))
         images = get_images(content_html, base_url, blog.get("home_page_url", None))
         image = py_.get(post, "media:content.@url", None) or py_.get(
             post, "media:thumbnail.@url", None
@@ -854,8 +864,8 @@ async def extract_rss_post(post, blog):
             "content_text": content_text,
             "summary": summary,
             "abstract": abstract,
-            "published_at": unix_timestamp(published_at),
-            "updated_at": unix_timestamp(published_at),
+            "published_at": published_at,
+            "updated_at": published_at,
             "image": image,
             "images": images,
             "language": detect_language(content_html),

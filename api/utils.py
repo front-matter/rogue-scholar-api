@@ -1,4 +1,5 @@
 """Utility functions"""
+
 from uuid import UUID
 from typing import Optional, Union
 import re
@@ -66,7 +67,6 @@ AUTHOR_IDS = {
     "Martin Paul Eve": "https://orcid.org/0000-0002-5589-8511",
     "Matías Castillo-Aguilar": "https://orcid.org/0000-0001-7291-247X",
     "Leiden Madtrics": "https://ror.org/027bh9e22",
-    "Liberate Science": "https://ror.org/0342dzm54",
     "Elephant in the Lab": "https://ror.org/02h1qnm70",
     "Ben Kaden": "https://orcid.org/0000-0002-8021-1785",
     "Maxi Kindling": "https://orcid.org/0000-0002-0167-0466",
@@ -115,6 +115,74 @@ AUTHOR_NAMES = {
     "Europe PMC team": "Europe PMC Team",
 }
 
+AUTHOR_AFFILIATIONS = {
+    "https://orcid.org/0000-0003-3585-6733": [
+        {
+            "name": "Metadata Game Changers",
+            "id": "https://ror.org/05bp8ka05",
+            "start_date": "2018-01-01",
+        }
+    ],
+    "https://orcid.org/0000-0001-9998-0114": [
+        {
+            "name": "Metadata Game Changers",
+            "id": "https://ror.org/05bp8ka05",
+            "start_date": "2020-10-01",
+        }
+    ],
+    "https://orcid.org/0000-0003-1419-2405": [
+        {
+            "name": "Medizinische Hochschule Hannover",
+            "id": "https://ror.org/00f2yqf98",
+            "start_date": "2005-09-01",
+        },
+        {
+            "name": "Public Library of Science",
+            "id": "https://ror.org/008zgvp64",
+            "start_date": "2012-05-01",
+        },
+        {
+            "name": "DataCite",
+            "id": "https://ror.org/04wxnsj81",
+            "start_date": "2015-08-01",
+        },
+        {
+            "name": "Front Matter",
+            "start_date": "2021-08-01",
+        },
+    ],
+    "https://orcid.org/0000-0003-3334-2771": [],
+    "https://orcid.org/0000-0002-7265-1692": [],
+    "https://orcid.org/0000-0002-4259-9774": [
+        {
+            "name": "Swinburne University of Technology",
+            "id": "https://ror.org/031rekg67",
+            "start_date": "2018-08-10",
+        }
+    ],
+    "https://orcid.org/0000-0002-8635-8390": [
+        {
+            "name": "Imperial College London",
+            "id": "https://ror.org/041kmwe10",
+            "start_date": "1977-10-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-7101-9767": [
+        {
+            "name": "University of Glasgow",
+            "id": "https://ror.org/00vtgdb53",
+            "start_date": "1995-01-01",
+        }
+    ],
+    "https://orcid.org/0000-0001-6444-1436": [
+        {
+            "name": "BGI Group",
+            "id": "https://ror.org/045pn2j94",
+            "start_date": "2010-10-01",
+        }
+    ],
+}
+
 
 EXCLUDED_TAGS = ["Uncategorized", "Uncategorised", "Blog", "Doi"]
 
@@ -139,17 +207,27 @@ def compact(dict_or_list: Union[dict, list]) -> Optional[Union[dict, list]]:
     return None
 
 
-def normalize_author(name: str, url: str = None) -> dict:
+def normalize_author(
+    name: str, published_at: int = 0, url: Optional[str] = None
+) -> dict:
     """Normalize author name and url. Strip text after comma
-    if suffix is an academic title"""
+    if suffix is an academic title. Lookup affiliation based on name and publication date."""
 
     if name.split(", ", maxsplit=1)[-1] in ["MD", "PhD"]:
         name = name.split(", ", maxsplit=1)[0]
 
-    name_ = AUTHOR_NAMES.get(name, None) or name
-    url_ = url if url and validate_orcid(url) else AUTHOR_IDS.get(name_, None)
+    _name = AUTHOR_NAMES.get(name, None) or name
+    _url = url if url and validate_orcid(url) else AUTHOR_IDS.get(_name, None)
+    affiliation = AUTHOR_AFFILIATIONS.get(_url, None)
+    if affiliation is not None and len(affiliation) > 0 and published_at > 0:
+        affiliation = [
+            i
+            for i in affiliation
+            if unix_timestamp(i.get("start_date", 0)) < published_at
+        ]
+        affiliation = py_.pick(affiliation[-1], ["id", "name"]) if affiliation else None
 
-    return compact({"name": name_, "url": url_})
+    return compact({"name": _name, "url": _url, "affiliation": [affiliation]})
 
 
 def get_date(date: str):
