@@ -1000,7 +1000,7 @@ def get_references(content_html: str):
                 response = httpx.get(
                     doi,
                     headers={"Accept": "application/vnd.citationstyles.csl+json"},
-                    timeout=10,
+                    timeout=30,
                     follow_redirects=True,
                 )
                 if response.status_code not in [200, 301, 302]:
