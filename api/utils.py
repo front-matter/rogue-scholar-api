@@ -268,6 +268,14 @@ AUTHOR_AFFILIATIONS = {
             "start_date": "2009-06-01",
         }
     ],
+    "https://orcid.org/0000-0003-4853-2463":
+    [
+        {
+            "name": "Leiden University",
+            "id": "https://ror.org/027bh9e22",
+            "start_date": "2021-01-05",
+        }
+    ],
     "https://orcid.org/0000-0002-1598-7181": [
         {
             "name": "DataCite",
