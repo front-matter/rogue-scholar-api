@@ -285,6 +285,20 @@ AUTHOR_AFFILIATIONS = {
     ],
     "https://orcid.org/0000-0001-5934-7525": [
         {
+            "name": "University of Bristol",
+            "id": "https://ror.org/0524sp257",
+            "start_date": "2011-06-07",
+        }
+    ],
+    "https://orcid.org/0000-0001-6082-3103": [
+        {
+            "name": "Western University of Health Sciences",
+            "id": "https://ror.org/05167c961",
+            "start_date": "2008-08-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-1003-5675": [
+        {
             "name": "University of Illinois Urbana-Champaign",
             "id": "https://ror.org/047426m28",
             "start_date": "2016-03-01",
