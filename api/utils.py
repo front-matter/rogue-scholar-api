@@ -74,6 +74,8 @@ AUTHOR_IDS = {
     "Jorge Saturno": "https://orcid.org/0000-0002-3761-3957",
     "Ted Habermann": "https://orcid.org/0000-0003-3585-6733",
     "Erin Robinson": "https://orcid.org/0000-0001-9998-0114",
+    "Mike Taylor": "https://orcid.org/0000-0001-5934-7525",
+    "Matt Wedel": "https://orcid.org/0000-0001-6082-3103",
 }
 
 AUTHOR_NAMES = {
@@ -113,6 +115,7 @@ AUTHOR_NAMES = {
     "szepanski": "Christoph Szepanski",
     "Open Access Brandenburg": "Team OA Brandenburg",
     "Europe PMC team": "Europe PMC Team",
+    "yn235": "Yvonne Nobis",
 }
 
 AUTHOR_AFFILIATIONS = {
