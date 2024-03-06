@@ -74,7 +74,7 @@ AUTHOR_IDS = {
     "Jorge Saturno": "https://orcid.org/0000-0002-3761-3957",
     "Ted Habermann": "https://orcid.org/0000-0003-3585-6733",
     "Erin Robinson": "https://orcid.org/0000-0001-9998-0114",
-    "Mike Taylor": "https://orcid.org/0000-0001-5934-7525",
+    "Mike Taylor": "https://orcid.org/0000-0002-1003-5675",
     "Matt Wedel": "https://orcid.org/0000-0001-6082-3103",
 }
 
@@ -116,6 +116,7 @@ AUTHOR_NAMES = {
     "Open Access Brandenburg": "Team OA Brandenburg",
     "Europe PMC team": "Europe PMC Team",
     "yn235": "Yvonne Nobis",
+    "eotyrannus": "Darren Naish",
 }
 
 AUTHOR_AFFILIATIONS = {
@@ -271,8 +272,7 @@ AUTHOR_AFFILIATIONS = {
             "start_date": "2009-06-01",
         }
     ],
-    "https://orcid.org/0000-0003-4853-2463":
-    [
+    "https://orcid.org/0000-0003-4853-2463": [
         {
             "name": "Leiden University",
             "id": "https://ror.org/027bh9e22",
@@ -286,21 +286,31 @@ AUTHOR_AFFILIATIONS = {
             "start_date": "2022-05-11",
         }
     ],
-    "https://orcid.org/0000-0001-5934-7525": [
+    "https://orcid.org/0000-0002-1003-5675": [
+        {
+            "name": "University of Portsmouth",
+            "id": "https://ror.org/03ykbk197",
+            "start_date": "2004-01-01",
+        },
         {
             "name": "University of Bristol",
             "id": "https://ror.org/0524sp257",
             "start_date": "2011-06-07",
-        }
+        },
     ],
     "https://orcid.org/0000-0001-6082-3103": [
+        {
+            "name": "University of California, Merced",
+            "id": "https://ror.org/00d9ah105",
+            "start_date": "2007-08-01",
+        },
         {
             "name": "Western University of Health Sciences",
             "id": "https://ror.org/05167c961",
             "start_date": "2008-08-01",
-        }
+        },
     ],
-    "https://orcid.org/0000-0002-1003-5675": [
+    "https://orcid.org/0000-0001-5934-7525": [
         {
             "name": "University of Illinois Urbana-Champaign",
             "id": "https://ror.org/047426m28",
