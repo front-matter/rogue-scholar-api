@@ -293,6 +293,11 @@ AUTHOR_AFFILIATIONS = {
             "start_date": "2004-01-01",
         },
         {
+            "name": "University College London",
+            "id": "https://ror.org/02jx3x895",
+            "start_date": "2009-05-16",
+        },
+        {
             "name": "University of Bristol",
             "id": "https://ror.org/0524sp257",
             "start_date": "2011-06-07",
