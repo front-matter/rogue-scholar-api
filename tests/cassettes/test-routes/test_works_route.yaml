@@ -1,0 +1,553 @@
+interactions:
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      prefer:
+      - count=exact
+      user-agent:
+      - python-httpx/0.25.2
+      x-client-info:
+      - supabase-py/2.4.0
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/works?select=%2A&limit=10
+  response:
+    content: "[{\"type\":\"JournalArticle\",\"url\":\"https://www.nature.com/articles/d41586-023-02554-0\",\"contributors\":[{\"type\":
+      \"Person\", \"givenName\": \"Myriam\", \"familyName\": \"Vidal Valero\", \"contributorRoles\":
+      [\"Author\"]}],\"titles\":[{\"title\": \"Thousands of scientists are cutting
+      back on Twitter, seeding angst and uncertainty\"}],\"container\":{\"type\":
+      \"Journal\", \"issue\": \"7974\", \"title\": \"Nature\", \"volume\": \"620\",
+      \"lastPage\": \"484\", \"firstPage\": \"482\", \"identifier\": \"1476-4687\",
+      \"identifierType\": \"ISSN\"},\"publisher\":{\"name\": \"Springer Science and
+      Business Media LLC\"},\"references\":[{\"key\": \"CM25908110_CR1\", \"unstructured\":
+      \"Arroyo-Machado, W., Torres-Salinas, D. & Robinson-Garcia, N. Preprint in 27
+      Int. Conf. Sci. Tech. Inn. Ind. (2023).\"}, {\"doi\": \"https://doi.org/10.1609/icwsm.v17i1.22222\",
+      \"key\": \"CM25908110_CR2\", \"volume\": \"17\", \"firstPage\": \"1133\", \"contributor\":
+      \"D. Hickey\", \"containerTitle\": \"Proc. Int. AAAI Conf. Web Soc. Media\",
+      \"publicationYear\": \"2023\"}, {\"doi\": \"https://doi.org/10.1162/qss_a_00250\",
+      \"key\": \"CM25908110_CR3\", \"volume\": \"4\", \"firstPage\": \"314\", \"contributor\":
+      \"P. Mongeon\", \"containerTitle\": \"Quant. Sci. Stud.\", \"publicationYear\":
+      \"2023\"}],\"relations\":[{\"id\": \"https://portal.issn.org/resource/ISSN/1476-4687\",
+      \"type\": \"IsPartOf\"}],\"date\":{\"published\": \"2023-08-16\"},\"descriptions\":[],\"license\":{\"url\":
+      \"https://www.springernature.com/gp/researchers/text-and-data-mining\"},\"alternate_identifiers\":[],\"funding_references\":[],\"files\":[{\"url\":
+      \"https://www.nature.com/articles/d41586-023-02554-0.pdf\", \"mimeType\": \"application/pdf\"},
+      {\"url\": \"https://www.nature.com/articles/d41586-023-02554-0\", \"mimeType\":
+      \"text/html\"}, {\"url\": \"https://www.nature.com/articles/d41586-023-02554-0.pdf\",
+      \"mimeType\": \"application/pdf\"}],\"subjects\":[{\"subject\": \"Multidisciplinary\"}],\"provider\":\"Crossref\",\"schema_version\":\"https://commonmeta.org/commonmeta_v0.12\",\"state\":\"findable\",\"geo_locations\":[],\"version\":null,\"language\":\"en\",\"additional_type\":null,\"uuid\":\"c2182771-c786-4c51-b3db-4f5c599948f3\",\"id\":\"https://doi.org/10.1038/d41586-023-02554-0\",\"archive_locations\":[],\"formats\":[],\"sizes\":[]},
+      \n {\"type\":\"Dataset\",\"url\":\"https://zenodo.org/record/7834392\",\"contributors\":[{\"id\":
+      \"https://orcid.org/0000-0001-8499-824X\", \"type\": \"Person\", \"givenName\":
+      \"Juan M.\", \"familyName\": \"Banda\", \"affiliation\": [{\"name\": \"Georgia
+      State University\"}], \"contributorRoles\": [\"Author\"]}, {\"id\": \"https://orcid.org/0000-0002-1606-4856\",
+      \"type\": \"Person\", \"givenName\": \"Ramya\", \"familyName\": \"Tekumalla\",
+      \"affiliation\": [{\"name\": \"Georgia State University\"}], \"contributorRoles\":
+      [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"Guanyu\", \"familyName\":
+      \"Wang\", \"affiliation\": [{\"name\": \"University of Missouri\"}], \"contributorRoles\":
+      [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"Jingyuan\", \"familyName\":
+      \"Yu\", \"affiliation\": [{\"name\": \"Universitat Aut\xF2noma de Barcelona\"}],
+      \"contributorRoles\": [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"Tuo\",
+      \"familyName\": \"Liu\", \"affiliation\": [{\"name\": \"Carl von Ossietzky Universit\xE4t
+      Oldenburg\"}], \"contributorRoles\": [\"Author\"]}, {\"type\": \"Person\", \"givenName\":
+      \"Yuning\", \"familyName\": \"Ding\", \"affiliation\": [{\"name\": \"Universit\xE4t
+      Duisburg-Essen\"}], \"contributorRoles\": [\"Author\"]}, {\"type\": \"Person\",
+      \"givenName\": \"Katya\", \"familyName\": \"Artemova\", \"affiliation\": [{\"name\":
+      \"NRU HSE\"}], \"contributorRoles\": [\"Author\"]}, {\"type\": \"Person\", \"givenName\":
+      \"Elena\", \"familyName\": \"Tutubalina\", \"affiliation\": [{\"name\": \"KFU\"}],
+      \"contributorRoles\": [\"Author\"]}, {\"id\": \"https://orcid.org/0000-0003-2194-2251\",
+      \"type\": \"Person\", \"givenName\": \"Gerardo\", \"familyName\": \"Chowell\",
+      \"affiliation\": [{\"name\": \"Georgia State University\"}], \"contributorRoles\":
+      [\"Author\"]}],\"titles\":[{\"title\": \"A large-scale COVID-19 Twitter chatter
+      dataset for open scientific research - an international collaboration\"}],\"container\":{\"id\":
+      \"https://zenodo.org/communities/biohackathon\", \"type\": \"DataRepository\"},\"publisher\":{\"name\":
+      \"Zenodo\"},\"references\":[],\"relations\":[{\"id\": \"https://arxiv.org/abs/2004.03688\",
+      \"type\": \"IsSupplementTo\"}, {\"id\": \"10.5281/zenodo.3723939\", \"type\":
+      \"IsVersionOf\"}, {\"id\": \"https://zenodo.org/communities/biohackathon\",
+      \"type\": \"IsPartOf\"}, {\"id\": \"https://zenodo.org/communities/covid-19\",
+      \"type\": \"IsPartOf\"}, {\"id\": \"https://zenodo.org/communities/zenodo\",
+      \"type\": \"IsPartOf\"}],\"date\":{\"published\": \"2023-04-16\"},\"descriptions\":[{\"type\":
+      \"Abstract\", \"description\": \"<em><strong>Version 162 of the dataset. NOTES:
+      Data for 3/15 - 3/18 was not extracted due to unexpected and unannounced downtime
+      of our university infrastructure. We will try to backfill those days by next
+      release. </strong></em><em><strong>FUTURE CHANGES: Due to the imminent paywalling
+      of Twitter's API access this might be the last full update of this dataset.
+      If the API access is not blocked, we will be stopping updates for this dataset
+      with release 165 - a bit more than 3 years after our initial release. It's been
+      a joy seeing all the work that uses this resource and we are glad that so many
+      found it useful. </strong></em> <em><strong>The dataset files: full_dataset.tsv.gz
+      and full_dataset_clean.tsv.gz have been split in 1 GB parts using the Linux
+      utility called Split. So make sure to join the parts before unzipping. We had
+      to make this change as we had huge issues uploading files larger than 2GB's
+      (hence the delay in the dataset releases). The peer-reviewed publication for
+      this dataset has now been published in Epidemiologia an MDPI journal, and can
+      be accessed here: https://doi.org/10.3390/epidemiologia2030024. Please cite
+      this when using the dataset.</strong></em> <strong>Due to the relevance of the
+      COVID-19 global pandemic, we are releasing our dataset of tweets acquired from
+      the Twitter Stream related to COVID-19 chatter. Since our first release we have
+      received additional data from our new collaborators, allowing this resource
+      to grow to its current size. Dedicated data gathering started from March 11th
+      yielding over 4 million tweets a day. We have added additional data provided
+      by our new collaborators from January 27th to March 27th, to provide extra longitudinal
+      coverage. Version 10 added ~1.5 million tweets in the Russian language collected
+      between January 1st and May 8th, gracefully provided to us by: Katya Artemova
+      (NRU HSE) and Elena Tutubalina (KFU). From version 12 we have included daily
+      hashtags, mentions and emoijis and their frequencies the respective zip files.
+      From version 14 <em>we</em> have included the tweet identifiers and their respective
+      language for the clean version of the dataset. Since version 20 we have included
+      language and place location for all tweets.</strong> <strong>The data collected
+      from the stream captures all languages, but the higher prevalence are: English,
+      Spanish, and French. We release all tweets and retweets on the full_dataset.tsv
+      file (1,395,222,801 unique tweets), and a cleaned version with no retweets on
+      the full_dataset-clean.tsv file (361,748,721 unique tweets). There are several
+      practical reasons for us to leave the retweets, tracing important tweets and
+      their dissemination is one of them. For NLP tasks we provide the top 1000 frequent
+      terms in frequent_terms.csv, the top 1000 bigrams in frequent_bigrams.csv, and
+      the top 1000 trigrams in frequent_trigrams.csv. Some general statistics per
+      day are included for both datasets in the full_dataset-statistics.tsv and full_dataset-clean-statistics.tsv
+      files. For more statistics and some visualizations visit: http://www.panacealab.org/covid19/
+      </strong> <strong>More details can be found (and will be updated faster at:
+      https://github.com/thepanacealab/covid19_twitter) and our pre-print about the
+      dataset (https://arxiv.org/abs/2004.03688) </strong> <strong>As always, the
+      tweets distributed here are only tweet identifiers (with date and time added)
+      due to the terms and conditions of Twitter to re-distribute Twitter data ONLY
+      for research purposes. They need to be hydrated to be used.</strong>\"}, {\"type\":
+      \"Other\", \"description\": \"This dataset will be updated bi-weekly at least
+      with additional tweets, look at the github repo for these updates. Release:
+      We have standardized the name of the resource to match our pre-print manuscript
+      and to not have to update it every week.\"}],\"license\":{\"url\": \"info:eu-repo/semantics/openAccess\"},\"alternate_identifiers\":[{\"alternateIdentifier\":
+      \"https://github.com/thepanacealab/covid19_twitter\", \"alternateIdentifierType\":
+      \"URL\"}],\"funding_references\":[],\"files\":[],\"subjects\":[{\"subject\":
+      \"social media\"}, {\"subject\": \"twitter\"}, {\"subject\": \"nlp\"}, {\"subject\":
+      \"covid-19\"}, {\"subject\": \"covid19\"}],\"provider\":\"DataCite\",\"schema_version\":\"https://commonmeta.org/commonmeta_v0.12\",\"state\":\"findable\",\"geo_locations\":[],\"version\":\"162\",\"language\":\"en\",\"additional_type\":null,\"uuid\":\"c5fe9462-0605-467f-b465-50f19f2129f6\",\"id\":\"https://doi.org/10.5281/zenodo.7834392\",\"archive_locations\":[],\"formats\":[],\"sizes\":[]},
+      \n {\"type\":\"Article\",\"url\":\"https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter\",\"contributors\":[{\"id\":
+      \"https://orcid.org/0000-0003-1419-2405\", \"type\": \"Person\", \"givenName\":
+      \"Martin\", \"familyName\": \"Fenner\", \"affiliation\": [{\"name\": \"Front
+      Matter\"}], \"contributorRoles\": [\"Author\"]}],\"titles\":[{\"title\": \"The
+      rise of the (science) newsletter\"}],\"container\":{\"type\": \"Periodical\",
+      \"title\": \"Front Matter\", \"identifier\": \"2749-9952\", \"identifierType\":
+      \"ISSN\"},\"publisher\":{\"name\": \"Front Matter\"},\"references\":[],\"relations\":[{\"id\":
+      \"https://portal.issn.org/resource/ISSN/2749-9952\", \"type\": \"IsPartOf\"}],\"date\":{\"updated\":
+      \"2024-02-07T20:40:33\", \"published\": \"2023-10-04T12:36:32\"},\"descriptions\":[{\"description\":
+      \"Newsletters have been around forever, but their popularity has significantly
+      increased in the past few years, also thanks to platforms such as Ghost, Medium,
+      and Substack. Which of course also includes science newsletters.Failure of advertising
+      as a revenue model The most important driver of this trend is probably the realization
+      that advertising is a poor revenue model for content published on the web, including
+      blogs.\", \"descriptionType\": \"Abstract\"}],\"license\":{\"id\": \"CC-BY-4.0\",
+      \"url\": \"https://creativecommons.org/licenses/by/4.0/legalcode\"},\"alternate_identifiers\":[{\"alternateIdentifier\":
+      \"4ede6374-6ba8-436f-81e6-4504fd70441a\", \"alternateIdentifierType\": \"UUID\"}],\"funding_references\":[],\"files\":[{\"url\":
+      \"https://api.rogue-scholar.org/posts/10.53731/ybhah-9jy85.md\", \"mimeType\":
+      \"text/markdown\"}, {\"url\": \"https://api.rogue-scholar.org/posts/10.53731/ybhah-9jy85.pdf\",
+      \"mimeType\": \"application/pdf\"}, {\"url\": \"https://api.rogue-scholar.org/posts/10.53731/ybhah-9jy85.epub\",
+      \"mimeType\": \"application/epub+zip\"}, {\"url\": \"https://api.rogue-scholar.org/posts/10.53731/ybhah-9jy85.xml\",
+      \"mimeType\": \"application/xml\"}],\"subjects\":[{\"subject\": \"Computer and
+      information sciences\"}],\"provider\":\"Crossref\",\"schema_version\":\"https://commonmeta.org/commonmeta_v0.12\",\"state\":\"findable\",\"geo_locations\":[],\"version\":null,\"language\":\"en\",\"additional_type\":null,\"uuid\":\"069d311e-60ce-4ed5-8df7-bfc136798da9\",\"id\":\"https://doi.org/10.53731/ybhah-9jy85\",\"archive_locations\":[],\"formats\":[],\"sizes\":[]},
+      \n {\"type\":\"Software\",\"url\":\"https://zenodo.org/doi/10.5281/zenodo.8340374\",\"contributors\":[{\"id\":
+      \"https://orcid.org/0000-0003-1419-2405\", \"type\": \"Person\", \"givenName\":
+      \"Martin\", \"familyName\": \"Fenner\", \"affiliation\": [{\"name\": \"Front
+      Matter\"}], \"contributorRoles\": [\"Author\"]}],\"titles\":[{\"title\": \"commonmeta-py\"}],\"container\":null,\"publisher\":{\"name\":
+      \"Zenodo\"},\"references\":[],\"relations\":[{\"id\": \"https://github.com/front-matter/commonmeta-py/tree/013.2\",
+      \"type\": \"IsSupplementTo\"}, {\"id\": \"10.5281/zenodo.8340375\", \"type\":
+      \"HasVersion\"}, {\"id\": \"10.5281/zenodo.10615902\", \"type\": \"HasVersion\"},
+      {\"id\": \"10.5281/zenodo.10615444\", \"type\": \"HasVersion\"}],\"date\":{\"published\":
+      \"2024-02-04\"},\"descriptions\":[{\"type\": \"Abstract\", \"description\":
+      \"Library for conversions to/from the Commonmeta scholarly metadata format.\"},
+      {\"type\": \"Other\", \"description\": \"If you use commonmeta-py in your work,
+      please cite it using the following metadata\"}],\"license\":{\"id\": \"MIT\",
+      \"url\": \"https://opensource.org/licenses/MIT\"},\"alternate_identifiers\":[],\"funding_references\":[],\"files\":[],\"subjects\":[{\"subject\":
+      \"python\"}, {\"subject\": \"metadata\"}, {\"subject\": \"software citation\"},
+      {\"subject\": \"research software\"}, {\"subject\": \"commonmeta\"}],\"provider\":\"DataCite\",\"schema_version\":\"https://commonmeta.org/commonmeta_v0.12\",\"state\":\"findable\",\"geo_locations\":[],\"version\":\"013.2\",\"language\":null,\"additional_type\":\"\",\"uuid\":\"4ef78dc5-9d99-4d17-ac46-46a8e8519627\",\"id\":\"https://doi.org/10.5281/zenodo.8340374\",\"archive_locations\":[],\"formats\":[],\"sizes\":[]},
+      \n {\"type\":\"Article\",\"url\":\"https://esurf.copernicus.org/preprints/2/1005/2014\",\"contributors\":[{\"id\":
+      \"https://orcid.org/0000-0001-8528-4644\", \"type\": \"Person\", \"givenName\":
+      \"R. D.\", \"familyName\": \"Lorenz\", \"contributorRoles\": [\"Author\"]},
+      {\"type\": \"Person\", \"givenName\": \"J. M.\", \"familyName\": \"Norris\",
+      \"contributorRoles\": [\"Author\"]}, {\"id\": \"https://orcid.org/0000-0002-9495-9700\",
+      \"type\": \"Person\", \"givenName\": \"B. K.\", \"familyName\": \"Jackson\",
+      \"contributorRoles\": [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"R.
+      D.\", \"familyName\": \"Norris\", \"contributorRoles\": [\"Author\"]}, {\"type\":
+      \"Person\", \"givenName\": \"J. W.\", \"familyName\": \"Chadbourne\", \"contributorRoles\":
+      [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"J.\", \"familyName\":
+      \"Ray\", \"contributorRoles\": [\"Author\"]}],\"titles\":[{\"title\": \"Trail
+      formation by ice-shoved \\\"sailing stones\\\" observed at Racetrack Playa,
+      Death Valley National Park\"}],\"container\":{\"type\": \"Periodical\"},\"publisher\":{\"name\":
+      \"Copernicus GmbH\"},\"references\":[{\"key\": \"ref1\", \"unstructured\": \"Creutz,
+      E. C.: The Racing Rocks, Pacific Discovery, 15, 24\u201326, 1962.\"}, {\"key\":
+      \"ref2\", \"unstructured\": \"Dionne, J.-C.: Sediment Load of Shore Ice and
+      Ice Rafting Potential, Upper St. Lawrence Estuary, Qu\xE9bec, Canada, J. Coast.
+      Res., 9, 628\u2013646, 1993.\"}, {\"doi\": \"https://doi.org/10.1139/e82-063\",
+      \"key\": \"ref3\"}, {\"doi\": \"https://doi.org/10.1306/d42682a2-2b26-11d7-8648000102c1865d\",
+      \"key\": \"ref4\"}, {\"doi\": \"https://doi.org/10.1306/d42694ef-2b26-11d7-8648000102c1865d\",
+      \"key\": \"ref5\"}, {\"doi\": \"https://doi.org/10.1016/j.geomorph.2013.04.032\",
+      \"key\": \"ref6\"}, {\"doi\": \"https://doi.org/10.1016/j.grj.2014.06.001\",
+      \"key\": \"ref7\"}, {\"doi\": \"https://doi.org/10.1016/j.geomorph.2013.12.034\",
+      \"key\": \"ref8\"}, {\"doi\": \"https://doi.org/10.1016/j.pss.2009.05.012\",
+      \"key\": \"ref9\"}, {\"doi\": \"https://doi.org/10.1175/2009jtecha1312.1\",
+      \"key\": \"ref10\"}, {\"doi\": \"https://doi.org/10.1175/jamc-d-11-075.1\",
+      \"key\": \"ref11\"}, {\"doi\": \"https://doi.org/10.1119/1.3490645\", \"key\":
+      \"ref12\"}, {\"key\": \"ref13\", \"unstructured\": \"Messina, P.: The Sliding
+      Rocks of Racetrack Playa, Death Valley National Park, California: Physical and
+      Spatial Influences on Surface Processes, Ph.D. Thesis, City University of New
+      York, New York, 1998.\"}, {\"doi\": \"https://doi.org/10.1016/s0169-555x(00)00042-8\",
+      \"key\": \"ref14\"}, {\"doi\": \"https://doi.org/10.1371/journal.pone.0105948\",
+      \"key\": \"ref15\"}, {\"doi\": \"https://doi.org/10.1130/0091-7613(1995)023<0819:sratrd>2.3.co;2\",
+      \"key\": \"ref16\"}, {\"doi\": \"https://doi.org/10.1306/212f78c4-2b24-11d7-8648000102c1865d\",
+      \"key\": \"ref17\"}, {\"doi\": \"https://doi.org/10.1016/j.sedgeo.2013.10.006\",
+      \"key\": \"ref18\"}, {\"doi\": \"https://doi.org/10.1306/74d7060a-2b21-11d7-8648000102c1865d\",
+      \"key\": \"ref19\"}, {\"doi\": \"https://doi.org/10.1130/0016-7606(1976)87<1704:ssrpc>2.0.co;2\",
+      \"key\": \"ref20\"}, {\"key\": \"ref21\", \"unstructured\": \"Sharp, R. P. and
+      Glazner, A. F.: Geology Underfoot in Death Valley and Owens Valley, Mountain
+      Press, Missoula, MT., 319 pp., 1997.\"}, {\"doi\": \"https://doi.org/10.3189/s0260305500005577\",
+      \"key\": \"ref22\"}, {\"doi\": \"https://doi.org/10.1130/0016-7606(1955)66[1329:oopstr]2.0.co;2\",
+      \"key\": \"ref23\"}, {\"doi\": \"https://doi.org/10.1306/74d707ef-2b21-11d7-8648000102c1865d\",
+      \"key\": \"ref24\"}, {\"doi\": \"https://doi.org/10.1016/s0341-8162(86)80013-3\",
+      \"key\": \"ref25\"}],\"relations\":[{\"id\": \"https://doi.org/10.5194/esurfd-2-1005-2014-supplement\",
+      \"type\": \"IsSupplementedBy\"}],\"date\":{\"published\": \"2014-08-28\"},\"descriptions\":[{\"description\":
+      \"Abstract. Trails in the usually-hard mud of Racetrack Playa in Death Valley
+      National Park attest to the seemingly-improbable movement of massive rocks on
+      an exceptionally flat surface. The movement of these rocks, previously described
+      as \\\"sliding stones\\\", \\\"playa scrapers\\\", \\\"sailing stones\\\" etc.,
+      has been the subject of speculation for almost a century but is an exceptionally
+      rare phenomenon and until now has not been directly observed. Here we report
+      documentation of multiple rock movement and trail formation events in the winter
+      of 2013\u20132014 by in situ observation, video, timelapse cameras, a dedicated
+      meteorological station and GPS tracking of instrumented rocks. Movement involved
+      dozens of rocks, forming fresh trails typically of 10s of meters length at speeds
+      of ~5 cm s\u22121 and were caused by wind stress on a transient thin layer of
+      floating ice. Fracture and local thinning of the ice decouples some rocks from
+      the ice movement, such that only a subset of rocks move in a given event. \",
+      \"descriptionType\": \"Abstract\"}],\"license\":{\"id\": \"CC-BY-3.0\", \"url\":
+      \"https://creativecommons.org/licenses/by/3.0/legalcode\"},\"alternate_identifiers\":[],\"funding_references\":[{\"funderName\":
+      \"National Aeronautics and Space Administration\", \"awardNumber\": \"NNX12AI04G\",
+      \"funderIdentifier\": \"https://doi.org/10.13039/100000104\", \"funderIdentifierType\":
+      \"Crossref Funder ID\"}],\"files\":[],\"subjects\":[{\"subject\": \"Physical:
+      Landscape Evolution: modelling and field studies\"}],\"provider\":\"Crossref\",\"schema_version\":\"https://commonmeta.org/commonmeta_v0.12\",\"state\":null,\"geo_locations\":[],\"version\":null,\"language\":null,\"additional_type\":null,\"uuid\":\"faa84a5e-02ac-47c8-9d26-18a134958643\",\"id\":\"https://doi.org/10.5194/esurfd-2-1005-2014\",\"archive_locations\":[],\"formats\":[],\"sizes\":[]},
+      \n {\"type\":\"Software\",\"url\":\"https://doi.ipk-gatersleben.de/DOI/14f89a21-e457-4a88-aa35-fc4018c92ec4/f3fe4501-240b-42a8-862c-619fb79628ef/2\",\"contributors\":[{\"id\":
+      \"https://orcid.org/0000-0003-4387-4923\", \"type\": \"Person\", \"givenName\":
+      \"Christian\", \"familyName\": \"Colmsee\", \"affiliation\": [{\"name\": \"Leibniz
+      Institute of Plant Genetics and Crop Plant Research (IPK), Seeland OT Gatersleben,
+      Corrensstra\xDFe 3, 06466, Germany\"}], \"contributorRoles\": [\"Author\"]},
+      {\"type\": \"Person\", \"givenName\": \"Steffen\", \"familyName\": \"Flemming\",
+      \"affiliation\": [{\"name\": \"Leibniz Institute of Plant Genetics and Crop
+      Plant Research (IPK), Seeland OT Gatersleben, Corrensstra\xDFe 3, 06466, Germany\"}],
+      \"contributorRoles\": [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"Matthias\",
+      \"familyName\": \"Klapperst\xFCck\", \"affiliation\": [{\"name\": \"Leibniz
+      Institute of Plant Genetics and Crop Plant Research (IPK), Seeland OT Gatersleben,
+      Corrensstra\xDFe 3, 06466, Germany\"}], \"contributorRoles\": [\"Author\"]},
+      {\"id\": \"https://orcid.org/0000-0002-4316-078X\", \"type\": \"Person\", \"givenName\":
+      \"Matthias\", \"familyName\": \"Lange\", \"affiliation\": [{\"name\": \"Leibniz
+      Institute of Plant Genetics and Crop Plant Research (IPK), Seeland OT Gatersleben,
+      Corrensstra\xDFe 3, 06466, Germany\"}], \"contributorRoles\": [\"Author\"]},
+      {\"id\": \"https://orcid.org/0000-0001-6113-3518\", \"type\": \"Person\", \"givenName\":
+      \"Uwe\", \"familyName\": \"Scholz\", \"affiliation\": [{\"name\": \"Leibniz
+      Institute of Plant Genetics and Crop Plant Research (IPK), Seeland OT Gatersleben,
+      Corrensstra\xDFe 3, 06466, Germany\"}], \"contributorRoles\": [\"Author\"]},
+      {\"type\": \"Person\", \"givenName\": \"Christian\", \"familyName\": \"Friedrich\",
+      \"affiliation\": [{\"name\": \"Leibniz Institute of Plant Genetics and Crop
+      Plant Research (IPK), Seeland OT Gatersleben, Corrensstra\xDFe 3, 06466, Germany\"}],
+      \"contributorRoles\": [\"ProjectMember\"]}, {\"id\": \"https://orcid.org/0000-0002-8284-7728\",
+      \"type\": \"Person\", \"givenName\": \"Burkhard\", \"familyName\": \"Steuernagel\",
+      \"affiliation\": [{\"name\": \"Leibniz Institute of Plant Genetics and Crop
+      Plant Research (IPK), Seeland OT Gatersleben, Corrensstra\xDFe 3, 06466, Germany\"}],
+      \"contributorRoles\": [\"ProjectMember\"]}, {\"id\": \"https://orcid.org/0000-0003-4031-9131\",
+      \"type\": \"Person\", \"givenName\": \"Stephan\", \"familyName\": \"Weise\",
+      \"affiliation\": [{\"name\": \"Leibniz Institute of Plant Genetics and Crop
+      Plant Research (IPK), Seeland OT Gatersleben, Corrensstra\xDFe 3, 06466, Germany\"}],
+      \"contributorRoles\": [\"ProjectMember\"]}],\"titles\":[{\"title\": \"A case
+      study for efficient management of high throughput primary lab data\"}, {\"type\":
+      \"Subtitle\", \"title\": \"source code\"}],\"container\":null,\"publisher\":{\"name\":
+      \"e!DAL - Plant Genomics and Phenomics Research Data Repository (PGP), IPK Gatersleben,
+      Seeland OT Gatersleben, Corrensstra\xDFe 3, 06466, Germany\"},\"references\":[],\"relations\":[],\"date\":{\"accepted\":
+      \"2011-09-09\", \"published\": \"2011\"},\"descriptions\":[{\"type\": \"Other\",
+      \"description\": \"Source code for the LimsLight primary data management system\"}],\"license\":null,\"alternate_identifiers\":[],\"funding_references\":[],\"files\":[],\"subjects\":[{\"subject\":
+      \"bioinformatics\"}, {\"subject\": \"source code\"}, {\"subject\": \"database\"},
+      {\"subject\": \"LIMS\"}, {\"subject\": \"primary data\"}],\"provider\":\"DataCite\",\"schema_version\":\"https://commonmeta.org/commonmeta_v0.12\",\"state\":null,\"geo_locations\":[],\"version\":null,\"language\":\"en\",\"additional_type\":\"source
+      code\",\"uuid\":\"2ff087db-a5fb-46d9-81a7-5fba39d470ff\",\"id\":\"https://doi.org/10.5447/ipk/2011/0\",\"archive_locations\":[],\"formats\":[\"application/zip\"],\"sizes\":[\"2.2
+      MB\"]}, \n {\"type\":\"Software\",\"url\":\"https://github.com/datacite/bracco\",\"contributors\":[{\"id\":
+      \"https://orcid.org/0000-0003-0077-4738\", \"type\": \"Person\", \"givenName\":
+      \"Martin\", \"familyName\": \"Fenner\", \"contributorRoles\": [\"Author\"]}],\"titles\":[{\"title\":
+      \"Frontend for the DataCite DOI Fabrica service\"}],\"container\":null,\"publisher\":{\"name\":
+      \"DataCite\"},\"references\":[],\"relations\":[],\"date\":{\"created\": \"2017-03-18\",
+      \"updated\": \"2018-05-09\", \"published\": \"2018-05-09\"},\"descriptions\":[{\"type\":
+      \"Abstract\", \"description\": \"The web frontend for the DataCite DOI Fabrica
+      service for managing DataCite providers, clients, prefixes and DOIs.\"}],\"license\":null,\"alternate_identifiers\":[],\"funding_references\":[],\"files\":[],\"subjects\":[{\"subject\":
+      \"Doi Registration\"}, {\"subject\": \"DOI Fabrica\"}],\"provider\":\"DataCite\",\"schema_version\":\"https://commonmeta.org/commonmeta_v0.12\",\"state\":null,\"geo_locations\":[],\"version\":null,\"language\":null,\"additional_type\":\"SoftwareSourceCode\",\"uuid\":\"de7bef36-8311-404b-b3c3-186432c2a11d\",\"id\":\"https://doi.org/10.5438/cxe5-rg55\",\"archive_locations\":[],\"formats\":[],\"sizes\":[]},
+      \n {\"type\":\"JournalArticle\",\"url\":\"http://ijdc.net/article/view/11.2.104\",\"contributors\":[{\"type\":
+      \"Person\", \"givenName\": \"Catherine Mary\", \"familyName\": \"Jones\", \"contributorRoles\":
+      [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"Brian\", \"familyName\":
+      \"Matthews\", \"contributorRoles\": [\"Author\"]}, {\"type\": \"Person\", \"givenName\":
+      \"Ian\", \"familyName\": \"Gent\", \"contributorRoles\": [\"Author\"]}, {\"type\":
+      \"Person\", \"givenName\": \"Tom\", \"familyName\": \"Griffin\", \"contributorRoles\":
+      [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"Jonathan\", \"familyName\":
+      \"Tedds\", \"contributorRoles\": [\"Author\"]}],\"titles\":[{\"title\": \"Persistent
+      Identification and Citation of Software\"}],\"container\":{\"type\": \"Journal\",
+      \"issue\": \"2\", \"title\": \"International Journal of Digital Curation\",
+      \"volume\": \"11\", \"lastPage\": \"114\", \"firstPage\": \"104\", \"identifier\":
+      \"1746-8256\", \"identifierType\": \"ISSN\"},\"publisher\":{\"name\": \"Edinburgh
+      University Library\"},\"references\":[],\"relations\":[{\"id\": \"https://portal.issn.org/resource/ISSN/1746-8256\",
+      \"type\": \"IsPartOf\"}],\"date\":{\"published\": \"2017-07-04\"},\"descriptions\":[{\"description\":
+      \"Software underpins the academic research process across disciplines. To be
+      able to understand, use/reuse and preserve data, the software code that generated,
+      analysed or presented the data will need to be retained and executed. An important
+      part of this process is being able to persistently identify the software concerned.
+      This paper discusses the reasons for doing so and introduces a model of software
+      entities to enable better identification of what is being identified. The DataCite
+      metadata schema provides a persistent identification scheme and we consider
+      how this scheme can be applied to software. We then explore examples of persistent
+      identification and reuse. The examples show the differences and similarities
+      of software used in academic research, which has been written and reused at
+      different scales. The key concepts of being able to identify what precisely
+      is being used and provide a mechanism for appropriate credit are important to
+      both of them.\xC2&nbsp;\xC2&nbsp;\", \"descriptionType\": \"Abstract\"}],\"license\":null,\"alternate_identifiers\":[],\"funding_references\":[],\"files\":[{\"url\":
+      \"http://ijdc.net/article/download/11.2.104/459\", \"mimeType\": \"application/pdf\"}],\"subjects\":[{\"subject\":
+      \"General Earth and Planetary Sciences\"}, {\"subject\": \"General Environmental
+      Science\"}],\"provider\":\"Crossref\",\"schema_version\":\"https://commonmeta.org/commonmeta_v0.12\",\"state\":null,\"geo_locations\":[],\"version\":null,\"language\":null,\"additional_type\":null,\"uuid\":\"4a75ac02-098f-493b-8788-f2a75ab088b9\",\"id\":\"https://doi.org/10.2218/ijdc.v11i2.422\",\"archive_locations\":[],\"formats\":[],\"sizes\":[]},
+      \n {\"type\":\"JournalArticle\",\"url\":\"https://peerj.com/articles/cs-86\",\"contributors\":[{\"id\":
+      \"https://orcid.org/0000-0002-3957-2474\", \"type\": \"Person\", \"givenName\":
+      \"Arfon M.\", \"familyName\": \"Smith\", \"affiliation\": [{\"name\": \"GitHub,
+      Inc., San Francisco, California, United States\"}], \"contributorRoles\": [\"Author\"]},
+      {\"id\": \"https://orcid.org/0000-0001-5934-7525\", \"type\": \"Person\", \"givenName\":
+      \"Daniel S.\", \"familyName\": \"Katz\", \"affiliation\": [{\"name\": \"National
+      Center for Supercomputing Applications & Electrical and Computer Engineering
+      Department & School of Information Sciences, University of Illinois at Urbana-Champaign,
+      Urbana, Illinois, United States\"}], \"contributorRoles\": [\"Author\"]}, {\"id\":
+      \"https://orcid.org/0000-0003-4425-7097\", \"type\": \"Person\", \"givenName\":
+      \"Kyle E.\", \"familyName\": \"Niemeyer\", \"affiliation\": [{\"name\": \"School
+      of Mechanical, Industrial, and Manufacturing Engineering, Oregon State University,
+      Corvallis, Oregon, United States\"}], \"contributorRoles\": [\"Author\"]}, {\"name\":
+      \"FORCE11 Software Citation Working Group\", \"type\": \"Organization\", \"contributorRoles\":
+      [\"Author\"]}],\"titles\":[{\"title\": \"Software citation principles\"}],\"container\":{\"type\":
+      \"Journal\", \"title\": \"PeerJ Computer Science\", \"volume\": \"2\", \"firstPage\":
+      \"e86\", \"identifier\": \"2376-5992\", \"identifierType\": \"ISSN\"},\"publisher\":{\"name\":
+      \"PeerJ\"},\"references\":[{\"key\": \"10.7717/peerj-cs.86/ref-1\", \"title\":
+      \"Policy statement on software\", \"contributor\": \"AAS Editorial Board\",
+      \"publicationYear\": \"2016\"}, {\"key\": \"10.7717/peerj-cs.86/ref-2\", \"title\":
+      \"NSF workshop on supporting scientific discovery through norms and practices
+      for software and data citation and attribution\", \"contributor\": \"Ahalt\",
+      \"containerTitle\": \"Technical Report\", \"publicationYear\": \"2015\"}, {\"key\":
+      \"10.7717/peerj-cs.86/ref-3\", \"title\": \"Improving software citation and
+      credit\", \"contributor\": \"Allen\", \"containerTitle\": \"Technical Report\",
+      \"publicationYear\": \"2015\"}, {\"key\": \"10.7717/peerj-cs.86/ref-4\", \"title\":
+      \"Science code manifesto\", \"contributor\": \"Barnes\", \"publicationYear\":
+      \"2016\"}, {\"doi\": \"https://doi.org/10.1016/j.future.2011.08.004\", \"key\":
+      \"10.7717/peerj-cs.86/ref-5\", \"issue\": \"2\", \"title\": \"Why linked data
+      is not enough for scientists\", \"volume\": \"29\", \"firstPage\": \"599\",
+      \"contributor\": \"Bechhofer\", \"containerTitle\": \"Future Generation Computer
+      Systems\", \"publicationYear\": \"2013\"}, {\"key\": \"10.7717/peerj-cs.86/ref-6\",
+      \"title\": \"Publish or be damned? An alternative impact manifesto for research
+      software\", \"contributor\": \"Chue Hong\", \"publicationYear\": \"2011\"},
+      {\"key\": \"10.7717/peerj-cs.86/ref-7\", \"title\": \"Consortia Advancing Standards
+      in Research Administration Information\", \"contributor\": \"CRediT\", \"publicationYear\":
+      \"2016\"}, {\"key\": \"10.7717/peerj-cs.86/ref-8\", \"title\": \"Joint declaration
+      of data citation principles\", \"contributor\": \"Data Citation Synthesis Group\",
+      \"containerTitle\": \"Final Document\", \"publicationYear\": \"2014\"}, {\"key\":
+      \"10.7717/peerj-cs.86/ref-9\", \"title\": \"NSF geo-data informatics: exploring
+      the life cycle, citation and integration of geo-data workshop report\", \"contributor\":
+      \"Fox\", \"containerTitle\": \"Final Document\", \"publicationYear\": \"2011\"},
+      {\"key\": \"10.7717/peerj-cs.86/ref-10\", \"title\": \"Guidelines for persistently
+      identifying software using DataCite\", \"contributor\": \"Gent\", \"containerTitle\":
+      \"A JISC Research Data Spring Project\", \"publicationYear\": \"2015\"}, {\"doi\":
+      \"https://doi.org/10.1145/2815833.2816955\", \"key\": \"10.7717/peerj-cs.86/ref-11\",
+      \"title\": \"OntoSoft: capturing scientific software metadata\", \"contributor\":
+      \"Gil\", \"publicationYear\": \"2015\"}, {\"key\": \"10.7717/peerj-cs.86/ref-12\",
+      \"title\": \"Making your code citable with GitHub & Zenodo\", \"contributor\":
+      \"GitHub\", \"publicationYear\": \"2014\"}, {\"doi\": \"https://doi.org/10.6084/m9.figshare.3175198.v1\",
+      \"key\": \"10.7717/peerj-cs.86/ref-13\", \"title\": \"Attribution of work in
+      the scholarly ecosystem\", \"contributor\": \"Gutzman\", \"containerTitle\":
+      \"figshare\", \"publicationYear\": \"2016\"}, {\"doi\": \"https://doi.org/10.1109/secse.2009.5069155\",
+      \"key\": \"10.7717/peerj-cs.86/ref-14\", \"title\": \"How do scientists develop
+      and use scientific software?\", \"firstPage\": \"1\", \"contributor\": \"Hannay\",
+      \"publicationYear\": \"2009\"}, {\"doi\": \"https://doi.org/10.1002/asi.23538\",
+      \"key\": \"10.7717/peerj-cs.86/ref-15\", \"issue\": \"9\", \"title\": \"Software
+      in the scientific literature: problems with seeing, finding, and using software
+      mentioned in the biology literature\", \"volume\": \"67\", \"firstPage\": \"2137\",
+      \"contributor\": \"Howison\", \"containerTitle\": \"Journal of the Association
+      for Information Science and Technology\", \"publicationYear\": \"2015\"}, {\"doi\":
+      \"https://doi.org/10.1371/journal.pone.0136631\", \"key\": \"10.7717/peerj-cs.86/ref-16\",
+      \"issue\": \"8\", \"title\": \"Citing a data repository: a case study of the
+      protein data bank\", \"volume\": \"10\", \"firstPage\": \"e136631\", \"contributor\":
+      \"Huang\", \"containerTitle\": \"PLoS ONE\", \"publicationYear\": \"2015\"},
+      {\"doi\": \"https://doi.org/10.1093/bioinformatics/btt113\", \"key\": \"10.7717/peerj-cs.86/ref-17\",
+      \"issue\": \"10\", \"title\": \"EDAM: an ontology of bioinformatics operations,
+      types of data and identifiers, topics and formats\", \"volume\": \"29\", \"firstPage\":
+      \"1325\", \"contributor\": \"Ison\", \"containerTitle\": \"Bioinformatics\",
+      \"publicationYear\": \"2013\"}, {\"key\": \"10.7717/peerj-cs.86/ref-18\", \"title\":
+      \"How to cite and describe software\", \"contributor\": \"Jackson\", \"publicationYear\":
+      \"2012\"}, {\"key\": \"10.7717/peerj-cs.86/ref-19\", \"title\": \"Oh research
+      software, how shalt I cite thee?\", \"contributor\": \"Jackson\", \"publicationYear\":
+      \"2014\"}, {\"key\": \"10.7717/peerj-cs.86/ref-20\", \"title\": \"Debian policy
+      manual\", \"contributor\": \"Jackson\", \"publicationYear\": \"2016\"}, {\"key\":
+      \"10.7717/peerj-cs.86/ref-21\", \"title\": \"Minimal metadata schemas for science
+      software and code, in JSON and XML\", \"contributor\": \"Jones\", \"publicationYear\":
+      \"2014\"}, {\"doi\": \"https://doi.org/10.5334/jors.be\", \"key\": \"10.7717/peerj-cs.86/ref-22\",
+      \"issue\": \"1\", \"title\": \"Transitive credit as a means to address social
+      and technological concerns stemming from citation and attribution of digital
+      products\", \"volume\": \"2\", \"firstPage\": \"e20\", \"contributor\": \"Katz\",
+      \"containerTitle\": \"Journal of Open Research Software\", \"publicationYear\":
+      \"2014\"}, {\"doi\": \"https://doi.org/10.5334/jors.an\", \"key\": \"10.7717/peerj-cs.86/ref-23\",
+      \"issue\": \"1\", \"title\": \"Summary of the first workshop on sustainable
+      software for science: practice and experiences (WSSSPE1)\", \"volume\": \"2\",
+      \"firstPage\": \"e6\", \"contributor\": \"Katz\", \"containerTitle\": \"Journal
+      of Open Research Software\", \"publicationYear\": \"2014\"}, {\"doi\": \"https://doi.org/10.5334/jors.85\",
+      \"key\": \"10.7717/peerj-cs.86/ref-24\", \"issue\": \"1\", \"title\": \"Report
+      on the second workshop on sustainable software for science: practice and experiences
+      (WSSSPE2)\", \"volume\": \"4\", \"firstPage\": \"e7\", \"contributor\": \"Katz\",
+      \"containerTitle\": \"Journal of Open Research Software\", \"publicationYear\":
+      \"2016a\"}, {\"key\": \"10.7717/peerj-cs.86/ref-25\", \"title\": \"Report on
+      the third workshop on sustainable software for science: practice and experiences
+      (WSSSPE3)\", \"contributor\": \"Katz\", \"containerTitle\": \"Technical Report\",
+      \"publicationYear\": \"2016b\"}, {\"doi\": \"https://doi.org/10.5334/jors.by\",
+      \"key\": \"10.7717/peerj-cs.86/ref-26\", \"title\": \"Implementing transitive
+      credit with JSON-LD\", \"volume\": \"3\", \"firstPage\": \"e7\", \"contributor\":
+      \"Katz\", \"containerTitle\": \"Journal of Open Research Software\", \"publicationYear\":
+      \"2015\"}, {\"doi\": \"https://doi.org/10.6084/m9.figshare.785731.v1\", \"key\":
+      \"10.7717/peerj-cs.86/ref-27\", \"title\": \"Accurately citing software and
+      algorithms used in publications\", \"contributor\": \"Knepley\", \"containerTitle\":
+      \"figshare\", \"publicationYear\": \"2013\"}, {\"doi\": \"https://doi.org/10.7208/chicago/9780226484655.001.0001\",
+      \"key\": \"10.7717/peerj-cs.86/ref-28\", \"contributor\": \"Lipson\", \"publicationYear\":
+      \"2011\"}, {\"doi\": \"https://doi.org/10.1186/2041-1480-5-25\", \"key\": \"10.7717/peerj-cs.86/ref-29\",
+      \"issue\": \"1\", \"title\": \"The Software Ontology (SWO): a resource for reproducibility
+      in biomedical data analysis, curation and digital preservation\", \"volume\":
+      \"5\", \"firstPage\": \"1\", \"contributor\": \"Malone\", \"containerTitle\":
+      \"Journal of Biomedical Semantics\", \"publicationYear\": \"2014\"}, {\"key\":
+      \"10.7717/peerj-cs.86/ref-30\", \"title\": \"Tracing the use of research resources
+      using persistent citable identifiers\", \"contributor\": \"Mayernik\", \"publicationYear\":
+      \"2015\"}, {\"key\": \"10.7717/peerj-cs.86/ref-31\", \"title\": \"How to Cite
+      Software in APA Style\", \"contributor\": \"McAdoo\", \"publicationYear\": \"2015\"},
+      {\"doi\": \"https://doi.org/10.1126/science.1218263\", \"key\": \"10.7717/peerj-cs.86/ref-32\",
+      \"issue\": \"6078\", \"title\": \"Shining light into black boxes\", \"volume\":
+      \"336\", \"firstPage\": \"159\", \"contributor\": \"Morin\", \"containerTitle\":
+      \"Science\", \"publicationYear\": \"2012\"}, {\"key\": \"10.7717/peerj-cs.86/ref-33\",
+      \"title\": \"Invitation to comment on a proposal for a cohesive research software
+      citation-enabling platform\", \"contributor\": \"Nor\xE9n\", \"publicationYear\":
+      \"2015\"}, {\"doi\": \"https://doi.org/10.1029/2010eo340001\", \"key\": \"10.7717/peerj-cs.86/ref-34\",
+      \"issue\": \"34\", \"title\": \"Data citation and peer review\", \"volume\":
+      \"91\", \"firstPage\": \"297\", \"contributor\": \"Parsons\", \"containerTitle\":
+      \"Eos, Transactions American Geophysical Union\", \"publicationYear\": \"2010\"},
+      {\"key\": \"10.7717/peerj-cs.86/ref-35\", \"title\": \"Economic impact assessment
+      of NIST\u2019s Text REtrieval Conference (TREC) program\", \"contributor\":
+      \"Rowe\", \"containerTitle\": \"Final Report\", \"publicationYear\": \"2010\"},
+      {\"key\": \"10.7717/peerj-cs.86/ref-36\", \"title\": \"Software for science:
+      getting credit for code\", \"contributor\": \"Software Attribution for Geoscience
+      Applications (SAGA)\", \"publicationYear\": \"2015\"}, {\"doi\": \"https://doi.org/10.1371/journal.pcbi.1003285\",
+      \"key\": \"10.7717/peerj-cs.86/ref-37\", \"issue\": \"10\", \"title\": \"Ten
+      simple rules for reproducible computational research\", \"volume\": \"9\", \"firstPage\":
+      \"e1003285\", \"contributor\": \"Sandve\", \"containerTitle\": \"PLoS Computational
+      Biology\", \"publicationYear\": \"2013\"}, {\"doi\": \"https://doi.org/10.12688/f1000research.5930.2\",
+      \"key\": \"10.7717/peerj-cs.86/ref-38\", \"title\": \"Rampant software errors
+      may undermine scientific results [version 2; referees: 2 approved]\", \"volume\":
+      \"3\", \"firstPage\": \"303\", \"contributor\": \"Soergel\", \"containerTitle\":
+      \"F1000Research\", \"publicationYear\": \"2015\"}, {\"key\": \"10.7717/peerj-cs.86/ref-39\",
+      \"title\": \"Software Credit Workshop\", \"contributor\": \"Software Credit
+      Workshop\", \"publicationYear\": \"2015\"}, {\"doi\": \"https://doi.org/10.7717/peerj-cs.1\",
+      \"key\": \"10.7717/peerj-cs.86/ref-40\", \"title\": \"Achieving human and machine
+      accessibility of cited data in scholarly publications\", \"volume\": \"1\",
+      \"firstPage\": \"e1\", \"contributor\": \"Starr\", \"containerTitle\": \"PeerJ
+      Computer Science\", \"publicationYear\": \"2015\"}, {\"doi\": \"https://doi.org/10.1145/2618137.2618140\",
+      \"key\": \"10.7717/peerj-cs.86/ref-41\", \"title\": \"Software in reproducible
+      research: advice and best practice collected from experiences at the collaborations
+      workshop\", \"firstPage\": \"2:1\", \"contributor\": \"Sufi\", \"publicationYear\":
+      \"2014\"}, {\"doi\": \"https://doi.org/10.1045/september2004-vandesompel\",
+      \"key\": \"10.7717/peerj-cs.86/ref-42\", \"title\": \"Rethinking scholarly communication:
+      building the system that scholars deserve\", \"volume\": \"10\", \"firstPage\":
+      \"9\", \"contributor\": \"Van de Sompel\", \"containerTitle\": \"D-Lib Magazine\",
+      \"publicationYear\": \"2004\"}, {\"key\": \"10.7717/peerj-cs.86/ref-43\", \"title\":
+      \"Distributing Python Modules\", \"contributor\": \"Ward\", \"publicationYear\":
+      \"2016\"}, {\"key\": \"10.7717/peerj-cs.86/ref-44\", \"title\": \"NIH Software
+      Discovery Index Meeting Report\", \"contributor\": \"White\", \"publicationYear\":
+      \"2014\"}, {\"key\": \"10.7717/peerj-cs.86/ref-45\", \"contributor\": \"Wickham\",
+      \"publicationYear\": \"2015\"}, {\"doi\": \"https://doi.org/10.1371/journal.pbio.1001745\",
+      \"key\": \"10.7717/peerj-cs.86/ref-46\", \"issue\": \"1\", \"title\": \"Best
+      practices for scientific computing\", \"volume\": \"12\", \"firstPage\": \"e1001745\",
+      \"contributor\": \"Wilson\", \"containerTitle\": \"PLoS Biology\", \"publicationYear\":
+      \"2014\"}, {\"key\": \"10.7717/peerj-cs.86/ref-47\", \"title\": \"Encouraging
+      citation of software\u2013introducing CITATION files\", \"contributor\": \"Wilson\",
+      \"publicationYear\": \"2013\"}],\"relations\":[{\"id\": \"https://doi.org/10.7287/peerj-cs.86v0.2/reviews/1\",
+      \"type\": \"HasReview\"}, {\"id\": \"https://doi.org/10.7287/peerj-cs.86v0.1/reviews/2\",
+      \"type\": \"HasReview\"}, {\"id\": \"https://doi.org/10.7287/peerj-cs.86v0.1/reviews/1\",
+      \"type\": \"HasReview\"}, {\"id\": \"https://doi.org/10.7287/peerj.preprints.2169\",
+      \"type\": \"HasPreprint\"}, {\"id\": \"https://portal.issn.org/resource/ISSN/2376-5992\",
+      \"type\": \"IsPartOf\"}],\"date\":{\"published\": \"2016-09-19\"},\"descriptions\":[{\"description\":
+      \"Software is a critical part of modern research and yet there is little support
+      across the scholarly ecosystem for its acknowledgement and citation. Inspired
+      by the activities of the FORCE11 working group focused on data citation, this
+      document summarizes the recommendations of the FORCE11 Software Citation Working
+      Group and its activities between June 2015 and April 2016. Based on a review
+      of existing community practices, the goal of the working group was to produce
+      a consolidated set of citation principles that may encourage broad adoption
+      of a consistent policy for software citation across disciplines and venues.
+      Our work is presented here as a set of software citation principles, a discussion
+      of the motivations for developing the principles, reviews of existing community
+      practice, and a discussion of the requirements these principles would place
+      upon different stakeholders. Working examples and possible technical solutions
+      for how these principles can be implemented will be discussed in a separate
+      paper.\", \"descriptionType\": \"Abstract\"}],\"license\":{\"id\": \"CC-BY-4.0\",
+      \"url\": \"https://creativecommons.org/licenses/by/4.0/legalcode\"},\"alternate_identifiers\":[],\"funding_references\":[{\"funderName\":
+      \"NSF\", \"awardNumber\": \"ACI-1535065\"}],\"files\":[{\"url\": \"https://peerj.com/articles/cs-86.pdf\",
+      \"mimeType\": \"application/pdf\"}, {\"url\": \"https://peerj.com/articles/cs-86.xml\",
+      \"mimeType\": \"application/xml\"}, {\"url\": \"https://peerj.com/articles/cs-86.html\",
+      \"mimeType\": \"text/html\"}],\"subjects\":[{\"subject\": \"General Computer
+      Science\"}],\"provider\":\"Crossref\",\"schema_version\":\"https://commonmeta.org/commonmeta_v0.12\",\"state\":null,\"geo_locations\":[],\"version\":null,\"language\":\"en\",\"additional_type\":null,\"uuid\":\"adcf6bea-3a38-4cd9-a9ea-85e04b2fde41\",\"id\":\"https://doi.org/10.7717/peerj-cs.86\",\"archive_locations\":[],\"formats\":[],\"sizes\":[]},
+      \n {\"type\":\"Software\",\"url\":\"https://github.com/datacite/bolognese\",\"contributors\":[{\"id\":
+      \"https://orcid.org/0000-0003-0077-4738\", \"type\": \"Person\", \"givenName\":
+      \"Martin\", \"familyName\": \"Fenner\", \"contributorRoles\": [\"Author\"]}],\"titles\":[{\"title\":
+      \"Bolognese: a Ruby library for conversion of DOI Metadata\"}],\"container\":null,\"publisher\":{\"name\":
+      \"DataCite\"},\"references\":[],\"relations\":[],\"date\":{\"created\": \"2017-02-13\",
+      \"updated\": \"2017-02-25\", \"published\": \"2017-02-25\"},\"descriptions\":[{\"type\":
+      \"Abstract\", \"description\": \"Ruby gem and command-line utility for conversion
+      of DOI metadata from and to different metadata formats, including schema.org.\"}],\"license\":null,\"alternate_identifiers\":[],\"funding_references\":[],\"files\":[],\"subjects\":[{\"subject\":
+      \"doi\"}, {\"subject\": \"metadata\"}, {\"subject\": \"crossref\"}, {\"subject\":
+      \"datacite\"}, {\"subject\": \"schema.org\"}, {\"subject\": \"bibtex\"}, {\"subject\":
+      \"codemeta\"}],\"provider\":\"DataCite\",\"schema_version\":\"https://commonmeta.org/commonmeta_v0.12\",\"state\":null,\"geo_locations\":[],\"version\":null,\"language\":null,\"additional_type\":\"SoftwareSourceCode\",\"uuid\":\"82e4f59c-2b0b-48ae-b497-be17ce72ab7e\",\"id\":\"https://doi.org/10.5438/n138-z3mk\",\"archive_locations\":[],\"formats\":[],\"sizes\":[]}]"
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 862b9d1e7e783819-FRA
+      Connection:
+      - keep-alive
+      Content-Location:
+      - /works?limit=10&select=%2A
+      Content-Profile:
+      - public
+      Content-Range:
+      - 0-9/42
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 11 Mar 2024 12:40:34 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/2.8.1
+      X-Kong-Proxy-Latency:
+      - '2'
+      X-Kong-Upstream-Latency:
+      - '3'
+      alt-svc:
+      - h3=":443"; ma=86400
+      sb-gateway-version:
+      - '1'
+    http_version: HTTP/1.1
+    status_code: 206
+version: 1

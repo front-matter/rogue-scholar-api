@@ -26,6 +26,7 @@ from api.supabase import (
     supabase_client as supabase,
     blogWithPostsSelect,
     postsWithContentSelect,
+    worksSelect,
 )
 from api.typesense import typesense_client as typesense
 from commonmeta import doi_from_url
@@ -50,7 +51,7 @@ from api.utils import (
 )
 from api.posts import extract_all_posts, extract_all_posts_by_blog, update_posts
 from api.blogs import extract_single_blog, extract_all_blogs
-from api.schema import Blog, Post, PostQuery
+from api.schema import Blog, Post, Work, PostQuery
 
 config = Config()
 config.from_toml("hypercorn.toml")
@@ -85,6 +86,56 @@ def default():
 async def heartbeat():
     """Heartbeat."""
     return "OK", 200
+
+
+@app.route("/works/")
+@hide
+async def works_redirect():
+    """Redirect /works/ to /works."""
+    return redirect("/works", code=301)
+
+
+@validate_response(Work)
+@app.route("/works")
+async def works():
+    """Show works."""
+    page = int(request.args.get("page") or "1")
+    per_page = int(request.args.get("per_page") or "10")
+    # sort = (
+    #     f"{request.args.get('sort')}(missing_values: last)"
+    #     if request.args.get("sort")
+    #     else _text_match
+    # )
+    # order = request.args.get("order") or "desc"
+    
+    try:
+        response = (
+            supabase.table("works")
+            .select(worksSelect, count="exact")
+            .limit(min(per_page, 100))
+            .execute()
+        )
+        return jsonify({"total-results": response.count, "items": response.data})
+    except Exception as e:
+        logger.warning(e.args[0])
+        return {"error": "An error occured."}, 400
+
+
+@validate_response(Work)
+@app.route("/works/<slug>")
+async def work(slug):
+    """Get work by slug."""
+    if not validate_uuid(slug):
+        logger.warning(f"Invalid slug: {slug}")
+        return {"error": "An error occured."}, 400
+    response = (
+        supabase.table("works")
+        .select(worksSelect)
+        .eq("uuid", slug)
+        .maybe_single()
+        .execute()
+    )
+    return jsonify(response.data)
 
 
 @app.route("/blogs/")

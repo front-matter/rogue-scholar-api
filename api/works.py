@@ -1,0 +1,97 @@
+from typing import Optional
+import orjson as json
+from quart import jsonify
+from postgrest import APIError as PostgrestAPIError
+from commonmeta import Metadata
+from commonmeta.doi_utils import is_rogue_scholar_doi, doi_from_url
+
+from api.supabase import (
+    supabase_admin_client as supabase_admin,
+    supabase_client as supabase,
+    worksSelect,
+)
+
+
+def fetch_single_work(string: str) -> Optional[dict]:
+    """Fetch single work."""
+    # use Rogue Scholar API if the work is a Rogue Scholar DOI,
+    # as Crossref doesn't store all metadata
+    if is_rogue_scholar_doi(string):
+        string = f"https://api.rogue-scholar.org/posts/{doi_from_url(string)}"
+    work = Metadata(string)
+    return json.loads(work.write())
+
+
+def upsert_single_work(work):
+    """Upsert single work."""
+
+    if not work.get("id", None) or not work.get("type", None):
+        return None
+
+    try:
+        response = (
+            supabase_admin.table("works")
+            .upsert(
+                {
+                    "id": work.get("id"),
+                    "type": work.get("type"),
+                    "url": work.get("url", None),
+                    "contributors": work.get("contributors", []),
+                    "titles": work.get("titles", []),
+                    "container": work.get("container", None),
+                    "publisher": work.get("publisher", None),
+                    "references": work.get("references", []),
+                    "relations": work.get("relations", []),
+                    "date": work.get("date", None),
+                    "descriptions": work.get("descriptions", []),
+                    "license": work.get("license", None),
+                    "alternate_identifiers": work.get("alternate_identifiers", []),
+                    "funding_references": work.get("funding_references", []),
+                    "files": work.get("files", []),
+                    "subjects": work.get("subjects", []),
+                    "provider": work.get("provider", None),
+                    "schema_version": work.get("schema_version", None),
+                    "state": work.get("state", None),
+                    "archive_locations": work.get("archive_locations", []),
+                    "geo_locations": work.get("geo_locations", []),
+                    "version": work.get("version", None),
+                    "language": work.get("language", None),
+                    "additional_type": work.get("additional_type", None),
+                    "sizes": work.get("sizes", []),
+                    "formats": work.get("formats", []),
+                },
+                returning="representation",
+                ignore_duplicates=False,
+                on_conflict="id",
+            )
+            .execute()
+        )
+        return response.data[0]
+    except Exception as e:
+        print(e)
+        return None
+
+
+def get_single_work(string: str) -> Optional[dict]:
+    """Get single work from the works table, or fetch from the internt."""
+    try:
+        response = (
+            supabase.table("works")
+            .select(worksSelect, count="exact")
+            .eq("id", string)
+            .maybe_single()
+            .execute()
+        )
+    except PostgrestAPIError as e:
+        print(e)
+        work = fetch_single_work(string)
+        return upsert_single_work(work)
+
+    return jsonify(response.data)
+
+
+def update_single_work(string: str) -> Optional[dict]:
+    """Update single work from the internt."""
+
+    work = fetch_single_work(string)
+    return upsert_single_work(work)

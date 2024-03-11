@@ -30,6 +30,43 @@ async def test_heartbeat_route():
     assert await response.get_data(as_text=True) == "OK"
 
 
+async def test_works_redirect_route():
+    """Test works redirect route."""
+    test_client = app.test_client()
+    response = await test_client.get("/works/")
+    assert response.status_code == 301
+    assert response.headers["Location"] == "/works"
+
+
+@pytest.mark.vcr
+async def test_works_route():
+    """Test works route."""
+    test_client = app.test_client()
+    response = await test_client.get("/works")
+    assert response.status_code == 200
+    result = await response.get_json()
+    assert result["total-results"] > 40
+    work = py_.get(result, "items.0")
+    assert work["titles"] is not None
+
+
+@pytest.mark.vcr
+async def test_work_route():
+    """Test work route."""
+    test_client = app.test_client()
+    response = await test_client.get("/works/c2182771-c786-4c51-b3db-4f5c599948f3")
+    assert response.status_code == 200
+    result = await response.get_json()
+    assert result["id"] == "https://doi.org/10.1038/d41586-023-02554-0"
+    assert result["type"] == "JournalArticle"
+    assert result["titles"] == [
+        {
+            "title": "Thousands of scientists are cutting back on Twitter, seeding angst and uncertainty"
+        }
+    ]
+    assert result["date"] == {"published": "2023-08-16"}
+
+
 async def test_blogs_redirect_route():
     """Test blogs redirect route."""
     test_client = app.test_client()
@@ -503,6 +540,7 @@ async def test_post_as_citation_with_style():
         result
         == "1. Fenner M. An update on Rogue Scholar in the fediverse. Front Matter [Internet]. 2024Jan29;. Available from: https://blog.front-matter.io/posts/an-update-on-the-rogue-scholar-fediverse"
     )
+
 
 # TODO: issue with citeproc library
 # @pytest.mark.vcr

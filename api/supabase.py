@@ -21,3 +21,4 @@ postsSelect = "guid, doi, url, title, summary, abstract, published_at, updated_a
 postsWithConfigSelect = "id, guid, doi, url, archive_url, title, summary, abstract, published_at, updated_at, indexed_at, indexed, authors, image, tags, language, reference, relationships, blog_name, blog_slug, blog: blogs!inner(slug, title, description, feed_url, home_page_url, language, category, status, generator, license, updated_at)"
 postsWithBlogSelect = "id, guid, doi, url, archive_url, title, summary, abstract, published_at, updated_at, indexed_at, indexed, authors, image, tags, language, reference, relationships, blog_name, blog_slug, blog: blogs!inner(*)"
 postsWithContentSelect = "id, guid, doi, url, archive_url, title, summary, abstract, content_text, published_at, updated_at, indexed_at, authors, image, tags, language, reference, relationships, blog_name, blog_slug, blog: blogs!inner(*)"
+worksSelect = "*"

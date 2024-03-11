@@ -12,7 +12,7 @@ import xmltodict
 import time
 import traceback
 from urllib.parse import unquote
-from commonmeta import validate_doi, normalize_doi, validate_url
+from commonmeta import validate_doi, normalize_doi, doi_from_url, validate_url
 from Levenshtein import ratio
 
 from api.utils import (
@@ -30,6 +30,7 @@ from api.utils import (
     get_markdown,
     EXCLUDED_TAGS,
 )
+from api.works import get_single_work
 from api.supabase import (
     supabase_admin_client as supabase_admin,
     supabase_client as supabase,
@@ -973,7 +974,7 @@ def sanitize_html(content_html: str):
 def get_references(content_html: str):
     """Extract references from content_html,
     defined as the text after the tag "References</h2>",
-    "References</h3>" or "References</h4>"""
+    "References</h3>" or "References</h4>. Store them in works table."""
 
     try:
         reference_html = re.split(
@@ -997,29 +998,23 @@ def get_references(content_html: str):
             """Format reference."""
             if validate_url(url) == "DOI":
                 doi = normalize_doi(url)
-                response = httpx.get(
-                    doi,
-                    headers={"Accept": "application/vnd.citationstyles.csl+json"},
-                    timeout=30,
-                    follow_redirects=True,
-                )
-                if response.status_code not in [200, 301, 302]:
+                work = get_single_work(doi_from_url(doi))
+                if not work:
                     return None
-                csl = response.json()
-                title = py_.get(csl, "title", None)
-                publication_year = py_.get(csl, "issued.date-parts.0.0", None)
+                title = py_.get(work, "titles.0.title", None)
+                publication_year = py_.get(work, "date.published", None)
                 return compact(
                     {
                         "key": f"ref{index + 1}",
                         "doi": doi,
-                        "title": str(title) if title else None,
-                        "publicationYear": str(publication_year)
+                        "title": title,
+                        "publicationYear": publication_year[:4]
                         if publication_year
                         else None,
                     }
                 )
             elif validate_url(url) == "URL":
-                response = httpx.head(url, timeout=10)
+                response = httpx.head(url, timeout=10, follow_redirects=True)
                 # check that URL resolves.
                 # TODO: check for redirects
                 if response.status_code in [404]:

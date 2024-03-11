@@ -731,7 +731,7 @@ def test_get_relationships():
     result = get_relationships(html)
     assert len(result) == 1
     assert result[0] == {
-        "url": "https://doi.org/10.5438/3dfw-z4kq",
+        "urls": ["https://doi.org/10.5438/3dfw-z4kq"],
         "type": "IsIdenticalTo",
     }
 
@@ -742,10 +742,7 @@ def test_get_relationships_funding():
 
     result = get_relationships(html)
     assert len(result) == 1
-    assert result[0] == {
-        "url": "https://doi.org/10.3030/654039",
-        "type": "HasAward",
-    }
+    assert result[0] == {"type": "HasAward", "urls": ["https://doi.org/10.3030/654039"]}
 
 
 # def test_get_title():

@@ -63,3 +63,16 @@ class Post:
     blog_name: str
     blog_slug: str
     blog: dict
+
+
+@dataclass
+class Work:
+    """Work schema."""
+
+    id: str
+    url: str
+    titles: list
+    contributors: list
+    language: str
+    references: list
+    relations: list

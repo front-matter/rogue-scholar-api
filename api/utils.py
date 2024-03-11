@@ -2,7 +2,6 @@
 
 from uuid import UUID
 from typing import Optional, Union
-import re
 from babel.dates import format_date
 import iso8601
 import html
