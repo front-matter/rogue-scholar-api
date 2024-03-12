@@ -1,10 +1,10 @@
 """Main quart application"""
+
 from hypercorn.config import Config
 import logging
 from typing import Optional
 from datetime import timedelta
 import time
-import orjson as json
 from os import environ
 import pydash as py_
 from dotenv import load_dotenv
@@ -29,7 +29,7 @@ from api.supabase import (
     worksSelect,
 )
 from api.typesense import typesense_client as typesense
-from commonmeta import doi_from_url
+from commonmeta import Metadata, doi_from_url, validate_prefix
 from api.utils import (
     get_formatted_metadata,
     convert_to_commonmeta,
@@ -51,6 +51,7 @@ from api.utils import (
 )
 from api.posts import extract_all_posts, extract_all_posts_by_blog, update_posts
 from api.blogs import extract_single_blog, extract_all_blogs
+from api.works import SUPPORTED_ACCEPT_HEADERS, get_formatted_work
 from api.schema import Blog, Post, Work, PostQuery
 
 config = Config()
@@ -107,7 +108,7 @@ async def works():
     #     else _text_match
     # )
     # order = request.args.get("order") or "desc"
-    
+
     try:
         response = (
             supabase.table("works")
@@ -123,19 +124,40 @@ async def works():
 
 @validate_response(Work)
 @app.route("/works/<slug>")
-async def work(slug):
+@app.route("/works/<slug>/<suffix>")
+async def work(slug: str, suffix: Optional[str] = None):
     """Get work by slug."""
-    if not validate_uuid(slug):
+    locale = request.args.get("locale") or "en-US"
+    style = request.args.get("style") or "apa"
+    if validate_uuid(slug):
+        response = (
+            supabase.table("works")
+            .select(worksSelect)
+            .eq("uuid", slug)
+            .maybe_single()
+            .execute()
+        )
+        return jsonify(response.data)
+    elif validate_prefix(slug) and suffix:
+        doi = f"https://doi.org/{slug}/{suffix}"
+        response = (
+            supabase.table("works")
+            .select(worksSelect)
+            .eq("id", doi)
+            .maybe_single()
+            .execute()
+        )
+    else:
         logger.warning(f"Invalid slug: {slug}")
         return {"error": "An error occured."}, 400
-    response = (
-        supabase.table("works")
-        .select(worksSelect)
-        .eq("uuid", slug)
-        .maybe_single()
-        .execute()
-    )
-    return jsonify(response.data)
+
+    accept_header = request.accept_mimetypes.best
+
+    if accept_header not in SUPPORTED_ACCEPT_HEADERS:
+        return jsonify(response.data)
+    subject = Metadata(response.data, via="commonmeta")
+    result = get_formatted_work(subject, accept_header, style, locale)
+    return result.strip(), 200, {"Content-Type": accept_header}
 
 
 @app.route("/blogs/")
@@ -520,8 +542,13 @@ async def post(slug: str, suffix: Optional[str] = None):
         elif format_ == "pdf":
             markdown["author"] = format_authors_with_orcid(markdown["author"])
             markdown["license"] = {
-                "text": format_license(markdown["author"], markdown["date"], markdown["rights"]),
-                "id": "cc-by" if markdown["rights"] == "https://creativecommons.org/licenses/by/4.0/legalcode" else None,
+                "text": format_license(
+                    markdown["author"], markdown["date"], markdown["rights"]
+                ),
+                "id": "cc-by"
+                if markdown["rights"]
+                == "https://creativecommons.org/licenses/by/4.0/legalcode"
+                else None,
                 "link": markdown["rights"],
             }
             markdown["date"] = format_datetime(markdown["date"], markdown["lang"])

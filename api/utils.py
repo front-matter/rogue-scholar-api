@@ -688,7 +688,7 @@ def get_formatted_metadata(
     content_types = {
         "commonmeta": "application/vnd.commonmeta+json",
         "bibtex": "application/x-bibtex",
-        "ris": "application/x-research-infJoo-systems",
+        "ris": "application/x-research-info-systems",
         "csl": "application/vnd.citationstyles.csl+json",
         "schema_org": "application/vnd.schemaorg.ld+json",
         "datacite": "application/vnd.datacite.datacite+json",

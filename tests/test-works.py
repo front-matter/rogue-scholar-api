@@ -3,7 +3,7 @@
 import pytest  # noqa: F401
 import pydash as py_  # noqa: F401
 
-from api.works import get_single_work, fetch_single_work, upsert_single_work
+from api.works import get_single_work, fetch_single_work
 
 @pytest.mark.vcr
 def test_fetch_single_work_blog_post():
