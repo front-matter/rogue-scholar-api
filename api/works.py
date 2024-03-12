@@ -1,7 +1,7 @@
 from typing import Optional
 import orjson as json
 from quart import jsonify
-from postgrest import APIError as PostgrestAPIError
+from postgrest import APIError
 from commonmeta import Metadata
 from commonmeta.doi_utils import is_rogue_scholar_doi, doi_from_url
 
@@ -22,6 +22,7 @@ SUPPORTED_ACCEPT_HEADERS = [
     "application/vnd.crossref.unixref+xml",
     "text/x-bibliography",
 ]
+
 
 def fetch_single_work(string: str) -> Optional[dict]:
     """Fetch single work."""
@@ -93,10 +94,13 @@ def get_single_work(string: str) -> Optional[dict]:
             .maybe_single()
             .execute()
         )
-    except PostgrestAPIError as e:
+    except APIError as e:
+        # if work not found, fetch from the internet
+        if e.code == "204":
+            work = fetch_single_work(string)
+            return upsert_single_work(work)
         print(e)
-        work = fetch_single_work(string)
-        return upsert_single_work(work)
+        return None
 
     return jsonify(response.data)
 
@@ -108,7 +112,9 @@ def update_single_work(string: str) -> Optional[dict]:
     return upsert_single_work(work)
 
 
-def get_formatted_work(subject, accept_header: str, style:str="apa", locale:str="en-US"):
+def get_formatted_work(
+    subject, accept_header: str, style: str = "apa", locale: str = "en-US"
+):
     """Get formatted work."""
     accept_headers = {
         "application/vnd.commonmeta+json": "commonmeta",

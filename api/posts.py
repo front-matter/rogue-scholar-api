@@ -998,7 +998,8 @@ def get_references(content_html: str):
             """Format reference."""
             if validate_url(url) == "DOI":
                 doi = normalize_doi(url)
-                work = get_single_work(doi_from_url(doi))
+                work = get_single_work(doi)
+                print(work)
                 if not work:
                     return None
                 title = py_.get(work, "titles.0.title", None)
@@ -1026,8 +1027,7 @@ def get_references(content_html: str):
             else:
                 return None
 
-        references = [format_reference(url, index) for index, url in enumerate(urls)]
-        return references
+        return py_.compact([format_reference(url, index) for index, url in enumerate(urls)])
     except Exception as e:
         print(e)
         return []
@@ -1067,7 +1067,7 @@ def get_summary(content_html: str = None, maxlen: int = 450):
     truncated = py_.truncate(sanitized, maxlen, omission="", separator=" ")
 
     # remove incomplete last sentence
-    if truncated[-1] not in [".", "!", "?", ";"]:
+    if len(truncated) > 0 and truncated[-1] not in [".", "!", "?", ";"]:
         sentences = re.split(r"(?<=\w{3}[.!?;])\s+", truncated)
         if len(sentences) > 1:
             truncated = " ".join(sentences[:-1])

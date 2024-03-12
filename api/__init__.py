@@ -21,6 +21,7 @@ from quart_schema import (
 )
 from quart_rate_limiter import RateLimiter, RateLimit
 from quart_cors import cors
+from postgrest import APIError
 
 from api.supabase import (
     supabase_client as supabase,
@@ -100,26 +101,22 @@ async def works_redirect():
 @app.route("/works")
 async def works():
     """Show works."""
-    page = int(request.args.get("page") or "1")
     per_page = int(request.args.get("per_page") or "10")
-    # sort = (
-    #     f"{request.args.get('sort')}(missing_values: last)"
-    #     if request.args.get("sort")
-    #     else _text_match
-    # )
-    # order = request.args.get("order") or "desc"
-
+    page = int(request.args.get("page") or "1")
+    start_page = (page - 1) * per_page if page > 0 else 0
+    end_page = (page - 1) * per_page + (per_page - 1) if page > 0 else (per_page - 1)
     try:
         response = (
             supabase.table("works")
             .select(worksSelect, count="exact")
             .limit(min(per_page, 100))
+            .order("date->published", desc=True)
+            .range(start_page, end_page)
             .execute()
         )
         return jsonify({"total-results": response.count, "items": response.data})
-    except Exception as e:
-        logger.warning(e.args[0])
-        return {"error": "An error occured."}, 400
+    except APIError as e:
+        return {"error": e.message or "An error occured."}, 400
 
 
 @validate_response(Work)
@@ -129,27 +126,33 @@ async def work(slug: str, suffix: Optional[str] = None):
     """Get work by slug."""
     locale = request.args.get("locale") or "en-US"
     style = request.args.get("style") or "apa"
-    if validate_uuid(slug):
-        response = (
-            supabase.table("works")
-            .select(worksSelect)
-            .eq("uuid", slug)
-            .maybe_single()
-            .execute()
-        )
-        return jsonify(response.data)
-    elif validate_prefix(slug) and suffix:
-        doi = f"https://doi.org/{slug}/{suffix}"
-        response = (
-            supabase.table("works")
-            .select(worksSelect)
-            .eq("id", doi)
-            .maybe_single()
-            .execute()
-        )
-    else:
-        logger.warning(f"Invalid slug: {slug}")
-        return {"error": "An error occured."}, 400
+    
+    try:
+        if validate_uuid(slug):
+            response = (
+                supabase.table("works")
+                .select(worksSelect)
+                .eq("uuid", slug)
+                .maybe_single()
+                .execute()
+            )
+            return jsonify(response.data)
+        elif validate_prefix(slug) and suffix:
+            doi = f"https://doi.org/{slug}/{suffix}"
+            response = (
+                supabase.table("works")
+                .select(worksSelect)
+                .eq("id", doi)
+                .maybe_single()
+                .execute()
+            )
+        else:
+            logger.warning(f"Invalid slug: {slug}")
+            return {"error": "An error occured."}, 400
+    except APIError as e:
+        if e.code == "204":
+            return {"error": "Work not found."}, 404
+        return {"error": e.message or "An error occured."}, 400
 
     accept_header = request.accept_mimetypes.best
 

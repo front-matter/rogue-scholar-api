@@ -550,4 +550,640 @@ interactions:
       - '1'
     http_version: HTTP/1.1
     status_code: 206
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      prefer:
+      - count=exact
+      user-agent:
+      - python-httpx/0.25.2
+      x-client-info:
+      - supabase-py/2.4.0
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/works?select=%2A&limit=10&limit=10&order=date-%3Epublished.desc&offset=0
+  response:
+    content: "[{\"type\":\"Article\",\"url\":\"https://iphylo.blogspot.com/2024/02/problems-with-datacite-data-citation.html\",\"contributors\":[{\"id\":
+      \"https://orcid.org/0000-0002-7101-9767\", \"type\": \"Person\", \"givenName\":
+      \"Roderic\", \"familyName\": \"Page\", \"affiliation\": [{\"id\": \"https://ror.org/00vtgdb53\",
+      \"name\": \"University of Glasgow\"}], \"contributorRoles\": [\"Author\"]}],\"titles\":[{\"title\":
+      \"Problems with the DataCite Data Citation Corpus\"}],\"container\":{\"type\":
+      \"Periodical\", \"title\": \"iPhylo\", \"identifier\": \"2051-8188\", \"identifierType\":
+      \"ISSN\"},\"publisher\":{\"name\": \"iPhylo\"},\"references\":[],\"relations\":[{\"id\":
+      \"https://portal.issn.org/resource/ISSN/2051-8188\", \"type\": \"IsPartOf\"}],\"date\":{\"updated\":
+      \"2024-02-22T13:14:08\", \"published\": \"2024-02-20T16:32:00\"},\"descriptions\":[{\"description\":
+      \"DataCite have released the Data Citation Corpus, together with a dashboard
+      that summarises the corpus. This is billed as: The goal is to build a citation
+      database between scholarly articles and data, such as datasets in repositories,
+      sequences in GenBank, protein structures in PDB, etc. Access to the corpus can
+      be obtained by submitting a form, then having a (very pleasant) conversation
+      with DataCite about the nature of the corpus.\", \"descriptionType\": \"Abstract\"}],\"license\":{\"id\":
+      \"CC-BY-4.0\", \"url\": \"https://creativecommons.org/licenses/by/4.0/legalcode\"},\"alternate_identifiers\":[{\"alternateIdentifier\":
+      \"33ceaaeb-f0d3-4644-b640-4298c4fd9ba8\", \"alternateIdentifierType\": \"UUID\"}],\"funding_references\":[],\"files\":[{\"url\":
+      \"https://api.rogue-scholar.org/posts/10.59350/t80g1-xys37.md\", \"mimeType\":
+      \"text/markdown\"}, {\"url\": \"https://api.rogue-scholar.org/posts/10.59350/t80g1-xys37.pdf\",
+      \"mimeType\": \"application/pdf\"}, {\"url\": \"https://api.rogue-scholar.org/posts/10.59350/t80g1-xys37.epub\",
+      \"mimeType\": \"application/epub+zip\"}, {\"url\": \"https://api.rogue-scholar.org/posts/10.59350/t80g1-xys37.xml\",
+      \"mimeType\": \"application/xml\"}],\"subjects\":[{\"subject\": \"Computer and
+      information sciences\"}],\"provider\":\"Crossref\",\"schema_version\":\"https://commonmeta.org/commonmeta_v0.12\",\"state\":\"findable\",\"geo_locations\":[],\"version\":null,\"language\":\"en\",\"additional_type\":null,\"uuid\":\"e4bd94a3-0006-40a7-ab6d-193d9166bcbe\",\"id\":\"https://doi.org/10.59350/t80g1-xys37\",\"archive_locations\":[],\"formats\":[],\"sizes\":[]},
+      \n {\"type\":\"Article\",\"url\":\"https://blog.front-matter.io/posts/rogue-scholar-has-an-advisory-board\",\"contributors\":[{\"id\":
+      \"https://orcid.org/0000-0003-1419-2405\", \"type\": \"Person\", \"givenName\":
+      \"Martin\", \"familyName\": \"Fenner\", \"affiliation\": [{\"name\": \"Front
+      Matter\"}], \"contributorRoles\": [\"Author\"]}],\"titles\":[{\"title\": \"Introducing
+      the Rogue Scholar Advisory Board\"}],\"container\":{\"type\": \"Periodical\",
+      \"title\": \"Front Matter\", \"identifier\": \"2749-9952\", \"identifierType\":
+      \"ISSN\"},\"publisher\":{\"name\": \"Front Matter\"},\"references\":[],\"relations\":[{\"id\":
+      \"https://portal.issn.org/resource/ISSN/2749-9952\", \"type\": \"IsPartOf\"}],\"date\":{\"updated\":
+      \"2024-02-08T19:23:18\", \"published\": \"2024-02-08T10:00:41\"},\"descriptions\":[{\"description\":
+      \"In January 2024 the new Rogue Scholar Advisory Board had its first meeting.
+      It consists of six people with diverse expertise in scholarly blogging. Advisory
+      Board members come from different scholarly disciplines and geographic regions,
+      write in several languages besides English, and have different levels of technical
+      expertise.\", \"descriptionType\": \"Abstract\"}],\"license\":{\"id\": \"CC-BY-4.0\",
+      \"url\": \"https://creativecommons.org/licenses/by/4.0/legalcode\"},\"alternate_identifiers\":[{\"alternateIdentifier\":
+      \"767fa1b5-2d1b-4f73-bf8a-0f4f2fa1254f\", \"alternateIdentifierType\": \"UUID\"}],\"funding_references\":[],\"files\":[{\"url\":
+      \"https://api.rogue-scholar.org/posts/10.53731/9yf86-p8541.md\", \"mimeType\":
+      \"text/markdown\"}, {\"url\": \"https://api.rogue-scholar.org/posts/10.53731/9yf86-p8541.pdf\",
+      \"mimeType\": \"application/pdf\"}, {\"url\": \"https://api.rogue-scholar.org/posts/10.53731/9yf86-p8541.epub\",
+      \"mimeType\": \"application/epub+zip\"}, {\"url\": \"https://api.rogue-scholar.org/posts/10.53731/9yf86-p8541.xml\",
+      \"mimeType\": \"application/xml\"}],\"subjects\":[{\"subject\": \"Computer and
+      information sciences\"}],\"provider\":\"Crossref\",\"schema_version\":\"https://commonmeta.org/commonmeta_v0.12\",\"state\":\"findable\",\"geo_locations\":[],\"version\":null,\"language\":\"en\",\"additional_type\":null,\"uuid\":\"4331d527-33f9-4fed-949d-fe6c5f367a72\",\"id\":\"https://doi.org/10.53731/9yf86-p8541\",\"archive_locations\":[],\"formats\":[],\"sizes\":[]},
+      \n {\"type\":\"Software\",\"url\":\"https://zenodo.org/doi/10.5281/zenodo.10615938\",\"contributors\":[{\"id\":
+      \"https://orcid.org/0000-0003-1419-2405\", \"type\": \"Person\", \"givenName\":
+      \"Martin\", \"familyName\": \"Fenner\", \"affiliation\": [{\"name\": \"Front
+      Matter\"}], \"contributorRoles\": [\"Author\"]}],\"titles\":[{\"title\": \"commonmeta-ruby\"}],\"container\":null,\"publisher\":{\"name\":
+      \"Zenodo\"},\"references\":[],\"relations\":[{\"id\": \"https://github.com/front-matter/commonmeta-ruby/tree/v3.13\",
+      \"type\": \"IsSupplementTo\"}, {\"id\": \"10.5281/zenodo.5785518\", \"type\":
+      \"IsVersionOf\"}],\"date\":{\"published\": \"2024-02-04\"},\"descriptions\":[{\"type\":
+      \"Abstract\", \"description\": \"Ruby gem and command-line utility for conversion
+      of DOI metadata from and to different metadata formats, including schema.org.
+      Fork of version 1.19.12 of the bolognese gem.\"}, {\"type\": \"Other\", \"description\":
+      \"If you use ruby-cff in your work, please cite it using the following metadata\"}],\"license\":{\"id\":
+      \"MIT\", \"url\": \"https://opensource.org/licenses/MIT\"},\"alternate_identifiers\":[{\"alternateIdentifier\":
+      \"oai:zenodo.org:10615938\", \"alternateIdentifierType\": \"oai\"}],\"funding_references\":[],\"files\":[],\"subjects\":[{\"subject\":
+      \"ruby\"}, {\"subject\": \"metadata\"}, {\"subject\": \"software citation\"},
+      {\"subject\": \"research software\"}],\"provider\":\"DataCite\",\"schema_version\":\"https://commonmeta.org/commonmeta_v0.12\",\"state\":\"findable\",\"geo_locations\":[],\"version\":\"v3.13\",\"language\":null,\"additional_type\":\"\",\"uuid\":\"9e800f81-4cb0-4cab-8a8c-bcfbaa1c9d19\",\"id\":\"https://doi.org/10.5281/zenodo.10615938\",\"archive_locations\":[],\"formats\":[],\"sizes\":[]},
+      \n {\"type\":\"Software\",\"url\":\"https://zenodo.org/doi/10.5281/zenodo.8340374\",\"contributors\":[{\"id\":
+      \"https://orcid.org/0000-0003-1419-2405\", \"type\": \"Person\", \"givenName\":
+      \"Martin\", \"familyName\": \"Fenner\", \"affiliation\": [{\"name\": \"Front
+      Matter\"}], \"contributorRoles\": [\"Author\"]}],\"titles\":[{\"title\": \"commonmeta-py\"}],\"container\":null,\"publisher\":{\"name\":
+      \"Zenodo\"},\"references\":[],\"relations\":[{\"id\": \"https://github.com/front-matter/commonmeta-py/tree/013.2\",
+      \"type\": \"IsSupplementTo\"}, {\"id\": \"10.5281/zenodo.8340375\", \"type\":
+      \"HasVersion\"}, {\"id\": \"10.5281/zenodo.10615902\", \"type\": \"HasVersion\"},
+      {\"id\": \"10.5281/zenodo.10615444\", \"type\": \"HasVersion\"}],\"date\":{\"published\":
+      \"2024-02-04\"},\"descriptions\":[{\"type\": \"Abstract\", \"description\":
+      \"Library for conversions to/from the Commonmeta scholarly metadata format.\"},
+      {\"type\": \"Other\", \"description\": \"If you use commonmeta-py in your work,
+      please cite it using the following metadata\"}],\"license\":{\"id\": \"MIT\",
+      \"url\": \"https://opensource.org/licenses/MIT\"},\"alternate_identifiers\":[],\"funding_references\":[],\"files\":[],\"subjects\":[{\"subject\":
+      \"python\"}, {\"subject\": \"metadata\"}, {\"subject\": \"software citation\"},
+      {\"subject\": \"research software\"}, {\"subject\": \"commonmeta\"}],\"provider\":\"DataCite\",\"schema_version\":\"https://commonmeta.org/commonmeta_v0.12\",\"state\":\"findable\",\"geo_locations\":[],\"version\":\"013.2\",\"language\":null,\"additional_type\":\"\",\"uuid\":\"4ef78dc5-9d99-4d17-ac46-46a8e8519627\",\"id\":\"https://doi.org/10.5281/zenodo.8340374\",\"archive_locations\":[],\"formats\":[],\"sizes\":[]},
+      \n {\"type\":\"JournalArticle\",\"url\":\"https://jamanetwork.com/journals/jamasurgery/fullarticle/2813207\",\"contributors\":[{\"type\":
+      \"Person\", \"givenName\": \"Kavya\", \"familyName\": \"Pathak\", \"affiliation\":
+      [{\"name\": \"Harvard Medical School, Boston, Massachusetts\"}], \"contributorRoles\":
+      [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"Jayson S.\", \"familyName\":
+      \"Marwaha\", \"affiliation\": [{\"name\": \"Department of Surgery, Beth Israel
+      Deaconess Medical Center, Boston, Massachusetts\"}, {\"name\": \"Department
+      of Biomedical Informatics, Harvard Medical School, Boston, Massachusetts\"}],
+      \"contributorRoles\": [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"Hao
+      Wei\", \"familyName\": \"Chen\", \"affiliation\": [{\"name\": \"Department of
+      Surgery, Beth Israel Deaconess Medical Center, Boston, Massachusetts\"}], \"contributorRoles\":
+      [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"Harlan M.\", \"familyName\":
+      \"Krumholz\", \"affiliation\": [{\"name\": \"Department of Medicine, Yale University
+      School of Medicine, New Haven, Connecticut\"}], \"contributorRoles\": [\"Author\"]},
+      {\"type\": \"Person\", \"givenName\": \"Jeffrey B.\", \"familyName\": \"Matthews\",
+      \"affiliation\": [{\"name\": \"Department of Surgery, University of Chicago
+      Pritzker School of Medicine, Chicago, Illinois\"}], \"contributorRoles\": [\"Author\"]}],\"titles\":[{\"title\":
+      \"Use of Open Science Practices in Surgical Journals\"}],\"container\":{\"type\":
+      \"Journal\", \"issue\": \"2\", \"title\": \"JAMA Surgery\", \"volume\": \"159\",
+      \"firstPage\": \"228\", \"identifier\": \"2168-6254\", \"identifierType\": \"ISSN\"},\"publisher\":{\"name\":
+      \"American Medical Association (AMA)\"},\"references\":[{\"doi\": \"https://doi.org/10.1371/journal.pmed.0020124\",
+      \"key\": \"sld230021r1\", \"issue\": \"8\", \"title\": \"Why most published
+      research findings are false.\", \"volume\": \"2\", \"contributor\": \"Ioannidis\",
+      \"containerTitle\": \"PLoS Med\", \"publicationYear\": \"2005\"}, {\"doi\":
+      \"https://doi.org/10.1038/d41586-020-01695-w\", \"key\": \"sld230021r2\", \"issue\":
+      \"7811\", \"title\": \"High-profile coronavirus retractions raise concerns about
+      data oversight.\", \"volume\": \"582\", \"firstPage\": \"160\", \"contributor\":
+      \"Ledford\", \"containerTitle\": \"Nature\", \"publicationYear\": \"2020\"},
+      {\"doi\": \"https://doi.org/10.1371/journal.pbio.3000246\", \"key\": \"sld230021r4\",
+      \"issue\": \"5\", \"title\": \"Open Science challenges, benefits and tips in
+      early career and beyond.\", \"volume\": \"17\", \"contributor\": \"Allen\",
+      \"containerTitle\": \"PLoS Biol\", \"publicationYear\": \"2019\"}, {\"doi\":
+      \"https://doi.org/10.1177/20542704221132139\", \"key\": \"sld230021r5\", \"issue\":
+      \"11\", \"title\": \"Open Science and conflict of interest policies of medical
+      and health sciences journals before and during the COVID-19 pandemic: a repeat
+      cross-sectional study: Open Science policies of medical journals.\", \"volume\":
+      \"13\", \"contributor\": \"Gardener\", \"containerTitle\": \"JRSM Open\", \"publicationYear\":
+      \"2022\"}, {\"doi\": \"https://doi.org/10.1056/nejmp2034518\", \"key\": \"sld230021r6\",
+      \"issue\": \"17\", \"title\": \"Leveraging Open Science to accelerate research.\",
+      \"volume\": \"384\", \"contributor\": \"Kadakia\", \"containerTitle\": \"N Engl
+      J Med\", \"publicationYear\": \"2021\"}, {\"key\": \"sld230021r3\", \"unstructured\":
+      \"PLOS.? Open Science. Accessed January 7, 2023. https://plos.org/open-science/\"}],\"relations\":[{\"id\":
+      \"https://portal.issn.org/resource/ISSN/2168-6254\", \"type\": \"IsPartOf\"}],\"date\":{\"published\":
+      \"2024-02-01\"},\"descriptions\":[{\"description\": \"This cross-sectional study
+      assesses the level of adoption of 5 new tools that promote high quality and
+      transparency in surgical research.\", \"descriptionType\": \"Abstract\"}],\"license\":null,\"alternate_identifiers\":[],\"funding_references\":[],\"files\":[],\"subjects\":[{\"subject\":
+      \"Surgery\"}],\"provider\":\"Crossref\",\"schema_version\":\"https://commonmeta.org/commonmeta_v0.12\",\"state\":\"findable\",\"geo_locations\":[],\"version\":null,\"language\":\"en\",\"additional_type\":null,\"uuid\":\"b18ae8c0-0c6a-4d03-b88d-5501049d5d1f\",\"id\":\"https://doi.org/10.1001/jamasurg.2023.5389\",\"archive_locations\":[],\"formats\":[],\"sizes\":[]},
+      \n {\"type\":\"JournalArticle\",\"url\":\"https://linkinghub.elsevier.com/retrieve/pii/S1931720423003859\",\"contributors\":[{\"id\":
+      \"https://orcid.org/0000-0002-7444-4435\", \"type\": \"Person\", \"givenName\":
+      \"Brian\", \"familyName\": \"Carter\", \"contributorRoles\": [\"Author\"]},
+      {\"id\": \"https://orcid.org/0009-0003-7827-102X\", \"type\": \"Person\", \"givenName\":
+      \"Jason\", \"familyName\": \"Sidrak\", \"contributorRoles\": [\"Author\"]},
+      {\"id\": \"https://orcid.org/0000-0002-2745-0103\", \"type\": \"Person\", \"givenName\":
+      \"Brandie\", \"familyName\": \"Wagner\", \"contributorRoles\": [\"Author\"]},
+      {\"type\": \"Person\", \"givenName\": \"Claire\", \"familyName\": \"Travis\",
+      \"contributorRoles\": [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"Mark\",
+      \"familyName\": \"Nehler\", \"contributorRoles\": [\"Author\"]}, {\"id\": \"https://orcid.org/0000-0001-8498-1819\",
+      \"type\": \"Person\", \"givenName\": \"Nicole\", \"familyName\": \"Christian\",
+      \"contributorRoles\": [\"Author\"]}],\"titles\":[{\"title\": \"Preliminary Development
+      of a Program ABSITE Dashboard (PAD) to Guide Curriculum Innovation\"}],\"container\":{\"type\":
+      \"Journal\", \"issue\": \"2\", \"title\": \"Journal of Surgical Education\",
+      \"volume\": \"81\", \"lastPage\": \"242\", \"firstPage\": \"226\", \"identifier\":
+      \"1931-7204\", \"identifierType\": \"ISSN\"},\"publisher\":{\"name\": \"Elsevier
+      BV\"},\"references\":[{\"key\": \"10.1016/j.jsurg.2023.10.014_bib0001\", \"contributor\":
+      \"Polavarapu\", \"publicationYear\": \"2016\"}, {\"key\": \"10.1016/j.jsurg.2023.10.014_bib0002\",
+      \"publicationYear\": \"2019\"}, {\"key\": \"10.1016/j.jsurg.2023.10.014_bib0003\",
+      \"unstructured\": \"American Board of Surgery, Inc. ABS In-Training Examination.
+      American Board of Surgery. https://www.absurgery.org/default.jsp?certabsite.
+      Philadelphia, PA. Accessed Sept 18, 2022.\"}, {\"doi\": \"https://doi.org/10.1016/j.amjsurg.2009.03.006\",
+      \"key\": \"10.1016/j.jsurg.2023.10.014_bib0004\", \"issue\": \"2\", \"title\":
+      \"American Board of Surgery examinations: can we identify surgery residency
+      applicants and residents who will pass the examinations on the first attempt?\",
+      \"volume\": \"199\", \"firstPage\": \"216\", \"contributor\": \"Shellito\",
+      \"containerTitle\": \"Am J Surg\", \"publicationYear\": \"2010\"}, {\"doi\":
+      \"https://doi.org/10.1001/archsurg.1996.01430160070013\", \"key\": \"10.1016/j.jsurg.2023.10.014_bib0005\",
+      \"issue\": \"4\", \"title\": \"Survey analysis of the American Board of Surgery
+      In-Training Examination\", \"volume\": \"131\", \"firstPage\": \"412\", \"contributor\":
+      \"Abdu\", \"containerTitle\": \"Arch Surg\", \"publicationYear\": \"1996\"},
+      {\"doi\": \"https://doi.org/10.1016/j.jsurg.2010.02.007\", \"key\": \"10.1016/j.jsurg.2023.10.014_bib0006\",
+      \"issue\": \"3\", \"title\": \"How important are American Board of Surgery In-Training
+      Examination scores when applying for fellowships?\", \"volume\": \"67\", \"firstPage\":
+      \"149\", \"contributor\": \"Miller\", \"containerTitle\": \"J Surg Educ\", \"publicationYear\":
+      \"2010\"}, {\"doi\": \"https://doi.org/10.1016/j.jsurg.2008.05.007\", \"key\":
+      \"10.1016/j.jsurg.2023.10.014_bib0007\", \"issue\": \"6\", \"title\": \"Weekly
+      assigned reading and examinations during residency, ABSITE performance, and
+      improved pass rates on the American Board of Surgery Examinations\", \"volume\":
+      \"65\", \"firstPage\": \"499\", \"contributor\": \"de Virgilio\", \"containerTitle\":
+      \"J Surg Educ\", \"publicationYear\": \"2008\"}, {\"doi\": \"https://doi.org/10.1016/j.jsurg.2015.04.015\",
+      \"key\": \"10.1016/j.jsurg.2023.10.014_bib0008\", \"issue\": \"5\", \"title\":
+      \"A structured educational curriculum including online training positively impacts
+      American Board of Surgery In-Training Examination Scores\", \"volume\": \"72\",
+      \"firstPage\": \"811\", \"contributor\": \"Kelly\", \"containerTitle\": \"J
+      Surg Educ\", \"publicationYear\": \"2015\"}, {\"doi\": \"https://doi.org/10.1016/j.jss.2007.03.046\",
+      \"key\": \"10.1016/j.jsurg.2023.10.014_bib0009\", \"issue\": \"2\", \"title\":
+      \"Impact of a novel education curriculum on surgical training within an academic
+      training program\", \"volume\": \"145\", \"firstPage\": \"308\", \"contributor\":
+      \"Lee\", \"containerTitle\": \"J Surg Res\", \"publicationYear\": \"2008\"},
+      {\"doi\": \"https://doi.org/10.1016/j.jsurg.2010.02.005\", \"key\": \"10.1016/j.jsurg.2023.10.014_bib0010\",
+      \"issue\": \"3\", \"title\": \"Retrospective evaluation of residents' American
+      Board of Surgery In-Service Training Examination (ABSITE) scores as a tool to
+      evaluate changes made in a basic science curriculum\", \"volume\": \"67\", \"firstPage\":
+      \"167\", \"contributor\": \"Lube\", \"containerTitle\": \"J Surg Educ\", \"publicationYear\":
+      \"2010\"}, {\"doi\": \"https://doi.org/10.1177/000313480507101007\", \"key\":
+      \"10.1016/j.jsurg.2023.10.014_bib0011\", \"issue\": \"10\", \"title\": \"Weekly
+      reading assignments and examinations result in sustained improvement in American
+      Board of Surgery In-Training Examination (ABSITE) scores\", \"volume\": \"71\",
+      \"firstPage\": \"830\", \"contributor\": \"de Virgilio\", \"containerTitle\":
+      \"Am Surg\", \"publicationYear\": \"2005\"}, {\"doi\": \"https://doi.org/10.1016/j.jsurg.2014.02.008\",
+      \"key\": \"10.1016/j.jsurg.2023.10.014_bib0012\", \"issue\": \"5\", \"title\":
+      \"Surgery residency curriculum examination scores predict future American Board
+      of Surgery in-training examination performance\", \"volume\": \"71\", \"firstPage\":
+      \"743\", \"contributor\": \"Webb\", \"containerTitle\": \"J Surg Educ\", \"publicationYear\":
+      \"2014\"}, {\"doi\": \"https://doi.org/10.1016/j.jsurg.2014.07.011\", \"key\":
+      \"10.1016/j.jsurg.2023.10.014_bib0013\", \"issue\": \"6\", \"title\": \"Study
+      habits centered on completing review questions result in quantitatively higher
+      American Board of Surgery In-Training Exam scores\", \"volume\": \"71\", \"firstPage\":
+      \"e127\", \"contributor\": \"Chang\", \"containerTitle\": \"J Surg Educ\", \"publicationYear\":
+      \"2014\"}, {\"doi\": \"https://doi.org/10.1097/acm.0000000000003040\", \"key\":
+      \"10.1016/j.jsurg.2023.10.014_bib0014\", \"issue\": \"5\", \"title\": \"It's
+      a marathon, not a sprint: rapid evaluation of CBME program implementation\",
+      \"volume\": \"95\", \"firstPage\": \"786\", \"contributor\": \"Hall\", \"containerTitle\":
+      \"Acad Med\", \"publicationYear\": \"2020\"}, {\"key\": \"10.1016/j.jsurg.2023.10.014_bib0015\",
+      \"issue\": \"5\", \"title\": \"Developing a dashboard for program evaluation
+      in competency-based training programs: a design-based research project\", \"volume\":
+      \"13\", \"firstPage\": \"14\", \"contributor\": \"Yilmaz\", \"containerTitle\":
+      \"Can Med Ed J\", \"publicationYear\": \"2022\"}, {\"doi\": \"https://doi.org/10.1109/tvcg.2017.2745181\",
+      \"key\": \"10.1016/j.jsurg.2023.10.014_bib0016\", \"issue\": \"1\", \"title\":
+      \"Bring it to the pitch: combining video and movement data to enhance team sport
+      analysis\", \"volume\": \"24\", \"firstPage\": \"13\", \"contributor\": \"Stein\",
+      \"containerTitle\": \"IEEE Trans Vis Comput Graph\", \"publicationYear\": \"2018\"},
+      {\"doi\": \"https://doi.org/10.1016/j.autcon.2013.03.004\", \"key\": \"10.1016/j.jsurg.2023.10.014_bib0017\",
+      \"title\": \"Location tracking and data visualization technology to advance
+      construction ironworkers\u2019 education and training in safety and productivity\",
+      \"volume\": \"35\", \"firstPage\": \"53\", \"contributor\": \"Teizer\", \"containerTitle\":
+      \"Autom Constr\", \"publicationYear\": \"2013\"}, {\"doi\": \"https://doi.org/10.1089/big.2015.0059\",
+      \"key\": \"10.1016/j.jsurg.2023.10.014_bib0018\", \"issue\": \"2\", \"title\":
+      \"Improving the efficiency and ease of healthcare analysis through use of data
+      visualization dashboards\", \"volume\": \"4\", \"firstPage\": \"129\", \"contributor\":
+      \"Stadler\", \"containerTitle\": \"Big Data\", \"publicationYear\": \"2016\"},
+      {\"key\": \"10.1016/j.jsurg.2023.10.014_bib0019\", \"contributor\": \"Few\",
+      \"publicationYear\": \"2006\"}, {\"doi\": \"https://doi.org/10.3109/0142159x.2014.874553\",
+      \"key\": \"10.1016/j.jsurg.2023.10.014_bib0020\", \"issue\": \"3\", \"title\":
+      \"Developing the role of big data and analytics in health professional education\",
+      \"volume\": \"36\", \"firstPage\": \"216\", \"contributor\": \"Ellaway\", \"containerTitle\":
+      \"Med Teach\", \"publicationYear\": \"2014\"}, {\"key\": \"10.1016/j.jsurg.2023.10.014_bib0021\",
+      \"issue\": \"8\", \"title\": \"Twelve tips to promote successful development
+      of a learner performance dashboard within a medical education program\", \"volume\":
+      \"40\", \"firstPage\": \"1\", \"contributor\": \"Boscardin\", \"containerTitle\":
+      \"Med Teach\", \"publicationYear\": \"2017\"}, {\"doi\": \"https://doi.org/10.2174/1874431101711010052\",
+      \"key\": \"10.1016/j.jsurg.2023.10.014_bib0022\", \"issue\": \"1\", \"title\":
+      \"Evaluation of effective dashboards: key concepts and criteria\", \"volume\":
+      \"11\", \"firstPage\": \"52\", \"contributor\": \"Karami\", \"containerTitle\":
+      \"Open Med Inform J\", \"publicationYear\": \"2017\"}, {\"doi\": \"https://doi.org/10.1111/tct.13106\",
+      \"key\": \"10.1016/j.jsurg.2023.10.014_bib0023\", \"issue\": \"3\", \"title\":
+      \"Creating a learner performance dashboard for programmatic assessment\", \"volume\":
+      \"17\", \"firstPage\": \"261\", \"contributor\": \"Santen\", \"containerTitle\":
+      \"Clin Teach\", \"publicationYear\": \"2020\"}, {\"doi\": \"https://doi.org/10.1016/j.jbi.2008.08.010\",
+      \"key\": \"10.1016/j.jsurg.2023.10.014_bib0024\", \"issue\": \"2\", \"title\":
+      \"Research electronic data capture (REDCap)\u2013a metadata-driven methodology
+      and workflow process for providing translational research informatics support\",
+      \"volume\": \"42\", \"firstPage\": \"377\", \"contributor\": \"Harris\", \"containerTitle\":
+      \"J Biomed Inform\", \"publicationYear\": \"2009\"}],\"relations\":[{\"id\":
+      \"https://portal.issn.org/resource/ISSN/1931-7204\", \"type\": \"IsPartOf\"}],\"date\":{\"published\":
+      \"2024-02\"},\"descriptions\":[],\"license\":{\"url\": \"https://www.elsevier.com/tdm/userlicense/1.0\"},\"alternate_identifiers\":[],\"funding_references\":[],\"files\":[{\"url\":
+      \"https://api.elsevier.com/content/article/PII:S1931720423003859?httpAccept=text/xml\",
+      \"mimeType\": \"text/xml\"}, {\"url\": \"https://api.elsevier.com/content/article/PII:S1931720423003859?httpAccept=text/plain\",
+      \"mimeType\": \"text/plain\"}],\"subjects\":[{\"subject\": \"Education\"}, {\"subject\":
+      \"Surgery\"}],\"provider\":\"Crossref\",\"schema_version\":\"https://commonmeta.org/commonmeta_v0.12\",\"state\":\"findable\",\"geo_locations\":[],\"version\":null,\"language\":\"en\",\"additional_type\":null,\"uuid\":\"add4476b-82e0-490f-a951-e6ba9fae00b2\",\"id\":\"https://doi.org/10.1016/j.jsurg.2023.10.014\",\"archive_locations\":[],\"formats\":[],\"sizes\":[]},
+      \n {\"type\":\"Article\",\"url\":\"https://blog.front-matter.io/posts/making-it-easier-to-register\",\"contributors\":[{\"id\":
+      \"https://orcid.org/0000-0003-1419-2405\", \"type\": \"Person\", \"givenName\":
+      \"Martin\", \"familyName\": \"Fenner\", \"affiliation\": [{\"name\": \"Front
+      Matter\"}], \"contributorRoles\": [\"Author\"]}],\"titles\":[{\"title\": \"Making
+      it easier to register a science blog with Rogue Scholar\"}],\"container\":{\"type\":
+      \"Periodical\", \"title\": \"Front Matter\", \"identifier\": \"2749-9952\",
+      \"identifierType\": \"ISSN\"},\"publisher\":{\"name\": \"Front Matter\"},\"references\":[],\"relations\":[{\"id\":
+      \"https://portal.issn.org/resource/ISSN/2749-9952\", \"type\": \"IsPartOf\"}],\"date\":{\"updated\":
+      \"2024-02-07T19:43:16\", \"published\": \"2024-01-17T15:26:11\"},\"descriptions\":[{\"description\":
+      \"Yesterday I had to fix a bug in the Rogue Scholar registration form (a software
+      regression that happened over the holidays related to database row level security).
+      This was a reminder that registering a science blog with the Rogue Scholar science
+      blog archive should be quick and painless. Today I made one change that hopefully
+      simplifies registration: Ask for the blog homepage instead of the RSS feed URL.\",
+      \"descriptionType\": \"Abstract\"}],\"license\":{\"id\": \"CC-BY-4.0\", \"url\":
+      \"https://creativecommons.org/licenses/by/4.0/legalcode\"},\"alternate_identifiers\":[{\"alternateIdentifier\":
+      \"29d9dc0d-3644-42d2-92fa-7b2512f30ffd\", \"alternateIdentifierType\": \"UUID\"}],\"funding_references\":[],\"files\":[{\"url\":
+      \"https://api.rogue-scholar.org/posts/10.53731/sgavn-wr288.md\", \"mimeType\":
+      \"text/markdown\"}, {\"url\": \"https://api.rogue-scholar.org/posts/10.53731/sgavn-wr288.pdf\",
+      \"mimeType\": \"application/pdf\"}, {\"url\": \"https://api.rogue-scholar.org/posts/10.53731/sgavn-wr288.epub\",
+      \"mimeType\": \"application/epub+zip\"}, {\"url\": \"https://api.rogue-scholar.org/posts/10.53731/sgavn-wr288.xml\",
+      \"mimeType\": \"application/xml\"}],\"subjects\":[{\"subject\": \"Computer and
+      information sciences\"}],\"provider\":\"Crossref\",\"schema_version\":\"https://commonmeta.org/commonmeta_v0.12\",\"state\":\"findable\",\"geo_locations\":[],\"version\":null,\"language\":\"en\",\"additional_type\":null,\"uuid\":\"15c9f010-e572-4cc6-9311-31e3aacbbed1\",\"id\":\"https://doi.org/10.53731/sgavn-wr288\",\"archive_locations\":[],\"formats\":[],\"sizes\":[]},
+      \n {\"type\":\"Article\",\"url\":\"https://blog.front-matter.io/posts/improving-rogue-scholar-metadata-conversions\",\"contributors\":[{\"id\":
+      \"https://orcid.org/0000-0003-1419-2405\", \"type\": \"Person\", \"givenName\":
+      \"Martin\", \"familyName\": \"Fenner\", \"affiliation\": [{\"name\": \"Front
+      Matter\"}], \"contributorRoles\": [\"Author\"]}],\"titles\":[{\"title\": \"Improving
+      Rogue Scholar metadata conversions\"}],\"container\":{\"type\": \"Periodical\",
+      \"title\": \"Front Matter\", \"identifier\": \"2749-9952\", \"identifierType\":
+      \"ISSN\"},\"publisher\":{\"name\": \"Front Matter\"},\"references\":[{\"doi\":
+      \"https://doi.org/10.53731/1dfxr-hs665\", \"key\": \"ref1\", \"title\": \"Every
+      Rogue Scholar blog post now available in Markdown, ePub, and PDF formats\",
+      \"publicationYear\": \"2024\"}, {\"doi\": \"https://doi.org/10.53731/xszpd-6z265\",
+      \"key\": \"ref2\", \"title\": \"Releasing commonmeta-py v0.8\", \"publicationYear\":
+      \"2023\"}, {\"doi\": \"https://doi.org/10.53731/r79vxn1-97aq74v-ag58n\", \"key\":
+      \"ref3\", \"title\": \"Eating your own Dog Food\", \"publicationYear\": \"2016\"}],\"relations\":[{\"id\":
+      \"https://portal.issn.org/resource/ISSN/2749-9952\", \"type\": \"IsPartOf\"}],\"date\":{\"updated\":
+      \"2024-02-07T19:46:46\", \"published\": \"2024-01-16T10:31:54\"},\"descriptions\":[{\"description\":
+      \"Last week the Rogue Scholar science blog archive added export of blog post
+      content in various formats (Markdown, ePub, PDF, JATS XML). This week Rogue
+      Scholar is improving the existing metadata export, and adding metadata export
+      in Schema.org JSON-LD format.\", \"descriptionType\": \"Abstract\"}],\"license\":{\"id\":
+      \"CC-BY-4.0\", \"url\": \"https://creativecommons.org/licenses/by/4.0/legalcode\"},\"alternate_identifiers\":[{\"alternateIdentifier\":
+      \"6fb357f5-80e7-4fd9-8ea8-4eb27be54866\", \"alternateIdentifierType\": \"UUID\"}],\"funding_references\":[],\"files\":[{\"url\":
+      \"https://api.rogue-scholar.org/posts/10.53731/n4vfp-nwb08.md\", \"mimeType\":
+      \"text/markdown\"}, {\"url\": \"https://api.rogue-scholar.org/posts/10.53731/n4vfp-nwb08.pdf\",
+      \"mimeType\": \"application/pdf\"}, {\"url\": \"https://api.rogue-scholar.org/posts/10.53731/n4vfp-nwb08.epub\",
+      \"mimeType\": \"application/epub+zip\"}, {\"url\": \"https://api.rogue-scholar.org/posts/10.53731/n4vfp-nwb08.xml\",
+      \"mimeType\": \"application/xml\"}],\"subjects\":[{\"subject\": \"Computer and
+      information sciences\"}],\"provider\":\"Crossref\",\"schema_version\":\"https://commonmeta.org/commonmeta_v0.12\",\"state\":\"findable\",\"geo_locations\":[],\"version\":null,\"language\":\"en\",\"additional_type\":null,\"uuid\":\"526195d2-1f1d-48d3-8a6b-e691d5fc2056\",\"id\":\"https://doi.org/10.53731/n4vfp-nwb08\",\"archive_locations\":[],\"formats\":[],\"sizes\":[]},
+      \n {\"type\":\"Article\",\"url\":\"https://blog.front-matter.io/posts/rogue-scholar-blog-posts-markdown-epub-and-pdf-formats\",\"contributors\":[{\"id\":
+      \"https://orcid.org/0000-0003-1419-2405\", \"type\": \"Person\", \"givenName\":
+      \"Martin\", \"familyName\": \"Fenner\", \"affiliation\": [{\"name\": \"Front
+      Matter\"}], \"contributorRoles\": [\"Author\"]}],\"titles\":[{\"title\": \"Every
+      Rogue Scholar blog post now available in Markdown, ePub, and PDF formats\"}],\"container\":{\"type\":
+      \"Periodical\", \"title\": \"Front Matter\", \"identifier\": \"2749-9952\",
+      \"identifierType\": \"ISSN\"},\"publisher\":{\"name\": \"Front Matter\"},\"references\":[{\"doi\":
+      \"https://doi.org/10.53731/5vvnh-tnm55\", \"key\": \"ref1\", \"title\": \"Archiving
+      individual science blog posts\", \"publicationYear\": \"2023\"}, {\"doi\": \"https://doi.org/10.59350/psmbr-f6p84\",
+      \"key\": \"ref2\", \"title\": \"Resilience: another advantage of openly-licensed
+      content\", \"publicationYear\": \"2023\"}, {\"doi\": \"https://doi.org/10.53731/g60vh-3ng48\",
+      \"key\": \"ref3\", \"title\": \"Archiving Rogue Scholar blogs with the Internet
+      Archive\", \"publicationYear\": \"2023\"}],\"relations\":[{\"id\": \"https://portal.issn.org/resource/ISSN/2749-9952\",
+      \"type\": \"IsPartOf\"}],\"date\":{\"updated\": \"2024-02-07T19:47:46\", \"published\":
+      \"2024-01-08T12:23:55\"},\"descriptions\":[{\"description\": \"The Rogue Scholar
+      science blog archive starts 2024 with an important release: all blog posts (more
+      than 13,000) are now available for download in Markdown, ePub, and PDF formats.
+      This builds on work completed in December to store the full text of every Rogue
+      Scholar blog post in Markdown format in the Rogue Scholar backend. Combined
+      with the metadata in YAML format, these posts can now be downloaded via the
+      Rogue Scholar API, e.g.\", \"descriptionType\": \"Abstract\"}],\"license\":{\"id\":
+      \"CC-BY-4.0\", \"url\": \"https://creativecommons.org/licenses/by/4.0/legalcode\"},\"alternate_identifiers\":[{\"alternateIdentifier\":
+      \"ec6ee1cf-ec7c-4898-b80e-09956a450b07\", \"alternateIdentifierType\": \"UUID\"}],\"funding_references\":[],\"files\":[{\"url\":
+      \"https://api.rogue-scholar.org/posts/10.53731/1dfxr-hs665.md\", \"mimeType\":
+      \"text/markdown\"}, {\"url\": \"https://api.rogue-scholar.org/posts/10.53731/1dfxr-hs665.pdf\",
+      \"mimeType\": \"application/pdf\"}, {\"url\": \"https://api.rogue-scholar.org/posts/10.53731/1dfxr-hs665.epub\",
+      \"mimeType\": \"application/epub+zip\"}, {\"url\": \"https://api.rogue-scholar.org/posts/10.53731/1dfxr-hs665.xml\",
+      \"mimeType\": \"application/xml\"}],\"subjects\":[{\"subject\": \"Computer and
+      information sciences\"}],\"provider\":\"Crossref\",\"schema_version\":\"https://commonmeta.org/commonmeta_v0.12\",\"state\":\"findable\",\"geo_locations\":[],\"version\":null,\"language\":\"en\",\"additional_type\":null,\"uuid\":\"4095de19-548c-44f0-9f52-eb4c94248c4e\",\"id\":\"https://doi.org/10.53731/1dfxr-hs665\",\"archive_locations\":[],\"formats\":[],\"sizes\":[]},
+      \n {\"type\":\"JournalArticle\",\"url\":\"https://www.nature.com/articles/s41586-023-06873-0\",\"contributors\":[{\"id\":
+      \"https://orcid.org/0009-0007-8690-6733\", \"type\": \"Person\", \"givenName\":
+      \"Claudia\", \"familyName\": \"Zampaloni\", \"contributorRoles\": [\"Author\"]},
+      {\"id\": \"https://orcid.org/0000-0002-2217-8833\", \"type\": \"Person\", \"givenName\":
+      \"Patrizio\", \"familyName\": \"Mattei\", \"contributorRoles\": [\"Author\"]},
+      {\"type\": \"Person\", \"givenName\": \"Konrad\", \"familyName\": \"Bleicher\",
+      \"contributorRoles\": [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"Lotte\",
+      \"familyName\": \"Winther\", \"contributorRoles\": [\"Author\"]}, {\"type\":
+      \"Person\", \"givenName\": \"Claudia\", \"familyName\": \"Th\xE4te\", \"contributorRoles\":
+      [\"Author\"]}, {\"id\": \"https://orcid.org/0000-0002-4808-2557\", \"type\":
+      \"Person\", \"givenName\": \"Christian\", \"familyName\": \"Bucher\", \"contributorRoles\":
+      [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"Jean-Michel\", \"familyName\":
+      \"Adam\", \"contributorRoles\": [\"Author\"]}, {\"id\": \"https://orcid.org/0000-0002-3448-9866\",
+      \"type\": \"Person\", \"givenName\": \"Alexander\", \"familyName\": \"Alanine\",
+      \"contributorRoles\": [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"Kurt
+      E.\", \"familyName\": \"Amrein\", \"contributorRoles\": [\"Author\"]}, {\"id\":
+      \"https://orcid.org/0000-0002-6257-1226\", \"type\": \"Person\", \"givenName\":
+      \"Vadim\", \"familyName\": \"Baidin\", \"contributorRoles\": [\"Author\"]},
+      {\"type\": \"Person\", \"givenName\": \"Christoph\", \"familyName\": \"Bieniossek\",
+      \"contributorRoles\": [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"Caterina\",
+      \"familyName\": \"Bissantz\", \"contributorRoles\": [\"Author\"]}, {\"id\":
+      \"https://orcid.org/0000-0002-3886-8193\", \"type\": \"Person\", \"givenName\":
+      \"Franziska\", \"familyName\": \"Boess\", \"contributorRoles\": [\"Author\"]},
+      {\"id\": \"https://orcid.org/0000-0002-8992-372X\", \"type\": \"Person\", \"givenName\":
+      \"Carina\", \"familyName\": \"Cantrill\", \"contributorRoles\": [\"Author\"]},
+      {\"type\": \"Person\", \"givenName\": \"Thomas\", \"familyName\": \"Clairfeuille\",
+      \"contributorRoles\": [\"Author\"]}, {\"id\": \"https://orcid.org/0000-0002-4903-2869\",
+      \"type\": \"Person\", \"givenName\": \"Fabian\", \"familyName\": \"Dey\", \"contributorRoles\":
+      [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"Patrick\", \"familyName\":
+      \"Di Giorgio\", \"contributorRoles\": [\"Author\"]}, {\"type\": \"Person\",
+      \"givenName\": \"Pauline\", \"familyName\": \"du Castel\", \"contributorRoles\":
+      [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"David\", \"familyName\":
+      \"Dylus\", \"contributorRoles\": [\"Author\"]}, {\"id\": \"https://orcid.org/0009-0006-4722-4070\",
+      \"type\": \"Person\", \"givenName\": \"Pawel\", \"familyName\": \"Dzygiel\",
+      \"contributorRoles\": [\"Author\"]}, {\"id\": \"https://orcid.org/0000-0003-2918-5427\",
+      \"type\": \"Person\", \"givenName\": \"Antonio\", \"familyName\": \"Felici\",
+      \"contributorRoles\": [\"Author\"]}, {\"id\": \"https://orcid.org/0000-0002-5432-556X\",
+      \"type\": \"Person\", \"givenName\": \"Fernando\", \"familyName\": \"Garc\xEDa-Alcalde\",
+      \"contributorRoles\": [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"Andreas\",
+      \"familyName\": \"Haldimann\", \"contributorRoles\": [\"Author\"]}, {\"id\":
+      \"https://orcid.org/0000-0002-0079-140X\", \"type\": \"Person\", \"givenName\":
+      \"Matthew\", \"familyName\": \"Leipner\", \"contributorRoles\": [\"Author\"]},
+      {\"id\": \"https://orcid.org/0000-0002-9886-9120\", \"type\": \"Person\", \"givenName\":
+      \"Semen\", \"familyName\": \"Leyn\", \"contributorRoles\": [\"Author\"]}, {\"type\":
+      \"Person\", \"givenName\": \"S\xE9verine\", \"familyName\": \"Louvel\", \"contributorRoles\":
+      [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"Pauline\", \"familyName\":
+      \"Misson\", \"contributorRoles\": [\"Author\"]}, {\"id\": \"https://orcid.org/0000-0002-3810-9824\",
+      \"type\": \"Person\", \"givenName\": \"Andrei\", \"familyName\": \"Osterman\",
+      \"contributorRoles\": [\"Author\"]}, {\"id\": \"https://orcid.org/0000-0003-0247-5934\",
+      \"type\": \"Person\", \"givenName\": \"Karanbir\", \"familyName\": \"Pahil\",
+      \"contributorRoles\": [\"Author\"]}, {\"id\": \"https://orcid.org/0000-0003-3598-2123\",
+      \"type\": \"Person\", \"givenName\": \"S\xE9bastien\", \"familyName\": \"Rigo\",
+      \"contributorRoles\": [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"Adrian\",
+      \"familyName\": \"Sch\xE4ublin\", \"contributorRoles\": [\"Author\"]}, {\"type\":
+      \"Person\", \"givenName\": \"Sebastian\", \"familyName\": \"Scharf\", \"contributorRoles\":
+      [\"Author\"]}, {\"type\": \"Person\", \"givenName\": \"Petra\", \"familyName\":
+      \"Schmitz\", \"contributorRoles\": [\"Author\"]}, {\"type\": \"Person\", \"givenName\":
+      \"Theodor\", \"familyName\": \"Stoll\", \"contributorRoles\": [\"Author\"]},
+      {\"id\": \"https://orcid.org/0000-0002-6260-9829\", \"type\": \"Person\", \"givenName\":
+      \"Andrej\", \"familyName\": \"Trauner\", \"contributorRoles\": [\"Author\"]},
+      {\"id\": \"https://orcid.org/0009-0000-8631-4462\", \"type\": \"Person\", \"givenName\":
+      \"Sannah\", \"familyName\": \"Zoffmann\", \"contributorRoles\": [\"Author\"]},
+      {\"id\": \"https://orcid.org/0000-0002-8296-1424\", \"type\": \"Person\", \"givenName\":
+      \"Daniel\", \"familyName\": \"Kahne\", \"contributorRoles\": [\"Author\"]},
+      {\"type\": \"Person\", \"givenName\": \"John A. T.\", \"familyName\": \"Young\",
+      \"contributorRoles\": [\"Author\"]}, {\"id\": \"https://orcid.org/0000-0003-3885-4936\",
+      \"type\": \"Person\", \"givenName\": \"Michael A.\", \"familyName\": \"Lobritz\",
+      \"contributorRoles\": [\"Author\"]}, {\"id\": \"https://orcid.org/0000-0002-4757-5122\",
+      \"type\": \"Person\", \"givenName\": \"Kenneth A.\", \"familyName\": \"Bradley\",
+      \"contributorRoles\": [\"Author\"]}],\"titles\":[{\"title\": \"A novel antibiotic
+      class targeting the lipopolysaccharide transporter\"}],\"container\":{\"type\":
+      \"Journal\", \"issue\": \"7995\", \"title\": \"Nature\", \"volume\": \"625\",
+      \"lastPage\": \"571\", \"firstPage\": \"566\", \"identifier\": \"1476-4687\",
+      \"identifierType\": \"ISSN\"},\"publisher\":{\"name\": \"Springer Science and
+      Business Media LLC\"},\"references\":[{\"key\": \"6873_CR1\", \"unstructured\":
+      \"Centers for Disease Control and Prevention. 2019 AR Threats Report. CDC https://www.cdc.gov/DrugResistance/Biggest-Threats.html
+      (2019).\"}, {\"doi\": \"https://doi.org/10.1126/science.aau4679\", \"key\":
+      \"6873_CR2\", \"volume\": \"364\", \"firstPage\": \"eaau4679\", \"contributor\":
+      \"LSJ Roope\", \"containerTitle\": \"Science\", \"publicationYear\": \"2019\"},
+      {\"doi\": \"https://doi.org/10.1016/s1473-3099(18)30605-4\", \"key\": \"6873_CR3\",
+      \"volume\": \"19\", \"firstPage\": \"56\", \"contributor\": \"A Cassini\", \"containerTitle\":
+      \"Lancet Infect. Dis.\", \"publicationYear\": \"2019\"}, {\"doi\": \"https://doi.org/10.1016/s1473-3099(17)30753-3\",
+      \"key\": \"6873_CR4\", \"volume\": \"18\", \"firstPage\": \"318\", \"contributor\":
+      \"E Tacconelli\", \"containerTitle\": \"Lancet Infect. Dis.\", \"publicationYear\":
+      \"2018\"}, {\"doi\": \"https://doi.org/10.1128/cmr.00058-07\", \"key\": \"6873_CR5\",
+      \"volume\": \"21\", \"firstPage\": \"538\", \"contributor\": \"AY Peleg\", \"containerTitle\":
+      \"Clin. Microbiol. Rev.\", \"publicationYear\": \"2008\"}, {\"doi\": \"https://doi.org/10.1016/j.jhin.2019.09.021\",
+      \"key\": \"6873_CR6\", \"volume\": \"104\", \"firstPage\": \"4\", \"contributor\":
+      \"P Nasr\", \"containerTitle\": \"J. Hosp. Infect.\", \"publicationYear\": \"2019\"},
+      {\"doi\": \"https://doi.org/10.1093/jac/dkp428\", \"key\": \"6873_CR7\", \"volume\":
+      \"65\", \"firstPage\": \"233\", \"contributor\": \"PG Higgins\", \"containerTitle\":
+      \"J. Antimicrob. Chemother.\", \"publicationYear\": \"2010\"}, {\"doi\": \"https://doi.org/10.1093/jac/dkx322\",
+      \"key\": \"6873_CR8\", \"volume\": \"72\", \"firstPage\": \"3277\", \"contributor\":
+      \"J Nowak\", \"containerTitle\": \"J. Antimicrob. Chemother.\", \"publicationYear\":
+      \"2017\"}, {\"key\": \"6873_CR9\", \"volume\": \"75\", \"firstPage\": \"271\",
+      \"contributor\": \"S Karakonstantis\", \"unstructured\": \"Karakonstantis, S.,
+      Kritsotakis, E. I. & Gikas, A. Pandrug-resistant Gram-negative bacteria: a systematic
+      review of current epidemiology, prognosis and treatment options. J. Antimicrob.
+      Chemother. 75, 271\u2013282 (2019).\", \"containerTitle\": \"J. Antimicrob.
+      Chemother.\", \"publicationYear\": \"2019\"}, {\"key\": \"6873_CR10\", \"unstructured\":
+      \"Food and Drug Administration. FDA approves new treatment for pneumonia caused
+      by certain difficult-to-treat bacteria. FDA https://www.fda.gov/news-events/press-announcements/fda-approves-new-treatment-pneumonia-caused-certain-difficult-treat-bacteria
+      (2023).\"}, {\"doi\": \"https://doi.org/10.1093/cid/ciad094\", \"key\": \"6873_CR11\",
+      \"volume\": \"76\", \"firstPage\": \"S179\", \"contributor\": \"RK Shields\",
+      \"containerTitle\": \"Clin. Infect. Dis.\", \"publicationYear\": \"2023\"},
+      {\"doi\": \"https://doi.org/10.1016/j.cmi.2019.03.014\", \"key\": \"6873_CR12\",
+      \"volume\": \"25\", \"firstPage\": \"951\", \"contributor\": \"E-T Piperaki\",
+      \"containerTitle\": \"Clin. Microbiol. Infect.\", \"publicationYear\": \"2019\"},
+      {\"doi\": \"https://doi.org/10.1093/cid/ciab1013\", \"key\": \"6873_CR13\",
+      \"volume\": \"74\", \"firstPage\": \"2089\", \"contributor\": \"PD Tamma\",
+      \"containerTitle\": \"Clin. Infect. Dis.\", \"publicationYear\": \"2021\"},
+      {\"doi\": \"https://doi.org/10.1016/j.cmi.2021.11.025\", \"key\": \"6873_CR14\",
+      \"volume\": \"28\", \"firstPage\": \"521\", \"contributor\": \"M Paul\", \"containerTitle\":
+      \"Clin. Microbiol. Infect.\", \"publicationYear\": \"2021\"}, {\"doi\": \"https://doi.org/10.1016/s1473-3099(18)30099-9\",
+      \"key\": \"6873_CR15\", \"volume\": \"18\", \"firstPage\": \"391\", \"contributor\":
+      \"M Paul\", \"containerTitle\": \"Lancet Infect. Dis.\", \"publicationYear\":
+      \"2018\"}, {\"doi\": \"https://doi.org/10.1016/j.jmii.2019.03.004\", \"key\":
+      \"6873_CR16\", \"volume\": \"52\", \"firstPage\": \"796\", \"contributor\":
+      \"S Chusri\", \"containerTitle\": \"J. Microbiol. Immunol. Infect.\", \"publicationYear\":
+      \"2019\"}, {\"doi\": \"https://doi.org/10.1016/j.ajic.2019.03.003\", \"key\":
+      \"6873_CR17\", \"volume\": \"47\", \"firstPage\": \"1140\", \"contributor\":
+      \"X Du\", \"containerTitle\": \"Am. J. Infect. Control.\", \"publicationYear\":
+      \"2019\"}, {\"doi\": \"https://doi.org/10.1128/aac.00954-17\", \"key\": \"6873_CR18\",
+      \"volume\": \"61\", \"firstPage\": \"e00954-17\", \"contributor\": \"RT Schooley\",
+      \"containerTitle\": \"Antimicrob. Agents Chemother.\", \"publicationYear\":
+      \"2017\"}, {\"doi\": \"https://doi.org/10.1016/s1473-3099(21)00612-5\", \"key\":
+      \"6873_CR19\", \"volume\": \"22\", \"firstPage\": \"e208\", \"contributor\":
+      \"S Uyttebroek\", \"containerTitle\": \"Lancet Infect. Dis.\", \"publicationYear\":
+      \"2022\"}, {\"doi\": \"https://doi.org/10.1016/j.bmcl.2008.06.085\", \"key\":
+      \"6873_CR20\", \"volume\": \"18\", \"firstPage\": \"4731\", \"contributor\":
+      \"E Marsault\", \"containerTitle\": \"Bioorg. Med. Chem. Lett.\", \"publicationYear\":
+      \"2008\"}, {\"doi\": \"https://doi.org/10.1021/jm2007062\", \"key\": \"6873_CR21\",
+      \"volume\": \"54\", \"firstPage\": \"8305\", \"contributor\": \"HR Hoveyda\",
+      \"containerTitle\": \"J. Med. Chem.\", \"publicationYear\": \"2011\"}, {\"doi\":
+      \"https://doi.org/10.1128/jcm.42.11.5102-5108.2004\", \"key\": \"6873_CR22\",
+      \"volume\": \"42\", \"firstPage\": \"5102\", \"contributor\": \"JM Swenson\",
+      \"containerTitle\": \"J. Clin. Microbiol.\", \"publicationYear\": \"2004\"},
+      {\"doi\": \"https://doi.org/10.1038/s41598-019-39387-9\", \"key\": \"6873_CR23\",
+      \"volume\": \"9\", \"contributor\": \"S Zoffmann\", \"containerTitle\": \"Sci.
+      Rep.\", \"publicationYear\": \"2019\"}, {\"doi\": \"https://doi.org/10.1093/cid/ciw353\",
+      \"key\": \"6873_CR24\", \"volume\": \"63\", \"firstPage\": \"e61\", \"contributor\":
+      \"AC Kalil\", \"containerTitle\": \"Clin. Infect. Dis.\", \"publicationYear\":
+      \"2016\"}, {\"doi\": \"https://doi.org/10.1128/mbio.00987-21\", \"key\": \"6873_CR25\",
+      \"volume\": \"12\", \"firstPage\": \"e00987-21\", \"contributor\": \"JE Zlamal\",
+      \"containerTitle\": \"mbio\", \"publicationYear\": \"2021\"}, {\"doi\": \"https://doi.org/10.1126/science.1228984\",
+      \"key\": \"6873_CR26\", \"volume\": \"338\", \"firstPage\": \"1214\", \"contributor\":
+      \"S Okuda\", \"containerTitle\": \"Science\", \"publicationYear\": \"2012\"},
+      {\"doi\": \"https://doi.org/10.1038/s41586-023-06799-7\", \"key\": \"6873_CR27\"},
+      {\"doi\": \"https://doi.org/10.1093/jacamr/dlac047\", \"key\": \"6873_CR28\",
+      \"volume\": \"4\", \"firstPage\": \"dlac047\", \"contributor\": \"CM Gill\",
+      \"containerTitle\": \"JAC Antimicrob. Resist.\", \"publicationYear\": \"2022\"},
+      {\"doi\": \"https://doi.org/10.1128/aac.00103-06\", \"key\": \"6873_CR29\",
+      \"volume\": \"50\", \"firstPage\": \"2946\", \"contributor\": \"J Li\", \"containerTitle\":
+      \"Antimicrob. Agents Chemother.\", \"publicationYear\": \"2006\"}, {\"doi\":
+      \"https://doi.org/10.1093/jac/dkaa370\", \"key\": \"6873_CR30\", \"volume\":
+      \"75\", \"firstPage\": \"3552\", \"contributor\": \"V Trebosc\", \"containerTitle\":
+      \"J. Antimicrob. Chemother.\", \"publicationYear\": \"2020\"}, {\"doi\": \"https://doi.org/10.1128/mbio.00478-15\",
+      \"key\": \"6873_CR31\", \"volume\": \"6\", \"firstPage\": \"e00478-15\", \"contributor\":
+      \"JM Boll\", \"containerTitle\": \"mBio\", \"publicationYear\": \"2015\"}, {\"key\":
+      \"6873_CR32\", \"volume\": \"67\", \"firstPage\": \"1803\", \"contributor\":
+      \"SS Kadri\", \"unstructured\": \"Kadri, S. S. et al. Difficult-to-Treat resistance
+      in Gram-negative bacteremia at 173 US hospitals: retrospective cohort analysis
+      of prevalence, predictors, and outcome of resistance to all first-line agents.
+      Clin. Infect. Dis. 67, 1803\u20131814 (2018).\", \"containerTitle\": \"Clin.
+      Infect. Dis.\", \"publicationYear\": \"2018\"}, {\"doi\": \"https://doi.org/10.1016/j.bcp.2017.01.003\",
+      \"key\": \"6873_CR33\", \"volume\": \"133\", \"firstPage\": \"63\", \"contributor\":
+      \"SB Singh\", \"containerTitle\": \"Biochem. Pharmacol.\", \"publicationYear\":
+      \"2017\"}, {\"key\": \"6873_CR34\", \"unstructured\": \"M07 Methods for Dilution
+      Antimicrobial Susceptibility Tests for Bacteria That Grow Aerobically, 11th
+      Edition (Clinical and Laboratory Standards Institute, 2018).\"}, {\"key\": \"6873_CR35\",
+      \"unstructured\": \"M100 Performance Standards for Antimicrobial Susceptibility
+      Testing, 33rd Edition (Clinical and Laboratory Standards Institute, 2023).\"},
+      {\"doi\": \"https://doi.org/10.1016/j.vascn.2019.106609\", \"key\": \"6873_CR36\",
+      \"volume\": \"99\", \"firstPage\": \"106609\", \"contributor\": \"S Bendels\",
+      \"containerTitle\": \"J. Pharmacol. Toxicol.\", \"publicationYear\": \"2019\"},
+      {\"key\": \"6873_CR37\", \"unstructured\": \"M26 Methods for Determining Bactericidal
+      Activity of Antimicrobial Agents (Clinical and Laboratory Standards Institute,
+      1999).\"}, {\"doi\": \"https://doi.org/10.1093/bioinformatics/btu170\", \"key\":
+      \"6873_CR38\", \"volume\": \"30\", \"firstPage\": \"2114\", \"contributor\":
+      \"AM Bolger\", \"containerTitle\": \"Bioinformatics\", \"publicationYear\":
+      \"2014\"}, {\"doi\": \"https://doi.org/10.1089/cmb.2013.0084\", \"key\": \"6873_CR39\",
+      \"volume\": \"20\", \"firstPage\": \"714\", \"contributor\": \"S Nurk\", \"containerTitle\":
+      \"J. Comput. Biol.\", \"publicationYear\": \"2013\"}, {\"doi\": \"https://doi.org/10.1093/bioinformatics/btu153\",
+      \"key\": \"6873_CR40\", \"volume\": \"30\", \"firstPage\": \"2068\", \"contributor\":
+      \"T Seemann\", \"containerTitle\": \"Bioinformatics\", \"publicationYear\":
+      \"2014\"}, {\"doi\": \"https://doi.org/10.1093/bioinformatics/btq057\", \"key\":
+      \"6873_CR41\", \"volume\": \"26\", \"firstPage\": \"873\", \"contributor\":
+      \"TD Wu\", \"containerTitle\": \"Bioinformatics\", \"publicationYear\": \"2010\"},
+      {\"doi\": \"https://doi.org/10.1093/bioinformatics/btp352\", \"key\": \"6873_CR42\",
+      \"volume\": \"25\", \"firstPage\": \"2078\", \"contributor\": \"H Li\", \"containerTitle\":
+      \"Bioinformatics\", \"publicationYear\": \"2009\"}, {\"doi\": \"https://doi.org/10.48550/arxiv.1207.3907\",
+      \"key\": \"6873_CR43\"}, {\"doi\": \"https://doi.org/10.1093/bioinformatics/btr509\",
+      \"key\": \"6873_CR44\", \"volume\": \"27\", \"firstPage\": \"2987\", \"contributor\":
+      \"H Li\", \"containerTitle\": \"Bioinformatics\", \"publicationYear\": \"2011\"},
+      {\"doi\": \"https://doi.org/10.1101/gr.215087.116\", \"key\": \"6873_CR45\",
+      \"volume\": \"27\", \"firstPage\": \"722\", \"contributor\": \"S Koren\", \"containerTitle\":
+      \"Genome Res.\", \"publicationYear\": \"2017\"}, {\"doi\": \"https://doi.org/10.1093/bioinformatics/bty191\",
+      \"key\": \"6873_CR46\", \"volume\": \"34\", \"firstPage\": \"3094\", \"contributor\":
+      \"H Li\", \"containerTitle\": \"Bioinformatics\", \"publicationYear\": \"2018\"},
+      {\"doi\": \"https://doi.org/10.1101/gr.214270.116\", \"key\": \"6873_CR47\",
+      \"volume\": \"27\", \"firstPage\": \"737\", \"contributor\": \"R Vaser\", \"containerTitle\":
+      \"Genome Res.\", \"publicationYear\": \"2017\"}, {\"doi\": \"https://doi.org/10.1371/journal.pone.0112963\",
+      \"key\": \"6873_CR48\", \"volume\": \"9\", \"firstPage\": \"e112963\", \"contributor\":
+      \"BJ Walker\", \"containerTitle\": \"PLoS ONE\", \"publicationYear\": \"2014\"},
+      {\"doi\": \"https://doi.org/10.1093/nar/gkj014\", \"key\": \"6873_CR49\", \"volume\":
+      \"34\", \"firstPage\": \"D32\", \"contributor\": \"P Siguier\", \"containerTitle\":
+      \"Nucleic Acids Res.\", \"publicationYear\": \"2006\"}, {\"doi\": \"https://doi.org/10.1038/nprot.2013.021\",
+      \"key\": \"6873_CR50\", \"volume\": \"8\", \"firstPage\": \"555\", \"contributor\":
+      \"E Toprak\", \"containerTitle\": \"Nat. Protoc.\", \"publicationYear\": \"2013\"},
+      {\"key\": \"6873_CR51\", \"volume\": \"7\", \"firstPage\": \"000553\", \"contributor\":
+      \"SA Leyn\", \"unstructured\": \"Leyn, S. A. et al. Experimental evolution in
+      morbidostat reveals converging genomic trajectories on the path to triclosan
+      resistance. Microb. Genom. 7, 000553 (2021).\", \"containerTitle\": \"Microb.
+      Genom.\", \"publicationYear\": \"2021\"}, {\"doi\": \"https://doi.org/10.1038/s41586-019-1039-0\",
+      \"key\": \"6873_CR52\", \"volume\": \"567\", \"firstPage\": \"550\", \"contributor\":
+      \"TW Owens\", \"containerTitle\": \"Nature\", \"publicationYear\": \"2019\"},
+      {\"doi\": \"https://doi.org/10.1073/pnas.1804670115\", \"key\": \"6873_CR53\",
+      \"volume\": \"115\", \"firstPage\": \"6834\", \"contributor\": \"G Zhang\",
+      \"containerTitle\": \"Proc. Natl Acad. Sci.\", \"publicationYear\": \"2018\"},
+      {\"doi\": \"https://doi.org/10.1093/nar/gkh881\", \"key\": \"6873_CR54\", \"volume\":
+      \"32\", \"firstPage\": \"5780\", \"contributor\": \"D Metzgar\", \"containerTitle\":
+      \"Nucleic Acids Res.\", \"publicationYear\": \"2004\"}, {\"doi\": \"https://doi.org/10.1038/msb.2008.10\",
+      \"key\": \"6873_CR55\", \"volume\": \"4\", \"firstPage\": \"174\", \"contributor\":
+      \"V de Berardinis\", \"containerTitle\": \"Mol. Syst. Biol.\", \"publicationYear\":
+      \"2008\"}, {\"doi\": \"https://doi.org/10.1128/mbio.01931-19\", \"key\": \"6873_CR56\",
+      \"volume\": \"10\", \"firstPage\": \"e01931-19\", \"contributor\": \"BW Simpson\",
+      \"containerTitle\": \"mBio\", \"publicationYear\": \"2019\"}],\"relations\":[{\"id\":
+      \"https://portal.issn.org/resource/ISSN/1476-4687\", \"type\": \"IsPartOf\"}],\"date\":{\"published\":
+      \"2024-01-03\"},\"descriptions\":[{\"description\": \"AbstractCarbapenem-resistant
+      Acinetobacter baumannii (CRAB) has emerged as a major global pathogen with limited
+      treatment options1. No new antibiotic chemical class with activity against A.
+      baumannii has reached patients in over 50 years1. Here we report the identification
+      and optimization of tethered macrocyclic peptide (MCP) antibiotics with potent
+      antibacterial activity against CRAB. The mechanism of action of this molecule
+      class involves blocking the transport of bacterial lipopolysaccharide from the
+      inner membrane to its destination on the outer membrane, through inhibition
+      of the LptB2FGC complex. A clinical candidate derived from the MCP class, zosurabalpin
+      (RG6006), effectively treats highly drug-resistant contemporary isolates of
+      CRAB both in vitro and in mouse models of infection, overcoming existing antibiotic
+      resistance mechanisms. This chemical class represents a promising treatment
+      paradigm for patients with invasive infections due to CRAB, for whom current
+      treatment options are inadequate, and additionally identifies LptB2FGC as a
+      tractable target for antimicrobial drug development.\", \"descriptionType\":
+      \"Abstract\"}],\"license\":{\"id\": \"CC-BY-4.0\", \"url\": \"https://creativecommons.org/licenses/by/4.0/legalcode\"},\"alternate_identifiers\":[],\"funding_references\":[],\"files\":[{\"url\":
+      \"https://www.nature.com/articles/s41586-023-06873-0.pdf\", \"mimeType\": \"application/pdf\"},
+      {\"url\": \"https://www.nature.com/articles/s41586-023-06873-0\", \"mimeType\":
+      \"text/html\"}, {\"url\": \"https://www.nature.com/articles/s41586-023-06873-0.pdf\",
+      \"mimeType\": \"application/pdf\"}],\"subjects\":[{\"subject\": \"Multidisciplinary\"}],\"provider\":\"Crossref\",\"schema_version\":\"https://commonmeta.org/commonmeta_v0.12\",\"state\":\"findable\",\"geo_locations\":[],\"version\":null,\"language\":\"en\",\"additional_type\":null,\"uuid\":\"8511106c-d1aa-4945-897f-8e384bd38f9c\",\"id\":\"https://doi.org/10.1038/s41586-023-06873-0\",\"archive_locations\":[],\"formats\":[],\"sizes\":[]}]"
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 863310f87f151bdb-FRA
+      Connection:
+      - keep-alive
+      Content-Location:
+      - /works?limit=10,10&offset=0&order=date-%3Epublished.desc&select=%2A
+      Content-Profile:
+      - public
+      Content-Range:
+      - 0-9/825
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 12 Mar 2024 10:22:59 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/2.8.1
+      X-Kong-Proxy-Latency:
+      - '1'
+      X-Kong-Upstream-Latency:
+      - '9'
+      alt-svc:
+      - h3=":443"; ma=86400
+      sb-gateway-version:
+      - '1'
+    http_version: HTTP/1.1
+    status_code: 206
 version: 1
