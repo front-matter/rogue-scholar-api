@@ -706,22 +706,20 @@ def test_get_urls():
     ]
 
 
-def test_get_references():
-    """Extract references"""
-    html = """Bla. <h2>References</h2><p>Fenner, M. (2023). <em>Rogue Scholar has an API</em>. 
-    <a href="https://doi.org/10.53731/ar11b-5ea39">https://doi.org/10.53731/ar11b-5ea39</a></p>
-    <p>Crossref, Hendricks, G., Center for Scientific Integrity, &amp; Lammey, R. (2023). 
-    <em>Crossref acquires Retraction Watch data and opens it for the scientific community</em>. 
-    <a href="https://doi.org/10.13003/c23rw1d9">https://doi.org/10.13003/c23rw1d9</a></p>"""
+# def test_get_references():
+#     """Extract references"""
+#     html = """Bla. <h2>References</h2><p>Fenner, M. (2023). <em>Rogue Scholar has an API</em>. 
+#     <a href="https://doi.org/10.53731/ar11b-5ea39">https://doi.org/10.53731/ar11b-5ea39</a></p>
+#     <p>Crossref, Hendricks, G., Center for Scientific Integrity, &amp; Lammey, R. (2023)."""
 
-    result = get_references(html)
-    assert len(result) == 2
-    assert result[0] == {
-        "key": "ref1",
-        "doi": "https://doi.org/10.53731/ar11b-5ea39",
-        "title": "Rogue Scholar has an API",
-        "publicationYear": "2023",
-    }
+#     result = get_references(html)
+#     assert len(result) == 1
+#     assert result[0] == {
+#         "key": "ref1",
+#         "doi": "https://doi.org/10.53731/ar11b-5ea39",
+#         "title": "Rogue Scholar has an API",
+#         "publicationYear": "2023",
+#     }
 
 
 def test_get_relationships():

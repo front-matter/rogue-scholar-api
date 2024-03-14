@@ -12,7 +12,7 @@ import xmltodict
 import time
 import traceback
 from urllib.parse import unquote
-from commonmeta import validate_doi, normalize_doi, doi_from_url, validate_url
+from commonmeta import validate_doi, normalize_doi, normalize_id, validate_url
 from Levenshtein import ratio
 
 from api.utils import (
@@ -994,12 +994,11 @@ def get_references(content_html: str):
         if not urls or len(urls) == 0:
             return []
 
-        def format_reference(url, index):
+        def format_reference(_id, index):
             """Format reference."""
-            if validate_url(url) == "DOI":
-                doi = normalize_doi(url)
-                work = get_single_work(doi)
-                print(work)
+            _id = normalize_id(_id)
+            if validate_url(_id) in ["DOI", "URL"]:
+                work = get_single_work(_id)
                 if not work:
                     return None
                 title = py_.get(work, "titles.0.title", None)
@@ -1007,23 +1006,14 @@ def get_references(content_html: str):
                 return compact(
                     {
                         "key": f"ref{index + 1}",
-                        "doi": doi,
+                        "doi": _id if validate_doi(_id) else None,
+                        "url": _id if not validate_doi(_id) else None,
                         "title": title,
                         "publicationYear": publication_year[:4]
                         if publication_year
                         else None,
                     }
                 )
-            elif validate_url(url) == "URL":
-                response = httpx.head(url, timeout=10, follow_redirects=True)
-                # check that URL resolves.
-                # TODO: check for redirects
-                if response.status_code in [404]:
-                    return None
-                return {
-                    "key": f"ref{index + 1}",
-                    "url": url,
-                }
             else:
                 return None
 
