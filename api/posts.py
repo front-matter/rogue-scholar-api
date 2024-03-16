@@ -1,4 +1,5 @@
 """Posts module."""
+
 from os import environ
 from typing import Optional
 from furl import furl
@@ -83,7 +84,9 @@ async def update_posts(posts: list):
         return {}
 
 
-async def extract_all_posts_by_blog(slug: str, page: int = 1, offset: Optional[int] = None, update_all: bool = False):
+async def extract_all_posts_by_blog(
+    slug: str, page: int = 1, offset: Optional[int] = None, update_all: bool = False
+):
     """Extract all posts by blog."""
 
     try:
@@ -297,7 +300,9 @@ async def extract_wordpress_post(post, blog):
             and ORCID from name. Ideally this is done in the Wordpress
             user settings."""
 
-            return normalize_author(author.get("name", None), published_at, author.get("url", None))
+            return normalize_author(
+                author.get("name", None), published_at, author.get("url", None)
+            )
 
         published_at = unix_timestamp(post.get("date_gmt", None))
         # use default author for blog if no post author found
@@ -310,7 +315,7 @@ async def extract_wordpress_post(post, blog):
         summary = get_summary(content_html)
         abstract = get_summary(py_.get(post, "excerpt.rendered", ""))
         abstract = get_abstract(summary, abstract)
-        reference = get_references(content_html)
+        reference = await get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("link", None), secure=blog.get("secure", True))
         archive_url = (
@@ -394,16 +399,20 @@ async def extract_wordpresscom_post(post, blog):
             and ORCID from name. Ideally this is done in the Wordpress
             user settings."""
 
-            return normalize_author(author.get("name", None), published_at, author.get("URL", None))
+            return normalize_author(
+                author.get("name", None), published_at, author.get("URL", None)
+            )
 
         published_at = unix_timestamp(post.get("date", None))
-        authors = [format_author(i, published_at) for i in wrap(post.get("author", None))]
+        authors = [
+            format_author(i, published_at) for i in wrap(post.get("author", None))
+        ]
         content_html = post.get("content", "")
         content_text = get_markdown(content_html)
         summary = get_summary(post.get("content", ""))
         abstract = get_summary(post.get("excerpt", None))
         abstract = get_abstract(summary, abstract)
-        reference = get_references(content_html)
+        reference = await get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("URL", None), secure=blog.get("secure", True))
         archive_url = (
@@ -458,7 +467,9 @@ async def extract_ghost_post(post, blog):
             )
 
         published_at = unix_timestamp(post.get("published_at", None))
-        authors = [format_author(i, published_at) for i in wrap(post.get("authors", None))]
+        authors = [
+            format_author(i, published_at) for i in wrap(post.get("authors", None))
+        ]
         content_html = post.get("html", "")
         content_text = get_markdown(content_html)
 
@@ -466,7 +477,7 @@ async def extract_ghost_post(post, blog):
         summary = get_summary(content_html)
         abstract = get_summary(post.get("excerpt", ""))
         abstract = get_abstract(summary, abstract)
-        reference = get_references(content_html)
+        reference = await get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
         archive_url = (
@@ -519,13 +530,16 @@ async def extract_substack_post(post, blog):
             return normalize_author(author.get("name", None), published_at)
 
         published_at = unix_timestamp(post.get("post_date", None))
-        authors = [format_author(i, published_at) for i in wrap(post.get("publishedBylines", None))]
+        authors = [
+            format_author(i, published_at)
+            for i in wrap(post.get("publishedBylines", None))
+        ]
         content_html = post.get("body_html", "")
         content_text = get_markdown(content_html)
         summary = get_summary(post.get("description", None))
         abstract = get_summary(content_html)
         abstract = get_abstract(summary, abstract)
-        reference = get_references(content_html)
+        reference = await get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(
             post.get("canonical_url", None), secure=blog.get("secure", True)
@@ -574,25 +588,29 @@ async def extract_squarespace_post(post, blog):
     """Extract Squarespace post from REST API."""
 
     try:
+
         def format_author(author, published_at):
             """Format author."""
-            
+
             return normalize_author(author.get("displayName", None), published_at)
 
         published_at = int(post.get("publishOn", 1) / 1000)
         updated_at = int(post.get("updatedOn", 1) / 1000)
-        authors = [format_author(i, published_at) for i in wrap(post.get("author", None))]
+        authors = [
+            format_author(i, published_at) for i in wrap(post.get("author", None))
+        ]
         content_html = post.get("body", "")
-        content_text = get_markdown(content_html)        
+        content_text = get_markdown(content_html)
         summary = get_summary(content_html)
         abstract = get_summary(post.get("excerpt", ""))
         if abstract is not None:
             abstract = get_abstract(summary, abstract)
 
-        reference = get_references(content_html)
+        reference = await get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(
-            f'{blog.get("home_page_url", "")}/{post.get("urlId","")}', secure=blog.get("secure", True)
+            f'{blog.get("home_page_url", "")}/{post.get("urlId","")}',
+            secure=blog.get("secure", True),
         )
         archive_url = (
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
@@ -641,7 +659,9 @@ async def extract_json_feed_post(post, blog):
 
         def format_author(author, published_at):
             """Format author."""
-            return normalize_author(author.get("name", None), published_at, author.get("url", None))
+            return normalize_author(
+                author.get("name", None), published_at, author.get("url", None)
+            )
 
         published_at = unix_timestamp(post.get("date_published", None))
 
@@ -654,7 +674,7 @@ async def extract_json_feed_post(post, blog):
         content_text = get_markdown(content_html)
         summary = get_summary(content_html)
         abstract = None
-        reference = get_references(content_html)
+        reference = await get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
         archive_url = (
@@ -707,11 +727,13 @@ async def extract_atom_post(post, blog):
 
         def format_author(author, published_at):
             """Format author."""
-            return normalize_author(author.get("name", None), published_at, author.get("uri", None))
+            return normalize_author(
+                author.get("name", None), published_at, author.get("uri", None)
+            )
 
         published_at = get_date(post.get("published", None))
         published_at = unix_timestamp(published_at)
-        
+
         # use default authors for blog if no post authors found
         authors_ = wrap(post.get("author", None))
         if len(authors_) == 0 or authors_[0].get("name", None) is None:
@@ -726,7 +748,7 @@ async def extract_atom_post(post, blog):
         )
         summary = get_summary(content_html)
         abstract = None
-        reference = get_references(content_html)
+        reference = await get_references(content_html)
         relationships = get_relationships(content_html)
         updated_at = get_date(post.get("updated", None))
 
@@ -804,11 +826,13 @@ async def extract_rss_post(post, blog):
 
         def format_author(author, published_at):
             """Format author."""
-            return normalize_author(author.get("name", None), published_at, author.get("url", None))
+            return normalize_author(
+                author.get("name", None), published_at, author.get("url", None)
+            )
 
         published_at = get_date(post.get("pubDate", None))
         published_at = unix_timestamp(published_at)
-        
+
         # use default author for blog if no post author found
         author = post.get("dc:creator", None) or post.get("author", None)
         if author:
@@ -822,7 +846,7 @@ async def extract_rss_post(post, blog):
         content_text = get_markdown(content_html)
         summary = get_summary(content_html) or ""
         abstract = None
-        reference = get_references(content_html)
+        reference = await get_references(content_html)
         relationships = get_relationships(content_html)
         raw_url = post.get("link", None)
         url = normalize_url(raw_url, secure=blog.get("secure", True))
@@ -971,56 +995,59 @@ def sanitize_html(content_html: str):
     )
 
 
-def get_references(content_html: str):
+async def get_references(content_html: str):
     """Extract references from content_html,
     defined as the text after the tag "References</h2>",
     "References</h3>" or "References</h4>. Store them in works table."""
 
-    try:
-        reference_html = re.split(
-            r"(?:References|Referenzen|Bibliography)<\/(?:h1|h2|h3|h4)>",
-            content_html,
-            maxsplit=2,
-        )
-        if len(reference_html) == 1:
-            return []
-
-        # strip optional text after references, using <hr>, <hr />, <h2, <h3, <h4 as tag
-        reference_html[1] = re.split(
-            r"(?:<hr \/>|<hr>|<h2|<h3|<h4)", reference_html[1], maxsplit=2
-        )[0]
-
-        urls = get_urls(reference_html[1])
-        if not urls or len(urls) == 0:
-            return []
-
-        def format_reference(_id, index):
-            """Format reference."""
-            _id = normalize_id(_id)
-            if validate_url(_id) in ["DOI", "URL"]:
-                work = get_single_work(_id)
-                if not work:
-                    return None
-                title = py_.get(work, "titles.0.title", None)
-                publication_year = py_.get(work, "date.published", None)
-                return compact(
-                    {
-                        "key": f"ref{index + 1}",
-                        "doi": _id if validate_doi(_id) else None,
-                        "url": _id if not validate_doi(_id) else None,
-                        "title": title,
-                        "publicationYear": publication_year[:4]
-                        if publication_year
-                        else None,
-                    }
-                )
-            else:
-                return None
-
-        return py_.compact([format_reference(url, index) for index, url in enumerate(urls)])
-    except Exception as e:
-        print(e)
+    reference_html = re.split(
+        r"(?:References|Referenzen|Bibliography)<\/(?:h1|h2|h3|h4)>",
+        content_html,
+        maxsplit=2,
+    )
+    if len(reference_html) == 1:
         return []
+
+    # strip optional text after references, using <hr>, <hr />, <h2, <h3, <h4 as tag
+    reference_html[1] = re.split(
+        r"(?:<hr \/>|<hr>|<h2|<h3|<h4)", reference_html[1], maxsplit=2
+    )[0]
+
+    urls = get_urls(reference_html[1])
+    if not urls or len(urls) == 0:
+        return []
+
+    tasks = []
+    for index, url in enumerate(urls):
+        task = format_reference(url, index)
+        tasks.append(task)
+
+    formatted_references = py_.compact(await asyncio.gather(*tasks))
+    return formatted_references
+
+
+async def format_reference(_id, index):
+    """Format reference."""
+    _id = normalize_id(_id)
+    if validate_url(_id) in ["DOI", "URL"]:
+        work = await get_single_work(_id)
+        print(work)
+        if not work:
+            return None
+        identifier = py_.get(work, "id", None)
+        title = py_.get(work, "titles.0.title", None)
+        publication_year = py_.get(work, "date.published", None)
+        return compact(
+            {
+                "key": f"ref{index + 1}",
+                "doi": identifier if validate_doi(identifier) else None,
+                "url": identifier if not validate_doi(identifier) else None,
+                "title": title,
+                "publicationYear": publication_year[:4] if publication_year else None,
+            }
+        )
+    else:
+        return None
 
 
 def get_title(content_html: str):

@@ -1,7 +1,6 @@
 from typing import Optional
 import orjson as json
-from quart import jsonify
-from postgrest import APIError
+from postgrest.exceptions import APIError
 from commonmeta import Metadata
 from commonmeta.doi_utils import is_rogue_scholar_doi, doi_from_url
 
@@ -24,7 +23,7 @@ SUPPORTED_ACCEPT_HEADERS = [
 ]
 
 
-def fetch_single_work(string: str) -> Optional[dict]:
+async def fetch_single_work(string: str) -> Optional[dict]:
     """Fetch single work."""
     # use Rogue Scholar API if the work is a Rogue Scholar DOI,
     # as Crossref doesn't store all metadata
@@ -84,7 +83,7 @@ def upsert_single_work(work):
         return None
 
 
-def get_single_work(string: str) -> Optional[dict]:
+async def get_single_work(string: str) -> Optional[dict]:
     """Get single work from the works table, or fetch from the internt."""
     try:
         response = (
@@ -97,12 +96,12 @@ def get_single_work(string: str) -> Optional[dict]:
     except APIError as e:
         # if work not found, fetch from the internet
         if e.code == "204":
-            work = fetch_single_work(string)
+            work = await fetch_single_work(string)
             return upsert_single_work(work)
         print(e)
         return None
 
-    return jsonify(response.data)
+    return response.data
 
 
 def update_single_work(string: str) -> Optional[dict]:
