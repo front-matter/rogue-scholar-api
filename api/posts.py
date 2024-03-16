@@ -1031,7 +1031,6 @@ async def format_reference(_id, index):
     _id = normalize_id(_id)
     if validate_url(_id) in ["DOI", "URL"]:
         work = await get_single_work(_id)
-        print(work)
         if not work:
             return None
         identifier = py_.get(work, "id", None)
