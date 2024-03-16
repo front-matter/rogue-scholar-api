@@ -672,7 +672,7 @@ def convert_to_commonmeta(meta: dict) -> Commonmeta:
                 "mimeType": "application/xml",
             },
         ],
-        "schema_version": "https://commonmeta.org/commonmeta_v0.11",
+        "schema_version": "https://commonmeta.org/commonmeta_v0.12",
     }
 
 
@@ -873,8 +873,8 @@ def format_markdown(content: str, metadata) -> str:
     post = frontmatter.Post(content, **metadata)
     post["date"] = datetime.utcfromtimestamp(metadata.get("date", 0)).isoformat() + "Z"
     post["date_updated"] = (
-        datetime.utcfromtimestamp(metadata.get("date_updated", 0)).isoformat() + "Z"
-    )
+        datetime.utcfromtimestamp(metadata.get("date_updated", 0)).isoformat() + "Z")
+    post["issn"] = py_.get(metadata, "blog.issn")
     post["rights"] = py_.get(metadata, "blog.license")
     post["summary"] = metadata.get("summary", "")
     if post.get("abstract", None) is not None:

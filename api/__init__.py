@@ -126,7 +126,7 @@ async def work(slug: str, suffix: Optional[str] = None):
     """Get work by slug."""
     locale = request.args.get("locale") or "en-US"
     style = request.args.get("style") or "apa"
-    
+
     try:
         if validate_uuid(slug):
             response = (
@@ -404,7 +404,8 @@ async def post_posts():
 @validate_response(Post)
 @app.route("/posts/<slug>")
 @app.route("/posts/<slug>/<suffix>")
-async def post(slug: str, suffix: Optional[str] = None):
+@app.route("/posts/<slug>/<suffix>/<relation>")
+async def post(slug: str, suffix: Optional[str] = None, relation:Optional[str] = None ):
     """Get post by slug."""
     prefixes = [
         "10.13003",
@@ -448,7 +449,28 @@ async def post(slug: str, suffix: Optional[str] = None):
             .execute()
         )
         return jsonify({"total-results": response.count, "items": response.data})
-    elif slug in prefixes and suffix:
+    elif slug in prefixes and suffix and relation:
+        if validate_uuid(slug):
+            response = (
+                supabase.table("posts")
+                .select("reference")
+                .eq("id", slug)
+                .maybe_single()
+                .execute()
+            )
+        else:
+            doi = f"https://doi.org/{slug}/{suffix}"
+            response = (
+                supabase.table("posts")
+                .select("reference")
+                .eq("doi", doi)
+                .maybe_single()
+                .execute()
+            )
+        references = response.data.get("reference", [])
+        count = len(references)
+        return jsonify({"total-results": count, "items": references})
+    elif slug in prefixes and suffix:        
         path = suffix.split(".")
         if len(path) > 1 and path[-1] in [
             "md",
@@ -505,27 +527,13 @@ async def post(slug: str, suffix: Optional[str] = None):
                 "reference:": "references",
                 "tags": "keywords",
                 "updated_at": "date_updated",
+                "blog.issn": "issn",
+                "blog.license": "license"
             },
         )
-        metadata = py_.pick(
+        metadata = py_.omit(
             metadata,
-            [
-                "author",
-                "blog",
-                "container",
-                "date",
-                "date_updated",
-                "image",
-                "identifier",
-                "keywords",
-                "lang",
-                "references",
-                "relationships",
-                "summary",
-                "abstract",
-                "title",
-                "url",
-            ],
+            ["id", "blog_slug", "indexed_at"],
         )
         markdown = format_markdown(content, metadata)
         if format_ == "epub":

@@ -444,7 +444,7 @@ async def test_post_as_ris():
 async def test_post_as_markdown():
     """Test post formatted as markdown."""
     test_client = app.test_client()
-    response = await test_client.get("/posts/10.59350/sfzv4-xdb68.md")
+    response = await test_client.get("/posts/10.53731/ybhah-9jy85.md")
     assert response.status_code == 200
     result = await response.get_data(as_text=True)
     assert result is not None
@@ -454,7 +454,7 @@ async def test_post_as_markdown():
 async def test_post_as_xml():
     """Test post formatted as xml."""
     test_client = app.test_client()
-    response = await test_client.get("/posts/10.59350/sfzv4-xdb68.xml")
+    response = await test_client.get("/posts/10.53731/ybhah-9jy85.xml")
     assert response.status_code == 200
     result = await response.get_data(as_text=True)
     assert result is not None
@@ -464,7 +464,7 @@ async def test_post_as_xml():
 async def test_post_as_epub():
     """Test post formatted as epub."""
     test_client = app.test_client()
-    response = await test_client.get("/posts/10.59350/sfzv4-xdb68.epub")
+    response = await test_client.get("/posts/10.53731/ybhah-9jy85.epub")
     assert response.status_code == 200
     result = await response.get_data()
     assert result is not None
@@ -474,7 +474,7 @@ async def test_post_as_epub():
 async def test_post_as_pdf():
     """Test post formatted as pdf."""
     test_client = app.test_client()
-    response = await test_client.get("/posts/10.59350/sfzv4-xdb68.pdf")
+    response = await test_client.get("/posts/10.53731/ybhah-9jy85.pdf")
     assert response.status_code == 200
     result = await response.get_data()
     assert result is not None
@@ -566,3 +566,21 @@ async def test_post_not_found():
     assert response.status_code == 429
     result = await response.get_json()
     assert result is None  # == {"error": "Post not found"}
+
+
+async def test_post_route_references():
+    """Test post route references."""
+    test_client = app.test_client()
+    response = await test_client.get("/posts/10.53731/r79z0kh-97aq74v-ag5hb/references")
+    assert response.status_code == 200
+    result = await response.get_json()
+    assert (
+        result["total-results"]
+        == 15
+    )
+    assert len(result["items"]) == 15
+    result = result["items"][0]
+    assert result["key"] == "ref1"
+    assert result["doi"] == "https://doi.org/10.48550/arxiv.1501.04916"
+    assert result["title"] == "Exposición Temprana de Nativos Digitales en Ambientes, Metodologías y Técnicas de Investigación en la Universidad"
+    assert result["publicationYear"] == "2015"
