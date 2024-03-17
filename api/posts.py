@@ -337,13 +337,13 @@ async def extract_wordpress_post(post, blog):
                 normalize_tag(i.get("name", None))
                 for i in wrap(py_.get(post, "_embedded.wp:term.0", None))
                 if i.get("id", None) != int(cat)
-                and i.get("name", None) not in EXCLUDED_TAGS
+                and i.get("name", "").split(":")[0] not in EXCLUDED_TAGS
             ]
         else:
             categories = [
                 normalize_tag(i.get("name", None))
                 for i in wrap(py_.get(post, "_embedded.wp:term.0", None))
-                if i.get("name", None) not in EXCLUDED_TAGS
+                if i.get("name", "").split(":")[0] not in EXCLUDED_TAGS
             ]
 
         # optionally remove tag that is used to filter posts
@@ -353,12 +353,12 @@ async def extract_wordpress_post(post, blog):
                 normalize_tag(i.get("name", None))
                 for i in wrap(py_.get(post, "_embedded.wp:term.1", None))
                 if i.get("id", None) != int(tag)
-                and i.get("name", None) not in EXCLUDED_TAGS
+                and i.get("name", "").split(":")[0] not in EXCLUDED_TAGS
             ]
         tags = [
             normalize_tag(i.get("name", None))
             for i in wrap(py_.get(post, "_embedded.wp:term.1", None))
-            if i.get("name", None) not in EXCLUDED_TAGS
+            if i.get("name", "").split(":")[0] not in EXCLUDED_TAGS
         ]
         terms = categories + tags
         terms = py_.uniq(terms)[:5]
@@ -425,7 +425,7 @@ async def extract_wordpresscom_post(post, blog):
         tags = [
             normalize_tag(i)
             for i in post.get("categories", None).keys()
-            if i not in EXCLUDED_TAGS
+            if i.split(":")[0] not in EXCLUDED_TAGS
         ][:5]
 
         return {
@@ -490,7 +490,7 @@ async def extract_ghost_post(post, blog):
         tags = [
             normalize_tag(i.get("name", None))
             for i in post.get("tags", None)
-            if i.get("name", None) not in EXCLUDED_TAGS
+            if i.get("name", "").split(":")[0] not in EXCLUDED_TAGS
         ][:5]
 
         return {
@@ -554,7 +554,7 @@ async def extract_substack_post(post, blog):
         tags = [
             normalize_tag(i.get("name"))
             for i in wrap(post.get("postTags", None))
-            if i.get("name", None) not in EXCLUDED_TAGS
+            if i.get("name", "").split(":")[0] not in EXCLUDED_TAGS
         ][:5]
 
         return {
@@ -622,7 +622,7 @@ async def extract_squarespace_post(post, blog):
         tags = [
             normalize_tag(i)
             for i in wrap(post.get("categories", None))
-            if i not in EXCLUDED_TAGS
+            if i.split(":")[0] not in EXCLUDED_TAGS
         ][:5]
 
         return {
@@ -690,7 +690,7 @@ async def extract_json_feed_post(post, blog):
         tags = [
             normalize_tag(i)
             for i in wrap(post.get("tags", None))
-            if i not in EXCLUDED_TAGS
+            if i.split(":")[0] not in EXCLUDED_TAGS
         ][:5]
 
         return {
@@ -789,7 +789,7 @@ async def extract_atom_post(post, blog):
         tags = [
             normalize_tag(i.get("@term", None))
             for i in wrap(post.get("category", None))
-            if i.get("@term", None) not in EXCLUDED_TAGS
+            if i.get("@term", "").split(":")[0] not in EXCLUDED_TAGS
         ][:5]
 
         return {
@@ -872,7 +872,7 @@ async def extract_rss_post(post, blog):
         tags = [
             normalize_tag(i)
             for i in wrap(post.get("category", None))
-            if i not in EXCLUDED_TAGS
+            if i.split(":")[0] not in EXCLUDED_TAGS
         ][:5]
 
         return {
