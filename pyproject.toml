@@ -12,7 +12,7 @@ readme = "README.md"
 packages = [{include = "api"}]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.12"
 Quart = "^0.19.2"
 tox = "^4.11.3"
 hypercorn = "^0.14.4"
@@ -50,6 +50,7 @@ levenshtein = "^0.24.0"
 quart-cors = "^0.7.0"
 httpx = "^0.25"
 orjson = "^3.9.14"
+weasyprint = "^61.2"
 
 
 [tool.poetry.group.dev.dependencies]

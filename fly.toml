@@ -6,8 +6,8 @@
 app = "rogue-scholar-api"
 primary_region = "ams"
 
-# [build]
-#  builder = "paketobuildpacks/builder:base"
+[build]
+  builder = "paketobuildpacks/builder:base"
 
 [deploy]
   strategy = "rolling"
