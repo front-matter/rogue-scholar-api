@@ -4,7 +4,7 @@ ARG BUILDPLATFORM=linux/amd64
 FROM --platform=$BUILDPLATFORM python:3.12-slim-bookworm AS base
 
 ENV PANDOC_VERSION=3.1.12.3
-ENV POETRY_VERSION=1.7.1
+ENV POETRY_VERSION=1.8.2
 
 # Update installed APT packages
 RUN apt-get update && apt-get upgrade -y && \
@@ -14,12 +14,12 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN pip install --no-cache-dir poetry==${POETRY_VERSION} 
-COPY . /.
 
 # WORKDIR /app
 
 ENV PATH .venv/bin:$PATH
 
+COPY . /.
 RUN poetry install --without dev
 
 EXPOSE 8080
