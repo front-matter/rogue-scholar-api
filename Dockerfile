@@ -35,7 +35,7 @@ ENV VIRTUAL_ENV=/app/.venv \
 COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 
 COPY api ./api
-COPY assets ./assets
+COPY pandoc ./pandoc
 COPY hypercorn.toml ./
 EXPOSE 8080
 
