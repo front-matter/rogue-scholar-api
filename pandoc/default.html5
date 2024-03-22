@@ -49,10 +49,10 @@ $endfor$
   $if(author/allbutlast)$
     $for(author/allbutlast)$
       $if(it.orcid)$
-        <span>${it.name}<a href="${it.orcid}"><img alt="ORCID logo" src="orcid.svg" style="margin-left: 2px; vertical-align: -1px" /></a></span>$else$<span>${it.name}</span>$endif$$sep$, $endfor$
+        <span>${it.name}<a href="${it.orcid}"><img alt="ORCID logo" src="pandoc/orcid.svg" style="margin-left: 2px; vertical-align: -1px" /></a></span>$else$<span>${it.name}</span>$endif$$sep$, $endfor$
     $for(author/last)$
       $if(it.orcid)$
-        and <span>${it.name}<a href="${it.orcid}"><img alt="ORCID logo" src="orcid.svg" style="margin-left: 2px; vertical-align: -1px" /></a></span>
+        and <span>${it.name}<a href="${it.orcid}"><img alt="ORCID logo" src="pandoc/orcid.svg" style="margin-left: 2px; vertical-align: -1px" /></a></span>
       $else$
         and <span>${it.name}</span>
       $endif$
@@ -60,7 +60,7 @@ $endfor$
   $else$
     $for(author)$
       $if(it.orcid)$
-        <span>${it.name}<a href="${it.orcid}"><img alt="ORCID logo" src="orcid.svg" style="margin-left: 2px; vertical-align: -1px" /></a></span>
+        <span>${it.name}<a href="${it.orcid}"><img alt="ORCID logo" src="pandoc/orcid.svg" style="margin-left: 2px; vertical-align: -1px" /></a></span>
       $else$
         <span>${it.name}</span>
       $endif$

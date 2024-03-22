@@ -1,6 +1,7 @@
 """Utility functions"""
 
 from uuid import UUID
+from os import environ
 from typing import Optional, Union
 from babel.dates import format_date
 import iso8601
@@ -821,6 +822,7 @@ def fix_xml(x):
 def get_markdown(content_html: str) -> str:
     """Get markdown from html"""
     try:
+        pandoc.configure(path=environ['QUART_PANDOC_PATH'])
         doc = pandoc.read(content_html, format="html")
         return pandoc.write(doc, format="commonmark_x")
     except Exception as e:
@@ -831,6 +833,7 @@ def get_markdown(content_html: str) -> str:
 def write_epub(markdown: str):
     """Get epub from markdown"""
     try:
+        pandoc.configure(path=environ['QUART_PANDOC_PATH'])
         doc = pandoc.read(markdown, format="commonmark_x")
         return pandoc.write(doc, format="epub")
     except Exception as e:
@@ -841,6 +844,7 @@ def write_epub(markdown: str):
 def write_pdf(markdown: str):
     """Get pdf from markdown"""
     try:
+        pandoc.configure(path=environ['QUART_PANDOC_PATH'])
         doc = pandoc.read(markdown, format="commonmark_x")
         return pandoc.write(
             doc,
@@ -861,6 +865,7 @@ def write_pdf(markdown: str):
 def write_jats(markdown: str):
     """Get jats from markdown"""
     try:
+        pandoc.configure(path=environ['QUART_PANDOC_PATH'])
         doc = pandoc.read(markdown, format="commonmark_x")
         return pandoc.write(doc, format="jats", options=["--standalone"])
     except Exception as e:
