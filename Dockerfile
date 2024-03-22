@@ -3,15 +3,7 @@
 ARG BUILDPLATFORM=linux/amd64
 FROM --platform=$BUILDPLATFORM python:3.12-bookworm as builder
 
-ENV PANDOC_VERSION=3.1.12.3
 ENV POETRY_VERSION=1.8.2
-
-# Update installed APT packages
-RUN apt-get update && apt-get upgrade -y && \
-    apt-get install wget weasyprint -y && \
-    wget -q https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb && \
-    dpkg -i pandoc-${PANDOC_VERSION}-1-amd64.deb && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN pip install poetry==${POETRY_VERSION} 
 
@@ -27,13 +19,22 @@ RUN touch README.md
 RUN --mount=type=cache,target=$POETRY_CACHE_DIR poetry install --without dev --no-root
 
 
-FROM python:3.12-slim-bookworm as runtime
+FROM --platform=$BUILDPLATFORM python:3.12-slim-bookworm as runtime
 
 ENV VIRTUAL_ENV=/app/.venv \
-    PATH="/app/.venv/bin:$PATH"
+    PATH="/app/.venv/bin:$PATH" \
+    PANDOC_VERSION=3.1.12.3
 
 COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 
+# Update installed APT packages
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install wget weasyprint -y && \
+    wget -q https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb && \
+    dpkg -i pandoc-${PANDOC_VERSION}-1-amd64.deb && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+WORKDIR /app
 COPY api ./api
 COPY pandoc ./pandoc
 COPY hypercorn.toml ./
