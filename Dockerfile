@@ -28,8 +28,8 @@ ENV VIRTUAL_ENV=/app/.venv \
 COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 
 # Update installed APT packages
-RUN apt-get update && apt-get upgrade -y && \
-    apt-get install wget weasyprint -y && \
+RUN apt-get update -y && \
+    apt-get install wget weasyprint -y --no-install-recommends && \
     wget -q https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb && \
     dpkg -i pandoc-${PANDOC_VERSION}-1-amd64.deb && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
