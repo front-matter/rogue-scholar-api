@@ -1,29 +1,29 @@
 @font-face {
   font-family: Fira Sans;
   font-weight: 300;
-  src: url("pandoc/FiraSans-Light.otf");
+  src: url("FiraSans-Light.otf");
 }
 @font-face {
   font-family: Fira Sans;
   font-style: italic;
   font-weight: 300;
-  src: url("pandoc/FiraSans-LightItalic.otf");
+  src: url("FiraSans-LightItalic.otf");
 }
 @font-face {
   font-family: Fira Sans;
   font-weight: 500;
-  src: url("pandoc/FiraSans-SemiBold.otf");
+  src: url("FiraSans-SemiBold.otf");
 }
 @font-face {
   font-family: Fira Sans;
   font-style: italic;
   font-weight: 500;
-  src: url("pandoc/FiraSans-SemiBoldItalic.otf");
+  src: url("FiraSans-SemiBoldItalic.otf");
 }
 @font-face {
   font-family: Fira Sans;
   font-weight: 700;
-  src: url("pandoc/FiraSans-Bold.otf");
+  src: url("FiraSans-Bold.otf");
 }
 
 @page {
@@ -31,7 +31,7 @@
     content: string(blog);
     font-size: 12pt;
     font-weight: 700;
-    margin-left: .2cm;
+    margin-left: 0.2cm;
     height: 1.2cm;
     vertical-align: middle;
     width: 30%;
@@ -45,14 +45,22 @@
   }
 }
 @page no-chapter {
-  @top-left { background: none }
-  @top-right { content: none }
+  @top-left {
+    background: none;
+  }
+  @top-right {
+    content: none;
+  }
 }
 @page chapter {
   background: #bfdbfe;
   margin: 0;
-  @top-left { content: none }
-  @top-right { content: none }
+  @top-left {
+    content: none;
+  }
+  @top-right {
+    content: none;
+  }
 }
 
 .header {
@@ -67,6 +75,7 @@ html {
   font-family: Fira Sans;
   font-size: 11pt;
   font-weight: 300;
+  src: url("FiraSans-Light.otf");
   line-height: 1.5;
 }
 
@@ -79,14 +88,17 @@ h1 {
   string-set: heading content();
   margin: 0;
 }
-h2, h3, h4 {
+h2,
+h3,
+h4 {
   color: black;
   font-weight: 500;
   padding-bottom: 0;
   padding-top: 12pt;
   margin: 0;
 }
-h2, .footnote_reference_container_label {
+h2,
+.footnote_reference_container_label {
   margin-bottom: -4pt;
   line-height: 1.15;
   color: #3b82f6;
@@ -126,7 +138,9 @@ h4 {
 }
 #contents h2 {
   font-size: 20pt;
+  font-family: Fira Sans;
   font-weight: 300;
+  src: url("FiraSans-Light.otf");
   margin-bottom: 3cm;
 }
 #contents h3 {
@@ -135,10 +149,10 @@ h4 {
 }
 #contents h3::before {
   background: #bfdbfe;
-  content: '';
+  content: "";
   display: block;
-  height: .08cm;
-  margin-bottom: .25cm;
+  height: 0.08cm;
+  margin-bottom: 0.25cm;
   width: 2cm;
 }
 #contents ul {
@@ -146,13 +160,13 @@ h4 {
   padding-left: 0;
 }
 #contents ul li {
-  border-top: .25pt solid #c1c1c1;
-  margin: .25cm 0;
-  padding-top: .25cm;
+  border-top: 0.25pt solid #c1c1c1;
+  margin: 0.25cm 0;
+  padding-top: 0.25cm;
 }
 #contents ul li::before {
   color: #bfdbfe;
-  content: '• ';
+  content: "• ";
   font-size: 40pt;
   line-height: 16pt;
   vertical-align: bottom;
@@ -191,7 +205,7 @@ h4 {
 #typography section h4 + * {
   flex: 1 75%;
   margin: 0;
-  padding-left: .5cm;
+  padding-left: 0.5cm;
 }
 #typography section p {
   text-align: justify;
@@ -279,7 +293,9 @@ h4 {
 #typography section#figures #old-tabular {
   font-variant-numeric: oldstyle-nums tabular-nums;
 }
-.author, .date, .identifier {
+.author,
+.date,
+.identifier {
   margin: 0;
 }
 .date {
@@ -291,7 +307,8 @@ h4 {
 .rights {
   break-after: always;
 }
-a, .citation a {
+a,
+.citation a {
   text-decoration: none;
   color: #3b82f6;
 }
@@ -316,6 +333,8 @@ blockquote {
   border-left: 3px solid #3b82f6;
   padding-left: 10px;
   font-style: italic;
+  font-family: Fira Sans;
+  src: url("FiraSans-LightItalic.otf");
   font-weight: 300;
 }
 .copyright {
@@ -329,11 +348,12 @@ ol {
   padding: 0 11pt;
   margin: 6pt;
 }
-code, pre {
+code,
+pre {
   @font-face {
     font-family: Fira Mono;
     font-weight: 300;
-    src: url("pandoc/FiraMono-Regular.otf");
+    src: url("FiraMono-Regular.otf");
   }
 }
 code {
@@ -345,15 +365,17 @@ pre {
   margin-top: 6pt;
   white-space: pre;
 }
-sup, sub {
+sup,
+sub {
   vertical-align: baseline;
   position: relative;
   top: -0.4em;
   font-size: 8pt;
 }
-sub { 
-  top: 0.4em; 
+sub {
+  top: 0.4em;
 }
-th, td {
+th,
+td {
   vertical-align: top;
 }
