@@ -35,6 +35,7 @@ ENV VIRTUAL_ENV=/app/.venv \
 COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 
 COPY api ./api
+COPY hypercorn.toml ./
 EXPOSE 8080
 
 CMD ["hypercorn", "-b",  "0.0.0.0:8080", "api:app"]
