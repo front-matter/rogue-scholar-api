@@ -24,7 +24,7 @@ RUN --mount=type=cache,target=$POETRY_CACHE_DIR poetry install --without dev --n
 
 FROM --platform=$BUILDPLATFORM python:3.12-slim-bookworm as runtime
 
-RUN apt-get update -y && \
+RUN --mount=type=cache,target=/var/cache/apt apt-get update -y && \
     apt-get install libpango-1.0-0=1.50.12+ds-1 libpangoft2-1.0-0=1.50.12+ds-1 pango1.0-tools=1.50.12+ds-1 -y --no-install-recommends && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
