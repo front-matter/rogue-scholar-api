@@ -7,7 +7,9 @@ ENV PANDOC_VERSION=3.1.12.3 \
     POETRY_VERSION=1.8.2
 
 ADD https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb /tmp/pandoc-${PANDOC_VERSION}-1-amd64.deb
-RUN dpkg -i /tmp/pandoc-${PANDOC_VERSION}-1-amd64.deb && \
+RUN --mount=type=cache,target=/var/cache/apt apt-get update -y && \
+    apt-get install libpango-1.0-0=1.50.12+ds-1 libpangoft2-1.0-0=1.50.12+ds-1 pango1.0-tools=1.50.12+ds-1 -y --no-install-recommends && \
+    dpkg -i /tmp/pandoc-${PANDOC_VERSION}-1-amd64.deb && \
     pip install --no-cache-dir poetry==${POETRY_VERSION} 
 
 ENV POETRY_NO_INTERACTION=1 \
@@ -19,14 +21,10 @@ WORKDIR /app
 
 COPY pyproject.toml poetry.lock ./
 RUN touch README.md
-RUN --mount=type=cache,target=$POETRY_CACHE_DIR poetry install --without dev --no-root
+RUN --mount=type=cache,target=$POETRY_CACHE_DIR poetry install --without dev --no-root --no-interaction --no-ansi
 
 
 FROM --platform=$BUILDPLATFORM python:3.12-slim-bookworm as runtime
-
-RUN --mount=type=cache,target=/var/cache/apt apt-get update -y && \
-    apt-get install libpango-1.0-0=1.50.12+ds-1 libpangoft2-1.0-0=1.50.12+ds-1 pango1.0-tools=1.50.12+ds-1 -y --no-install-recommends && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV VIRTUAL_ENV=/app/.venv \
     PATH="/app/.venv/bin:$PATH"
