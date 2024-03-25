@@ -856,10 +856,10 @@ def write_pdf(markdown: str):
                 "--template=pandoc/default.html5",
                 "--css=pandoc/style.css",
             ],
-        )
+        ), None
     except Exception as e:
         print(e)
-        return ""
+        return "", e
 
 
 def write_jats(markdown: str):

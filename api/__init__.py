@@ -574,7 +574,9 @@ async def post(slug: str, suffix: Optional[str] = None, relation:Optional[str] =
             markdown["relationships"] = format_relationships(markdown["relationships"])
             markdown = translate_titles(markdown)
             markdown = frontmatter.dumps(markdown)
-            pdf = write_pdf(markdown)
+            pdf, error = write_pdf(markdown)
+            if error is not None:
+                logger.error(error)
             return (
                 pdf,
                 200,
