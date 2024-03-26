@@ -9,7 +9,7 @@ import html
 from lxml import etree
 import pydash as py_
 from dateutil import parser, relativedelta
-from datetime import datetime
+from datetime import datetime, timezone
 from furl import furl
 from langdetect import detect
 from bs4 import BeautifulSoup
@@ -822,7 +822,6 @@ def fix_xml(x):
 def get_markdown(content_html: str) -> str:
     """Get markdown from html"""
     try:
-        pandoc.configure(path=environ['QUART_PANDOC_PATH'])
         doc = pandoc.read(content_html, format="html")
         return pandoc.write(doc, format="commonmark_x")
     except Exception as e:
@@ -833,7 +832,6 @@ def get_markdown(content_html: str) -> str:
 def write_epub(markdown: str):
     """Get epub from markdown"""
     try:
-        pandoc.configure(path=environ['QUART_PANDOC_PATH'])
         doc = pandoc.read(markdown, format="commonmark_x")
         return pandoc.write(doc, format="epub")
     except Exception as e:
@@ -844,7 +842,6 @@ def write_epub(markdown: str):
 def write_pdf(markdown: str):
     """Get pdf from markdown"""
     try:
-        pandoc.configure(path=environ['QUART_PANDOC_PATH'])
         doc = pandoc.read(markdown, format="commonmark_x")
         return pandoc.write(
             doc,
@@ -852,7 +849,7 @@ def write_pdf(markdown: str):
             options=[
                 "--pdf-engine=weasyprint",
                 "--pdf-engine-opt=--pdf-variant=pdf/ua-1",
-                "--data-dir=environ['QUART_PANDOC_DATA_DIR']",
+                f"--data-dir={environ['QUART_PANDOC_DATA_DIR']}",
                 "--template=pandoc/default.html5",
                 "--css=pandoc/style.css",
             ],
@@ -865,7 +862,6 @@ def write_pdf(markdown: str):
 def write_jats(markdown: str):
     """Get jats from markdown"""
     try:
-        pandoc.configure(path=environ['QUART_PANDOC_PATH'])
         doc = pandoc.read(markdown, format="commonmark_x")
         return pandoc.write(doc, format="jats", options=["--standalone"])
     except Exception as e:
@@ -876,9 +872,10 @@ def write_jats(markdown: str):
 def format_markdown(content: str, metadata) -> str:
     """format markdown"""
     post = frontmatter.Post(content, **metadata)
-    post["date"] = datetime.utcfromtimestamp(metadata.get("date", 0)).isoformat() + "Z"
+    post["date"] = datetime.fromtimestamp(metadata.get("date", 0), tz=timezone.utc).isoformat("T", "seconds")
     post["date_updated"] = (
-        datetime.utcfromtimestamp(metadata.get("date_updated", 0)).isoformat() + "Z")
+        datetime.fromtimestamp(metadata.get("date_updated", 0), tz=timezone.utc).isoformat("T", "seconds")
+    )
     post["issn"] = py_.get(metadata, "blog.issn")
     post["rights"] = py_.get(metadata, "blog.license")
     post["summary"] = metadata.get("summary", "")
