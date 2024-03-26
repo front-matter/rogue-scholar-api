@@ -20,6 +20,7 @@ async def test_fetch_single_work_blog_post():
     )
     assert work["language"] == "en"
 
+
 @pytest.mark.asyncio
 async def test_get_single_work_blog_post():
     """get single work not found"""
@@ -32,6 +33,7 @@ async def test_get_single_work_blog_post():
         == "https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter"
     )
 
+
 @pytest.mark.asyncio
 async def test_get_single_work_journal_article():
     """get single work journal article"""
@@ -40,6 +42,7 @@ async def test_get_single_work_journal_article():
     assert work["id"] == "https://doi.org/10.1038/d41586-023-02554-0"
     assert work["type"] == "JournalArticle"
     assert work["url"] == "https://www.nature.com/articles/d41586-023-02554-0"
+
 
 @pytest.mark.asyncio
 async def test_get_single_work_software():

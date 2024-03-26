@@ -407,8 +407,8 @@ def test_format_markdown():
     assert (
         result
         == """---
-date: '1970-01-01T00:00:00Z'
-date_updated: '1970-01-01T00:00:00Z'
+date: '1970-01-01T00:00:00+00:00'
+date_updated: '1970-01-01T00:00:00+00:00'
 issn: null
 rights: null
 summary: ''

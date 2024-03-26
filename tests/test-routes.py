@@ -408,8 +408,7 @@ async def test_post_as_bibtex():
     assert (
         result
         == """@article{10.59350/sfzv4-xdb68,
-    abstract = {Con frecuencia a la editorial llegan textos que terminan siendo muy diferentes a la idea de libro que el autor traía inicialmente. Esto se debe en parte, a que es insuficiente el abordaje de las clasificaciones de textos científicos que se divulga institucionalmente.
-},
+    abstract = {Con frecuencia a la editorial llegan textos que terminan siendo muy diferentes a la idea de libro que el autor traía inicialmente. Esto se debe en parte, a que es insuficiente el abordaje de las clasificaciones de textos científicos que se divulga institucionalmente. Aquí comento brevemente algunos tipos de libros que publicamos en Ediciones Universidad de Camagüey.},
     author = {Fernández, Norbisley},
     copyright = {https://creativecommons.org/licenses/by/4.0/legalcode},
     doi = {10.59350/sfzv4-xdb68},
@@ -574,13 +573,13 @@ async def test_post_route_references():
     response = await test_client.get("/posts/10.53731/r79z0kh-97aq74v-ag5hb/references")
     assert response.status_code == 200
     result = await response.get_json()
-    assert (
-        result["total-results"]
-        == 15
-    )
+    assert result["total-results"] == 15
     assert len(result["items"]) == 15
     result = result["items"][0]
     assert result["key"] == "ref1"
     assert result["doi"] == "https://doi.org/10.48550/arxiv.1501.04916"
-    assert result["title"] == "Exposición Temprana de Nativos Digitales en Ambientes, Metodologías y Técnicas de Investigación en la Universidad"
+    assert (
+        result["title"]
+        == "Exposición Temprana de Nativos Digitales en Ambientes, Metodologías y Técnicas de Investigación en la Universidad"
+    )
     assert result["publicationYear"] == "2015"

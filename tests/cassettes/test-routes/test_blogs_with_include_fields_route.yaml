@@ -5,7 +5,7 @@ interactions:
       Accept:
       - '*/*'
       Accept-Encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       Connection:
       - keep-alive
       User-Agent:
@@ -14,12 +14,14 @@ interactions:
     uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/blogs/documents/search?q=&query_by=slug%2Ctitle%2Cdescription%2Ccategory%2Clanguage%2Cgenerator%2Cprefix%2Cfunding&filter_by=status%3A%21%3D%5Bsubmitted%2Cpending%5D&sort_by=updated_at%3Adesc&per_page=10&page=1&include_fields=slug%2Ctitle
   response:
     body:
-      string: '{"facet_counts":[],"found":80,"hits":[{"document":{"slug":"ropensci","title":"rOpenSci
-        - open tools for open science"},"highlight":{},"highlights":[],"text_match":100,"text_match_info":{"best_field_score":"0","best_field_weight":12,"fields_matched":4,"score":"100","tokens_matched":0}},{"document":{"slug":"lucidarios","title":"Lucidarios"},"highlight":{},"highlights":[],"text_match":100,"text_match_info":{"best_field_score":"0","best_field_weight":12,"fields_matched":4,"score":"100","tokens_matched":0}},{"document":{"slug":"joss","title":"Journal
-        of Open Source Software Blog |"},"highlight":{},"highlights":[],"text_match":100,"text_match_info":{"best_field_score":"0","best_field_weight":12,"fields_matched":4,"score":"100","tokens_matched":0}},{"document":{"slug":"oaberlin","title":"Open
-        Access Blog Berlin"},"highlight":{},"highlights":[],"text_match":100,"text_match_info":{"best_field_score":"0","best_field_weight":12,"fields_matched":4,"score":"100","tokens_matched":0}},{"document":{"slug":"brembs","title":"bjoern.brembs.blog"},"highlight":{},"highlights":[],"text_match":100,"text_match_info":{"best_field_score":"0","best_field_weight":12,"fields_matched":4,"score":"100","tokens_matched":0}},{"document":{"slug":"irights","title":"iRights.info"},"highlight":{},"highlights":[],"text_match":100,"text_match_info":{"best_field_score":"0","best_field_weight":12,"fields_matched":4,"score":"100","tokens_matched":0}},{"document":{"slug":"eve","title":"Martin
-        Paul Eve"},"highlight":{},"highlights":[],"text_match":100,"text_match_info":{"best_field_score":"0","best_field_weight":12,"fields_matched":4,"score":"100","tokens_matched":0}},{"document":{"slug":"front_matter","title":"Front
-        Matter"},"highlight":{},"highlights":[],"text_match":100,"text_match_info":{"best_field_score":"0","best_field_weight":12,"fields_matched":4,"score":"100","tokens_matched":0}},{"document":{"slug":"iphylo","title":"iPhylo"},"highlight":{},"highlights":[],"text_match":100,"text_match_info":{"best_field_score":"0","best_field_weight":12,"fields_matched":4,"score":"100","tokens_matched":0}},{"document":{"slug":"gigablog","title":"GigaBlog"},"highlight":{},"highlights":[],"text_match":100,"text_match_info":{"best_field_score":"0","best_field_weight":12,"fields_matched":4,"score":"100","tokens_matched":0}}],"out_of":84,"page":1,"request_params":{"collection_name":"blogs","per_page":10,"q":""},"search_cutoff":false,"search_time_ms":0}'
+      string: '{"facet_counts":[],"found":87,"hits":[{"document":{"slug":"researchgraph","title":"Stories
+        by Research Graph on Medium"},"highlight":{},"highlights":[],"text_match":100,"text_match_info":{"best_field_score":"0","best_field_weight":12,"fields_matched":4,"score":"100","tokens_matched":0}},{"document":{"slug":"cwagen","title":"Corin
+        Wagen"},"highlight":{},"highlights":[],"text_match":100,"text_match_info":{"best_field_score":"0","best_field_weight":12,"fields_matched":4,"score":"100","tokens_matched":0}},{"document":{"slug":"markrubin","title":"Critical
+        Metascience"},"highlight":{},"highlights":[],"text_match":100,"text_match_info":{"best_field_score":"0","best_field_weight":12,"fields_matched":4,"score":"100","tokens_matched":0}},{"document":{"slug":"musings","title":"Aaron
+        Tay''s Musings about librarianship"},"highlight":{},"highlights":[],"text_match":100,"text_match_info":{"best_field_score":"0","best_field_weight":12,"fields_matched":4,"score":"100","tokens_matched":0}},{"document":{"slug":"ideas","title":"I.D.E.A.S."},"highlight":{},"highlights":[],"text_match":100,"text_match_info":{"best_field_score":"0","best_field_weight":12,"fields_matched":4,"score":"100","tokens_matched":0}},{"document":{"slug":"brembs","title":"bjoern.brembs.blog"},"highlight":{},"highlights":[],"text_match":100,"text_match_info":{"best_field_score":"0","best_field_weight":12,"fields_matched":4,"score":"100","tokens_matched":0}},{"document":{"slug":"rzepa","title":"Henry
+        Rzepa''s Blog"},"highlight":{},"highlights":[],"text_match":100,"text_match_info":{"best_field_score":"0","best_field_weight":12,"fields_matched":4,"score":"100","tokens_matched":0}},{"document":{"slug":"oabrandenburg","title":"Open
+        Access Brandenburg"},"highlight":{},"highlights":[],"text_match":100,"text_match_info":{"best_field_score":"0","best_field_weight":12,"fields_matched":4,"score":"100","tokens_matched":0}},{"document":{"slug":"elephantinthelab","title":"Elephant
+        in the Lab"},"highlight":{},"highlights":[],"text_match":100,"text_match_info":{"best_field_score":"0","best_field_weight":12,"fields_matched":4,"score":"100","tokens_matched":0}},{"document":{"slug":"lucidarios","title":"Lucidarios"},"highlight":{},"highlights":[],"text_match":100,"text_match_info":{"best_field_score":"0","best_field_weight":12,"fields_matched":4,"score":"100","tokens_matched":0}}],"out_of":90,"page":1,"request_params":{"collection_name":"blogs","per_page":10,"q":""},"search_cutoff":false,"search_time_ms":0}'
     headers:
       Connection:
       - keep-alive

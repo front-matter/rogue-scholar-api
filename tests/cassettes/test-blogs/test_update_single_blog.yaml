@@ -5,7 +5,7 @@ interactions:
       accept:
       - '*/*'
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       accept-profile:
       - public
       connection:
@@ -21,32 +21,30 @@ interactions:
       user-agent:
       - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.5
+      - supabase-py/2.4.0
     method: GET
     uri: https://db.rogue-scholar.org/rest/v1/posts?select=updated_at&blog_slug=eq.epub_fis&order=updated_at.desc&limit=1
   response:
-    content: '[{"updated_at":1706534803}]'
+    content: '[{"updated_at":1710745399}]'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 85a0971eba5f1635-DUS
+      - 86aa65c8098acb2b-DUS
       Connection:
       - keep-alive
       Content-Encoding:
-      - gzip
+      - br
       Content-Location:
       - /posts?blog_slug=eq.epub_fis&limit=1&order=updated_at.desc&select=updated_at
-      Content-Profile:
-      - public
       Content-Range:
       - 0-0/*
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 23 Feb 2024 15:44:28 GMT
+      - Tue, 26 Mar 2024 21:57:39 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -57,21 +55,23 @@ interactions:
       - Accept-Encoding
       Via:
       - kong/2.8.1
-      X-Kong-Proxy-Latency:
-      - '1'
-      X-Kong-Upstream-Latency:
-      - '13'
       alt-svc:
       - h3=":443"; ma=86400
+      content-profile:
+      - public
       sb-gateway-version:
       - '1'
+      x-kong-proxy-latency:
+      - '1'
+      x-kong-upstream-latency:
+      - '20'
     http_version: HTTP/1.1
     status_code: 200
 - request:
     body: '{"title": "FIS & EPub", "description": "Gemeinsamer Blog der DINI AG Forschungsinformationssystem
       und Elektronisches Publizieren", "feed_url": "https://blog.dini.de/EPub_FIS/feed/atom/",
       "current_feed_url": null, "home_page_url": "https://blog.dini.de/EPub_FIS",
-      "feed_format": "application/atom+xml", "updated_at": 1706534803, "language":
+      "feed_format": "application/atom+xml", "updated_at": 1710745399, "language":
       "de", "category": "socialSciences", "favicon": "https://blog.dini.de/EPub_FIS/wp-content/uploads/2018/03/cropped-DINI-AG-FIS-3-1-150x150.png",
       "license": "https://creativecommons.org/licenses/by/4.0/legalcode", "generator":
       "WordPress 6.3.2", "generator_raw": null, "status": "active", "user_id": "a9e3541e-1e00-4bf3-8a4d-fc9b1c505651",
@@ -80,7 +80,7 @@ interactions:
       accept:
       - '*/*'
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       accept-profile:
       - public
       connection:
@@ -98,32 +98,30 @@ interactions:
       user-agent:
       - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.5
+      - supabase-py/2.4.0
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/blogs?slug=eq.epub_fis
   response:
     content: '[{"title":"FIS & EPub","description":"Gemeinsamer Blog der DINI AG Forschungsinformationssystem
       und Elektronisches Publizieren","language":"de","favicon":"https://blog.dini.de/EPub_FIS/wp-content/uploads/2018/03/cropped-DINI-AG-FIS-3-1-150x150.png","feed_url":"https://blog.dini.de/EPub_FIS/feed/atom/","home_page_url":"https://blog.dini.de/EPub_FIS","user_id":"a9e3541e-1e00-4bf3-8a4d-fc9b1c505651","feed_format":"application/atom+xml","license":"https://creativecommons.org/licenses/by/4.0/legalcode","generator":"WordPress
-      6.3.2","category":"socialSciences","prefix":null,"current_feed_url":null,"status":"active","issn":"2940-1798","backlog":0,"authors":null,"plan":"Team","slug":"epub_fis","use_mastodon":false,"api":true,"funding":null,"archive_prefix":"https://wayback.archive-it.org/22121/20231105105752/","use_api":true,"relative_url":null,"canonical_url":null,"filter":null,"updated_at":1706534803,"secure":null,"created_at":1689897600,"indexed":null,"generator_raw":null,"id":"2e00349e-defb-4459-9653-f284f516ac20","ror":null,"mastodon":null}]'
+      6.3.2","category":"socialSciences","prefix":null,"current_feed_url":null,"status":"active","issn":"2940-1798","authors":null,"plan":"Team","slug":"epub_fis","use_mastodon":false,"funding":null,"archive_prefix":"https://wayback.archive-it.org/22121/20231105105752/","use_api":true,"relative_url":null,"canonical_url":null,"filter":null,"updated_at":1710745399,"secure":null,"created_at":1689897600,"indexed":null,"generator_raw":null,"id":"2e00349e-defb-4459-9653-f284f516ac20","ror":null,"mastodon":null}]'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 85a0971f3a52cb09-DUS
+      - 86aa65c9a895162b-DUS
       Connection:
       - keep-alive
       Content-Encoding:
-      - gzip
-      Content-Profile:
-      - public
+      - br
       Content-Range:
       - 0-0/*
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 23 Feb 2024 15:44:28 GMT
+      - Tue, 26 Mar 2024 21:57:39 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -134,14 +132,16 @@ interactions:
       - Accept-Encoding
       Via:
       - kong/2.8.1
-      X-Kong-Proxy-Latency:
-      - '0'
-      X-Kong-Upstream-Latency:
-      - '3'
       alt-svc:
       - h3=":443"; ma=86400
+      content-profile:
+      - public
       sb-gateway-version:
       - '1'
+      x-kong-proxy-latency:
+      - '0'
+      x-kong-upstream-latency:
+      - '5'
     http_version: HTTP/1.1
     status_code: 200
 version: 1

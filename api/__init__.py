@@ -405,7 +405,7 @@ async def post_posts():
 @app.route("/posts/<slug>")
 @app.route("/posts/<slug>/<suffix>")
 @app.route("/posts/<slug>/<suffix>/<relation>")
-async def post(slug: str, suffix: Optional[str] = None, relation:Optional[str] = None ):
+async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] = None):
     """Get post by slug."""
     prefixes = [
         "10.13003",
@@ -470,7 +470,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation:Optional[str] =
         references = response.data.get("reference", [])
         count = len(references)
         return jsonify({"total-results": count, "items": references})
-    elif slug in prefixes and suffix:        
+    elif slug in prefixes and suffix:
         path = suffix.split(".")
         if len(path) > 1 and path[-1] in [
             "md",
@@ -528,7 +528,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation:Optional[str] =
                 "tags": "keywords",
                 "updated_at": "date_updated",
                 "blog.issn": "issn",
-                "blog.license": "license"
+                "blog.license": "license",
             },
         )
         metadata = py_.omit(

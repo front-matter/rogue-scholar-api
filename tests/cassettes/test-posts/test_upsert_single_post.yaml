@@ -198,7 +198,7 @@ interactions:
       accept:
       - '*/*'
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       accept-profile:
       - public
       connection:
@@ -216,7 +216,7 @@ interactions:
       user-agent:
       - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.5
+      - supabase-py/2.4.0
     method: POST
     uri: https://db.rogue-scholar.org/rest/v1/posts?on_conflict=guid
   response:
@@ -230,7 +230,7 @@ interactions:
       Notes\",\"Multilingual\"],\"language\":\"en\",\"authors\":[{\"url\": \"https://orcid.org/0000-0002-2815-0399\",
       \"name\": \"Ma\xEBlle Salmon\"}, {\"url\": \"https://orcid.org/0000-0002-4522-7466\",
       \"name\": \"Yanina Bellini Saibene\"}],\"doi\":\"https://doi.org/10.59350/evaf9-2qf48\",\"id\":\"78af77d1-72ba-4d9d-92aa-9dc258bbf00a\",\"reference\":[],\"updated_at\":1695713432,\"published_at\":1695686400,\"blog_name\":\"rOpenSci
-      - open tools for open science\",\"indexed_at\":1698122182,\"indexed\":true,\"images\":[{\"alt\":
+      - open tools for open science\",\"indexed_at\":1709297857,\"indexed\":true,\"images\":[{\"alt\":
       \"Diagram with on the left the leaf folder in the new-post branch with the post
       in Spanish with the text 'Hola' and an image; on the right the leaf folder in
       the new-post branch with the post in Spanish with the text 'hola', the post
@@ -425,19 +425,15 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 85a09c49cf627812-DUS
+      - 86aa6af9491dcb15-DUS
       Connection:
       - keep-alive
-      Content-Profile:
-      - public
       Content-Range:
       - '*/*'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 23 Feb 2024 15:47:59 GMT
-      Preference-Applied:
-      - resolution=merge-duplicates
+      - Tue, 26 Mar 2024 22:01:11 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -448,14 +444,18 @@ interactions:
       - Accept-Encoding
       Via:
       - kong/2.8.1
-      X-Kong-Proxy-Latency:
-      - '1'
-      X-Kong-Upstream-Latency:
-      - '4'
       alt-svc:
       - h3=":443"; ma=86400
+      content-profile:
+      - public
+      preference-applied:
+      - resolution=merge-duplicates
       sb-gateway-version:
       - '1'
+      x-kong-proxy-latency:
+      - '1'
+      x-kong-upstream-latency:
+      - '4'
     http_version: HTTP/1.1
     status_code: 201
 - request:
@@ -464,7 +464,7 @@ interactions:
       accept:
       - '*/*'
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       accept-profile:
       - public
       connection:
@@ -482,7 +482,7 @@ interactions:
       user-agent:
       - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.5
+      - supabase-py/2.4.0
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/posts?id=eq.78af77d1-72ba-4d9d-92aa-9dc258bbf00a
   response:
@@ -496,7 +496,7 @@ interactions:
       Notes\",\"Multilingual\"],\"language\":\"en\",\"authors\":[{\"url\": \"https://orcid.org/0000-0002-2815-0399\",
       \"name\": \"Ma\xEBlle Salmon\"}, {\"url\": \"https://orcid.org/0000-0002-4522-7466\",
       \"name\": \"Yanina Bellini Saibene\"}],\"doi\":\"https://doi.org/10.59350/evaf9-2qf48\",\"id\":\"78af77d1-72ba-4d9d-92aa-9dc258bbf00a\",\"reference\":[],\"updated_at\":1695713432,\"published_at\":1695686400,\"blog_name\":\"rOpenSci
-      - open tools for open science\",\"indexed_at\":1698122182,\"indexed\":true,\"images\":[{\"alt\":
+      - open tools for open science\",\"indexed_at\":1709297857,\"indexed\":true,\"images\":[{\"alt\":
       \"Diagram with on the left the leaf folder in the new-post branch with the post
       in Spanish with the text 'Hola' and an image; on the right the leaf folder in
       the new-post branch with the post in Spanish with the text 'hola', the post
@@ -691,19 +691,17 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 85a09c4a1fc27812-DUS
+      - 86aa6af9d9b8cb15-DUS
       Connection:
       - keep-alive
       Content-Encoding:
-      - gzip
-      Content-Profile:
-      - public
+      - br
       Content-Range:
       - 0-0/*
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 23 Feb 2024 15:47:59 GMT
+      - Tue, 26 Mar 2024 22:01:12 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -714,14 +712,16 @@ interactions:
       - Accept-Encoding
       Via:
       - kong/2.8.1
-      X-Kong-Proxy-Latency:
-      - '1'
-      X-Kong-Upstream-Latency:
-      - '3'
       alt-svc:
       - h3=":443"; ma=86400
+      content-profile:
+      - public
       sb-gateway-version:
       - '1'
+      x-kong-proxy-latency:
+      - '1'
+      x-kong-upstream-latency:
+      - '5'
     http_version: HTTP/1.1
     status_code: 200
 version: 1

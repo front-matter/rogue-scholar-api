@@ -13,7 +13,7 @@ import xmltodict
 import time
 import traceback
 from urllib.parse import unquote
-from commonmeta import validate_doi, normalize_doi, normalize_id, validate_url
+from commonmeta import validate_doi, normalize_id, validate_url
 from Levenshtein import ratio
 
 from api.utils import (
@@ -326,9 +326,7 @@ async def extract_wordpress_post(post, blog):
             py_.get(post, "_embedded.wp:featuredmedia[0].source_url", None)
             or py_.get(post, "yoast_head_json.og_image[0].url", None)
             or post.get("jetpack_featured_media_url", None)
-        )
-        if not image and len(images) > 0 and int(images[0].get("width", 200)) >= 200:
-            image = images[0].get("src", None)
+        ) or get_image(images)
 
         # optionally remove category that is used to filter posts
         if blog.get("filter", None) and blog.get("filter", "").startswith("category"):
@@ -419,9 +417,7 @@ async def extract_wordpresscom_post(post, blog):
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         )
         images = get_images(content_html, url, blog.get("home_page_url", None))
-        image = None
-        if len(images) > 0 and int(images[0].get("width", 200)) >= 200:
-            image = images[0].get("src", None)
+        image = get_image(images)
         tags = [
             normalize_tag(i)
             for i in post.get("categories", None).keys()
@@ -484,9 +480,7 @@ async def extract_ghost_post(post, blog):
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         )
         images = get_images(content_html, url, blog.get("home_page_url", None))
-        image = post.get("feature_image", None)
-        if not image and len(images) > 0 and int(images[0].get("width", 200)) >= 200:
-            image = images[0].get("src", None)
+        image = post.get("feature_image", None) or get_image(images)
         tags = [
             normalize_tag(i.get("name", None))
             for i in post.get("tags", None)
@@ -548,9 +542,7 @@ async def extract_substack_post(post, blog):
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         )
         images = get_images(content_html, url, blog.get("home_page_url", None))
-        image = post.get("cover_image", None)
-        if not image and len(images) > 0 and int(images[0].get("width", 200)) >= 200:
-            image = images[0].get("src", None)
+        image = post.get("cover_image", None) or get_image(images)
         tags = [
             normalize_tag(i.get("name"))
             for i in wrap(post.get("postTags", None))
@@ -616,9 +608,7 @@ async def extract_squarespace_post(post, blog):
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         )
         images = get_images(content_html, url, blog.get("home_page_url", None))
-        image = post.get("assetUrl", None)
-        if not image and len(images) > 0 and int(images[0].get("width", 200)) >= 200:
-            image = images[0].get("src", None)
+        image = post.get("assetUrl", None) or get_image(images)
         tags = [
             normalize_tag(i)
             for i in wrap(post.get("categories", None))
@@ -684,9 +674,7 @@ async def extract_json_feed_post(post, blog):
         if blog.get("relative_url", None) == "blog":
             base_url = blog.get("home_page_url", None)
         images = get_images(content_html, base_url, blog.get("home_page_url", None))
-        image = py_.get(post, "media:thumbnail.@url", None)
-        if not image and len(images) > 0 and int(images[0].get("width", 200)) >= 200:
-            image = images[0].get("src", None)
+        image = py_.get(post, "media:thumbnail.@url", None) or get_image(images)
         tags = [
             normalize_tag(i)
             for i in wrap(post.get("tags", None))
@@ -776,7 +764,7 @@ async def extract_atom_post(post, blog):
         if blog.get("relative_url", None) == "blog":
             base_url = blog.get("home_page_url", None)
         images = get_images(content_html, base_url, blog.get("home_page_url", None))
-        image = py_.get(post, "media:thumbnail.@url", None)
+        image = py_.get(post, "media:thumbnail.@url", None) or get_image(images)
         # workaround for eve blog
         if image is not None:
             f = furl(image)
@@ -784,8 +772,6 @@ async def extract_atom_post(post, blog):
                 image = unquote(image)
                 if f.path.segments[0] != "images":
                     image = f.set(path="/images/" + f.path.segments[0]).url
-        if not image and len(images) > 0 and int(images[0].get("width", 200)) >= 200:
-            image = images[0].get("src", None)
         tags = [
             normalize_tag(i.get("@term", None))
             for i in wrap(post.get("category", None))
@@ -1063,6 +1049,23 @@ def get_title(content_html: str):
         content_html, tags={"b", "i", "em", "strong", "sub", "sup"}, attributes={}
     )
     return sanitized
+
+
+def get_image(images: list, width: int = 200):
+    """Get first image with width >= 200."""
+    if not images or len(images) == 0:
+        return None
+    try:
+        return next(
+            (
+                image.get("src", None)
+                for image in images
+                if int(image.get("width", 200)) >= width
+            ),
+            None,
+        )
+    except ValueError:
+        return None
 
 
 def get_summary(content_html: str = None, maxlen: int = 450):

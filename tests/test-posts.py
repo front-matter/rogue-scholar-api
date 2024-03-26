@@ -10,6 +10,7 @@ from api.posts import (
     get_relationships,
     # get_title,
     get_summary,
+    get_image,
 )
 
 
@@ -23,9 +24,9 @@ def vcr_config():
 async def test_extract_all_posts():
     """Extract all posts"""
     result = await extract_all_posts()
-    assert len(result) == 0
-    # post = result[0]
-    # assert post["title"] is not None
+    assert len(result) > 0
+    post = result[0]
+    assert post["title"] is not None
 
 
 @pytest.mark.vcr
@@ -58,19 +59,10 @@ async def test_extract_posts_by_blog_wordpresscom():
     post = result[0]
     assert (
         post["title"]
-        == "DOIs für Wissenschaftsblogs? – Ein Interview mit Martin Fenner zu Rogue Scholar"
+        == "Einblick ins Geschäft des Ghostwriting"
     )
-    assert post["authors"][0] == {
-        "name": "Heinz Pampel",
-        "url": "https://orcid.org/0000-0003-3334-2771",
-    }
-    assert post["tags"] == [
-        "Langzeitarchivierung",
-        "Open Science",
-        "Publikationsverhalten",
-        "Web 2.0",
-        "Wissenschaftskommunikation",
-    ]
+    assert post["authors"][0] == {'url': 'https://orcid.org/0000-0002-7265-1692', 'name': 'Christian Gutknecht', 'affiliation': []}
+    assert post["tags"] == ['Publikationsverhalten', 'Universitäten']
     assert post["language"] == "de"
 
 
@@ -90,7 +82,7 @@ async def test_extract_posts_by_blog_ghost():
     result = await extract_all_posts_by_blog(slug, page=3, update_all=True)
     assert len(result) == 50
     post = result[0]
-    assert post["title"] == "Introducing DataCite JSON"
+    assert post["title"] == "Exposing DOI metadata provenance"
     assert post["authors"][0] == {
         "name": "Martin Fenner",
         "url": "https://orcid.org/0000-0003-1419-2405",
@@ -144,7 +136,7 @@ async def test_extract_posts_by_blog_substack():
     result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
     assert len(result) == 50
     post = result[0]
-    assert post["title"] == "Physical Organic Chemistry: Alive or Dead?"
+    assert post["title"] == "The SolidWorks Model of Simulation"
     assert post["authors"][0] == {
         "name": "Corin Wagen",
         "url": "https://orcid.org/0000-0003-3315-3524",
@@ -164,10 +156,9 @@ async def test_extract_posts_by_blog_squarespace():
     assert post["authors"][0] == {
         "url": "https://orcid.org/0000-0003-3585-6733",
         "name": "Ted Habermann",
-        "affiliation": {
-            "id": "https://ror.org/05bp8ka05",
-            "name": "Metadata Game Changers",
-        },
+        "affiliation": [
+            {"id": "https://ror.org/05bp8ka05", "name": "Metadata Game Changers"}
+        ],
     }
     assert post["tags"] == []
     assert post["language"] == "en"
@@ -181,11 +172,14 @@ async def test_extract_posts_by_blog_json_feed():
     result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
     assert len(result) == 50
     post = result[0]
-    assert post["title"] == "rOpenSci News Digest, February 2024"
-    assert post["authors"][0] == {"name": "The rOpenSci Team"}
-    assert post["url"] == "https://ropensci.org/blog/2024/02/23/news-february-2024"
+    assert post["title"] == "rOpenSci Champions Pilot Year: Projects Wrap-Up"
+    assert post["authors"][0] == {
+        "url": "https://orcid.org/0000-0002-4522-7466",
+        "name": "Yanina Bellini Saibene",
+    }
+    assert post["url"] == "https://ropensci.org/blog/2024/03/20/champions-program-projects-cohort1"
     assert len(post["reference"]) == 0
-    assert post["tags"] == ["Newsletter"]
+    assert post["tags"] == ['Community', 'Champions Program']
 
 
 @pytest.mark.vcr
@@ -205,13 +199,10 @@ async def test_extract_posts_by_blog_json_feed_with_pagination():
     result = await extract_all_posts_by_blog(slug, page=2, update_all=True)
     assert len(result) == 50
     post = result[0]
-    assert (
-        post["title"]
-        == "rOpenSci Champions Program Teams: Meet Marcos Prunello and Lukas Wallrich"
-    )
+    assert post["title"] == "rOpenSci Champions Program Teams: Meet César and Marc"
     assert (
         post["url"]
-        == "https://ropensci.org/blog/2023/04/18/ropensci-champions-program-teams-meet-marcos-prunello-and-lukas-wallrich"
+        == "https://ropensci.org/blog/2023/05/18/ropensci-champions-program-teams-meet-c%C3%A9sar-and-marc"
     )
     assert post["tags"] == ["Community", "Champions Program"]
 
@@ -225,11 +216,12 @@ async def test_extract_posts_by_blog_organizational_author():
     assert len(result) == 50
     post = result[0]
     assert (
-        post["title"] == "The UNESCO Open Science Outlook: OS progresses, but unequally"
+        post["title"]
+        == "Global reach, local insights: Using book ISBNs to map publishing behaviour"
     )
     assert post["authors"][0] == {
-        "name": "Ismael Rafols",
-        "url": "https://orcid.org/0000-0002-6527-7778",
+        "name": "Eleonora Dagiene",
+        "url": "https://orcid.org/0000-0003-0043-3837",
     }
 
 
@@ -245,6 +237,9 @@ async def test_extract_posts_by_blog_blogger():
     assert post["authors"][0] == {
         "name": "Roderic Page",
         "url": "https://orcid.org/0000-0002-7101-9767",
+        "affiliation": [
+            {"id": "https://ror.org/00vtgdb53", "name": "University of Glasgow"}
+        ],
     }
     assert (
         post["url"]
@@ -266,6 +261,12 @@ async def test_extract_posts_by_blog_atom():
     assert post["authors"][0] == {
         "name": "Martin Paul Eve",
         "url": "https://orcid.org/0000-0002-5589-8511",
+        "affiliation": [
+            {
+                "id": "https://ror.org/02mb95055",
+                "name": "Birkbeck, University of London",
+            }
+        ],
     }
     assert (
         post["url"]
@@ -744,6 +745,23 @@ def test_get_relationships_funding():
     result = get_relationships(html)
     assert len(result) == 1
     assert result[0] == {"type": "HasAward", "urls": ["https://doi.org/10.3030/654039"]}
+
+
+def test_get_image():
+    """Extract image"""
+    images = [
+        {
+            "src": "https://static.businessinsider.com/image/555a17839d8e441f018b4581/image.gif",
+            "width": "299",
+            "height": "218",
+        }
+    ]
+    result = get_image(images)
+    assert (
+        result
+        == "https://static.businessinsider.com/image/555a17839d8e441f018b4581/image.gif"
+    )
+    assert None == get_image([])
 
 
 # def test_get_title():
