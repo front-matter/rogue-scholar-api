@@ -5,7 +5,7 @@ interactions:
       accept:
       - '*/*'
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       host:
@@ -17,7 +17,7 @@ interactions:
   response:
     content: "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\"
       xml:lang=\"en\"><head>\n\n<meta charset=\"utf-8\">\n<meta name=\"generator\"
-      content=\"quarto-1.4.529\">\n\n<meta name=\"viewport\" content=\"width=device-width,
+      content=\"quarto-1.4.551\">\n\n<meta name=\"viewport\" content=\"width=device-width,
       initial-scale=1.0, user-scalable=yes\">\n\n<meta name=\"author\" content=\"Andrew
       Heiss\">\n\n<title>Andrew Heiss</title>\n<style>\ncode{white-space: pre-wrap;}\nspan.smallcaps{font-variant:
       small-caps;}\ndiv.columns{display: flex; gap: min(4vw, 1.5em);}\ndiv.column{flex:
@@ -182,21 +182,31 @@ interactions:
       \       button.removeAttribute(\"data-bs-placement\");\n      }\n      button.setAttribute(\"title\",
       currentTitle);\n      button.classList.remove('code-copy-button-checked');\n
       \   }, 1000);\n    // clear code selection\n    e.clearSelection();\n  });\n
-      \ function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {\n    const
-      config = {\n      allowHTML: true,\n      maxWidth: 500,\n      delay: 100,\n
-      \     arrow: false,\n      appendTo: function(el) {\n          return el.parentElement;\n
-      \     },\n      interactive: true,\n      interactiveBorder: 10,\n      theme:
-      'quarto',\n      placement: 'bottom-start',\n    };\n    if (contentFn) {\n
-      \     config.content = contentFn;\n    }\n    if (onTriggerFn) {\n      config.onTrigger
-      = onTriggerFn;\n    }\n    if (onUntriggerFn) {\n      config.onUntrigger =
-      onUntriggerFn;\n    }\n    window.tippy(el, config); \n  }\n  const noterefs
-      = window.document.querySelectorAll('a[role=\"doc-noteref\"]');\n  for (var i=0;
-      i<noterefs.length; i++) {\n    const ref = noterefs[i];\n    tippyHover(ref,
+      \   var localhostRegex = new RegExp(/^(?:http|https):\\/\\/localhost\\:?[0-9]*\\//);\n
+      \   var mailtoRegex = new RegExp(/^mailto:/);\n      var filterRegex = new RegExp(\"https:\\/\\/www\\.andrewheiss\\.com\");\n
+      \   var isInternal = (href) => {\n        return filterRegex.test(href) || localhostRegex.test(href)
+      || mailtoRegex.test(href);\n    }\n    // Inspect non-navigation links and adorn
+      them if external\n \tvar links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');\n
+      \   for (var i=0; i<links.length; i++) {\n      const link = links[i];\n      if
+      (!isInternal(link.href)) {\n        // undo the damage that might have been
+      done by quarto-nav.js in the case of\n        // links that we want to consider
+      external\n        if (link.dataset.originalHref !== undefined) {\n          link.href
+      = link.dataset.originalHref;\n        }\n      }\n    }\n  function tippyHover(el,
+      contentFn, onTriggerFn, onUntriggerFn) {\n    const config = {\n      allowHTML:
+      true,\n      maxWidth: 500,\n      delay: 100,\n      arrow: false,\n      appendTo:
+      function(el) {\n          return el.parentElement;\n      },\n      interactive:
+      true,\n      interactiveBorder: 10,\n      theme: 'quarto',\n      placement:
+      'bottom-start',\n    };\n    if (contentFn) {\n      config.content = contentFn;\n
+      \   }\n    if (onTriggerFn) {\n      config.onTrigger = onTriggerFn;\n    }\n
+      \   if (onUntriggerFn) {\n      config.onUntrigger = onUntriggerFn;\n    }\n
+      \   window.tippy(el, config); \n  }\n  const noterefs = window.document.querySelectorAll('a[role=\"doc-noteref\"]');\n
+      \ for (var i=0; i<noterefs.length; i++) {\n    const ref = noterefs[i];\n    tippyHover(ref,
       function() {\n      // use id or data attribute instead here\n      let href
       = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');\n      try
       { href = new URL(href).hash; } catch {}\n      const id = href.replace(/^#\\/?/,
-      \"\");\n      const note = window.document.getElementById(id);\n      return
-      note.innerHTML;\n    });\n  }\n  const xrefs = window.document.querySelectorAll('a.quarto-xref');\n
+      \"\");\n      const note = window.document.getElementById(id);\n      if (note)
+      {\n        return note.innerHTML;\n      } else {\n        return \"\";\n      }\n
+      \   });\n  }\n  const xrefs = window.document.querySelectorAll('a.quarto-xref');\n
       \ const processXRef = (id, note) => {\n    // Strip column container classes\n
       \   const stripColumnClz = (el) => {\n      el.classList.remove(\"page-full\",
       \"page-columns\");\n      if (el.children) {\n        for (const child of el.children)
@@ -214,9 +224,11 @@ interactions:
       \     }\n    } else {\n      // Remove any anchor links if they are present\n
       \     const anchorLink = note.querySelector('a.anchorjs-link');\n      if (anchorLink)
       {\n        anchorLink.remove();\n      }\n      if (window.Quarto?.typesetMath)
-      {\n        window.Quarto.typesetMath(note);\n      }\n      return note.innerHTML;\n
-      \   }\n  }\n  for (var i=0; i<xrefs.length; i++) {\n    const xref = xrefs[i];\n
-      \   tippyHover(xref, undefined, function(instance) {\n      instance.disable();\n
+      {\n        window.Quarto.typesetMath(note);\n      }\n      // TODO in 1.5,
+      we should make sure this works without a callout special case\n      if (note.classList.contains(\"callout\"))
+      {\n        return note.outerHTML;\n      } else {\n        return note.innerHTML;\n
+      \     }\n    }\n  }\n  for (var i=0; i<xrefs.length; i++) {\n    const xref
+      = xrefs[i];\n    tippyHover(xref, undefined, function(instance) {\n      instance.disable();\n
       \     let url = xref.getAttribute('href');\n      let hash = undefined; \n      if
       (url.startsWith('#')) {\n        hash = url;\n      } else {\n        try {
       hash = new URL(url).hash; } catch {}\n      }\n      if (hash) {\n        const
@@ -338,11 +350,11 @@ interactions:
       Content-Type:
       - text/html; charset=utf-8
       Date:
-      - Fri, 23 Feb 2024 15:44:26 GMT
+      - Tue, 26 Mar 2024 21:57:37 GMT
       Etag:
-      - '"s7wk9lkj0"'
+      - '"sayk3jlih"'
       Last-Modified:
-      - Sat, 27 Jan 2024 04:24:57 GMT
+      - Tue, 26 Mar 2024 13:57:19 GMT
       Server:
       - Caddy
       Transfer-Encoding:

@@ -5,7 +5,7 @@ interactions:
       accept:
       - application/vnd.pgrst.object+json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       accept-profile:
       - public
       apikey:
@@ -40,13 +40,13 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 862392c42c8e9265-FRA
+      - 86aa6bf61d4d7a43-DUS
       Connection:
       - keep-alive
       Content-Type:
       - application/vnd.pgrst.object+json; charset=utf-8
       Date:
-      - Sun, 10 Mar 2024 13:15:24 GMT
+      - Tue, 26 Mar 2024 22:01:52 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -57,14 +57,14 @@ interactions:
       - Accept-Encoding
       Via:
       - kong/2.8.1
-      X-Kong-Proxy-Latency:
-      - '1'
-      X-Kong-Upstream-Latency:
-      - '2'
       alt-svc:
       - h3=":443"; ma=86400
       sb-gateway-version:
       - '1'
+      x-kong-proxy-latency:
+      - '0'
+      x-kong-upstream-latency:
+      - '2'
     http_version: HTTP/1.1
     status_code: 406
 - request:
@@ -73,242 +73,7 @@ interactions:
       accept:
       - '*/*'
       accept-encoding:
-      - gzip, deflate
-      connection:
-      - keep-alive
-      host:
-      - doi.org
-      user-agent:
-      - python-httpx/0.25.2
-    method: GET
-    uri: https://doi.org/ra/10.53731
-  response:
-    content: "[\n  {\n    \"DOI\": \"10.53731\",\n    \"RA\": \"Crossref\"\n  }\n]"
-    headers:
-      CF-Cache-Status:
-      - DYNAMIC
-      CF-RAY:
-      - 862392c5ed929a0c-FRA
-      Connection:
-      - keep-alive
-      Content-Encoding:
-      - gzip
-      Content-Type:
-      - application/json;charset=UTF-8
-      Date:
-      - Sun, 10 Mar 2024 13:15:24 GMT
-      NEL:
-      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
-      Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=4tchG4rSPIc9XkEgX87uVLEEsqr2mHL%2BI%2F7LUzwdfTrqbH%2BExk9CCtbwZRicJuNTTDQWV3nOYixXhhAP1HpncyXqDwiuEWdAHNE7yapOKT4%2B7k7QzJ8K%2FqA%3D"}],"group":"cf-nel","max_age":604800}'
-      Server:
-      - cloudflare
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
-      Transfer-Encoding:
-      - chunked
-      alt-svc:
-      - h3=":443"; ma=86400
-      permissions-policy:
-      - interest-cohort=(),browsing-topics=()
-    http_version: HTTP/1.1
-    status_code: 200
-- request:
-    body: ''
-    headers:
-      accept:
-      - '*/*'
-      accept-encoding:
-      - gzip, deflate
-      connection:
-      - keep-alive
-      host:
-      - api.crossref.org
-      user-agent:
-      - python-httpx/0.25.2
-    method: GET
-    uri: https://api.crossref.org/works/10.53731/ybhah-9jy85
-  response:
-    content: '{"status":"ok","message-type":"work","message-version":"1.0.0","message":{"institution":[{"name":"Front
-      Matter"}],"indexed":{"date-parts":[[2024,3,8]],"date-time":"2024-03-08T00:22:18Z","timestamp":1709857338621},"posted":{"date-parts":[[2023,10,4]]},"group-title":"Computer
-      and information sciences","reference-count":3,"publisher":"Front Matter","license":[{"start":{"date-parts":[[2023,10,4]],"date-time":"2023-10-04T00:00:00Z","timestamp":1696377600000},"content-version":"vor","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"},{"start":{"date-parts":[[2023,10,4]],"date-time":"2023-10-04T00:00:00Z","timestamp":1696377600000},"content-version":"tdm","delay-in-days":0,"URL":"https:\/\/creativecommons.org\/licenses\/by\/4.0\/legalcode"}],"content-domain":{"domain":[],"crossmark-restriction":false},"short-container-title":[],"abstract":"<p>Newsletters
-      have been around forever, but their popularity has significantly increased in
-      the past few years, also thanks to platforms such as Ghost, Medium, and Substack.
-      Which of course also includes science newsletters.Failure of advertising as
-      a revenue model The most important driver of this trend is probably the realization
-      that advertising is a poor revenue model for content published on the web, including
-      blogs.<\/p>","DOI":"10.53731\/ybhah-9jy85","type":"posted-content","created":{"date-parts":[[2023,10,4]],"date-time":"2023-10-04T12:48:19Z","timestamp":1696423699000},"source":"Crossref","is-referenced-by-count":0,"title":["The
-      rise of the (science) newsletter"],"prefix":"10.59350","author":[{"ORCID":"http:\/\/orcid.org\/0000-0003-1419-2405","authenticated-orcid":false,"given":"Martin","family":"Fenner","sequence":"first","affiliation":[{"name":"Front
-      Matter"}]}],"member":"31795","reference":[{"key":"ref1","doi-asserted-by":"publisher","article-title":"Thousands
-      of scientists are cutting back on Twitter, seeding angst and uncertainty","year":"2023","DOI":"10.1038\/d41586-023-02554-0"},{"key":"ref2","doi-asserted-by":"publisher","article-title":"The
-      Principles of Open Scholarly Infrastructure","year":"2020","DOI":"10.24343\/c34w2h"},{"key":"ref3","doi-asserted-by":"publisher","article-title":"The
-      Rogue Scholar weekly newsletter launches on Wednesday","year":"2023","DOI":"10.53731\/9cdnt-2k006"}],"container-title":[],"original-title":[],"link":[{"URL":"https:\/\/blog.front-matter.io\/posts\/the-rise-of-the-science-newsletter","content-type":"text\/html","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/ybhah-9jy85.md","content-type":"text\/plain","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/ybhah-9jy85.pdf","content-type":"application\/pdf","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/ybhah-9jy85.epub","content-type":"application\/epub+zip","content-version":"vor","intended-application":"text-mining"},{"URL":"https:\/\/api.rogue-scholar.org\/posts\/10.53731\/ybhah-9jy85.xml","content-type":"application\/xml","content-version":"vor","intended-application":"text-mining"}],"deposited":{"date-parts":[[2024,3,7]],"date-time":"2024-03-07T14:18:20Z","timestamp":1709821100000},"score":1,"resource":{"primary":{"URL":"https:\/\/blog.front-matter.io\/posts\/the-rise-of-the-science-newsletter"}},"subtitle":[],"short-title":[],"issued":{"date-parts":[[2023,10,4]]},"references-count":3,"URL":"http:\/\/dx.doi.org\/10.53731\/ybhah-9jy85","relation":{"is-part-of":[{"id-type":"issn","id":"2749-9952","asserted-by":"subject"}]},"published":{"date-parts":[[2023,10,4]]},"subtype":"other"}}'
-    headers:
-      access-control-allow-headers:
-      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
-        Accept-Ranges, Cache-Control
-      access-control-allow-origin:
-      - '*'
-      access-control-expose-headers:
-      - Link
-      connection:
-      - close
-      content-encoding:
-      - gzip
-      content-length:
-      - '1393'
-      content-type:
-      - application/json
-      date:
-      - Sun, 10 Mar 2024 13:15:25 GMT
-      permissions-policy:
-      - interest-cohort=()
-      server:
-      - Jetty(9.4.40.v20210413)
-      vary:
-      - Accept-Encoding
-      x-api-pool:
-      - public
-      x-rate-limit-interval:
-      - 1s
-      x-rate-limit-limit:
-      - '50'
-      x-ratelimit-interval:
-      - 1s
-      x-ratelimit-limit:
-      - '50'
-    http_version: HTTP/1.1
-    status_code: 200
-- request:
-    body: '{"id": "https://doi.org/10.53731/ybhah-9jy85", "type": "Article", "url":
-      "https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter", "contributors":
-      [{"id": "https://orcid.org/0000-0003-1419-2405", "type": "Person", "contributorRoles":
-      ["Author"], "givenName": "Martin", "familyName": "Fenner", "affiliation": [{"name":
-      "Front Matter"}]}], "titles": [{"title": "The rise of the (science) newsletter"}],
-      "container": null, "publisher": {"name": "Front Matter"}, "references": [{"key":
-      "ref1", "doi": "https://doi.org/10.1038/d41586-023-02554-0", "title": "Thousands
-      of scientists are cutting back on Twitter, seeding angst and uncertainty", "publicationYear":
-      "2023"}, {"key": "ref2", "doi": "https://doi.org/10.24343/c34w2h", "title":
-      "The Principles of Open Scholarly Infrastructure", "publicationYear": "2020"},
-      {"key": "ref3", "doi": "https://doi.org/10.53731/9cdnt-2k006", "title": "The
-      Rogue Scholar weekly newsletter launches on Wednesday", "publicationYear": "2023"}],
-      "relations": [{"type": "IsPartOf", "id": "2749-9952"}], "date": {"published":
-      "2023-10-04"}, "descriptions": [{"description": "Newsletters have been around
-      forever, but their popularity has significantly increased in the past few years,
-      also thanks to platforms such as Ghost, Medium, and Substack. Which of course
-      also includes science newsletters.Failure of advertising as a revenue model
-      The most important driver of this trend is probably the realization that advertising
-      is a poor revenue model for content published on the web, including blogs.",
-      "descriptionType": "Abstract"}], "license": {"id": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/legalcode"},
-      "alternate_identifiers": [], "funding_references": [], "files": [{"url": "https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter",
-      "mimeType": "text/html"}, {"url": "https://api.rogue-scholar.org/posts/10.53731/ybhah-9jy85.md",
-      "mimeType": "text/plain"}, {"url": "https://api.rogue-scholar.org/posts/10.53731/ybhah-9jy85.pdf",
-      "mimeType": "application/pdf"}, {"url": "https://api.rogue-scholar.org/posts/10.53731/ybhah-9jy85.epub",
-      "mimeType": "application/epub+zip"}, {"url": "https://api.rogue-scholar.org/posts/10.53731/ybhah-9jy85.xml",
-      "mimeType": "application/xml"}], "subjects": [], "provider": "Crossref", "schema_version":
-      "https://commonmeta.org/commonmeta_v0.12", "state": null, "archive_locations":
-      [], "geo_locations": [], "version": null, "language": null, "additional_type":
-      null, "sizes": [], "formats": []}'
-    headers:
-      accept:
-      - '*/*'
-      accept-encoding:
-      - gzip, deflate
-      accept-profile:
-      - public
-      apikey:
-      - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFrbGV1ZGhuenJheGtxbmNnbmplIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NTI3ODQ0NiwiZXhwIjoyMDAwODU0NDQ2fQ.0A6m8-XoUR2e9FU5Ahghg5xIVg1mSIuPUF0UjB3qa08
-      authorization:
-      - Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFrbGV1ZGhuenJheGtxbmNnbmplIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NTI3ODQ0NiwiZXhwIjoyMDAwODU0NDQ2fQ.0A6m8-XoUR2e9FU5Ahghg5xIVg1mSIuPUF0UjB3qa08
-      connection:
-      - keep-alive
-      content-length:
-      - '2509'
-      content-profile:
-      - public
-      content-type:
-      - application/json
-      host:
-      - db.rogue-scholar.org
-      prefer:
-      - return=representation,resolution=merge-duplicates
-      user-agent:
-      - python-httpx/0.25.2
-      x-client-info:
-      - supabase-py/2.4.0
-    method: POST
-    uri: https://db.rogue-scholar.org/rest/v1/works?on_conflict=id
-  response:
-    content: '[{"type":"Article","url":"https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter","contributors":[{"id":
-      "https://orcid.org/0000-0003-1419-2405", "type": "Person", "givenName": "Martin",
-      "familyName": "Fenner", "affiliation": [{"name": "Front Matter"}], "contributorRoles":
-      ["Author"]}],"titles":[{"title": "The rise of the (science) newsletter"}],"container":null,"publisher":{"name":
-      "Front Matter"},"references":[{"doi": "https://doi.org/10.1038/d41586-023-02554-0",
-      "key": "ref1", "title": "Thousands of scientists are cutting back on Twitter,
-      seeding angst and uncertainty", "publicationYear": "2023"}, {"doi": "https://doi.org/10.24343/c34w2h",
-      "key": "ref2", "title": "The Principles of Open Scholarly Infrastructure", "publicationYear":
-      "2020"}, {"doi": "https://doi.org/10.53731/9cdnt-2k006", "key": "ref3", "title":
-      "The Rogue Scholar weekly newsletter launches on Wednesday", "publicationYear":
-      "2023"}],"relations":[{"id": "2749-9952", "type": "IsPartOf"}],"date":{"published":
-      "2023-10-04"},"descriptions":[{"description": "Newsletters have been around
-      forever, but their popularity has significantly increased in the past few years,
-      also thanks to platforms such as Ghost, Medium, and Substack. Which of course
-      also includes science newsletters.Failure of advertising as a revenue model
-      The most important driver of this trend is probably the realization that advertising
-      is a poor revenue model for content published on the web, including blogs.",
-      "descriptionType": "Abstract"}],"license":{"id": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/legalcode"},"alternate_identifiers":[],"funding_references":[],"files":[{"url":
-      "https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter", "mimeType":
-      "text/html"}, {"url": "https://api.rogue-scholar.org/posts/10.53731/ybhah-9jy85.md",
-      "mimeType": "text/plain"}, {"url": "https://api.rogue-scholar.org/posts/10.53731/ybhah-9jy85.pdf",
-      "mimeType": "application/pdf"}, {"url": "https://api.rogue-scholar.org/posts/10.53731/ybhah-9jy85.epub",
-      "mimeType": "application/epub+zip"}, {"url": "https://api.rogue-scholar.org/posts/10.53731/ybhah-9jy85.xml",
-      "mimeType": "application/xml"}],"subjects":[],"provider":"Crossref","schema_version":"https://commonmeta.org/commonmeta_v0.12","state":null,"geo_locations":[],"version":null,"language":null,"additional_type":null,"uuid":"9d3240e2-9a1a-4a72-baee-1b44b0953215","id":"https://doi.org/10.53731/ybhah-9jy85","archive_locations":[],"formats":[],"sizes":[]}]'
-    headers:
-      Access-Control-Allow-Origin:
-      - '*'
-      CF-Cache-Status:
-      - DYNAMIC
-      CF-Ray:
-      - 862392cb68f65c98-FRA
-      Connection:
-      - keep-alive
-      Content-Profile:
-      - public
-      Content-Range:
-      - '*/*'
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Sun, 10 Mar 2024 13:15:25 GMT
-      Preference-Applied:
-      - resolution=merge-duplicates
-      Server:
-      - cloudflare
-      Strict-Transport-Security:
-      - max-age=2592000; includeSubDomains
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
-      Via:
-      - kong/2.8.1
-      X-Kong-Proxy-Latency:
-      - '0'
-      X-Kong-Upstream-Latency:
-      - '3'
-      alt-svc:
-      - h3=":443"; ma=86400
-      sb-gateway-version:
-      - '1'
-    http_version: HTTP/1.1
-    status_code: 201
-- request:
-    body: ''
-    headers:
-      accept:
-      - '*/*'
-      accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       connection:
       - keep-alive
       host:
@@ -323,7 +88,7 @@ interactions:
       Fenner","url":"https://orcid.org/0000-0003-1419-2405"}],"canonical_url":null,"category":"computerAndInformationSciences","created_at":1672561153,"current_feed_url":"https://blog.front-matter.io/atom/","description":"The
       Front Matter Blog covers the intersection of science and technology since 2007.","favicon":"https://blog.front-matter.io/favicon.png","feed_format":"application/atom+xml","feed_url":"https://blog.front-matter.io/atom","filter":null,"funding":null,"generator":"Ghost","generator_raw":"Ghost
       5.52","home_page_url":"https://blog.front-matter.io","id":"74659bc5-e36e-4a27-901f-f0c8d5769cb8","indexed":null,"issn":"2749-9952","language":"en","license":"https://creativecommons.org/licenses/by/4.0/legalcode","mastodon":"https://mozilla.social/@martin","plan":"Personal","prefix":"10.53731","relative_url":null,"ror":null,"secure":true,"slug":"front_matter","status":"active","title":"Front
-      Matter","updated_at":1709633714,"use_api":true,"use_mastodon":true,"user_id":"8498eaf6-8c58-4b58-bc15-27eda292b1aa"},"blog_name":"Front
+      Matter","updated_at":1710750721,"use_api":true,"use_mastodon":true,"user_id":"8498eaf6-8c58-4b58-bc15-27eda292b1aa"},"blog_name":"Front
       Matter","blog_slug":"front_matter","content_text":"Newsletters have been around
       forever, but their popularity has\nsignificantly increased in the past few years,
       also thanks to platforms\nsuch as [Ghost](https://ghost.org/){rel=\"noreferrer\"},\n[Medium](https://medium.com/){rel=\"noreferrer\"},
@@ -401,7 +166,10 @@ interactions:
       on\nTwitter, seeding angst and uncertainty. *Nature*, *620*(7974), 482--484.\n<https://doi.org/10.1038/d41586-023-02554-0>\n\nBilder,
       G., Lin, J., & Neylon, C. (2020). *The Principles of Open\nScholarly Infrastructure*.
       <https://doi.org/10.24343/C34W2H>\n\nFenner, M. (2023). *The Rogue Scholar weekly
-      newsletter launches on\nWednesday*. <https://doi.org/10.53731/9cdnt-2k006>\n","doi":"https://doi.org/10.53731/ybhah-9jy85","guid":"651d174894e4e100013aeebf","id":"4ede6374-6ba8-436f-81e6-4504fd70441a","image":"https://images.unsplash.com/photo-1518546488314-6ed28acc48e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDI1fHxyaXNlfGVufDB8fHx8MTY5NjQwNTMyNnww&ixlib=rb-4.0.3&q=80&w=2000","indexed_at":1709821038,"language":"en","published_at":1696415792,"reference":[],"relationships":[],"summary":"Newsletters
+      newsletter launches on\nWednesday*. <https://doi.org/10.53731/9cdnt-2k006>\n","doi":"https://doi.org/10.53731/ybhah-9jy85","guid":"651d174894e4e100013aeebf","id":"4ede6374-6ba8-436f-81e6-4504fd70441a","image":"https://images.unsplash.com/photo-1518546488314-6ed28acc48e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDI1fHxyaXNlfGVufDB8fHx8MTY5NjQwNTMyNnww&ixlib=rb-4.0.3&q=80&w=2000","indexed_at":1710584024,"language":"en","published_at":1696415792,"reference":[{"doi":"https://doi.org/10.1038/d41586-023-02554-0","key":"ref1","publicationYear":"2023","title":"Thousands
+      of scientists are cutting back on Twitter, seeding angst and uncertainty"},{"doi":"https://doi.org/10.24343/c34w2h","key":"ref2","publicationYear":"2020","title":"The
+      Principles of Open Scholarly Infrastructure"},{"doi":"https://doi.org/10.53731/9cdnt-2k006","key":"ref3","publicationYear":"2023","title":"The
+      Rogue Scholar weekly newsletter launches on Wednesday"}],"relationships":[],"summary":"Newsletters
       have been around forever, but their popularity has significantly increased in
       the past few years, also thanks to platforms such as Ghost, Medium, and Substack.
       Which of course also includes science newsletters.Failure of advertising as
@@ -413,21 +181,21 @@ interactions:
       '
     headers:
       content-encoding:
-      - gzip
+      - br
       content-type:
       - application/json
       date:
-      - Mon, 11 Mar 2024 10:49:05 GMT
+      - Tue, 26 Mar 2024 22:01:52 GMT
       fly-request-id:
-      - 01HRPJ2QN7FTEH1CM2W06Q8CM0-ams
+      - 01HSYCHDKPGTF3YHN58G1JH4SM-fra
       ratelimit-limit:
       - '15'
       ratelimit-remaining:
       - '13'
       ratelimit-reset:
-      - '7'
+      - '5'
       server:
-      - Fly/0637d260 (2024-03-07)
+      - Fly/1b58db98 (2024-03-25)
       transfer-encoding:
       - chunked
       vary:
@@ -436,4 +204,135 @@ interactions:
       - 1.1 fly.io
     http_version: HTTP/1.1
     status_code: 200
+- request:
+    body: '{"id": "https://doi.org/10.53731/ybhah-9jy85", "type": "Article", "url":
+      "https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter", "contributors":
+      [{"id": "https://orcid.org/0000-0003-1419-2405", "type": "Person", "contributorRoles":
+      ["Author"], "givenName": "Martin", "familyName": "Fenner", "affiliation": [{"name":
+      "Front Matter"}]}], "titles": [{"title": "The rise of the (science) newsletter"}],
+      "container": {"type": "Periodical", "title": "Front Matter", "identifier": "2749-9952",
+      "identifierType": "ISSN"}, "publisher": {"name": "Front Matter"}, "references":
+      [{"doi": "https://doi.org/10.1038/d41586-023-02554-0", "title": "Thousands of
+      scientists are cutting back on Twitter, seeding angst and uncertainty", "publicationYear":
+      "2023", "key": "ref1"}, {"doi": "https://doi.org/10.24343/c34w2h", "title":
+      "The Principles of Open Scholarly Infrastructure", "publicationYear": "2020",
+      "key": "ref2"}, {"doi": "https://doi.org/10.53731/9cdnt-2k006", "title": "The
+      Rogue Scholar weekly newsletter launches on Wednesday", "publicationYear": "2023",
+      "key": "ref3"}], "relations": [{"id": "https://portal.issn.org/resource/ISSN/2749-9952",
+      "type": "IsPartOf"}], "date": {"published": "2023-10-04T12:36:32", "updated":
+      "2024-02-07T20:40:33"}, "descriptions": [{"description": "Newsletters have been
+      around forever, but their popularity has significantly increased in the past
+      few years, also thanks to platforms such as Ghost, Medium, and Substack. Which
+      of course also includes science newsletters.Failure of advertising as a revenue
+      model The most important driver of this trend is probably the realization that
+      advertising is a poor revenue model for content published on the web, including
+      blogs.", "descriptionType": "Abstract"}], "license": {"id": "CC-BY-4.0", "url":
+      "https://creativecommons.org/licenses/by/4.0/legalcode"}, "alternate_identifiers":
+      [{"alternateIdentifier": "4ede6374-6ba8-436f-81e6-4504fd70441a", "alternateIdentifierType":
+      "UUID"}], "funding_references": [], "files": [{"mimeType": "text/markdown",
+      "url": "https://api.rogue-scholar.org/posts/10.53731/ybhah-9jy85.md"}, {"mimeType":
+      "application/pdf", "url": "https://api.rogue-scholar.org/posts/10.53731/ybhah-9jy85.pdf"},
+      {"mimeType": "application/epub+zip", "url": "https://api.rogue-scholar.org/posts/10.53731/ybhah-9jy85.epub"},
+      {"mimeType": "application/xml", "url": "https://api.rogue-scholar.org/posts/10.53731/ybhah-9jy85.xml"}],
+      "subjects": [{"subject": "Computer and information sciences"}], "provider":
+      "Crossref", "schema_version": "https://commonmeta.org/commonmeta_v0.12", "state":
+      "findable", "archive_locations": [], "geo_locations": [], "version": null, "language":
+      "en", "additional_type": null, "sizes": [], "formats": []}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      apikey:
+      - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFrbGV1ZGhuenJheGtxbmNnbmplIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NTI3ODQ0NiwiZXhwIjoyMDAwODU0NDQ2fQ.0A6m8-XoUR2e9FU5Ahghg5xIVg1mSIuPUF0UjB3qa08
+      authorization:
+      - Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFrbGV1ZGhuenJheGtxbmNnbmplIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NTI3ODQ0NiwiZXhwIjoyMDAwODU0NDQ2fQ.0A6m8-XoUR2e9FU5Ahghg5xIVg1mSIuPUF0UjB3qa08
+      connection:
+      - keep-alive
+      content-length:
+      - '2734'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      prefer:
+      - return=representation,resolution=merge-duplicates
+      user-agent:
+      - python-httpx/0.25.2
+      x-client-info:
+      - supabase-py/2.4.0
+    method: POST
+    uri: https://db.rogue-scholar.org/rest/v1/works?on_conflict=id
+  response:
+    content: '[{"type":"Article","url":"https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter","contributors":[{"id":
+      "https://orcid.org/0000-0003-1419-2405", "type": "Person", "givenName": "Martin",
+      "familyName": "Fenner", "affiliation": [{"name": "Front Matter"}], "contributorRoles":
+      ["Author"]}],"titles":[{"title": "The rise of the (science) newsletter"}],"container":{"type":
+      "Periodical", "title": "Front Matter", "identifier": "2749-9952", "identifierType":
+      "ISSN"},"publisher":{"name": "Front Matter"},"references":[{"doi": "https://doi.org/10.1038/d41586-023-02554-0",
+      "key": "ref1", "title": "Thousands of scientists are cutting back on Twitter,
+      seeding angst and uncertainty", "publicationYear": "2023"}, {"doi": "https://doi.org/10.24343/c34w2h",
+      "key": "ref2", "title": "The Principles of Open Scholarly Infrastructure", "publicationYear":
+      "2020"}, {"doi": "https://doi.org/10.53731/9cdnt-2k006", "key": "ref3", "title":
+      "The Rogue Scholar weekly newsletter launches on Wednesday", "publicationYear":
+      "2023"}],"relations":[{"id": "https://portal.issn.org/resource/ISSN/2749-9952",
+      "type": "IsPartOf"}],"date":{"updated": "2024-02-07T20:40:33", "published":
+      "2023-10-04T12:36:32"},"descriptions":[{"description": "Newsletters have been
+      around forever, but their popularity has significantly increased in the past
+      few years, also thanks to platforms such as Ghost, Medium, and Substack. Which
+      of course also includes science newsletters.Failure of advertising as a revenue
+      model The most important driver of this trend is probably the realization that
+      advertising is a poor revenue model for content published on the web, including
+      blogs.", "descriptionType": "Abstract"}],"license":{"id": "CC-BY-4.0", "url":
+      "https://creativecommons.org/licenses/by/4.0/legalcode"},"alternate_identifiers":[{"alternateIdentifier":
+      "4ede6374-6ba8-436f-81e6-4504fd70441a", "alternateIdentifierType": "UUID"}],"funding_references":[],"files":[{"url":
+      "https://api.rogue-scholar.org/posts/10.53731/ybhah-9jy85.md", "mimeType": "text/markdown"},
+      {"url": "https://api.rogue-scholar.org/posts/10.53731/ybhah-9jy85.pdf", "mimeType":
+      "application/pdf"}, {"url": "https://api.rogue-scholar.org/posts/10.53731/ybhah-9jy85.epub",
+      "mimeType": "application/epub+zip"}, {"url": "https://api.rogue-scholar.org/posts/10.53731/ybhah-9jy85.xml",
+      "mimeType": "application/xml"}],"subjects":[{"subject": "Computer and information
+      sciences"}],"provider":"Crossref","schema_version":"https://commonmeta.org/commonmeta_v0.12","state":"findable","geo_locations":[],"version":null,"language":"en","additional_type":null,"uuid":"069d311e-60ce-4ed5-8df7-bfc136798da9","id":"https://doi.org/10.53731/ybhah-9jy85","archive_locations":[],"formats":[],"sizes":[]}]'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 86aa6bf7fad8717b-DUS
+      Connection:
+      - keep-alive
+      Content-Range:
+      - '*/*'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 26 Mar 2024 22:01:52 GMT
+      Server:
+      - cloudflare
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/2.8.1
+      alt-svc:
+      - h3=":443"; ma=86400
+      content-profile:
+      - public
+      preference-applied:
+      - resolution=merge-duplicates
+      sb-gateway-version:
+      - '1'
+      x-kong-proxy-latency:
+      - '0'
+      x-kong-upstream-latency:
+      - '5'
+    http_version: HTTP/1.1
+    status_code: 201
 version: 1

@@ -5,7 +5,7 @@ interactions:
       accept:
       - application/vnd.pgrst.object+json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       accept-profile:
       - public
       connection:
@@ -21,33 +21,32 @@ interactions:
       user-agent:
       - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.5
+      - supabase-py/2.4.0
     method: GET
     uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20mastodon%2C%20generator%2C%20generator_raw%2C%20language%2C%20category%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.front_matter
   response:
-    content: '{"id":"74659bc5-e36e-4a27-901f-f0c8d5769cb8","slug":"front_matter","feed_url":"https://blog.front-matter.io/atom","current_feed_url":"https://blog.front-matter.io/atom/","home_page_url":"https://blog.front-matter.io","archive_prefix":"https://wayback.archive-it.org/22096/20231101172748/","feed_format":"application/atom+xml","created_at":1672561153,"updated_at":1708450360,"mastodon":"https://mozilla.social/@martin","generator":"Ghost","generator_raw":"Ghost
+    content: '{"id":"74659bc5-e36e-4a27-901f-f0c8d5769cb8","slug":"front_matter","feed_url":"https://blog.front-matter.io/atom","current_feed_url":"https://blog.front-matter.io/atom/","home_page_url":"https://blog.front-matter.io","archive_prefix":"https://wayback.archive-it.org/22096/20231101172748/","feed_format":"application/atom+xml","created_at":1672561153,"updated_at":1710750721,"mastodon":"https://mozilla.social/@martin","generator":"Ghost","generator_raw":"Ghost
       5.52","language":"en","category":"computerAndInformationSciences","favicon":"https://blog.front-matter.io/favicon.png","title":"Front
       Matter","description":"The Front Matter Blog covers the intersection of science
-      and technology since 2007.","category":"computerAndInformationSciences","status":"active","user_id":"8498eaf6-8c58-4b58-bc15-27eda292b1aa","authors":null,"plan":"Personal","use_api":true,"relative_url":null,"filter":null,"secure":true}'
+      and technology since 2007.","category":"computerAndInformationSciences","status":"active","user_id":"8498eaf6-8c58-4b58-bc15-27eda292b1aa","authors":[{"url":
+      "https://orcid.org/0000-0003-1419-2405", "name": "Martin Fenner"}],"plan":"Personal","use_api":true,"relative_url":null,"filter":null,"secure":true}'
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 85a099d528557a54-DUS
+      - 86aa67fb488e7a55-DUS
       Connection:
       - keep-alive
       Content-Location:
       - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20mastodon%2C%20generator%2C%20generator_raw%2C%20language%2C%20category%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20plan%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.front_matter
-      Content-Profile:
-      - public
       Content-Range:
       - 0-0/*
       Content-Type:
       - application/vnd.pgrst.object+json; charset=utf-8
       Date:
-      - Fri, 23 Feb 2024 15:46:19 GMT
+      - Tue, 26 Mar 2024 21:59:09 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -58,14 +57,16 @@ interactions:
       - Accept-Encoding
       Via:
       - kong/2.8.1
-      X-Kong-Proxy-Latency:
-      - '1'
-      X-Kong-Upstream-Latency:
-      - '6'
       alt-svc:
       - h3=":443"; ma=86400
+      content-profile:
+      - public
       sb-gateway-version:
       - '1'
+      x-kong-proxy-latency:
+      - '1'
+      x-kong-upstream-latency:
+      - '4'
     http_version: HTTP/1.1
     status_code: 200
 - request:
@@ -74,7 +75,7 @@ interactions:
       accept:
       - '*/*'
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       accept-version:
       - v5.0
       connection:
@@ -86,7 +87,243 @@ interactions:
     method: GET
     uri: https://front-matter.ghost.io/ghost/api/content/posts/?page=1&limit=50&filter=visibility%3Apublic&include=tags%2Cauthors&key=b099ebe9ce894979c77431e6d3
   response:
-    content: "{\"posts\":[{\"id\":\"65d4d00d1677b7000121571b\",\"uuid\":\"433149e1-aa57-48ca-bc49-d26ca05d4ba3\",\"title\":\"commonmeta-py
+    content: "{\"posts\":[{\"id\":\"65f6d91557b30300011708d0\",\"uuid\":\"c1098449-d8cf-4ca7-aec3-d4ee3ba4fc54\",\"title\":\"Rogue
+      Scholar reaches another milestone with 15,000 science blog posts\",\"slug\":\"milestone-15000\",\"html\":\"<p>Last
+      week the <a href=\\\"https://rogue-scholar.org\\\" rel=\\\"noreferrer\\\">Rogue
+      Scholar</a> science blog archive reached another milestone with 15,000 (<a href=\\\"https://api.rogue-scholar.org/posts\\\"
+      rel=\\\"noreferrer\\\">15,332 as of today</a>) science blog posts. These posts
+      come from 86 participating blogs with <a href=\\\"https://rogue-scholar.org/about#stats\\\"
+      rel=\\\"noreferrer\\\">69% written in English</a> and 28% in German. The most
+      common subject areas are Law with 22%, Computer and Information Sciences with
+      20% and Earth and related Environmental Sciences with 12%. Wordpress is the
+      dominating blogging platform with 46% of posts on self-hosted Wordpress blogs,
+      and 23% of posts hosted by Wordpress.com. Overall blogs participating in Rogue
+      Scholar are using 10 different blogging platforms.</p><p>Three blogs register
+      DOIs with DataCite, and the rest register DOIs with Crossref via Rogue Scholar.
+      The metadata registered with Crossref includes abstract, language, license information,
+      and links to full-text versions in all cases. <a href=\\\"https://www.crossref.org/members/prep/31795\\\"
+      rel=\\\"noreferrer\\\">Fifty percent</a> have at least one author with ORCID
+      ID, and 30% have at least one author affiliation with ROR ID. <a href=\\\"https://api.crossref.org/members/31795/works?filter=has-references:true\\\"
+      rel=\\\"noreferrer\\\">Seven percent</a> of Crossref metadata have registered
+      references, and <a href=\\\"https://api.crossref.org/members/31795/works?filter=has-funder:true\\\"
+      rel=\\\"noreferrer\\\">one percent</a> includes funding information.</p><p>When
+      Rogue Scholar started in April 2023 I would not have imagined this level of
+      adoption, so I am of course very excited. Going forward I will invest more time
+      into improving the metadata quality, and you can expect an announcement about
+      references very soon. The top priority is easy metadata registration for blog
+      authors, but that does not mean that science blog metadata need to be sparse
+      and incomplete. </p><p>The other area where more work is needed is financial
+      support. The content from all blogs participating in Rogue Scholar is free to
+      read and reuse under a Creative Commons Attribution (<a href=\\\"https://creativecommons.org/licenses/by/4.0/\\\"
+      rel=\\\"noreferrer\\\">CC-BY</a>) license. I am very reluctant to charge authors,
+      but ask for a one-time fee of $1 per post beyond 50 posts per year (this mostly
+      affects blogs running for many years). With the help of donations and my waiving
+      this $1 per post fee in many cases, I was able to archive all blog posts from
+      participating blogs in the last few months. In February I started a <a href=\\\"https://doi.org/10.53731/bdrgt-cjh09\\\"
+      rel=\\\"noreferrer\\\">Personal plan</a> that is completely free for personal
+      blogs. Last week I announced a <a href=\\\"https://doi.org/10.53731/2kkkq-p4h51\\\"
+      rel=\\\"noreferrer\\\">Project plan</a> for blogs of grant-funded projects and
+      hope that some funders and project blogs are interested in that option.</p><p>The
+      costs for running Rogue Scholar have remained very reasonable with currently
+      not more than $300 per month, the largest percentage being DOI registration
+      (Crossref) and long-term archiving (Internet Archive). By far the largest cost
+      factor is staff time for development work, support, and outreach. Donations
+      to Rogue Scholar are always welcomed, and the easiest way is via one-time or
+      monthly <a href=\\\"https://ko-fi.com/rogue_scholar\\\" rel=\\\"noreferrer\\\">Ko-fi
+      donations</a>.</p><h2 id=\\\"references\\\">References</h2><p>Fenner, M. (2023).
+      <em>The Rogue Scholar is now open for business</em>. <a href=\\\"https://doi.org/10.53731/z9v2s-bh329\\\">https://doi.org/10.53731/z9v2s-bh329</a></p><p>Fenner,
+      M. (2024). <em>Rogue Scholar launches a free personal plan</em>. <a href=\\\"https://doi.org/10.53731/bdrgt-cjh09\\\">https://doi.org/10.53731/bdrgt-cjh09</a></p><p>Fenner,
+      M. (2024). <em>Rogue Scholar launches project plan for grant-funded projects</em>.
+      <a href=\\\"https://doi.org/10.53731/2kkkq-p4h51\\\">https://doi.org/10.53731/2kkkq-p4h51</a></p>\",\"comment_id\":\"65f6d91557b30300011708d0\",\"feature_image\":\"https://blog.front-matter.io/content/images/2024/03/Bildschirmfoto-2024-03-17-um-13.52.40.png\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2024-03-17T11:50:45.000+00:00\",\"updated_at\":\"2024-03-18T08:32:01.000+00:00\",\"published_at\":\"2024-03-18T08:00:24.000+00:00\",\"custom_excerpt\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":\"https://doi.org/10.53731/frdn9-grw19\",\"tags\":[{\"id\":\"62d42a7be1424c003158c328\",\"name\":\"News\",\"slug\":\"news\",\"description\":null,\"feature_image\":\"https://images.unsplash.com/photo-1546422904-90eab23c3d7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fG5ld3N8ZW58MHx8fHwxNjYwNTk1NzUy&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/news/\"},{\"id\":\"65c3cef486e93a00017b474f\",\"name\":\"Rogue
+      Scholar\",\"slug\":\"rogue-scholar\",\"description\":\"Blog posts about the
+      Rogue Scholar science blog archive\",\"feature_image\":null,\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/rogue-scholar/\"}],\"authors\":[{\"id\":\"1\",\"name\":\"Martin
+      Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"}],\"primary_author\":{\"id\":\"1\",\"name\":\"Martin
+      Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"},\"primary_tag\":{\"id\":\"62d42a7be1424c003158c328\",\"name\":\"News\",\"slug\":\"news\",\"description\":null,\"feature_image\":\"https://images.unsplash.com/photo-1546422904-90eab23c3d7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fG5ld3N8ZW58MHx8fHwxNjYwNTk1NzUy&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/news/\"},\"url\":\"https://blog.front-matter.io/posts/milestone-15000/\",\"excerpt\":\"Last
+      week the Rogue Scholar science blog archive reached another milestone with 15,000
+      (15,332 as of today) science blog posts. These posts come from 86 participating
+      blogs with 69% written in English and 28% in German. The most common subject
+      areas are Law with 22%, Computer and Information Sciences with 20% and Earth
+      and related Environmental Sciences with 12%. Wordpress is the dominating blogging
+      platform with 46% of posts on self-hosted Wordpress blogs, and 23% of posts
+      hosted by Wordpress.c\",\"reading_time\":2,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":null,\"feature_image_caption\":null},{\"id\":\"65f1c36557b30300011707d8\",\"uuid\":\"02fc9d75-91ae-426c-af52-534aa4ef9c34\",\"title\":\"Rogue
+      Scholar launches project plan for grant-funded projects\",\"slug\":\"rogue-scholar-launches-project-plan-for-grant-funded-projects\",\"html\":\"<p>The
+      <a href=\\\"https://rogue-scholar.org\\\" rel=\\\"noreferrer\\\">Rogue Scholar</a>
+      science blog archive is launching a new <a href=\\\"https://rogue-scholar.org/about#pricing\\\"
+      rel=\\\"noreferrer\\\">pricing plan</a> this week: <strong>Project</strong>.
+      Blogs that participate in the <strong>Project</strong> plan get all the benefits
+      of the existing <strong>Team</strong> plan \u2013 unlimited blog posts with
+      DOI registration, full-text search, and long-term archiving with the Internet
+      Archive \u2013 for a one-time fee of $150.</p><p>As discussed in a <a href=\\\"https://doi.org/10.53731/mh9a1-dw902\\\"
+      rel=\\\"noreferrer\\\">blog post last September</a>, science blogs from grant-funded
+      projects have particular needs:</p><ul><li>Grant-funded projects have a strong
+      desire to communicate their outputs and activities, and science blogs are an
+      established and popular format to do that,</li><li>Funders want grant-funded
+      projects to demonstrate the impact of these outreach activities in terms of
+      views, citations, and social media metrics,</li><li>Because of the time-limited
+      funding and staffing blogs from grant-funded projects run a particularly high
+      risk of disappearing from the public web and thus the scholarly record.</li></ul><p>Rogue
+      Scholar can help grant-funded projects to address these needs. All posts from
+      participating blogs are archived in Rogue Scholar infrastructure and the Internet
+      Archive <a href=\\\"https://archive-it.org/\\\" rel=\\\"noreferrer\\\">Archive-It</a>
+      service when blogs for grant-funded projects are no longer maintained (and the
+      DOIs of blog posts will redirect to the archived versions). The Rogue Scholar
+      full-text search makes the discovery of relevant content much easier, and the
+      DOIs with rich metadata allow grantees and funders to see all blog posts funded
+      by a particular grant or funder. The <a href=\\\"https://rogue-scholar.org/blogs/thor\\\"
+      rel=\\\"noreferrer\\\">blog of the THOR project</a> demonstrates how that works,
+      including <a href=\\\"https://api.crossref.org/works?filter=award.number:654039\\\"
+      rel=\\\"noreferrer\\\">all outputs funded by the project grant in the Crossref
+      REST API</a>, and the <a href=\\\"https://archive-it.org/collections/22143\\\"
+      rel=\\\"noreferrer\\\">archived versions in Archive-It</a>.</p><p>The <strong>Project</strong>
+      plan adds two new functionalities to Rogue Scholar:</p><ul><li>Usage stats for
+      all blog posts via the <a href=\\\"https://plausible.io/\\\" rel=\\\"noreferrer\\\">Plausible</a>
+      service, a privacy-friendly Google Analytics alternative included with all Project
+      plans. The <a href=\\\"https://plausible.io/upstream.force11.org\\\" rel=\\\"noreferrer\\\">Upstream</a>
+      blog as well as <a href=\\\"https://plausible.io/blog.front-matter.io\\\" rel=\\\"noreferrer\\\">this</a>
+      blog have used the Plausible service for more than two years and have made the
+      usage stats available to everybody.</li><li>Citation counts for all blog posts
+      via the Crossref <a href=\\\"https://www.crossref.org/services/cited-by/\\\"
+      rel=\\\"noreferrer\\\">cited-by</a> service are also included with all Project
+      plans. Integration into Rogue Scholar will launch in June for the first anniversary
+      of the Rogue Scholar launch. As with usage stats, citations will be made available
+      to all users without requiring payment or authentication.</li></ul><p>Because
+      of the rapidly changing landscape of social media platforms (X, Mastodon, Bluesky,
+      Threads, etc.) Rogue Scholar is not offering any social media metrics at this
+      time.</p><p>To simplify payment for the Project plan, the plan costs a one-time
+      fee of $150 and is good for all project blog posts made during the project (for
+      up to five years). The project should ideally sign up with the Project plan
+      at the beginning of the project to allow tracking of usage stats, but not after
+      the project blog no longer has a publicly available RSS feed and website. Payment
+      is via the <a href=\\\"https://ko-fi.com/s/a299717a07\\\" rel=\\\"noreferrer\\\">Ko-fi
+      service</a>, and can be made by the project, the funder (so that interested
+      funders can pay for more than one project), or any third party that wants to
+      support project blogs. Please reach out to <a href=\\\"mailto:info@front-matter.io\\\"
+      rel=\\\"noreferrer\\\">Front Matter support</a> if you are interested or have
+      questions.</p><h2 id=\\\"references\\\">References</h2><p>Fenner, M. (2023).
+      Use cases for science blogs: Grant-funded projects. <em>Front Matter</em>. <a
+      href=\\\"https://doi.org/10.53731/mh9a1-dw902\\\">https://doi.org/10.53731/mh9a1-dw902</a></p>\",\"comment_id\":\"65f1c36557b30300011707d8\",\"feature_image\":\"https://images.unsplash.com/photo-1452860606245-08befc0ff44b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE0fHxwcm9qZWN0fGVufDB8fHx8MTcxMDM0MzAyMHww&ixlib=rb-4.0.3&q=80&w=2000\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2024-03-13T15:16:53.000+00:00\",\"updated_at\":\"2024-03-13T16:25:31.000+00:00\",\"published_at\":\"2024-03-13T16:21:54.000+00:00\",\"custom_excerpt\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":\"https://doi.org/10.53731/2kkkq-p4h51\",\"tags\":[{\"id\":\"62d42a7be1424c003158c328\",\"name\":\"News\",\"slug\":\"news\",\"description\":null,\"feature_image\":\"https://images.unsplash.com/photo-1546422904-90eab23c3d7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fG5ld3N8ZW58MHx8fHwxNjYwNTk1NzUy&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/news/\"},{\"id\":\"65c3cef486e93a00017b474f\",\"name\":\"Rogue
+      Scholar\",\"slug\":\"rogue-scholar\",\"description\":\"Blog posts about the
+      Rogue Scholar science blog archive\",\"feature_image\":null,\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/rogue-scholar/\"}],\"authors\":[{\"id\":\"1\",\"name\":\"Martin
+      Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"}],\"primary_author\":{\"id\":\"1\",\"name\":\"Martin
+      Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"},\"primary_tag\":{\"id\":\"62d42a7be1424c003158c328\",\"name\":\"News\",\"slug\":\"news\",\"description\":null,\"feature_image\":\"https://images.unsplash.com/photo-1546422904-90eab23c3d7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fG5ld3N8ZW58MHx8fHwxNjYwNTk1NzUy&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/news/\"},\"url\":\"https://blog.front-matter.io/posts/rogue-scholar-launches-project-plan-for-grant-funded-projects/\",\"excerpt\":\"The
+      Rogue Scholar science blog archive is launching a new pricing plan this week:
+      Project. Blogs that participate in the Project plan get all the benefits of
+      the existing Team plan \u2013 unlimited blog posts with DOI registration, full-text
+      search, and long-term archiving with the Internet Archive \u2013 for a one-time
+      fee of $150.\\n\\nAs discussed in a blog post last September, science blogs
+      from grant-funded projects have particular needs:\\n\\n * Grant-funded projects
+      have a strong desire to communicate thei\",\"reading_time\":2,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":null,\"feature_image_caption\":\"<span
+      style=\\\"white-space: pre-wrap;\\\">Photo by </span><a href=\\\"https://unsplash.com/@joszczepanska?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\\\"><span
+      style=\\\"white-space: pre-wrap;\\\">Jo Szczepanska</span></a><span style=\\\"white-space:
+      pre-wrap;\\\"> / </span><a href=\\\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\\\"><span
+      style=\\\"white-space: pre-wrap;\\\">Unsplash</span></a>\"},{\"id\":\"65e6e0302b5139000132faf4\",\"uuid\":\"1f45555d-98fe-4128-bca1-be236a471837\",\"title\":\"Rogue
+      Scholar has added author affiliation metadata\",\"slug\":\"rogue-scholar-has-added-author-affiliation-metadata\",\"html\":\"<p>This
+      week the <a href=\\\"https://rogue-scholar.org\\\" rel=\\\"noreferrer\\\">Rogue
+      Scholar</a> science blog archive has added author affiliation name and <a href=\\\"https://ror.org/\\\"
+      rel=\\\"noreferrer\\\">ROR ID</a> to the DOI metadata of about <a href=\\\"https://api.crossref.org/members/31795/works?filter=has-ror-id:true\\\"
+      rel=\\\"noreferrer\\\">2,500</a> of its 15K blog posts registered with Crossref.
+      This makes Front Matter (the Crossref member registering Rogue Scholar DOIs)
+      one of the <a href=\\\"http://api.crossref.org/works?filter=has-ror-id:t&amp;facet=publisher-name:*\\\"
+      rel=\\\"noreferrer\\\">top 10 ROR early adopters in Crossref metadata</a>.</p><p>Author
+      affiliations were implemented using the ORCID metadata of blog post authors
+      (available for <a href=\\\"https://www.crossref.org/members/prep/31795\\\" rel=\\\"noreferrer\\\">40%
+      of blog posts</a>). If affiliation information was available in the ORCID record
+      with start and end dates, and unless multiple affiliations existed in parallel,
+      the blog post publication date then was used to retrieve the corresponding affiliation
+      information.</p><p>This is an early implementation but several issues need to
+      be resolved going forward:</p><ul><li>blog posts authors might not want to provide
+      their ORCID ID or affiliation,</li><li>The ORCID record contains no affiliation
+      information (in the <strong>Employment</strong> or <strong>Education</strong>
+      sections), or there are no start and end dates,</li><li>Some ORCID records still
+      contain Ringgold institutional identifiers instead of ROR IDs, despite ORCID
+      having <a href=\\\"https://info.orcid.org/orcid-support-for-ringgold-organization-ids-ending/\\\"
+      rel=\\\"noreferrer\\\">discontinued support for Ringgold IDs</a> in August 2023,</li><li>Some
+      affiliations of Rogue Scholar authors have <a href=\\\"https://ror.org/about/faqs/\\\"
+      rel=\\\"noreferrer\\\">no ROR ID for various reasons</a>, including Front Matter
+      because it is currently a single-person organization,</li><li>the affiliation
+      lookup via ORCID can be further automated,</li><li>the affiliation information
+      is currently only shown in Rogue Scholar API, but not in the web frontend.</li></ul><p>In
+      the coming weeks and months I will work with Rogue Scholar blog post authors
+      to provide their ORCID ID (this is of course optional, but supported for all
+      participating blogs), and update the affiliation information in their ORCID
+      record. I will also update the internal workflow at Rogue Scholar to enable
+      multiple parallel affiliations, as I know of a few Rogue Scholar authors who
+      fall into this category.</p><p>This work further improves the metadata quality
+      for blog posts that Rogue Scholar is helping provide. And it shows that better
+      metadata does not automatically mean more work for authors. Several metadata
+      elements need further work, e.g. references (currently <a href=\\\"https://api.crossref.org/members/31795/works?filter=has-references:true\\\"
+      rel=\\\"noreferrer\\\">1,100 blog posts with references</a>), relationships
+      (currently <a href=\\\"https://api.crossref.org/members/31795/works?filter=has-relation:true\\\"
+      rel=\\\"noreferrer\\\">481 blog posts with relationship information</a>), or
+      funding (currently <a href=\\\"https://api.crossref.org/members/31795/works?filter=has-funder:true\\\"
+      rel=\\\"noreferrer\\\">95 blog posts with funding information</a>), but Rogue
+      Scholar is demonstrating that persistent identifiers (DOI, ORCID, ROR) and relevant
+      metadata for blog posts is feasible, affordable, and works at scale with 15K
+      blog posts registered to date.</p>\",\"comment_id\":\"65e6e0302b5139000132faf4\",\"feature_image\":\"https://images.unsplash.com/photo-1644144974794-2942d75086a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE3fHxtdXNldW0lMjBvdXRzaWRlfGVufDB8fHx8MTcwOTYyOTU5MXww&ixlib=rb-4.0.3&q=80&w=2000\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2024-03-05T09:04:48.000+00:00\",\"updated_at\":\"2024-03-05T10:15:14.000+00:00\",\"published_at\":\"2024-03-05T10:07:52.000+00:00\",\"custom_excerpt\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":\"https://doi.org/10.53731/bxk5g-pxw97\",\"tags\":[{\"id\":\"62d42a7be1424c003158c328\",\"name\":\"News\",\"slug\":\"news\",\"description\":null,\"feature_image\":\"https://images.unsplash.com/photo-1546422904-90eab23c3d7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fG5ld3N8ZW58MHx8fHwxNjYwNTk1NzUy&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/news/\"},{\"id\":\"65c3cef486e93a00017b474f\",\"name\":\"Rogue
+      Scholar\",\"slug\":\"rogue-scholar\",\"description\":\"Blog posts about the
+      Rogue Scholar science blog archive\",\"feature_image\":null,\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/rogue-scholar/\"}],\"authors\":[{\"id\":\"1\",\"name\":\"Martin
+      Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"}],\"primary_author\":{\"id\":\"1\",\"name\":\"Martin
+      Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"},\"primary_tag\":{\"id\":\"62d42a7be1424c003158c328\",\"name\":\"News\",\"slug\":\"news\",\"description\":null,\"feature_image\":\"https://images.unsplash.com/photo-1546422904-90eab23c3d7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fG5ld3N8ZW58MHx8fHwxNjYwNTk1NzUy&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/news/\"},\"url\":\"https://blog.front-matter.io/posts/rogue-scholar-has-added-author-affiliation-metadata/\",\"excerpt\":\"This
+      week the Rogue Scholar science blog archive has added author affiliation name
+      and ROR ID to the DOI metadata of about 2,500 of its 15K blog posts registered
+      with Crossref. This makes Front Matter (the Crossref member registering Rogue
+      Scholar DOIs) one of the top 10 ROR early adopters in Crossref metadata.\\n\\nAuthor
+      affiliations were implemented using the ORCID metadata of blog post authors
+      (available for 40% of blog posts). If affiliation information was available
+      in the ORCID record with st\",\"reading_time\":2,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":null,\"feature_image_caption\":\"<span
+      style=\\\"white-space: pre-wrap;\\\">Photo by </span><a href=\\\"https://unsplash.com/@daviator737?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\\\"><span
+      style=\\\"white-space: pre-wrap;\\\">Martijn Vonk</span></a><span style=\\\"white-space:
+      pre-wrap;\\\"> / </span><a href=\\\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\\\"><span
+      style=\\\"white-space: pre-wrap;\\\">Unsplash</span></a>\"},{\"id\":\"65dc70251677b70001215800\",\"uuid\":\"28b05c82-b1c6-4bce-8fa8-fe4e048fc0d2\",\"title\":\"Rogue
+      Scholar launches a free personal plan\",\"slug\":\"rogue-scholar-launches-a-free-personal-plan\",\"html\":\"<p>The
+      Rogue Scholar science blog archive today has launched a new free <a href=\\\"https://rogue-scholar.org/about#pricing\\\"
+      rel=\\\"noreferrer\\\"><strong>Personal Plan</strong></a>: similar to the <strong>Starter
+      Plan</strong> launched last year, but only for personal (single-author) blogs,
+      and with no limitations on the number of blog posts that can be archived and
+      registered with a DOI per year.</p><p>In the <a href=\\\"https://doi.org/10.53731/9yf86-p8541\\\"
+      rel=\\\"noreferrer\\\">first Rogue Scholar Advisory Board meeting last month</a>,
+      I was encouraged to work on clarifying the kinds of science blogs Rogue Scholar
+      wants to focus on in terms of available services and outreach activities. There
+      are several kinds of science blogs for which Rogue Scholar is a particularly
+      good fit, and I wanted to start with a category that is not only very popular
+      among science blogs participating in Rogue Scholar (currently more than half
+      of all participating blogs), but also dear to my heart: the personal science
+      blog. </p><p>The personal science blog is written by a single author (with occasional
+      guest posts), expressing his/her expertise and views. The author might be affiliated
+      with an academic institution (as in my first five years of blogging), work for
+      an organization that provides services for the scholarly community (as in the
+      next nine years of my blogging), or is self-employed (as in the last two years
+      of my blogging). Personal blogs often write about the kind of content or in
+      formats that don't fit other channels of scholarly communication (e.g. journal
+      article, preprint, or working paper), and long-term maintenance of a personal
+      blog can be a particular challenge. However personal blogs are a very valuable
+      resource, and their discovery and long-term maintenance should be supported.</p><p>How
+      can Rogue Scholar offer a free service that costs money to build and maintain?
+      By making this free service cost-effective by using open source software, automation,
+      and collaboration, by also offering paid services, and by continuing to accept
+      one-time or recurring donations. Submit your personal blog to Rogue Scholar
+      <a href=\\\"https://rogue-scholar.org/auth/signin\\\" rel=\\\"noreferrer\\\">here</a>,
+      support Rogue Scholar with a donation <a href=\\\"https://ko-fi.com/rogue_scholar\\\"
+      rel=\\\"noreferrer\\\">here</a>, or subscribe to the Front Matter newsletter
+      with regular updates about the Rogue Scholar service <a href=\\\"https://blog.front-matter.io/#/portal/signup\\\"
+      rel=\\\"noreferrer\\\">here</a>.</p><h2 id=\\\"references\\\">References</h2><p>Fenner,
+      M. (2024). Introducing the Rogue Scholar Advisory Board. <em>Front Matter</em>.
+      <a href=\\\"https://doi.org/10.53731/9yf86-p8541\\\">https://doi.org/10.53731/9yf86-p8541</a></p>\",\"comment_id\":\"65dc70251677b70001215800\",\"feature_image\":\"https://images.unsplash.com/photo-1504805572947-34fad45aed93?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDI5fHxwZXJzb25hbHxlbnwwfHx8fDE3MDg5NDU0NTB8MA&ixlib=rb-4.0.3&q=80&w=2000\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2024-02-26T11:04:05.000+00:00\",\"updated_at\":\"2024-02-26T12:08:31.000+00:00\",\"published_at\":\"2024-02-26T11:56:51.000+00:00\",\"custom_excerpt\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":\"https://doi.org/10.53731/bdrgt-cjh09\",\"tags\":[{\"id\":\"62d42a7be1424c003158c328\",\"name\":\"News\",\"slug\":\"news\",\"description\":null,\"feature_image\":\"https://images.unsplash.com/photo-1546422904-90eab23c3d7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fG5ld3N8ZW58MHx8fHwxNjYwNTk1NzUy&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/news/\"},{\"id\":\"65c3cef486e93a00017b474f\",\"name\":\"Rogue
+      Scholar\",\"slug\":\"rogue-scholar\",\"description\":\"Blog posts about the
+      Rogue Scholar science blog archive\",\"feature_image\":null,\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/rogue-scholar/\"}],\"authors\":[{\"id\":\"1\",\"name\":\"Martin
+      Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"}],\"primary_author\":{\"id\":\"1\",\"name\":\"Martin
+      Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"},\"primary_tag\":{\"id\":\"62d42a7be1424c003158c328\",\"name\":\"News\",\"slug\":\"news\",\"description\":null,\"feature_image\":\"https://images.unsplash.com/photo-1546422904-90eab23c3d7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fG5ld3N8ZW58MHx8fHwxNjYwNTk1NzUy&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/news/\"},\"url\":\"https://blog.front-matter.io/posts/rogue-scholar-launches-a-free-personal-plan/\",\"excerpt\":\"The
+      Rogue Scholar science blog archive today has launched a new free Personal Plan:
+      similar to the Starter Plan launched last year, but only for personal (single-author)
+      blogs, and with no limitations on the number of blog posts that can be archived
+      and registered with a DOI per year.\\n\\nIn the first Rogue Scholar Advisory
+      Board meeting last month, I was encouraged to work on clarifying the kinds of
+      science blogs Rogue Scholar wants to focus on in terms of available services
+      and outreach activitie\",\"reading_time\":2,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":null,\"feature_image_caption\":\"<span
+      style=\\\"white-space: pre-wrap;\\\">Photo by </span><a href=\\\"https://unsplash.com/@clarktibbs?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\\\"><span
+      style=\\\"white-space: pre-wrap;\\\">Clark Tibbs</span></a><span style=\\\"white-space:
+      pre-wrap;\\\"> / </span><a href=\\\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\\\"><span
+      style=\\\"white-space: pre-wrap;\\\">Unsplash</span></a>\"},{\"id\":\"65d4d00d1677b7000121571b\",\"uuid\":\"433149e1-aa57-48ca-bc49-d26ca05d4ba3\",\"title\":\"commonmeta-py
       now supports metadata lists\",\"slug\":\"commonmeta-py-now-supports-metadata-lists\",\"html\":\"<p>This
       week the <a href=\\\"https://python.commonmeta.org/\\\" rel=\\\"noreferrer\\\">commonmeta-py</a>
       Python library adds an important new feature: metadata lists. With this feature
@@ -3637,210 +3874,12 @@ interactions:
       style=\\\"white-space: pre-wrap;\\\">Photo by </span><a href=\\\"https://unsplash.com/@timmossholder?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\\\"><span
       style=\\\"white-space: pre-wrap;\\\">Tim Mossholder</span></a><span style=\\\"white-space:
       pre-wrap;\\\"> / </span><a href=\\\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\\\"><span
-      style=\\\"white-space: pre-wrap;\\\">Unsplash</span></a>\"},{\"id\":\"64249e22356ed7003d0e5623\",\"uuid\":\"5b05c234-3b08-4e88-9531-03f6b4e75874\",\"title\":\"The
-      Rogue Scholar releases its first catalog of science blogs\",\"slug\":\"rogue-scholar-releases-first-catalog\",\"html\":\"<p>The
-      Rogue Scholar blog archive today released its <a href=\\\"https://rogue-scholar.org/blogs\\\">first
-      catalog of science blogs</a>, a total of nineteen science blogs that signed
-      up for the Rogue Scholar via <a href=\\\"https://jvinjjenjik.typeform.com/to/uxgAsHPl\\\">submission
-      form</a> and met the inclusion criteria: </p><ul><li>The blog is about science
-      and in English or German (more languages will follow later, reach out to me
-      if you can help).</li><li>The full-text content is available via RSS feed and
-      distributed using a Creative Commons Attribution license (<a href=\\\"https://creativecommons.org/licenses/by/4.0/legalcode\\\">CC-BY</a>).</li></ul><p>The
-      Rogue Scholar will launch in the second quarter of this year, and this list
-      of science blogs is an important step. The RSS feeds of the included blogs will
-      be used to archive content and register DOIs, and they contain important information
-      that I will include over time, including license, language, blog description,
-      blog logo, contact person, and blogging platform.</p><figure class=\\\"kg-card
-      kg-image-card kg-card-hascaption\\\"><img src=\\\"https://blog.front-matter.io/content/images/2023/03/Bildschirmfoto-2023-03-29-um-22.38.08.png\\\"
-      class=\\\"kg-image\\\" alt=\\\"\\\" loading=\\\"lazy\\\" width=\\\"2000\\\"
-      height=\\\"841\\\" srcset=\\\"https://blog.front-matter.io/content/images/size/w600/2023/03/Bildschirmfoto-2023-03-29-um-22.38.08.png
-      600w, https://blog.front-matter.io/content/images/size/w1000/2023/03/Bildschirmfoto-2023-03-29-um-22.38.08.png
-      1000w, https://blog.front-matter.io/content/images/size/w1600/2023/03/Bildschirmfoto-2023-03-29-um-22.38.08.png
-      1600w, https://blog.front-matter.io/content/images/2023/03/Bildschirmfoto-2023-03-29-um-22.38.08.png
-      2000w\\\" sizes=\\\"(min-width: 720px) 720px\\\"><figcaption><span style=\\\"white-space:
-      pre-wrap;\\\">Subset of the blogs included in the first </span><a href=\\\"https://rogue-scholar.org/blogs\\\"><span
-      style=\\\"white-space: pre-wrap;\\\">Rogue Scholar catalog</span></a></figcaption></figure><p>The
-      first Rogue Scholar catalog can be used as a starting point to find interesting
-      science blogs, but more importantly, the catalog is available as an <a href=\\\"https://doi.org/10.53731/wa7k5-v4t16\\\">OPML
-      file</a> for download and can be imported (and modified) into any blog reader.</p>\",\"comment_id\":\"64249e22356ed7003d0e5623\",\"feature_image\":\"https://images.unsplash.com/photo-1662582632158-7f0f6e9a617b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDMzfHxjYXRhbG9nfGVufDB8fHx8MTY4MDEyMTQ2MQ&ixlib=rb-4.0.3&q=80&w=2000\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2023-03-29T20:22:58.000+00:00\",\"updated_at\":\"2024-02-07T19:54:37.000+00:00\",\"published_at\":\"2023-03-29T20:46:54.000+00:00\",\"custom_excerpt\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":\"https://doi.org/10.53731/n7vvs-h6995\",\"tags\":[{\"id\":\"62d42a7be1424c003158c328\",\"name\":\"News\",\"slug\":\"news\",\"description\":null,\"feature_image\":\"https://images.unsplash.com/photo-1546422904-90eab23c3d7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fG5ld3N8ZW58MHx8fHwxNjYwNTk1NzUy&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/news/\"},{\"id\":\"65c3cef486e93a00017b474f\",\"name\":\"Rogue
-      Scholar\",\"slug\":\"rogue-scholar\",\"description\":\"Blog posts about the
-      Rogue Scholar science blog archive\",\"feature_image\":null,\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/rogue-scholar/\"}],\"authors\":[{\"id\":\"1\",\"name\":\"Martin
-      Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"}],\"primary_author\":{\"id\":\"1\",\"name\":\"Martin
-      Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"},\"primary_tag\":{\"id\":\"62d42a7be1424c003158c328\",\"name\":\"News\",\"slug\":\"news\",\"description\":null,\"feature_image\":\"https://images.unsplash.com/photo-1546422904-90eab23c3d7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fG5ld3N8ZW58MHx8fHwxNjYwNTk1NzUy&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/news/\"},\"url\":\"https://blog.front-matter.io/posts/rogue-scholar-releases-first-catalog/\",\"excerpt\":\"The
-      Rogue Scholar blog archive today released its first catalog of science blogs,
-      a total of nineteen science blogs that signed up for the Rogue Scholar via submission
-      form and met the inclusion criteria:\\n\\n * The blog is about science and in
-      English or German (more languages will follow later, reach out to me if you
-      can help).\\n * The full-text content is available via RSS feed and distributed
-      using a Creative Commons Attribution license (CC-BY).\\n\\nThe Rogue Scholar
-      will launch in the second quart\",\"reading_time\":1,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":null,\"feature_image_caption\":\"<span
-      style=\\\"white-space: pre-wrap;\\\">Photo by </span><a href=\\\"https://unsplash.com/@danielforsman?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\\\"><span
-      style=\\\"white-space: pre-wrap;\\\">Daniel Forsman</span></a><span style=\\\"white-space:
-      pre-wrap;\\\"> / </span><a href=\\\"https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit\\\"><span
-      style=\\\"white-space: pre-wrap;\\\">Unsplash</span></a>\"},{\"id\":\"641ac02dd13414003d462433\",\"uuid\":\"ad3c34f1-871c-45ce-9e6d-cf083ba826bc\",\"title\":\"Starting
-      the Rogue Scholar OPML Feed\",\"slug\":\"starting-the-rogue-scholar-opml-feed\",\"html\":\"<p>While
-      the launch of the <a href=\\\"https://rogue-scholar.org/\\\">Rogue Scholar</a>
-      blog archive is still a few months away (happening in the second quarter of
-      this year), I want to give an update on the ongoing work.</p><p>The <em>Rogue
-      Scholar</em> blog archive will improve science blogs in important ways,<br>including
-      full-text search, DOIs and metadata, and long-term archiving. The central piece
-      of the underlying infrastructure is the <a href=\\\"https://inveniosoftware.org/products/rdm/\\\">InvenioRDM
-      </a>open source repository software. Front Matter is one of the organizations
-      helping with InvenioRDM development. For the <em>Rogue Scholar,</em> the specific
-      work needed includes the following:</p><h3 id=\\\"support-for-rss-feeds\\\">Support
-      for RSS Feeds</h3><p>All blogs provide RSS feeds, which will be central to automatically
-      fetching metadata and content for the <em>Rogue Scholar</em>. RSS is not built
-      into InvenioRDM and is not needed by most organizations planning to run InvenioRDM.
-      I will therefore build a separate service for this functionality, integrating
-      with InvenioRDM via its REST API. For a blog to be archived and indexed in the
-      <em>Rogue Scholar</em>, users will use this RSS service, providing basic information
-      such as RSS feed URL, language, license, and contact person \u2013 basically
-      the information collected for the <em>Rogue Scholar</em> <a href=\\\"https://jvinjjenjik.typeform.com/to/uxgAsHPl?typeform-source=rogue-scholar.org\\\">waitlist</a>
-      (feel free to sign up your blog if you haven't already).</p><p>Next Tuesday
-      I will publish an <a href=\\\"https://en.wikipedia.org/wiki/OPML\\\">OPML</a>
-      (Outline Processor Markup Language) file with all blogs on the <em>Rogue Scholar</em>
-      waitlist. OPML is the standard for importing and exporting lists of blogs, e.g.
-      when switching from one RSS reader to another. It is a natural fit for managing
-      blogs in <em>Rogue Scholar</em>, and hopefully helps people sign up for interesting
-      science blogs they want to read. If you are on the <em>Rogue Scholar </em>waitlist,
-      please make sure your RSS Feed URL and Home Page URL are correct, and \u2013
-      if you haven't done so already \u2013 pick one (and only one) of the top-level
-      categories from the <a href=\\\"https://www.oecd.org/science/inno/38235147.pdf\\\">OECD
-      Fields of Science and Technology</a>:</p><ul><li>Natural Sciences</li><li>Engineering
-      and Technology</li><li>Medical and Health Sciences</li><li>Agricultural Sciences</li><li>Social
-      Sciences</li><li>Humanities</li></ul><p>The OPML file (and your RSS reader if
-      you import that file) will group science blogs into these categories. Many blogs
-      fall into more than one category, but that isn't supported by OPML. </p><h3
-      id=\\\"hosting-rogue-scholar-infrastructure\\\">Hosting Rogue Scholar infrastructure</h3><p>There
-      are <a href=\\\"https://inveniordm.docs.cern.ch/install/\\\">several ways</a>
-      to run InvenioRDM repository software, obviously depending on the resources
-      available at the hosting organization, and the size and complexity of the repository.
-      A small data repository for a university department has different needs than
-      <a href=\\\"https://zenodo.org/\\\">Zenodo</a>, one of the most popular generalist
-      repositories with almost three million records. The <em>Rogue Scholar</em> sits
-      in the middle, a small to medium-sized repository, anticipating 2,000 to 20,000
-      blog posts twelve months after launch. InvenioRDM relies on <a href=\\\"https://www.docker.com/\\\">Docker</a>
-      and Kubernetes for running production services. This makes sense for large instances
-      such as Zenodo but adds unnecessary complexity to smaller instances such as
-      the <em>Rogue Scholar</em>.</p><p>After a substantial amount of deliberation
-      and discussion, I decided to use a different approach for the <em>Rogue Scholar</em>,
-      and this might potentially be of interest to other organizations planning to
-      use InvenioRDM:</p><ul><li>Using virtual machines instead of Docker containers</li><li>Automation
-      of virtual machine building with <a href=\\\"https://www.packer.io/\\\">Packer</a>
-      and <a href=\\\"https://www.ansible.com/\\\">Ansible</a></li><li>Hosting of
-      virtual machines by cloud provider <a href=\\\"https://www.digitalocean.com/\\\">DigitalOcean</a>,
-      fundamentally similar to hosting a Wordpress or Ghost blog</li><li>Making the
-      automation generic to also work for other InvenioRDM instances, and other infrastructure
-      providers, e.g. <a href=\\\"https://www.openstack.org/\\\">Openstack</a></li></ul><p>This
-      will be the focus of my work in the next three months, and luckily I have learned
-      a lot about infrastructure automation in my previous jobs at <a href=\\\"https://plos.org/\\\">PLOS</a>
-      and <a href=\\\"https://datacite.org/\\\">DataCite</a>.</p><h3 id=\\\"support-for-crossref-doi-registration\\\">Support
-      for Crossref DOI registration</h3><p>By default, InvenioRDM uses DataCite DOIs,
-      but <em>Rogue Scholar</em> will use Crossref DOIs for blogs that don't already
-      use DOIs. The Crossref pricing is much more favorable for startups such as Front
-      Matter, and for annual DOI registration numbers that at least initially will
-      be in the 100s or low 1000s. I spent a good part of January and February writing
-      a Python scholarly metadata conversion library that I released two weeks ago
-      (<a href=\\\"https://pypi.org/project/commonmeta-py/\\\">commonmeta-py</a>).
-      Among other things, commonmeta-py can read and write Crossref metadata and can
-      enable Crossref DOI registrations in InvenioRDM \u2013 which is written in Python
-      (and Javascript for the frontend).</p><p>As always, reach out to me with questions
-      and comments.</p>\",\"comment_id\":\"641ac02dd13414003d462433\",\"feature_image\":\"https://images.unsplash.com/photo-1611864581049-aca018410b97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDQzfHxmZWVkfGVufDB8fHx8MTY3OTQ3NDc2NQ&ixlib=rb-4.0.3&q=80&w=2000\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2023-03-22T08:45:33.000+00:00\",\"updated_at\":\"2023-03-22T10:42:17.000+00:00\",\"published_at\":\"2023-03-22T10:42:17.000+00:00\",\"custom_excerpt\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":\"https://doi.org/10.53731/wa7k5-v4t16\",\"tags\":[],\"authors\":[{\"id\":\"1\",\"name\":\"Martin
-      Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"}],\"primary_author\":{\"id\":\"1\",\"name\":\"Martin
-      Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"},\"primary_tag\":null,\"url\":\"https://blog.front-matter.io/posts/starting-the-rogue-scholar-opml-feed/\",\"excerpt\":\"While
-      the launch of the Rogue Scholar blog archive is still a few months away (happening
-      in the second quarter of this year), I want to give an update on the ongoing
-      work.\\n\\nThe Rogue Scholar blog archive will improve science blogs in important
-      ways,\\nincluding full-text search, DOIs and metadata, and long-term archiving.
-      The central piece of the underlying infrastructure is the InvenioRDM open source
-      repository software. Front Matter is one of the organizations helping with InvenioRDM
-      development\",\"reading_time\":3,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":null,\"feature_image_caption\":\"Photo
-      by <a href=\\\"https://unsplash.com/@sigmund?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\\\">Sigmund</a>
-      / <a href=\\\"https://unsplash.com/?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\\\">Unsplash</a>\"},{\"id\":\"641868a78e8933003d843beb\",\"uuid\":\"16e87351-cba7-4790-ba34-4daaa6597a8a\",\"title\":\"Announcing
-      commonmeta-ruby\",\"slug\":\"announcing-commonmeta-ruby\",\"html\":\"<p>Following
-      recent announcements of the <a href=\\\"https://commonmeta.org\\\">commonmeta</a>
-      standard for scholarly metadata and a Python package that converts several metadata
-      formats (<a href=\\\"https://github.com/front-matter/commonmeta-py\\\">commonmeta-py</a>),
-      today I am happy to announce <a href=\\\"https://github.com/front-matter/commonmeta-ruby\\\">commonmeta-ruby</a>,
-      a Ruby gem and command-line tool to convert scholarly metadata using commonmeta
-      as the internal format. commonmeta-ruby is based on the <a href=\\\"https://github.com/datacite/bolognese\\\">bolognese
-      Ruby library</a> that I started a few ago while working at DataCite, but is
-      a major rewrite that uses commonmeta as its intermediary conversion format.</p><p>Originally
-      planned for later this year, I decided to speed up the release as Ruby version
-      2.x (currently 2.7.7) reaches its <a href=\\\"https://endoflife.date/ruby\\\">end
-      of life</a> this month, and <a href=\\\"https://rubygems.org/gems/briard\\\">briard</a>
-      (the fork I wrote to support additional metadata conversions such as <a href=\\\"https://citation-file-format.github.io/\\\">Citation
-      File Format</a> and Crossref DOI registrations) didn't fully work with Ruby
-      3.x. In addition to supporting Ruby 3.x and validating with the <a href=\\\"https://commonmeta.org/schema\\\">commonmeta
-      JSON Schema</a>, commonmeta-ruby dropped support for DataCite XML. The DataCite
-      REST API has always been a JSON API, and DOI registration using DataCite XML
-      for many years has used JSON under the hood. Metadata conversion using XML is
-      painful, and focussing on JSON metadata simplifies further development.</p><p>The
-      next steps for commonmeta are:</p><ul><li>Refine the commonmeta-py and commonmeta-ruby
-      libraries by adding tests and real-world implementations (such as the DOI registration
-      for this blog post, which was done using commonmeta-ruby)</li><li>Work towards
-      a commonmeta v1.0 JSON Schema</li><li>Add support for bibliographies (lists
-      of resources) to commonmeta.</li><li>Commonmeta implementations in additional
-      languages, in particular Javascript/Typescript.</li></ul>\",\"comment_id\":\"641868a78e8933003d843beb\",\"feature_image\":\"https://images.unsplash.com/photo-1676284572206-2501ff5c6956?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDUwfHxiaWtlJTIwbSVDMyVCQ25zdGVyfGVufDB8fHx8MTY3OTMyMTU4MA&ixlib=rb-4.0.3&q=80&w=2000\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2023-03-20T14:07:35.000+00:00\",\"updated_at\":\"2023-03-22T12:32:52.000+00:00\",\"published_at\":\"2023-03-20T14:54:00.000+00:00\",\"custom_excerpt\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":\"https://doi.org/10.53731/fawv321-14359c4\",\"tags\":[{\"id\":\"62d42a7be1424c003158c328\",\"name\":\"News\",\"slug\":\"news\",\"description\":null,\"feature_image\":\"https://images.unsplash.com/photo-1546422904-90eab23c3d7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fG5ld3N8ZW58MHx8fHwxNjYwNTk1NzUy&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/news/\"}],\"authors\":[{\"id\":\"1\",\"name\":\"Martin
-      Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"}],\"primary_author\":{\"id\":\"1\",\"name\":\"Martin
-      Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"},\"primary_tag\":{\"id\":\"62d42a7be1424c003158c328\",\"name\":\"News\",\"slug\":\"news\",\"description\":null,\"feature_image\":\"https://images.unsplash.com/photo-1546422904-90eab23c3d7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fG5ld3N8ZW58MHx8fHwxNjYwNTk1NzUy&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/news/\"},\"url\":\"https://blog.front-matter.io/posts/announcing-commonmeta-ruby/\",\"excerpt\":\"Following
-      recent announcements of the commonmeta standard for scholarly metadata and a
-      Python package that converts several metadata formats (commonmeta-py), today
-      I am happy to announce commonmeta-ruby, a Ruby gem and command-line tool to
-      convert scholarly metadata using commonmeta as the internal format. commonmeta-ruby
-      is based on the bolognese Ruby library that I started a few ago while working
-      at DataCite, but is a major rewrite that uses commonmeta as its intermediary
-      conversion format.\\n\\nO\",\"reading_time\":1,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":null,\"feature_image_caption\":\"Photo
-      by <a href=\\\"https://unsplash.com/@twind71?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\\\">Thorsten
-      Wind</a> / <a href=\\\"https://unsplash.com/?utm_source=ghost&utm_medium=referral&utm_campaign=api-credit\\\">Unsplash</a>\"},{\"id\":\"640a101fbb01d4003d11fc58\",\"uuid\":\"4674567e-2366-4f00-8734-b391cc35dc1a\",\"title\":\"Announcing
-      Commonmeta\",\"slug\":\"announcing-commonmeta\",\"html\":\"<p>This week I launched
-      <strong>Commonmeta</strong>, a new scholarly metadata standard described at
-      <a href=\\\"https://commonmeta.org/\\\">https://commonmeta.org</a>. Commonmeta
-      is the result of working on conversion tools for scholarly metadata for many
-      years. One conclusion early on was that these conversions are many-to-many,
-      so it becomes much easier to have an internal format that is the intermediate
-      step for these conversions.</p><p>Commonmeta is inspired by two initiatives:
-      <a href=\\\"https://codemeta.github.io/\\\">Codemeta</a> and <a href=\\\"https://commonmark.org\\\">Commonmark</a>.
-      CodeMeta contributors are creating a minimal metadata schema for science software
-      and code, in JSON and XML. The goal of CodeMeta is to create a concept vocabulary
-      that can be used to standardize the exchange of software metadata across repositories
-      and organizations. Commonmark is a strongly defined, highly compatible specification
-      of Markdown, along with a suite of comprehensive tests to validate Markdown
-      implementations against this specification. </p><p>These two specifications
-      not only inspired the name but also the principles of how I want to see Commonmeta
-      operate:</p><ul><li>driven by real-world implementations and not committees</li><li>features
-      that focus on what is common in existing implementations/formats</li><li>a testable
-      specification</li></ul><p>The website goes into a little bit more detail about
-      why I didn't pick any the existing standards but instead came up with a new
-      metadata standard. This is a familiar pattern made famous by the XKCD comic
-      shown above.</p><p>As I want this to be driven by real-world implementations
-      and not committees, I also in the last few weeks launched<a href=\\\"https://github.com/front-matter/commonmeta-py\\\">
-      commonmeta-py</a>, a Python implementation of the standard available on <a href=\\\"https://pypi.org/project/commonmeta-py/\\\">PyPi</a>.
-      And in a few months, I hope to have tweaked the <a href=\\\"https://github.com/front-matter/briard\\\">Ruby
-      Gem</a> that I originally wrote a few years ago to support Commonmeta as the
-      internal format.</p><p>With testable specification, I mean both a JSON Schema
-      to describe Commonmeta and many, many tests that validate the conversions with
-      real-world data. The JSON Schema is available <a href=\\\"https://commonmeta.org/schema\\\">here</a>,
-      and will become stable once it reaches version 1.0. commonmeta-py comes with
-      lots of tests, but I hope to further improve the test coverage.</p><p>Please
-      reach out to me if you want to help with Commonmeta, in particular, work on
-      implementations in other languages, such as Javascript, PHP, or Java.</p>\",\"comment_id\":\"640a101fbb01d4003d11fc58\",\"feature_image\":\"https://blog.front-matter.io/content/images/2023/03/standards_2x.png\",\"featured\":false,\"visibility\":\"public\",\"created_at\":\"2023-03-09T16:58:07.000+00:00\",\"updated_at\":\"2023-03-09T17:36:44.000+00:00\",\"published_at\":\"2023-03-09T17:36:44.000+00:00\",\"custom_excerpt\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"custom_template\":null,\"canonical_url\":\"https://doi.org/10.53731/cp7apdj-jk5f471\",\"tags\":[{\"id\":\"62d42a7be1424c003158c328\",\"name\":\"News\",\"slug\":\"news\",\"description\":null,\"feature_image\":\"https://images.unsplash.com/photo-1546422904-90eab23c3d7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fG5ld3N8ZW58MHx8fHwxNjYwNTk1NzUy&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/news/\"}],\"authors\":[{\"id\":\"1\",\"name\":\"Martin
-      Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"}],\"primary_author\":{\"id\":\"1\",\"name\":\"Martin
-      Fenner\",\"slug\":\"martin\",\"profile_image\":\"https://www.gravatar.com/avatar/8adea77ad740876f5cb832f92d49f08d?s=250&r=x&d=mp\",\"cover_image\":null,\"bio\":null,\"website\":\"https://orcid.org/0000-0003-1419-2405\",\"location\":null,\"facebook\":null,\"twitter\":null,\"meta_title\":null,\"meta_description\":null,\"url\":\"https://blog.front-matter.io/author/martin/\"},\"primary_tag\":{\"id\":\"62d42a7be1424c003158c328\",\"name\":\"News\",\"slug\":\"news\",\"description\":null,\"feature_image\":\"https://images.unsplash.com/photo-1546422904-90eab23c3d7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fG5ld3N8ZW58MHx8fHwxNjYwNTk1NzUy&ixlib=rb-1.2.1&q=80&w=2000\",\"visibility\":\"public\",\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"codeinjection_head\":null,\"codeinjection_foot\":null,\"canonical_url\":null,\"accent_color\":null,\"url\":\"https://blog.front-matter.io/tag/news/\"},\"url\":\"https://blog.front-matter.io/posts/announcing-commonmeta/\",\"excerpt\":\"This
-      week I launched Commonmeta, a new scholarly metadata standard described at https://commonmeta.org.
-      Commonmeta is the result of working on conversion tools for scholarly metadata
-      for many years. One conclusion early on was that these conversions are many-to-many,
-      so it becomes much easier to have an internal format that is the intermediate
-      step for these conversions.\\n\\nCommonmeta is inspired by two initiatives:
-      Codemeta and Commonmark. CodeMeta contributors are creating a minimal metadata
-      sch\",\"reading_time\":2,\"access\":true,\"comments\":true,\"og_image\":null,\"og_title\":null,\"og_description\":null,\"twitter_image\":null,\"twitter_title\":null,\"twitter_description\":null,\"meta_title\":null,\"meta_description\":null,\"email_subject\":null,\"frontmatter\":null,\"feature_image_alt\":\"How
-      standards proliferate\",\"feature_image_caption\":\"<a href=\\\"https://xkcd.com/927/\\\">Image
-      via XKCD</a>\"}],\"meta\":{\"pagination\":{\"page\":1,\"limit\":50,\"pages\":11,\"total\":528,\"next\":2,\"prev\":null}}}"
+      style=\\\"white-space: pre-wrap;\\\">Unsplash</span></a>\"}],\"meta\":{\"pagination\":{\"page\":1,\"limit\":50,\"pages\":11,\"total\":532,\"next\":2,\"prev\":null}}}"
     headers:
       Accept-Ranges:
       - bytes
       Age:
-      - '56930'
+      - '35302'
       Alt-Svc:
       - clear
       Cache-Control:
@@ -3850,15 +3889,15 @@ interactions:
       Content-Encoding:
       - gzip
       Content-Length:
-      - '88570'
+      - '89057'
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 23 Feb 2024 15:46:19 GMT
+      - Tue, 26 Mar 2024 21:59:09 GMT
       Ghost-Age:
-      - '596'
+      - '0'
       Ghost-Cache:
-      - HIT
+      - MISS
       Ghost-Fastly:
       - 'true'
       Server:
@@ -3872,21 +3911,19 @@ interactions:
       X-Cache:
       - HIT
       X-Cache-Hits:
-      - '1'
-      X-Request-ID:
-      - d989d216-b958-4c20-83bc-5758c166df73
+      - '2'
       X-Served-By:
-      - cache-ams21079-AMS
+      - cache-ams21045-AMS
       X-Timer:
-      - S1708703179.181349,VS0,VE1
+      - S1711490350.511423,VS0,VE1
       access-control-allow-origin:
       - '*'
       content-version:
-      - v5.79
+      - v5.81
       etag:
-      - W/"75656-AJKFXG7CxFlwuxsn8MHb4DVgEgE"
+      - W/"76ba0-EH8/bKhEMiDAgfBcoIRKdaij8vc"
       x-request-id:
-      - c3199329-adde-45a2-bb6c-da54cc044936
+      - 927e2b7b-1fdb-4b46-a96a-a6991ad59aeb
     http_version: HTTP/1.1
     status_code: 200
 version: 1

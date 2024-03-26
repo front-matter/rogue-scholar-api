@@ -5,7 +5,7 @@ interactions:
       accept:
       - application/vnd.pgrst.object+json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       accept-profile:
       - public
       connection:
@@ -51,19 +51,17 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 862b9d1f8fd73819-FRA
+      - 86aa6afca8c97163-DUS
       Connection:
       - keep-alive
       Content-Location:
       - /works?select=%2A&uuid=eq.c2182771-c786-4c51-b3db-4f5c599948f3
-      Content-Profile:
-      - public
       Content-Range:
       - 0-0/*
       Content-Type:
       - application/vnd.pgrst.object+json; charset=utf-8
       Date:
-      - Mon, 11 Mar 2024 12:40:34 GMT
+      - Tue, 26 Mar 2024 22:01:12 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -74,14 +72,16 @@ interactions:
       - Accept-Encoding
       Via:
       - kong/2.8.1
-      X-Kong-Proxy-Latency:
-      - '1'
-      X-Kong-Upstream-Latency:
-      - '2'
       alt-svc:
       - h3=":443"; ma=86400
+      content-profile:
+      - public
       sb-gateway-version:
       - '1'
+      x-kong-proxy-latency:
+      - '0'
+      x-kong-upstream-latency:
+      - '3'
     http_version: HTTP/1.1
     status_code: 200
 version: 1

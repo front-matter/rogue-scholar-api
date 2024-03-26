@@ -5,7 +5,7 @@ interactions:
       accept:
       - application/vnd.pgrst.object+json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       accept-profile:
       - public
       connection:
@@ -21,7 +21,7 @@ interactions:
       user-agent:
       - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.5
+      - supabase-py/2.4.0
     method: GET
     uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20abstract%2C%20content_text%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28%2A%29&doi=eq.https%3A%2F%2Fdoi.org%2F10.53731%2Fdnfg0-hge29
   response:
@@ -81,13 +81,15 @@ interactions:
       summaries and link extraction for feature images, plus of\\ncourse the use of
       DOIs for persistent identification of blog posts. All\\nthis continues to be
       helpful for generating social media posts going\\nforward.\\n\\n## References\\n\\nFenner,
-      M. (2023). Rogue scholar joins the fediverse. *Front Matter*.\\n<https://doi.org/10.53731/f1mhr-wps22>\\n\",\"published_at\":1706534103,\"updated_at\":1706537903,\"indexed_at\":1708333897,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"image\":\"https://blog.front-matter.io/content/images/2024/01/51387246685_0c704e4647_c.jpg\",\"tags\":[\"News\",\"Rogue
+      M. (2023). Rogue scholar joins the fediverse. *Front Matter*.\\n<https://doi.org/10.53731/f1mhr-wps22>\\n\",\"published_at\":1706534103,\"updated_at\":1706537903,\"indexed_at\":1710584024,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\", \"affiliation\":
+      [{\"name\": \"Front Matter\"}]}],\"image\":\"https://blog.front-matter.io/content/images/2024/01/51387246685_0c704e4647_c.jpg\",\"tags\":[\"News\",\"Rogue
       Scholar\"],\"language\":\"en\",\"reference\":[{\"doi\": \"https://doi.org/10.53731/f1mhr-wps22\",
       \"key\": \"ref1\", \"title\": \"Rogue Scholar joins the Fediverse\", \"publicationYear\":
       \"2023\"}],\"relationships\":[],\"blog_name\":\"Front Matter\",\"blog_slug\":\"front_matter\",\"blog\":{\"title\":\"Front
       Matter\",\"description\":\"The Front Matter Blog covers the intersection of
-      science and technology since 2007.\",\"language\":\"en\",\"favicon\":\"https://blog.front-matter.io/favicon.png\",\"feed_url\":\"https://blog.front-matter.io/atom\",\"home_page_url\":\"https://blog.front-matter.io\",\"user_id\":\"8498eaf6-8c58-4b58-bc15-27eda292b1aa\",\"feed_format\":\"application/atom+xml\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"generator\":\"Ghost\",\"category\":\"computerAndInformationSciences\",\"prefix\":\"10.53731\",\"current_feed_url\":\"https://blog.front-matter.io/atom/\",\"status\":\"active\",\"issn\":\"2749-9952\",\"authors\":null,\"plan\":\"Personal\",\"slug\":\"front_matter\",\"use_mastodon\":true,\"funding\":null,\"archive_prefix\":\"https://wayback.archive-it.org/22096/20231101172748/\",\"use_api\":true,\"relative_url\":null,\"canonical_url\":null,\"filter\":null,\"updated_at\":1708450360,\"secure\":true,\"created_at\":1672561153,\"indexed\":null,\"generator_raw\":\"Ghost
+      science and technology since 2007.\",\"language\":\"en\",\"favicon\":\"https://blog.front-matter.io/favicon.png\",\"feed_url\":\"https://blog.front-matter.io/atom\",\"home_page_url\":\"https://blog.front-matter.io\",\"user_id\":\"8498eaf6-8c58-4b58-bc15-27eda292b1aa\",\"feed_format\":\"application/atom+xml\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"generator\":\"Ghost\",\"category\":\"computerAndInformationSciences\",\"prefix\":\"10.53731\",\"current_feed_url\":\"https://blog.front-matter.io/atom/\",\"status\":\"active\",\"issn\":\"2749-9952\",\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}],\"plan\":\"Personal\",\"slug\":\"front_matter\",\"use_mastodon\":true,\"funding\":null,\"archive_prefix\":\"https://wayback.archive-it.org/22096/20231101172748/\",\"use_api\":true,\"relative_url\":null,\"canonical_url\":null,\"filter\":null,\"updated_at\":1710750721,\"secure\":true,\"created_at\":1672561153,\"indexed\":null,\"generator_raw\":\"Ghost
       5.52\",\"id\":\"74659bc5-e36e-4a27-901f-f0c8d5769cb8\",\"ror\":null,\"mastodon\":\"https://mozilla.social/@martin\"}}"
     headers:
       Access-Control-Allow-Origin:
@@ -95,19 +97,17 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 85a0e6566aec7163-DUS
+      - 86aa6bdfdb4f7a43-DUS
       Connection:
       - keep-alive
       Content-Location:
       - /posts?doi=eq.https%3A%2F%2Fdoi.org%2F10.53731%2Fdnfg0-hge29&select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20abstract%2C%20content_text%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28%2A%29
-      Content-Profile:
-      - public
       Content-Range:
       - 0-0/*
       Content-Type:
       - application/vnd.pgrst.object+json; charset=utf-8
       Date:
-      - Fri, 23 Feb 2024 16:38:32 GMT
+      - Tue, 26 Mar 2024 22:01:48 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -118,14 +118,16 @@ interactions:
       - Accept-Encoding
       Via:
       - kong/2.8.1
-      X-Kong-Proxy-Latency:
-      - '1'
-      X-Kong-Upstream-Latency:
-      - '5'
       alt-svc:
       - h3=":443"; ma=86400
+      content-profile:
+      - public
       sb-gateway-version:
       - '1'
+      x-kong-proxy-latency:
+      - '1'
+      x-kong-upstream-latency:
+      - '4'
     http_version: HTTP/1.1
     status_code: 200
 version: 1

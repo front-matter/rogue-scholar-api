@@ -5,7 +5,7 @@ interactions:
       accept:
       - application/vnd.pgrst.object+json
       accept-encoding:
-      - gzip, deflate
+      - gzip, deflate, br
       accept-profile:
       - public
       connection:
@@ -21,7 +21,7 @@ interactions:
       user-agent:
       - python-httpx/0.25.2
       x-client-info:
-      - supabase-py/2.3.5
+      - supabase-py/2.4.0
     method: GET
     uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20abstract%2C%20content_text%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28%2A%29&doi=eq.https%3A%2F%2Fdoi.org%2F10.59350%2Fsfzv4-xdb68
   response:
@@ -30,7 +30,8 @@ interactions:
       frecuencia a la editorial llegan textos que terminan siendo muy diferentes a
       la idea de libro que el autor tra\xEDa inicialmente. Esto se debe en parte,
       a que es insuficiente el abordaje de las clasificaciones de textos cient\xEDficos
-      que se divulga institucionalmente.\\n\",\"abstract\":null,\"content_text\":\"![](https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png){.wp-image-523\\nattachment-id=\\\"523\\\"\\npermalink=\\\"https://norbisley.wordpress.com/2023/10/06/que-libros-cientificos-publicamos/rrm1esyb-3/\\\"\\norig-file=\\\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png\\\"\\norig-size=\\\"1008,301\\\"
+      que se divulga institucionalmente. Aqu\xED comento brevemente algunos tipos
+      de libros que publicamos en Ediciones Universidad de Camag\xFCey.\",\"abstract\":null,\"content_text\":\"![](https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png){.wp-image-523\\nattachment-id=\\\"523\\\"\\npermalink=\\\"https://norbisley.wordpress.com/2023/10/06/que-libros-cientificos-publicamos/rrm1esyb-3/\\\"\\norig-file=\\\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png\\\"\\norig-size=\\\"1008,301\\\"
       comments-opened=\\\"1\\\"\\nimage-meta=\\\"{\\\\\\\"aperture\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"credit\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"camera\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"caption\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"created_timestamp\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"copyright\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"focal_length\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"iso\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"shutter_speed\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"title\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"orientation\\\\\\\":\\\\\\\"0\\\\\\\"}\\\"\\nimage-title=\\\"rrm1esyb\\\"
       image-description=\\\"\\\" image-caption=\\\"\\\"\\nmedium-file=\\\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png?w=300\\\"\\nlarge-file=\\\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png?w=1008\\\"\\nstyle=\\\"width:
       500px\\\"}\\n\\nCon frecuencia a la editorial llegan textos que terminan siendo
@@ -78,30 +79,30 @@ interactions:
       Misael. \\\"Categor\xEDas de trabajo en edici\xF3n de textos: breve\\nexperiencia
       con publicaciones cubanas y extranjeras.\\\" Islas 135 (2003):\\n27-48.\\n\\nM\xE9ndez,
       Misael. Ser manual pero no parecerlo. Editorial Samuel Feijoo,\\nLas Villas,
-      2020.\\n\",\"published_at\":1696588740,\"updated_at\":1696673881,\"indexed_at\":1698172158,\"authors\":[{\"url\":
-      \"https://orcid.org/0000-0002-9373-4622\", \"name\": \"Norbisley Fern\xE1ndez\"}],\"image\":\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png\",\"tags\":[\"Presentaci\xF3n
+      2020.\\n\",\"published_at\":1696588740,\"updated_at\":1696673881,\"indexed_at\":1709297857,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-9373-4622\", \"name\": \"Norbisley Fern\xE1ndez\",
+      \"affiliation\": [{\"id\": \"https://ror.org/040qyzk67\", \"name\": \"University
+      of Camag\xFCey\"}]}],\"image\":\"https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png\",\"tags\":[\"Presentaci\xF3n
       De La Informaci\xF3n Cient\xEDfica\",\"Sin Categor\xEDa\"],\"language\":\"es\",\"reference\":[],\"relationships\":[],\"blog_name\":\"Edici\xF3n
       y comunicaci\xF3n de la Ciencia\",\"blog_slug\":\"norbisley\",\"blog\":{\"title\":\"Edici\xF3n
-      y comunicaci\xF3n de la Ciencia\",\"description\":null,\"language\":\"es\",\"favicon\":\"https://norbisley.files.wordpress.com/2023/08/cropped-cropped-logo-1.png?w=32\",\"feed_url\":\"https://norbisley.wordpress.com/feed/atom/\",\"home_page_url\":\"https://norbisley.wordpress.com\",\"user_id\":\"126368cd-e941-4e6f-8316-f5fe574e595b\",\"feed_format\":\"application/atom+xml\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"generator\":\"WordPress.com\",\"category\":\"mediaAndCommunications\",\"prefix\":\"10.59350\",\"current_feed_url\":null,\"status\":\"active\",\"issn\":null,\"backlog\":0,\"authors\":null,\"plan\":\"Personal\",\"slug\":\"norbisley\",\"use_mastodon\":false,\"funding\":null,\"archive_prefix\":\"https://wayback.archive-it.org/22132/20231107222423/\",\"use_api\":true,\"relative_url\":null,\"canonical_url\":null,\"filter\":null,\"updated_at\":1699014419,\"secure\":true,\"created_at\":1692662400,\"indexed\":false,\"generator_raw\":\"WordPress.com\",\"id\":\"bfa416f0-e34b-407f-bcf8-08ab8f5334ff\",\"ror\":null,\"mastodon\":null}}"
+      y comunicaci\xF3n de la Ciencia\",\"description\":null,\"language\":\"es\",\"favicon\":\"https://norbisley.files.wordpress.com/2023/08/cropped-cropped-logo-1.png?w=32\",\"feed_url\":\"https://norbisley.wordpress.com/feed/atom/\",\"home_page_url\":\"https://norbisley.wordpress.com\",\"user_id\":\"126368cd-e941-4e6f-8316-f5fe574e595b\",\"feed_format\":\"application/atom+xml\",\"license\":\"https://creativecommons.org/licenses/by/4.0/legalcode\",\"generator\":\"WordPress.com\",\"category\":\"mediaAndCommunications\",\"prefix\":\"10.59350\",\"current_feed_url\":null,\"status\":\"active\",\"issn\":null,\"authors\":null,\"plan\":\"Personal\",\"slug\":\"norbisley\",\"use_mastodon\":false,\"funding\":null,\"archive_prefix\":\"https://wayback.archive-it.org/22132/20231107222423/\",\"use_api\":true,\"relative_url\":null,\"canonical_url\":null,\"filter\":null,\"updated_at\":1699014419,\"secure\":true,\"created_at\":1692662400,\"indexed\":false,\"generator_raw\":\"WordPress.com\",\"id\":\"bfa416f0-e34b-407f-bcf8-08ab8f5334ff\",\"ror\":null,\"mastodon\":null}}"
     headers:
       Access-Control-Allow-Origin:
       - '*'
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 85a09efa4827160f-DUS
+      - 86aa6bc64e717a43-DUS
       Connection:
       - keep-alive
       Content-Location:
       - /posts?doi=eq.https%3A%2F%2Fdoi.org%2F10.59350%2Fsfzv4-xdb68&select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20abstract%2C%20content_text%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20blog%3A%20blogs%21inner%28%2A%29
-      Content-Profile:
-      - public
       Content-Range:
       - 0-0/*
       Content-Type:
       - application/vnd.pgrst.object+json; charset=utf-8
       Date:
-      - Fri, 23 Feb 2024 15:49:49 GMT
+      - Tue, 26 Mar 2024 22:01:44 GMT
       Server:
       - cloudflare
       Strict-Transport-Security:
@@ -112,14 +113,16 @@ interactions:
       - Accept-Encoding
       Via:
       - kong/2.8.1
-      X-Kong-Proxy-Latency:
-      - '1'
-      X-Kong-Upstream-Latency:
-      - '5'
       alt-svc:
       - h3=":443"; ma=86400
+      content-profile:
+      - public
       sb-gateway-version:
       - '1'
+      x-kong-proxy-latency:
+      - '0'
+      x-kong-upstream-latency:
+      - '5'
     http_version: HTTP/1.1
     status_code: 200
 version: 1
