@@ -819,17 +819,26 @@ async def extract_rss_post(post, blog):
         published_at = get_date(post.get("pubDate", None))
         published_at = unix_timestamp(published_at)
 
-        # use default author for blog if no post author found
-        author = post.get("dc:creator", None) or post.get("author", None)
-        if author:
-            authors_ = [{"name": author}]
-        else:
-            authors_ = wrap(blog.get("authors", None))
-        authors = [format_author(i, published_at) for i in authors_]
         content_html = py_.get(post, "content:encoded", None) or post.get(
             "description", ""
         )
+
         content_text = get_markdown(content_html)
+
+        # use default author for blog if no post author found and no author header in content
+        author = (
+            get_contributors(content_html)
+            or post.get("dc:creator", None)
+            or post.get("author", None)
+        )
+        if isinstance(author, str):
+            authors_ = [{"name": author}]
+        elif isinstance(author, dict):
+            authors_ = [author]
+        else:
+            authors_ = wrap(blog.get("authors", None))
+        authors = [format_author(i, published_at) for i in authors_]
+
         summary = get_summary(content_html) or ""
         abstract = None
         reference = await get_references(content_html)
@@ -979,6 +988,42 @@ def sanitize_html(content_html: str):
         },
         link_rel=None,
     )
+
+
+def get_contributors(content_html: str):
+    """Extract contributors from content_html,
+    defined as the text after the tag Author(s)</h2>,
+    Author(s)</h3> or Author(s)</h4>."""
+
+    def get_name(string):
+        """Get name from string."""
+        if not string:
+            return None
+        m = re.search(r"\w+\s\w+", string)
+        return m.group(0)
+
+    def get_url(string):
+        """Get url from string."""
+        if not string:
+            return None
+        f = furl(string["href"])
+        if f.host not in ["orcid.org"]:
+            return None
+        return f.url
+
+    soup = get_soup(content_html)
+    
+    # find author header and extract name and optional orcid
+    headers = soup.find_all(["h2", "h3", "h4"])
+    contributor = next(
+        (header.next_sibling for header in headers if "Author" in header.text),
+        None,
+    )
+    if not contributor:
+        return None
+    name = get_name(contributor.text)
+    url = get_url(contributor.find("a", href=True))
+    return {"name": name, "url": url}
 
 
 async def get_references(content_html: str):
