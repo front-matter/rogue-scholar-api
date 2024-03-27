@@ -8,7 +8,7 @@ FROM --platform=$BUILDPLATFORM python:3.12-bookworm as builder
 # - https://pythonspeed.com/articles/multi-stage-docker-python/
 # - https://stackoverflow.com/questions/53835198/integrating-python-poetry-with-docker
 
-# Install OS package dependencies: pandoc
+# Install OS package dependency: pandoc
 # install poetry to manage Python dependencies
 ENV PANDOC_VERSION=3.1.12.3 \
     POETRY_VERSION=1.8.2
@@ -18,8 +18,7 @@ ADD https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${P
 RUN dpkg -i /tmp/pandoc-${PANDOC_VERSION}-1-amd64.deb && \
     pip install --no-cache-dir poetry==${POETRY_VERSION}
 
-# Ensures that the python and pip executables used
-# in the image will be those from our virtualenv.
+# Explicitly set the virtual environment used by Poetry
 ENV VIRTUAL_ENV=/opt/venv
 RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
@@ -29,6 +28,8 @@ ENV POETRY_NO_INTERACTION=1 \
     POETRY_VIRTUALENVS_CREATE=0 \
     POETRY_CACHE_DIR=/tmp/poetry_cache
 
+WORKDIR /app
+
 COPY pyproject.toml poetry.lock ./
 RUN touch README.md
 RUN --mount=type=cache,target=$POETRY_CACHE_DIR poetry install --without dev --no-root --no-interaction --no-ansi
@@ -36,13 +37,15 @@ RUN --mount=type=cache,target=$POETRY_CACHE_DIR poetry install --without dev --n
 
 FROM --platform=$BUILDPLATFORM python:3.12-slim-bookworm as runtime
 
-# Install OS package dependencies: for weasyprint
+# Install OS package dependency (for weasyprint): pango
 RUN --mount=type=cache,target=/var/cache/apt apt-get update -y && \
-    apt-get install libpangoft2-1.0-0=1.50.12+ds-1 pango1.0-tools=1.50.12+ds-1 -y --no-install-recommends && \
+    apt-get install pango1.0-tools=1.50.12+ds-1 -y --no-install-recommends && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-ENV VIRTUAL_ENV=/opt/venv
-ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+WORKDIR /app
+ENV VIRTUAL_ENV=/opt/venv \
+    PATH="/opt/venv/bin:$PATH"
+
 COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 
 # Copy pandoc binary
