@@ -356,6 +356,39 @@ AUTHOR_AFFILIATIONS = {
             "start_date": "2023-01-01",
         },
     ],
+    "https://orcid.org/0009-0004-4949-9284": [
+        {
+            "name": "Australian National University",
+            "id": "https://ror.org/019wvm592",
+            "start_date": "2022-01-01",
+        },
+    ],
+    "https://orcid.org/0009-0002-2884-2771": [
+        {
+            "name": "Australian National University",
+            "id": "https://ror.org/019wvm592",
+            "start_date": "2023-02-01",
+        },
+    ],
+    "https://orcid.org/0009-0003-5348-4264": [
+        {
+            "name": "Australian National University",
+            "id": "https://ror.org/019wvm592",
+        },
+    ],
+    "https://orcid.org/0009-0009-8807-5982": [
+        {
+            "name": "Australian National University",
+            "id": "https://ror.org/019wvm592",
+            "start_date": "2023-02-01",
+        },
+    ],
+    "https://orcid.org/0009-0004-7109-5403": [
+        {
+            "name": "Australian National University",
+            "id": "https://ror.org/019wvm592",
+        },
+    ],
 }
 
 
