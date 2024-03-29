@@ -156,14 +156,26 @@ AUTHOR_AFFILIATIONS = {
             "start_date": "2021-08-01",
         },
     ],
+    "https://orcid.org/0000-0001-5952-7630": [
+        {
+            "name": "DataCite",
+            "id": "https://ror.org/04wxnsj81",
+            "start_date": "2015-08-01",
+        },
+    ],
     "https://orcid.org/0000-0003-3334-2771": [],
     "https://orcid.org/0000-0002-7265-1692": [],
     "https://orcid.org/0000-0002-4259-9774": [
         {
+            "name": "Australian National University",
+            "id": "https://ror.org/019wvm592",
+            "start_date": "2012-02-12",
+        },
+        {
             "name": "Swinburne University of Technology",
             "id": "https://ror.org/031rekg67",
             "start_date": "2018-08-10",
-        }
+        },
     ],
     "https://orcid.org/0000-0002-8635-8390": [
         {
@@ -285,6 +297,13 @@ AUTHOR_AFFILIATIONS = {
             "name": "DataCite",
             "id": "https://ror.org/04wxnsj81",
             "start_date": "2022-05-11",
+        }
+    ],
+    "https://orcid.org/0000-0003-3484-6875": [
+        {
+            "name": "DataCite",
+            "id": "https://ror.org/04wxnsj81",
+            "start_date": "2016-08-01",
         }
     ],
     "https://orcid.org/0000-0002-1003-5675": [
@@ -416,6 +435,96 @@ AUTHOR_AFFILIATIONS = {
             "id": "https://ror.org/031rekg67",
             "start_date": "2024-01-01",
         },
+    ],
+    "https://orcid.org/0000-0001-9940-9233": [
+        {
+            "name": "ORCID",
+            "id": "https://ror.org/04fa4r544",
+            "start_date": "2016-12-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-8689-4935": [
+        {
+            "name": "ORCID",
+            "id": "https://ror.org/04fa4r544",
+            "start_date": "2014-05-01",
+        },
+        {
+            "name": "Crossref",
+            "id": "https://ror.org/02twcfp32",
+            "start_date": "2019-05-01",
+        },
+    ],
+    "https://orcid.org/0000-0003-0207-2705": [
+        {
+            "name": "European Organization for Nuclear Research",
+            "id": "https://ror.org/01ggx4157",
+            "start_date": "2015-06-01",
+        },
+        {
+            "name": "DataCite",
+            "id": "https://ror.org/04wxnsj81",
+            "start_date": "2021-10-01",
+        },
+    ],
+    "https://orcid.org/0000-0002-6137-2348": [
+        {
+            "name": "European Organization for Nuclear Research",
+            "id": "https://ror.org/01ggx4157",
+            "start_date": "2009-12-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-4542-9906": [
+        {
+            "name": "European Organization for Nuclear Research",
+            "id": "https://ror.org/01ggx4157",
+            "start_date": "2012-02-01",
+        }
+    ],
+    "https://orcid.org/0000-0003-3412-7192": [
+        {
+            "name": "ORCID",
+            "id": "https://ror.org/04fa4r544",
+            "start_date": "2016-02-01",
+        },
+        {
+            "name": "Freie Universität Berlin",
+            "id": "https://ror.org/046ak2485",
+            "start_date": "2022-01-07",
+        },
+    ],
+    "https://orcid.org/0000-0003-0902-4386": [
+        {
+            "name": "ORCID",
+            "id": "https://ror.org/04fa4r544",
+            "start_date": "2015-06-10",
+        }
+    ],
+    "https://orcid.org/0000-0001-5492-3212": [
+        {
+            "name": "University of Bremen",
+            "id": "https://ror.org/04ers2y35",
+            "start_date": "2016-02-01",
+        },
+        {
+            "name": "Technische Informationsbibliothek (TIB)",
+            "id": "https://ror.org/04aj4c181",
+            "start_date": "2017-12-01",
+        },
+    ],
+    "https://orcid.org/0000-0001-5853-0432": [
+        {
+            "name": "British Library",
+            "id": "https://ror.org/05dhe8b71",
+            "start_date": "2016-02-12",
+        }
+    ],
+    "https://orcid.org/0000-0001-5331-6592": [
+        {
+            "name": "British Library",
+            "id": "https://ror.org/05dhe8b71",
+            "start_date": "2004-12-01",
+        }
     ],
 }
 
@@ -944,10 +1053,12 @@ def write_jats(markdown: str):
 def format_markdown(content: str, metadata) -> frontmatter.Post:
     """format markdown"""
     post = frontmatter.Post(content, **metadata)
-    post["date"] = datetime.fromtimestamp(metadata.get("date", 0), tz=timezone.utc).isoformat("T", "seconds")
-    post["date_updated"] = (
-        datetime.fromtimestamp(metadata.get("date_updated", 0), tz=timezone.utc).isoformat("T", "seconds")
-    )
+    post["date"] = datetime.fromtimestamp(
+        metadata.get("date", 0), tz=timezone.utc
+    ).isoformat("T", "seconds")
+    post["date_updated"] = datetime.fromtimestamp(
+        metadata.get("date_updated", 0), tz=timezone.utc
+    ).isoformat("T", "seconds")
     post["issn"] = py_.get(metadata, "blog.issn")
     post["rights"] = py_.get(metadata, "blog.license")
     post["summary"] = metadata.get("summary", "")
