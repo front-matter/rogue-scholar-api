@@ -21,6 +21,7 @@ from api.utils import (
     get_markdown,
     write_epub,
     write_pdf,
+    write_html,
     format_markdown,
     is_valid_url,
 )
@@ -440,6 +441,13 @@ def test_format_pdf():
     # reader = PdfReader(result)
     # number_of_pages = len(reader.pages)
     # assert number_of_pages == 1
+
+
+def test_format_html():
+    """format html"""
+    content = "This is a *test*"
+    result = write_html(content)
+    assert result == "<p>This is a <em>test</em></p>\n"
 
 
 # def test_sanitize_cool_suffix():

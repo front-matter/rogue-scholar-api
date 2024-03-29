@@ -29,12 +29,14 @@ from api.utils import (
     compact,
     fix_xml,
     get_markdown,
+    write_html,
     EXCLUDED_TAGS,
 )
 from api.works import get_single_work
 from api.supabase import (
     supabase_admin_client as supabase_admin,
     supabase_client as supabase,
+    postsWithContentSelect,
 )
 from api.typesense import typesense_client as typesense
 
@@ -65,23 +67,30 @@ async def extract_all_posts(page: int = 1, update_all: bool = False):
     return results
 
 
-async def update_posts(posts: list):
-    """Update posts."""
+async def update_all_posts(page: int = 1):
+    """Update all posts."""
 
-    try:
+    blogs = (
+        supabase.table("blogs")
+        .select("slug")
+        .in_("status", ["active", "archived", "pending"])
+        .order("title", desc=False)
+        .execute()
+    )
+    tasks = []
+    for blog in blogs.data:
+        task = update_all_posts_by_blog(blog["slug"], page)
+        tasks.append(task)
 
-        def update_post(post):
-            id_ = py_.get(post, "document.id")
-            if len(id_) == 5:
-                print(id_, py_.get(post, "document.doi", None))
-                typesense.collections["posts"].documents[id_].delete()
-                return {}
-            return py_.get(post, "document.content_text", "")
+    raw_results = await asyncio.gather(*tasks)
 
-        return [update_post(x) for x in posts]
-    except Exception:
-        print(traceback.format_exc())
-        return {}
+    # flatten list of lists
+    results = []
+    for result in raw_results:
+        if result:
+            results.append(result[0])
+
+    return results
 
 
 async def extract_all_posts_by_blog(
@@ -280,6 +289,47 @@ async def extract_all_posts_by_blog(
             blog_with_posts["entries"] = []
         if blog.get("status", None) not in ["pending", "active"]:
             return blog_with_posts["entries"]
+        return [upsert_single_post(i) for i in blog_with_posts["entries"]]
+    except TimeoutError:
+        print(f"Timeout error in blog {blog['slug']}.")
+        return []
+    except Exception as e:
+        print(f"{e} error in blog {blog['slug']}.")
+        print(traceback.format_exc())
+        return []
+
+
+async def update_all_posts_by_blog(slug: str, page: int = 1):
+    """Update all posts by blog."""
+
+    try:
+        response = (
+            supabase.table("blogs")
+            .select(
+                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, mastodon, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter, secure"
+            )
+            .eq("slug", slug)
+            .maybe_single()
+            .execute()
+        )
+        blog = response.data
+        if not blog:
+            return {}
+
+        start_page = (page - 1) * 50 if page > 0 else 0
+        end_page = (page - 1) * 50 + 50 if page > 0 else 50
+        blog_with_posts = {}
+
+        response = (
+            supabase.table("posts")
+            .select(postsWithContentSelect)
+            .eq("blog_slug", blog["slug"])
+            .order("published_at", desc=True)
+            .range(start_page, end_page)
+            .execute()
+        )
+        update_posts = [update_rogue_scholar_post(x, blog) for x in response.data]
+        blog_with_posts["entries"] = await asyncio.gather(*update_posts)
         return [upsert_single_post(i) for i in blog_with_posts["entries"]]
     except TimeoutError:
         print(f"Timeout error in blog {blog['slug']}.")
@@ -897,6 +947,85 @@ async def extract_rss_post(post, blog):
         return {}
 
 
+async def update_rogue_scholar_post(post, blog):
+    """Update Rogue Scholar post."""
+    try:
+        print(post)
+
+        def format_author(author, published_at):
+            """Format author. Optionally lookup real name from username,
+            and ORCID from name."""
+
+            return normalize_author(
+                author.get("name", None), published_at, author.get("url", None)
+            )
+
+        published_at = post.get("published_at")
+        content_text = post.get("content_text")
+        content_html = write_html(content_text)
+
+        # use default author for blog if no post author found and no author header in content
+        authors_ = get_contributors(content_html) or wrap(post.get("authors", None))
+        if len(authors_) == 0 or authors_[0].get("name", None) is None:
+            authors_ = wrap(blog.get("authors", None))
+        authors = [format_author(i, published_at) for i in authors_ if i]
+
+        summary = get_summary(content_html)
+        abstract = post.get("abstract", None)
+        abstract = get_abstract(summary, abstract)
+        reference = await get_references(content_html)
+        relationships = get_relationships(content_html)
+        title = get_title(post.get("title"))
+        url = normalize_url(post.get("url"), secure=blog.get("secure", True))
+        archive_url = (
+            blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
+        )
+        images = get_images(content_html, url, blog["home_page_url"])
+        image = post.get("image", None) or get_image(images)
+
+        # optionally remove tag that is used to filter posts
+        if blog.get("filter", None) and blog.get("filter", "").startswith("tag"):
+            tag = blog.get("filter", "").split(":")[1]
+            tags = [
+                normalize_tag(i)
+                for i in wrap(post.get("tags", None))
+                if i != tag and i not in EXCLUDED_TAGS
+            ]
+        else:
+            tags = [
+                normalize_tag(i)
+                for i in wrap(post.get("tags", None))
+                if i not in EXCLUDED_TAGS
+            ]
+        tags = py_.uniq(tags)[:5]
+
+        return {
+            "authors": authors,
+            "blog_name": blog.get("title"),
+            "blog_slug": blog.get("slug"),
+            "content_text": content_text,
+            "summary": summary,
+            "abstract": abstract,
+            "published_at": published_at,
+            "updated_at": post.get("updated_at"),
+            "image": image,
+            "images": images,
+            "language": detect_language(content_text),
+            "category": blog.get("category", None),
+            "reference": reference,
+            "relationships": relationships,
+            "tags": tags,
+            "title": title,
+            "url": url,
+            "archive_url": archive_url,
+            "guid": post.get("guid"),
+            "status": blog.get("status"),
+        }
+    except Exception:
+        print(blog.get("slug", None), traceback.format_exc())
+        return {}
+
+
 def filter_updated_posts(posts, blog, key):
     """Filter posts by date updated."""
 
@@ -1000,7 +1129,7 @@ def get_contributors(content_html: str):
         if not string:
             return None
         m = re.search(r"\w+\s\w+", string)
-        return m.group(0)
+        return m.group(0) if m else None
 
     def get_url(string):
         """Get url from string."""
@@ -1011,19 +1140,36 @@ def get_contributors(content_html: str):
             return None
         return f.url
 
+    def get_contributor(contributor):
+        """Get contributor."""
+        if not contributor:
+            return None
+        name = get_name(contributor.text)
+        url = get_url(contributor.find("a", href=True))
+        if not name or not url:
+            return None
+        return {"name": name, "url": url}
+
     soup = get_soup(content_html)
-    
+
     # find author header and extract name and optional orcid
-    headers = soup.find_all(["h2", "h3", "h4"])
-    contributor = next(
-        (header.next_sibling for header in headers if "Author" in header.text),
+    headers = soup.find_all(["h1", "h2", "h3", "h4"])
+    author_header = next(
+        (i for i in headers if "Author" in i.text),
         None,
     )
-    if not contributor:
+    if not author_header:
         return None
-    name = get_name(contributor.text)
-    url = get_url(contributor.find("a", href=True))
-    return {"name": name, "url": url}
+    author_string = author_header.find_next_sibling(["p", "ul", "ol"])
+    contributors = []
+    
+    # support for multiple authors
+    if author_string.name in ["ul", "ol"]:
+        for li in author_string.find_all("li"):
+            contributors.append(li)
+    else:
+        contributors.append(author_string)
+    return [get_contributor(contributor) for contributor in contributors]
 
 
 async def get_references(content_html: str):
@@ -1144,9 +1290,11 @@ def get_summary(content_html: str = None, maxlen: int = 450):
     return string.strip()
 
 
-def get_abstract(summary: str, abstract: str):
+def get_abstract(summary: str, abstract: Optional[str]):
     """Get abstract if not beginning of post.
     Use Levenshtein distance to compare summary and abstract."""
+    if abstract is None:
+        return None
     le = min(len(abstract), 100)
     rat = ratio(summary[:le], abstract[:le])
     return abstract if rat <= 0.75 else None

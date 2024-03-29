@@ -389,6 +389,34 @@ AUTHOR_AFFILIATIONS = {
             "id": "https://ror.org/019wvm592",
         },
     ],
+    "https://orcid.org/0009-0003-3823-6609": [
+        {
+            "name": "Australian National University",
+            "id": "https://ror.org/019wvm592",
+            "start_date": "2023-07-01",
+        },
+    ],
+    "https://orcid.org/0009-0003-3823-6609": [
+        {
+            "name": "Australian National University",
+            "id": "https://ror.org/019wvm592",
+            "start_date": "2023-07-01",
+        },
+    ],
+    "https://orcid.org/0009-0009-9720-9233": [
+        {
+            "name": "Swinburne University of Technology",
+            "id": "https://ror.org/031rekg67",
+            "start_date": "2023-06-16",
+        },
+    ],
+    "https://orcid.org/0009-0008-8672-3168": [
+        {
+            "name": "Swinburne University of Technology",
+            "id": "https://ror.org/031rekg67",
+            "start_date": "2024-01-01",
+        },
+    ],
 }
 
 
@@ -863,6 +891,16 @@ def get_markdown(content_html: str) -> str:
         return ""
 
 
+def write_html(markdown: str):
+    """Get html from markdown"""
+    try:
+        doc = pandoc.read(markdown, format="commonmark_x")
+        return pandoc.write(doc, format="html")
+    except Exception as e:
+        print(e)
+        return ""
+
+
 def write_epub(markdown: str):
     """Get epub from markdown"""
     try:
@@ -903,7 +941,7 @@ def write_jats(markdown: str):
         return ""
 
 
-def format_markdown(content: str, metadata) -> str:
+def format_markdown(content: str, metadata) -> frontmatter.Post:
     """format markdown"""
     post = frontmatter.Post(content, **metadata)
     post["date"] = datetime.fromtimestamp(metadata.get("date", 0), tz=timezone.utc).isoformat("T", "seconds")

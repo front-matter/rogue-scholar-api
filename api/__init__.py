@@ -50,7 +50,7 @@ from api.utils import (
     format_relationships,
     translate_titles,
 )
-from api.posts import extract_all_posts, extract_all_posts_by_blog, update_posts
+from api.posts import extract_all_posts, extract_all_posts_by_blog, update_all_posts, update_all_posts_by_blog
 from api.blogs import extract_single_blog, extract_all_blogs
 from api.works import SUPPORTED_ACCEPT_HEADERS, get_formatted_work
 from api.schema import Blog, Post, Work, PostQuery
@@ -277,9 +277,12 @@ async def post_blog_posts(slug: str, suffix: Optional[str] = None):
         return {"error": "Unauthorized."}, 401
     elif slug and suffix == "posts":
         try:
-            result = await extract_all_posts_by_blog(
-                slug, page=page, offset=offset, update_all=(update == "all")
-            )
+            if update == "self":
+                result = await update_all_posts_by_blog(slug, page=page)
+            else:
+                result = await extract_all_posts_by_blog(
+                    slug, page=page, offset=offset, update_all=(update == "all")
+                )
             if isinstance(result, dict) and result.get("error", None):
                 return result, 400
             return jsonify(result)
@@ -367,7 +370,6 @@ async def post_posts():
 
     page = int(request.args.get("page") or "1")
     update = request.args.get("update")
-    content_text = request.args.get("content_text")
 
     if (
         request.headers.get("Authorization", None) is None
@@ -377,19 +379,8 @@ async def post_posts():
         return {"error": "Unauthorized."}, 401
     else:
         try:
-            if content_text == "content_text":
-                response = typesense.collections["posts"].documents.search(
-                    {
-                        "q": "",
-                        "query_by": "content_text",
-                        "sort_by": "published_at:desc",
-                        "per_page": 50,
-                        "page": page if page and page > 0 else 1,
-                        "filter_by": "content_text:content_text",
-                        "include_fields": "id,doi,content_text",
-                    }
-                )
-                updated_posts = await update_posts(response.get("hits", []))
+            if update == "self":
+                updated_posts = await update_all_posts(page=page)
                 return jsonify(updated_posts)
             else:
                 extracted_posts = await extract_all_posts(
