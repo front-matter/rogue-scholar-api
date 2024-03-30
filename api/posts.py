@@ -1203,11 +1203,11 @@ async def get_references(content_html: str):
     return formatted_references
 
 
-async def format_reference(_id, index):
+async def format_reference(id_, index):
     """Format reference."""
-    _id = normalize_id(_id)
-    if validate_url(_id) in ["DOI", "URL"]:
-        work = await get_single_work(_id)
+    id_ = normalize_id(id_)
+    if validate_url(id_) in ["DOI", "URL"]:
+        work = await get_single_work(id_)
         if not work:
             return None
         identifier = py_.get(work, "id", None)

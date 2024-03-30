@@ -93,7 +93,7 @@ async def get_single_work(string: str) -> Optional[dict]:
             .maybe_single()
             .execute()
         )
-    except APIError as e:
+    except Exception as e:
         # if work not found, fetch from the internet
         if e.code == "204":
             work = await fetch_single_work(string)
