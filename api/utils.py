@@ -35,6 +35,7 @@ AUTHOR_IDS = {
     "Meghal Shah": "https://orcid.org/0000-0002-2085-659X",
     "Liberate Science": "https://ror.org/0342dzm54",
     "Lars Willighagen": "https://orcid.org/0000-0002-4751-4637",
+    "Egon Willighagen": "https://orcid.org/0000-0001-7542-0286",
     "Marco Tullney": "https://orcid.org/0000-0002-5111-2788",
     "Andrew Heiss": "https://orcid.org/0000-0002-3948-3914",
     "Sebastian Karcher": "https://orcid.org/0000-0001-8249-7388",
@@ -524,6 +525,13 @@ AUTHOR_AFFILIATIONS = {
             "name": "British Library",
             "id": "https://ror.org/05dhe8b71",
             "start_date": "2004-12-01",
+        }
+    ],
+    "https://orcid.org/0000-0001-7542-0286": [
+        {
+            "name": "Maastricht University",
+            "id": "https://ror.org/02jz4aj89",
+            "start_date": "2012-01-01",
         }
     ],
 }
