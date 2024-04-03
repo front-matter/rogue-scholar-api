@@ -5,6 +5,10 @@ import pydash as py_  # noqa: F401
 
 from api.works import get_single_work, fetch_single_work
 
+@pytest.fixture(scope="session")
+def vcr_config():
+    """VCR configuration."""
+    return {"filter_headers": ["apikey", "X-TYPESENSE-API-KEY", "authorization"]}
 
 @pytest.mark.vcr
 @pytest.mark.asyncio

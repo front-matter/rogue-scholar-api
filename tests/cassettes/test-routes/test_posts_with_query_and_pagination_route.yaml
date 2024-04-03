@@ -11537,4 +11537,1286 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=retraction-watch&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Cabstract%2Ccontent_text%2Creference&filter_by=status%3A%21%3D%5Bpending%5D+%26%26+published_at%3A%3E%3D+0+%26%26+published_at%3A%3C%3D+1712164215&sort_by=_text_match%3Adesc&per_page=10&page=1
+  response:
+    body:
+      string: "{\"facet_counts\":[],\"found\":29,\"hits\":[{\"document\":{\"abstract\":\"Ce
+        billet est la traduction adapt\xE9e d\u2019un billet du blog Zotero. Stillman
+        Dan, Retracted item notifications with Retraction Watch integration, https://www.zotero.org/blog/retracted-item-notifications/,
+        14 juin 2019.\",\"authors\":[{\"name\":\"Collectif\"}],\"blog_name\":\"Le
+        blog Zotero francophone\",\"blog_slug\":\"zotero_fr\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"*Billet
+        r\xE9dig\xE9 par* \u270F\uFE0F *Alain Marois,* \u270F\uFE0F *Fr\xE9d\xE9rique
+        Flamerie et* \u270F\uFE0F\\n*Nicolas Chachereau*\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter\\\">\\n<a href=\\\"https://zotero.hypotheses.org/files/2019/06/blue_five.jpg\\\"><img\\nsrc=\\\"https://zotero.hypotheses.org/files/2019/06/blue_five.jpg\\\"\\nclass=\\\"wp-image-2810\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://zotero.hypotheses.org/files/2019/06/blue_five.jpg
+        480w, https://zotero.hypotheses.org/files/2019/06/blue_five-225x300.jpg 225w\\\"\\nsizes=\\\"(max-width:
+        480px) 100vw, 480px\\\" width=\\\"480\\\" height=\\\"640\\\"\\nalt=\\\"blue_five\\\"
+        /></a>\\n<figcaption>Blue Five \u2013 auteur: Christopher Sessums (CC BY-SA)
+        \u2013 source:\\nhttps://www.flickr.com/photos/csessums/12507215604/</figcaption>\\n</figure>\\n:::\\n\\n*Ce
+        billet est la traduction adapt\xE9e d'un billet du blog Zotero.*\\n\\nStillman
+        Dan, *Retracted item notifications with Retraction Watch\\nintegration*,\\n[https://www.zotero.org/blog/retracted-item-notifications/](https://www.zotero.org/blog/retracted-item-notifications/){rel=\\\"noopener\\\"},\\n14
+        juin 2019.\\n\\nZotero peut maintenant vous aider \xE0 \xE9viter de vous appuyer
+        sur des\\npublications r\xE9tract\xE9es dans votre recherche, en v\xE9rifiant\\nautomatiquement
+        la pr\xE9sence d'articles r\xE9tract\xE9s dans votre base de\\ndonn\xE9es.
+        Nous offrons ce service en partenariat avec [Retraction\\nWatch](https://retractionwatch.com/){rel=\\\"noopener\\\"},
+        qui tient \xE0 jour\\nla plus grande base de donn\xE9es de r\xE9tractations
+        disponible, et nous\\nsommes fiers de les aider \xE0 poursuivre leur important
+        travail.\\n\\n## Comment cela fonctionne {#Comment-cela-fonctionne .part startline=\\\"26\\\"
+        endline=\\\"26\\\"}\\n\\nLes publications r\xE9tract\xE9es sont signal\xE9es
+        dans votre biblioth\xE8que, dans\\nla liste des documents. Si vous cliquez
+        sur l'une d'entre elles, vous\\nverrez sous l'onglet \\\"Info\\\" de l'affichage
+        d\xE9taill\xE9 un avertissement\\ncomportant des d\xE9tails sur la r\xE9tractation
+        et des liens vers des\\ninformations compl\xE9mentaires.\\n\\n[![retraction-warning-cropped](https://zotero.hypotheses.org/files/2019/06/retraction-warning-cropped.png){.aligncenter\\n.size-full
+        .wp-image-2812 decoding=\\\"async\\\" loading=\\\"lazy\\\" width=\\\"800\\\"\\nheight=\\\"501\\\"\\nsrcset=\\\"https://zotero.hypotheses.org/files/2019/06/retraction-warning-cropped.png
+        800w, https://zotero.hypotheses.org/files/2019/06/retraction-warning-cropped-300x188.png
+        300w, https://zotero.hypotheses.org/files/2019/06/retraction-warning-cropped-768x481.png
+        768w\\\"\\nsizes=\\\"(max-width: 800px) 100vw, 800px\\\"}](https://zotero.hypotheses.org/files/2019/06/retraction-warning-cropped.png)\\n\\n\_\\n\\nSi
+        vous essayez de citer un document r\xE9tract\xE9 \xE0 l'aide de l'extension
+        de\\ntraitement de texte, Zotero vous avertira et vous demandera de confirmer\\nque
+        vous voulez toujours le citer. Si vous avez d\xE9j\xE0 cit\xE9 dans un texte\\nun
+        document r\xE9tract\xE9 par la suite, Zotero vous avertira lors de la\\nprochaine
+        mise \xE0 jour des citations de ce texte, m\xEAme si le document\\nn'existe
+        plus dans votre biblioth\xE8que Zotero ou a \xE9t\xE9 ajout\xE9 par un\\nco-auteur.\\n\\n[![citation_warning](https://zotero.hypotheses.org/files/2019/06/citation-warning.png){.aligncenter\\n.size-full
+        .wp-image-2813 decoding=\\\"async\\\" loading=\\\"lazy\\\" width=\\\"800\\\"\\nheight=\\\"453\\\"\\nsrcset=\\\"https://zotero.hypotheses.org/files/2019/06/citation-warning.png
+        800w, https://zotero.hypotheses.org/files/2019/06/citation-warning-300x170.png
+        300w, https://zotero.hypotheses.org/files/2019/06/citation-warning-768x435.png
+        768w\\\"\\nsizes=\\\"(max-width: 800px) 100vw, 800px\\\"}](https://zotero.hypotheses.org/files/2019/06/citation-warning.png)\\n\\nActuellement,
+        cette fonctionnalit\xE9 est limit\xE9e aux documents avec DOI ou\\nPMID, saisi
+        soit dans le champ \\\"DOI\\\", soit dans le champ \\\"Extra\\\" sous la\\nforme
+        \\\"DOI:\\\", \\\"PMID:\\\", ou \\\"PubMed ID:\\\". Cela couvre environ 3/4
+        des\\ndonn\xE9es de Retraction Watch, mais nous esp\xE9rons prendre en charge
+        le\\nmieux possible les documents sans identifiant dans une prochaine\\nversion.\\n\\n##
+        Con\xE7u pour prot\xE9ger votre vie priv\xE9e {#Con\xE7u-pour-prot\xE9ger-votre-vie-priv\xE9e
+        .part startline=\\\"38\\\" endline=\\\"38\\\"}\\n\\nL'ensemble des donn\xE9es
+        de r\xE9tractation est stock\xE9 sur les serveurs\\nZotero, mais nous avons
+        con\xE7u cette fonctionnalit\xE9 de mani\xE8re \xE0\\npermettre au client
+        Zotero de v\xE9rifier les documents r\xE9tract\xE9s sans\\npartager le contenu
+        de votre biblioth\xE8que. Vous n'avez pas besoin\\nd'utiliser la synchronisation
+        Zotero ni de t\xE9l\xE9charger une liste de\\ndocuments pour b\xE9n\xE9ficier
+        de cette fonctionnalit\xE9.\\n\\nPour chaque document de votre biblioth\xE8que,
+        Zotero calcule un\\nidentifiant non-unique, qui pourrait correspondre \xE0
+        des centaines ou des\\nmilliers de publications. Du c\xF4t\xE9 des serveurs
+        Zotero, un identifiant du\\nm\xEAme type est calcul\xE9 pour chaque publication
+        r\xE9tract\xE9e. Zotero\\nt\xE9l\xE9charge la liste des identifiants des publications
+        r\xE9tract\xE9es depuis\\nles serveurs. Il compare les identifiants de votre
+        biblioth\xE8que et ceux\\nde cette liste. Lorsqu'un identifiant se retrouve
+        dans les deux listes,\\nZotero demande aux serveurs les d\xE9tails (auteur,
+        titre, etc.) de toutes\\nles r\xE9tractations correspondant \xE0 cet identifiant
+        et v\xE9rifie si ces\\ndocuments r\xE9tract\xE9s sont enregistr\xE9s dans
+        votre biblioth\xE8que. Si tel est\\nle cas ils sont signal\xE9s. Ainsi, les
+        serveurs Zotero n'ont re\xE7u de votre\\npart, anonymement, qu'un identifiant
+        vague, qui ne permet pas de savoir\\nquelles publications vous avez enregistr\xE9es
+        parmi des centaines ou des\\nmilliers d'autres. (Une approche similaire est
+        utilis\xE9e par certains\\noutils pour [v\xE9rifier les mots de passe\\ncompromis](https://www.troyhunt.com/ive-just-launched-pwned-passwords-version-2/#cloudflareprivacyandkanonymity){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} sans partager les mots de passe qu'ils\\nv\xE9rifient avec
+        le serveur.) Et, comme pour nos autres services, nous\\nn'enregistrons pas
+        le contenu de ces recherches, m\xEAmes anonymes.\\n\\nCette fonctionnalit\xE9
+        est disponible aujourd'hui dans Zotero 5.0.67.\\n\",\"doi\":\"https://doi.org/10.59350/6sg2m-r7997\",\"guid\":\"https://zotero.hypotheses.org/?p=2809\",\"id\":\"b8fc033a-c7b8-4eeb-9dae-1c6d49577540\",\"image\":\"https://zotero.hypotheses.org/files/2019/06/blue_five.jpg\",\"language\":\"fr\",\"published_at\":1561560239,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"<em>\\n
+        Billet r\xE9dig\xE9 par\\n</em>\\n\u270F\uFE0F\\n<em>\\n Alain Marois,\\n</em>\\n\u270F\uFE0F\\n<em>\\n
+        Fr\xE9d\xE9rique Flamerie et\\n</em>\\n\u270F\uFE0F\\n<em>\\n Nicolas Chachereau\\n</em>\\n<em>\\n
+        Ce billet est la traduction adapt\xE9e d\u2019un billet du blog Zotero.\\n</em>\\nStillman
+        Dan,\\n<em>\\n Retracted item notifications with Retraction Watch integration\\n</em>\\n,
+        https://www.zotero.org/blog/retracted-item-notifications/, 14 juin 2019.\",\"tags\":[\"Actualit\xE9s\"],\"title\":\"Notifications
+        pour les articles r\xE9tract\xE9s gr\xE2ce \xE0 l&#8217;int\xE9gration de
+        Retraction Watch\",\"updated_at\":1620202030,\"url\":\"https://zotero.hypotheses.org/2809\"},\"highlight\":{\"abstract\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Retracted
+        item notifications with <mark>Retraction</mark> <mark>Watch</mark> integration,
+        https://www.zotero\"},\"content_text\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Retracted
+        item notifications with <mark>Retraction</mark> <mark>Watch</mark>\\nintegration*,\\n[https://www.zotero\"},\"summary\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Retracted
+        item notifications with <mark>Retraction</mark> <mark>Watch</mark> integration\\n</em>\\n,
+        https://www\"},\"title\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Notifications
+        pour les articles r\xE9tract\xE9s gr\xE2ce \xE0 l&#8217;int\xE9gration de
+        <mark>Retraction</mark> <mark>Watch</mark>\"}},\"highlights\":[{\"field\":\"content_text\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Retracted
+        item notifications with <mark>Retraction</mark> <mark>Watch</mark>\\nintegration*,\\n[https://www.zotero\"},{\"field\":\"title\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Notifications
+        pour les articles r\xE9tract\xE9s gr\xE2ce \xE0 l&#8217;int\xE9gration de
+        <mark>Retraction</mark> <mark>Watch</mark>\"},{\"field\":\"abstract\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Retracted
+        item notifications with <mark>Retraction</mark> <mark>Watch</mark> integration,
+        https://www.zotero\"},{\"field\":\"summary\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Retracted
+        item notifications with <mark>Retraction</mark> <mark>Watch</mark> integration\\n</em>\\n,
+        https://www\"}],\"text_match\":1157451471441100916,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":14,\"fields_matched\":4,\"score\":\"1157451471441100916\",\"tokens_matched\":2}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22145/20231106080607/https://quantixed.org/2016/01/01/what-difference-does-it-make\",\"authors\":[{\"name\":\"Stephen
+        Royle\",\"url\":\"https://orcid.org/0000-0001-8927-6967\"}],\"blog_id\":\"s1e9w75\",\"blog_name\":\"quantixed\",\"blog_slug\":\"quantixed\",\"category\":\"computerAndInformationSciences\",\"content_html\":\"<p>A
+        few days ago, Retraction Watch published the <a href=\\\"http://retractionwatch.com/the-retraction-watch-leaderboard/top-10-most-highly-cited-retracted-papers/\\\">top
+        ten\_most-cited retracted papers</a>. I saw <a href=\\\"http://qz.com/583497/researchers-keep-citing-these-retracted-papers/\\\">this
+        post</a> with a bar chart to visualise these citations. It didn&#8217;t quite
+        capture what the effect (if any) a retraction has on citations. I thought
+        I&#8217;d quickly plot this out for the number one article on the list.</p>\\n<p><a
+        href=\\\"https://quantixed.org/2016/01/01/what-difference-does-it-make/retract/\\\"
+        rel=\\\" rel=&quot;attachment wp-att-675&quot;\\\"><img loading=\\\"lazy\\\"
+        decoding=\\\"async\\\" data-attachment-id=\\\"675\\\" data-permalink=\\\"https://quantixed.org/retract/\\\"
+        data-orig-file=\\\"https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?fit=2080%2C1112&amp;ssl=1\\\"
+        data-orig-size=\\\"2080,1112\\\" data-comments-opened=\\\"1\\\" data-image-meta=\\\"{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}\\\"
+        data-image-title=\\\"Retract\\\" data-image-description=\\\"\\\" data-image-caption=\\\"\\\"
+        data-medium-file=\\\"https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?fit=300%2C160&amp;ssl=1\\\"
+        data-large-file=\\\"https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?fit=640%2C342&amp;ssl=1\\\"
+        class=\\\"aligncenter size-large wp-image-675\\\" src=\\\"https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?resize=640%2C342&#038;ssl=1\\\"
+        alt=\\\"Retract\\\" width=\\\"640\\\" height=\\\"342\\\" srcset=\\\"https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?w=2080&amp;ssl=1
+        2080w, https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?resize=300%2C160&amp;ssl=1
+        300w, https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?resize=768%2C411&amp;ssl=1
+        768w, https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?resize=1024%2C547&amp;ssl=1
+        1024w, https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?w=1280&amp;ssl=1
+        1280w, https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?w=1920&amp;ssl=1
+        1920w\\\" sizes=\\\"(max-width: 640px) 100vw, 640px\\\" data-recalc-dims=\\\"1\\\"
+        /></a></p>\\n<p>The plot is pretty depressing. The retraction has no effect
+        on citations. Note that the retraction notice has racked up 125 citations,
+        which could\_mean that at least some of the\_~1000 citations to the original
+        article that came after the retraction, acknowledge the fact that the article
+        has been pulled.</p>\\n<p>&#8212;</p>\\n<p>The post title is taken from &#8220;What
+        Difference Does it Make?&#8221; by The Smiths from &#8216;The Smiths&#8217;
+        and &#8216;Hatful of Hollow&#8217;</p>\\n\",\"content_text\":\"A few days
+        ago, Retraction Watch published the [top ten\_most-cited\\nretracted\\npapers](http://retractionwatch.com/the-retraction-watch-leaderboard/top-10-most-highly-cited-retracted-papers/).\\nI
+        saw [this\\npost](http://qz.com/583497/researchers-keep-citing-these-retracted-papers/)\\nwith
+        a bar chart to visualise these citations. It didn't quite capture\\nwhat the
+        effect (if any) a retraction has on citations. I thought I'd\\nquickly plot
+        this out for the number one article on the list.\\n\\n[![Retract](https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?resize=640%2C342&ssl=1){.aligncenter\\n.size-large
+        .wp-image-675 loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nattachment-id=\\\"675\\\"
+        permalink=\\\"https://quantixed.org/retract/\\\"\\norig-file=\\\"https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?fit=2080%2C1112&ssl=1\\\"\\norig-size=\\\"2080,1112\\\"
+        comments-opened=\\\"1\\\"\\nimage-meta=\\\"{\\\\\\\"aperture\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"credit\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"camera\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"caption\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"created_timestamp\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"copyright\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"focal_length\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"iso\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"shutter_speed\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"title\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"orientation\\\\\\\":\\\\\\\"0\\\\\\\"}\\\"\\nimage-title=\\\"Retract\\\"
+        image-description=\\\"\\\" image-caption=\\\"\\\"\\nmedium-file=\\\"https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?fit=300%2C160&ssl=1\\\"\\nlarge-file=\\\"https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?fit=640%2C342&ssl=1\\\"\\nwidth=\\\"640\\\"
+        height=\\\"342\\\"\\nsrcset=\\\"https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?w=2080&ssl=1
+        2080w, https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?resize=300%2C160&ssl=1
+        300w, https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?resize=768%2C411&ssl=1
+        768w, https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?resize=1024%2C547&ssl=1
+        1024w, https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?w=1280&ssl=1
+        1280w, https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?w=1920&ssl=1
+        1920w\\\"\\nsizes=\\\"(max-width: 640px) 100vw, 640px\\\"\\nrecalc-dims=\\\"1\\\"}](https://quantixed.org/2016/01/01/what-difference-does-it-make/retract/){rel=\\\"
+        rel=\\\\\\\"attachment wp-att-675\\\\\\\"\\\"}\\n\\nThe plot is pretty depressing.
+        The retraction has no effect on\\ncitations. Note that the retraction notice
+        has racked up 125 citations,\\nwhich could\_mean that at least some of the\_\\\\~1000
+        citations to the\\noriginal article that came after the retraction, acknowledge
+        the fact\\nthat the article has been pulled.\\n\\n---\\n\\nThe post title
+        is taken from \\\"What Difference Does it Make?\\\" by The\\nSmiths from 'The
+        Smiths' and 'Hatful of Hollow'\\n\",\"doi\":\"https://doi.org/10.59350/cmyz9-ms451\",\"guid\":\"https://quantixed.wordpress.com/?p=663\",\"id\":\"0f700cb9-9bf3-492b-944e-56c3d9dba0e9\",\"image\":\"https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?resize=640%2C342&ssl=1\",\"language\":\"en\",\"published_at\":1451633924,\"reference\":[],\"relationships\":[],\"summary\":\"A
+        few days ago, Retraction Watch published the top ten\_most-cited retracted
+        papers. I saw this post with a bar chart to visualise these citations. It
+        didn\u2019t quite capture what the effect (if any) a retraction has on citations.
+        I thought I\u2019d quickly plot this out for the number one article on the
+        list. The plot is pretty depressing. The retraction has no effect on citations.\\n\",\"tags\":[\"Publishing\",\"Science\",\"Metrics\",\"Retraction\"],\"title\":\"What
+        Difference Does It Make?\",\"updated_at\":1451633924,\"url\":\"https://quantixed.org/2016/01/01/what-difference-does-it-make\"},\"highlight\":{\"content_text\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"A
+        few days ago, <mark>Retraction</mark> <mark>Watch</mark> published the [top
+        ten\_most\"},\"summary\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"A
+        few days ago, <mark>Retraction</mark> <mark>Watch</mark> published the top
+        ten\_most\"},\"tags\":[{\"matched_tokens\":[],\"snippet\":\"Publishing\"},{\"matched_tokens\":[],\"snippet\":\"Science\"},{\"matched_tokens\":[],\"snippet\":\"Metrics\"},{\"matched_tokens\":[\"Retraction\"],\"snippet\":\"<mark>Retraction</mark>\"}]},\"highlights\":[{\"field\":\"summary\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"A
+        few days ago, <mark>Retraction</mark> <mark>Watch</mark> published the top
+        ten\_most\"},{\"field\":\"content_text\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"A
+        few days ago, <mark>Retraction</mark> <mark>Watch</mark> published the [top
+        ten\_most\"},{\"field\":\"tags\",\"indices\":[3],\"matched_tokens\":[[\"Retraction\"]],\"snippets\":[\"<mark>Retraction</mark>\"]}],\"text_match\":1157451471441100883,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":3,\"score\":\"1157451471441100883\",\"tokens_matched\":2}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22123/20231101171300/https://eve.gd/2023/09/12/retract-this\",\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/02twcfp32\",\"name\":\"Crossref\"}],\"name\":\"Martin
+        Paul Eve\",\"url\":\"https://orcid.org/0000-0002-5589-8511\"}],\"blog_name\":\"Martin
+        Paul Eve\",\"blog_slug\":\"eve\",\"category\":\"languagesAndLiterature\",\"content_text\":\"Today's
+        big news is that [Crossref has acquired the Retraction Watch\\ndatabase of
+        expressions of concerns and retractions and has made it\\nopenly accessible
+        to anyone who wants to use\\nit](https://doi.org/10.13003/c23rw1d9). I'm waiting
+        for full\\nconfirmation of the license or public domain dedication under which
+        it\\nwill be released, but this is still a great commitment of Crossref to\\nthe
+        POSI principles. The liberation of this database is good for science\\nand
+        scholarship in general. It means that Crossref now knows about\\napproximately
+        50,000 retractions.\\n\\nAccess to the database, for now, is via the Crossref
+        Labs API, which I\\nwrite and maintain. The Crossref Labs API sits in between
+        the user and\\nthe Live API to inject new experimental metadata fields. The
+        API can\\nalso serve files, so you can get the CSV of the latest Retraction
+        Watch\\ndata at\\nhttps://api.labs.crossref.org/data/retractionwatch?mailto=\\\\[YOUR@EMAIL.HERE\\\\].\\n\\nMeanwhile,
+        the Labs API will show you retraction data in the\\ncr-labs-updates entry
+        if you visit a work that has data, e.g.\\nhttps://api.labs.crossref.org/works/10.2147/CMAR.S324920?mailto=\\\\[YOUR@EMAIL.HERE\\\\].\\n\\nThe
+        obvious question (and one that [was asked within an hour of our\\nlaunch](https://twitter.com/gcabanac/status/1701594642142363877))
+        is:\\nhow can I retrieve a list of all retractions via the API? This is what\\nwe
+        call a \\\"filter\\\" in the API and, for Reasons\u2122, it is very difficult
+        to\\ndo in the Labs API. The Reasons\xAE that it's so difficult is because
+        the\\nLabs API gets its data by pulling from the Live API, which knows nothing\\nabout
+        retractions, and then injecting the data. So pulling out just the\\nentries
+        that have retractions means building a separate index of all\\nitems with
+        retractions, then fetching these, and paging through them\\nwith the user's
+        requests. This gets to be HORRIBLY slow on the\\nperformance front with even
+        not much load, and I don't recommend it. We\\ntried several ways of implementing
+        this but to no avail. So, for now,\\nplease download and parse the CSV if
+        you want a full list of\\nretractions. We'll continue to work on an API solution,
+        but it's going\\nto take us a bit longer.\\n\\nIn the meantime, publishers:
+        please continue to deposit retractions.\\nIt's really important and we need
+        to end the culture of *shame* (at\\nleast for publishers) around declaring
+        retractions. It is vital for the\\nprogress of science that we accurately
+        mark papers that have been shown\\nto be defective.\\n\\nThe other important
+        thing to note about all this is that, with any luck,\\nit will help to make
+        Retraction Watch itself sustainable. As they say\\n[in their\\nannouncement](https://retractionwatch.com/2023/09/12/the-retraction-watch-database-becomes-completely-open-and-rw-becomes-far-more-sustainable/):\\n\\\"That
+        means we have achieved sustainability -- the highest priority goal\\nfor any
+        nonprofit -- for the database side of our operation. And the\\nacquisition
+        fee provides important unrestricted reserves that allow for\\nbreathing room
+        and the potential for growth.\\\" It's really great that\\nCrossref can contribute
+        towards this sustainability, in the spirit of\\nalso improving the metadata
+        that we can offer.\\n\\n[Retract this!](https://eve.gd/2023/09/12/retract-this/)
+        was originally\\npublished by Martin Paul Eve at [Martin Paul Eve](https://eve.gd)
+        on\\nSeptember 12, 2023.\\n\",\"doi\":\"https://doi.org/10.59348/9b1f4-29n44\",\"guid\":\"https://eve.gd/2023/09/12/retract-this\",\"id\":\"dbb3d159-4b12-4c31-8666-25316d4d5fdd\",\"language\":\"en\",\"published_at\":1694534158,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Today\u2019s
+        big news is that Crossref has acquired the Retraction Watch database of expressions
+        of concerns and retractions and has made it openly accessible to anyone who
+        wants to use it. I\u2019m waiting for full confirmation of the license or
+        public domain dedication under which it will be released, but this is still
+        a great commitment of Crossref to the POSI principles. The liberation of this
+        database is good for science and scholarship in general.\",\"tags\":[],\"title\":\"Retract
+        this!\",\"updated_at\":1694476800,\"url\":\"https://eve.gd/2023/09/12/retract-this\"},\"highlight\":{\"content_text\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Crossref
+        has acquired the <mark>Retraction</mark> <mark>Watch</mark>\\ndatabase of
+        expressions of\"},\"summary\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Crossref
+        has acquired the <mark>Retraction</mark> <mark>Watch</mark> database of expressions
+        of\"}},\"highlights\":[{\"field\":\"summary\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Crossref
+        has acquired the <mark>Retraction</mark> <mark>Watch</mark> database of expressions
+        of\"},{\"field\":\"content_text\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Crossref
+        has acquired the <mark>Retraction</mark> <mark>Watch</mark>\\ndatabase of
+        expressions of\"}],\"text_match\":1157451471441100882,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":2,\"score\":\"1157451471441100882\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Ross
+        Mounce\"}],\"blog_name\":\"A blog by Ross Mounce\",\"blog_slug\":\"rossmounce\",\"category\":\"naturalSciences\",\"content_text\":\"On
+        Monday 29th June 2020, I learned [from Retraction\\nWatch](https://retractionwatch.com/2020/06/29/major-indexing-service-sounds-alarm-on-self-citations-by-nearly-50-journals/)\\nthat
+        Clarivate, the for-profit proprietor of *Journal Impact Factor* \u2122\\nhas
+        newly \\\"suppressed\\\" 33 journals from their indexing service. The\\nimmediate
+        consequence of this \\\"suppression\\\" is that these 33 journals do\\nnot
+        get assigned an official Clarivate *Journal Impact Factor* \u2122 .\\nClarivate
+        justify this action on the basis of \\\"anomalous citation\\npatterns\\\"
+        but without much further detail given for each of the journals\\nother than
+        the overall \\\"% Self-cites\\\" of the journal, and the effect of\\nthose
+        self-cites on Clarivate's citation-based ranking of journals (%\\nDistortion
+        of category rank).\\n\\nAmongst the 33 journals, I spotted not one but two\\n[systematics](https://en.wikipedia.org/wiki/Systematics)
+        journals that I\\nknow very well:\\n\\n- [Zootaxa](https://www.mapress.com/j/zt/)\\n
+        \ - published by a small independent publisher 'Magnolia Press' based in\\n
+        \   New Zealand\\n- [International Journal of Systematic and Evolutionary\\n
+        \ Microbiology](https://www.microbiologyresearch.org/content/journal/ijsem)\\n
+        \ - published by the Microbiology Society\\n  - the official publication of
+        the\_[International Committee on\\n    Systematics of\\n    Prokaryotes](https://www.the-icsp.org/){rel=\\\"noreferrer
+        noopener\\\"\\n    target=\\\"_blank\\\"}\_and the Bacteriology and Applied
+        Microbiology\\n    Division of the\_[International Union of Microbiological\\n
+        \   Societies](https://www.iums.org/){rel=\\\"noreferrer noopener\\\"\\n    target=\\\"_blank\\\"}\\n\\nI
+        have read, cited, and analysed (textmining and image analysis)\\narticles
+        from both of these journals extensively. Chapter 6 of my [PhD\\nthesis](https://ethos.bl.uk/OrderDetails.do?uin=uk.bl.ethos.642021)\\nmined
+        over 12,000 *Zootaxa* articles looking for phylogenetic data. In a\\nmore
+        [recent work published in Research Ideas and\\nOutcomes](https://doi.org/10.3897/rio.3.e13589)
+        (RIO Journal), I mined\\nover 5,800 *IJSEM* articles for [phylogenetic\\ntree](https://en.wikipedia.org/wiki/Phylogenetic_tree)
+        data. Of\\nrelevance, I should also say I was a council member of the [Systematics\\nAssociation](https://en.wikipedia.org/wiki/Systematics_Association)
+        for\\nmany years.\\n\\nGiven the experiences listed above, I am therefore
+        very well placed to\\nsay that what Clarivate has done to these two systematics
+        journals is\\nutter brainless idiocy.\\n\\nThe reason why *Zootaxa* articles
+        cite quite a high proportion of other\\n*Zootaxa* articles is obvious (\\\"self-citation\\\"
+        at the journal-level from\\nClarivate's point-of-view) to anyone in the discipline.
+        *Zootaxa* is an\\nimportant 'megajournal' for the zoological systematics community.\\nAccording
+        to [lens.org\\ndata](https://www.lens.org/lens/search/scholar/list?q=&p=0&n=10&s=_score&d=%2B&f=false&e=false&l=en&authorField=author&dateFilterField=publishedYear&presentation=false&preview=&stemmed=true&useAuthorId=false&sourceTitle.must=Zootaxa&publishedYear.from=2018&publishedYear.to=2019)\\nZootaxa
+        published over 5,000 items (articles and monographs) between\\n2018 and 2019.
+        Clarivate's own records from another one of their\\nproprietary analytics
+        services called '[Zoological\\nRecord](http://www.organismnames.com/metrics.htm?page=tsj)'
+        indicate\\nthat 26.57% of all new zoological taxa are published in *Zootaxa*.
+        For\\nmany decades descriptive taxonomy has been pushed-out of for-profit\\njournals.
+        *Zootaxa* is a vital refugia for sound science in a poorly\\nfunded discipline.\\n\\nThe
+        case for legitimate 'high' journal-level self-citation at\\n*International
+        Journal of Systematic and Evolutionary Microbiology*\\n(*IJSEM*) is even clearer
+        and easier to explain. The [International Code\\nof Nomenclature of\\nProkaryotes](https://en.wikipedia.org/wiki/International_Code_of_Nomenclature_of_Prokaryotes)\\n(ICNP)
+        ***requires*** that all new bacteria names are published in IJSEM\\nand nowhere
+        else (a very sensible idea which the bacteriology community\\nshould be commended
+        for). Hence a lot of the systematic and evolutionary\\nmicrobiology articles
+        in IJSEM will cite prior IJSEM articles.\\n\\nWayne Maddison has\\n[commented](https://twitter.com/WayneMaddison/status/1278773935656407040)\\non
+        Twitter that the hardest hit researchers by this action might be\\nthose in
+        developing countries. I agree. The problem here is that many\\ninstitutions
+        and research funders idiotically use the Journal Impact\\nFactor \u2122 to
+        assess the quality of an individual's research output. In\\nsome regimes,
+        if a researcher publishes a paper in a journal that has a\\nJournal Impact
+        Factor \u2122 then it 'counts', whereas if a researcher\\npublishes a paper
+        in a journal that has not been given an official\\nJournal Impact Factor \u2122
+        by Clarivate then that paper may not 'count'\\ntowards the assessment of that
+        researcher.\\n\\nThe [zoology section of the Chilean Society of\\nBiology](https://twitter.com/MoscasFloricola/status/1278515036139520001)\\nhas
+        already petitioned Clarivate to unsuppress Zootaxa, to give it back\\nits
+        Journal Impact Factor \u2122 . I understand why they would do this but I\\nwould
+        actually call for something quite different and more far-reaching.\\n\\nI
+        would encourage all systematists, taxonomists, zoologists,\\nmicrobiologists,
+        and biologists in general to see the real problem here:\\nClarivate, a for-profit
+        analytics company, should never be so\\nrelied-upon by research evaluation
+        committees to arbitrarily decide the\\nvalue of a research output. Especially
+        given that the Journal Impact\\nFactor \u2122 is untransparent,\\n[irreproducible](https://dx.doi.org/10.1083%2Fjcb.200801036),
+        and\\nfundamentally [statistically\\nilliterate](http://occamstypewriter.org/scurry/2012/08/13/sick-of-impact-factors/).\\n\\nThus
+        to bring us back to my title. I wonder if Clarivate's wacky\\n\\\"suppression\\\"
+        might actually be a pathway to liberation from the\\ninappropriate stupidity
+        of using Journal Impact Factor \u2122 to evaluate\\nindividual research outputs.
+        Given we have all now witnessed just how\\nbrainless some of Clarivate's decision
+        making is, I would ask Clarivate\\nto please \\\"suppress\\\" all journals
+        thereby removing the harmful stupidity\\nof Journal Impact Factor \u2122 from
+        the lives of researchers.\\n\",\"doi\":\"https://doi.org/10.59350/v5rp0-nde12\",\"guid\":\"http://rossmounce.co.uk/?p=2199\",\"id\":\"741aaa98-c929-4c12-933c-c09bc151f8e6\",\"image\":\"\",\"language\":\"en\",\"published_at\":1593777776,\"reference\":[],\"relationships\":[],\"summary\":\"On
+        Monday 29th June 2020, I learned from Retraction Watch that Clarivate, the
+        for-profit proprietor of\\n<em>\\n Journal Impact Factor\\n</em>\\n\u2122
+        \ has newly \u201Csuppressed\u201D   33 journals from their indexing service.\",\"tags\":[\"Research
+        Assessment\"],\"title\":\"Suppression as a form of liberation?\",\"updated_at\":1701022623,\"url\":\"https://rossmounce.co.uk/2020/07/03/suppression-as-a-form-of-liberation\"},\"highlight\":{\"content_text\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"2020,
+        I learned [from <mark>Retraction</mark>\\n<mark>Watch</mark>](https://retractionwatch.com/2020/06\"},\"summary\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"2020,
+        I learned from <mark>Retraction</mark> <mark>Watch</mark> that Clarivate,
+        the for\"}},\"highlights\":[{\"field\":\"summary\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"2020,
+        I learned from <mark>Retraction</mark> <mark>Watch</mark> that Clarivate,
+        the for\"},{\"field\":\"content_text\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"2020,
+        I learned [from <mark>Retraction</mark>\\n<mark>Watch</mark>](https://retractionwatch.com/2020/06\"}],\"text_match\":1157451471441100882,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":2,\"score\":\"1157451471441100882\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Martin
+        Schmidt\"}],\"blog_id\":\"526jy42\",\"blog_name\":\"Elephant in the Lab\",\"blog_slug\":\"elephantinthelab\",\"category\":\"socialSciences\",\"content_html\":\"<p><script
+        type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script></p>\\n<h3></h3>\\n<p><strong>Retraction
+        Watch was launched to provide insights into cases of scientific fraud and
+        grant a window on the retraction process. How does the scientific community
+        react when you publicly report on retractions of scientific papers? How should
+        retractions be received by the scientific community?</strong></p>\\n<p><span
+        style=\\\"font-weight: 400;\\\">While there are some scientists who are concerned
+        that publicizing retractions &#8212; \u201Cairing science\u2019s dirty laundry,\u201D
+        so to speak &#8212; could give ammunition to those who want to defund research,
+        most are very supportive. They realize that the best way to build trust is
+        to acknowledge that errors and misconduct exist, and to show the world how
+        science corrects itself. In other words, the growth in retractions </span><a
+        href=\\\"https://www.thenewatlantis.com/publications/two-cheers-for-the-retraction-boom\\\"><span
+        style=\\\"font-weight: 400;\\\">is a good thing</span></a><span style=\\\"font-weight:
+        400;\\\">.</span></p>\\n<p><span style=\\\"font-weight: 400;\\\">There\u2019s
+        even evidence that scientists who \u201Cdo the right thing\u201D </span><a
+        href=\\\"https://retractionwatch.com/2015/06/16/life-after-retraction-in-many-cases-its-forgive-and-forget/\\\"><span
+        style=\\\"font-weight: 400;\\\">won\u2019t see a decline in their career prospects</span></a><span
+        style=\\\"font-weight: 400;\\\">. But that depends on retraction notices that
+        provide the entire story: It\u2019s only true when those notices make it clear
+        there wasn\u2019t fraud or misconduct involved. We\u2019ve of course argued
+        for detailed notices since we launched Retraction Watch.</span></p>\\n<p><strong>How
+        have digital platforms and tools changed the way erroneous results are uncovered/discovered?
+        How have they enabled Retraction Watch?</strong></p>\\n<p><span style=\\\"font-weight:
+        400;\\\">The simple fact that the vast majority of scholarly papers are online
+        today means that more people can read &#8212; and scrutinize &#8212; them.
+        Using a program like Photoshop, a scientist or layperson can reverse engineer
+        the manipulation that created a problematic image. As I write this, a team
+        has just </span><a href=\\\"https://www.nature.com/articles/d41586-018-02421-3\\\"><span
+        style=\\\"font-weight: 400;\\\">announced</span></a><span style=\\\"font-weight:
+        400;\\\"> a way to find duplicated images that authors claim represent different
+        results, but clearly can\u2019t. And plagiarism detection software is of course
+        a good tool to screen for plagiarism and duplication &#8212; aka \u201Cself-plagiarism\u201D
+        &#8212; of text.</span></p>\\n<p><span style=\\\"font-weight: 400;\\\">What
+        has really moved the field forward, however, are platforms such as PubPeer,
+        an \u201Conline journal club\u201D where scientists share critiques of papers.
+        A number of corrections and retractions have </span><a href=\\\"https://www.statnews.com/2018/01/30/pubpeer-biotech-investors/\\\"><span
+        style=\\\"font-weight: 400;\\\">flowed from those discussions</span></a><span
+        style=\\\"font-weight: 400;\\\">. (PubMed Commons was another such tool, although
+        discussions were not as critical, and the National Library of Medicine </span><a
+        href=\\\"https://retractionwatch.com/2018/02/02/pubmed-shuts-comments-feature-pubmed-commons/\\\"><span
+        style=\\\"font-weight: 400;\\\">recently decided to shut it down</span></a><span
+        style=\\\"font-weight: 400;\\\">.) Moving forward, the growth of preprints
+        in biology and related fields could allow detection of errors before papers
+        are even officially peer-reviewed.</span></p>\\n<p><strong>Solely by control
+        or active watching the problem of intransparency of the retraction process
+        cannot be solved. In this context, research ethics matter a lot. How could
+        \_better research ethics evolve?</strong></p>\\n<p><span style=\\\"font-weight:
+        400;\\\">I would argue that sustained attention to the retraction process
+        has already led to some changes. Take the Journal of Biological Chemistry
+        (JBC), for example. For the first five years of Retraction Watch, the JBC\u2019s
+        retraction notices were bereft of content, noting simply that the article
+        in question had been retracted at the request of the authors or the editors.
+        In 2015, </span><a href=\\\"https://retractionwatch.com/2015/11/25/now-this-is-good-news-in-policy-change-jbc-will-now-make-retraction-notices-informative/\\\"><span
+        style=\\\"font-weight: 400;\\\">that changed</span></a><span style=\\\"font-weight:
+        400;\\\">, and today the JBC is one of the most aggressive journals when it
+        comes to policing the papers it publishers.</span></p>\\n<p><span style=\\\"font-weight:
+        400;\\\">In a larger sense, however, it\u2019s true that preventing all misconduct
+        is impossible, just as expecting to prevent all theft or violence is a fool\u2019s
+        errand. Just as for crimes, the best approach is one that combines prevention,
+        detection, deterrence, and rewards for the kind of behavior we want to promote.</span></p>\\n<p><strong>In
+        your opinion: What should academia change in the way it publishes and reviews
+        results? What role should academic and professional education play?</strong></p>\\n<p><span
+        style=\\\"font-weight: 400;\\\">As others have noted, the \u201C</span><a
+        href=\\\"https://www.scientificamerican.com/article/intense-competition-among-scientists-gotten-out-of-hand/\\\"><span
+        style=\\\"font-weight: 400;\\\">winner takes all</span></a><span style=\\\"font-weight:
+        400;\\\">\u201D approach to credit in science &#8212; and therefore to doling
+        out grants and jobs &#8212; has created enormous pressure and forces researchers
+        to publish in only a handful of \u201Cprestigious\u201D journals. That means
+        everyone is always striving for perfect and earth-shattering results, and
+        that there is little incentive to repeat experiments or admit error.</span></p>\\n<p><span
+        style=\\\"font-weight: 400;\\\">It sounds simplistic and perhaps even naive,
+        but we all need to remember how to read papers, instead of judging them by
+        metrics. That\u2019s where initiatives such as DORA &#8212; the </span><a
+        href=\\\"https://www.nature.com/articles/d41586-018-01642-w\\\"><span style=\\\"font-weight:
+        400;\\\">Declaration on Research Assessment</span></a><span style=\\\"font-weight:
+        400;\\\"> &#8212; come in. We need to create incentives for replication, for
+        open data, and even for openly critiquing others\u2019 work if we want to
+        see changes.</span></p>\\n\",\"content_text\":\"### \\n\\n**Retraction Watch
+        was launched to provide insights into cases of\\nscientific fraud and grant
+        a window on the retraction process. How does\\nthe scientific community react
+        when you publicly report on retractions\\nof scientific papers? How should
+        retractions be received by the\\nscientific community?**\\n\\n[While there
+        are some scientists who are concerned that publicizing\\nretractions --- \\\"airing
+        science's dirty laundry,\\\" so to speak --- could\\ngive ammunition to those
+        who want to defund research, most are very\\nsupportive. They realize that
+        the best way to build trust is to\\nacknowledge that errors and misconduct
+        exist, and to show the world how\\nscience corrects itself. In other words,
+        the growth in retractions\\n]{style=\\\"font-weight: 400;\\\"}[[is a good\\nthing]{style=\\\"font-weight:
+        400;\\\"}](https://www.thenewatlantis.com/publications/two-cheers-for-the-retraction-boom)[.]{style=\\\"font-weight:
+        400;\\\"}\\n\\n[There's even evidence that scientists who \\\"do the right
+        thing\\\"\\n]{style=\\\"font-weight: 400;\\\"}[[won't see a decline in their
+        career\\nprospects]{style=\\\"font-weight: 400;\\\"}](https://retractionwatch.com/2015/06/16/life-after-retraction-in-many-cases-its-forgive-and-forget/)[.\\nBut
+        that depends on retraction notices that provide the entire story:\\nIt's only
+        true when those notices make it clear there wasn't fraud or\\nmisconduct involved.
+        We've of course argued for detailed notices since\\nwe launched Retraction
+        Watch.]{style=\\\"font-weight: 400;\\\"}\\n\\n**How have digital platforms
+        and tools changed the way erroneous results\\nare uncovered/discovered? How
+        have they enabled Retraction Watch?**\\n\\n[The simple fact that the vast
+        majority of scholarly papers are online\\ntoday means that more people can
+        read --- and scrutinize --- them. Using\\na program like Photoshop, a scientist
+        or layperson can reverse engineer\\nthe manipulation that created a problematic
+        image. As I write this, a\\nteam has just\\n]{style=\\\"font-weight: 400;\\\"}[[announced]{style=\\\"font-weight:
+        400;\\\"}](https://www.nature.com/articles/d41586-018-02421-3)[\\na way to
+        find duplicated images that authors claim represent different\\nresults, but
+        clearly can't. And plagiarism detection software is of\\ncourse a good tool
+        to screen for plagiarism and duplication --- aka\\n\\\"self-plagiarism\\\"
+        --- of text.]{style=\\\"font-weight: 400;\\\"}\\n\\n[What has really moved
+        the field forward, however, are platforms such as\\nPubPeer, an \\\"online
+        journal club\\\" where scientists share critiques of\\npapers. A number of
+        corrections and retractions have\\n]{style=\\\"font-weight: 400;\\\"}[[flowed
+        from those\\ndiscussions]{style=\\\"font-weight: 400;\\\"}](https://www.statnews.com/2018/01/30/pubpeer-biotech-investors/)[.\\n(PubMed
+        Commons was another such tool, although discussions were not as\\ncritical,
+        and the National Library of Medicine\\n]{style=\\\"font-weight: 400;\\\"}[[recently
+        decided to shut it\\ndown]{style=\\\"font-weight: 400;\\\"}](https://retractionwatch.com/2018/02/02/pubmed-shuts-comments-feature-pubmed-commons/)[.)\\nMoving
+        forward, the growth of preprints in biology and related fields\\ncould allow
+        detection of errors before papers are even officially\\npeer-reviewed.]{style=\\\"font-weight:
+        400;\\\"}\\n\\n**Solely by control or active watching the problem of intransparency
+        of\\nthe retraction process cannot be solved. In this context, research\\nethics
+        matter a lot. How could \_better research ethics evolve?**\\n\\n[I would argue
+        that sustained attention to the retraction process has\\nalready led to some
+        changes. Take the Journal of Biological Chemistry\\n(JBC), for example. For
+        the first five years of Retraction Watch, the\\nJBC's retraction notices were
+        bereft of content, noting simply that the\\narticle in question had been retracted
+        at the request of the authors or\\nthe editors. In 2015, ]{style=\\\"font-weight:
+        400;\\\"}[[that\\nchanged]{style=\\\"font-weight: 400;\\\"}](https://retractionwatch.com/2015/11/25/now-this-is-good-news-in-policy-change-jbc-will-now-make-retraction-notices-informative/)[,\\nand
+        today the JBC is one of the most aggressive journals when it comes\\nto policing
+        the papers it publishers.]{style=\\\"font-weight: 400;\\\"}\\n\\n[In a larger
+        sense, however, it's true that preventing all misconduct is\\nimpossible,
+        just as expecting to prevent all theft or violence is a\\nfool's errand. Just
+        as for crimes, the best approach is one that\\ncombines prevention, detection,
+        deterrence, and rewards for the kind of\\nbehavior we want to promote.]{style=\\\"font-weight:
+        400;\\\"}\\n\\n**In your opinion: What should academia change in the way it
+        publishes\\nand reviews results? What role should academic and professional\\neducation
+        play?**\\n\\n[As others have noted, the \\\"]{style=\\\"font-weight: 400;\\\"}[[winner
+        takes\\nall]{style=\\\"font-weight: 400;\\\"}](https://www.scientificamerican.com/article/intense-competition-among-scientists-gotten-out-of-hand/)[\\\"\\napproach
+        to credit in science --- and therefore to doling out grants and\\njobs ---
+        has created enormous pressure and forces researchers to publish\\nin only
+        a handful of \\\"prestigious\\\" journals. That means everyone is\\nalways
+        striving for perfect and earth-shattering results, and that there\\nis little
+        incentive to repeat experiments or admit\\nerror.]{style=\\\"font-weight:
+        400;\\\"}\\n\\n[It sounds simplistic and perhaps even naive, but we all need
+        to\\nremember how to read papers, instead of judging them by metrics. That's\\nwhere
+        initiatives such as DORA --- the\\n]{style=\\\"font-weight: 400;\\\"}[[Declaration
+        on Research\\nAssessment]{style=\\\"font-weight: 400;\\\"}](https://www.nature.com/articles/d41586-018-01642-w)[\\n---
+        come in. We need to create incentives for replication, for open\\ndata, and
+        even for openly critiquing others' work if we want to see\\nchanges.]{style=\\\"font-weight:
+        400;\\\"}\\n\",\"guid\":\"http://elephantinthelab.org/?p=923\",\"id\":\"45ac386b-7ae0-46fe-95a0-f05578391532\",\"image\":\"https://elephantinthelab.org/wp-content/uploads/2018/03/d23d30480f358b5c72c90c39fca4a01742dacb6e_800x600.jpg\",\"language\":\"en\",\"published_at\":1522057651,\"reference\":[],\"relationships\":[],\"summary\":\"<strong>\\n</strong>\\n<strong>\\n
+        Retraction Watch was launched to provide insights into cases of scientific
+        fraud and grant a window on the retraction process. How does the scientific
+        community react when you publicly report on retractions of scientific papers?\\n</strong>\\n\",\"tags\":[\"Impact\",\"Interview\"],\"title\":\"What
+        is the impact of retractions in science?\",\"updated_at\":1556046093,\"url\":\"https://elephantinthelab.org/what-is-the-impact-of-retractions-in-science\"},\"highlight\":{\"content_text\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"<mark>Retraction</mark>
+        <mark>Watch</mark> was launched to provide\"},\"summary\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"strong>\\n</strong>\\n<strong>\\n
+        <mark>Retraction</mark> <mark>Watch</mark> was launched to provide\"}},\"highlights\":[{\"field\":\"content_text\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"<mark>Retraction</mark>
+        <mark>Watch</mark> was launched to provide\"},{\"field\":\"summary\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"strong>\\n</strong>\\n<strong>\\n
+        <mark>Retraction</mark> <mark>Watch</mark> was launched to provide\"}],\"text_match\":1157451471441100882,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":2,\"score\":\"1157451471441100882\",\"tokens_matched\":2}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/generating-overlay-blog-posts\",\"authors\":[{\"affiliation\":[{\"name\":\"Front
+        Matter\"}],\"name\":\"Martin Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"On
+        Monday the Rogue Scholar science blog archive [launched a dedicated\\nAPI](https://doi.org/10.53731/ar11b-5ea39){rel=\\\"noreferrer\\\"}.
+        Today I am\\nreporting on the first Jupyter notebook using that API to generate
+        an\\noverlay blog post.\\n\\n> An\_**overlay journal**\_or\_**overlay ejournal**\_is
+        a type of\_open\\n> access\_academic journal, almost always an online\_electronic\\n>
+        journal\_(ejournal), that does not produce its own content, but selects\\n>
+        from texts that are already freely available online.\_From\\n> [Wikipedia](https://en.wikipedia.org/wiki/Overlay_journal){rel=\\\"noreferrer\\\"}\\n\\nAn
+        **overlay blog post** applies the idea of an **overlay journal** to\\nscience
+        blog posts, and the Rogue Scholar API -- in combination with\\ncontent that
+        has an open license\\n([CC-BY](https://creativecommons.org/licenses/by/4.0/legalcode){rel=\\\"noreferrer\\\"})\\n--
+        makes that easy.\\n\\nThe Jupyter notebook that I started and [made available
+        via\\nGitHub](https://github.com/front-matter/rogue-scholar-notebooks) and\\n[Zenodo](https://doi.org/10.5281/zenodo.8433675){rel=\\\"noreferrer\\\"}\\nfetches
+        all blog posts using a search term and some other conditions\\n(here written
+        in English and published after 2010). I thought a good\\nsearch term to try
+        out the concept would be **Retraction Watch**, after\\nthe [announcement in\\nSeptember](https://doi.org/10.13003/c23rw1d9){rel=\\\"noreferrer\\\"}
+        that\\n*Crossref has acquired the Retraction Watch database of expressions
+        of\\nconcerns and retractions and has made it openly accessible to anyone
+        who\\nwants to use it.*\\n\\nThe notebook includes this note:\\n\\n::::: {.kg-card
+        .kg-callout-card .kg-callout-card-blue}\\n::: {.kg-callout-emoji}\\n\U0001F4A1\\n:::\\n\\n:::
+        {.kg-callout-text}\\nWe use the query\_`retraction watch`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space:
+        pre-wrap;\\\"}. We limit results to posts published\\nsince\_`2010`{spellcheck=\\\"false\\\"
+        style=\\\"white-space: pre-wrap;\\\"}\_(the\\nyear Retraction Watch launched)
+        and\_`en`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space: pre-wrap;\\\"}\_as
+        language. We retrieve\\nthe\_`title`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space:
+        pre-wrap;\\\"},\_`authors`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space:
+        pre-wrap;\\\"},\_`publication date`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space:
+        pre-wrap;\\\"},\_`abstract`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space:
+        pre-wrap;\\\"},\_`blog name`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space:
+        pre-wrap;\\\"},\_`doi`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space: pre-wrap;\\\"}\_and\_`url.`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space:
+        pre-wrap;\\\"}We sort the results in reverse\\nchronological order (newest
+        first).\\n:::\\n:::::\\n\\nThe query for that search term returned 17 blog
+        posts included in Rogue\\nScholar (out of about 9,000 posts), and manual curation
+        narrowed that\\nlist further down to 12 posts (visualized with\\n[Mermaid](https://mermaid.js.org/){rel=\\\"noreferrer\\\"}):\\n\\n<figure
+        class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2023/10/mermaid-figure-1.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2023/10/mermaid-figure-1.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2023/10/mermaid-figure-1.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2023/10/mermaid-figure-1.png
+        1600w, https://blog.front-matter.io/content/images/2023/10/mermaid-figure-1.png
+        2000w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"2000\\\" height=\\\"190\\\"
+        />\\n</figure>\\n\\nThe notebook then generates a bibtex file of all 12 blog
+        posts (easy as\\nthey all have DOIs) and generates a summary written in markdown
+        using\\nthe title, author, blog name, publication date, and abstract.\\n\\n##
+        Conclusions\\n\\nThe notebook needs some more fine-tuning, and I plan to publish
+        the\\nfirst overlay blog post next week. But notebooks are an interesting\\napproach
+        to automate the generating of overlay blog posts, open to\\neveryone as the
+        content of the Rogue Scholar API is freely available for\\nreuse. I particularly
+        like using both automation and manual curation\\nusing open source tools,
+        which is a powerful combination\\n\\n## References\\n\\nFenner, M. (2023).
+        *Rogue Scholar has an API*.\\n<https://doi.org/10.53731/ar11b-5ea39>\\n\\nFenner,
+        M. (2023). *front-matter/rogue-scholar-notebooks: Initial public\\nrelease*
+        (0.8) \\\\[Computer software\\\\]. Zenodo.\\n<https://doi.org/10.5281/ZENODO.8433675>\\n\\nCrossref,
+        Hendricks, G., Center for Scientific Integrity, & Lammey, R.\\n(2023). *Crossref
+        acquires Retraction Watch data and opens it for the\\nscientific community*.
+        <https://doi.org/10.13003/c23rw1d9>\\n\",\"doi\":\"https://doi.org/10.53731/gzrse-p5d35\",\"guid\":\"6526c60bf23c390001a8394c\",\"id\":\"1cc6de6d-9eef-4305-a936-933446c315dd\",\"image\":\"https://images.unsplash.com/flagged/photo-1552425083-0117136f7d67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIxfHxjYW5vcHl8ZW58MHx8fHwxNjk3MDQwMDk1fDA&ixlib=rb-4.0.3&q=80&w=2000\",\"language\":\"en\",\"published_at\":1697042431,\"reference\":[{\"doi\":\"https://doi.org/10.53731/ar11b-5ea39\",\"key\":\"ref1\",\"publicationYear\":\"2023\",\"title\":\"Rogue
+        Scholar has an API\"},{\"doi\":\"https://doi.org/10.5281/zenodo.8433675\",\"key\":\"ref2\",\"publicationYear\":\"2023\",\"title\":\"front-matter/rogue-scholar-notebooks:
+        Initial public release\"},{\"doi\":\"https://doi.org/10.13003/c23rw1d9\",\"key\":\"ref3\",\"publicationYear\":\"2023\",\"title\":\"Crossref
+        acquires Retraction Watch data and opens it for the scientific community\"}],\"relationships\":[],\"status\":\"active\",\"summary\":\"On
+        Monday the Rogue Scholar science blog archive launched a dedicated API. Today
+        I am reporting on the first Jupyter notebook using that API to generate an
+        overlay blog post. An\\n<strong>\\n overlay blog post\\n</strong>\\napplies
+        the idea of an\\n<strong>\\n overlay journal\\n</strong>\\nto science blog
+        posts, and the Rogue Scholar API \u2013 in combination with content that has
+        an open license (CC-BY) \u2013 makes that easy.\",\"tags\":[\"Feature\",\"Rogue
+        Scholar\"],\"title\":\"Generating Overlay blog posts\",\"updated_at\":1707334779,\"url\":\"https://blog.front-matter.io/posts/generating-overlay-blog-posts\"},\"highlight\":{\"content_text\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"the
+        concept would be **<mark>Retraction</mark> <mark>Watch</mark>**, after\\nthe
+        [announcement in\"},\"reference\":[{\"doi\":{\"matched_tokens\":[],\"snippet\":\"https://doi.org/10.53731/ar11b-5ea39\"},\"key\":{\"matched_tokens\":[],\"snippet\":\"ref1\"},\"publicationYear\":{\"matched_tokens\":[],\"snippet\":\"2023\"},\"title\":{\"matched_tokens\":[],\"snippet\":\"Rogue
+        Scholar has an API\"}},{\"doi\":{\"matched_tokens\":[],\"snippet\":\"https://doi.org/10.5281/zenodo.8433675\"},\"key\":{\"matched_tokens\":[],\"snippet\":\"ref2\"},\"publicationYear\":{\"matched_tokens\":[],\"snippet\":\"2023\"},\"title\":{\"matched_tokens\":[],\"snippet\":\"front-matter/rogue-scholar-notebooks:
+        Initial public release\"}},{\"doi\":{\"matched_tokens\":[],\"snippet\":\"https://doi.org/10.13003/c23rw1d9\"},\"key\":{\"matched_tokens\":[],\"snippet\":\"ref3\"},\"publicationYear\":{\"matched_tokens\":[],\"snippet\":\"2023\"},\"title\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Crossref
+        acquires <mark>Retraction</mark> <mark>Watch</mark> data and opens it for
+        the scientific community\"}}]},\"highlights\":[{\"field\":\"content_text\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"the
+        concept would be **<mark>Retraction</mark> <mark>Watch</mark>**, after\\nthe
+        [announcement in\"}],\"text_match\":1157451471441100866,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":8,\"fields_matched\":2,\"score\":\"1157451471441100866\",\"tokens_matched\":2}},{\"document\":{\"abstract\":\"Nous
+        vous proposons pour terminer cette ann\xE9e un nouveau bulletin de veille,
+        dans lequel vous devriez rep\xE9rer quelques indices concernant nos projets
+        de publication pour 2022.\",\"authors\":[{\"name\":\"Collectif\"}],\"blog_name\":\"Le
+        blog Zotero francophone\",\"blog_slug\":\"zotero_fr\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"*Billet
+        r\xE9dig\xE9 par \u270F\uFE0F* *Nicolas Chachereau,* \u270F\uFE0F *Fr\xE9d\xE9rique
+        Flamerie,*\\n\u270F\uFE0F *Rapha\xEBl Grolimund* *et \u270F\uFE0F Mathilde
+        Panes*\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter size-large
+        is-resized\\\">\\n<a\\nhref=\\\"https://zotero.hypotheses.org/files/2021/12/une_veille_4.jpg\\\"><img\\nsrc=\\\"https://zotero.hypotheses.org/files/2021/12/une_veille_4.jpg\\\"\\nclass=\\\"wp-image-3721\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://zotero.hypotheses.org/files/2021/12/une_veille_4.jpg
+        800w, https://zotero.hypotheses.org/files/2021/12/une_veille_4-300x194.jpg
+        300w, https://zotero.hypotheses.org/files/2021/12/une_veille_4-768x495.jpg
+        768w\\\"\\nsizes=\\\"(max-width: 800px) 100vw, 800px\\\" width=\\\"800\\\"
+        height=\\\"516\\\" /></a>\\n<figcaption>Looking \u2013 auteur: Peter Miller
+        \u2013 CC BY-NC-ND \u2013 source:\\nhttps://www.flickr.com/photos/pmillera4/23526477509</figcaption>\\n</figure>\\n:::\\n\\nNous
+        vous proposons pour terminer cette ann\xE9e un nouveau bulletin de\\nveille,
+        dans lequel vous devriez rep\xE9rer quelques indices concernant nos\\nprojets
+        de publication pour 2022.\\n\\n**Sommaire**\\n\\n- [Fonctionnalit\xE9s, modules
+        et\\n  interface](#section1){data-type=\\\"internal\\\" data-id=\\\"#section1\\\"}\\n
+        \ - [Simplification du param\xE9trage de\\n    l'OpenURL](#section1-1){data-type=\\\"internal\\\"}\\n
+        \ - [Reference Extractor d\xE9sormais compatible avec\\n    LibreOffice](#section1-2){data-type=\\\"internal\\\"}\\n
+        \ - [Zotero Lab et Zotero\\n    Institution](#section1-3){data-type=\\\"internal\\\"}\\n
+        \ - [Un nouveau module pour exploiter les citations de Google\\n    Scholar](#section1-4){data-type=\\\"internal\\\"}\\n-
+        [Trucs et astuces](#section2){data-type=\\\"internal\\\"\\n  data-id=\\\"#section2\\\"}\\n
+        \ - [Citation des d\xE9p\xF4ts Github](#section2-1){data-type=\\\"internal\\\"}\\n
+        \ - [Pr\xE9vention de la citation d'articles\\n    r\xE9tract\xE9s](#section2-2){data-type=\\\"internal\\\"}\\n-
+        [Lectures](#section3){data-type=\\\"internal\\\" data-id=\\\"#section3\\\"}\\n
+        \ - [Comparatif de logiciels de gestion bibliographique : une approche\\n
+        \   quantitative](#section3-1){data-type=\\\"internal\\\"}\\n  - [Un exemple
+        de bibliographie r\xE9utilisable et\\n    comment\xE9e](#section3-2){data-type=\\\"internal\\\"}\\n
+        \ - [Pour des bibliographies ouvertes et\\n    annot\xE9es](#section3-3){data-type=\\\"internal\\\"}\\n\\n#
+        Fonctionnalit\xE9s, modules et interface {#section-1 .wp-block-heading}\\n\\n##
+        Simplification du param\xE9trage de l'OpenURL {#section1-1 .wp-block-heading}\\n\\nDepuis
+        la version 5.0.96.3 de Zotero (19 ao\xFBt 2021), il n'est plus\\nn\xE9cessaire
+        de copier-coller l'OpenURL de son r\xE9solveur de liens, les\\n[URL r\xE9pertori\xE9es
+        sur la page d\xE9di\xE9e de la documentation\\nZotero](https://www.zotero.org/support/locate/openurl_resolvers){rel=\\\"noreferrer
+        noopener\\\"\\ntarget=\\\"_blank\\\"} sont pr\xE9sent\xE9es sous la forme
+        d'une liste hi\xE9rarchique\\ng\xE9ographique.\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large is-resized\\\">\\n<a\\nhref=\\\"https://zotero.hypotheses.org/files/2021/12/zotero_openurl.png\\\"><img\\nsrc=\\\"https://zotero.hypotheses.org/files/2021/12/zotero_openurl.png\\\"\\nclass=\\\"wp-image-3724\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://zotero.hypotheses.org/files/2021/12/zotero_openurl.png
+        800w, https://zotero.hypotheses.org/files/2021/12/zotero_openurl-300x169.png
+        300w, https://zotero.hypotheses.org/files/2021/12/zotero_openurl-768x433.png
+        768w\\\"\\nsizes=\\\"(max-width: 600px) 100vw, 600px\\\" width=\\\"600\\\"
+        height=\\\"338\\\"\\nalt=\\\"copie d&#39;\xE9cran d\xE9crite en l\xE9gende\\\"
+        /></a>\\n<figcaption>Cliquer sur \u201CCustom\u201D dans les Pr\xE9f\xE9rences
+        &gt; Avanc\xE9es &gt;\\nG\xE9n\xE9rales &gt; OpenURL active les menus d\xE9roulants
+        g\xE9ographiques, dans\\nlesquels il suffit de naviguer pour retrouver son
+        \xE9tablissement et\\nconfigurer ainsi l\u2019OpenURL correspondante.</figcaption>\\n</figure>\\n:::\\n\\nIl
+        est ainsi bien plus rapide et facile de personnaliser ce param\xE9trage,\\nce
+        qui le rend plus accessible pour tous les utilisateurs et toutes les\\nutilisatrices.\\n\\nIl
+        est donc \xE9galement beaucoup plus facile de changer ce param\xE8tre\\nlorsque
+        vous avez acc\xE8s aux ressources souscrites par diff\xE9rents\\n\xE9tablissements.\\n\\nPour
+        en savoir plus concernant les avantages de l'OpenURL et des autres\\noptions
+        du menu \\\"Localiser\\\", consultez notre pr\xE9c\xE9dent billet [Les\\nmoteurs
+        de recherche int\xE9gr\xE9s \xE0\\nZotero](https://zotero.hypotheses.org/3388){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"}.\\n\\n## Reference Extractor d\xE9sormais compatible avec LibreOffice
+        {#section1-2 .wp-block-heading}\\n\\nCet \xE9t\xE9, le service en ligne [Reference\\nExtractor](https://rintze.zelle.me/ref-extractor/){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"} a fait l'objet d'une mise \xE0 jour\\nint\xE9ressante: la compatibilit\xE9
+        avec les documents LibreOffice. Reference\\nExtractor, dont nous vous avions
+        parl\xE9 \xE0 l'occasion d'un [billet de\\nveille\\npr\xE9c\xE9dent](https://zotero.hypotheses.org/3434#reference-extractor){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"}, a deux fonctionnalit\xE9s principales. D'une\\npart, le service
+        peut extraire d'un document les donn\xE9es\\nbibliographiques des r\xE9f\xE9rences
+        qui y ont \xE9t\xE9 ins\xE9r\xE9es avec Zotero ou\\nMendeley. D'autre part,
+        il permet de s\xE9lectionner dans votre\\nbiblioth\xE8que Zotero les documents
+        correspondants \xE0 ces r\xE9f\xE9rences.\\n\\nJusqu'\xE0 cet \xE9t\xE9, Reference
+        Extractor ne fonctionnait qu'avec des\\ndocuments Word (.docx). D\xE9sormais,
+        il prend \xE9galement en charge des\\nfichiers cr\xE9\xE9s avec LibreOffice
+        (.odt). Cette nouvelle compatibilit\xE9\\n([d\xE9velopp\xE9e par l'un des
+        membres de notre\\nr\xE9daction](https://twitter.com/zfrancophone/status/1431154933764706307){rel=\\\"noreferrer
+        noopener\\\"\\ntarget=\\\"_blank\\\"}) permet \xE0 davantage de personnes
+        de profiter de ce\\nservice en ligne, en particulier les amateurs de logiciels
+        libres et\\ntoutes celles et ceux qui n'ont pas acc\xE8s aux logiciels de
+        Microsoft.\\n\\nUne limitation subsiste toutefois : lors de l'ajout de r\xE9f\xE9rences
+        dans\\nun document LibreOffice, Zotero demande de choisir, pour \\\"Stocker
+        les\\ncitations\\\", entre les \\\"Marques de r\xE9f\xE9rence\\\" (recommand\xE9es)
+        et les\\n\\\"Signets\\\". Or, cette mise \xE0 jour de Reference Extractor
+        ne fonctionne\\nqu'avec les marques de r\xE9f\xE9rence, mais pas avec les
+        signets.\\n\\n## Zotero Lab et Zotero Institution {#section1-3 .wp-block-heading}\\n\\nNos
+        antennes Twitter ont rep\xE9r\xE9 une discussion nourrie concernant les\\nfonctionnalit\xE9s
+        d'abonnement institutionnel de Zotero \xE0 l'occasion de\\nl'annonce de la
+        souscription d'un tel abonnement par [l'Institut de\\nrecherche pour le d\xE9veloppement\\n(IRD)](https://www.ird.fr/){rel=\\\"noreferrer
+        noopener\\\" target=\\\"_blank\\\"}.\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large is-resized\\\">\\n<a href=\\\"https://zotero.hypotheses.org/files/2021/12/tweet_ird.png\\\"><img\\nsrc=\\\"https://zotero.hypotheses.org/files/2021/12/tweet_ird.png\\\"\\nclass=\\\"wp-image-3725\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://zotero.hypotheses.org/files/2021/12/tweet_ird.png
+        633w, https://zotero.hypotheses.org/files/2021/12/tweet_ird-238x300.png 238w\\\"\\nsizes=\\\"(max-width:
+        317px) 100vw, 317px\\\" width=\\\"317\\\" height=\\\"399\\\"\\nalt=\\\"copie
+        d&#39;\xE9cran d\xE9crite en l\xE9gende\\\" /></a>\\n<figcaption>L\u2019IRD
+        annonce la souscription de son abonnement Zotero\\nInstitution sur son compte
+        Twitter d\xE9but septembre 2021 \u2013 <a\\nhref=\\\"https://twitter.com/IST_IRD/status/1434835477799002112\\\"\\nrel=\\\"noreferrer
+        noopener\\\"\\ntarget=\\\"_blank\\\">https://twitter.com/IST_IRD/status/1434835477799002112</a></figcaption>\\n</figure>\\n:::\\n\\n[La
+        page \\\"Zotero Lab and Zotero Institution\\\" de la documentation\\nZotero](https://www.zotero.org/storage/institutions){rel=\\\"noreferrer
+        noopener\\\"\\ntarget=\\\"_blank\\\"} fournit toutes les informations concernant
+        le\\nfonctionnement des deux types d'abonnement propos\xE9s, \\\"Lab\\\" pour
+        une\\n\xE9quipe \xE0 partir de 15 personnes, \\\"Institution\\\" pour un organisme
+        entier.\\n\\nVotre institution ou votre \xE9quipe a-t-elle souscrit un de
+        ces deux\\nabonnements? Nous sommes int\xE9ress\xE9s par votre retour d'exp\xE9rience
+        pour\\nun prochain billet consacr\xE9 \xE0 ce sujet. Nous serions particuli\xE8rement\\nint\xE9ress\xE9s
+        par vos r\xE9ponses aux questions suivantes, et plus largement\\npar tout
+        retour de votre part qui pourrait \xEAtre utile \xE0 la communaut\xE9\\nZotero
+        francophone.\\n\\n- Pourquoi choisir un abonnement institutionnel? Est-ce
+        en r\xE9ponse \xE0 une\\n  demande des utilisateurs ou s'agit-il d'une offre
+        de votre part?\\n- Avez-vous une approximation de la part des membres de votre\\n
+        \ institution ou de votre \xE9quipe qui utilisent un logiciel de gestion\\n
+        \ bibliographique? Et parmi ceux-l\xE0 Zotero?\\n- La souscription de cet
+        abonnement va-t-elle de pair avec un\\n  renforcement des services bibliographiques
+        que vous proposez \xE0 vos\\n  utilisateurs? Lesquels et comment?\\n- Avez-vous
+        pr\xE9vu une forme de suivi de l'utilisation de cet abonnement?\\n  Comment?
+        Avez-vous d\xE9j\xE0 de premiers retours de la part des\\n  utilisateurs?\\n\\nSi
+        vous souhaitez contribuer \xE0 ce prochain billet, ajoutez un\\ncommentaire
+        au pr\xE9sent billet. Nous ne publierons pas ce commentaire, il\\nnous permettra
+        simplement de vous recontacter.\\n\\n## Un nouveau module pour exploiter les
+        citations de Google Scholar {#section1-4 .wp-block-heading}\\n\\nLe d\xE9veloppeur
+        et consultant Justin Ribeiro a r\xE9cemment pr\xE9sent\xE9 Google\\nScholar
+        Citation Count for Zotero, son fork du fork du fork de Zotero\\nScholar citations\\n^[1](#footnote_0_3720
+        \\\"RIBEIRO, Justin, 2021. Pulling Google Scholar Citation Counts with a Zotero
+        Plugin for Sorting Papers. Chronicle [en\_ligne]. 17 novembre 2021. [Consult\xE9\_le\_22\_d\xE9cembre\_2021].
+        Disponible \xE0 l\u2019adresse\_: https://justinribeiro.com/chronicle/2021/11/17/pulling-google-scholar-citation-counts-with-a-zotero-plugin-for-sorting-papers/\\\"){#identifier_0_3720\\n.footnote-link
+        .footnote-identifier-link}^.\\n\\nSans aller dans les d\xE9tails, ce module
+        ajoute (ou met \xE0 jour) le nombre\\nde citations de l'article sur Google
+        Scholar dans le champ `Extra`. Nous\\nreviendrons bient\xF4t sur ce module
+        dans un prochain billet.\\n\\n# Trucs et astuces {#section-2 .wp-block-heading}\\n\\n##
+        Citation des d\xE9p\xF4ts Github {#section2-1 .wp-block-heading}\\n\\nLe cheminement
+        pour une citation optimale des logiciels se poursuit.\\nDepuis cet \xE9t\xE9,
+        Github propose aux autrices et auteurs de code d\xE9pos\xE9\\nsur cette plateforme
+        d'ajouter un fichier citation.cff qui contient\\ntoutes les informations de
+        citation du d\xE9p\xF4t\\n^[2](#footnote_1_3720 \\\"SMITH, Arfon, 2021. Enhanced
+        support for citations on GitHub. The GitHub Blog [en\_ligne]. [Consult\xE9\_le\_22\_d\xE9cembre\_2021].
+        Disponible \xE0 l\u2019adresse\_: https://github.blog/2021-08-19-enhanced-support-citations-github/\\\"){#identifier_1_3720\\n.footnote-link
+        .footnote-identifier-link}^. Zotero a dans la foul\xE9e\\nannonc\xE9 une prise
+        en charge de ce format. Zotero r\xE9cup\xE9rait jusqu'ici\\nles seules m\xE9tadonn\xE9es
+        du d\xE9p\xF4t fournies par GitHub, ce qui ne\\npermettait qu'un r\xE9f\xE9rencement
+        bibliographique sommaire (un seul nom\\nd'auteur, pas d'identifiant DOI, etc.).
+        Dor\xE9navant ces m\xE9tadonn\xE9es\\npourront \xEAtre compl\xE9t\xE9es \xE0
+        la satisfaction des d\xE9tentrices et d\xE9tenteurs\\ndu d\xE9p\xF4t.\\n\\n**A
+        quoi cela ressemble-t-il ?**\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large is-resized\\\">\\n<a\\nhref=\\\"https://zotero.hypotheses.org/files/2021/12/citation_github.png\\\"><img\\nsrc=\\\"https://zotero.hypotheses.org/files/2021/12/citation_github-1024x523.png\\\"\\nclass=\\\"wp-image-3726\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://zotero.hypotheses.org/files/2021/12/citation_github-1024x523.png
+        1024w, https://zotero.hypotheses.org/files/2021/12/citation_github-300x153.png
+        300w, https://zotero.hypotheses.org/files/2021/12/citation_github-768x392.png
+        768w, https://zotero.hypotheses.org/files/2021/12/citation_github.png 1152w\\\"\\nsizes=\\\"(max-width:
+        768px) 100vw, 768px\\\" width=\\\"768\\\" height=\\\"392\\\"\\nalt=\\\"copie
+        d&#39;\xE9cran d\xE9crite en l\xE9gende\\\" /></a>\\n<figcaption>Le fichier
+        citation.cff permet de fournir des informations\\ndescriptives \xE9tendues
+        telles DOI, mots-cl\xE9s, etc. (image de droite), et\\nde g\xE9n\xE9rer une
+        sortie sous la forme d\u2019une citation mise en forme selon\\nla norme APA
+        ou au format BibTeX (image de gauche).</figcaption>\\n</figure>\\n:::\\n\\nLes
+        formats APA et BibTeX sont \xE9galement copiables. Pour les habitu\xE9\xB7e\xB7s\\nde
+        Zotero, rien \xE0 changer : le connecteur Zotero du navigateur\\ns\xE9lectionne
+        les meilleures m\xE9tadonn\xE9es disponibles. Soulignons toutefois\\nun b\xE9mol,
+        \xE0 savoir que le format CSL dans lequel sont \xE9crits les styles\\nbibliographiques
+        utilis\xE9s par Zotero ne prend pas encore en charge le\\ntype de document
+        \\\"logiciel\\\".\\n\\n## Pr\xE9vention de la citation d'articles r\xE9tract\xE9s
+        {#section2-2 .wp-block-heading}\\n\\nVous savez peut-\xEAtre que si vous ajoutez
+        un article r\xE9tract\xE9 dans\\nZotero, ce dernier vous le\\nsignale^[3](#footnote_2_3720
+        \\\"STILLMAN, Dan, 2019. Retracted item notifications with Retraction Watch
+        integration. Zotero blog [en\_ligne]. [Consult\xE9\_le\_22\_d\xE9cembre\_2021].
+        Disponible \xE0 l\u2019adresse\_: https://www.zotero.org/blog/retracted-item-notifications/\\\"){#identifier_2_3720\\n.footnote-link
+        .footnote-identifier-link}^, et ce depuis plus de deux\\nans.\\n\\nMais avez-vous
+        d\xE9j\xE0 vu ce qui se passe quand vous essayez d'ins\xE9rer un\\nappel de
+        citation dans votre traitement de texte ?\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large is-resized\\\">\\n<a\\nhref=\\\"https://zotero.hypotheses.org/files/2021/12/zotero_retracte_word.png\\\"><img\\nsrc=\\\"https://zotero.hypotheses.org/files/2021/12/zotero_retracte_word.png\\\"\\nclass=\\\"wp-image-3727\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://zotero.hypotheses.org/files/2021/12/zotero_retracte_word.png
+        902w, https://zotero.hypotheses.org/files/2021/12/zotero_retracte_word-300x88.png
+        300w, https://zotero.hypotheses.org/files/2021/12/zotero_retracte_word-768x226.png
+        768w\\\"\\nsizes=\\\"(max-width: 677px) 100vw, 677px\\\" width=\\\"677\\\"
+        height=\\\"199\\\"\\nalt=\\\"copie d&#39;\xE9cran d\xE9crite en l\xE9gende\\\"
+        /></a>\\n<figcaption>Zotero affiche un message d\u2019avertissement dans votre\\ntraitement
+        de texte lorsque vous vous appr\xEAtez \xE0 citer un article\\nr\xE9tract\xE9.</figcaption>\\n</figure>\\n:::\\n\\nSi
+        l'article a \xE9t\xE9 retract\xE9 Zotero vous pr\xE9vient que c'est une mauvaise\\nid\xE9e
+        de le citer !\\n\\n# Lectures {#section3 .wp-block-heading}\\n\\n### Comparatif
+        de logiciels de gestion bibliographique : une approche quantitative {#Comparatif-de-logiciels-de-gestion-bibliographique--une-approche-quantitative
+        .wp-block-heading}\\n\\n*Type de lecture : article de conf\xE9rence*\\n\\nCAI,
+        Tongan, CHEN, Chacha, HUANG, Ting-Hao et RITTER, Frank E, 2021.\\nWhat Makes
+        A Good Reference Manager? A Quantitative Analysis of\\nBibliography Management
+        Applications. In\_: *Asian CHI Symposium 2021*.\\nNew York\_: Association
+        for Computing Machinery. pp.\_64\u201169. DOI\\n[10.1145/3429360.3468183](https://doi.org/10.1145/3429360.3468183)\\n\\nNous
+        poursuivons avec cet article nos lectures de comparatifs de\\nlogiciels de
+        gestion bibliographique. Soulignons d'embl\xE9e les limites de\\ncette \xE9tude,
+        men\xE9e dans le domaine des sciences, techniques et m\xE9decine\\naux \xC9tats-Unis,
+        aupr\xE8s de 12 \xE9tudiants pour la totalit\xE9 de ses\\ndiff\xE9rentes phases.
+        L'\xE9valuation concerne \xE9galement un nombre tr\xE8s\\nlimit\xE9 de t\xE2ches.\\n\\nCe
+        comparatif nous int\xE9resse toutefois \xE0 la fois par son approche et ses\\nconclusions.
+        Il se distingue en effet par une approche quantitative et\\nnon qualitative
+        des logiciels compar\xE9s, en l'occurrence RekWorks,\\nMendeley, Zotero et
+        EndNote. L'objectif de l'\xE9tude men\xE9e par les auteurs\\nest de fait d'\xE9valuer
+        le niveau d'effort requis de la part des\\nutilisateurs pour effectuer les
+        t\xE2ches les plus courantes du logiciel,\\net de mettre en relation ce niveau
+        d'effort avec les pr\xE9f\xE9rences des\\nutilisateurs. L'\xE9tude quantitative
+        s'accompagne ainsi d'une pr\xE9-\xE9tude et\\nd'une post-\xE9tude qualitatives.\\n\\nEn
+        quoi l'\xE9tude quantitative a-t-elle consist\xE9? Il s'est agi de mesurer\\nla
+        distance de souris, le nombre de clics et le temps pass\xE9 pour\\neffectuer
+        les 3 \xE9tapes suivantes, avec chacun des logiciels compar\xE9s.\\n\\n1.
+        \ Importer des fichiers PDF dans le logiciel pour retrouver les\\n    informations
+        bibliographiques.\\n2.  V\xE9rifier ces informations et les corriger autant
+        que n\xE9cessaire.\\n3.  Produire un fichier au format .bib comportant ces
+        r\xE9f\xE9rences.\\n\\nZotero et RefWorks se classent aux deux premi\xE8res
+        places de cette\\n\xE9valuation.\\n\\n> Overall, Zotero required substantially
+        less mouse distance and elapsed\\n> time, and RefWorks was the best with respect
+        to number of mouse\\n> clicks. Both Zotero and RefWorks were efficient in
+        terms of\\n> auto-indexing the PDF files with accurate information extraction.\\n\\nEt
+        Zotero obtient finalement les meilleurs scores pour les six crit\xE8res\\nd'\xE9valuation
+        consid\xE9r\xE9s : exigence physique, exigence mentale, exigence\\nen temps,
+        performance, effort et frustration.\\n\\nDe cette \xE9tude, retenons en particulier
+        une conclusion suggestive, \xE0\\nd\xE9faut d'\xEAtre forc\xE9ment repr\xE9sentative.
+        \xC0 l'issue de l'\xE9tude, apr\xE8s\\navoir d\xFB faire une s\xE9rie d'op\xE9rations
+        sur les diff\xE9rents logiciels\\nretenus, les pr\xE9f\xE9rences de sept des
+        douze participants avaient \xE9volu\xE9.\\nLe taux de pr\xE9f\xE9rence de
+        Mendeley conna\xEEt ainsi un fort d\xE9clin, tandis\\nque celui de Zotero
+        progresse nettement. Cette \xE9volution nous semble\\nconfirmer la n\xE9cessit\xE9
+        de faire mieux conna\xEEtre ces outils, surtout au\\ntravers d'une mise en
+        pratique, afin d'\xE9clairer les choix en la mati\xE8re.\\n\\n## Un exemple
+        de bibliographie r\xE9utilisable et comment\xE9e {#section3-2 .wp-block-heading}\\n\\n*Type
+        de lecture* *: article de revue*\\n\\nPOTTEG\xC5RD, Anton, MORIN, Lucas, HALLAS,
+        Jesper, GERHARD, Tobias,\\nWINTERSTEIN, Almut G., PEREZ-GUTTHANN, Susanna
+        et TADROUS, Mina, 2021.\\nWhere to Begin? Thirty must-read papers for newcomers
+        to\\npharmacoepidemiology. *Pharmacoepidemiology and Drug Safety*.\\nDOI\_[10.1002/pds.5382](https://doi.org/10.1002/pds.5382)\\n\\nAvec
+        encore en t\xEAte nos pr\xE9c\xE9dents billets concernant les bibliographies\\nannot\xE9es
+        et/ou r\xE9utilisables, cette br\xE8ve lettre \xE0 l'\xE9diteur ne pouvait\\nque
+        retenir notre attention. Elle pr\xE9sente en effet une bibliographie,\\ndont
+        les r\xE9f\xE9rences sont mises \xE0 disposition par ailleurs via la\\nbiblioth\xE8que
+        du [groupe public Zotero \\\"Must Read Papers in\\nPharmacoepidemiology\\\"](https://www.zotero.org/groups/4365622/must_read_papers_in_pharmacoepidemiology/){rel=\\\"noreferrer
+        noopener\\\"\\ntarget=\\\"_blank\\\"}. On peut regretter que le num\xE9ro
+        de 1 \xE0 30 assign\xE9 \xE0\\nchaque r\xE9f\xE9rence soit saisi en pr\xE9fixe
+        au titre de chaque article dans\\nla biblioth\xE8que Zotero. Il faut en effet
+        retirer ce num\xE9ro pour avoir\\nune r\xE9f\xE9rence bibliographique correcte,
+        et on perd alors l'information\\npermettant de lier la r\xE9f\xE9rence \xE0
+        sa position dans le tableau pr\xE9sent\xE9\\ndans l'article. L'utilisation
+        du champ Zotero \\\"Cote\\\" ou d'un marqueur\\npermettrait d'\xE9viter cet
+        inconv\xE9nient. De la m\xEAme fa\xE7on, reporter les\\ncat\xE9gories dans
+        la biblioth\xE8que de groupe sous la forme de marqueurs ou\\nde collections
+        serait \xE9clairant pour les personnes r\xE9utilisant la\\nbibliographie.\\n\\n##
+        Pour des bibliographies ouvertes et annot\xE9es {#Pour-des-bibliographies-ouvertes-et-annot\xE9es
+        .wp-block-heading}\\n\\n*Type de lecture : article de revue*\\n\\nMOORBERG,
+        Colby J., 2020. An open annotated bibliography for soil and\\nwater conservation:
+        A case study. *Natural Sciences Education*. Vol.\_49,\\nn\xB0\_1, pp.\_e20014.\\nDOI\_[10.1002/nse2.20014](https://doi.org/10.1002/nse2.20014).\\n\\nNous
+        poursuivons notre parcours dans les bibliographies annot\xE9es avec\\ncet
+        autre exemple, qui combine la production d'un manuel en libre acc\xE8s\\n\xE0
+        celle d'une bibliographie ouverte annot\xE9e. Cet article rencontrera\\ndonc
+        \xE9galement l'int\xE9r\xEAt des producteurs de [REL, Ressources \xE9ducatives\\nlibres](https://fr.wikipedia.org/wiki/Ressources_%C3%A9ducatives_libres){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"}. Les objectifs p\xE9dagogiques de disposer d'un\\nmanuel \xE0
+        jour et de former \xE0 l'\xE9valuation de la cr\xE9dibilit\xE9 des sources\\nse
+        doublent en effet d'objectifs relevant davantage de l'aspect \\\"libre\\\",\\n\xE0
+        savoir r\xE9duire les co\xFBts et accro\xEEtre l'accessibilit\xE9 des manuels.\\n\\nL'auteur
+        pr\xE9sente ainsi de fa\xE7on d\xE9taill\xE9e \xE0 la fois la d\xE9marche
+        et les\\noutils ayant abouti \xE0 l'\xE9dition de ce manuel\\n^[4](#footnote_3_3720
+        \\\"MOORBERG, Colby (\xE9d.), 2019. Soil and Water Conservation: An Annotated
+        Bibliography [en\_ligne]. Manhattan\_: New Prairie Press. NPP eBooks, 30.
+        Disponible \xE0 l\u2019adresse\_: https://newprairiepress.org/ebooks/30\\\"){#identifier_3_3720\\n.footnote-link
+        .footnote-identifier-link}^, dans le cadre de son\\nactivit\xE9 d'enseignement
+        au d\xE9partement d'agronomie de l'universit\xE9 du\\nKansas. Si Zotero est
+        bien int\xE9gr\xE9 \xE0 la cha\xEEne de production et de\\nconception du manuel
+        et que le fichier additionnel donne l'indication du\\nnom du groupe correspondant
+        \xE0 la bibliographie du manuel, il s'av\xE8re que\\nce [groupe Zotero\\n\\\"SoilWaterCon\\\"](https://www.zotero.org/groups/2190911/soilwatercon){rel=\\\"noreferrer
+        noopener\\\"\\ntarget=\\\"_blank\\\"} est malheureusement priv\xE9, limitant
+        de ce fait une\\nr\xE9utilisation rapide sous forme de base de donn\xE9es
+        de la bibliographie\\ncompil\xE9e sous forme textuelle dans le manuel.\\n\\nSoulignons
+        enfin l'inspiration que l'on peut tirer des notes\\nd'enseignement (*Teaching
+        notes*) qui pr\xE9c\xE8dent la discussion, dans\\nlesquelles l'auteur d\xE9taille
+        trois types d'usage p\xE9dagogique auxquels se\\npr\xEAte le manuel.\\n\\n------------------------------------------------------------------------\\n\\nNous
+        esp\xE9rons vous avoir fait (re)d\xE9couvrir de quoi enrichir votre usage\\nde
+        Zotero, nous attendons en commentaires les astuces, lectures,\\nnouveaut\xE9s
+        ou autres qui ont retenu votre attention depuis la rentr\xE9e de\\nseptembre!\\n\\nComme
+        pour les autres billets, vous retrouverez toutes les ressources\\ncit\xE9es
+        dans ce bulletin de veille dans notre biblioth\xE8que de groupe\\nZotero,
+        dans la [collection\\n2021-12_bulletin-veille-04](http://zotero.org/groups/2233096/collections/WZDPG7JC){rel=\\\"noreferrer
+        noopener\\\"\\ntarget=\\\"_blank\\\"}, [marqueur\\nzfrancophone-bulletin-veille](https://www.zotero.org/groups/2233096/zfrancophone/tags/zfrancophone_bulletin_veille/library){rel=\\\"noreferrer
+        noopener\\\"\\ntarget=\\\"_blank\\\"}.\\n\\n1.  [RIBEIRO, Justin, 2021. Pulling
+        Google Scholar Citation Counts with\\n    a Zotero Plugin for Sorting Papers.
+        *Chronicle* \\\\[en\_ligne\\\\]. 17\\n    novembre 2021. \\\\[Consult\xE9\_le\_22\_d\xE9cembre\_2021\\\\].
+        Disponible \xE0\\n    l'adresse\_:\\n    <https://justinribeiro.com/chronicle/2021/11/17/pulling-google-scholar-citation-counts-with-a-zotero-plugin-for-sorting-papers/>[\\n
+        \   \\\\[[\u21A9](#identifier_0_3720){.footnote-link\\n    .footnote-back-link}\\\\]]{.footnote-back-link-wrapper}]{#footnote_0_3720}\\n2.
+        \ [SMITH, Arfon, 2021. Enhanced support for citations on GitHub. *The\\n    GitHub
+        Blog* \\\\[en\_ligne\\\\]. \\\\[Consult\xE9\_le\_22\_d\xE9cembre\_2021\\\\].\\n
+        \   Disponible \xE0 l'adresse\_:\\n    <https://github.blog/2021-08-19-enhanced-support-citations-github/>[\\n
+        \   \\\\[[\u21A9](#identifier_1_3720){.footnote-link\\n    .footnote-back-link}\\\\]]{.footnote-back-link-wrapper}]{#footnote_1_3720}\\n3.
+        \ [STILLMAN, Dan, 2019. Retracted item notifications with Retraction\\n    Watch
+        integration. *Zotero blog* \\\\[en\_ligne\\\\].\\n    \\\\[Consult\xE9\_le\_22\_d\xE9cembre\_2021\\\\].
+        Disponible \xE0 l'adresse\_:\\n    <https://www.zotero.org/blog/retracted-item-notifications/>[\\n
+        \   \\\\[[\u21A9](#identifier_2_3720){.footnote-link\\n    .footnote-back-link}\\\\]]{.footnote-back-link-wrapper}]{#footnote_2_3720}\\n4.
+        \ [MOORBERG, Colby (\xE9d.), 2019. *Soil and Water Conservation: An\\n    Annotated
+        Bibliography* \\\\[en\_ligne\\\\]. Manhattan\_: New Prairie Press.\\n    NPP
+        eBooks, 30. Disponible \xE0 l'adresse\_:\\n    <https://newprairiepress.org/ebooks/30>[\\n
+        \   \\\\[[\u21A9](#identifier_3_3720){.footnote-link\\n    .footnote-back-link}\\\\]]{.footnote-back-link-wrapper}]{#footnote_3_3720}\\n\",\"doi\":\"https://doi.org/10.59350/6avfe-4ew12\",\"guid\":\"https://zotero.hypotheses.org/?p=3720\",\"id\":\"932c0a0a-dbd4-4f99-a510-49916e025776\",\"image\":\"https://zotero.hypotheses.org/files/2021/12/une_veille_4.jpg\",\"language\":\"fr\",\"published_at\":1640186434,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"<em>\\n
+        Billet r\xE9dig\xE9 par \u270F\uFE0F\\n</em>\\n<em>\\n Nicolas Chachereau,\\n</em>\\n\u270F\uFE0F\\n<em>\\n
+        Fr\xE9d\xE9rique Flamerie,\\n</em>\\n\u270F\uFE0F\\n<em>\\n Rapha\xEBl Grolimund\\n</em>\\n<em>\\n
+        et \u270F\uFE0F Mathilde Panes\\n</em>\\nNous vous proposons pour terminer
+        cette ann\xE9e un nouveau bulletin de veille, dans lequel vous devriez rep\xE9rer
+        quelques indices concernant nos projets de publication pour 2022.\",\"tags\":[\"Actualit\xE9s\",\"Bulletin
+        De Veille\",\"Plug-ins Et Apps\",\"Trucs Et Astuces\"],\"title\":\"Bulletin
+        de veille n\xB0 4\",\"updated_at\":1656658098,\"url\":\"https://zotero.hypotheses.org/3720\"},\"highlight\":{\"content_text\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Retracted
+        item notifications with <mark>Retraction</mark> <mark>Watch</mark> integration.
+        Zotero blog [en\_ligne]\"}},\"highlights\":[{\"field\":\"content_text\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Retracted
+        item notifications with <mark>Retraction</mark> <mark>Watch</mark> integration.
+        Zotero blog [en\_ligne]\"}],\"text_match\":1157451471441100865,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":8,\"fields_matched\":1,\"score\":\"1157451471441100865\",\"tokens_matched\":2}},{\"document\":{\"abstract\":\"PLOS
+        ONE notoriously and astonishingly does not have a proofs stage: authors do
+        not get to see how their work is typeset\_until the very day it appears. Worse,
+        they have a policy of only correcting formatting errors that they themselves
+        introduce by issuing a formal correction notice \u2014 a heavyhanded method
+        that most other journals use only for serious errors of fact or process. Unnecessary
+        corrections hurt authors.\",\"authors\":[{\"name\":\"Mark Dingemanse\"}],\"blog_name\":\"The
+        Ideophone\",\"blog_slug\":\"ideophone\",\"category\":\"languagesAndLiterature\",\"content_text\":\"*Note:
+        I\_prepared this posting in August\_2015, when PLOS ONE was due to\\npublish
+        [a\\npaper](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0136100){target=\\\"_blank\\\"\\nrel=\\\"noopener\\\"}
+        by us and I wanted to make sure they'd avoid the stupid\\ntypesetting errors
+        they made [in our 2013\\npaper](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0078273){target=\\\"_blank\\\"\\nrel=\\\"noopener\\\"}.\_I
+        used the numbers to convince them to show us proofs\\nbeforehand. To my surprise,
+        they did, and I never got around to\\nfinishing the draft piece\_I had in
+        the making.\_This week\_the\\nissue\_flared up again following\_a\\n[comment](https://twitter.com/deevybee/status/761066794220072961){target=\\\"_blank\\\"\\nrel=\\\"noopener\\\"}\_by
+        Dorothy Bishop, so I've decided to\_unearth my draft\\nblog post and put it
+        online.*\\n\\n*Update: thanks Retraction Watch for giving some attention to
+        this\\nissue:\_*[PLOS ONE's correction rate is higher than average.\\nWhy?](http://retractionwatch.com/2016/08/05/plos-ones-correction-rate-is-higher-than-average-why/){target=\\\"_blank\\\"\\nrel=\\\"bookmark
+        noopener\\\"}\\n\\nPLOS ONE notoriously and astonishingly does not have a
+        proofs stage:\\nauthors do not get to see how their work is typeset\_until
+        the very day\\nit appears. If\_they\_spot typesetting errors then, it is\_too
+        late: PLOS\\nONE has a policy of not correcting formatting errors\_(recent
+        example\\n[here](http://journals.plos.org/plosone/article/comment?id=info:doi/10.1371/annotation/4592821d-e98d-47f5-9691-bb2d6d7fb99d){target=\\\"_blank\\\"\\nrel=\\\"noopener\\\"}).
+        Note that I'm not talking about typos but\\nabout\_*typesetting errors*: problems
+        introduced by the\\npublisher\_deviating from the authors' proofed manuscript.\_In
+        the most\\negregious cases, they will\_republish the article, slapping a correction\\nnotice
+        on it. The correction notice may mention that the errors were\\n\\\"introduced
+        during the typesetting process\\\" and that \\\"the publisher\\napologizes
+        for this error\\\" (as for our [2013\\npaper](http://journals.plos.org/plosone/article?id=info:doi/10.1371/journal.pone.0094620){target=\\\"_blank\\\"\\nrel=\\\"noopener\\\"}).
+        But nobody reads correction notices, while everybody\\ngets to see the article
+        was corrected. For many readers a correction is\\nan index of sloppiness at
+        least and bad science at worst. **Unnecessary\\ncorrections hurt authors.**\\n\\nLet
+        me be clear: Corrections can be useful and important. If there are\\ntrue
+        errors of fact in a publication, a correction is an important way\\nto set
+        things straight while also keeping the scientific record intact.\\nReaders
+        can trace an earlier version, but the new version is designated\\nas the definitive
+        one. However, at PLOS ONE, that useful function of\\ncorrections is fast being
+        diluted by many corrections that simply fix\\nerrors introduced in the typesetting
+        stage. PLOS ONE thereby punishes\\nauthors for errors not introduced by the
+        authors and makes the\\npublication record unnecessarily messy.\\n\\n## Many
+        corrections are for publisher errors {#many-corrections-are-for-publisher-errors
+        .wp-block-heading}\\n\\nIn the period May-July 2015, PLOS ONE published a
+        total of 474\\ncorrections.\\n^[1](#footnote_0_4599 \\\"Search query: (publication_date:[2015-05-01T00:00:00Z
+        TO 2015-07-31T23:59:59Z]) AND title:Correction\\\"){#identifier_0_4599\\n.footnote-link
+        .footnote-identifier-link}^ **Over a quarter of these**\\n(132) indicate that
+        the error was introduced at the typesetting stage,\\ni.e. beyond the control
+        of the authors. ((Search query:\\n^[2](#footnote_1_4599 \\\"publication_date:[2015-06-01T00:00:00Z
+        TO 2015-09-02T23:59:59Z]) AND (title:\u201DCorrection\u201D) AND ( body:\u201Dtypesetting\u201D
+        OR (body:\u201Dapologizes\u201D)\\\"){#identifier_1_4599\\n.footnote-link
+        .footnote-identifier-link}^. The remainder did not\\ninclude that phrase,
+        but most were trivial errors that would have been\\ncaught by the authors
+        if there had been a proofs stage: [missing\\ninformation from Funding\\nsections](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0131501),\\n[swapped\\nfigures](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0136128),\\nand
+        [incorrectly typeset\\nequations](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0131347).\\nActually\_some
+        of these may also be publisher errors. Here is a\\n[**correction of a\\ncorrection**](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0135535)\\nnoting,
+        \\\"This article was republished on July 27, 2015, to change the\\nbyline
+        of the correction, which should have been The PLOS ONE Staff, and\\nto note
+        the publisher as responsible for the error.\\\" The original error\\nwas one
+        of omitting Funding information.\\n\\nIn the same three-month period in 2015,
+        PLOS ONE published 8466 articles\\nwhose title does not include \\\"Correction:\\\".
+        (( Search query:\\n^[3](#footnote_2_4599 \\\"publication_date:[2015-06-01T00:00:00Z
+        TO 2015-09-02T23:59:59Z]) NOT (title:Correction)\\\"){#identifier_2_4599\\n.footnote-link
+        .footnote-identifier-link}^ Ignoring for a moment that\\nsome corrections
+        in this period may be for articles that go further\\nback, we see that in
+        **this quarter of 2015,\_PLOS ONE issued\_corrections\\nfor over 5% of its
+        publication output**. That seems rather a lot.\\nWas\_this a special period?
+        In the first six months of 2015,\_there were\\n925 corrections, 193 (or 21%)
+        of which indicate publisher error. In that\\nperiod, the rate of corrections
+        to real publications is 7% (925 over\\n14252). The rate of publisher errors
+        seems to be rising. In 2014, 13% of\\ncorrections indicate publisher error
+        (and the ratio of corrections to\\npublications was 6%). In 2013, 4% of corrections
+        indicate publisher\\nerror (and the ratio of corrections to publications was
+        5%).\\n^[4](#footnote_3_4599 \\\"Please note that these numbers were\_obtained
+        in August 2015 using PLOS ONE\u2019s advanced search interface, and I don\u2019t
+        know how accurate that is. If I\_wanted to waste more time I would try and
+        redo them using the rplos package in R. Go ahead if you feel like it!\\\"){#identifier_3_4599\\n.footnote-link
+        .footnote-identifier-link}^\\n\\n*Update Aug 2016:\_*Here are the numbers
+        for the whole of 2015: 30970\\nresearch articles across all PLOS journals,
+        1939 corrections (6.3% of\\npublication output), of which 415 acknowledge
+        publisher error (21.4% of\\ncorrections). And here's 2016 so far: 15162 articles,
+        794 corrections\\n(5.2%) of which 154 are publisher error (19.4% of corrections).\_**So\\nover
+        the last 1.5 years, a full 6% of all PLOS publication output has\\nreceived
+        corrections, and at least one\_fifth of these are due to\\npublisher errors
+        beyond the control of authors.** Keep in mind authors\\nare essentially powerless
+        and many don't request corrections, so the\\nproblems are\_likely much worse.\\n\\n##
+        Authors deserve better {#authors-deserve-better .wp-block-heading}\\n\\nPLOS
+        ONE\\nasks\_[publication\_fees](http://journals.plos.org/plosone/s/publication-fees){target=\\\"_blank\\\"\\nrel=\\\"noopener\\\"}\_\\\"to
+        offset expenses---including those of peer review\\nmanagement, journal production
+        and online hosting and archiving\\\". It\\nseems to me that for a fee of \\\\$1495,
+        authors can expect to get\\na\_modicum of quality control in typesetting,
+        which would fall under\\njournal production. They haven't been getting it
+        so far. This\_ought to\\nchange.\\n\\nI love PLOS ONE for its visionary publishing
+        model\_and\_its open access\\nphilosophy. Though some have pointed out quirks
+        in its editorial\\nprocesses (e.g. \\\"Creatorgate\\\"), for the papers I've
+        had under review,\\neditors were fast\_and reviewers tough yet\_fair. It pains
+        me to conclude\\nthat they are letting authors down when it comes to the final
+        stage of\\npublication.\_Our work deserves to be published according to the
+        same\\nstandards of rigour that hold prior to publication.\_By not exercising\\ndue
+        diligence in the journal production process, PLOS ONE is hurting its\\nauthors
+        and ultimately damaging its own reputation.\\n\\n::: {.footnotes-made-easy-header}\\n##
+        Footnotes\\n:::\\n\\n1.  [Search query: (publication_date:\\\\[2015-05-01T00:00:00Z
+        TO\\n    2015-07-31T23:59:59Z\\\\]) AND title:Correction\\n    [[\\\\[]{.fme-pre-backlink}[\u21A9](https://ideophone.org/why-plos-one-needs-page-proofs/#identifier_0_4599
+        \\\"Jump back to text\\\"){.footnote-link\\n    .footnote-back-link\\n    aria-label=\\\"Jump
+        back to text\\\"}[\\\\]]{.fme-pre-backlink}]{.footnote-back-link-wrapper}]{#footnote_0_4599}\\n2.
+        \ [publication_date:\\\\[2015-06-01T00:00:00Z TO 2015-09-02T23:59:59Z\\\\])\\n
+        \   AND (title:\\\"Correction\\\") AND ( body:\\\"typesetting\\\" OR\\n    (body:\\\"apologizes\\\")\\n
+        \   [[\\\\[]{.fme-pre-backlink}[\u21A9](https://ideophone.org/why-plos-one-needs-page-proofs/#identifier_1_4599
+        \\\"Jump back to text\\\"){.footnote-link\\n    .footnote-back-link\\n    aria-label=\\\"Jump
+        back to text\\\"}[\\\\]]{.fme-pre-backlink}]{.footnote-back-link-wrapper}]{#footnote_1_4599}\\n3.
+        \ [publication_date:\\\\[2015-06-01T00:00:00Z TO 2015-09-02T23:59:59Z\\\\])\\n
+        \   NOT (title:Correction)\\n    [[\\\\[]{.fme-pre-backlink}[\u21A9](https://ideophone.org/why-plos-one-needs-page-proofs/#identifier_2_4599
+        \\\"Jump back to text\\\"){.footnote-link\\n    .footnote-back-link\\n    aria-label=\\\"Jump
+        back to text\\\"}[\\\\]]{.fme-pre-backlink}]{.footnote-back-link-wrapper}]{#footnote_2_4599}\\n4.
+        \ [Please note that these numbers were\_obtained in August 2015 using\\n    PLOS
+        ONE's advanced search interface, and I don't know how accurate\\n    that
+        is. If I\_wanted to waste more time I would try and redo them\\n    using
+        the rplos package in R. Go ahead if you feel like\\n    it\\\\![[\\\\[]{.fme-pre-backlink}[\u21A9](https://ideophone.org/why-plos-one-needs-page-proofs/#identifier_3_4599
+        \\\"Jump back to text\\\"){.footnote-link\\n    .footnote-back-link\\n    aria-label=\\\"Jump
+        back to text\\\"}[\\\\]]{.fme-pre-backlink}]{.footnote-back-link-wrapper}]{#footnote_3_4599}\\n\",\"doi\":\"https://doi.org/10.59350/bjyax-hxd03\",\"guid\":\"http://ideophone.org/?p=4599\",\"id\":\"2498df71-2baa-4133-bcb4-b33769a10a2f\",\"language\":\"en\",\"published_at\":1470334543,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"<em>\\n
+        Note: I\_prepared this posting in August\_2015, when PLOS ONE was due to publish
+        a paper by us and I wanted to make sure they\u2019d avoid the stupid typesetting
+        errors they made in our 2013 paper.\_I used the numbers to convince them to
+        show us proofs beforehand.\\n</em>\",\"tags\":[\"Academia\"],\"title\":\"Why
+        PLOS ONE needs page proofs\",\"updated_at\":1707080936,\"url\":\"https://ideophone.org/why-plos-one-needs-page-proofs\"},\"highlight\":{\"content_text\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"it
+        online.*\\n\\n*Update: thanks <mark>Retraction</mark> <mark>Watch</mark> for
+        giving some attention\"}},\"highlights\":[{\"field\":\"content_text\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"it
+        online.*\\n\\n*Update: thanks <mark>Retraction</mark> <mark>Watch</mark> for
+        giving some attention\"}],\"text_match\":1157451471441100865,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":8,\"fields_matched\":1,\"score\":\"1157451471441100865\",\"tokens_matched\":2}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22123/20231101171300/https://eve.gd/2023/12/11/my-2023-year-in-review\",\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/02twcfp32\",\"name\":\"Crossref\"}],\"name\":\"Martin
+        Paul Eve\",\"url\":\"https://orcid.org/0000-0002-5589-8511\"}],\"blog_name\":\"Martin
+        Paul Eve\",\"blog_slug\":\"eve\",\"category\":\"languagesAndLiterature\",\"content_text\":\"2023
+        continued to pose the all-important question: just how many health\\ndisasters
+        can I endure? This year, I started haemodialysis as my kidneys\\nentered the
+        extremely worryingly named \\\\\\\"end-stage renal failure\\\\\\\". This\\nturns
+        out to be a very long-term prospect, as I can\\\\'t have a transplant\\nowing
+        both to BK viremia (which caused the kidney damage in the first\\nplace) and
+        a conflict with the immunosuppression that treats my\\nrheumatoid arthritis.
+        Without the latter under control, life is, quite\\nseriously, unbearable.
+        But enough of that grimness. I also got quite a\\nlot done this year! \\\\##
+        Crossref \\\\* Built the \\\\[Labs\\nAPI\\\\](https://api.labs.crossref.org/)
+        and released \\\\[its source\\ncode\\\\](https://gitlab.com/crossref/labs/lambda-api-proxy)
+        \\\\* Conducted\\nresearch into, and wrote a peer-reviewed article about,
+        the \\\\[digital\\npreservation status of 7m articles\\\\](https://the-vault.fly.dev/)
+        \\\\*\\nBuilt a deposit proxy system that allows for the modelling and retrieval\\nof
+        new metadata \\\\* Began work on \\\\[Project Op\\nCit\\\\](https://gitlab.com/crossref/labs/opcit);
+        a digital preservation\\nsystem \\\\* Built a set of tools \\\\--\\n\\\\[CLAWS\\\\](https://gitlab.com/crossref/labs/claws)
+        \\\\-- for generic AWS\\noperations \\\\* Built \\\\[a wrapper for distributed\\ncomputation\\\\](https://gitlab.com/crossref/labs/distrunner)
+        using Coiled\\nand Dask \\\\* Built \\\\[an observability library called\\nLongsight\\\\](https://gitlab.com/crossref/labs/longsight)
+        \\\\* Integrated\\nthe Retraction Watch database in the Labs API \\\\* Rebuilt/rewrote
+        the\\nRetraction Watch database system \\\\* Built \\\\[a Large Language Model\\naffiliation
+        parser\\\\](https://gitlab.com/crossref/labs/entext) \\\\* Built\\n\\\\[a
+        JSON-L packer\\\\](https://gitlab.com/crossref/labs/packer) for the\\nCrossref
+        annual data dump \\\\* Built (most of) \\\\[a SQLite\\npacker\\\\](https://gitlab.com/crossref/labs/packer)
+        for the Crossref\\nannual data dump \\\\* Gave 8 plenary/keynote talks \\\\##
+        Academic Research\\n\\n### Books and Translations\\n\\n[2024]{.prefix .bold}[Eve,
+        Martin Paul, *Theses on the Metaphors of\\nDigital-Textual History* (Stanford:
+        Stanford University Press,\\n2024)]{.bibitem}\\n\\n[2023]{.prefix .bold}[
+        [Eve, Martin Paul, *\u6570\u5B57\u4EBA\u6587\u4E0E\u6587\u5B66\u7814\u7A76
+        (The\\nDigital Humanities and Literary Studies)* (Beijing: \u725B\u6D25\u5927\u5B66\u51FA\u7248\u793E\\n(Oxford
+        University Press, China),\\n2023)](https://eprints.bbk.ac.uk/id/eprint/52237){.csl-entry}]{.bibitem}\\n\\n[\_]{.prefix}[
+        [Eve, Martin Paul, *Una Historia De Las Contrase\xF1as\\n(Password)* (Argentina:
+        Ediciones Godot,\\n2023)](https://eprints.bbk.ac.uk/id/eprint/50784){.csl-entry}]{.bibitem}\\n\\n###
+        Journal Articles\\n\\n[2023]{.prefix .bold}[ [Eve, Martin Paul, 'Impossible
+        Chess, Close\\nReading, and Inattention as Disability in Percival Everett's\\n*Telephone*',
+        *Orbit: A Journal of American Literature*, 11.1\\n(2023)](https://orbit.openlibhums.org/article/id/9845/){.csl-entry}\\n\\\\[[Download](https://eprints.bbk.ac.uk/id/document/315187){style=\\\"color:goldenrod\\\"}\\\\]]{.bibitem}\\n\\n[\_]{.prefix}[
+        [Eve, Martin Paul, 'Digital Scholarly Journals Are Poorly\\nPreserved: A Study
+        of 7 Million Articles', *Journal of Librarianship and\\nScholarly Communication*,\\n2023](https://eprints.bbk.ac.uk/id/eprint/51899){.csl-entry}]{.bibitem}\\n\\n###
+        Book Chapters\\n\\n[2024]{.prefix .bold}[ [Eve, Martin Paul, 'Shadow Libraries
+        and Pirate\\nInfrastructures', in *Critical Infrastructure Studies & Digital\\nHumanities*,
+        ed. by Alan Liu, Urszula Pawlicka-Deger, and James Smithies\\n(University
+        of Minnesota Press,\\n2024)](https://eprints.bbk.ac.uk/id/eprint/50133){.csl-entry}]{.bibitem}\\n\\n[\_]{.prefix}[
+        [Eve, Martin Paul, 'The Essay in the Career of the\\nContemporary English
+        Novelist', in *The Cambridge History of the British\\nEssay*, ed. by Denise
+        Gigante and Jason Childs (Cambridge: Cambridge\\nUniversity Press,\\n2024)](https://eprints.bbk.ac.uk/id/eprint/43087){.csl-entry}]{.bibitem}\\n\\n[2023]{.prefix
+        .bold}[ [Eve, Martin Paul, '\\\"The Guy Who Bangs on about\\nOpen Access\\\"',
+        in *We So Loved Open Access*, ed. by Leila Posenato\\nGarcia Garcia and Jan
+        Velterop (SciELO,\\n2023)](https://25.scielo.org/en/we-so-loved-open-access/){.csl-entry}\\n\\\\[[Download](https://eprints.bbk.ac.uk/id/document/314846){style=\\\"color:goldenrod\\\"}\\\\]]{.bibitem}\\n\",\"doi\":\"https://doi.org/10.59348/8584f-zts44\",\"guid\":\"https://eve.gd/2023/12/11/my-2023-year-in-review\",\"id\":\"5588ec32-bbf8-45de-b9b9-479304173922\",\"image\":\"https://eve.gd/images/header_2023.png\",\"language\":\"en\",\"published_at\":1702252800,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"2023
+        continued to pose the all-important question: just how many health disasters
+        can I endure? This year, I started haemodialysis as my kidneys entered the
+        extremely worryingly named \\\"end-stage renal failure\\\". This turns out
+        to be a very long-term prospect, as I can't have a transplant owing both to
+        BK viremia (which caused the kidney damage in the first place) and a conflict
+        with the immunosuppression that treats my rheumatoid arthritis.\",\"tags\":[],\"title\":\"My
+        2023 year in review\",\"updated_at\":1702252800,\"url\":\"https://eve.gd/2023/12/11/my-2023-year-in-review\"},\"highlight\":{\"content_text\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"labs/longsight)
+        \\\\* Integrated\\nthe <mark>Retraction</mark> <mark>Watch</mark> database
+        in the Labs\"}},\"highlights\":[{\"field\":\"content_text\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"labs/longsight)
+        \\\\* Integrated\\nthe <mark>Retraction</mark> <mark>Watch</mark> database
+        in the Labs\"}],\"text_match\":1157451471441100865,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":8,\"fields_matched\":1,\"score\":\"1157451471441100865\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Aaron
+        Tay\"}],\"blog_name\":\"Aaron Tay's Musings about librarianship\",\"blog_slug\":\"musings\",\"category\":\"otherSocialSciences\",\"content_text\":\"One
+        of the earliest themes of this blog was to track tools that not only\\nhelped
+        with discovery but [also with\\ndelivery](https://musingsaboutlibrarianship.blogspot.com/search/label/delivery),\\n[helping
+        users to gain access to full-text via institution subscriptions\\n(and of
+        course via Open Access) even if they did not start off the\\nlibrary\\nhomepage](https://musingsaboutlibrarianship.blogspot.com/search/label/delivery).\\n\\n[Solving
+        this access or delivery issue had many\\nsolutions](https://musingsaboutlibrarianship.blogspot.com/2020/08/improving-access-and-delivery-of.html)\\n(I
+        even wrote a whole Library Technology Report on this, or [see this\\nblog\\npost](https://musingsaboutlibrarianship.blogspot.com/2020/08/improving-access-and-delivery-of.html))\\nbut
+        one of the methods that took off the fastest was providing access\\nvia Browser
+        extensions (which was [dubbed as Access Brokers by\\nRA21/SeamlessAccess](https://musingsaboutlibrarianship.blogspot.com/2018/08/the-rise-of-access-brokers-why-now-and.html))\\n\\nHere
+        is some past coverage for context on such browser extensions\\n\\n1.  [Library
+        Extension and Open Access Helper - Two unique \\\\'new\\\\'\\n    extensions
+        that help with checking library book and article\\n    collections](https://musingsaboutlibrarianship.blogspot.com/2022/08/library-extension-and-open-access.html)\\n2.
+        \ [A comparison of 6 Access Broker browser extensions Lean Library,\\n    Kopernio,
+        Anywhere Access, Libkey Nomad &\\n    more](https://musingsaboutlibrarianship.blogspot.com/2019/07/a-comparison-of-6-access-broker-browser.html)\\n3.
+        \ [Kopernio, Lean Library, Anywhere Access & other \\\\\\\"Access Broker\\\\\\\"\\n
+        \   browser extensions - a roundup & update of current state of\\n    play](https://musingsaboutlibrarianship.blogspot.com/2019/05/kopernio-lean-library-anywhere-access.html)\\n4.
+        \ [More](https://musingsaboutlibrarianship.blogspot.com/search/label/browser%20extension)\\n\\nIn
+        this post, we are going to update the state of play of this area by\\ncovering\_\\n\\n-
+        Major changes to existing players particularly Lean Library and Libkey\\n
+        \ Nomad\\n- Cover briefly the new Ebscohost Passport browser extension\_\_\\n-
+        Cover briefly the new beta GetFTR browser extension\_\_\\n\\n  \\n\\n## Major
+        changes to the two main existing players - Lean Library and Libkey Nomad {#major-changes-to-the-two-main-existing-players---lean-library-and-libkey-nomad
+        style=\\\"text-align: left;\\\"}\\n\\n<div>\\n\\nIt is interesting to revisit
+        the installation numbers of the various\\naccess broker browser extensions.
+        As of Aug 2023, these are the numbers\\nfrom the Chrome Store.\\n\\n</div>\\n\\n1.
+        \ [Google Scholar\\n    button](https://chrome.google.com/webstore/detail/google-scholar-button/ldipcbpaocekfooobnbcddclnhejkcpn)
+        -\\n    3,000,000+ users (free)\\n2.  [EndNote Click - Formerly\\n    Kopernio](https://chrome.google.com/webstore/detail/endnote-click-formerly-ko/fjgncogppolhfdpijihbpfmeohpaadpc)
+        -\\n    2,000,000+ users (free)\\n3.  [Libkey\\n    Nomad](https://chrome.google.com/webstore/detail/libkey-nomad/lkoeejijapdihgbegpljiehpnlkadljb)
+        -\\n    600,000+ users\\n4.  [Lean\\n    Library](https://chrome.google.com/webstore/detail/lean-library/hghakoefmnkhamdhenpbogkeopjlkpoa)
+        -\\n    200,000+ users\\n5.  [Lazy\\n    Scholar](https://chrome.google.com/webstore/detail/lazy-scholar/fpbdcofpbclblalghaepibbagkkgpkak)
+        -\\n    10,000+ users (free)\_\_\\n6.  [OA\\n    helper](https://chrome.google.com/webstore/detail/open-access-helper-web/jonkgaipjeenhoccenhhccmofokbpanl)
+        -\\n    3,000+ users (free)\\n7.  [Library\\n    Extension](https://chrome.google.com/webstore/detail/endnote-click-formerly-ko/fjgncogppolhfdpijihbpfmeohpaadpc)
+        -\\n    2,000,000+ users (free)- this one unlike the other\_ focuses only
+        on\\n    books.\\n\\n<div>\\n\\nThese six extensions (with the 7th focusing
+        on books) help you find not\\nonly free to read papers but also ones behind
+        paywall that you can\\naccess via institutional subscriptions.\_\_\\n\\n</div>\\n\\n>
+        <div>\\n>\\n> There are more of course, but these six are the most established
+        and\\n> fully featured ones. We also exclude extensions that provide illegal\\n>
+        access, typically via sci-hub\\n>\\n> </div>\\n\\n<div>\\n\\nOf course, there
+        are other extensions that focus only on free to read\\narticles including
+        [Unpaywall (600,000+\\nusers)](https://chrome.google.com/webstore/detail/unpaywall/iplffkdpngmdjhlpjmppncnlhomiipha)\_,\\n[Open
+        Access Button (40,000+\\nusers)\_](https://chrome.google.com/webstore/detail/open-access-button/gknkbkaapnhpmkcgkmdekdffgcddoiel)\\nand
+        lesser known ones like C[ORE Discovery (5,000+\\nusers)](https://chrome.google.com/webstore/detail/core-discovery/ockidfiihjhkngdalfnbeeepgfbmkmlh),\_\_[OA.mg\\n(30,000+
+        users)](http://OA.mg)\_,\_\_[PaperPanda(100,000+\\nusers)](https://chrome.google.com/webstore/detail/paperpanda-%E2%80%94-get-millions/ggjlkinaanncojaippgbndimlhcdlohf)\_and\\nmore.\\n\\n</div>\\n\\n<div>\\n\\n
+        \ \\n\\n</div>\\n\\n<div>\\n\\nIn terms of the six extensions above, the free
+        Google Scholar button\\nremains top with three million users which is not
+        surprising.\\n\\n</div>\\n\\n<div>\\n\\n  \\n\\n</div>\\n\\n<div>\\n\\nKopernio
+        which was one of the pioneers of this space, is now owned by\\nClarivate,
+        who have integrated and renamed Kopernio to [Endnote Click\\nwith their Endnote
+        product](https://click.endnote.com/). Following the\\nfootsteps of Kopernio,
+        Endnote Click is free to use, but like most of\\nits competitors it [works
+        better if libraries work with them to set up\\nconnections to aggregator content
+        via institutional link\\nresolvers](https://support.clarivate.com/Endnote/s/article/EndNote-Click-Does-EndNote-Click-support-library-link-resolvers?language=en_US).\_\\n\\n</div>\\n\\n<div>\\n\\n
+        \ \\n\\n</div>\\n\\n<div>\\n\\nFor institutions that are Web of Science customers,
+        librarian can offer\\naccess to [Endnote Click\\nPremium](https://support.clarivate.com/Endnote/s/article/EndNote-Click-I-have-received-a-premium-referral-link-from-my-institutional-library-What-is-this-and-how-does-it-work?language=en_US),\\nwhich
+        gives users a [2 GB locker space and Dropbox\\nintegration](https://click.endnote.com/premium).\\n\\n</div>\\n\\n\_\\n\\n##
+        Evolution of Third Iron Libkey Nomad & Sage\\\\'s Lean Library {#evolution-of-third-iron-libkey-nomad-sages-lean-library
+        style=\\\"text-align: left;\\\"}\\n\\n[Google Scholar\\nbutton\_](https://chrome.google.com/webstore/detail/google-scholar-button/ldipcbpaocekfooobnbcddclnhejkcpn)and\_[EndNote\\nClick
+        - Formerly\\nKopernio\_](https://chrome.google.com/webstore/detail/endnote-click-formerly-ko/fjgncogppolhfdpijihbpfmeohpaadpc)\_have\\nhuge
+        installation numbers basically because they are free and work well\\nwithout
+        much library support.\\n\\nHowever, academic libraries of today mostly pay
+        for and publicize their\\nsupport for either\\n\\na\\\\) Third Iron\\\\'s\_[Libkey\\nNomad](https://chrome.google.com/webstore/detail/libkey-nomad/lkoeejijapdihgbegpljiehpnlkadljb)\_or\\nb)
+        Sage\\\\'s\_[Lean\\nLibrary](https://chrome.google.com/webstore/detail/lean-library/hghakoefmnkhamdhenpbogkeopjlkpoa),\\nand
+        these two tools have developed and evolved the fastest.\\n\\n[Lean\\nLibrary](https://chrome.google.com/webstore/detail/lean-library/hghakoefmnkhamdhenpbogkeopjlkpoa)\_which\\nwas
+        eventually acquired by Sage, was one of the first access broker\\nbrowser
+        extensions to go beyond simply support of access.\_\\n\\nAs of Aug 2023, the
+        solution is broken into three main modules\\n\\n- [Lean Library Access](https://leanlibrary.com/lean-library-access/)\_-\\n
+        \ which covers the traditional functions of an access broker extension.\\n
+        \ But even then, it [allows librarians to add customizable popup\\n  messages
+        as users visit particular domains or even URLs, supporting\\n  communication
+        and marketing\\n  tasks.](http://musingsaboutlibrarianship.blogspot.com/2019/10/some-ideas-for-lean-librarys-library.html)\_\_\\n\\n<!--
+        -->\\n\\n- [Lean Library Workflow for\\n  Libguides](http://musingsaboutlibrarianship.blogspot.com/2019/10/some-ideas-for-lean-librarys-library.html)-\\n
+        \ An add-on to the\_[Lean Library\\n  Access](https://leanlibrary.com/lean-library-access/)\_,
+        this allows\\n  you to integrate LibGuides content into the extension\\n\\n<div>\\n\\n-
+        [Lean Library\\n  Futures](https://leanlibrary.com/lean-library-futures/)\_-
+        This\\n  provides even more Intergrations, including [integrations with\\n
+        \ discovery services such as Primo\_,\\n  Summon](https://leanlibrary.com/blog/lean-library-partners-with-ex-libris/),\\n
+        \ [EDS](https://leanlibrary.com/blog/lean-library-partners-with-ebsco-to-bring-library-search-into-google-scholar-and-other-parts-of-the-patron-workflow/),\\n
+        \ support for user feedback of resources (NetPromoter Score), content\\n  intergration
+        (hot linking text in Wikipedia with links to Sage\\n  Research Methods, Statista
+        etc), chatbot intergation and more\\n\\n</div>\\n\\n  \\n\\n  \\n\\nMeanwhile
+        Third Iron\\\\'s\_[Libkey\\nNomad](https://chrome.google.com/webstore/detail/libkey-nomad/lkoeejijapdihgbegpljiehpnlkadljb)\_\_continued\\nto
+        evolve as well. The browser extension which launched in 2019,\\nbasically
+        added retraction signal posting via Retraction Watch Database\\ndata, ingested
+        OA data from Unpaywall.This eventually lead to [ThirdIron\\nhosting information
+        of Unpaywall and OA availability data themselves\\nlocally so libraries could
+        collectively report and correct incorrect OA\\navailabilty\\ninformation.](https://www.google.com/search?q=libkey+2022+oadmap&sca_esv=559122478&rlz=1C1ONGR_enSG1005SG1005&sxsrf=AB5stBgme0F0eGgE3ffO7x4bCj-wbu-JBw%3A1692728002567&ei=wvrkZJyiIoe9seMPyL-ssAc&ved=0ahUKEwici62a7_CAAxWHXmwGHcgfC3YQ4dUDCA8&uact=5&oq=libkey+2022+oadmap&gs_lp=Egxnd3Mtd2l6LXNlcnAiEmxpYmtleSAyMDIyIG9hZG1hcEjgDVCmBVjxC3ABeACQAQCYAVSgAbcCqgEBNbgBA8gBAPgBAcICBxAjGLACGCfiAwQYASBBiAYB&sclient=gws-wiz-serp#fpstate=ive&vld=cid:167feea9,vid:zt9Nz5kDT34)\\n\\nIt
+        is fair to say that up to 2023 compared to Lean Library, Libkey Nomad\\neven
+        the Libkey Suite (that includes Libkey Discovery, Libkey Link and\\nLibkey.io)
+        focused mainly on delivery or providing access to things\\nusers wanted without
+        going out to helping with the discovery aspect.\\n\\nThere was one exception,
+        support of linking to ebooks. This was a\\nfeature long available in Lean
+        Library (with varying degree of\\ncomprehensiveness) and Libkey finally did
+        the same with[\_LibKey Nomad\\nE-Books Linking, first supporting Alma libraries
+        in March\\n2023.](https://support.thirdiron.com/support/solutions/articles/72000594927-libkey-nomad-e-books-linking)\\n\\nAlso
+        in 2023, [Third Iron launched a new product -\_LibKey\\nNomad++](https://thirdiron-assets.s3.amazonaws.com/webassets/Third+Iron+2023+Product+Roadmap+Recap.pdf).\\nIt
+        added the \\\\\\\"domain intelligent messaging and custom linking, LibChat\\nintegration,,
+        integration with popular bibliographic management tools,\\nand options to
+        customize and brand the extension\\\\\\\"\\n\\nSome of it like domain intelligent
+        messaging and custom linking, LibChat\\nIntegration look very similar to existing
+        features in Lean Library and\\nseems to signal Third Iron moving away from
+        just focusing on linking to\\ncontent but to allow other types of library
+        intergration\\\\.....\\n\\n  \\n\\n\_\\n\\n  \\n\\n## Ebscohost Passport {#ebscohost-passport
+        style=\\\"text-align: left;\\\"}\\n\\n<div>\\n\\n  \\n\\n</div>\\n\\n<div>\\n\\n:::
+        {.iframe}\\n::: {#player}\\n:::\\n\\n::: {.player-unavailable}\\n# Er is een
+        fout opgetreden. {#er-is-een-fout-opgetreden. .message}\\n\\n::: {.submessage}\\n[Bekijk
+        deze video op\\nwww.youtube.com](https://www.youtube.com/watch?v=wGi6BoD3pwk){target=\\\"_blank\\\"}\\nof
+        zet JavaScript aan als dit uitstaat in je browser.\\n:::\\n:::\\n:::\\n\\n
+        \ \\n\\n</div>\\n\\n<div>\\n\\n  \\n\\n</div>\\n\\n<div>\\n\\nThis is a [new
+        free browser plugin from\\nEbsco](https://connect.ebsco.com/s/article/EBSCOhost-Passport-Browser-Extension?language=en_US)\_launched\\nin
+        June 2023 that aims to\\n\\n</div>\\n\\n<div>\\n\\n> makes research simpler
+        and more efficient for end users by dynamically\\n> inserting links to full
+        text in virtually any webpage where the DOIs\\n> are present.\\n\\nHow is
+        this done?\\n\\n> Ebscohost passport checks to see if the user has access
+        to linked\\n> articles either in an EBSCOhost full text database, through
+        a\\n> subscribed journal at the publisher site or through open access\\n>
+        sources. It even honours the authentication preferences of the user\\\\'s\\n>
+        institution and adjusts the links accordingly.\\n\\n</div>\\n\\nThis sounds
+        very similar to what Libkey Nomad does of course.\\n\\nBelow shows the extension
+        in action on Google Scholar\\n\\n::: {.separator style=\\\"clear: both; text-align:
+        center;\\\"}\\n[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivwMzATNSS-Qz1ouR3ZebLJaiXlD350AlU46eF3yfQTNr9rrsIbwDvNSjgh0KDbJH90Jz2NV0XNsy7b-F-DnX5pI4-c8rWHauOPpz2bsClh4GmJogqnCYbOM462R6Jb83A1wg1WWGXvqHn8Z-uDmczcguX2glPL8b2JWvOXN97E0ZWSOl37swUh1K4koSw/w640-h242/ebscopassport1.png){border=\\\"0\\\"\\noriginal-height=\\\"707\\\"
+        original-width=\\\"1863\\\" height=\\\"242\\\"\\nwidth=\\\"640\\\"}](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivwMzATNSS-Qz1ouR3ZebLJaiXlD350AlU46eF3yfQTNr9rrsIbwDvNSjgh0KDbJH90Jz2NV0XNsy7b-F-DnX5pI4-c8rWHauOPpz2bsClh4GmJogqnCYbOM462R6Jb83A1wg1WWGXvqHn8Z-uDmczcguX2glPL8b2JWvOXN97E0ZWSOl37swUh1K4koSw/s1863/ebscopassport1.png){style=\\\"margin-left:
+        1em; margin-right: 1em;\\\"}\\n:::\\n\\n  \\n\\nBelow shows the extension
+        in action in Wikipedia references.\\n\\n::: {.separator style=\\\"clear: both;
+        text-align: center;\\\"}\\n[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-7bdT-2Q-rmGkwLCdgOowhW87EY6MRELe0VuV8IyNDbl5W-QBEA3kq732FWzy3EncTMDi3Hd3Ac7PX4YdDwDV3Al3f1aIoorXQCjxrIbUru4VqEJNtPRrmJGJMazBkXOVEL121jmFOQ9z70AQSKmuZW-dzn_WA1AkmSwvE-JeNeUQYjuZrLedjJAbDOrg/w640-h338/ebscopassport2.png){border=\\\"0\\\"\\noriginal-height=\\\"707\\\"
+        original-width=\\\"1337\\\" height=\\\"338\\\"\\nwidth=\\\"640\\\"}](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-7bdT-2Q-rmGkwLCdgOowhW87EY6MRELe0VuV8IyNDbl5W-QBEA3kq732FWzy3EncTMDi3Hd3Ac7PX4YdDwDV3Al3f1aIoorXQCjxrIbUru4VqEJNtPRrmJGJMazBkXOVEL121jmFOQ9z70AQSKmuZW-dzn_WA1AkmSwvE-JeNeUQYjuZrLedjJAbDOrg/s1337/ebscopassport2.png){style=\\\"margin-left:
+        1em; margin-right: 1em;\\\"}\\n:::\\n\\n::: {.separator style=\\\"clear: both;
+        text-align: center;\\\"}\\n  \\n:::\\n\\n::: {.separator style=\\\"clear:
+        both; text-align: center;\\\"}\\n  \\n:::\\n\\n::: {.separator style=\\\"clear:
+        both; text-align: center;\\\"}\\n  \\n:::\\n\\n::: {.separator style=\\\"clear:
+        both; text-align: left;\\\"}\\nThere are [three main type of\\nicons](https://connect.ebsco.com/s/article/EBSCOhost-Passport-Browser-Extension?language=en_US)\\nyou
+        will see.\_\\n:::\\n\\n::: {.separator style=\\\"clear: both; text-align:
+        center;\\\"}\\n  \\n:::\\n\\n::: {.separator style=\\\"clear: both; text-align:
+        center;\\\"}\\n[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEignrYrNrT2nvvgQkWha4uwEP7iI5w0Hy9ajL0OVJi3dAa91fPJVBJnwWJj-hDiQxq5Z-i1fV733pMg0p2glZ3lFyFuYdcE2XE77-zju6bwMf6zKtXRzUM9UVlXJwgOcVRtwzxURFxXMHoE5ReNO0WeLTjBnmzApZlYUJRc9eVPW3hJW7GlDmXia3fJ28Lj/w640-h228/ebscopassport3.png){border=\\\"0\\\"\\noriginal-height=\\\"418\\\"
+        original-width=\\\"1178\\\" height=\\\"228\\\"\\nwidth=\\\"640\\\"}](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEignrYrNrT2nvvgQkWha4uwEP7iI5w0Hy9ajL0OVJi3dAa91fPJVBJnwWJj-hDiQxq5Z-i1fV733pMg0p2glZ3lFyFuYdcE2XE77-zju6bwMf6zKtXRzUM9UVlXJwgOcVRtwzxURFxXMHoE5ReNO0WeLTjBnmzApZlYUJRc9eVPW3hJW7GlDmXia3fJ28Lj/s1178/ebscopassport3.png){style=\\\"margin-left:
+        1em; margin-right: 1em;\\\"}\\n:::\\n\\n::: {.separator style=\\\"clear: both;
+        text-align: center;\\\"}\\n  \\n:::\\n\\n::: {.separator style=\\\"clear:
+        both; text-align: center;\\\"}\\n  \\n:::\\n\\n::: {.separator style=\\\"clear:
+        both; text-align: left;\\\"}\\nFirstly, you will see an icon that indicates
+        you have access from your\\ninstitution via a subscribed EBSCO Database.\\n:::\\n\\n:::
+        {.separator style=\\\"clear: both; text-align: left;\\\"}\\n  \\n:::\\n\\n:::
+        {.separator style=\\\"clear: both; text-align: left;\\\"}\\nSecondly, you
+        may see an icon that indicates you have access from other\\npublisher subscribed
+        content via your institution.\\n:::\\n\\n::: {.separator style=\\\"clear:
+        both; text-align: left;\\\"}\\n  \\n:::\\n\\n::: {.separator style=\\\"clear:
+        both; text-align: left;\\\"}\\nLastly, you may see an icon that indicates
+        you have access via Open\\nAccess copy (found via paywall).\\n:::\\n\\n:::
+        {.separator style=\\\"clear: both; text-align: left;\\\"}\\n  \\n:::\\n\\nAll
+        this seems fine and dandy but how does this browser extension know\\nwhat
+        your institution has? According [to this\\narticle](https://www.johila.org/index.php/Johila/article/view/143/212),\\n\\\\\\\"the
+        access to subscribed content only works for libraries using\\nEBSCO\\\\'s
+        Holdings Management tool\\\\\\\".\\n\\n  \\n\\n[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKYUa5duJstn5DRBN-5SaTkx9buVgIAtWTYQrK3ofT-oQoSYWNS7mO-jDtGzPiG5BykdVA7hHLou9W_mhTxJAvlObm7o8Rig4_LUgaNh1rdqaocd4WBabUwzVX3QCxVxOHScwSyihn3AnYNNcRYV2jIRRxSeVYUPwJWD7kizKSfEQIqjh3aCJwmpw3EErV/w640-h286/ebscopassport4.png){border=\\\"0\\\"\\noriginal-height=\\\"234\\\"
+        original-width=\\\"524\\\" height=\\\"286\\\"\\nwidth=\\\"640\\\"}](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKYUa5duJstn5DRBN-5SaTkx9buVgIAtWTYQrK3ofT-oQoSYWNS7mO-jDtGzPiG5BykdVA7hHLou9W_mhTxJAvlObm7o8Rig4_LUgaNh1rdqaocd4WBabUwzVX3QCxVxOHScwSyihn3AnYNNcRYV2jIRRxSeVYUPwJWD7kizKSfEQIqjh3aCJwmpw3EErV/s524/ebscopassport4.png){style=\\\"margin-left:
+        1em; margin-right: 1em; text-align: center;\\\"}\\n\\n  \\n\\nQuick tests
+        using my institution find that this is true. For my\\ninstitution, it works
+        okay if the content is in one of our subscribed\\ndatabases on ebscohost but
+        it does not seem to know about holdings on\\nother platforms.\_\\n\\nThis
+        fits, given that while we used to once have EDS (Ebsco discovery\\nservices),
+        we have since moved to Alma/Primo and no longer have our\\nholdings in the
+        Ebsco systems. But presumably Ebsco still knows what\\nEbsco databases we
+        have and the holding in those.\\n\\n\_\\n\\n## GetFTR plugin {#getftr-plugin
+        style=\\\"text-align: left;\\\"}\\n\\nGetFTR is something I have written about
+        in the past for example\\n[here](https://musingsaboutlibrarianship.blogspot.com/2020/08/improving-access-and-delivery-of.html)\\nand\\n[here\_](https://musingsaboutlibrarianship.blogspot.com/2020/08/improving-access-and-delivery-of.html)\_but\\nhere\\\\'s
+        a perhaps overly simplified way of explaining it is as follows.\\n\\nIf you
+        look at the various solutions whether Libkey Nomad, Lean Library\\nor even
+        link resolvers in general, the library either needs to maintain\\na listing
+        of holdings or provide that to third parties like Third Iron\\n(for Libkey)
+        , Sage (for Lean Library) for the system to work.\\n\\nGetFTR turns this on
+        it\\\\'s head, and instead the publisher/content\\nowners maintain the list
+        of holdings.\\n\\nRoughly speaking the GetFTR workflow involves\\n\\n1\\\\.
+        System authenticates to confirm which institution you are from\\n(technically
+        this can happen later as well)\\n\\n2\\\\. System then determines from the
+        DOI which publisher has that article\\nand queries that publisher asking if
+        the user\\\\'s institution allows\\naccess to the article\\n\\n3\\\\. The
+        publisher (which hopefully supports GetFTR) will respond with a\\nyes/no and
+        a link to the full-text\\n\\n4\\\\. Profit!\\n\\nThe issue here is for the
+        whole GetFTR to get off the ground at step 1,\\nit needs to be done on a discovery
+        platform that supports GetFTR and\\ncurrently there are not that many of those
+        (e.g.\_\_[One platform that\\nsupports GetFTR checks is\\nResearchGate](https://www.getfulltextresearch.com/researchgate-integrates-with-getftr),\\nalso
+        [Dimensions &\\nPapers](https://www.digital-science.com/blog/2020/03/dimensions-and-papers-are-among-first-scholarly-platforms-to-join-new-service-get-full-text-research/)).\_\\n\\nOne
+        way around the problem is to install [the GetFTR browser\\nextension](https://www.getfulltextresearch.com/chrome-browser-extension)\\nthat
+        will act as a GetFTR enabled platform to do the checks as you\\nbrowse across
+        the web!\_\\n\\nThis is a very new beta browser extension made available June
+        2023, so\\nthis is a preliminary look!\\n\\n  \\n\\nInstalling the browser
+        plugin will get you the usual popup asking you to\\nadd your institution.
+        I was half expecting my institution not to appear\\non the list because we
+        do not do federated access generally for access\\nto electronic resources
+        and I understand while GetFTR in theory can work\\nwith any authentication
+        method, they are most closely associated with\\nusing Seamless Access.\_\\n\\nInstead,
+        I noticed all the Singapore institutions do appear, even ones\\nthat don\\\\'t
+        do OpenAthens etc.\\n\\n::: {.separator style=\\\"clear: both; text-align:
+        center;\\\"}\\n[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJ98jukgPQv9Q6GXQ_0SpQTf16lHyZMt_np_YKV5uIgfkgO_f1llVr1T-2WtpJBoeoXTegbj8uCwgYzSesJ2w0SA_yJXOSuJxy9RInuEdBZIK2HBbazhlu5mPuBPg26rZSUXPm1_xLB_PP23MI66NC1yVPam6rGp3WvAdVSzO8_PKogAa9AyxK2jbsnjVB/w640-h596/getftrbrowser1.png){border=\\\"0\\\"\\noriginal-height=\\\"725\\\"
+        original-width=\\\"779\\\" height=\\\"596\\\"\\nwidth=\\\"640\\\"}](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJ98jukgPQv9Q6GXQ_0SpQTf16lHyZMt_np_YKV5uIgfkgO_f1llVr1T-2WtpJBoeoXTegbj8uCwgYzSesJ2w0SA_yJXOSuJxy9RInuEdBZIK2HBbazhlu5mPuBPg26rZSUXPm1_xLB_PP23MI66NC1yVPam6rGp3WvAdVSzO8_PKogAa9AyxK2jbsnjVB/s779/getftrbrowser1.png){style=\\\"margin-left:
+        1em; margin-right: 1em;\\\"}\\n:::\\n\\n  \\n\\nBut what are the platforms
+        supported for this browser extension where\\nthey will activate and display
+        a GetFTR button?\\n\\nCurrently, they support seven sites including the popular
+        Google Scholar\\nand PubMed. They also work on Two popular academic discovery
+        services -\\nSummon and EDS (but not Primo it seems), Web of Science and the
+        lesser\\nknown Lens.org\\n\\n::: {.separator style=\\\"clear: both; text-align:
+        center;\\\"}\\n[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZuIkwREcIXOCpw79Tht7amMUL2PQ5Q1oTduvuXNTW46Bw3SelcDmIeJytl8NK4hTI4BjqSQToIAutRvWImLhOg4uvCTQM0-rGj9pzkpQG9eKFuOYNfE6JXWOVFs7AUS5dCfEPGc03nbFmbgoFASeo_8dZdZhGV9VgG1HeqnY5fAHzOVk_oHmVplKoVnYo/w562-h640/getftrbrowser2.png){border=\\\"0\\\"\\noriginal-height=\\\"889\\\"
+        original-width=\\\"781\\\" height=\\\"640\\\"\\nwidth=\\\"562\\\"}](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZuIkwREcIXOCpw79Tht7amMUL2PQ5Q1oTduvuXNTW46Bw3SelcDmIeJytl8NK4hTI4BjqSQToIAutRvWImLhOg4uvCTQM0-rGj9pzkpQG9eKFuOYNfE6JXWOVFs7AUS5dCfEPGc03nbFmbgoFASeo_8dZdZhGV9VgG1HeqnY5fAHzOVk_oHmVplKoVnYo/s889/getftrbrowser2.png){style=\\\"margin-left:
+        1em; margin-right: 1em;\\\"}\\n:::\\n\\n  \\n\\nLastly, there is an interesting
+        [CrossRef\\nCo-access](https://support.crossref.org/hc/en-us/articles/115003688983-Co-access-).\\nThe
+        website says\\n\\n> *Co-access allows members to register multiple records
+        and DOIs for\\n> the same book content item. This option is provided to support
+        members\\n> who publish book content on multiple platforms*\\n\\nFascinating,
+        yet another wrinkle this time relating to registering dois\\nfor book content
+        that I was unaware of. It\\\\'s unclear to me how often\\nthis done in practice.\_\\n\\n
+        \ \\n\\nWhat type of buttons will the GetFTR browser extension produce?\\n\\nAll
+        buttons produced I believe will have the same icon and label \\\\\\\"View\\nPDF\\\\\\\",
+        however mousing over the button you may see\_\\n\\n- \\\\\\\"full-text is
+        open access\\\\\\\"\\n- \\\\\\\"full-text available through - \\\\\\\"\\n\\n
+        \ \\n\\n::: {.separator style=\\\"clear: both; text-align: center;\\\"}\\n[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAEJumwfRmBjhmQ-1SeMO2JwcnPGKiwbCiQsothq2ZNNdnao99zVcB05Ew7vIb5irbu8SuLF7qp9TOAd58U3xCGmleMGq8i5gP7hiiZo20RBcXvpLPtGLc4sdtPvMbBzUPn5a8C9zwXbX_oOIgWkrlUanQi0843xrZD5ehqJoQFOgweSSWFNHhV-1za-r_/w640-h320/getftrbrowser3.png){border=\\\"0\\\"\\noriginal-height=\\\"516\\\"
+        original-width=\\\"1029\\\" height=\\\"320\\\"\\nwidth=\\\"640\\\"}](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAEJumwfRmBjhmQ-1SeMO2JwcnPGKiwbCiQsothq2ZNNdnao99zVcB05Ew7vIb5irbu8SuLF7qp9TOAd58U3xCGmleMGq8i5gP7hiiZo20RBcXvpLPtGLc4sdtPvMbBzUPn5a8C9zwXbX_oOIgWkrlUanQi0843xrZD5ehqJoQFOgweSSWFNHhV-1za-r_/s1029/getftrbrowser3.png){style=\\\"margin-left:
+        1em; margin-right: 1em;\\\"}\\n:::\\n\\n  \\n\\n  \\n\\nThere is a third label
+        - \\\\\\\"full-text is freely available\\\\\\\". I am not\\nquite sure how
+        this differs from the \\\\\\\"full-text is open access\\\\\\\",\\nexcept maybe
+        one is temporarily made available via the content owner.\\n\\n  \\n\\n:::
+        {.separator style=\\\"clear: both; text-align: center;\\\"}\\n[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilz9jyIJIXtDRgyeHyfBB0Lj5zpzBkBdfdR4ZVNJbfh1neQZoOImSsROPsozu-J-nEGmauylK0NbauQfDJJG50BRMoINSnT274iUnKygsUzyNjNf45Xi27LhGyItuUDCjVY92pixxEZ9oW8xxp5GLKK3_XkpT-iE_PWKL3qNVstpNp7c7XjaLgtUmI9N3T/w640-h230/getftrbrowser4.png){border=\\\"0\\\"\\noriginal-height=\\\"326\\\"
+        original-width=\\\"910\\\" height=\\\"230\\\"\\nwidth=\\\"640\\\"}](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilz9jyIJIXtDRgyeHyfBB0Lj5zpzBkBdfdR4ZVNJbfh1neQZoOImSsROPsozu-J-nEGmauylK0NbauQfDJJG50BRMoINSnT274iUnKygsUzyNjNf45Xi27LhGyItuUDCjVY92pixxEZ9oW8xxp5GLKK3_XkpT-iE_PWKL3qNVstpNp7c7XjaLgtUmI9N3T/s910/getftrbrowser4.png){style=\\\"margin-left:
+        1em; margin-right: 1em;\\\"}\\n:::\\n\\n  \\n\\n  \\n\\nPlaying around with
+        my institution, I get mostly buttons on content from\\nElsevier which was
+        one of the earliest supporters of GetFTR.\\n\\nInterestingly there were some
+        buttons that stated \\\\\\\"full-text available\\nthrough - Singapore Management
+        University\\\\\\\" which indicated that it was\\nin theory capable of bringing
+        users to content behind paywall even for\\nus.\_\\n\\nBut when I clicked on
+        the button , I was not asked to authenticate but\\nmost were not behind paywall
+        anyway. No doubt this was something to do\\nwith our setup (or lack there
+        of).\\n\\n  \\n\\n## Conclusion {#conclusion style=\\\"text-align: left;\\\"}\\n\\nLooks
+        like there is still some life in this area! Particularly curious\\nto see
+        how GetFTR browser extension develops. Also makes me wonder if\\nsome of the
+        existing browser extensions like Libkey Nomad or Lean\\nLibrary might bring
+        in GetFTR technology as an additional/secondary way\\nto check for access.\\n\\n
+        \ \\n\\n  \\n\\n  \\n\\n  \\n\\n  \\n\",\"doi\":\"https://doi.org/10.59350/p679x-qfh48\",\"guid\":\"tag:blogger.com,1999:blog-4727930222560708528.post-1771293368650462849\",\"id\":\"a0ff84b2-5857-4031-9d40-d7f5e944b9b3\",\"image\":\"https://img.youtube.com/vi/34T10zmXLPM/default.jpg\",\"language\":\"en\",\"published_at\":1693852380,\"reference\":[],\"relationships\":[],\"summary\":\"One
+        of the earliest themes of this blog was to track tools that not only helped
+        with discovery but also with delivery, helping users to gain access to full-text
+        via institution subscriptions (and of course via Open Access) even if they
+        did not start off the library homepage.\\n\",\"tags\":[\"Browser Extension\",\"Delivery\"],\"title\":\"Two
+        new browser extensions that help with delivery or access - ebsco passport
+        and GetFTR browser extension and other developments\",\"updated_at\":1693852424,\"url\":\"https://musingsaboutlibrarianship.blogspot.com/2023/09/two-new-browser-extensions-that-help.html\"},\"highlight\":{\"content_text\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"retraction
+        signal posting via <mark>Retraction</mark> <mark>Watch</mark> Database\\ndata,
+        ingested OA\"}},\"highlights\":[{\"field\":\"content_text\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"retraction
+        signal posting via <mark>Retraction</mark> <mark>Watch</mark> Database\\ndata,
+        ingested OA\"}],\"text_match\":1157451471441100865,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":8,\"fields_matched\":1,\"score\":\"1157451471441100865\",\"tokens_matched\":2}}],\"out_of\":15525,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"retraction-watch\"},\"search_cutoff\":false,\"search_time_ms\":41}"
+    headers:
+      Connection:
+      - keep-alive
+      accept-ranges:
+      - none
+      access-control-allow-origin:
+      - '*'
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: OK
 version: 1
