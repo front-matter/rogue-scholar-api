@@ -1,14 +1,13 @@
 from typing import Optional
 import orjson as json
-from postgrest.exceptions import APIError
+import pydash as py_
 from commonmeta import Metadata
+from commonmeta.base_utils import compact
 from commonmeta.doi_utils import is_rogue_scholar_doi, doi_from_url
+from commonmeta.utils import normalize_id
+from pocketbase.utils import ClientResponseError
 
-from api.supabase import (
-    supabase_admin_client as supabase_admin,
-    supabase_client as supabase,
-    worksSelect,
-)
+from api.pocketbase import pocketbase_client, admin_data
 
 # supported accept headers for content negotiation
 SUPPORTED_ACCEPT_HEADERS = [
@@ -25,6 +24,7 @@ SUPPORTED_ACCEPT_HEADERS = [
 
 async def fetch_single_work(string: str) -> Optional[dict]:
     """Fetch single work."""
+    # Fetch metadata from the internet, using commonmeta-py
     # use Rogue Scholar API if the work is a Rogue Scholar DOI,
     # as Crossref doesn't store all metadata
     if is_rogue_scholar_doi(string):
@@ -33,18 +33,42 @@ async def fetch_single_work(string: str) -> Optional[dict]:
     return json.loads(work.write())
 
 
-def upsert_single_work(work):
-    """Upsert single work."""
+async def get_single_work(string: str) -> Optional[dict]:
+    """Get single work from the works table, or fetch from the internet."""
+    pid = normalize_id(string)
+    if not pid:
+        return None
+    try:
+        response = (
+            pocketbase_client.collection("works").get_first_list_item(f'pid="{pid}"')
+        )
+    except ClientResponseError as e:
+        # if work not found, fetch from the internet
+        if e.status == 404:
+            work = await fetch_single_work(pid)
+            return create_single_work(work)
+        return None
+
+    # convert response object to dict
+    # rename pid to id and remove fields that are not part of the commonmeta schema
+    response = vars(response)
+    response = py_.rename_keys(response, {"pid": "id"})
+    response = py_.omit(response, "pid", "created", "updated") 
+    return compact(response)
+
+
+def create_single_work(work):
+    """Create single work."""
 
     if not work.get("id", None) or not work.get("type", None):
         return None
 
     try:
+        admin_data
         response = (
-            supabase_admin.table("works")
-            .upsert(
+            pocketbase_client.collection("works").create(
                 {
-                    "id": work.get("id"),
+                    "pid": work.get("id"),
                     "type": work.get("type"),
                     "url": work.get("url", None),
                     "contributors": work.get("contributors", []),
@@ -61,8 +85,6 @@ def upsert_single_work(work):
                     "files": work.get("files", []),
                     "subjects": work.get("subjects", []),
                     "provider": work.get("provider", None),
-                    "schema_version": work.get("schema_version", None),
-                    "state": work.get("state", None),
                     "archive_locations": work.get("archive_locations", []),
                     "geo_locations": work.get("geo_locations", []),
                     "version": work.get("version", None),
@@ -70,45 +92,61 @@ def upsert_single_work(work):
                     "additional_type": work.get("additional_type", None),
                     "sizes": work.get("sizes", []),
                     "formats": work.get("formats", []),
-                },
-                returning="representation",
-                ignore_duplicates=False,
-                on_conflict="id",
+                }
             )
-            .execute()
         )
-        return response.data[0]
-    except Exception as e:
+    except ClientResponseError as e:
         print(e)
         return None
+    
+    # return the work, if successful. Create operation returns the id of the created work
+    return get_single_work(response.id)
 
 
-async def get_single_work(string: str) -> Optional[dict]:
-    """Get single work from the works table, or fetch from the internt."""
+def update_single_work(id, work):
+    """Update single work, using the pocketbase id."""
+
+    if not work.get("id", None) or not work.get("type", None):
+        return None
+
     try:
+        admin_data
         response = (
-            supabase.table("works")
-            .select(worksSelect, count="exact")
-            .eq("id", string)
-            .maybe_single()
-            .execute()
+            pocketbase_client.collection("works").update(id,
+                {
+                    "pid": work.get("id"),
+                    "type": work.get("type"),
+                    "url": work.get("url", None),
+                    "contributors": work.get("contributors", []),
+                    "titles": work.get("titles", []),
+                    "container": work.get("container", None),
+                    "publisher": work.get("publisher", None),
+                    "references": work.get("references", []),
+                    "relations": work.get("relations", []),
+                    "date": work.get("date", None),
+                    "descriptions": work.get("descriptions", []),
+                    "license": work.get("license", None),
+                    "alternate_identifiers": work.get("alternate_identifiers", []),
+                    "funding_references": work.get("funding_references", []),
+                    "files": work.get("files", []),
+                    "subjects": work.get("subjects", []),
+                    "provider": work.get("provider", None),
+                    "archive_locations": work.get("archive_locations", []),
+                    "geo_locations": work.get("geo_locations", []),
+                    "version": work.get("version", None),
+                    "language": work.get("language", None),
+                    "additional_type": work.get("additional_type", None),
+                    "sizes": work.get("sizes", []),
+                    "formats": work.get("formats", []),
+                }
+            )
         )
-    except Exception as e:
-        # if work not found, fetch from the internet
-        if e.code == "204":
-            work = await fetch_single_work(string)
-            return upsert_single_work(work)
+    except ClientResponseError as e:
         print(e)
         return None
-
-    return response.data
-
-
-def update_single_work(string: str) -> Optional[dict]:
-    """Update single work from the internt."""
-
-    work = fetch_single_work(string)
-    return upsert_single_work(work)
+    
+    # return the work, if successful. Update operation returns the id of the created work
+    return get_single_work(response.get("id"))
 
 
 def get_formatted_work(

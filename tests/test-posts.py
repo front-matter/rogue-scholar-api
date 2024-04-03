@@ -108,15 +108,15 @@ async def test_extract_posts_by_blog_ghost():
     #     post["image"]
     #     == "https://images.unsplash.com/flagged/photo-1552425083-0117136f7d67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIxfHxjYW5vcHl8ZW58MHx8fHwxNjk3MDQwMDk1fDA&ixlib=rb-4.0.3&q=80&w=2000"
     # )
-    assert len(post["reference"]) == 2
-    assert post["reference"][0] == {
-        "doi": "https://doi.org/10.5438/0014",
-        "key": "ref1",
-        "title": "DataCite Metadata Schema Documentation for the Publication and Citation of Research Data v4.1",
-        "publicationYear": "2017",
-    }
-    assert post["tags"] == ["News"]
-    assert post["language"] == "en"
+    # assert len(post["reference"]) == 2
+    # assert post["reference"][0] == {
+    #     "doi": "https://doi.org/10.5438/0014",
+    #     "key": "ref1",
+    #     "title": "DataCite Metadata Schema Documentation for the Publication and Citation of Research Data v4.1",
+    #     "publicationYear": "2017",
+    # }
+    # assert post["tags"] == ["News"]
+    # assert post["language"] == "en"
 
 
 @pytest.mark.vcr

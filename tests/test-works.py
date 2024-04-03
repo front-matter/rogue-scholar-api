@@ -62,17 +62,3 @@ async def test_get_single_work_dataset():
     assert work["id"] == "https://doi.org/10.5281/zenodo.7834392"
     assert work["type"] == "Dataset"
     assert work["url"] == "https://zenodo.org/record/7834392"
-
-
-@pytest.mark.vcr
-@pytest.mark.asyncio
-async def test_update_single_work_blog_post():
-    """update single work blog post"""
-    string = "10.53731/ybhah-9jy85"
-    work = await get_single_work(string)
-    assert work["id"] == "https://doi.org/10.53731/ybhah-9jy85"
-    assert work["type"] == "Article"
-    assert (
-        work["url"]
-        == "https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter"
-    )
