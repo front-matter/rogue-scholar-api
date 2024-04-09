@@ -240,7 +240,6 @@ async def extract_all_posts_by_blog(
             async with httpx.AsyncClient() as client:
                 response = await client.get(feed_url, follow_redirects=True)
                 json = response.json()
-                print(py_.get(json, "pagination.nextPageOffset", None))
                 posts = json.get("items", [])
                 # only include posts that have been modified since last update
                 if not update_all:
@@ -950,8 +949,6 @@ async def extract_rss_post(post, blog):
 async def update_rogue_scholar_post(post, blog):
     """Update Rogue Scholar post."""
     try:
-        print(post)
-
         def format_author(author, published_at):
             """Format author. Optionally lookup real name from username,
             and ORCID from name."""
@@ -998,6 +995,11 @@ async def update_rogue_scholar_post(post, blog):
                 if i not in EXCLUDED_TAGS
             ]
         tags = py_.uniq(tags)[:5]
+        
+        # upsert post into works table if it has a DOI
+        if post.get("doi", None):
+            work = await get_single_work(post.get("doi"))
+            print("Work added to works table:", work.get("id", None))
 
         return {
             "authors": authors,

@@ -53,7 +53,7 @@ async def get_single_work(string: str) -> Optional[dict]:
     # rename pid to id and remove fields that are not part of the commonmeta schema
     response = vars(response)
     response = py_.rename_keys(response, {"pid": "id"})
-    response = py_.omit(response, "pid", "created", "updated") 
+    response = py_.omit(response, "pid", "created", "updated", "collectionId", "collectionName") 
     return compact(response)
 
 
