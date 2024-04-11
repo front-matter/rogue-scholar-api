@@ -1033,7 +1033,6 @@ async def update_rogue_scholar_post(post, blog):
         # upsert post into works table if it has a DOI
         if post.get("doi", None):
             work = await get_single_work(post.get("doi"))
-            print("Work added to works table:", work.get("id", None))
 
         return {
             "authors": authors,
