@@ -12792,4 +12792,1199 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Cabstract%2Ccontent_text%2Creference&filter_by=status%3A%21%3D%5Bpending%5D+%26%26+published_at%3A%3E%3D+0+%26%26+published_at%3A%3C%3D+1712867117+%26%26+language%3A%3D%5Bes%5D&sort_by=published_at%3Adesc&per_page=10&page=1
+  response:
+    body:
+      string: "{\"facet_counts\":[],\"found\":146,\"hits\":[{\"document\":{\"authors\":[{\"name\":\"Coss\xEDo
+        Olavide, Mario\",\"url\":\"https://orcid.org/0000-0002-1447-3891\"}],\"blog_name\":\"Lucidarios\",\"blog_slug\":\"lucidarios\",\"category\":\"languagesAndLiterature\",\"content_text\":\"En
+        la entrada anterior comenc\xE9 a hablar del modo edici\xF3n (*Edition\\nMode*)
+        de ChrysoCollate. Expliqu\xE9 entonces el uso del bot\xF3n funci\xF3n \xABAdd\\nwitness\xBB.
+        La siguiente funci\xF3n es \xABWit\\\\[ness\\\\] settings\xBB, que permite\\nmodificar
+        el comportamiento de los testimonios que hemos ido creando en\\nnuestra colaci\xF3n:\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a href=\\\"https://lucidarios.hypotheses.org/files/2024/04/1.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/04/1-500x243.png\\\"\\nclass=\\\"wp-image-5575\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/04/1-500x243.png
+        500w, https://lucidarios.hypotheses.org/files/2024/04/1-300x146.png 300w,
+        https://lucidarios.hypotheses.org/files/2024/04/1-768x373.png 768w, https://lucidarios.hypotheses.org/files/2024/04/1-1536x745.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/04/1-2048x994.png 2048w\\\"\\nsizes=\\\"(max-width:
+        500px) 100vw, 500px\\\" width=\\\"500\\\" height=\\\"243\\\" /></a>\\n<figcaption>Men\xFA
+        <em>Modify witness</em></figcaption>\\n</figure>\\n:::\\n\\nEn este ejemplo
+        de la colaci\xF3n del cap\xEDtulo 1 del *Lucidario*, vemos la\\nlista de los
+        siete testimonios que transmiten el cap\xEDtulo, ordenados\\nalfab\xE9ticamente:\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a href=\\\"https://lucidarios.hypotheses.org/files/2024/04/2.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/04/2-500x126.png\\\"\\nclass=\\\"wp-image-5580\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/04/2-500x126.png
+        500w, https://lucidarios.hypotheses.org/files/2024/04/2-300x76.png 300w, https://lucidarios.hypotheses.org/files/2024/04/2-768x194.png
+        768w, https://lucidarios.hypotheses.org/files/2024/04/2-1536x388.png 1536w,
+        https://lucidarios.hypotheses.org/files/2024/04/2-2048x517.png 2048w\\\"\\nsizes=\\\"(max-width:
+        500px) 100vw, 500px\\\" width=\\\"500\\\" height=\\\"126\\\" /></a>\\n<figcaption>Colaci\xF3n
+        del cap\xEDtulo 1 del <em>Lucidario</em>, orden\\nalfab\xE9tico</figcaption>\\n</figure>\\n:::\\n\\nAl
+        presionar las flechas al lado de los testimonios en la pantalla\\n*Witness
+        settings*, podemos reorganizar los testimonios para\\nvisualizarlos de otra
+        manera. En el *Lucidario* hay tres grandes grupos\\ntextuales: (AC), (BHI)
+        y (DEG). En la siguiente pantalla vemos una\\nreorganizaci\xF3n de los testimonios
+        de acuerdo a estas subfamilias en el\\n*stemma*:\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a href=\\\"https://lucidarios.hypotheses.org/files/2024/04/3.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/04/3-500x110.png\\\"\\nclass=\\\"wp-image-5582\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/04/3-500x110.png
+        500w, https://lucidarios.hypotheses.org/files/2024/04/3-300x66.png 300w, https://lucidarios.hypotheses.org/files/2024/04/3-768x169.png
+        768w, https://lucidarios.hypotheses.org/files/2024/04/3-1536x338.png 1536w,
+        https://lucidarios.hypotheses.org/files/2024/04/3-2048x450.png 2048w\\\"\\nsizes=\\\"(max-width:
+        500px) 100vw, 500px\\\" width=\\\"500\\\" height=\\\"110\\\" /></a>\\n<figcaption>Colaci\xF3n
+        del cap\xEDtulo 1 del <em>Lucidario</em>, orden de\\ntransmisi\xF3n manuscrita</figcaption>\\n</figure>\\n:::\\n\\nEsta
+        nueva visualizaci\xF3n permite ver claramente, por ejemplo, que la\\nrama
+        DE innova en la castilla 13, con una lectura, \xABay\xBB, no compartida\\npor
+        el resto de las ramas. Esta forma de organizar los testimonios puede\\nser
+        \xFAtil en otros pasajes, especialmente en aquellos donde tenemos que\\nestablecer
+        si una lectura compartida por una rama reflela la lecci\xF3n\\noriginal del
+        texto o es una innovaci\xF3n, como ocurre en el siguiente\\npasaje de la secci\xF3n
+        3 del cap\xEDtulo 1:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large\\\">\\n<a href=\\\"https://lucidarios.hypotheses.org/files/2024/04/4.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/04/4-500x112.png\\\"\\nclass=\\\"wp-image-5585\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/04/4-500x112.png
+        500w, https://lucidarios.hypotheses.org/files/2024/04/4-300x67.png 300w, https://lucidarios.hypotheses.org/files/2024/04/4-768x171.png
+        768w, https://lucidarios.hypotheses.org/files/2024/04/4-1536x343.png 1536w,
+        https://lucidarios.hypotheses.org/files/2024/04/4-2048x457.png 2048w\\\"\\nsizes=\\\"(max-width:
+        500px) 100vw, 500px\\\" width=\\\"500\\\" height=\\\"112\\\" /></a>\\n<figcaption>Colaci\xF3n
+        de la secci\xF3n 3 del cap\xEDtulo 1</figcaption>\\n</figure>\\n:::\\n\\nLa
+        rama BHI comparte una lectura (*e por eso \xE1 nombre Sol, porque es el\\nsolo
+        cuerpo*) que es compartida parcialmente por C y est\xE1 ausente por\\ncompleto
+        en DE. \xBFSe trata o no de una innovaci\xF3n de BHI? Pues lo m\xE1s\\nprobable
+        es que no, y que m\xE1s bien sea la lectura original, ausente en A\\npor un
+        salto por homoioteleuton entre *sol* y *solo* (o posiblemente en\\neste testimonio
+        con un lenguaje m\xE1s arcaico, *sol*, 'solo'), que he\\nmarcado con la etiqueta
+        *absentia* (de la que hablar\xE9 en la siguiente\\nentrada).\\n\\nVolviendo
+        a la opci\xF3n *Modify witness*, esta funci\xF3n tambi\xE9n nos permite\\nalterar
+        el comportamiento de cada uno de los testimonios, ya sea\\ncambiando su nombre,
+        su referencia, la cercan\xEDa a otro testimonio (para\\nla funci\xF3n de autocompletado
+        de la transcripci\xF3n de la que habl\xE9 en la\\nentrada anterior), el n\xFAmero
+        de columnas y l\xEDneas por folio, y\\nfinalmente eliminar un testimonio.\\n\\nEl
+        siguiente bot\xF3n de funci\xF3n es \xABAdd text\xBB. En ChrysoCollate hay
+        tres\\nmaneras de introducir texto. La primera es cuando se introduce el\\ntestimonio
+        base, proceso que cubr\xED en un v\xEDdeo en la **entrada\\nanterior**. Al
+        introducir un testimonio base cada palabra ocupar\xE1 una\\ncasilla numerada.
+        Si el texto tiene 10 palabras, pues 10 casillas:\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a href=\\\"https://lucidarios.hypotheses.org/files/2024/04/5.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/04/5-500x90.png\\\"\\nclass=\\\"wp-image-5590\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/04/5-500x90.png
+        500w, https://lucidarios.hypotheses.org/files/2024/04/5-300x54.png 300w, https://lucidarios.hypotheses.org/files/2024/04/5-768x139.png
+        768w, https://lucidarios.hypotheses.org/files/2024/04/5-1320x240.png 1320w,
+        https://lucidarios.hypotheses.org/files/2024/04/5.png 1326w\\\"\\nsizes=\\\"(max-width:
+        500px) 100vw, 500px\\\" width=\\\"500\\\" height=\\\"90\\\" /></a>\\n<figcaption>10
+        casillas en ChyrsoCollate, secci\xF3n 1, cap\xEDtulo 1 del\\n<em>Lucidario</em></figcaption>\\n</figure>\\n:::\\n\\nCuando
+        un testimonio tiene m\xE1s texto que el testimonio base (y esto pasa\\ntodo
+        el tiempo, ya sea porque el testimonio base tiene lagunas o saltos\\npor igual
+        a igual, o porque el nuevo testimonio moderniza, amplifica el\\nlenguaje o
+        tiene interpolaciones), tenemos que a\xF1adir casillas. A veces\\nes solamente
+        cuesti\xF3n de una o dos casillas porque el cambio es menor.\\nEn este caso,
+        lo hacemos dando clic al s\xEDmbolo de + debajo del n\xFAmero de\\nla casilla.
+        Esta acci\xF3n crea una columna de casillas vac\xEDa a la derecha\\nde la
+        ubicaci\xF3n elegida.\\n\\nPero otras veces tenemos una interpolaci\xF3n larga,
+        como la que muestro en\\nel v\xEDdeo, que ocurre en el cap\xEDtulo 7 del *Lucidario*.
+        En estos casos,\\ndebemos utilizar el bot\xF3n \xABAdd text\xBB, que nos permite
+        a\xF1adir bloques\\ntextuales (cada palabra se insertar\xE1 en una casilla
+        en blanco y el texto\\nanterior se desplazar\xE1 hacia la derecha):\\n\\n<figure\\nclass=\\\"wp-block-embed
+        aligncenter is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9
+        wp-has-aspect-ratio\\\">\\n<div class=\\\"wp-block-embed__wrapper\\\">\\n<div
+        class=\\\"video-container\\\">\\n<div class=\\\"iframe\\\">\\n<div id=\\\"player\\\">\\n\\n</div>\\n<div
+        class=\\\"player-unavailable\\\">\\n<h1 id=\\\"er-is-een-fout-opgetreden.\\\"
+        class=\\\"message\\\">Er is een fout\\nopgetreden.</h1>\\n<div class=\\\"submessage\\\">\\n<a
+        href=\\\"https://www.youtube.com/watch?v=stRnDq5gK8U\\\"\\ntarget=\\\"_blank\\\">Bekijk
+        deze video op www.youtube.com</a> of zet\\nJavaScript aan als dit uitstaat
+        in je browser.\\n</div>\\n</div>\\n</div>\\n</div>\\n</div>\\n<figcaption>A\xF1adiendo
+        texto en ChrysoCollate</figcaption>\\n</figure>\\n\\nEl siguiente bot\xF3n
+        de funci\xF3n es \xAB+ C\\\\[omment\\\\]\xBB (*Add Comment*), una\\nherramienta
+        muy \xFAtil pues permite a\xF1adir un comentario a una casilla\\nespec\xEDfica
+        (que es lo mismo: en un lugar espec\xEDfico del texto), que\\naparecer\xE1
+        marcada con un cuadrado gris en la esquina superior derecha.\\nEste comentario
+        no aparece en el texto de la colaci\xF3n, pero s\xED es\\nreflejado en el
+        aparato cr\xEDtico y en el documento que podemos exportar\\ncon el texto ya
+        colacionado. Para a\xF1adir un comentario, basta con dar\\nclic a este bot\xF3n
+        y rellenar el campo. En el siguiente v\xEDdeo tenemos un\\nejemplo de c\xF3mo
+        a\xF1adir una casilla en blanco, c\xF3mo a\xF1adir un comentario\\ny este
+        se ve en el documento exportado (explicar\xE9 c\xF3mo hacer estas cosas\\nen
+        las pr\xF3ximas entradas):\\n\\n<figure\\nclass=\\\"wp-block-embed is-type-video
+        is-provider-youtube wp-block-embed-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio\\\">\\n<div
+        class=\\\"wp-block-embed__wrapper\\\">\\n<div class=\\\"video-container\\\">\\n<div
+        class=\\\"iframe\\\">\\n<div id=\\\"player\\\">\\n\\n</div>\\n<div class=\\\"player-unavailable\\\">\\n<h1
+        id=\\\"er-is-een-fout-opgetreden.\\\" class=\\\"message\\\">Er is een fout\\nopgetreden.</h1>\\n<div
+        class=\\\"submessage\\\">\\n<a href=\\\"https://www.youtube.com/watch?v=3oiDNBRIINc\\\"\\ntarget=\\\"_blank\\\">Bekijk
+        deze video op www.youtube.com</a> of zet\\nJavaScript aan als dit uitstaat
+        in je browser.\\n</div>\\n</div>\\n</div>\\n</div>\\n</div>\\n<figcaption>A\xF1adiendo
+        un comentario en ChrysoColllate</figcaption>\\n</figure>\\n\\nDejo la entrada
+        aqu\xED y en la pr\xF3xima entrada continuar\xE9 explicando las\\nfunciones
+        del modo colaci\xF3n.\\n\\n------------------------------------------------------------------------\\n\\nImagen
+        de miniatura: inicio del cap\xEDtulo 1  \\ndel *Lucidario* en ChyrsoCollate\\n\",\"guid\":\"https://lucidarios.hypotheses.org/?p=5573\",\"id\":\"59f7c5de-1f20-4fdd-867e-a4db9e9f2520\",\"image\":\"https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-10-a\u0300-10.35.45.png\",\"language\":\"es\",\"published_at\":1712764800,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"En
+        la entrada anterior comenc\xE9 a hablar del modo edici\xF3n (\\n<em>\\n Edition
+        Mode\\n</em>\\n) de ChrysoCollate.\",\"tags\":[\"Entradas\",\"ChrysoCollate\",\"Collatio\",\"Constitutio
+        Textus\",\"Edici\xF3n Cr\xEDtica\"],\"title\":\"Herramientas de <em>collatio</em>
+        digital: ChyrsoCollate (2)\",\"updated_at\":1712747779,\"url\":\"https://lucidarios.hypotheses.org/5573\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22150/20231105110624/https://ropensci.org/es/blog/2024/03/29/from-the-founding-director-my-farewell-to-ropensci\",\"authors\":[{\"name\":\"Karthik
+        Ram\"}],\"blog_name\":\"rOpenSci - herramientas abiertas para una ciencia
+        abierta\",\"blog_slug\":\"ropensci_es\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"Estimada
+        comunidad rOpenSci,\\n\\nEste es un anuncio un poco agridulce... despu\xE9s
+        de casi 13 a\xF1os, es hora\\nde que me retire como Director Ejecutivo de
+        rOpenSci.\\n\\nEn el verano de 2011 cofund\xE9 rOpenSci junto con un grupo
+        de colegas\\ndedicados. Lo que comenz\xF3 como una colaboraci\xF3n informal
+        entre\\nentusiastas de la ciencia abierta evolucion\xF3 r\xE1pidamente hacia
+        algo\\nmucho m\xE1s significativo. Nunca imaginamos que se convertir\xEDa
+        en la\\niniciativa global que es hoy, con un equipo que se extiende por todo
+        el\\nmundo e influye en innumerables investigadores.\\n\\nrOpenSci se ha convertido
+        en un actor importante en las comunidades de\\nla ciencia abierta y el software
+        de investigaci\xF3n. Hemos creado un\\necosistema de herramientas que facilitan
+        la investigaci\xF3n y tienden\\npuentes entre la investigaci\xF3n y la tecnolog\xEDa.
+        Hemos tenido la suerte\\nde ayudar a muchas personas investigadoras no s\xF3lo
+        con su investigaci\xF3n,\\nsino tambi\xE9n a encontrar carreras satisfactorias
+        como desarroladores de\\nsoftware cient\xEDfico. Al principio centramos nuestros
+        esfuerzos en\\nresolver necesidades de investigaci\xF3n prioritarias, pero
+        este enfoque no\\nera sostenible a largo plazo. Alrededor de 2014, cambiamos
+        a un modelo\\nde colaboraci\xF3n, trabajando directamente con las personas
+        que hacen\\nciencia para combinar su experiencia en el campo con nuestras\\nhabilidades
+        de desarrollo de software. Este cambio dio lugar a la\\ncreaci\xF3n de nuestro
+        emblem\xE1tico servicio de revisi\xF3n por pares de\\nsoftware. Tambi\xE9n
+        inspir\xF3 otras iniciativas de \xE9xito como las [revistas\\nabiertas](https://www.theoj.org/),\\n[PyOpenSci](https://www.pyopensci.org/)
+        e incluso ha influido en las\\npr\xE1cticas de varias agencias gubernamentales.\\n\\nNuestro
+        enfoque ha crecido con los a\xF1os. Ahora ofrecemos un servicio\\nintegral
+        de revisi\xF3n por pares de software, desarrollamos normas para\\npaquetes
+        de software estad\xEDstico, [mantenemos una infraestructura\\ncomunitaria](https://r-lib.r-universe.dev/)
+        y trabajamos para amplificar\\nlas voces subrepresentadas en la comunidad
+        de desarrollo de software de\\ninvestigaci\xF3n. Nuestras [un-conferencias](/tags/unconf/)
+        han impulsado\\nla innovaci\xF3n, alimentado nuevas organizaciones y cultivado
+        el liderazgo\\nen nuestro campo.\\n\\nLa fuerza y resiliencia de nuestra comunidad
+        es lo que realmente hace\\nque rOpenSci tenga \xE9xito. Conf\xEDo en que el
+        Dr. Noam Ross, un valioso\\nmiembro de nuestro equipo directivo y l\xEDder
+        de nuestra revisi\xF3n por\\npares de software, dirigir\xE1 el proyecto como
+        director en funciones. Su\\ncompromiso y visi\xF3n me hacen confiar plenamente
+        en una transici\xF3n fluida\\ny un futuro vibrante para rOpenSci.\\n\\nEstoy
+        muy ilusionado por ver que le depara el futuro a rOpenSci. Hay\\nmucho potencial
+        para avances y asociaciones innovadoras. Estoy\\nimpaciente por ver el impacto
+        continuado de nuestros esfuerzos\\ncolectivos. Seguir\xE9 actuando como asesor,
+        apoyando a Noam y al equipo en\\nla creaci\xF3n de nuevas colaboraciones y
+        guiando el futuro de rOpenSci\\nhacia su pr\xF3ximo cap\xEDtulo.\\n\\nGracias
+        por vuestro apoyo, colaboraci\xF3n e inspiraci\xF3n a lo largo de\\nestos
+        a\xF1os. Por el pr\xF3ximo cap\xEDtulo de innovaci\xF3n y descubrimiento en
+        la\\ncomunidad rOpenSci.\\n\\n[*Lea un post de nuestro director entrante,
+        Noam\\nRoss*](/es/blog/2023/03/29/hello-from-our-new-executive-director-es/)\\n\",\"doi\":\"https://doi.org/10.59350/6admz-h7f40\",\"guid\":\"https://ropensci.org/es/blog/2024/03/29/from-the-founding-director-my-farewell-to-ropensci/\",\"id\":\"bbba5363-b419-4a4c-9332-a6057be350d6\",\"language\":\"es\",\"published_at\":1711670400,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Estimada
+        comunidad rOpenSci,  Este es un anuncio un poco agridulce\u2026 despu\xE9s
+        de casi 13 a\xF1os, es hora de que me retire como Director Ejecutivo de rOpenSci.
+        En el verano de 2011 cofund\xE9 rOpenSci junto con un grupo de colegas dedicados.
+        Lo que comenz\xF3 como una colaboraci\xF3n informal entre entusiastas de la
+        ciencia abierta evolucion\xF3 r\xE1pidamente hacia algo mucho m\xE1s significativo.\",\"tags\":[\"Transiciones\",\"Liderazgo\"],\"title\":\"Del
+        Director Fundador: Mi despedida de rOpenSci\",\"updated_at\":1711696949,\"url\":\"https://ropensci.org/es/blog/2024/03/29/from-the-founding-director-my-farewell-to-ropensci\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22150/20231105110624/https://ropensci.org/es/blog/2024/03/29/hello-from-our-new-executive-director\",\"authors\":[{\"name\":\"Noam
+        Ross\"}],\"blog_name\":\"rOpenSci - herramientas abiertas para una ciencia
+        abierta\",\"blog_slug\":\"ropensci_es\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"Me
+        complace, emociona y llena de humildad anunciar que asumo el cargo de\\nDirector
+        Ejecutivo de rOpenSci a partir del 1 de Abril.\\n\\nEn primer lugar, perm\xEDtanme
+        expresar mi gratitud a nuestro Director\\nEjecutivo saliente y amigo Karthik
+        Ram por su liderazgo y tutor\xEDa al\\nfrente de rOpenSci durante la \xFAltima
+        d\xE9cada. Ha sido una mano firme y un\\nvisionario que ha ayudado a nuestra
+        comunidad a lograr tanto juntos en\\neste tiempo. Gracias a \xE9l y al resto
+        de [equipo](/about/#team) por\\nconfiarme este papel.\\n\\nHe tenido el placer
+        de ser miembro de rOpenSci durante muchos a\xF1os: como\\nvoluntario, editor
+        de la revisi\xF3n por pares de software de rOpenSci\\ndesde 2015 y director
+        del programa de revisi\xF3n por pares desde 2019. Soy\\n[ec\xF3logo de enfermedades
+        en una\\nONG](https://www.ecohealthalliance.org/personnel/dr-noam-ross) donde\\ntrabajo
+        todos los d\xEDas con las herramientas de an\xE1lisis reproducible que\\ncrea
+        la comunidad rOpenSci.\\n\\nEstoy profundamente comprometida con los valores
+        de rOpenSci de\\ninvestigaci\xF3n abierta y reproducible utilizando datos
+        compartidos, de\\ncreaci\xF3n de infraestructuras y de una comunidad acogedora
+        e integradora\\nque permita a quienes investigan y desarrollan software apoyarse\\nmutuamente
+        para realizar investigaciones impactantes y trabajar por el\\nbien p\xFAblico.\\n\\nComo
+        director, estoy deseando trabajar con nuestra enorme comunidad de\\npersonas
+        que investigan, desarrollan, revisan, editan, son parte de\\nnuestro programa
+        de campeones campeonas y del staff. Mi objetivo es\\nfortalecer los pilares
+        de nuestro trabajo y ampliarlos a trav\xE9s de\\nnuevas asociaciones: incorporar
+        nuevas voces y talentos al ecosistema de\\nc\xF3digo abierto, mejorar el software
+        de investigaci\xF3n mediante la\\nrevisi\xF3n por pares, crear redes de apoyo
+        mutuo entre quienes desarrollan\\nsoftware de investigaci\xF3n y crear nuevas
+        infraestructuras y herramientas\\nen la frontera de la pr\xE1ctica reproducible.\\n\\nS\xE9
+        que esta comunidad seguir\xE1 haciendo grandes cosas, \xA1y me alegro de\\npoder
+        formar parte de ella!\\n\\n[Lea el mensaje de despedida del director fundador
+        Karthik\\nRam](/blog/2024/03/29/from-the-founding-director-my-farewell-to-ropensci-es/)\\n\",\"doi\":\"https://doi.org/10.59350/p060y-x8b85\",\"guid\":\"https://ropensci.org/es/blog/2024/03/29/hello-from-our-new-executive-director/\",\"id\":\"7abcf8ac-8b70-433f-b36e-64a0c4c618b2\",\"language\":\"es\",\"published_at\":1711670400,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Me
+        complace, emociona y llena de humildad anunciar que asumo el cargo de Director
+        Ejecutivo de rOpenSci a partir del 1 de Abril. En primer lugar, perm\xEDtanme
+        expresar mi gratitud a nuestro Director Ejecutivo saliente y amigo Karthik
+        Ram por su liderazgo y tutor\xEDa al frente de rOpenSci durante la \xFAltima
+        d\xE9cada. Ha sido una mano firme y un visionario que ha ayudado a nuestra
+        comunidad a lograr tanto juntos en este tiempo.\",\"tags\":[\"Transiciones\",\"Liderazgo\"],\"title\":\"Hola
+        de nuestro nuevo Director Ejecutivo\",\"updated_at\":1711696949,\"url\":\"https://ropensci.org/es/blog/2024/03/29/hello-from-our-new-executive-director\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Coss\xEDo
+        Olavide, Mario\",\"url\":\"https://orcid.org/0000-0002-1447-3891\"}],\"blog_name\":\"Lucidarios\",\"blog_slug\":\"lucidarios\",\"category\":\"languagesAndLiterature\",\"content_text\":\"Me
+        toca, finalmente, hablar ahora del l\xE1piz que dej\xE9 pendiente hace dos\\nsemanas
+        (en realidad, hace dos meses, porque he ido dilatando escribir\\nesta entrada
+        para que coincida con el inicio real de la *collatio*).\\n\\nDescartados *CollateX*
+        y *Juxta*, comenc\xE9 a buscar una alternativa\\nsimple para esta labor. As\xED,
+        llegu\xE9 a\\n*[ChrysoCollate](https://cental.uclouvain.be/chrysocollate/){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://cental.uclouvain.be/chrysocollate/\\\"\\ntarget=\\\"_blank\\\"}*,
+        un aplicativo desarrollado por [S\xE9bastien\\nMoureau](https://uclouvain.be/fr/repertoires/sebastien.moureau){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\"\\ndata-id=\\\"https://uclouvain.be/fr/repertoires/sebastien.moureau\\\"\\ntarget=\\\"_blank\\\"},
+        arabista de la Universit\xE9 catholique de Louvain. Como\\nintentar\xE9 demostrar
+        en esta y las pr\xF3ximas entradas, ChrysoCollate es un\\naplicativo de colaci\xF3n
+        *low-tech* (sin que esto sea algo negativo, como\\n[expliqu\xE9\\naqu\xED](https://lucidarios.hypotheses.org/5150){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://lucidarios.hypotheses.org/5150\\\"\\ntarget=\\\"_blank\\\"}).
+        Funciona bajo una licencia libre y permite colacionar\\ny editar textos en
+        cualquier sistema de escritura (lenguajes escritos de\\nizquierda a derecha
+        o de derecha a izquierda), porque trabaja con\\n[Unicode](https://en.wikipedia.org/wiki/Unicode){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://en.wikipedia.org/wiki/Unicode\\\"\\ntarget=\\\"_blank\\\"}.\\n\\nUn
+        atractivo adicional de ChrysoCollate es que est\xE1 basado en HTML, lo\\nque
+        hace innecesario cualquier tipo de instalaci\xF3n. Uno simplemente\\ndescarga
+        el archivo comprimido del aplicativo, lo descomprime, lo coloca\\nen la carpeta
+        que prefiere y lo abre como si fuese cualquier p\xE1gina web.\\nEsto significa
+        que tanto el aplicativo, como los archivos que produce\\nson almacenados localmente.\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/03/ChrysoCollate-y-carpeta-con-aplicativo.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/03/ChrysoCollate-y-carpeta-con-aplicativo-500x282.png\\\"\\nclass=\\\"wp-image-5436\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/03/ChrysoCollate-y-carpeta-con-aplicativo-500x282.png
+        500w, https://lucidarios.hypotheses.org/files/2024/03/ChrysoCollate-y-carpeta-con-aplicativo-300x169.png
+        300w, https://lucidarios.hypotheses.org/files/2024/03/ChrysoCollate-y-carpeta-con-aplicativo-768x433.png
+        768w, https://lucidarios.hypotheses.org/files/2024/03/ChrysoCollate-y-carpeta-con-aplicativo-1536x866.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/03/ChrysoCollate-y-carpeta-con-aplicativo-2048x1155.png
+        2048w\\\"\\nsizes=\\\"(max-width: 612px) 100vw, 612px\\\" width=\\\"612\\\"
+        height=\\\"345\\\" /></a>\\n<figcaption>ChrysoCollate y carpeta con aplicativo</figcaption>\\n</figure>\\n:::\\n\\nChrysoCollate
+        tiene dos modos de operaci\xF3n: modo colaci\xF3n (*Collation\\nMode*) y modo
+        edici\xF3n (*Edition Mode*), que pueden alternarse al dar\\nclic sobre la
+        pesta\xF1a en la esquina superior derecha de la pantalla\\n(*Collation \\\\<--\\\\>
+        Edition*). Me centrar\xE9 en las pr\xF3ximas entradas en\\nlos fundamentos
+        del primero, el modo de colaci\xF3n. Abajo vemos la\\npantalla inicial del
+        aplicativo:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter size-large
+        is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/03/Modo-de-colacio\u0301n-ChrysoCollate.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/03/Modo-de-colacio\u0301n-ChrysoCollate-500x245.png\\\"\\nclass=\\\"wp-image-5437\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/03/Modo-de-colacio\u0301n-ChrysoCollate-500x245.png
+        500w, https://lucidarios.hypotheses.org/files/2024/03/Modo-de-colacio\u0301n-ChrysoCollate-300x147.png
+        300w, https://lucidarios.hypotheses.org/files/2024/03/Modo-de-colacio\u0301n-ChrysoCollate-768x376.png
+        768w, https://lucidarios.hypotheses.org/files/2024/03/Modo-de-colacio\u0301n-ChrysoCollate-1536x752.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/03/Modo-de-colacio\u0301n-ChrysoCollate-2048x1003.png
+        2048w\\\"\\nsizes=\\\"(max-width: 626px) 100vw, 626px\\\" width=\\\"626\\\"
+        height=\\\"307\\\" /></a>\\n<figcaption>Modo de colaci\xF3n, ChrysoCollate</figcaption>\\n</figure>\\n:::\\n\\nEn
+        la barra inferior el usuario tiene dos tipos de botones: grises, que\\nson
+        opciones generales que modifican el comportamiento del aplicativo en\\nel
+        modo de colaci\xF3n; y naranjas, o botones funcionales, que sirven para\\ntareas
+        espec\xEDficas relacionadas con la colaci\xF3n. El primer bot\xF3n de\\nfunci\xF3n
+        es \xABAdd wit\\\\[ness\\\\]\xBB y permite a\xF1adir autom\xE1ticamente el
+        texto\\ndel testimonio base (que podr\xE1 ser cambiado m\xE1s adelante) y
+        los\\nsubsecuentes testimonios.\\n\\nA\xF1adir un testimonio base es bastante
+        simple: hay que asignar una sigla\\npara el testimonio, a\xF1adir informaci\xF3n
+        referencial optativa (biblioteca,\\nsignatura) y finalmente copiar y pegar
+        el texto del testimonio desde el\\nprocesador de texto con el que trabajamos.\\n\\nPodemos
+        dar otra informaci\xF3n opcional, como el n\xFAmero de palabras-token\\npara
+        el c\xE1lculo de la cantidad de palabras, o la cantidad de columnas y\\nl\xEDneas
+        por folio en el testimonio, para que el aplicativo nos diga d\xF3nde\\nvamos
+        (esto es muy \xFAtil cuando llegamos a un pasaje dudoso, que puede\\nser una
+        errata de transcripci\xF3n, y tenemos que volver al manuscrito para\\nconfirmarlo
+        o descartarlo):\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/03/Creacio\u0301n-de-testimonio-base-ChrysoCollate.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/03/Creacio\u0301n-de-testimonio-base-ChrysoCollate-500x247.png\\\"\\nclass=\\\"wp-image-5442\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/03/Creacio\u0301n-de-testimonio-base-ChrysoCollate-500x247.png
+        500w, https://lucidarios.hypotheses.org/files/2024/03/Creacio\u0301n-de-testimonio-base-ChrysoCollate-300x148.png
+        300w, https://lucidarios.hypotheses.org/files/2024/03/Creacio\u0301n-de-testimonio-base-ChrysoCollate-768x380.png
+        768w, https://lucidarios.hypotheses.org/files/2024/03/Creacio\u0301n-de-testimonio-base-ChrysoCollate-1536x759.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/03/Creacio\u0301n-de-testimonio-base-ChrysoCollate-2048x1012.png
+        2048w\\\"\\nsizes=\\\"(max-width: 630px) 100vw, 630px\\\" width=\\\"630\\\"
+        height=\\\"311\\\" /></a>\\n<figcaption>Creaci\xF3n de testimonio base, ChrysoCollate</figcaption>\\n</figure>\\n:::\\n\\nLa
+        introducci\xF3n de los siguientes testimonios se hace con el mismo\\nbot\xF3n,
+        pero de forma diferente. Ahora ha desaparecido la casilla para\\na\xF1adir
+        el texto del testimonio. Mientras que CollateX realiza un\\nalineamiento autom\xE1tico
+        de los distintos testimonios, en ChrysoCollate\\nel usuario debe hacer esta
+        tarea manualmente, digitando cualquier\\ntestimonio subsecuente.\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/03/An\u0303adiendo-otros-testimonios-ChrysoCollate.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/03/An\u0303adiendo-otros-testimonios-ChrysoCollate-500x247.png\\\"\\nclass=\\\"wp-image-5446\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/03/An\u0303adiendo-otros-testimonios-ChrysoCollate-500x247.png
+        500w, https://lucidarios.hypotheses.org/files/2024/03/An\u0303adiendo-otros-testimonios-ChrysoCollate-300x148.png
+        300w, https://lucidarios.hypotheses.org/files/2024/03/An\u0303adiendo-otros-testimonios-ChrysoCollate-768x380.png
+        768w, https://lucidarios.hypotheses.org/files/2024/03/An\u0303adiendo-otros-testimonios-ChrysoCollate-1536x760.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/03/An\u0303adiendo-otros-testimonios-ChrysoCollate-2048x1014.png
+        2048w\\\"\\nsizes=\\\"(max-width: 614px) 100vw, 614px\\\" width=\\\"614\\\"
+        height=\\\"303\\\" /></a>\\n<figcaption>A\xF1adiendo otros testimonios, ChrysoCollate</figcaption>\\n</figure>\\n:::\\n\\nEsto
+        puede sonar como un *deal-breaker*, pero el proceso es simplificado\\nde sobremanera
+        por la opci\xF3n que aparece resaltada en azul: \xABChoose the\\nclosest witness\xBB.
+        Al elegir esta opci\xF3n, le estamos indicando al\\naplicativo que el nuevo
+        testimonio que estamos introduciendo se parece\\nmucho a otro que ya fue introducido.
+        ChrysoCollate nos permitir\xE1\\nentonces rellenar autom\xE1ticamente el texto
+        de cada casilla copiando el\\ntexto de ese otro testimonio cada vez que presionamos
+        la tecla\\ntabuladora, como vemos en el siguiente v\xEDdeo (la grabaci\xF3n
+        no est\xE1\\nacelerada):\\n\\n<figure\\nclass=\\\"wp-block-embed is-type-video
+        is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\\\">\\n<div
+        class=\\\"wp-block-embed__wrapper\\\">\\n<div class=\\\"video-container\\\">\\n<div
+        class=\\\"iframe\\\">\\n<div id=\\\"player\\\">\\n\\n</div>\\n<div class=\\\"player-unavailable\\\">\\n<h1
+        id=\\\"er-is-een-fout-opgetreden.\\\" class=\\\"message\\\">Er is een fout\\nopgetreden.</h1>\\n<div
+        class=\\\"submessage\\\">\\n<a href=\\\"https://www.youtube.com/watch?v=dTGAM6X-cCM\\\"\\ntarget=\\\"_blank\\\">Bekijk
+        deze video op www.youtube.com</a> of zet\\nJavaScript aan als dit uitstaat
+        in je browser.\\n</div>\\n</div>\\n</div>\\n</div>\\n</div>\\n</figure>\\n\\nSin
+        duda esta \xFAltima caracter\xEDstica limita el uso de ChrysoCollate para\\neditar
+        obras relativamente breves y con un n\xFAmero bajo de testimonios,\\ncomo
+        el *Lucidario*, que tiene alrededor de 90.000 palabras-token y ocho\\ntestimonios.
+        Aunque el rellenado autom\xE1tico facilita mucho el trabajo,\\ndurante mi
+        trabajo he confirmado que es un m\xE9todo proclive a errores:\\nestamos comparando
+        visualmente dos textos, uno en el aplicativo y otro\\nen el procesador de
+        texto, y a veces uno pierde la concentraci\xF3n,\\nconfundi\xE9ndose por la
+        cercan\xEDa de una lectura en el testimonio cercano y\\nla del testimonio
+        nuevo, presiona tabular y nace un error (a ver, es lo\\nmismo que ocurre con
+        los copistas medievales, solo que en un entorno\\ndigital). Pero a diferencia
+        de lo que pasaba en la Edad Media,\\nChrysoCollate cuenta con una herramienta
+        para corregir estos errores, de\\nla que hablar\xE9 en las pr\xF3ximas entradas
+        cuando explique el\\nfuncionamiento del bot\xF3n \xABExport wit\\\\[ness\\\\]\xBB.\\n\\nVolviendo
+        sobre lo anterior, dec\xEDa que el rellenado autom\xE1tico limita la\\naplicabilidad
+        de ChrysoCollate a tradiciones textuales peque\xF1as, donde\\nla introducci\xF3n
+        manual tomar\xE1 solamente algunas semanas. De paso,\\nservir\xE1 para que
+        el editor se familiarice con los *loci critici*, que\\nir\xE1 descubriendo
+        mientras introduce los textos, y que necesitar\xE1 para\\npreparar el *stemma
+        codicum* de la tradici\xF3n. Pero no me imagino que\\nsirva para un proyecto
+        editorial de una obra extensa con un n\xFAmero\\nelevado de testimonios, como
+        las *Siete Partidas*, un texto de alrededor\\nde 675.000 palabras-token, que
+        al d\xEDa de hoy cuenta con 116 testimonios\\nparciales (que suman cerca de
+        10.5 millones de palabras-token). A ver,\\nque incluso los l\xE1pices tienen
+        l\xEDmites. Dejo la entrada aqu\xED y en la\\n[pr\xF3xima\\nentrada](https://lucidarios.hypotheses.org/?p=5573){data-type=\\\"URL\\\"\\ndata-id=\\\"https://lucidarios.hypotheses.org/?p=5573\\\"
+        target=\\\"_blank\\\"\\nrel=\\\"noreferrer noopener\\\"} continuar\xE9 explicando
+        las funciones del modo\\ncolaci\xF3n.\\n\\n------------------------------------------------------------------------\\n\\nImagen
+        de miniatura: captura de pantalla del  \\nsitio web de ChrysoCollate\\n\",\"guid\":\"https://lucidarios.hypotheses.org/?p=5431\",\"id\":\"2e4e7321-927f-4f1f-9770-73ea95e24360\",\"image\":\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-27-a\u0300-14.11.52.png\",\"language\":\"es\",\"published_at\":1711554900,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Me
+        toca, finalmente, hablar ahora del l\xE1piz que dej\xE9 pendiente hace dos
+        semanas (en realidad, hace dos meses, porque he ido dilatando escribir esta
+        entrada para que coincida con el inicio real de la\\n<em>\\n collatio\\n</em>\\n).
+        \ Descartados\\n<em>\\n CollateX\\n</em>\\ny\\n<em>\\n Juxta\\n</em>\\n, comenc\xE9
+        a buscar una alternativa simple para esta labor.\",\"tags\":[\"Entradas\",\"ChrysoCollate\",\"Collatio\",\"Constitutio
+        Textus\",\"Edici\xF3n Cr\xEDtica\"],\"title\":\"Herramientas de <em>collatio</em>
+        digital: <em>ChyrsoCollate</em> (1)\",\"updated_at\":1712738237,\"url\":\"https://lucidarios.hypotheses.org/5431\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Coss\xEDo
+        Olavide, Mario\",\"url\":\"https://orcid.org/0000-0002-1447-3891\"}],\"blog_name\":\"Lucidarios\",\"blog_slug\":\"lucidarios\",\"category\":\"languagesAndLiterature\",\"content_text\":\"Una
+        extendida --y algo exagerada-- an\xE9cdota cuenta que, durante la\\nprimera
+        carrera espacial, los cient\xEDficos de la NASA descubrieron que\\nlos bol\xEDgrafos
+        que los astronautas usar\xEDan en las misiones de\\nexploraci\xF3n lunar no
+        funcionaban en condiciones de gravedad cero.\\nHaciendo uso de la *American
+        ingenuity* --y de la tambi\xE9n norteamericana\\ncultura del *subcontracting*--,
+        gastaron millones de d\xF3lares para\\ndesarrollar un bol\xEDgrafo capaz de
+        escribir en gravedad cero, el [Fisher\\nPen](https://www.scientificamerican.com/article/fact-or-fiction-nasa-spen/){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\"\\ndata-id=\\\"https://www.scientificamerican.com/article/fact-or-fiction-nasa-spen/\\\"\\ntarget=\\\"_blank\\\"}.
+        La an\xE9cdota continua: los cient\xEDficos sovi\xE9ticos,\\nconfrontados
+        ante el mismo problema, encontraron una soluci\xF3n *low-tech*\\ny les dieron
+        a todos sus cosmonautas l\xE1pices.\\n\\nAunque es un lugar com\xFAn, creo
+        necesario insistir en el mensaje de esta\\nan\xE9cdota: a veces una herramienta
+        o soluci\xF3n *high-tech* puede dar m\xE1s\\ndolores de cabeza que una *low-tech*.
+        Durante la edici\xF3n del *Lucidario*\\nhe descubierto que esto es especialmente
+        cierto en el trabajo de edici\xF3n\\nde textos medievales empleando herramientas
+        y procesos de humanidades\\ndigitales.\\n\\nOcurri\xF3 durante la transcripci\xF3n,
+        cuando eleg\xED *Transkribus*, un\\naplicativo que se instala desde un autoejecutable
+        o que funciona desde\\nuna [interfaz\\nweb](https://app.transkribus.eu/){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://app.transkribus.eu/\\\"
+        target=\\\"_blank\\\"}\\nque se conecta con los servidores de la Read Coop,
+        en vez de\\n*[eScriptorium](https://gitlab.com/scripta/escriptorium){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://gitlab.com/scripta/escriptorium\\\"\\ntarget=\\\"_blank\\\"}*.
+        Este aplicativo franc\xE9s de transcripci\xF3n automatizada\\nopera con los
+        mismos principios (y en muchos casos con las mismas\\ntecnolog\xEDas), pero
+        es decididamente m\xE1s tecnol\xF3gico. Su instalaci\xF3n solo\\nes posible
+        si uno est\xE1 familiarizado algo con funciones avanzadas del\\nordenador
+        y lenguajes de programaci\xF3n. La v\xEDa r\xE1pida requiere *Docker*\\n(que
+        se instala desde el terminal) y la lenta (instalaci\xF3n local) tiene\\nuna\\n[advertencia](https://gitlab.com/scripta/escriptorium/-/wikis/full-install){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\"\\ndata-id=\\\"https://gitlab.com/scripta/escriptorium/-/wikis/full-install\\\"\\ntarget=\\\"_blank\\\"}
+        que deja claro que no es un juego:\\n`[This installation] will assume basic
+        knowledge of `*`Unix`*`, virtual environments (pip or any other), environment
+        variables and python/Django`.\\nEst\xE1 luego la cuesti\xF3n de los requisitos
+        materiales del aplicativo,\\nsobre lo que estoy preparando un art\xEDculo
+        con JM Fradejas para el\\npr\xF3ximo n\xFAmero de *Philologia Hispalense*.
+        Para ejecutar *eScriptorium*\\ny entrenar modelos es necesario tener hardware
+        (un servidor local) y\\nrecursos humanos (un t\xE9cnico que sea capaz de mantenerlo).\\n\\n\\\\[*Nota
+        bene*: esto no quiere decir que *Transkribus* sea una\\nherramienta *low-tech*,
+        solamente que es una herramienta mucho m\xE1s\\n*user-friendly*: es f\xE1cil
+        de instalar y ejecutar, y no requiere de\\nconocimientos avanzados para comenzar
+        a usarla\\\\].\\n\\nLo mismo ocurre con el tipo de codificaci\xF3n empleado
+        para la\\ntranscripci\xF3n de los testimonios. Uno puede tomar el camino *high-tech*\\ny
+        m\xE1s fiel a los manuscritos: transcripci\xF3n diplom\xE1tica con graf\xEDas\\nmedievales
+        (proceso descrito\\n[aqu\xED](https://ecdotica.hypotheses.org/594){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://ecdotica.hypotheses.org/594\\\"\\ntarget=\\\"_blank\\\"}
+        en la filolog\xEDa anal\xF3gica por Fradejas Rueda). El\\nproblema es que
+        estos s\xEDmbolos no existen en los actuales alfabetos\\ninform\xE1ticos (no
+        corrientemente).\\n\\nHay que acudir a fuentes desarrolladas *ah hoc* para
+        este trabajo, como\\nla [Medieval Unicode Font\\nInitiative](https://mufi.info/q.php?p=mufi/all){data-type=\\\"URL\\\"\\ndata-id=\\\"https://mufi.info/q.php?p=mufi/all\\\"
+        target=\\\"_blank\\\"\\nrel=\\\"noreferrer noopener\\\"}, o desarrollar un
+        alfabeto de abreviaturas\\npropio, como lo hace Matthias Gille Levenson\\n([aqu\xED](https://gitlab.huma-num.fr/mgillelevenson/clavier_virtuel_transcription){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\"\\ndata-id=\\\"https://gitlab.huma-num.fr/mgillelevenson/clavier_virtuel_transcription\\\"\\ntarget=\\\"_blank\\\"}).\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.09.28.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.09.28-500x257.png\\\"\\nclass=\\\"wp-image-5154\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.09.28-500x257.png
+        500w, https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.09.28-300x154.png
+        300w, https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.09.28-768x395.png
+        768w, https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.09.28-1536x790.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.09.28-2048x1054.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"257\\\" /></a>\\n<figcaption>Teclado virtual para la transcripci\xF3n
+        de caracteres\\nespeciales desarrollado por Matthias Gille Levenson</figcaption>\\n</figure>\\n:::\\n\\nEl
+        problema es el mismo que con las herramientas de transcripci\xF3n. Se\\na\xF1aden
+        pasos al trabajo. Tomando este camino, el fil\xF3logo debe insertar\\nlos
+        s\xEDmbolos en la primera etapa de transcripci\xF3n manual y para ello\\nnecesita
+        emplear combinaciones especiales de teclado o un teclado\\nvirtual. Entre
+        su transcripci\xF3n y la versi\xF3n de trabajo, tocar\xE1\\nregularizar y
+        desarrollar la mayor\xEDa de las abreviaturas. Esto se logra\\ncon *scripts*
+        o expresiones regulares (*regular expressions*) que\\ndesarrollen correctamente
+        todas las abreviaturas (y luego, una\\ninevitable revisi\xF3n del texto desarrollado
+        por el *script*). Esto \xFAltimo\\nporque al reemplazar todas las \uA751 por
+        `p`*`ar`*-, como en *\uA751a*\\n(`p`*`ar`*`a`):\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-full is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.19.29.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.19.29.png\\\"\\nclass=\\\"wp-image-5157\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\" width=\\\"120\\\"\\nheight=\\\"103\\\"
+        /></a>\\n<figcaption>para, Lucidario B</figcaption>\\n</figure>\\n:::\\n\\nPueden
+        haberse colado muchas abreviaturas iguales pero con diferentes\\nvalores --a
+        pesar de que el *script* considere muchas posibilidades de\\ndesarrollo--,
+        por el consabido problema de que los escribas utilizan la\\nmisma abreviatura
+        con diferentes valores. Siguiendo con el \xFAltimo\\nejemplo la *p* con la
+        lineta puede ser tambi\xE9n abreviatura de *er* o *e*\\n(y en alg\xFAn caso,
+        solo de *a*):\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter size-full
+        is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.20.12.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.20.12.png\\\"\\nclass=\\\"wp-image-5160\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.20.12.png
+        396w, https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.20.12-300x227.png
+        300w\\\"\\nsizes=\\\"(max-width: 134px) 100vw, 134px\\\" width=\\\"134\\\"
+        height=\\\"102\\\" /></a>\\n<figcaption>pero, Lucidario B</figcaption>\\n</figure>\\n:::\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.18.42.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.18.42-500x252.png\\\"\\nclass=\\\"wp-image-5162\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.18.42-500x252.png
+        500w, https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.18.42-300x151.png
+        300w, https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.18.42.png
+        622w\\\"\\nsizes=\\\"(max-width: 182px) 100vw, 182px\\\" width=\\\"182\\\"
+        height=\\\"92\\\" /></a>\\n<figcaption>perlaticos, Lucidario B</figcaption>\\n</figure>\\n:::\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.27.24.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.27.24-500x166.png\\\"\\nclass=\\\"wp-image-5164\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.27.24-500x166.png
+        500w, https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.27.24-300x99.png
+        300w, https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.27.24-768x255.png
+        768w, https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.27.24.png
+        1134w\\\"\\nsizes=\\\"(max-width: 262px) 100vw, 262px\\\" width=\\\"262\\\"
+        height=\\\"87\\\" /></a>\\n<figcaption>perrochianos, Primera Partida (Biblioteca
+        Capitular de\\nToledo, ms. 43-13)</figcaption>\\n</figure>\\n:::\\n\\nEsto
+        es importante tambi\xE9n por el tema de la consabida *searchability*,\\nes
+        decir, cu\xE1n f\xE1cil es buscar informaci\xF3n espec\xEDfica en el documento\\nresultante,
+        tanto para el creador como para otros usuarios. No basta\\npublicar la transcripci\xF3n
+        paleogr\xE1fica en un repositorio en l\xEDnea, hay\\nque hacer lo mismo con
+        las versiones normalizadas. Esto porque el\\ndocumento est\xE1 lleno de caracteres
+        y abreviaciones desconocidas por los\\neditores de texto.\\n[Aqu\xED](https://gitlab.huma-num.fr/mgillelevenson/dataset_segmentation_castillan_medieval){data-type=\\\"URL\\\"\\ndata-id=\\\"https://gitlab.huma-num.fr/mgillelevenson/dataset_segmentation_castillan_medieval\\\"\\ntarget=\\\"_blank\\\"
+        rel=\\\"noreferrer noopener\\\"} hay algunos ejemplos de estos\\ndocumentos,
+        producidos por Matthias Gille.\\n\\nLa alternativa *low-tech* de transcripci\xF3n
+        es el mucho m\xE1s simple\\nsistema de transcripci\xF3n semipaleogr\xE1fica
+        del Hispanic Seminary of\\nMedieval Studies (descrito\\n[aqu\xED](https://lucidarios.hypotheses.org/transcripciones/normas-de-transcripcion){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\"\\ndata-id=\\\"https://lucidarios.hypotheses.org/transcripciones/normas-de-transcripcion\\\"\\ntarget=\\\"_blank\\\"}).
+        Al ser desarrollado en los a\xF1os 70, en la infancia de\\nla inform\xE1tica,
+        se hizo lo mejor que se pudo, emple\xE1ndose los caracteres\\ncontenidos en
+        el primer mapa de caracteres ASCII (ASCII 7-bits), un mapa\\nque no conten\xEDa
+        ning\xFAn car\xE1cter no empleado corrientemente en el ingl\xE9s\\namericano.
+        Aqu\xED las abreviaturas presentadas en el ejemplo anterior se\\ndesarrollan
+        completamente entre los guiones angulares: `p<ar>a`,\\n`p<er>o`, `p<er>latico`,
+        `p<e>rrochianos` (y no `p`*`er`*`rochianos`\\ncomo podr\xEDa confundirse un
+        *script*). El post-procesamiento es bastante\\nm\xE1s f\xE1cil y no se necesita
+        un *script*. Se puede usar la funci\xF3n\\nb\xFAsqueda y reemplazo de cualquier
+        editor o procesador de texto, y\\ncambiar los s\xEDmbolos `<` y `>` por espacios
+        vac\xEDos (no por espacios en\\nblanco), pasando de esto:\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.37.53.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.37.53-500x466.png\\\"\\nclass=\\\"wp-image-5169\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.37.53-500x466.png
+        500w, https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.37.53-300x280.png
+        300w, https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.37.53-768x716.png
+        768w, https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.37.53-1536x1432.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.37.53.png
+        1780w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"466\\\" /></a>\\n<figcaption>Lucidario B con codificaci\xF3n</figcaption>\\n</figure>\\n:::\\n\\nA
+        esto:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.38.22.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.38.22-500x489.png\\\"\\nclass=\\\"wp-image-5172\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.38.22-500x489.png
+        500w, https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.38.22-300x293.png
+        300w, https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.38.22-768x751.png
+        768w, https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.38.22-1536x1502.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-09.38.22.png
+        1694w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"489\\\" /></a>\\n<figcaption>Lucidario B sin codificaci\xF3n</figcaption>\\n</figure>\\n:::\\n\\nY
+        con esto vuelvo a la an\xE9cdota de la NASA y los sovi\xE9ticos, y al tema\\nde
+        la *usability* (facilidad de uso). Un sistema (cualquiera, de\\ntranscripci\xF3n
+        autom\xE1tica, de codificaci\xF3n o de colaci\xF3n) tiene que ser\\nsimple.
+        Esta es una verdad de Perogrullo, pero es algo que a veces\\nolvidamos. Esto
+        explica por qu\xE9 sistemas operativos como Windows o Mac\\nOS, visuales,
+        intuitivos y de f\xE1cil uso --incluso para usuarios poco\\nexperimentados--
+        son tan populares y tienen una base enorme de usuarios.\\nTodo el mundo puede
+        aprender r\xE1pidamente a usarlos. Y tambi\xE9n explica\\npor qu\xE9 otros
+        sistemas operativos mucho m\xE1s complejos y adaptables, como\\nlos basados
+        en Unix, que requieren a menudo emplear al terminal para\\ninstalar funciones
+        y aplicaciones, tienen una base de usuarios tan\\npeque\xF1a.\\n\\nCuando
+        uno comienza a usar Linux choca contra una realidad amarga: los\\nproblemas
+        de *mi* versi\xF3n (*release*) no ser\xE1n los mismos que los que\\ntiene
+        la *otra* versi\xF3n de Linux (bueno, esto pasa tambi\xE9n en Windows y\\nen
+        Mac OS). Pero el problema sigue: los problemas de *mi* versi\xF3n de\\nLinux,
+        en mi ordenador, no son los mismos que los problemas de *mi*\\nversi\xF3n
+        en otros ordenadores porque el sistema tiene comportamientos\\ndiferentes
+        dependiendo del *hardware*. Basta pasearse por los\\n[foros](https://ubuntuforums.org/){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://ubuntuforums.org/\\\"
+        target=\\\"_blank\\\"} de\\nUbuntu para darse cuenta del dolor de cabeza que
+        puede ser identificar y\\nluego corregir un problema en Linux si uno tiene
+        un chipset espec\xEDfico.\\n\\nVuelvo al inicio de esta discusi\xF3n: uno
+        quiere usar una m\xE1quina para\\nahorrar tiempo en una tarea. Quiere que
+        la m\xE1quina haga la labor\\nrepetitiva, que uno pueda revisar luego. Pero
+        en el camino, la m\xE1quina\\nno debe requerir que uno obtenga una segunda
+        titulaci\xF3n para poder\\nusarla. La simplicidad del aplicativo o del sistema
+        empleado debe ser\\nacompa\xF1ada por la capacidad del editor de realizar
+        las tareas donde la\\nm\xE1quina falla (o, realmente, no tiene la capacidad
+        de realizar la tarea\\ndada de manera correcta) y el juicio y la experiencia
+        del fil\xF3logo son\\nnecesarias. Bueno, de tanto escribir, me olvid\xE9 de
+        mi lapiz. Hablar\xE9 de\\nello en la [pr\xF3xima\\nentrada](https://lucidarios.hypotheses.org/?p=5431){data-type=\\\"URL\\\"\\ndata-id=\\\"https://lucidarios.hypotheses.org/?p=5431\\\"
+        target=\\\"_blank\\\"\\nrel=\\\"noreferrer noopener\\\"}.\\n\",\"doi\":\"https://doi.org/10.58079/w0lz\",\"guid\":\"https://lucidarios.hypotheses.org/?p=5150\",\"id\":\"88cd4df7-1b02-427a-aecf-f15d82301d9c\",\"image\":\"https://lucidarios.hypotheses.org/files/2024/03/Capture-de\u0301cran-2024-03-13-a\u0300-17.49.51.png\",\"language\":\"es\",\"published_at\":1710348610,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Una
+        extendida \u2013y algo exagerada\u2013 an\xE9cdota cuenta que, durante la
+        primera carrera espacial, los cient\xEDficos de la NASA descubrieron que los
+        bol\xEDgrafos que los astronautas usar\xEDan en las misiones de exploraci\xF3n
+        lunar no funcionaban en condiciones de gravedad cero.\",\"tags\":[\"Entradas\",\"Edici\xF3n
+        Cr\xEDtica\",\"Hispanic Seminary Of Medieval Studies\",\"Humanidades Digitales\",\"Recensio\"],\"title\":\"<em>Low-tech</em>
+        y <em>high-tech</em>: de l\xE1pices, sistemas y <em>usability</em> en la edici\xF3n
+        de textos medievales\",\"updated_at\":1711545221,\"url\":\"https://lucidarios.hypotheses.org/5150\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22150/20231105110624/https://ropensci.org/es/blog/2024/03/11/r_open_sci_dev_guide_0_9_0_ahora_multiling%C3%BCe_y_mejor\",\"authors\":[{\"name\":\"Ma\xEBlle
+        Salmon\",\"url\":\"https://orcid.org/0000-0002-2815-0399\"},{\"name\":\"Noam
+        Ross\"}],\"blog_name\":\"rOpenSci - herramientas abiertas para una ciencia
+        abierta\",\"blog_slug\":\"ropensci_es\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"Las
+        orientaciones de la Revisi\xF3n por Pares de Software de rOpenSci se\\ncompilan
+        en un [libro en l\xEDnea](https://devguide.ropensci.org/booknews)\\nque sigue
+        mejorando.Esta articulo de blog resume las novedades de\\nnuestra Gu\xEDa
+        de Desarrollo 0.9.0, con todos los cambios enumerados en la\\nsecci\xF3n [registro
+        de\\ncambios](https://devguide.ropensci.org/booknews.html).\\n\\n## \xA1Ahora
+        disponible en espa\xF1ol!\\n\\nNuestra gu\xEDa es ahora biling\xFCe (ingl\xE9s
+        y\\n[espa\xF1ol](https://devguide.ropensci.org/es/index.es.html)), gracias
+        al\\ntrabajo de [Yanina Bellini Saibene](/author/yanina-bellini-saibene/),\\n[Elio
+        Campitelli](/author/elio-campitelli/) y [Pao\\nCorrales](/author/pao-corrales/)
+        y gracias a [el apoyo de la Iniciativa\\nChan Zuckerberg, NumFOCUS y el Consorcio\\nR](/blog/2023/01/12/multilingual-publishing-en/).[Lee
+        la gu\xEDa en\\ningl\xE9s](https://devguide.ropensci.org/es/index.es.html).\\n\\nPuedes
+        obtener m\xE1s informaci\xF3n sobre nuestro proyecto de publicaci\xF3n\\nmultiling\xFCe
+        en los recursos y video de una [reuni\xF3n de la\\ncomunidad](/commcalls/nov2023-multilenguaje/)
+        reciente.Entre las\\nherramientas \xFAtiles producidas por el proyecto se
+        incluyen la [gu\xEDa de\\ntraducci\xF3n](https://translationguide.ropensci.org/es/index.es.html)
+        el\\n[paquete babelquarto](https://docs.ropensci.org/babelquarto/) para\\nconstruir
+        libros o sitios web Quarto multiling\xFCes, y el [paquete\\nbabeldown](https://docs.ropensci.org/babeldown/)
+        para crear y actualizar\\ntraducciones utilizando la API de DeepL.\\n\\nAhora
+        nuestra gu\xEDa tambi\xE9n se traduce a\\n[portugu\xE9s](https://ropensci.org/blog/2023/10/20/news-october-2023/#help-us-translate-our-dev-guide-to-portuguese)\\ngracias
+        al esfuerzo de personas voluntarias de nuestra\\ncomunidad.\xA1Estamos muy
+        agradecidos por su trabajo!\\n\\n## Actualizaciones de reglas\\n\\nHemos actualizado
+        la secci\xF3n [Objetivos y \xE1mbito de\\naplicaci\xF3n](https://devguide.ropensci.org/es/softwarereview_policies.es#package-categories)\\npara
+        incluir los paquetes de traducci\xF3n, eliminar las categor\xEDas\\nexperimentales
+        de tratamiento de textos y proporcionar aclaraciones\\nsobre paquetes que
+        consumen APIs.\\n\\nEn nuestra [gu\xEDa para personas que desarrollan\\npaquetes](https://devguide.ropensci.org/es/softwarereview_author.es)\\nahora
+        nos referimos correctamente a la etapa del ciclo de vida \\\"Estable\\\"\\ncomo
+        aquella en la que se puede enviar un paquete, gracias a una\\ncontribuci\xF3n
+        del usuario de GitHub [bart1](https://github.com/bart1).\\n\\n## Hoja de trucos
+        para las personas que mantienen paquetes de rOpenSci\\n\\nHemos creado una
+        Hoja de trucos para las [personas que mantienen\\npaquetes de\\nrOpenSci](https://devguide.ropensci.org/es/maintenance_cheatsheet.es)\\nsobre
+        c\xF3mo pedir ayuda sobre distintos temas.\\n\\n## Mejoras en la gu\xEDa de
+        desarrollo de paquetes\\n\\nEl cap\xEDtulo de la gu\xEDa de desarrollo de
+        paquetes ha recibido varias\\nmejoras.\\n\\nHemos actualizado los [consejos
+        sobre\\nroxygen2](https://devguide.ropensci.org/es/pkg_building.es#roxygen-2-use)\\nenlazando
+        principalmente con el sitio web de\\n[roxygen2](https://roxygen2.r-lib.org/).Los
+        consejos tambi\xE9n incluyen\\nuna explicaci\xF3n de c\xF3mo documentar un
+        argumento por defecto, gracias a\\n[Hugo Gruson](https://github.com/bisaloo).Tambi\xE9n
+        hemos mejorado nuestra\\nredacci\xF3n para hacer hincapi\xE9 en que el uso
+        de roxygen2 sigue implicando\\nesfuerzos manuales (gracias a [Vincent van\\nHees](https://github.com/vincentvanhees)).\\n\\nHemos
+        a\xF1adido [consejos para paquetes que consumen APIs\\nweb](https://devguide.ropensci.org/es/pkg_building.es#paquetes-que-envuelven-recursos-web-clientes-api)\\nbasados
+        en la entrada del blog [\\\"Por qu\xE9 deber\xEDas (o no deber\xEDas)\\nconstruir
+        un cliente\\nAPI\\\"](/blog/2022/06/16/publicize-api-client-yes-no/).\\n\\nNuestras
+        instrucciones sobre [Ficheros de\\nCITA](https://devguide.ropensci.org/es/pkg_building.es#citation-file)\\nreflejan
+        ahora las nuevas pol\xEDticas de CRAN.\\n\\nNuestra [lista de paquetes de
+        ayuda a las\\npruebas](https://devguide.ropensci.org/es/pkg_building.es#testing)\\nincluye
+        ahora shinytest2, que prevemos que acabar\xE1 sustituyendo a\\nshinytest.\\n\\n##
+        Mejoras en la gu\xEDa de GitHub y CI\\n\\nNuestro cap\xEDtulo sobre colaboraci\xF3n
+        incluye m\xE1s enlaces a [recursos\\nsobre, por ejemplo, revisiones de PR
+        y flujos de trabajo\\nGit](https://devguide.ropensci.org/es/maintenance_collaboration.es#git-workflow)\\ngracias
+        a [Mauro Lepore](https://github.com/maurolepore).Ese mismo\\ncap\xEDtulo menciona
+        ahora [Discusiones en\\nGitHub](https://devguide.ropensci.org/es/maintenance_collaboration.es#communication-with-users)\\ncomo
+        forma de comunicarse las personas que usan el paquete y m\xE1s\\ndetalles
+        sobre [plantillas de\\n*issues*](https://devguide.ropensci.org/es/maintenance_collaboration.es#issue-templates).\\n\\n[Edward
+        Wallace](https://github.com/ewallace) a\xF1adi\xF3 una explicaci\xF3n de\\n[la
+        integraci\xF3n continua (CI) en\\ngeneral](https://devguide.ropensci.org/es/pkg_ci.es#what-is-continuous-integration-ci)\\ny
+        de la [codecov en\\nparticular](https://devguide.ropensci.org/es/pkg_ci.es#coverage)
+        a\\nnuestra gu\xEDa CI.\\n\\n## Mejor documentaci\xF3n del proceso\\n\\nAhora
+        destacamos los valores de nuestro sistema y el tono que nos\\nesforzamos por
+        conseguir en m\xE1s lugares: en la parte superior de la gu\xEDa\\npara quienes
+        revisan, en la plantilla para las solicitudes de revisi\xF3n y\\nen el mensaje
+        que nuestro bot publica despu\xE9s de que quienes editan\\n[asignan las personas
+        que\\nrevisaran](https://github.com/ropensci-org/buffy/pull/77/files).\\n\\n>
+        **La comunidad de rOpenSci es nuestro mejor activo.Nuestro objetivo es\\n>
+        que las revisiones sean abiertas, no conflictivas y centradas en\\n> mejorar
+        la calidad del software.\xA1S\xE9 amable!Consulta nuestra gu\xEDa de\\n> revisi\xF3n
+        y el [c\xF3digo de\\n> conducta](https://ropensci.org/code-of-conduct/) para
+        m\xE1s\\n> informaci\xF3n.**\\n\\n[Alexander Fischer](https://github.com/s3alfisc/)
+        a\xF1adido una\\nexplicaci\xF3n sobre el env\xEDo de paquetes a trav\xE9s
+        de ramas no\\npredeterminadas a la p\xE1gina [gu\xEDa para autores y\\nautoras](https://devguide.ropensci.org/es/softwarereview_author.es)
+        y a\\nla [gu\xEDa para las personas que\\nrevisan](https://devguide.ropensci.org/es/softwarereview_reviewer.es#general-guidelines).\\n\\nNuestra
+        gu\xEDa para revisar explica ahora claramente c\xF3mo [puedes\\nofrecerse
+        voluntariamente para revisar, en general y para una\\npresentaci\xF3n\\nconcreta](https://devguide.ropensci.org/es/softwarereview_reviewer.es#volunteering-as-a-reviewer).\\n\\n##
+        Conclusi\xF3n\\n\\nEn este articulo hemos resumido los cambios incorporados
+        a nuestro libro\\n[\\\"Paquetes rOpenSci: Desarrollo, mantenimiento y revisi\xF3n
+        por\\npares\\\"](https://devguide.ropensci.org/es) en los \xFAltimos\\nmeses.Agradecemos
+        todas las contribuciones que han dado forma a esta\\npublicaci\xF3n.Ya estamos
+        trabajando en la pr\xF3xima versi\xF3n, que incluir\xE1\\nuna traducci\xF3n
+        al portugu\xE9s gracias al esfuerzo y trabajo voluntario de\\npersonas de
+        nuestra comunidad.\\n\",\"doi\":\"https://doi.org/10.59350/sce7g-vhp14\",\"guid\":\"https://ropensci.org/es/blog/2024/03/11/r_open_sci_dev_guide_0_9_0_ahora_multiling%C3%BCe_y_mejor/\",\"id\":\"6ee77c0c-1861-44b6-8266-4f96694e26a7\",\"language\":\"es\",\"published_at\":1710115200,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Las
+        orientaciones de la Revisi\xF3n por Pares de Software de rOpenSci se compilan
+        en un libro en l\xEDnea que sigue mejorando.Esta articulo de blog resume las
+        novedades de nuestra Gu\xEDa de Desarrollo 0.9.0, con todos los cambios enumerados
+        en la secci\xF3n registro de cambios. \xA1Ahora disponible en espa\xF1ol!\",\"tags\":[\"Software
+        Peer Review\",\"Dev Guide\",\"Multilingual\"],\"title\":\"rOpenSci Dev Guide
+        0.9.0: \xA1Ahora multiling\xFCe! Y mejor\",\"updated_at\":1710141957,\"url\":\"https://ropensci.org/es/blog/2024/03/11/r_open_sci_dev_guide_0_9_0_ahora_multiling%C3%BCe_y_mejor\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Coss\xEDo
+        Olavide, Mario\",\"url\":\"https://orcid.org/0000-0002-1447-3891\"}],\"blog_name\":\"Lucidarios\",\"blog_slug\":\"lucidarios\",\"category\":\"languagesAndLiterature\",\"content_text\":\"En
+        la \xFAltima entrada sobre *collatio* habl\xE9 del potencial de la edici\xF3n\\nasistida
+        por ordenadores. Entonces citaba las descripciones de flujos\\neditoriales
+        anal\xF3gicos llevadas por editores de textos medievales en el\\nsiglo pasado
+        (Blecua, Fradejas Rueda y P\xE9rez Priego). Este trabajo, que\\ninvolucra
+        copiar el texto base y comparar los *loci critici* de los\\ntestimonios para
+        identificar adiciones, eliminaciones y modernizaciones\\nrelevantes, puede
+        ser algo ca\xF3tico y desbordar la mente del editor. Como\\nejemplo, aqu\xED
+        tenemos uno de los folios de la colaci\xF3n del Vegecio\\ncastellano hecha
+        por Fradejas Rueda (la entrada relevante donde explica\\nel proceso puede
+        consultarse\\n[aqu\xED](https://ecdotica.hypotheses.org/426){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://ecdotica.hypotheses.org/426\\\"\\ntarget=\\\"_blank\\\"}):\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-full is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/02/hoja-collatio.jpg\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/02/hoja-collatio.jpg\\\"\\nclass=\\\"wp-image-5041\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\" width=\\\"424\\\"\\nheight=\\\"300\\\"
+        /></a>\\n</figure>\\n:::\\n\\nEl editor tiene que recurrir a muchos trucos,
+        incluyendo bol\xEDgrafos de\\ncolores diferentes, grandes m\xE1rgenes para
+        a\xF1adir las variantes recogidas\\nen los dem\xE1s manuscritos, e incluso
+        un *post-it* para a\xF1adir informaci\xF3n\\nque no es relevante para fijar
+        el texto pero que puede serlo para la\\ndescripci\xF3n de los testimonios.\\n\\nEsta
+        fue la metodolog\xEDa que me recomend\xF3 el mismo Fradejas Rueda para\\nagilizar
+        mi edici\xF3n del *Lucidario*, basada en su experiencia con el\\nVegecio,
+        porque los aplicativos de colaci\xF3n digital disponibles eran\\nextremadamente
+        complejos y en todos los casos hab\xEDan ca\xEDdo en la temida\\ncategor\xEDa
+        de *`abandonware`*: sus desarrolladores hab\xEDan dejado de\\nsoportarlos
+        y, m\xE1s importante, actualizarlos. En esta categor\xEDa entran\\n[Juxta](https://code.google.com/archive/p/juxta/){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://code.google.com/archive/p/juxta/\\\"\\ntarget=\\\"_blank\\\"},
+        un programa de edici\xF3n virtual que permite colacionar\\ntextos en Windows.
+        Juxta permite comparar los textos testimonio a\\ntestimonio, resaltando los
+        textos que difieren en verde, o crear un\\n*`heatmap`* (mapa de calor) que
+        resalta los pasajes donde los dem\xE1s\\ntestimonios se alejan del testimonio
+        base, como vemos en estas im\xE1genes\\nde un ejercicio realizado con el pr\xF3logo
+        del *Lucidario*:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/02/Figura-1.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/02/Figura-1-500x316.png\\\"\\nclass=\\\"wp-image-5044\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/02/Figura-1-500x316.png
+        500w, https://lucidarios.hypotheses.org/files/2024/02/Figura-1-300x189.png
+        300w, https://lucidarios.hypotheses.org/files/2024/02/Figura-1-768x485.png
+        768w, https://lucidarios.hypotheses.org/files/2024/02/Figura-1-1536x970.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/02/Figura-1-2048x1293.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"316\\\" /></a>\\n<figcaption>Comparaci\xF3n de dos testiminios
+        en <em>Juxta</em>\\n(virtualizador de Windows 11 en MacOS)</figcaption>\\n</figure>\\n:::\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/02/Figura-2.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/02/Figura-2-500x315.png\\\"\\nclass=\\\"wp-image-5047\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/02/Figura-2-500x315.png
+        500w, https://lucidarios.hypotheses.org/files/2024/02/Figura-2-300x189.png
+        300w, https://lucidarios.hypotheses.org/files/2024/02/Figura-2-768x484.png
+        768w, https://lucidarios.hypotheses.org/files/2024/02/Figura-2-1536x968.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/02/Figura-2-2048x1290.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"315\\\" /></a>\\n<figcaption><em>Heatmap</em> en <em>Juxta</em></figcaption>\\n</figure>\\n:::\\n\\nUn
+        problema de este aplicativo es que no tiene una herramienta para\\nmarcar
+        (y descartar) las variantes de gr\xE1ficas y lengua de una palabra\\n(lema),
+        variaciones sobre las mismas lecturas que son extremadamente\\nhabituales
+        a lo largo de la transmisi\xF3n manuscrita de un texto medieval,\\nque ver\xE1
+        distintos copistas trabajando con la misma lengua en distintos\\nestadios
+        hist\xF3ricos: *beber*, *veber*, *bever*; *que la*, *que lla*;\\n*fase*, *faze*,
+        *fa\xE7e*. Esto, junto a la representaci\xF3n aglutinada de\\ntoda la informaci\xF3n,
+        hace cualquier flujo de edici\xF3n en Juxta\\nextremadamente lento y susceptible
+        a errores.\\n\\nOtra opci\xF3n disponible es\\n*[CollateX](https://collatex.net/){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://collatex.net/\\\"
+        target=\\\"_blank\\\"}*, un\\nprograma que a\xFAn es usado hoy para colacionar
+        textos medievales en el\\nmundo hisp\xE1nico: lo usan el proyecto *7PartidasDigital*
+        y el de la\\nedici\xF3n del *Fuero Juzgo* liderada por M\xF3nica Castillo
+        Lluch en la\\nUniversit\xE9 de Lausanne. El problema de *CollateX* es que
+        es un\\naplicativo que requiere un conocimiento de programaci\xF3n relativamente\\nalto,
+        porque los comandos para el programa no se introducen en una\\ninterfaz visual,
+        sino en una terminal de comandos. *CollateX* puede\\nfuncionar sobre Java,
+        pero lo habitual es usar Python, lo que implica\\nsaber codificar en este
+        idioma inform\xE1tico, como en este ejemplo:\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/02/Figura-3.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/02/Figura-3-500x206.png\\\"\\nclass=\\\"wp-image-5052\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/02/Figura-3-500x206.png
+        500w, https://lucidarios.hypotheses.org/files/2024/02/Figura-3-300x124.png
+        300w, https://lucidarios.hypotheses.org/files/2024/02/Figura-3-768x317.png
+        768w, https://lucidarios.hypotheses.org/files/2024/02/Figura-3-1536x634.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/02/Figura-3-2048x845.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"206\\\" /></a>\\n<figcaption>Script de colaci\xF3n de CollateX
+        en Python (adaptado del\\nscript desarrollado por JM Fradejas para\\n<em>7PartidasDigital</em>)</figcaption>\\n</figure>\\n:::\\n\\nQue
+        tendr\xE1 el siguiente resultado visual, una representaci\xF3n linear del\\nflujo
+        del texto, con las lecturas divergiendo cuando los testimonios se\\nalejan
+        entre s\xED. La informaci\xF3n tambi\xE9n puede exportarse a una hoja de\\nc\xE1lculo:\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/02/Figura-4.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/02/Figura-4-500x284.png\\\"\\nclass=\\\"wp-image-5054\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/02/Figura-4-500x284.png
+        500w, https://lucidarios.hypotheses.org/files/2024/02/Figura-4-300x170.png
+        300w, https://lucidarios.hypotheses.org/files/2024/02/Figura-4-768x436.png
+        768w, https://lucidarios.hypotheses.org/files/2024/02/Figura-4-1536x871.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/02/Figura-4-2048x1162.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"284\\\" /></a>\\n</figure>\\n:::\\n\\nCollateX es un aplicativo
+        mucho m\xE1s \xFAtil que Juxta, pues permite\\nidentificar variantes gr\xE1ficas
+        o de lengua, e incluso identificar\\npasajes de texto interpuesto (v\xE9ase
+        una descripci\xF3n m\xE1s larga en\\nFradejas Rueda, 2022). Pero volvemos
+        al inicio: la complejidad de los\\nscripts hace necesario que el fil\xF3logo
+        se vuelva medio inform\xE1tico para\\nusar el software y esto derrota el prop\xF3sito
+        de usar una m\xE1quina.\\n\\nPuesto de otro modo: si uno compra una Thermomix
+        es porque quiere que la\\nm\xE1quina haga una tarea repetitiva por uno y participar
+        solo en los\\npuntos cruciales del proceso, donde la intervenci\xF3n humana
+        es necesaria.\\nSi la m\xE1quina que uno compra requiere para usarla un grado
+        en\\ningenier\xEDa, pues vamos mal. Lo mismo ocurre con estos aplicativos
+        de\\ncolaci\xF3n automatizada que dependen del conocimiento de programaci\xF3n:\\ndemandan
+        al usuario un conocimiento inform\xE1tico demasiado avanzado, una\\n*expertise*
+        que los convierte en objetos que solo pocos podr\xE1n utilizar\\n(y lo que
+        es peor, hace que los resultados de estos procesos editoriales\\npuedan ser
+        replicados solo por aquellos que manejan diestramente los\\naplicativos).
+        \xBFQu\xE9 hacer ante estas perspectivas?\\n\\nPues en la [pr\xF3xima\\nentrada](https://lucidarios.hypotheses.org/5036){data-type=\\\"URL\\\"\\ndata-id=\\\"https://lucidarios.hypotheses.org/5036\\\"
+        target=\\\"_blank\\\"\\nrel=\\\"noreferrer noopener\\\"} hablar\xE9 de un
+        *l\xE1piz*, una soluci\xF3n\\n*low-tech*.\\n\\n------------------------------------------------------------------------\\n\\nObras
+        citadas\\n\\nFradejas Rueda, Jos\xE9 Manuel. \\\"De editor anal\xF3gico a
+        editor digital\\\".\\n*Historias fingidas*, vol. 1, 2022, 39-65,\\n<https://doi.org/10.13136/2284-2667/1108>.\\n\\n------------------------------------------------------------------------\\n\\nImagen
+        de miniatura: fragmento de grafo de *CollateX*,  \\ncolaci\xF3n del pr\xF3logo
+        del Lucidario\\n\",\"guid\":\"https://lucidarios.hypotheses.org/?p=5036\",\"id\":\"f36907d9-5340-4af2-aff7-13dcab80e840\",\"image\":\"https://lucidarios.hypotheses.org/files/2024/02/Capture-de\u0301cran-2024-02-28-a\u0300-14.15.08.png\",\"language\":\"es\",\"published_at\":1709135700,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"En
+        la \xFAltima entrada sobre\\n<em>\\n collatio\\n</em>\\nhabl\xE9 del potencial
+        de la edici\xF3n asistida por ordenadores.\",\"tags\":[\"Entradas\",\"CollateX\",\"Collatio\",\"Constitutio
+        Textus\",\"Edici\xF3n Cr\xEDtica\"],\"title\":\"Herramientas de <em>collatio</em>
+        digital: <em>Juxta</em> y <em>CollateX</em>\",\"updated_at\":1710348681,\"url\":\"https://lucidarios.hypotheses.org/5036\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Coss\xEDo
+        Olavide, Mario\",\"url\":\"https://orcid.org/0000-0002-1447-3891\"}],\"blog_name\":\"Lucidarios\",\"blog_slug\":\"lucidarios\",\"category\":\"languagesAndLiterature\",\"content_text\":\"Siguiendo
+        con las entradas dedicadas a la [tipolog\xEDa de errores de\\ncopia](https://lucidarios.hypotheses.org/?s=error){data-type=\\\"URL\\\"\\ndata-id=\\\"https://lucidarios.hypotheses.org/?s=error\\\"
+        target=\\\"_blank\\\"\\nrel=\\\"noreferrer noopener\\\"} de textos manuscritos,
+        en esta entrada quiero\\nexaminar el caso concreto de uno de los testimonios
+        del *Lucidario*, B.\\nEste es el \xFAltimo testimonio de la transmisi\xF3n
+        manuscrita del\\n*Lucidario* en ser transcrito (y adem\xE1s, el quinto y final
+        en ser\\ntranscrito autom\xE1ticamente con Transkribus).\\n\\nSe trata de
+        un testimonio malo, lleno de saltos, omisiones, reemplazos y\\nfuertemente
+        marcado por el dialecto leon\xE9s (espec\xEDficamente, la *fabla\\nsalmantina*),
+        con lo que es uno de los peores en todo el *stemma* del\\n*Lucidario* (y,
+        a pesar de esto, es uno de los m\xE1s completos desde el\\npunto de vista
+        de su estructura). Por eso, quiero repasar algunos de sus\\nerrores.\\n\\nEl
+        error m\xE1s habitual en este testimonio es la omisi\xF3n. No hay folio que\\nno
+        contenga al menos uno o dos saltos por *homoioteleuton*. Aqu\xED\\nencontramos
+        un salto de igual a igual corregido por el copista:\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a href=\\\"https://lucidarios.hypotheses.org/files/2024/02/9vb.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/02/9vb-500x175.png\\\"\\nclass=\\\"wp-image-4765\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/02/9vb-500x175.png
+        500w, https://lucidarios.hypotheses.org/files/2024/02/9vb-300x105.png 300w,
+        https://lucidarios.hypotheses.org/files/2024/02/9vb-768x269.png 768w, https://lucidarios.hypotheses.org/files/2024/02/9vb-1536x539.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/02/9vb-2048x718.png 2048w\\\"\\nsizes=\\\"(max-width:
+        500px) 100vw, 500px\\\" width=\\\"500\\\" height=\\\"175\\\" /></a>\\n<figcaption>Fol.
+        9vb</figcaption>\\n</figure>\\n:::\\n\\n`tra la rredondeza de la t<ie>rra
+        % `**`E`**  \\n**`(^esta son)`**` q<u><<a>>ndo vje<n> aq<ue>l abaxamje-`  \\n`nto
+        la sonbra q<ue> se leua<n>ta dela t<ie>rra`  \\n`% `**`E esta sonbra`**` se
+        pone entrel`\\n\\nEl error fue causado porque en el ant\xEDgrafo dos l\xEDneas
+        consecutivas\\ncomienzan con la conjunci\xF3n *e*: *E quando vien aquel* y
+        *E esta\\nsonbra*. Tras escribir la primera conjunci\xF3n, el copista volvi\xF3
+        el\\nrostro a su modelo, perdi\xF3 la pauta de d\xF3nde iba y copi\xF3 el
+        texto de la\\nsiguiente l\xEDnea.\\n\\nLuego est\xE1n los errores por adici\xF3n,
+        que a menudo ocurren por atracci\xF3n\\nde fonemas, como en los siguientes
+        casos:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a
+        href=\\\"https://lucidarios.hypotheses.org/files/2024/02/3ra.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/02/3ra-500x337.png\\\"\\nclass=\\\"wp-image-4770\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/02/3ra-500x337.png
+        500w, https://lucidarios.hypotheses.org/files/2024/02/3ra-300x202.png 300w,
+        https://lucidarios.hypotheses.org/files/2024/02/3ra.png 558w\\\"\\nsizes=\\\"(max-width:
+        500px) 100vw, 500px\\\" width=\\\"500\\\" height=\\\"337\\\" /></a>\\n<figcaption>Fol.
+        3ra</figcaption>\\n</figure>\\n:::\\n\\n*`g<u><<a>>r`**`a`**`dar`*` (> `*`guardar`*`)`\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a href=\\\"https://lucidarios.hypotheses.org/files/2024/02/4vb.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/02/4vb-500x221.png\\\"\\nclass=\\\"wp-image-4773\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/02/4vb-500x221.png
+        500w, https://lucidarios.hypotheses.org/files/2024/02/4vb-300x133.png 300w,
+        https://lucidarios.hypotheses.org/files/2024/02/4vb-768x339.png 768w, https://lucidarios.hypotheses.org/files/2024/02/4vb.png
+        996w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"221\\\" /></a>\\n<figcaption>Fol. 4vb</figcaption>\\n</figure>\\n:::\\n\\n*`go`**`r`**`ue<r>nar`*`
+        (> `*`governar`*`)`\\n\\nEstos ocurren m\xE1s a menudo a nivel de palabras
+        o frases. Su explicaci\xF3n\\nes similar a los saltos de igual a igual. Avanzada
+        la pericopa, el\\ncopista encuentra una palabra que hab\xEDa copiado antes.
+        Confundido,\\nretrocede en su trabajo y comienza a copiar de nuevo. En el
+        siguiente\\nejemplo, el error es detonado por la repetici\xF3n de *oye*:\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a href=\\\"https://lucidarios.hypotheses.org/files/2024/02/18vb.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/02/18vb-500x183.png\\\"\\nclass=\\\"wp-image-4778\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/02/18vb-500x183.png
+        500w, https://lucidarios.hypotheses.org/files/2024/02/18vb-300x110.png 300w,
+        https://lucidarios.hypotheses.org/files/2024/02/18vb-768x282.png 768w, https://lucidarios.hypotheses.org/files/2024/02/18vb-1536x563.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/02/18vb-2048x751.png 2048w\\\"\\nsizes=\\\"(max-width:
+        500px) 100vw, 500px\\\" width=\\\"500\\\" height=\\\"183\\\" /></a>\\n<figcaption>Fol.
+        18vb</figcaption>\\n</figure>\\n:::\\n\\n`en ot<r><<a>> p<ar>te de allj onde
+        el oy<e> `**`el rruy-`**  \\n**`do ca no<n> es el su oyr`**` p<ar>a estramar
+        lo q<ue>`  \\n`oye `**`(el rruydo % ca no<n> es el su oyr)`**` sal-`  \\n`uo
+        por fuyr & yr se de aq<ue>llo q<ue> oye ca`  \\n`esto es lo q<ue> el a ende
+        mester & no<n>`\\n\\nEl tercer error m\xE1s com\xFAn son los errores por sustituci\xF3n.
+        Ocurren a\\nnivel fon\xE9mico, especialmente por atracci\xF3n de palabras
+        cercanas, como\\nen este caso, donde la aparici\xF3n de *llegue* m\xE1s adelante
+        en la pericopa\\norigina *llubir* por *subir*:\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a href=\\\"https://lucidarios.hypotheses.org/files/2024/02/6rb.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/02/6rb-500x126.png\\\"\\nclass=\\\"wp-image-4780\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/02/6rb-500x126.png
+        500w, https://lucidarios.hypotheses.org/files/2024/02/6rb-300x76.png 300w,
+        https://lucidarios.hypotheses.org/files/2024/02/6rb-768x194.png 768w, https://lucidarios.hypotheses.org/files/2024/02/6rb-1536x388.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/02/6rb.png 1926w\\\"\\nsizes=\\\"(max-width:
+        500px) 100vw, 500px\\\" width=\\\"500\\\" height=\\\"126\\\" /></a>\\n<figcaption>Fol.
+        6rb</figcaption>\\n</figure>\\n:::\\n\\n`sube el sol q<ue>no<n> faz al sy
+        no<n>`  \\n**`(ll)[s]ubjr`**` fasta q<ue> llegue al lugar`\\n\\nCuando ocurren
+        a nivel de palabras, ocurren por sinonimia, como aqu\xED,\\ndonde *peque\xF1a*
+        reemplaz\xF3 a flaca:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/02/Capture-de\u0301cran-2024-02-14-a\u0300-20.45.23.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/02/Capture-de\u0301cran-2024-02-14-a\u0300-20.45.23-500x116.png\\\"\\nclass=\\\"wp-image-4811\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/02/Capture-de\u0301cran-2024-02-14-a\u0300-20.45.23-500x116.png
+        500w, https://lucidarios.hypotheses.org/files/2024/02/Capture-de\u0301cran-2024-02-14-a\u0300-20.45.23-300x69.png
+        300w, https://lucidarios.hypotheses.org/files/2024/02/Capture-de\u0301cran-2024-02-14-a\u0300-20.45.23-768x178.png
+        768w, https://lucidarios.hypotheses.org/files/2024/02/Capture-de\u0301cran-2024-02-14-a\u0300-20.45.23-1536x356.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/02/Capture-de\u0301cran-2024-02-14-a\u0300-20.45.23.png
+        1892w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"116\\\" /></a>\\n<figcaption>Fol. 11va</figcaption>\\n</figure>\\n:::\\n\\n`om<br>e
+        la mas `**`(^peq<ue>n<n>a) flaca`**` & asy fue`  \\n`esto q<ue> com<m>o q<u><<i>>er
+        q<ue> muy est<r><<a>>nja`\\n\\nO aqu\xED, donde *manos* reemplaz\xF3 a *dedos*
+        (hablando de Tom\xE1s ap\xF3stol y\\nJes\xFAs):\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a href=\\\"https://lucidarios.hypotheses.org/files/2024/02/24va.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/02/24va-500x139.png\\\"\\nclass=\\\"wp-image-4791\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/02/24va-500x139.png
+        500w, https://lucidarios.hypotheses.org/files/2024/02/24va-300x83.png 300w,
+        https://lucidarios.hypotheses.org/files/2024/02/24va-768x214.png 768w, https://lucidarios.hypotheses.org/files/2024/02/24va-1536x427.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/02/24va.png 1892w\\\"\\nsizes=\\\"(max-width:
+        500px) 100vw, 500px\\\" width=\\\"500\\\" height=\\\"139\\\" /></a>\\n<figcaption>Fol.
+        24va</figcaption>\\n</figure>\\n:::\\n\\n`q<ue>ria crer amenos de ver las
+        sus lla-`  \\n`gas & meter las sus `**`(^manos) dedos`**  \\n`por ellas %
+        E depues q<ue>lo ouo fecho`\\n\\nTambi\xE9n ocurren algunos reemplazos por
+        ant\xF3nimos. En el siguiente\\npasaje, aunque el copista lee en su modelo
+        *postremera*, por alg\xFAn\\nmotivo decide escribir *primera*:\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a href=\\\"https://lucidarios.hypotheses.org/files/2024/02/16va.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/02/16va-500x133.png\\\"\\nclass=\\\"wp-image-4795\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/02/16va-500x133.png
+        500w, https://lucidarios.hypotheses.org/files/2024/02/16va-300x80.png 300w,
+        https://lucidarios.hypotheses.org/files/2024/02/16va-768x204.png 768w, https://lucidarios.hypotheses.org/files/2024/02/16va-1536x408.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/02/16va-2048x543.png 2048w\\\"\\nsizes=\\\"(max-width:
+        500px) 100vw, 500px\\\" width=\\\"500\\\" height=\\\"133\\\" /></a>\\n<figcaption>Fol.
+        16va</figcaption>\\n</figure>\\n:::\\n\\n`el pa<n> q<ue> sea cue<r>po u<er>dadero
+        % ca por`  \\n`esta `**`(^p<r><<i>>m<er>a) [^post<r><<e>>m<er>a]`**` crenc'ia
+        se entendie la`  \\n\\nTambi\xE9n son muy comunes las sustituciones de palabras
+        por otras de igual\\ncantidad de grafemas, y con la misma distribuci\xF3n
+        en el texto, como el\\nsiguiente caso:\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a href=\\\"https://lucidarios.hypotheses.org/files/2024/02/98rb.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/02/98rb-500x167.png\\\"\\nclass=\\\"wp-image-4800\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/02/98rb-500x167.png
+        500w, https://lucidarios.hypotheses.org/files/2024/02/98rb-300x100.png 300w,
+        https://lucidarios.hypotheses.org/files/2024/02/98rb-768x257.png 768w, https://lucidarios.hypotheses.org/files/2024/02/98rb-1536x514.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/02/98rb.png 1848w\\\"\\nsizes=\\\"(max-width:
+        500px) 100vw, 500px\\\" width=\\\"500\\\" height=\\\"167\\\" /></a>\\n<figcaption>Fol.
+        98rb</figcaption>\\n</figure>\\n:::\\n\\n`sjlos djent<e>s no<n> fuesen muy
+        rrezjos`  \\n`ca por eso la natu<r><<a>> tuelle los `**`frutos`**  \\n`& dalos
+        rrezjos q<ue>lo mejor podra<n> sofrir`\\n\\nEl problema est\xE1 en que el
+        pasaje no tiene sentido. Los dientes\\ninfantiles no son *frutos* que son
+        remplazados por otros *rezios*, son\\n*fracos* (flacos).\\n\\nFinalmente,
+        est\xE1 el error menos com\xFAn, el de alteraci\xF3n de orden, que en\\nmuchos
+        casos pueden explicarse por cuestiones dialectales (como el uso\\nde la *o*
+        en los verbos en tercera persona del pret\xE9rico: *fizioron*,\\n*oyoron*,
+        etc.). Otros se deben a inversiones, como el siguiente caso:\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a href=\\\"https://lucidarios.hypotheses.org/files/2024/02/7rb.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/02/7rb-500x116.png\\\"\\nclass=\\\"wp-image-4801\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/02/7rb-500x116.png
+        500w, https://lucidarios.hypotheses.org/files/2024/02/7rb-300x70.png 300w,
+        https://lucidarios.hypotheses.org/files/2024/02/7rb-768x179.png 768w, https://lucidarios.hypotheses.org/files/2024/02/7rb-1536x358.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/02/7rb.png 1966w\\\"\\nsizes=\\\"(max-width:
+        500px) 100vw, 500px\\\" width=\\\"500\\\" height=\\\"116\\\" /></a>\\n<figcaption>Fol.
+        7rb</figcaption>\\n</figure>\\n:::\\n\\n`dades q<ue> a en<e>l sol & enla luna`
+        \ \\n**`rrueg(ue)[o]t(o)[e]`**` q<ue> me digas de q<ue>`\\n\\nEs claro que
+        *rruegueto* es una inversi\xF3n de la segunda s\xEDlaba por la\\ntercera:
+        *ue* en lugar de *o*, y al rev\xE9s, con la *u* a\xF1adida para\\nmantener
+        el sonido en el diptongo.\\n\\nEn fin, dejo aqu\xED la entrada y continuar\xE9
+        con la *collatio* en la\\n[pr\xF3xima\\nentrada](https://lucidarios.hypotheses.org/5036){data-type=\\\"URL\\\"\\ndata-id=\\\"https://lucidarios.hypotheses.org/5036\\\"
+        target=\\\"_blank\\\"\\nrel=\\\"noreferrer noopener\\\"}.\\n\\n------------------------------------------------------------------------\\n\\nImagen
+        de miniatura: detalle del fol. 63rb, B\\n\",\"doi\":\"https://doi.org/10.59350/et3za-0pw58\",\"guid\":\"https://lucidarios.hypotheses.org/?p=4760\",\"id\":\"1cde1c1d-7e4b-4e9a-adb5-c16e0fcf4a5a\",\"image\":\"https://lucidarios.hypotheses.org/files/2024/02/Capture-de\u0301cran-2024-02-14-a\u0300-20.47.55.png\",\"language\":\"es\",\"published_at\":1707940177,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Siguiendo
+        con las entradas dedicadas a la tipolog\xEDa de errores de copia de textos
+        manuscritos, en esta entrada quiero examinar el caso concreto de uno de los
+        testimonios del\\n<em>\\n Lucidario\\n</em>\\n, B. Este es el \xFAltimo testimonio
+        de la transmisi\xF3n manuscrita del\\n<em>\\n Lucidario\\n</em>\\nen ser transcrito
+        (y adem\xE1s, el quinto y final en ser transcrito autom\xE1ticamente con Transkribus).
+        \ Se trata de un testimonio malo, lleno de saltos, omisiones, reemplazos\",\"tags\":[\"Entradas\",\"Adici\xF3n\",\"Alteraci\xF3n
+        Del Orden\",\"Copia\",\"Copista\"],\"title\":\"Tipolog\xEDa del error (6):
+        el peor testimonio (parte 1)\",\"updated_at\":1710348726,\"url\":\"https://lucidarios.hypotheses.org/4760\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Coss\xEDo
+        Olavide, Mario\",\"url\":\"https://orcid.org/0000-0002-1447-3891\"}],\"blog_name\":\"Lucidarios\",\"blog_slug\":\"lucidarios\",\"category\":\"languagesAndLiterature\",\"content_text\":\"Termin\xE9
+        la [\xFAltima\\nentrada](https://lucidarios.hypotheses.org/4307){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://lucidarios.hypotheses.org/4307\\\"\\ntarget=\\\"_blank\\\"}
+        describiendo el inusual comportamiento al entrenar dos\\nmodelos de transcripci\xF3n
+        en PyLaia, *7P* y *Lucidario B*:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-13.47.53.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-13.47.53-500x383.png\\\"\\nclass=\\\"wp-image-4598\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-13.47.53-500x383.png
+        500w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-13.47.53-300x230.png
+        300w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-13.47.53-768x589.png
+        768w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-13.47.53.png
+        1380w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"383\\\" /></a>\\n<figcaption>Progresi\xF3n hist\xF3rica de versiones
+        de 7P y Lucidario\\nB</figcaption>\\n</figure>\\n:::\\n\\nCuando las tasas
+        de error en los sets de entrenamiento y de validaci\xF3n\\nde un modelo HTR
+        son demasiado altas, el modelo puede volverse a\\nentrenar ---que no es lo
+        mismo que *re-entrenarlo*, algo que\\ndesaconsejo--- para lograr nuevas iteraciones
+        (versiones) que corrijan\\nel problema. Una tasa elevada significa que las
+        transcripciones hechas\\npor el modelo ser\xE1n poco confiables y requerir\xE1n
+        muchas intervenciones\\ncorrectivas (lo que derrota el prop\xF3sito de la
+        transcripci\xF3n\\nautomatizada).\\n\\nCada nuevo entrenamiento ocurre sobre
+        un texto base ---la transcripci\xF3n\\nde folios considerados *ground truth*---
+        m\xE1s grande que el del\\nentrenamiento anterior: la l\xF3gica es que a mayor
+        cantidad de texto la\\nm\xE1quina ser\xE1 capaz de desarrollar un modelo estad\xEDstico
+        m\xE1s confiable\\nporque tendr\xE1 m\xE1s y m\xE1s variados ejemplos de la
+        escritura que est\xE1\\naprendiendo.\\n\\nAs\xED, en la imagen anterior, del
+        modelo *7P v. 0.1* al *7P v. 0.6* se ha\\npasado de 6736 palabras, distribuidas
+        en 738 l\xEDneas (o 6 bifolios de\\ncuatro columnas) a 29.172 palabras, distribuidas
+        en 3056 l\xEDneas (o 26\\nbifolios de cuatro columnas). En teor\xEDa cada
+        incremento debe lograr que\\nel CER de entrenamiento y el CER de validaci\xF3n
+        disminuyan, reflejando la\\nmayor exactitud del modelo.\\n\\nHace alg\xFAn
+        tiempo hab\xEDa notado que no solo los CER de estos modelos eran\\ndemasiado
+        elevados, sino que en los sucesivos entrenamientos los n\xFAmeros\\nno mejoraban,
+        sino que empeoraban. Por ejemplo, entre *Lucidario B 0.3*\\ny *0.4* hay un
+        incremento del CER de validaci\xF3n de 6.3% a 7.5% (1.2% m\xE1s\\nalto), y
+        en la versi\xF3n 0.5 este llega a 7.8% (1.5% m\xE1s respecto a\\n*0.3*). En
+        *7P v. 0.5* el CER de validaci\xF3n es de 3.61%, pero en *0.6*\\nes 6.2% (2.59%
+        m\xE1s). El CER baja en *1.0* al 4%, pero en *1.1* llega al\\n5.9%. \xBFQu\xE9
+        est\xE1 pasando aqu\xED?\\n\\nMi hip\xF3tesis al escribir la \xFAltima entrada
+        era que PyLaia era una\\nm\xE1quina m\xE1s sensible a los errores de transcripci\xF3n
+        que CITLab+, y que\\nestos errores produc\xEDan un efecto cascada que arruinaba
+        los CER. As\xED que\\ndespu\xE9s de escribir la \xFAltima entrada me puse
+        a revisar meticulosamente\\nlas transcripciones usadas como set de entrenamiento.
+        Me serv\xED de dos\\nherramientas desarrolladas para los corpus textuales
+        del Hispanic\\nSeminary of Medieval Studies, cuyo sistema de transcripci\xF3n\\nsemipaleogr\xE1fica
+        empleo para las transcripciones. Se trata de un revisor\\nde errores en el
+        sistema de marcado (*proofer*) y el HSMS-App, un\\netiquetador morfol\xF3gico
+        y lematizador (que tambi\xE9n detecta errores).\\n\\nEl *proofer* es un programa
+        de 16-bits desarrollado en MS-DOS (que no\\nfunciona en las versiones modernas
+        de Windows y es imposible de correr\\nen una Mac como la que uso). Una soluci\xF3n
+        es usar DOSBox, pero el\\nHSMS-App solo funciona en Windows y quer\xEDa evitar
+        tener que usar un\\nemulador de DOS para el *proofer* y otro de Windows para
+        el HSMS-App. La\\nsoluci\xF3n fue bastante elegante (y nost\xE1lgica): instalar\\n[UTM](https://mac.getutm.app/){rel=\\\"noreferrer
+        noopener\\\" data-type=\\\"URL\\\"\\ndata-id=\\\"https://mac.getutm.app/\\\"
+        target=\\\"_blank\\\"}, un aplicativo para\\nMac que permite crear m\xE1quinas
+        virtuales (con cualquier arquitectura)\\nsobre las que se puede instalar un
+        sistema operativo. Al necesitar\\ncompatibilidad con programas de 16-bits
+        (*proofer*) y 32-bits\\n(HSMS-App), la mejor soluci\xF3n fue el \xFAltimo
+        sistema operativo de\\nMicrosoft compatible ambas arquitecturas, Windows XP:\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.05.47.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.05.47-480x500.png\\\"\\nclass=\\\"wp-image-4602\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.05.47-480x500.png
+        480w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.05.47-288x300.png
+        288w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.05.47-768x800.png
+        768w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.05.47-1475x1536.png
+        1475w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.05.47.png
+        1592w\\\"\\nsizes=\\\"(max-width: 480px) 100vw, 480px\\\" width=\\\"480\\\"
+        height=\\\"500\\\" /></a>\\n<figcaption>Resultado de revisi\xF3n del proofer</figcaption>\\n</figure>\\n:::\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.11.25.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.11.25-500x296.png\\\"\\nclass=\\\"wp-image-4606\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.11.25-500x296.png
+        500w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.11.25-300x177.png
+        300w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.11.25-768x454.png
+        768w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.11.25-1536x908.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.11.25-2048x1211.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"296\\\" /></a>\\n<figcaption>HSMS-App</figcaption>\\n</figure>\\n:::\\n\\nPara
+        corregir el modelo *Lucidario B* di un paso m\xE1s: rele\xED y correg\xED\\nl\xEDnea
+        por l\xEDnea el texto de la transcripci\xF3n base. As\xED me aseguraba de\\nque
+        todos los errores desaparecer\xEDan. Luego volv\xED a entrenar los modelos\\nen
+        Transkribus.\\n\\nLos resultados son *7P v. 1.0* y *v. 1.1* (CER de validaci\xF3n
+        de 4% y\\n5.9%) y *Lucidario B 0.6* y *0.7* (CER de 7.5% y 7.01%). Es decir,
+        un\\nmodelo que tiene un incremento de dos puntos porcentuales y otro que\\ndisminuye
+        casi medio punto porcentual. Decididamente, algo andaba mal (y\\nno eran los
+        peque\xF1os errores de transcripci\xF3n que correg\xED en mi revisi\xF3n\\ncon
+        los aplicativos y la lectura l\xEDnea por l\xEDnea).\\n\\nVolv\xED a Transkribus
+        y comenc\xE9 a prestar atenci\xF3n al lugar en el que\\nocurr\xEDan los errores
+        en los sets de validaci\xF3n. R\xE1pidamente not\xE9 una\\ntendencia, ilustrada
+        en estas im\xE1genes:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.25.42.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.25.42-468x500.png\\\"\\nclass=\\\"wp-image-4607\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.25.42-468x500.png
+        468w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.25.42-281x300.png
+        281w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.25.42-768x820.png
+        768w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.25.42-1439x1536.png
+        1439w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.25.42.png
+        1446w\\\"\\nsizes=\\\"(max-width: 468px) 100vw, 468px\\\" width=\\\"468\\\"
+        height=\\\"500\\\" /></a>\\n<figcaption>Folio de set de entrenamiento, 7P
+        v. 1.0</figcaption>\\n</figure>\\n:::\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.32.58.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.32.58-500x483.png\\\"\\nclass=\\\"wp-image-4608\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.32.58-500x483.png
+        500w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.32.58-300x290.png
+        300w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.32.58-768x742.png
+        768w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.32.58-1536x1484.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-30-a\u0300-14.32.58.png
+        1710w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"483\\\" /></a>\\n<figcaption>Folio 45r, Lucidario B</figcaption>\\n</figure>\\n:::\\n\\nR\xE1pidamente
+        record\xE9 las l\xEDneas fantasma de las que [hab\xEDa\\nadvertido](https://lucidarios.hypotheses.org/1506){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://lucidarios.hypotheses.org/1506\\\"\\ntarget=\\\"_blank\\\"}
+        al inicio de mis entradas sobre Transkribus (y que,\\nnegligentemente, hab\xEDa
+        olvidado revisar). Por alg\xFAn motivo la\\nherramienta de reconocimiento
+        de l\xEDneas de Transkribus ---en la que\\nhab\xEDa confiado excesivamente---
+        no hab\xEDa hecho bien su tarea y los\\nfinales de muchas l\xEDneas en ambos
+        manuscritos se cortaban antes de que\\nel texto terminara, o se proyectaban
+        antes del inicio del texto sobre\\nespacio ocupado por decoraciones e iniciales.\\n\\nEn
+        ambos casos los efectos eran los mismos. Al a\xF1adir texto a la p\xE1gina,\\nconvertirlo
+        en *ground truth* y lanzar un entrenamiento de modelo,\\nTranskribus intentaba
+        encontrar coincidencias entre el texto que le\\nhab\xEDa dado y el contenido
+        visual de las l\xEDneas incompletas o\\ncontaminadas por elementos extra\xF1os.
+        Cuando no pod\xEDa lograr una\\ncorrespondencia exacta, el modelo comenzaba
+        a fallar y los CER se\\ndisparaban.\\n\\nPara probar esta teor\xEDa, volv\xED
+        a entrenar los modelos tras corregir los\\nerrores en las l\xEDneas. El resultado
+        parece confirmar que esto era lo que\\niba mal. *Lucidario B 0.8* ve una disminuci\xF3n
+        de 1.5% en el CER de\\nvalidaci\xF3n respecto a su antecesor y *7P v. 1.2*
+        baja 2.4%.\\n\\n*Lucidario B* mantiene un CER en validaci\xF3n elevado, pero
+        esto ya no se\\ndebe a problemas de transcripci\xF3n o de segmentaci\xF3n
+        del texto, sino a la\\nheterogeneidad del manuscrito. Como se ve en la \xFAltima
+        imagen, la letra\\ny la lengua del copista no es tan regular como una g\xF3tica
+        redonda.\\n\\nTodo var\xEDa: las abreviaturas tienen m\xFAltiples valores
+        lo largo del texto\\npara las mismas palabras (p*ro*/p*r*o, p*ar*tida/pa*r*tida,\\ng*ui*sa/gu*i*sa,
+        g*ua*rdar/g*u*ardar/gu*a*rdar/gua*r*dar), la forma de\\nlas letras cambia
+        de l\xEDnea a l\xEDnea y a veces el mismo trazo puede tener\\ndistintos valores
+        que no dependen del contexto (la *r* final, con el\\ntrazo alargado hacia
+        la izquierda tambi\xE9n puede ser un s\xEDmbolo\\ntironiano). A esto hay que
+        a\xF1adir que el texto tiene usos dialectales\\nleoneses que coexisten con
+        formas m\xE1s est\xE1ndares del castellano medieval\\ncon la misma distribuci\xF3n
+        estad\xEDstica (*fezieron*/*fezioron*,\\n*apostoles/apostolos, angeles*/*angolos*)
+        y lo mismo ocurre con los\\nverbos en tercera persona singular del pret\xE9rito,
+        que pueden aparecer en\\nforma plena *(faze*, *dize*) o en forma apocopada
+        (*faz*, *diz*), con un\\ntrazo en la zeta que parece enga\xF1osamente una
+        lineta para una *e*\\nabreviada. Esta variabilidad hace necesario ampliar
+        el texto base de\\nentrenamiento (reportar\xE9 c\xF3mo va esta experiencia
+        en futuras entradas).\\n\\nBueno, dejo las cosas aqu\xED. En la [pr\xF3xima\\nentrada](https://lucidarios.hypotheses.org/4760){data-type=\\\"URL\\\"\\ndata-id=\\\"https://lucidarios.hypotheses.org/4760\\\"
+        target=\\\"_blank\\\"\\nrel=\\\"noreferrer noopener\\\"} volver\xE9 sobre
+        el tema la *collatio* digital.\\n\\n------------------------------------------------------------------------\\n\\nImagen
+        de miniatura: detalle de los modelos *7P* y *Lucidario B*,  \\nTranskribus
+        Expert Client\\n\",\"doi\":\"https://doi.org/10.59350/djhak-72889\",\"guid\":\"https://lucidarios.hypotheses.org/?p=4593\",\"id\":\"1ccd517d-3ebe-4fff-a930-0b1179b1adb8\",\"image\":\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-31-a\u0300-01.24.01.png\",\"language\":\"es\",\"published_at\":1706662500,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Termin\xE9
+        la \xFAltima entrada describiendo el inusual comportamiento al entrenar dos
+        modelos de transcripci\xF3n en PyLaia,\\n<em>\\n 7P\\n</em>\\ny\\n<em>\\n
+        Lucidario B\\n</em>\\n:  Cuando las tasas de error en los sets de entrenamiento
+        y de validaci\xF3n de un modelo HTR son demasiado altas, el modelo puede volverse
+        a entrenar \u2014que no es lo mismo que\\n<em>\\n re-entrenarlo\\n</em>\\n,
+        algo que desaconsejo\u2014 para lograr nuevas iteraciones (versiones) que
+        corrijan el problema.\",\"tags\":[\"Entradas\",\"Escritura\",\"Humanidades
+        Digitales\",\"Lucidario B\",\"Modelo De Transcripci\xF3n\"],\"title\":\"Usando
+        Transkribus con manuscritos medievales (10): perfeccionando modelos con PyLaia
+        (parte 1)\",\"updated_at\":1710348744,\"url\":\"https://lucidarios.hypotheses.org/4593\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Coss\xEDo
+        Olavide, Mario\",\"url\":\"https://orcid.org/0000-0002-1447-3891\"}],\"blog_name\":\"Lucidarios\",\"blog_slug\":\"lucidarios\",\"category\":\"languagesAndLiterature\",\"content_text\":\"Ha
+        pasado casi un a\xF1o desde mi [\xFAltima\\nentrada](https://lucidarios.hypotheses.org/2255){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://lucidarios.hypotheses.org/2255\\\"\\ntarget=\\\"_blank\\\"}
+        sobre Transkribus y varias cosas han cambiado. Poco\\ndespu\xE9s de la \xFAltima
+        entrada, en marzo de 2023, la mejor y m\xE1s eficiente\\nm\xE1quina de HTR
+        de Transkribus, CITLab+ (de la que hablo en [estas\\nentradas](https://lucidarios.hypotheses.org/?s=CITLab){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://lucidarios.hypotheses.org/?s=CITLab\\\"\\ntarget=\\\"_blank\\\"}),
+        fue retirada por una disputa de propiedad intelectual\\nsobre el c\xF3digo
+        de la m\xE1quina. Con esto queda solo una m\xE1quina para\\nentrenar modelos
+        de transcripci\xF3n de textos,\\n[PyLaia](https://github.com/jpuigcerver/PyLaia){data-type=\\\"URL\\\"\\ndata-id=\\\"https://github.com/jpuigcerver/PyLaia\\\"
+        target=\\\"_blank\\\"\\nrel=\\\"noreferrer noopener\\\"}, toolkit de acceso
+        abierto de *deep learning*\\npara an\xE1lisis de textos manuscritos desarrollado
+        por [Joan\\nPuigcerver](https://github.com/jpuigcerver){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://github.com/jpuigcerver\\\"\\ntarget=\\\"_blank\\\"}
+        y [Carlos\\nMochol\xED](https://github.com/carmocca){rel=\\\"noreferrer noopener\\\"\\ndata-type=\\\"URL\\\"
+        data-id=\\\"https://github.com/carmocca\\\" target=\\\"_blank\\\"},\\nempleado
+        por Transkribus.\\n\\nLa relativamente baja popularidad de PyLaia se debe
+        a que sus modelos de\\nHTR contienen muchos errores y requieren un texto base
+        m\xE1s extenso que\\nlos relativamente cortos de CITLab+.\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.47.25.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.47.25-500x352.png\\\"\\nclass=\\\"wp-image-4308\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.47.25-500x352.png
+        500w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.47.25-300x211.png
+        300w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.47.25-768x540.png
+        768w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.47.25-1536x1080.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.47.25.png
+        1908w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"352\\\" /></a>\\n<figcaption>Modelos CITLab+ y PyLaia, ordenados
+        por longitud de texto\\nbase</figcaption>\\n</figure>\\n:::\\n\\nEsta es una
+        lista de algunos modelos que he entrenado a lo largo de\\nestos dos a\xF1os
+        ordenada por la longitud del texto base (en palabras).\\nR\xE1pidamente queda
+        claro que los modelos con m\xE1s palabras en CITLab+\\ntienen \xEDndices de
+        error m\xE1s bajo que los de PyLaia. Visto de otro modo:\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.49.32.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.49.32-500x136.png\\\"\\nclass=\\\"wp-image-4314\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.49.32-500x136.png
+        500w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.49.32-300x82.png
+        300w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.49.32-768x209.png
+        768w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.49.32-1536x418.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.49.32.png
+        1904w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"136\\\" /></a>\\n<figcaption>Modelos CITLab+, ordenados por longitud
+        de texto\\nbase</figcaption>\\n</figure>\\n:::\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.49.48.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.49.48-500x333.png\\\"\\nclass=\\\"wp-image-4318\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.49.48-500x333.png
+        500w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.49.48-300x200.png
+        300w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.49.48-768x511.png
+        768w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.49.48-1536x1022.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.49.48.png
+        1920w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"333\\\" /></a>\\n<figcaption>Modelos PyLaia, ordenados por longitud
+        de texto\\nbase</figcaption>\\n</figure>\\n:::\\n\\nMientras que un texto
+        de 28.000 palabras en CITLab+ pod\xEDa tener una tasa\\nde error en el set
+        de validaci\xF3n de 2,04%, un texto con 29.000 palabras\\nen PyLaia obtiene
+        una tasa de error del 6,2%. Esta tendencia se mantiene\\nen los rangos altos
+        y bajos: con 4.500 palabras PyLaia tiene 7% de\\nerror, mientras que CITLab+
+        alcanzaba a reducir esta cifra a 3,68%.\\n\\nAlgo interesante ocurre al revisar
+        los datos de entrenamiento. Las\\ncurvas que ilustran el proceso de aprendizaje
+        de los modelos en CITLab+\\nson relativamente estables y la reducci\xF3n de
+        errores durante el\\nentrenamiento es muy marcada despu\xE9s de tres o cuatro
+        ciclos de\\naprendizaje, obteni\xE9ndose un modelo funcional despu\xE9s del
+        d\xE9cimo ciclo,\\ncomo se ve en las siguientes curvas de dos modelos que
+        entr\xE9 el 2022:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.54.31.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.54.31-500x416.png\\\"\\nclass=\\\"wp-image-4323\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.54.31-500x416.png
+        500w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.54.31-300x249.png
+        300w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.54.31-768x638.png
+        768w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.54.31-1536x1277.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.54.31.png
+        1672w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"416\\\" /></a>\\n<figcaption>Curva de aprendizaje en CITLab+, modelo
+        Lucidario\\nG</figcaption>\\n</figure>\\n:::\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.54.40.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.54.40-500x415.png\\\"\\nclass=\\\"wp-image-4325\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.54.40-500x415.png
+        500w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.54.40-300x249.png
+        300w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.54.40-768x638.png
+        768w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.54.40-1536x1275.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-13.54.40.png
+        1674w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"415\\\" /></a>\\n<figcaption>Curva de aprendizaje en CITLab+, modelo
+        Gothic v.\\n1.7</figcaption>\\n</figure>\\n:::\\n\\nMientras tanto, los modelos
+        entrenados en PyLaia tienen un\\ncomportamiento mucho m\xE1s desordenado,
+        como se ve en los siguientes dos\\ngr\xE1ficos:\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.43.54.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.43.54-500x432.png\\\"\\nclass=\\\"wp-image-4340\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.43.54-500x432.png
+        500w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.43.54-300x259.png
+        300w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.43.54-768x664.png
+        768w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.43.54-1536x1328.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.43.54.png
+        1670w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"432\\\" /></a>\\n<figcaption>Curva de aprendizaje en PyLaia, modelo
+        Lucidario A v.\\n0.3</figcaption>\\n</figure>\\n:::\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.44.03.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.44.03-500x427.png\\\"\\nclass=\\\"wp-image-4344\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.44.03-500x427.png
+        500w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.44.03-300x256.png
+        300w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.44.03-768x656.png
+        768w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.44.03-1536x1311.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.44.03.png
+        1696w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"427\\\" /></a>\\n<figcaption>Curva de aprendizaje en PyLaia, modelo
+        Spanish Calila\\nB</figcaption>\\n</figure>\\n:::\\n\\nLo primero a notar
+        es que PyLaia demora mucho m\xE1s en reducir la tasa de\\nerror que CITLab+,
+        pues al llegar a las 20 \xE9pocas (o ciclos), los CER\\nsiguen en valores
+        superiores al 20% (mientras que estaban por debajo del\\n5% en 5 \xE9pocas
+        en CITLab+). Lo segundo que notamos es que las curvas de\\nvalidaci\xF3n tienen
+        inexplicables ciclos de error. A veces el descenso de\\nlos ciclos de entrenamiento
+        es interrumpido por saltos con valores de\\nerror que pueden ser el doble
+        o el triple del \xFAltimo registrado, o\\nincluso llegar al 100% de error.\\n\\nSospecho
+        que esto se debe a que PyLaia es una m\xE1quina m\xE1s sensible a los\\nerrores
+        de transcripci\xF3n en el texto base de entrenamiento que CITLab+.\\nMientras
+        que CITLab+ era capaz de adaptarse a estos errores, parece que\\nPyLaia no
+        es tan maleable y cualquier error de transcripci\xF3n del texto\\nbase encontrado
+        por la m\xE1quina causa un efecto cascada visible durante\\nel entrenamiento.\\n\\nActualmente
+        estoy realizando un ejercicio para confirmar esta hip\xF3tesis\\ncon estos
+        dos modelos, basados, respectivamente, en el manuscrito 43-13\\nde la *Primera
+        Partida* de la Biblioteca Capitular de la Catedral de\\nToledo y el testimonio
+        B del *Lucidario*:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.43.35.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.43.35-500x429.png\\\"\\nclass=\\\"wp-image-4332\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.43.35-500x429.png
+        500w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.43.35-300x258.png
+        300w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.43.35-768x659.png
+        768w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.43.35-1536x1318.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.43.35.png
+        1680w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"429\\\" /></a>\\n<figcaption>Curva de aprendizaje en PyLaia, modelo
+        7P v.\\n0.8</figcaption>\\n</figure>\\n:::\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.43.41.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.43.41-500x432.png\\\"\\nclass=\\\"wp-image-4337\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.43.41-500x432.png
+        500w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.43.41-300x259.png
+        300w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.43.41-768x664.png
+        768w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.43.41-1536x1328.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.43.41.png
+        1670w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"432\\\" /></a>\\n<figcaption>Curva de aprendizaje en PyLaia, modelo
+        Lucidario B v.\\n0.5</figcaption>\\n</figure>\\n:::\\n\\nEstos modelos, que
+        estoy desarrollando desde hace algunos meses, han\\ndemostrado este comportamiento
+        inusual y han tenido muchos ciclos de\\nentrenamiento fallidos donde los CER
+        se disparan sin motivo aparente. El\\nmodelo 7P v. 0.8 tiene un CER en set
+        de entrenamiento de 1,71%, pero en\\nla versi\xF3n 0.9 el CER sube a 1,81%,
+        mientras que el modelo Lucidario B\\n0.4 tiene un CER en validaci\xF3n de
+        7,5% y la versi\xF3n siguiente, que\\ndeber\xEDa ser menor, sube a 7,8%.\\n\\nExplicar\xE9
+        este ejercicio y sus resultados en la pr\xF3xima entrada, pero\\nantes de
+        terminar esta entrega quiero aprovechar para apostillar lo\\ndicho hasta aqu\xED:
+        aunque los problemas que he descrito son algo\\ninc\xF3modos para el usuario
+        de Transkribus, PyLaia sigue siendo una mucho\\nmejor alternativa (en t\xE9rminos
+        de tiempo) que largo proceso de\\ntranscripci\xF3n manual.\\n\\n------------------------------------------------------------------------\\n\\nImagen
+        de miniatura: detalle de curva de aprendizaje  \\nmodelo Lucidario B 0.5\\n\",\"doi\":\"https://doi.org/10.59350/kv5sy-86p30\",\"guid\":\"https://lucidarios.hypotheses.org/?p=4307\",\"id\":\"77830dac-bfdc-4db8-b2c9-97e33666784d\",\"image\":\"https://lucidarios.hypotheses.org/files/2024/01/Capture-de\u0301cran-2024-01-17-a\u0300-14.50.39.png\",\"language\":\"es\",\"published_at\":1705499550,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Ha
+        pasado casi un a\xF1o desde mi \xFAltima entrada sobre Transkribus y varias
+        cosas han cambiado. Poco despu\xE9s de la \xFAltima entrada, en marzo de 2023,
+        la mejor y m\xE1s eficiente m\xE1quina de HTR de Transkribus, CITLab+ (de
+        la que hablo en estas entradas), fue retirada por una disputa de propiedad
+        intelectual sobre el c\xF3digo de la m\xE1quina.\",\"tags\":[\"Entradas\",\"Escritura\",\"Humanidades
+        Digitales\",\"Modelo De Transcripci\xF3n\",\"Reconocimiento De Texto\"],\"title\":\"Usando
+        Transkribus con manuscritos medievales (9): problemas en el para\xEDso digital\",\"updated_at\":1708639646,\"url\":\"https://lucidarios.hypotheses.org/4307\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}}],\"out_of\":15546,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"\"},\"search_cutoff\":false,\"search_time_ms\":13}"
+    headers:
+      Connection:
+      - keep-alive
+      accept-ranges:
+      - none
+      access-control-allow-origin:
+      - '*'
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: OK
 version: 1

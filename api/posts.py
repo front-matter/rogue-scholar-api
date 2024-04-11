@@ -13,7 +13,7 @@ import xmltodict
 import time
 import traceback
 from urllib.parse import unquote
-from commonmeta import validate_doi, normalize_id, validate_url
+from commonmeta import validate_doi, normalize_id, validate_url, validate_prefix
 from Levenshtein import ratio
 
 from api.utils import (
@@ -30,6 +30,7 @@ from api.utils import (
     fix_xml,
     get_markdown,
     write_html,
+    validate_uuid,
     EXCLUDED_TAGS,
 )
 from api.works import get_single_work
@@ -337,6 +338,39 @@ async def update_all_posts_by_blog(slug: str, page: int = 1):
         print(f"{e} error in blog {blog['slug']}.")
         print(traceback.format_exc())
         return []
+
+async def update_single_post(slug: str, suffix: Optional[str] = None):
+    """Update single post"""
+    try:
+        if validate_uuid(slug):
+            response = (
+                supabase.table("posts")
+                .select(postsWithContentSelect)
+                .eq("id", slug)
+                .maybe_single()
+                .execute()
+            )
+        elif validate_prefix(slug) and suffix:
+            doi = f"https://doi.org/{slug}/{suffix}"
+            response = (
+                supabase.table("posts")
+                .select(postsWithContentSelect)
+                .eq("doi", doi)
+                .maybe_single()
+                .execute()
+            )
+        else:
+            return {"error": "An error occured."}, 400
+        blog = response.data.get("blog", None)
+        if not blog:
+            return {"error": "Blog not found."}, 404
+        post = py_.omit(response.data, "blog") 
+        updated_post = await update_rogue_scholar_post(post, blog)
+        response = upsert_single_post(updated_post)
+        return response
+    except Exception:
+        print(traceback.format_exc())
+        return {}
 
 
 async def extract_wordpress_post(post, blog):

@@ -50,7 +50,7 @@ from api.utils import (
     format_relationships,
     translate_titles,
 )
-from api.posts import extract_all_posts, extract_all_posts_by_blog, update_all_posts, update_all_posts_by_blog
+from api.posts import extract_all_posts, extract_all_posts_by_blog, update_all_posts, update_all_posts_by_blog, update_single_post
 from api.blogs import extract_single_blog, extract_all_blogs
 from api.works import SUPPORTED_ACCEPT_HEADERS, get_formatted_work
 from api.schema import Blog, Post, Work, PostQuery
@@ -388,8 +388,21 @@ async def post_posts():
                 )
             return jsonify(extracted_posts)
         except Exception as e:
-            logger.warning(e)  # .args[0])
+            logger.warning(e)
             return {"error": "An error occured."}, 400
+
+@validate_response(Post)
+@app.route("/posts/<slug>", methods=["POST"])
+@app.route("/posts/<slug>/<suffix>", methods=["POST"])
+async def post_post(slug: str, suffix: Optional[str] = None):
+    """Update post by either uuid or doi, using information from the blog's feed."""
+    
+    try:
+        result = await update_single_post(slug, suffix=suffix)
+        return jsonify(result)
+    except Exception as e:
+        logger.warning(e.args[0])
+        return {"error": "An error occured."}, 400
 
 
 @validate_response(Post)
