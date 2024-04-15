@@ -78,6 +78,7 @@ AUTHOR_IDS = {
     "Mike Taylor": "https://orcid.org/0000-0002-1003-5675",
     "Matt Wedel": "https://orcid.org/0000-0001-6082-3103",
     "Henrique Costa": "https://orcid.org/0000-0003-4591-4044",
+    "Bastian Greshake Tzovaras": "https://orcid.org/0000-0002-9925-9623",
 }
 
 AUTHOR_NAMES = {
