@@ -1,7 +1,6 @@
 from typing import Optional
 import httpx
 
-
 # supported accept headers for content negotiation
 SUPPORTED_ACCEPT_HEADERS = [
     "application/vnd.commonmeta+json",

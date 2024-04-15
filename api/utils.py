@@ -23,6 +23,7 @@ from commonmeta import (
 from commonmeta.constants import Commonmeta
 from commonmeta.date_utils import get_date_from_unix_timestamp
 from commonmeta.doi_utils import validate_prefix, get_doi_ra
+from idutils import is_doi
 import frontmatter
 import pandoc
 # from pandoc.types import Str
@@ -1143,3 +1144,15 @@ def translate_titles(markdown):
     markdown["citation-title"] = citation_title.get(lang, "Citation")
     markdown["copyright-title"] = copyright_title.get(lang, "Copyright")
     return markdown
+
+
+def id_as_str(id: str) -> Optional[str]:
+    """Get id as string, strip scheme and doi.org host"""
+    if id is None:
+        return None
+    u = furl(id)
+    if u.host == "doi.org":
+        return str(u.path).lstrip("/")
+    if u.host != "":
+        return u.host + str(u.path)
+    return None

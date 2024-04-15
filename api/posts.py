@@ -13,7 +13,7 @@ import xmltodict
 import time
 import traceback
 from urllib.parse import unquote
-from commonmeta import validate_doi, normalize_id, validate_url, validate_prefix
+from commonmeta import validate_doi, normalize_id, validate_url, validate_prefix, doi_from_url
 from Levenshtein import ratio
 
 from api.utils import (
@@ -31,6 +31,7 @@ from api.utils import (
     get_markdown,
     write_html,
     validate_uuid,
+    id_as_str,
     EXCLUDED_TAGS,
 )
 from api.works import get_single_work
@@ -266,6 +267,8 @@ async def extract_all_posts_by_blog(
                 posts = py_.get(json, "feed.entry", [])
                 if not update_all:
                     posts = filter_updated_posts(posts, blog, key="published")
+                if blog.get("filter", None):
+                    posts = filter_posts(posts, blog, key="category")
                 posts = posts[start_page:end_page]
             extract_posts = [extract_atom_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
@@ -281,7 +284,9 @@ async def extract_all_posts_by_blog(
                 if not update_all:
                     posts = filter_updated_posts(posts, blog, key="pubDate")
                 if blog.get("filter", None):
+                    print(f"Unfiltered posts: {len(posts)}")
                     posts = filter_posts(posts, blog, key="category")
+                    print(f"Filtered posts: {len(posts)}")
                 posts = posts[start_page:end_page]
             extract_posts = [extract_rss_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
@@ -1030,9 +1035,11 @@ async def update_rogue_scholar_post(post, blog):
             ]
         tags = py_.uniq(tags)[:5]
         
-        # upsert post into works table if it has a DOI
+        # upsert post with commonmeta if it has a DOI
         if post.get("doi", None):
-            work = await get_single_work(post.get("doi"))
+            id_ = id_as_str(post.get("doi"))
+            work = await get_single_work(id_)
+            print(work)
 
         return {
             "authors": authors,
@@ -1074,12 +1081,18 @@ def filter_updated_posts(posts, blog, key):
 
 def filter_posts(posts, blog, key):
     """Filter posts if filter is set in blog settings. Used for RSS and Atom feeds."""
-    filters = blog.get("filter", "").split(":")
-    if len(filters) != 2 or filters[0] != key:
-        return posts
-    filters = filters[1].split(",")
-
-    return [x for x in posts if x.get(key, None) in filters]
+    def match_filter(post):
+        """Match filter."""
+        filters = blog.get("filter", "").split(":")
+        if len(filters) != 2 or filters[0] != key:
+            return True
+        filters = filters[1].split(",")
+        if isinstance(post.get(key, None), str):
+            return post.get(key, None) in filters
+        m = set(post.get(key, None)).intersection(filters)
+        return len(m) > 0
+    
+    return [x for x in posts if match_filter(x)]
 
 
 def upsert_single_post(post):
@@ -1242,7 +1255,7 @@ async def format_reference(id_, index):
     """Format reference."""
     id_ = normalize_id(id_)
     if validate_url(id_) in ["DOI", "URL"]:
-        work = await get_single_work(id_)
+        work = await get_single_work(id_as_str(id_))
         if not work:
             return None
         identifier = py_.get(work, "id", None)

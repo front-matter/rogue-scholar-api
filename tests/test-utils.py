@@ -24,6 +24,7 @@ from api.utils import (
     write_html,
     format_markdown,
     is_valid_url,
+    id_as_str,
 )
 
 
@@ -449,6 +450,12 @@ def test_format_html():
     result = write_html(content)
     assert result == "<p>This is a <em>test</em></p>\n"
 
+
+def test_id_as_str():
+    """id as string"""
+    assert "10.5555/1234" == id_as_str("https://doi.org/10.5555/1234")
+    assert "www.gooogle.com/blabla" == id_as_str("https://www.gooogle.com/blabla")
+    
 
 # def test_sanitize_cool_suffix():
 #     "sanitize cool suffix"
