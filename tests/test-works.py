@@ -3,26 +3,7 @@
 import pytest  # noqa: F401
 import pydash as py_  # noqa: F401
 
-from api.works import get_single_work, fetch_single_work
-
-@pytest.fixture(scope="session")
-def vcr_config():
-    """VCR configuration."""
-    return {"filter_headers": ["apikey", "X-TYPESENSE-API-KEY", "authorization"]}
-
-@pytest.mark.vcr
-@pytest.mark.asyncio
-async def test_fetch_single_work_blog_post():
-    """fetch single work blog post"""
-    string = "10.53731/ybhah-9jy85"
-    work = await fetch_single_work(string)
-    assert work["id"] == "https://doi.org/10.53731/ybhah-9jy85"
-    assert work["type"] == "Article"
-    assert (
-        work["url"]
-        == "https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter"
-    )
-    assert work["language"] == "en"
+from api.works import get_single_work
 
 
 @pytest.mark.asyncio
@@ -30,12 +11,14 @@ async def test_get_single_work_blog_post():
     """get single work not found"""
     string = "10.53731/ybhah-9jy85"
     work = await get_single_work(string)
+    print(work)
     assert work["id"] == "https://doi.org/10.53731/ybhah-9jy85"
     assert work["type"] == "Article"
     assert (
         work["url"]
         == "https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter"
     )
+    assert work["language"] == "en"
 
 
 @pytest.mark.asyncio
