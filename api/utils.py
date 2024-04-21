@@ -121,6 +121,7 @@ AUTHOR_NAMES = {
     "Europe PMC team": "Europe PMC Team",
     "yn235": "Yvonne Nobis",
     "eotyrannus": "Darren Naish",
+    "tritonstation": "Stacy McGaugh",
 }
 
 AUTHOR_AFFILIATIONS = {
