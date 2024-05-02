@@ -80,6 +80,7 @@ AUTHOR_IDS = {
     "Matt Wedel": "https://orcid.org/0000-0001-6082-3103",
     "Henrique Costa": "https://orcid.org/0000-0003-4591-4044",
     "Bastian Greshake Tzovaras": "https://orcid.org/0000-0002-9925-9623",
+    "Stacy McGaugh": "https://orcid.org/0000-0002-9762-0980",
 }
 
 AUTHOR_NAMES = {
@@ -535,6 +536,13 @@ AUTHOR_AFFILIATIONS = {
             "name": "Maastricht University",
             "id": "https://ror.org/02jz4aj89",
             "start_date": "2012-01-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-9762-0980": [
+        {
+            "name": "Case Western Reserve University",
+            "id": "https://ror.org/051fd9666",
+            "start_date": "2012-08-25",
         }
     ],
 }
