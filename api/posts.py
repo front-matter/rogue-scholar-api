@@ -1313,8 +1313,7 @@ def get_summary(content_html: str = None, maxlen: int = 450):
         return None
     content_html = re.sub(r"(<br>|<br/>|<p>|</pr>)", " ", content_html)
     content_html = re.sub(r"(h1>|h2>|h3>|h4>)", "strong> ", content_html)
-    # print(content_html)
-    # TODO: remove more content not appropriate for summary
+    
     sanitized = nh3.clean(
         content_html,
         tags={"b", "i", "em", "strong", "sub", "sup"},
@@ -1323,7 +1322,7 @@ def get_summary(content_html: str = None, maxlen: int = 450):
     )
     sanitized = re.sub(r"\n+", " ", sanitized).strip()
     truncated = py_.truncate(sanitized, maxlen, omission="", separator=" ")
-
+    
     # remove incomplete last sentence
     if len(truncated) > 0 and truncated[-1] not in [".", "!", "?", ";"]:
         sentences = re.split(r"(?<=\w{3}[.!?;])\s+", truncated)
@@ -1335,6 +1334,10 @@ def get_summary(content_html: str = None, maxlen: int = 450):
     # make sure html tags are closed and trailing whitespace is removed
     soup = get_soup(truncated)
     string = soup.prettify()
+    
+    # workaround to remove script tag
+    script_tag = """document.addEventListener("DOMContentLoaded", () =&gt; {     // Add skip link to the page     let element = document.getElementById("quarto-header");     let skiplink =       '&lt;a id="skiplink" class="visually-hidden-focusable" href="#quarto-document-content"&gt;Skip to main content&lt;/a&gt;';     element.insertAdjacentHTML("beforebegin", skiplink);   });"""
+    string = string.replace(script_tag, "")
     return string.strip()
 
 
