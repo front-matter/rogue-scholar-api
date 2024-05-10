@@ -1321,6 +1321,11 @@ def get_summary(content_html: str = None, maxlen: int = 450):
         attributes={},
     )
     sanitized = re.sub(r"\n+", " ", sanitized).strip()
+    
+    # workaround to remove script tag
+    script_tag = """document.addEventListener("DOMContentLoaded", () =&gt; {     // Add skip link to the page     let element = document.getElementById("quarto-header");     let skiplink =       '&lt;a id="skiplink" class="visually-hidden-focusable" href="#quarto-document-content"&gt;Skip to main content&lt;/a&gt;';     element.insertAdjacentHTML("beforebegin", skiplink);   });"""
+    sanitized = sanitized.replace(script_tag, "")
+    
     truncated = py_.truncate(sanitized, maxlen, omission="", separator=" ")
     
     # remove incomplete last sentence
@@ -1334,10 +1339,6 @@ def get_summary(content_html: str = None, maxlen: int = 450):
     # make sure html tags are closed and trailing whitespace is removed
     soup = get_soup(truncated)
     string = soup.prettify()
-    
-    # workaround to remove script tag
-    script_tag = """document.addEventListener("DOMContentLoaded", () =&gt; {     // Add skip link to the page     let element = document.getElementById("quarto-header");     let skiplink =       '&lt;a id="skiplink" class="visually-hidden-focusable" href="#quarto-document-content"&gt;Skip to main content&lt;/a&gt;';     element.insertAdjacentHTML("beforebegin", skiplink);   });"""
-    string = string.replace(script_tag, "")
     return string.strip()
 
 
