@@ -567,9 +567,6 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
                 "link": markdown["rights"],
             }
             markdown["date"] = format_datetime(markdown["date"], markdown["lang"])
-            markdown["container"] = markdown["container"][:40] + (
-                markdown["container"][40:] and "..."
-            )
             citation = get_formatted_metadata(meta, "citation", style, locale)
             if citation:
                 markdown["citation"] = citation["data"]

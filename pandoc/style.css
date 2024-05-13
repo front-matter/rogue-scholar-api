@@ -34,21 +34,19 @@
     margin-left: 0.2cm;
     height: 1.2cm;
     vertical-align: middle;
-    width: 30%;
   }
-  @top-right {
+  @bottom-right {
     content: string(heading) " • Page " counter(page);
     font-size: 9pt;
     height: 1.2cm;
     vertical-align: middle;
-    width: 70%;
   }
 }
 @page no-chapter {
   @top-left {
     background: none;
   }
-  @top-right {
+  @bottom-right {
     content: none;
   }
 }
