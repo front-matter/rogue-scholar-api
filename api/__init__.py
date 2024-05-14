@@ -25,6 +25,7 @@ from postgrest import APIError
 
 from api.supabase import (
     supabase_client as supabase,
+    blogsSelect,
     blogWithPostsSelect,
     postsWithContentSelect,
     worksSelect,
@@ -177,47 +178,32 @@ async def blogs():
     Options to change page, per_page and include fields."""
     preview = request.args.get("preview")
     query = request.args.get("query") or ""
-    query_by = (
-        request.args.get("query_by")
-        or "slug,title,description,category,language,generator,prefix,funding"
-    )
     category = request.args.get("category")
     generator = request.args.get("generator")
     language = request.args.get("language")
     page = int(request.args.get("page") or "1")
-    per_page = int(request.args.get("per_page") or "10")
-    # default sort depends on whether a query is provided
-    _text_match = "_text_match" if request.args.get("query") else "updated_at"
-    sort = (
-        f"{request.args.get('sort')}(missing_values: last)"
-        if request.args.get("sort")
-        else _text_match
-    )
+    sort = request.args.get("sort") or "created_at"
     order = request.args.get("order") or "desc"
-    include_fields = request.args.get("include_fields")
+    
+    status = ["approved", "active", "archived"]
+    start_page = page if page and page > 0 else 1
+    start_page = (start_page -1) * 10
+    end_page = start_page + 10
 
-    # filter blogs by status, category, generator, and/or language
-    filter_by = "status:!=[submitted]" if preview else "status:!=[submitted,pending]"
-    filter_by = f"category:>= {category}" if category else filter_by
-    filter_by = filter_by + f" && generator:=[{generator}]" if generator else filter_by
-    filter_by = filter_by + f" && language:=[{language}]" if language else filter_by
-    search_parameters = compact(
-        {
-            "q": query,
-            "query_by": query_by,
-            "filter_by": filter_by,
-            "sort_by": f"{sort}:{order}",
-            "per_page": min(per_page, 50),
-            "page": page if page and page > 0 else 1,
-            "include_fields": include_fields,
-        }
-    )
     try:
-        response = typesense.collections["blogs"].documents.search(search_parameters)
-        return jsonify(py_.omit(response, ["hits.highlight"]))
-    except Exception as e:
-        logger.warning(e.args[0])
-        return {"error": "An error occured."}, 400
+        response = (
+            supabase.table("blogs")
+            .select(blogsSelect, count="exact")
+            .in_("status", status)
+            .ilike("title", f"%{query}%")
+            .limit(10)
+            .order("created_at", desc=True)
+            .range(start_page, end_page)
+            .execute()
+        )
+        return jsonify({"total-results": response.count, "items": response.data})
+    except APIError as e:
+        return {"error": e.message or "An error occured."}, 400
 
 
 @validate_response(Blog)
