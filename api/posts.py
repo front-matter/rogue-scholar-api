@@ -1251,27 +1251,32 @@ async def get_references(content_html: str):
     return formatted_references
 
 
-async def format_reference(id_, index):
+async def format_reference(url, index):
     """Format reference."""
-    id_ = normalize_id(id_)
-    if validate_url(id_) in ["DOI", "URL"]:
+    if validate_url(normalize_id(url)) in ["DOI", "URL"]:
+        id_ = normalize_id(url)
         work = await get_single_work(id_as_str(id_))
-        if not work:
-            return None
-        identifier = py_.get(work, "id", None)
-        title = py_.get(work, "titles.0.title", None)
-        publication_year = py_.get(work, "date.published", None)
+        if work is not None:
+            identifier = py_.get(work, "id", None)
+            title = py_.get(work, "titles.0.title", None)
+            publication_year = py_.get(work, "date.published", None)
+        else:
+            identifier = id_
+            title = None
+            publication_year = None
         return compact(
             {
                 "key": f"ref{index + 1}",
-                "doi": identifier if validate_doi(identifier) else None,
-                "url": identifier if not validate_doi(identifier) else None,
+                "id": identifier,
                 "title": title,
                 "publicationYear": publication_year[:4] if publication_year else None,
             }
         )
     else:
-        return None
+        return ({
+                "key": f"ref{index + 1}",
+                "id": url,
+            })
 
 
 def get_title(content_html: str):
