@@ -1,4 +1,5 @@
 from typing import Optional
+from os import environ
 import httpx
 
 # supported accept headers for content negotiation
@@ -17,7 +18,7 @@ SUPPORTED_ACCEPT_HEADERS = [
 async def get_single_work(string: str) -> Optional[dict]:
     """Get single work from the commonmeta API."""
 
-    url = f"https://commonmeta.org/{string}/transform/application/json"
+    url = f"{environ["QUART_POCKETBASE_URL"]}/{string}/transform/application/json"
     try:
         async with httpx.AsyncClient() as client:
             response = await client.get(url)

@@ -284,9 +284,7 @@ async def extract_all_posts_by_blog(
                 if not update_all:
                     posts = filter_updated_posts(posts, blog, key="pubDate")
                 if blog.get("filter", None):
-                    print(f"Unfiltered posts: {len(posts)}")
                     posts = filter_posts(posts, blog, key="category")
-                    print(f"Filtered posts: {len(posts)}")
                 posts = posts[start_page:end_page]
             extract_posts = [extract_rss_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
@@ -1038,8 +1036,8 @@ async def update_rogue_scholar_post(post, blog):
         # upsert post with commonmeta if it has a DOI
         if post.get("doi", None):
             id_ = id_as_str(post.get("doi"))
-            work = await get_single_work(id_)
-            print(work)
+            await get_single_work(id_)
+
 
         return {
             "authors": authors,
