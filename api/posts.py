@@ -919,6 +919,8 @@ async def extract_rss_post(post, blog):
         )
         if isinstance(author, str):
             authors_ = [{"name": author}]
+        elif isinstance(author, list):
+            authors_ = [{"name": a} for a in author]
         elif isinstance(author, dict):
             authors_ = [author]
         else:
