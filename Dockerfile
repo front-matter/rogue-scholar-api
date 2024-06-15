@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.5
 ARG BUILDPLATFORM=linux/amd64
-FROM --platform=$BUILDPLATFORM python:3.12-bookworm as builder
+FROM --platform=$BUILDPLATFORM python:3.12-bookworm AS builder
 
 # Dockerfile that builds the Rogue Scholar API Docker image. Based on the following:
 # - https://medium.com/@albertazzir/blazing-fast-python-docker-builds-with-poetry-a78a66f5aed0
@@ -11,7 +11,7 @@ FROM --platform=$BUILDPLATFORM python:3.12-bookworm as builder
 # Install OS package dependency: pandoc
 # install poetry to manage Python dependencies
 ENV PANDOC_VERSION=3.1.12.3 \
-    POETRY_VERSION=1.8.2
+    POETRY_VERSION=1.8.3
 
 ADD https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb /tmp/pandoc-${PANDOC_VERSION}-1-amd64.deb
 
@@ -35,7 +35,7 @@ RUN touch README.md
 RUN --mount=type=cache,target=$POETRY_CACHE_DIR poetry install --without dev --no-root --no-interaction --no-ansi
 
 
-FROM --platform=$BUILDPLATFORM python:3.12-slim-bookworm as runtime
+FROM --platform=$BUILDPLATFORM python:3.12-slim-bookworm AS runtime
 
 # Install OS package dependency (for weasyprint): pango
 RUN --mount=type=cache,target=/var/cache/apt apt-get update -y && \

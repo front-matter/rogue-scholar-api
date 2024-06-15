@@ -2,6 +2,11 @@ from typing import Optional
 from os import environ
 import httpx
 
+# from api.supabase import (
+#     supabase_client as supabase,
+#     supabase_admin_client as supabase_admin,
+# )
+
 # supported accept headers for content negotiation
 SUPPORTED_ACCEPT_HEADERS = [
     "application/vnd.commonmeta+json",

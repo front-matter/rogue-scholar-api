@@ -4,6 +4,7 @@ from os import environ
 from typing import Optional
 from furl import furl
 import httpx
+import json as JSON
 import asyncio
 import re
 import pydash as py_
@@ -195,7 +196,7 @@ async def extract_all_posts_by_blog(
 
         feed_url = url.set(params).url
         blog_with_posts = {}
-        # print(feed_url)
+        print(f"Extracting posts from {blog['slug']} at {feed_url}.")
 
         # use pagination of results only for non-API blogs
         if params:
@@ -214,7 +215,10 @@ async def extract_all_posts_by_blog(
         elif generator == "WordPress" and blog["use_api"]:
             async with httpx.AsyncClient() as client:
                 response = await client.get(feed_url, timeout=30, follow_redirects=True)
-                posts = response.json()
+                # filter out error messages that are not valid json
+                json_start = response.text.find('[{')
+                response = response.text[json_start:]
+                posts = JSON.loads(response)
                 if not update_all:
                     posts = filter_updated_posts(posts, blog, key="modified_gmt")
                 extract_posts = [extract_wordpress_post(x, blog) for x in posts]
