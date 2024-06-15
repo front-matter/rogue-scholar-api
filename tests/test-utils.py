@@ -358,13 +358,6 @@ def test_normalize_author_gpt4():
     }
 
 
-def test_normalize_url_slash():
-    """normalize url with slash"""
-    url = "https://www.example.com/"
-    result = normalize_url(url)
-    assert result == "https://www.example.com"
-
-
 def test_normalize_url_with_index():
     """normalize url with index_html"""
     url = "https://www.example.com/index.html"
@@ -383,7 +376,7 @@ def test_normalize_url_with_slash_param():
     """normalize url with slash param"""
     url = "https://www.ch.imperial.ac.uk/rzepa/blog/?p=25304"
     result = normalize_url(url)
-    assert result == "https://www.ch.imperial.ac.uk/rzepa/blog?p=25304"
+    assert result == "https://www.ch.imperial.ac.uk/rzepa/blog/?p=25304"
 
 
 def test_is_valid_url():
@@ -455,7 +448,7 @@ def test_id_as_str():
     """id as string"""
     assert "10.5555/1234" == id_as_str("https://doi.org/10.5555/1234")
     assert "www.gooogle.com/blabla" == id_as_str("https://www.gooogle.com/blabla")
-    
+
 
 # def test_sanitize_cool_suffix():
 #     "sanitize cool suffix"
