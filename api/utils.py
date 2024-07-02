@@ -81,6 +81,7 @@ AUTHOR_IDS = {
     "Henrique Costa": "https://orcid.org/0000-0003-4591-4044",
     "Bastian Greshake Tzovaras": "https://orcid.org/0000-0002-9925-9623",
     "Stacy McGaugh": "https://orcid.org/0000-0002-9762-0980",
+    "Dorothea Strecker": "https://orcid.org/0000-0002-9754-3807",
 }
 
 AUTHOR_NAMES = {
