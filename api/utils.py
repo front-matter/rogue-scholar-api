@@ -82,6 +82,9 @@ AUTHOR_IDS = {
     "Bastian Greshake Tzovaras": "https://orcid.org/0000-0002-9925-9623",
     "Stacy McGaugh": "https://orcid.org/0000-0002-9762-0980",
     "Dorothea Strecker": "https://orcid.org/0000-0002-9754-3807",
+    "Daniel Beucke": "https://orcid.org/0000-0003-4905-1936",
+    "Isabella Meinecke": "https://orcid.org/0000-0001-8337-3619",
+    "Marcel Wrzesinski": "https://orcid.org/0000-0002-2343-7905",
 }
 
 AUTHOR_NAMES = {
@@ -169,7 +172,20 @@ AUTHOR_AFFILIATIONS = {
             "start_date": "2015-08-01",
         },
     ],
-    "https://orcid.org/0000-0003-3334-2771": [],
+    "https://orcid.org/0000-0003-3334-2771": [
+        {
+            "name": "Humboldt-Universität zu Berlin",
+            "id": "https://ror.org/01hcx6992",
+            "start_date": "2012-12-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-2343-7905": [
+        {
+            "name": "Humboldt-Universität zu Berlin",
+            "id": "https://ror.org/01hcx6992",
+            "start_date": "2023-11-01",
+        }
+    ],
     "https://orcid.org/0000-0002-7265-1692": [],
     "https://orcid.org/0000-0002-4259-9774": [
         {
@@ -544,6 +560,20 @@ AUTHOR_AFFILIATIONS = {
             "name": "Case Western Reserve University",
             "id": "https://ror.org/051fd9666",
             "start_date": "2012-08-25",
+        }
+    ],
+    "https://orcid.org/0000-0001-8337-3619": [
+        {
+            "name": "Hamburg State and University Library",
+            "id": "https://ror.org/00pwcvj19",
+            "start_date": "2006-07-01",
+        }
+    ],
+    "https://orcid.org/0000-0003-4905-1936": [
+        {
+            "name": "Göttingen State and University Library",
+            "id": "https://ror.org/05745n787",
+            "start_date": "2007-07-01",
         }
     ],
 }
