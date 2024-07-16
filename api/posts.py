@@ -887,7 +887,7 @@ async def extract_atom_post(post, blog):
             "title": title,
             "url": url,
             "archive_url": archive_url,
-            "guid": post.get("id", None),
+            "guid": post.get("id", None) or url,
             "status": blog.get("status", "active"),
         }
     except Exception:
