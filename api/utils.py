@@ -583,6 +583,13 @@ AUTHOR_AFFILIATIONS = {
             "start_date": "2007-07-01",
         }
     ],
+    "https://orcid.org/0000-0003-0330-9428": [
+        {
+            "name": "Centre de Biophysique Moléculaire",
+            "id": "https://ror.org/02dpqcy73",
+            "start_date": "1998-04-01",
+        }
+    ],
 }
 
 
