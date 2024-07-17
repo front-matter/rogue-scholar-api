@@ -23593,4 +23593,1222 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Cabstract%2Ccontent_text%2Creference&filter_by=status%3A%21%3D%5Bpending%5D+%26%26+published_at%3A%3E%3D+0+%26%26+published_at%3A%3C%3D+1721246056+%26%26+language%3A%3D%5Bes%5D&sort_by=published_at%3Adesc&per_page=10&page=1
+  response:
+    body:
+      string: "{\"facet_counts\":[],\"found\":162,\"hits\":[{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22150/20231105110624/https://ropensci.org/es/blog/2024/07/09/multilingual-documentation-wg\",\"authors\":[{\"name\":\"Elio
+        Campitelli\"}],\"blog_name\":\"rOpenSci - herramientas abiertas para una ciencia
+        abierta\",\"blog_slug\":\"ropensci_es\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"Nos
+        complace anunciar el nuevo [Grupo de Trabajo de Documentaci\xF3n\\nMultiling\xFCe
+        del R\\nConsortium](https://github.com/RConsortium/multilingual-documentation-wg).Este\\nGrupo
+        de Trabajo surgi\xF3 luego de varias conversaciones durante el [R\\nProject
+        Sprint\\n2023](https://contributor.r-project.org/r-project-sprint-2023/) y\\nsupervisar\xE1
+        la implementaci\xF3n del soporte de documentaci\xF3n multiling\xFCe\\nen R
+        y organizar\xE1 los esfuerzos de traducci\xF3n de la comunidad.Nuestro\\nprimer
+        proyecto es el paquete (experimental)\\n[**rhelpi18n**](https://github.com/eliocamp/rhelpi18n)
+        que a\xF1ade soporte\\nen R para el uso de documentaci\xF3n multiling\xFCe.\\n\\n\xBFQuieres
+        leer la documentaci\xF3n de `base::mean()` (parcialmente) en\\nespa\xF1ol?Instala
+        [rhelpi18n](https://github.com/eliocamp/rhelpi18n) y el\\nm\xF3dulo de traducci\xF3n
+        de ejemplo base.es:\\n\\n::: {.highlight}\\n``` {.chroma tabindex=\\\"0\\\"}\\n#
+        install.packages(\\\"pak\\\")pak::pak(c(\\\"eliocamp/rhelpi18n\\\", \\\"eliocamp/base.es\\\"))\\n```\\n:::\\n\\nY
+        luego ejecuta este c\xF3digo:\\n\\n::: {.highlight}\\n``` {.chroma tabindex=\\\"0\\\"}\\nlibrary(rhelpi18n)Sys.setenv(LANGUAGE
+        = \\\"es\\\")help(mean) \\n```\\n:::\\n\\n``` {tabindex=\\\"0\\\"}\\nMedia
+        Aritm\xE9ticaDescription:     Funci\xF3n gen\xE9rica para la media aritm\xE9tica
+        (recortada)Usage:     mean(x, ...)          ## Default S3 method:     mean(x,
+        trim = 0, na.rm = FALSE, ...)     Arguments:       x: an R object.  Currently
+        there are methods for numeric/logical          vectors and date, date-time
+        and time interval objects.          Complex vectors are allowed for 'trim
+        = 0', only.    trim: la fracci\xF3n (0 a 0.5) de observaciones para ser recordatas
+        \         del final de \\\\codex antes de computar la media. Valores de          trim
+        pro fuera de ese rango se consideran al punto m\xE1s          cercano.   na.rm:
+        un valor l\xF3gico que evalua a 'TRUE' o 'FALSE' indicando si          valores
+        'NA' deben ser removidos antes de realizar el          c\xF3mputo.     ...:
+        further arguments passed to or from other methods.... (27 more lines)\\n```\\n\\n\xA1Hermoso!Esto
+        deber\xEDa funcionar en cualquier consola R o IDE.\\n\\n## \xBFPor qu\xE9
+        har\xEDas esto?\\n\\nAunque el ingl\xE9s es la lengua internacional de facto,
+        existen\\n[ventajas](https://ropensci.org/multilingual-publishing/) de incluir\\nrecursos
+        en diferentes idiomas.Al reducir las barreras ling\xFC\xEDsticas,\\nacabamos
+        teniendo una comunidad m\xE1s grande, fuerte y creativa, con m\xE1s\\nideas
+        y recursos.Esta hegemon\xEDa del ingl\xE9s se refleja en R por el uso\\ndel
+        ingl\xE9s en su documentaci\xF3n, como las p\xE1ginas de ayuda, los nombres\\nde
+        las funciones y los nombres de los argumentos (\xBFpor qu\xE9 usar `mean()`\\nen
+        lugar de `Mittelwert()`?).\\n\\nLa documentaci\xF3n de los paquetes *puede*
+        escribirse en cualquier idioma,\\ny CRAN admite documentaci\xF3n en otros
+        idiomas utilizando el campo\\n\\\"Language\\\" (Idioma) ^[1](#fn:1){.footnote-ref
+        role=\\\"doc-noteref\\\"}^ .Pero\\na\xFAn as\xED, la gran mayor\xEDa de los
+        paquetes est\xE1n documentados en ingl\xE9s y\\nhay [un peque\xF1o n\xFAmero
+        de paquetes documentados en otros\\nidimas](https://cderv.rbind.io/2018/03/11/non-english-pkg-in-cran/)\\naparentemente
+        para llegar m\xE1s f\xE1cilmente a su p\xFAblico objetivo.Por\\nejemplo, el
+        paquete\\n[labstatR](https://cran.r-project.org/web/packages/labstatR/index.html)\\nsirve
+        de complemento al libro italiano \\\"Laboratorio Di Statistica Con R\\\"\\ny
+        est\xE1 parcialmente documentado en italiano (utiliza nombres de\\nfunciones
+        y argumentos en ingl\xE9s).Del mismo modo,\\n[chilemapas](https://cran.r-project.org/web/packages/chilemapas/chilemapas.pdf)\\nproporciona
+        mapas simplificados para Chile, con documentaci\xF3n completa\\nen espa\xF1ol,
+        incluidos los nombres de las funciones.rOpenSci\\n[censo2017](https://docs.ropensci.org/censo2017/)
+        por [Mauricio\\nVargas](/author/pach%C3%A1-aka-mauricio-vargas-sep%C3%BAlveda/)
+        tambi\xE9n\\nest\xE1 totalmente documentado en espa\xF1ol.\\n\\nAunque estos
+        paquetes son m\xE1s accesibles para su p\xFAblico principal, son\\nmucho menos
+        accesibles para la comunidad en general.Quienes que no\\ndominan el idioma
+        pueden tener dificultades para descubrir y utilizar\\nlas funciones que ofrecen
+        estos paquetes.Quienes desarrollan esto\\npaquetes se enfrentan al dilema
+        de hacer que su paquete sea inaccesible\\npara su p\xFAblico objetivo o aislarlo
+        del resto del ecosistema de R.\\n\\nSe trata de un problema dif\xEDcil que
+        no tiene soluci\xF3n f\xE1cil.Surge\\nperi\xF3dicamente en el Slack de rOpenSci,
+        as\xED como en otros espacios de R,\\ncomo Stack Overflow.El desarrollador
+        del paquete\\n[utilsIPEA](https://cran.r-project.org/web/packages/utilsIPEA/index.html)\\nexpres\xF3
+        [la necesidad de documentaci\xF3n\\nbiling\xFCe](https://stackoverflow.com/questions/37288823/bilingual-english-and-portuguese-documentation-in-an-r-package)\\nreconociendo
+        que su paquete ser\xEDa utilizado tanto por personas de\\nBrasil, que podr\xEDan
+        preferir la documentaci\xF3n en portugu\xE9s, como por la\\ncomunidad internacional
+        en general.Al menos equipos de desarrollo de\\npaquetes han intentado resolver
+        este dilema documentando su paquete en\\ningl\xE9s y publicando una segunda
+        versi\xF3n documentada en otro idioma:\\n[ExpDes](https://cran.r-project.org/web/packages/ExpDes/index.html)
+        y\\n[ExpDes.pt](https://cran.r-project.org/web/packages/ExpDes.pt/index.html)\\nas\xED
+        como\\n[orloca](https://cran.r-project.org/web/packages/orloca/index.html)
+        y\\n[orloca.es](https://cran.r-project.org/web/packages/orloca.es/index.html).El\\npaquete\\n[karel](https://cloud.r-project.org/web/packages/karel/index.html)
+        tiene\\ndos conjuntos de funciones, uno con nombres y documentaci\xF3n en
+        ingl\xE9s y\\notro en espa\xF1ol.\\n\\nAmbas son medidas paliativas que llevan
+        al l\xEDmite lo que se puede hacer\\ncon R en t\xE9rminos de funcionalidad
+        multiling\xFCe.Adem\xE1s, como estas\\nsoluciones no son nativas, pueden resultar
+        dif\xEDciles de mantener y no\\nson escalables.\\n\\nPor eso presentamos el
+        paquete experimental **rhelpi18n**\\n^[2](#fn:2){.footnote-ref role=\\\"doc-noteref\\\"}^.Este
+        paquete es un banco\\nde pruebas para implementar un soporte robusto para
+        la documentaci\xF3n\\nmultiling\xFCe con el objetivo de integrarlo en R una
+        vez que madure.Para\\nleer la documentaci\xF3n traducida, hay que cargar rhelpi18n
+        e instalar\\nm\xF3dulos de traducci\xF3n creados por la comunidad.\\n\\n##
+        Bueno, pero \xBFc\xF3mo?\\n\\nEn nuestro ejemplo anterior, los textos traducidos
+        se alojan en base.es,\\nun m\xF3dulo de traducci\xF3n.Se trata de un paquete
+        normal con campos\\nespeciales en la DESCRIPTION que especifican qu\xE9 paquete
+        y versi\xF3n se\\nest\xE1 traduciendo y a qu\xE9 idioma.Actualmente, las cadenas
+        traducidas se\\nimplementan como una lista con la cadena original y la traducci\xF3n
+        de\\ncada secci\xF3n de la documentaci\xF3n, pero tambi\xE9n estamos estudiando\\nimplementarlo
+        con archivos .po tradicionales, que es el mecanismo\\nutilizado por R para
+        traducir mensajes y errores.\\n\\nEl paquete rhelpi18n modifica `utils:::.getHelpFile()`
+        que utilizan\\ntodas las funciones de ayuda para obtener el texto de la\\ndocumentaci\xF3n.A\xF1ade
+        unas pocas l\xEDneas de c\xF3digo que buscan si existen\\nm\xF3dulos de traducci\xF3n
+        relevantes (como base.es) y sustituyen el texto\\noriginal por su traducci\xF3n.\\n\\nAdem\xE1s
+        de presentar la documentaci\xF3n traducida, rhelpi18n proporciona\\nherramientas
+        para que las personas que desarrollan creen nuevos m\xF3dulos\\nde traducci\xF3n.\\n\\nPor
+        ejemplo, el siguiente c\xF3digo crea un m\xF3dulo de traducci\xF3n b\xE1sico\\npara
+        el paquete glue, incluyendo todas las funcionalidades y texto que\\nnecesita
+        traducci\xF3n.\\n\\n::: {.highlight}\\n``` {.chroma tabindex=\\\"0\\\"}\\ndir
+        <- file.path(tempdir(), \\\"glue.es\\\")rhelpi18n::i18n_module_create(module_name
+        = \\\"glue.es\\\",                               package_path = glue_dir,
+        \ # Carpeta con la copia local del c\xF3digo fuente de glue                              language
+        = \\\"es\\\",                               module_path = dir)\\n```\\n:::\\n\\nAhora
+        el trabajo pesado es ir al subdirectorio \\\"translations\\\" y traducir\\nel
+        texto guardado (por ahora) como archivos YAML.Por ejemplo, el archivo\\nde
+        traducci\xF3n para `glue::as_glue()` es:\\n\\n``` {tabindex=\\\"0\\\"}\\ntitle:
+        \ original: Coerce object to glue  translation: ~arguments:  x:    original:
+        object to be coerced.    translation: ~  '...':    original: further arguments
+        passed to methods.    translation: ~value:  original: |    A character vector
+        with S3 class \\\\code{\\\"glue\\\"}.  translation: ~description:  original:
+        |    A glue object is a character vector with S3 class \\\\code{\\\"glue\\\"}.
+        The \\\\code{\\\"glue\\\"}    class implements a print method that shows the
+        literal contents (rather than    the string implementation) and a \\\\code{+}
+        method, so that you can concatenate with    the addition operator.... (16
+        more lines)\\n```\\n\\nUna posible (y superficial) traducci\xF3n ser\xEDa\\n\\n```
+        {tabindex=\\\"0\\\"}\\ntitle:  original: Coerce object to glue  translation:
+        Convertir un objeto a gluearguments:  x:    original: object to be coerced.
+        \   translation: objeto a convertir.  '...':    original: further arguments
+        passed to methods.    translation: otros argumentos que se pasan a los m\xE9todos.value:
+        \ original: |    A character vector with S3 class \\\\code{\\\"glue\\\"}.
+        \ translation: |    Vector de caracter con la clase S3 \\\\code{\\\"glue\\\"}.description:
+        \ original: |    A glue object is a character vector with S3 class \\\\code{\\\"glue\\\"}.
+        The \\\\code{\\\"glue\\\"}    class implements a print method that shows the
+        literal contents (rather than    the string implementation) and a \\\\code{+}
+        method, so that you can concatenate with    the addition operator.  translation:
+        |    Un objeto glue es un vector de caracteres con la clase S3 \\\\code{\\\"glue\\\"}.
+        \    La clase \\\\code{\\\"glue\\\"} implementa un m\xE9todo de impresi\xF3n
+        que muestra los contenidos    literales (en vez de la implementaci\xF3n como
+        cadena de caracteres) y un m\xE9todo \\\\code{+}     para que puedas concatenar
+        usando el operador de sumatoria.examples:  original: |    x <- as_glue(c(\\\"abc\\\",
+        \\\"\\\\\\\"\\\\\\\\\\\\\\\\\\\", \\\"\\\\n\\\"))    x... (11 more lines)\\n```\\n\\nTras
+        modificar \\\"as_glue.yaml\\\" e instalar el paquete, ahora la\\ndocumentaci\xF3n
+        est\xE1 en espa\xF1ol .\\n\\n::: {.highlight}\\n``` {.chroma tabindex=\\\"0\\\"}\\nlibrary(glue)help(as_glue)\\n```\\n:::\\n\\n```
+        {tabindex=\\\"0\\\"}\\nConvertir un objeto a glueDescription:     Un objeto
+        glue es un vector de caracteres con la clase S3     '\\\"glue\\\"'.  La clase
+        '\\\"glue\\\"' implementa un m\xE9todo de impresi\xF3n que     muestra los
+        contenidos literales (en vez de la implementaci\xF3n como     cadena de caracteres)
+        y un m\xE9todo '+' para que puedas concatenar     usando el operador de sumatoria.Usage:
+        \    as_glue(x, ...)     Arguments:       x: objeto a convertir.     ...:
+        otros argumentos que se pasan a los m\xE9todos.... (13 more lines)\\n```\\n\\n\xA1Incre\xEDble!\\n\\n##
+        Pr\xF3ximos pasos\\n\\nEl proyecto est\xE1 en sus primeras fases por lo que
+        las cosas cambian\\nr\xE1pido.A\xFAn estamos experimentando con distintas
+        formas de almacenar las\\ntraducciones y de aplicar sustituciones de texto.Tambi\xE9n
+        tiene varias\\nlimitaciones, como que a\xFAn no traduce los encabezados de
+        secci\xF3n.Tambi\xE9n\\nqueremos a\xF1adir una indicaci\xF3n clara de que
+        el texto es una traducci\xF3n y\\nuna forma conveniente de acceder r\xE1pidamente
+        a la versi\xF3n original.Parte\\ndel flujo de trabajo de las traducciones
+        suele consistir en traducciones\\nautom\xE1ticas que posteriormente revisa
+        una persona.Por ello, estamos\\nconsiderando la posibilidad de a\xF1adir metadatos
+        a las cadenas para\\nse\xF1alar los casos de traducciones autom\xE1ticas que
+        no han sido revisadas\\npor una persona o las traducciones que podr\xEDan
+        estar ligeramente\\ndesactualizadas (\xA1ser\xEDa una pena no mostrar una
+        traducci\xF3n porque\\nalguien arregl\xF3 un peque\xF1o error de tipeo en
+        el texto original y a\xFAn no\\nhab\xEDa sido revisada!)\\n\\nSi deseas probar
+        el paquete e informar de cualquier problema, o si\\ntienes ideas sobre c\xF3mo
+        mejorarlo, puedes participar en el debate en\\nlos[*issues* abiertos](https://github.com/eliocamp/rhelpi18n/issues)
+        del\\npaquete y uni\xE9ndote al [Grupo de trabajo de documentaci\xF3n\\nmultiling\xFCe](https://github.com/RConsortium/multilingual-documentation-wg).\xA1Ay\xFAdanos!\\n\\n:::
+        {.footnotes role=\\\"doc-endnotes\\\"}\\n\\n------------------------------------------------------------------------\\n\\n1.
+        \ ::: {#fn:1}\\n    La cita real es \\\"Se puede utilizar el campo 'Language'
+        para indicar\\n    si la documentaci\xF3n del paquete no est\xE1 en ingl\xE9s\\\",
+        lo que indica\\n    que el ingl\xE9s sigue siendo el supuesto por\\n    defecto.\_[\u21A9\uFE0E](#fnref:1){.footnote-backref
+        role=\\\"doc-backlink\\\"}\\n    :::\\n\\n2.  ::: {#fn:2}\\n    El nombre
+        proviene del\\n    [Numer\xF3nimo](https://es.wikipedia.org/wiki/Numer%C3%B3nimo)
+        de\\n    \\\"internacionalizaci\xF3n\\\".\_[\u21A9\uFE0E](#fnref:2){.footnote-backref\\n
+        \   role=\\\"doc-backlink\\\"}\\n    :::\\n:::\\n\",\"doi\":\"https://doi.org/10.59350/7zb0p-ae254\",\"guid\":\"https://ropensci.org/es/blog/2024/07/09/multilingual-documentation-wg/\",\"id\":\"72e5a223-1290-4dab-a4b7-edeed0b10dac\",\"language\":\"es\",\"published_at\":1720483200,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Nos
+        complace anunciar el nuevo Grupo de Trabajo de Documentaci\xF3n Multiling\xFCe
+        del R Consortium.Este Grupo de Trabajo surgi\xF3 luego de varias conversaciones
+        durante el R Project Sprint 2023 y supervisar\xE1 la implementaci\xF3n del
+        soporte de documentaci\xF3n multiling\xFCe en R y organizar\xE1 los esfuerzos
+        de traducci\xF3n de la comunidad.Nuestro primer proyecto es el paquete (experimental)\\n<strong>\\n
+        rhelpi18n\\n</strong>\\nque a\xF1ade soporte en R para el uso de\",\"tags\":[\"R\",\"Packages\",\"Multilingual\",\"Documentation\",\"Community\"],\"title\":\"Documentaci\xF3n
+        multiling\xFCe en paquetes de R\",\"updated_at\":1720524531,\"url\":\"https://ropensci.org/es/blog/2024/07/09/multilingual-documentation-wg\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Coss\xEDo
+        Olavide, Mario\",\"url\":\"https://orcid.org/0000-0002-1447-3891\"}],\"blog_name\":\"Lucidarios\",\"blog_slug\":\"lucidarios\",\"category\":\"languagesAndLiterature\",\"content_text\":\"En
+        esta breve entrada continuar\xE9 explicando las configuraciones\\ndisponibles
+        en el bot\xF3n de configuraci\xF3n \xABOptions\xBB en ChrysoCollate:\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.08.09.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.08.09-500x240.png\\\"\\nclass=\\\"wp-image-6074\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.08.09-500x240.png
+        500w, https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.08.09-300x144.png
+        300w, https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.08.09-768x369.png
+        768w, https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.08.09-1536x738.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.08.09-2048x983.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"240\\\" /></a>\\n<figcaption>Men\xFA <em>Options</em></figcaption>\\n</figure>\\n:::\\n\\nLa
+        secci\xF3n *Expressions* permite adaptar los mensajes y s\xEDmbolos\\nempleados
+        para crear el aparato cr\xEDtico (de lo que hablar\xE9 en una\\nentrada futura).
+        En el modo edici\xF3n, ChrysoCollate puede trabajar con un\\naparato cr\xEDtico
+        positivo o negativo, y las configuraciones de\\n*Expressions* permiten adaptar
+        estos aparatos a las convenciones\\nparticulares de nuestro campo, periodo
+        de trabajo, idioma de edici\xF3n,\\netc. Cualquier cambio realizado aqu\xED
+        se reflejar\xE1 en el aparato cr\xEDtico\\nque aparece en el modo de edici\xF3n,
+        pero tambi\xE9n en los documentos\\nexportados por ChrysoCollate.\\n\\nLas
+        primeras opciones de esta secci\xF3n permiten personalizar la\\nseparaci\xF3n
+        entre la elegida del resto de variantes, ya sea en un aparato\\npositivo (por
+        defecto separadas por **`:`**, de la siguiente manera:\\n*`lectura A`*` `***`:`***`
+        `*`letura B`*) o negativo (por defecto\\nsepadas por **`]`**, de la siguiente
+        manera:\\n*`lectura`***`]`**` `*`letura B`*). Tambi\xE9n se puede elegir qu\xE9
+        s\xEDmbolos\\nse eligen para separar las distintas variantes recogidas en
+        una entrada\\ny c\xF3mo separar los testimonios (por defecto separados usando
+        ; y un\\nespacio en blanco, respectivamente, as\xED:\\n*`lectura] letura B
+        `**`;`**` letura `**`C D H`**` ; pletura `**`E F`***).\\n\\nEl resto de las
+        opciones permiten cambiar las expresiones usadas para\\nindicar las omisiones,
+        adiciones, lagunas, pasajes omitidos o el inicio\\no final de un testimonio
+        incompleto en el aparato cr\xEDtico. Por defecto,\\nChrysoCollate emplea frases
+        latinas (*incipit lacuna*, *finitur lacuna*,\\n*incipit post hoc verbum*,
+        *abhinc textus deest*, etc.), pero estas\\npueden personalizarse seg\xFAn
+        las convenciones que usamos en nuestra\\nedici\xF3n. He decidido mantener
+        esta configuraci\xF3n predeterminada para la\\nedici\xF3n del *Lucidario*:\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.18.12.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.18.12-500x140.png\\\"\\nclass=\\\"wp-image-6079\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.18.12-500x140.png
+        500w, https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.18.12-300x84.png
+        300w, https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.18.12-768x215.png
+        768w, https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.18.12-1536x430.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.18.12-2048x573.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"140\\\" /></a>\\n<figcaption>Aparato cr\xEDtico, colaci\xF3n de
+        la Introducci\xF3n del\\n<em>Lucidario</em>, 1</figcaption>\\n</figure>\\n:::\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.18.49.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.18.49-500x143.png\\\"\\nclass=\\\"wp-image-6083\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.18.49-500x143.png
+        500w, https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.18.49-300x86.png
+        300w, https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.18.49-768x219.png
+        768w, https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.18.49-1536x438.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.18.49-2048x585.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"143\\\" /></a>\\n<figcaption>Aparato cr\xEDtico, colaci\xF3n de
+        la Introducci\xF3n del\\n<em>Lucidario</em>, 2</figcaption>\\n</figure>\\n:::\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.19.04.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.19.04-500x141.png\\\"\\nclass=\\\"wp-image-6084\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.19.04-500x141.png
+        500w, https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.19.04-300x85.png
+        300w, https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.19.04-768x216.png
+        768w, https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.19.04-1536x433.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-17.19.04-2048x577.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"141\\\" /></a>\\n<figcaption>Aparato cr\xEDtico, colaci\xF3n de
+        la Introducci\xF3n del\\n<em>Lucidario</em>, 3</figcaption>\\n</figure>\\n:::\\n\\nFinalmente,
+        la \xFAltima secci\xF3n del men\xFA \xABOptions\xBB es *Number of variant\\nlocations
+        shown.* Esta secci\xF3n establece cu\xE1ntas casillas con variantes\\nson
+        mostradas en una sola pantalla de ChyrsoCollate cada vez. Por\\ndefecto, este
+        n\xFAmero es 1000. Es decir, un usuario puede desplazarse\\nentre la castilla
+        0 y la 1000 usando la barra de desplazamiento\\nhorizontal, la rueda del rat\xF3n
+        o el trackpad. Al llegar al n\xFAmero 1000,\\nel programa muestra una flecha
+        roja que indica que se est\xE1 pasando a una\\nnueva secci\xF3n del texto,
+        en incremento de 500 casillas.\\n\\nAl cambiar este n\xFAmero, ChrysoCollate
+        cargar\xE1 m\xE1s castillas y, por lo\\ntanto, permitir\xE1 el desplazamiento
+        a lo largo de una extensi\xF3n mayor.\\nSeg\xFAn entiendo, el programa utiliza
+        este n\xFAmero para agilizar el\\ndesplazamiento, minimizar el uso de recursos
+        del sistema y asegurar la\\nestabilidad del aplicativo (sin embargo, la mayor\xEDa
+        de usuarios podr\xEDan\\nelevar el n\xFAmero sin notar cambios en el comportamiento
+        de\\nChrysoCollate). Ofrezco un ejemplo de c\xF3mo funciona esta funci\xF3n
+        en el\\nsiguiente v\xEDdeo:\\n\\n<figure\\nclass=\\\"wp-block-embed is-type-video
+        is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\\\">\\n<div
+        class=\\\"wp-block-embed__wrapper\\\">\\n<div class=\\\"video-container\\\">\\n<div
+        class=\\\"iframe\\\">\\n<div id=\\\"player\\\">\\n\\n</div>\\n<div class=\\\"player-unavailable\\\">\\n<h1
+        id=\\\"an-error-occurred.\\\" class=\\\"message\\\">An error occurred.</h1>\\n<div
+        class=\\\"submessage\\\">\\n<a href=\\\"https://www.youtube.com/watch?v=mG2qJa1OA8Q\\\"\\ntarget=\\\"_blank\\\">Try
+        watching this video on www.youtube.com</a>, or\\nenable JavaScript if it is
+        disabled in your browser.\\n</div>\\n</div>\\n</div>\\n</div>\\n</div>\\n</figure>\\n\\nEn
+        la pr\xF3xima entrada comenzar\xE9 con el modo edici\xF3n (*Edition Mode*)
+        de\\nChrysoCollate\\n\",\"doi\":\"https://doi.org/10.58079/11xl9\",\"guid\":\"https://lucidarios.hypotheses.org/?p=6058\",\"id\":\"f6531854-02cc-4ecd-91f4-b33ea396d349\",\"image\":\"https://lucidarios.hypotheses.org/files/2024/07/Capture-de\u0301cran-2024-07-03-a\u0300-18.10.14.png\",\"language\":\"es\",\"published_at\":1720022551,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"En
+        esta breve entrada continuar\xE9 explicando las configuraciones disponibles
+        en el bot\xF3n de configuraci\xF3n \xABOptions\xBB en ChrysoCollate:  La secci\xF3n\\n<em>\\n
+        Expressions\\n</em>\\npermite adaptar los mensajes y s\xEDmbolos empleados
+        para crear el aparato cr\xEDtico (de lo que hablar\xE9 en una entrada futura).
+        En el modo edici\xF3n, ChrysoCollate puede trabajar con un aparato cr\xEDtico
+        positivo o negativo, y las configuraciones de\\n<em>\\n Expressions\\n</em>\\npermiten
+        adaptar\",\"tags\":[\"Entradas\",\"ChrysoCollate\",\"Collatio\",\"Constitutio
+        Textus\",\"Edici\xF3n Cr\xEDtica\"],\"title\":\"Herramientas de <em>collatio</em>
+        digital: ChyrsoCollate (8)\",\"updated_at\":1720023201,\"url\":\"https://lucidarios.hypotheses.org/6058\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Coss\xEDo
+        Olavide, Mario\",\"url\":\"https://orcid.org/0000-0002-1447-3891\"}],\"blog_name\":\"Lucidarios\",\"blog_slug\":\"lucidarios\",\"category\":\"languagesAndLiterature\",\"content_text\":\"Hoy
+        contin\xFAo hablando del \xFAltimo bot\xF3n de configuraci\xF3n general de\\nChrysoCollate,
+        \xABOptions\xBB. Este bot\xF3n permite personalizar las opciones\\nde visualizaci\xF3n
+        y comportamiento del aplicativo:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.11.29.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.11.29-500x243.png\\\"\\nclass=\\\"wp-image-5988\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.11.29-500x243.png
+        500w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.11.29-300x146.png
+        300w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.11.29-768x374.png
+        768w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.11.29-1536x748.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.11.29-2048x997.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"243\\\" /></a>\\n<figcaption>Men\xFA <em>Options</em></figcaption>\\n</figure>\\n:::\\n\\nLas
+        primeras configuraciones disponibles son \xABFont\xBB, \xABMouse wheel\xBB,\\n\xABColours
+        of the readings\xBB y \xABDirections\xBB. La primera permite\\npersonalizar
+        la fuente que se emplear\xE1 para presentar las lecturas\\n(*Collation Table
+        Font*), el tama\xF1o general de la fuente en el\\naplicativo (*Font Size of
+        ChrysoCollate*) y el tama\xF1o del texto en la\\ntabla de colaci\xF3n (*Collation
+        Table Font*), lo que permite,\\nefectivamente, hacer entrar m\xE1s o menos
+        texto en la pantalla.\\n\\nLa siguiente opci\xF3n permite configurar el comportamiento
+        de la rueda del\\nrat\xF3n (o del trackpad), alternando entre el desplazamiento
+        horizontal,\\nestablecido por defecto, y el desplazamiento en el eje vertical.
+        Este\\ncambio puede ser necesario cuando tenemos un n\xFAmero elevado de\\ntestimonios,
+        que hacen necesario desplazarnos en otro eje. Mientras esta\\nfunci\xF3n no
+        est\xE9 activa, el desplazamiento vertical puede obtenerse\\npresionando la
+        tecla Shift al mover la rueda del rat\xF3n o el trackpad (y\\ncuando est\xE1
+        activo, lo mismo ocurre con el desplazamiento horizontal).\\n\\n\xABColours\xBB
+        permite personalizar los colores empleados en ChrysoCollate\\npara marcar
+        las lecturas recogidas en las casillas. Uno de los\\natractivos de ChrysoCollate
+        es que asigna autom\xE1ticamente un color a la\\nprimera lectura que aparece
+        en una casilla (no consider\xE1ndose lectura el\\nespacio en blanco, que es
+        marcado en gris). Si un testimonio tiene una\\nlectura diferente a la primera
+        lectura de la casilla (siempre en verde\\nclaro), el aplicativo emplear\xE1
+        un color diferente para esta lectura,\\nllamando la atenci\xF3n del editor
+        sobre esta posible variante.\\n\\nAhora, cualquier editor de textos medievales
+        y cl\xE1sicos sabe que no\\ntodas las variantes son lecturas distintas. Esto
+        ocurre a menudo con las\\nvariantes de lengua, a veces llamadas formales,
+        que son realmente una\\nmisma lectura transmitida con diferencias fon\xE9ticas,
+        gr\xE1ficas o\\nmorfosint\xE1ticas que pueden deberse a pr\xE1cticas escriturales
+        (el\\nconsabido caso de *omne* y *ombre*, pero tambi\xE9n los *nomina sacra*
+        como\\n*ihesu xpisto\\\\~Jhesu Chrsito*, *spiritu sancto\\\\~esp\xEDritu santo*,
+        debidos\\na la fosilizaci\xF3n de las graf\xEDas griegas y latinas), aspectos\\ndialectales
+        (*agua*\\\\~*augua*, *judgar*\\\\~*julgar*, *plazer*\\\\~*prazer* o\\n*vieron\\\\~vioron*)
+        o del estadio linguistico del texto\\n(*traerlo\\\\~traello*). En el siguiente
+        ejemplo del *Lucidario*\\nencontramos este tipo de variantes de lengua:\\n*dicipulo\\\\~decipulo\\\\~diciplo\\\\~discipulo*,
+        *enbi\xF3\\\\~envi\xF3* y\\n*spiritu\\\\~spritu\\\\~espiritu*:\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.29.16.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.29.16-500x141.png\\\"\\nclass=\\\"wp-image-5993\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.29.16-500x141.png
+        500w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.29.16-300x85.png
+        300w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.29.16-768x217.png
+        768w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.29.16-1536x433.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.29.16-2048x578.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"141\\\" /></a>\\n<figcaption>Colaci\xF3n del cap\xEDtulo 22 del
+        <em>Lucidario</em></figcaption>\\n</figure>\\n:::\\n\\nFinalmente, est\xE1
+        \xABDirections\xBB, que permite modificar la direcci\xF3n de\\nescritura del
+        texto y del aparato cr\xEDtico, dependiendo de si se est\xE1\\nrealizando
+        una colaci\xF3n de un texto en un lenguaje que se escribe de\\nizquierda a
+        derecha (lenguas romances) o de derecha a izquierda (lenguas\\nsem\xEDticas).
+        En este v\xEDdeo vemos el funcionamiento de las cuatro primeras\\nopciones:\\n\\n<figure\\nclass=\\\"wp-block-embed
+        is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9
+        wp-has-aspect-ratio\\\">\\n<div class=\\\"wp-block-embed__wrapper\\\">\\n<div
+        class=\\\"video-container\\\">\\n<div class=\\\"iframe\\\">\\n<div id=\\\"player\\\">\\n\\n</div>\\n<div
+        class=\\\"player-unavailable\\\">\\n<h1 id=\\\"an-error-occurred.\\\" class=\\\"message\\\">An
+        error occurred.</h1>\\n<div class=\\\"submessage\\\">\\n<a href=\\\"https://www.youtube.com/watch?v=cgVfDUGUkig\\\"\\ntarget=\\\"_blank\\\">Try
+        watching this video on www.youtube.com</a>, or\\nenable JavaScript if it is
+        disabled in your browser.\\n</div>\\n</div>\\n</div>\\n</div>\\n</div>\\n</figure>\\n\\nLuego
+        est\xE1 la opci\xF3n \xABLayout of the apparatus\xBB, que permite modificar\\nc\xF3mo
+        se visualizar\xE1 el aparato cr\xEDtico en ChrysoCollate (esto no afecta\\nc\xF3mo
+        ser\xE1 exportado el documento):\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.51.20.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.51.20-500x69.png\\\"\\nclass=\\\"wp-image-6003\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.51.20-500x69.png
+        500w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.51.20-300x41.png
+        300w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.51.20-768x106.png
+        768w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.51.20-1536x212.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.51.20-2048x282.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"69\\\" /></a>\\n<figcaption>Opci\xF3n \xABLayout of the apparatus\xBB</figcaption>\\n</figure>\\n:::\\n\\nPor
+        defecto, ChrysoCollate parte una entrada de aparato cr\xEDtico en\\nvarias
+        l\xEDneas, de modo que la lectura no ocupe mucho espacio, de la\\nsiguiente
+        manera:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.50.55.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.50.55-500x207.png\\\"\\nclass=\\\"wp-image-6007\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.50.55-500x207.png
+        500w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.50.55-300x124.png
+        300w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.50.55-768x318.png
+        768w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.50.55-1536x637.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.50.55-2048x849.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"207\\\" /></a>\\n<figcaption>Edici\xF3n del pr\xF3logo del <em>Lucidario</em>
+        con el aparato\\ncr\xEDtico en varias l\xEDneas</figcaption>\\n</figure>\\n:::\\n\\nAl
+        forzar al aplicativo a presentar todo el texto en una sola l\xEDnea, el\\nespacio
+        de la lectura es distribuido en ella, ocupando m\xE1s espacio en la\\npantalla:\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.53.18.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.53.18-500x149.png\\\"\\nclass=\\\"wp-image-6008\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.53.18-500x149.png
+        500w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.53.18-300x89.png
+        300w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.53.18-768x229.png
+        768w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.53.18-1536x458.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.53.18-2048x610.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"149\\\" /></a>\\n<figcaption>Edici\xF3n del pr\xF3logo del <em>Lucidario</em>
+        con el aparato\\ncr\xEDtico en una l\xEDnea</figcaption>\\n</figure>\\n:::\\n\\nLa
+        siguiente configuraci\xF3n, y quiz\xE1 la m\xE1s \xFAtil en t\xE9rminos de
+        edici\xF3n,\\nes \xABScript- and language-based features\xBB, que permite
+        alterar qu\xE9 se\\nconsidera una lectura diferente en los modos de colaci\xF3n
+        y de edici\xF3n.\\nPor defecto todas las opciones est\xE1n marcadas, lo que
+        significa que\\nest\xE1n desactivadas. Cualquier cambio en esta opci\xF3n
+        tendr\xE1 repercusiones\\nglobales, tanto en la comparaci\xF3n en el modo
+        de colaci\xF3n (al\\ndesactivarse las opciones, los cambios har\xE1n que lecturas
+        consideradas\\noriginalmente diferentes sean consideradas iguales), como en
+        el modo de\\nedici\xF3n. Ah\xED, desactivar estas opciones reducir\xE1 el
+        aparato cr\xEDtico\\nporque el aplicativo entender\xE1 que las lecturas son
+        iguales y no es\\nnecesario crear una entrada de aparato cr\xEDtico.\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.56.30.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.56.30-500x215.png\\\"\\nclass=\\\"wp-image-6013\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.56.30-500x215.png
+        500w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.56.30-300x129.png
+        300w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.56.30-768x330.png
+        768w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.56.30-1536x660.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-14.56.30-2048x880.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"215\\\" /></a>\\n<figcaption>Opci\xF3n \xABScript- and language-based
+        features\xBB, 1</figcaption>\\n</figure>\\n:::\\n\\nQuiz\xE1 un ejemplo sirva
+        para ilustrar a qu\xE9 me refiero. La primera\\nsecci\xF3n, *General*, permite
+        configurar si el aplicativo considera o no\\ndiferentes variaciones en el
+        formato del texto colacionado: puntuaci\xF3n,\\nformato (it\xE1licas, negrita,
+        subrayado, super\xEDndice, etc.), uso de\\ncorchetes, par\xE9ntesis, may\xFAsculas,
+        min\xFAsculas o la presencia de\\nespacios, como muestro en el siguiente v\xEDdeo:\\n\\n<figure\\nclass=\\\"wp-block-embed
+        is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9
+        wp-has-aspect-ratio\\\">\\n<div class=\\\"wp-block-embed__wrapper\\\">\\n<div
+        class=\\\"video-container\\\">\\n<div class=\\\"iframe\\\">\\n<div id=\\\"player\\\">\\n\\n</div>\\n<div
+        class=\\\"player-unavailable\\\">\\n<h1 id=\\\"an-error-occurred.\\\" class=\\\"message\\\">An
+        error occurred.</h1>\\n<div class=\\\"submessage\\\">\\n<a href=\\\"https://www.youtube.com/watch?v=fvcb2UUyK_A\\\"\\ntarget=\\\"_blank\\\">Try
+        watching this video on www.youtube.com</a>, or\\nenable JavaScript if it is
+        disabled in your browser.\\n</div>\\n</div>\\n</div>\\n</div>\\n</div>\\n</figure>\\n\\nAs\xED,
+        hemos logrado que ChrysoCollate considere lo mismo *This*\\\\~*this*,\\n*test*\\\\~*tEst*\\\\~*tesT*\\\\~*Test*
+        y *a*\\\\~*.a.*\\\\~*.a*. La siguiente\\nsecci\xF3n*, Latin*, hace lo mismo
+        pero con variantes gr\xE1ficas propias del\\nlat\xEDn: uso de *v\\\\~u*, *i*\\\\~*j*,
+        *i*\\\\~*y*, *ae*\\\\~*\xE6*\\\\~*e*\\\\~*\u0119*,\\n*ci*\\\\~*ti*, *ch*\\\\~*h*,
+        *uu*\\\\~*uv*\\\\~*vu*\\\\~*w* o letras dobles al inicio\\nde una palabra
+        (muy \xFAtil para los romances peninsulares). Desactivar una\\nopci\xF3n en
+        esta secci\xF3n hace que ChrysoCollate considere lo mismo\\n*uult*\\\\~*vult*,
+        lo mismo que *Mariae\\\\~Marie* o *Iupiter*\\\\~*Jupiter*.\\n\\nUna nueva
+        opci\xF3n de \xABScript- and language-based features\xBB, disponible\\ndesde
+        la \xFAltima actualizaci\xF3n, es *Spanish*, que permite considerar\\niguales
+        en la colaci\xF3n y edici\xF3n ciertas variantes de lengua propias del\\nespa\xF1ol
+        medieval: *oa\\\\~ua*, *ss\\\\~s*, *s\xE7\\\\~sc\\\\~\xE7\\\\~c*, *b\\\\~v*,
+        *ee\\\\~e* y\\n*ue\\\\~oe*.\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-15.29.39.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-15.29.39-500x199.png\\\"\\nclass=\\\"wp-image-6019\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-15.29.39-500x199.png
+        500w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-15.29.39-300x119.png
+        300w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-15.29.39-768x305.png
+        768w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-15.29.39-1536x610.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-15.29.39-2048x814.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"199\\\" /></a>\\n<figcaption>Opci\xF3n \xABScript- and language-based
+        features\xBB, 2</figcaption>\\n</figure>\\n:::\\n\\nDebido que la distribuci\xF3n
+        de estas variantes es muy desigual en los\\ncap\xEDtulos del *Lucidario*,
+        he construido un pasaje como ejemplo (que no\\nexiste en la obra), reuniendo
+        de forma sint\xE9tica numerosas variantes que\\ns\xED est\xE1n presente a
+        lo largo de sus testimonios:\\n\\n<figure\\nclass=\\\"wp-block-embed is-type-video
+        is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\\\">\\n<div
+        class=\\\"wp-block-embed__wrapper\\\">\\n<div class=\\\"video-container\\\">\\n<div
+        class=\\\"iframe\\\">\\n<div id=\\\"player\\\">\\n\\n</div>\\n<div class=\\\"player-unavailable\\\">\\n<h1
+        id=\\\"an-error-occurred.\\\" class=\\\"message\\\">An error occurred.</h1>\\n<div
+        class=\\\"submessage\\\">\\n<a href=\\\"https://www.youtube.com/watch?v=t7pAQfUACCg\\\"\\ntarget=\\\"_blank\\\">Try
+        watching this video on www.youtube.com</a>, or\\nenable JavaScript if it is
+        disabled in your browser.\\n</div>\\n</div>\\n</div>\\n</div>\\n</div>\\n</figure>\\n\\nLas
+        \xFAltimas dos secciones de \xABScript- and language-based features\xBB est\xE1n\\ndedicadas
+        al griego y \xE1rabe.\\n\\nAunque durante el proceso de *selectio* de variantes,
+        el editor deber\xE1\\nprestar atenci\xF3n cu\xE1l de las variantes de lengua
+        tiene m\xE1s sentido de\\nacuerdo al *usus scribendi* y el estadio ling\xFC\xEDstico
+        del texto, esta\\n\xFAltima herramienta es muy \xFAtil para limpiar el ruido
+        visual al que el\\neditor est\xE1 sometido durante el proceso de la *collatio*,
+        que en muchos\\ncasos consiste de variaciones irrelevantes que distraen de
+        los pasajes\\nrealmente complicados. As\xED, pasamos de esto:\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-15.59.12.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-15.59.12-500x120.png\\\"\\nclass=\\\"wp-image-6023\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-15.59.12-500x120.png
+        500w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-15.59.12-300x72.png
+        300w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-15.59.12-768x185.png
+        768w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-15.59.12-1536x370.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-15.59.12-2048x493.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"120\\\" /></a>\\n<figcaption>Colaci\xF3n de prueba con variantes
+        de lengua</figcaption>\\n</figure>\\n:::\\n\\nA esto:\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-15.59.25.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-15.59.25-500x102.png\\\"\\nclass=\\\"wp-image-6024\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-15.59.25-500x102.png
+        500w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-15.59.25-300x61.png
+        300w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-15.59.25-768x156.png
+        768w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-15.59.25-1536x312.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-15.59.25-2048x416.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"102\\\" /></a>\\n<figcaption>Colaci\xF3n de prueba descartando
+        variantes de\\nlengua</figcaption>\\n</figure>\\n:::\\n\\nDejo para la [pr\xF3xima\\nentrada](https://lucidarios.hypotheses.org/?p=6058){data-type=\\\"link\\\"\\ndata-id=\\\"https://lucidarios.hypotheses.org/?p=6058\\\"
+        target=\\\"_blank\\\"\\nrel=\\\"noreferrer noopener\\\"} la explicaci\xF3n
+        de las \xFAltimas secciones del\\nmen\xFA \xABOptions\xBB.\\n\\n------------------------------------------------------------------------\\n\\nImagen
+        de miniatura: detalle del  \\nMen\xFA \xABOptions\xBB, ChrysoCollate 1.3.1\\n\",\"doi\":\"https://doi.org/10.58079/11uw5\",\"guid\":\"https://lucidarios.hypotheses.org/?p=5983\",\"id\":\"83255b29-180a-4e11-8690-e4265ace1665\",\"image\":\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-19-a\u0300-17.05.23.png\",\"language\":\"es\",\"published_at\":1718816100,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Hoy
+        contin\xFAo hablando del \xFAltimo bot\xF3n de configuraci\xF3n general de
+        ChrysoCollate, \xABOptions\xBB. Este bot\xF3n permite personalizar las opciones
+        de visualizaci\xF3n y comportamiento del aplicativo:  Las primeras configuraciones
+        disponibles son \xABFont\xBB, \xABMouse wheel\xBB, \xABColours of the readings\xBB
+        y \xABDirections\xBB. La primera permite personalizar la fuente que se emplear\xE1
+        para presentar las lecturas (\\n<em>\\n Collation Table Font\\n</em>\\n),
+        el tama\xF1o general de la fuente\",\"tags\":[\"Entradas\",\"ChrysoCollate\",\"Collatio\",\"Constitutio
+        Textus\",\"Edici\xF3n Cr\xEDtica\"],\"title\":\"Herramientas de <em>collatio</em>
+        digital: ChyrsoCollate (7)\",\"updated_at\":1720022397,\"url\":\"https://lucidarios.hypotheses.org/5983\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Coss\xEDo
+        Olavide, Mario\",\"url\":\"https://orcid.org/0000-0002-1447-3891\"}],\"blog_name\":\"Lucidarios\",\"blog_slug\":\"lucidarios\",\"category\":\"languagesAndLiterature\",\"content_text\":\"Hab\xEDa
+        prometido hablar del bot\xF3n \xABOptions\xBB de ChrysoCollate en esta\\nentrada.
+        Sin embargo, entre la publicaci\xF3n de la anterior y esta,\\nS\xE9bastien
+        Moureau ha liberado la [siguiente\\nversi\xF3n](https://cental.uclouvain.be/chrysocollate/){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://cental.uclouvain.be/chrysocollate/\\\"\\ntarget=\\\"_blank\\\"}
+        de ChrysoCollate (1.3.1), que trae algunos cambios\\nimportantes en el funcionamiento
+        del aplicativo que quiero discutir\\nantes de hablar de \xABOptions\xBB (y
+        trae, adem\xE1s, una sorpresa muy agradable\\npara los editores de textos
+        medievales castellanos). El primer cambio de\\nesta nueva versi\xF3n es el
+        reordenamiento de los botones de configuraci\xF3n\\ny funci\xF3n:\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.27.34.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.27.34-500x19.png\\\"\\nclass=\\\"wp-image-5868\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.27.34-500x19.png
+        500w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.27.34-300x12.png
+        300w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.27.34-768x30.png
+        768w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.27.34-1536x59.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.27.34-2048x79.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"19\\\" /></a>\\n<figcaption>Barra de botones, modo colaci\xF3n,
+        ChrysoCollate\\n1.3</figcaption>\\n</figure>\\n:::\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.27.21.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.27.21-500x21.png\\\"\\nclass=\\\"wp-image-5865\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.27.21-500x21.png
+        500w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.27.21-300x12.png
+        300w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.27.21-768x32.png
+        768w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.27.21-1536x64.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.27.21-2048x85.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"21\\\" /></a>\\n<figcaption>Barra de botones, modo colaci\xF3n,
+        ChrysoCollate\\n1.3.1</figcaption>\\n</figure>\\n:::\\n\\nEl bot\xF3n \xAB+C\\\\[omment\\\\]\xBB
+        ha pasado de la barra de funci\xF3n, en naranja, a\\nla barra general, en
+        gris. Esto permite insertar comentarios\\ndirectamente desde el modo edici\xF3n,
+        sin tener que volver al modo\\ncolaci\xF3n para insertarlos.\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.28.47.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.28.47-500x21.png\\\"\\nclass=\\\"wp-image-5873\\\"
+        style=\\\"width:500px;height:21px\\\" loading=\\\"lazy\\\"\\ndecoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.28.47-500x21.png
+        500w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.28.47-300x13.png
+        300w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.28.47-768x33.png
+        768w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.28.47-1536x65.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.28.47-2048x87.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"21\\\" /></a>\\n<figcaption>Barra de botones, modo edici\xF3n,
+        ChrysoCollate\\n1.3.1</figcaption>\\n</figure>\\n:::\\n\\nA esto lo acompa\xF1a
+        un cambio est\xE9tico (pero necesario): ahora los\\nbotones \xAB+C\\\\[omment\\\\]\xBB
+        y \xAB+N\\\\[ote\\\\]\xBB van resaltados en azul y naranja,\\nlo que permite
+        identificarlos m\xE1s r\xE1pidamente y evitar confusiones (algo\\nque ocurr\xEDa,
+        a pesar de su separaci\xF3n, en la versi\xF3n anterior).\\n\\nEl siguiente
+        cambio es la aparici\xF3n de la funci\xF3n \xABComments in the\\ndocument\xBB.
+        En la barra superior, al lado del bot\xF3n de navegaci\xF3n (un pin\\nnaranja),
+        encontramos dos botones en forma de un documento, uno azul y\\notro naranja.
+        Estos botones, \xABComments in the document\xBB y \xABNotes in the\\ndocument\xBB,
+        son atajos que permiten navegar en un documento, no de\\nacuerdo a la ubicaci\xF3n
+        de una palabra, sino de acuerdo a la presencia de\\ncomentarios o notas:\\n\\n<figure\\nclass=\\\"wp-block-embed
+        is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9
+        wp-has-aspect-ratio\\\">\\n<div class=\\\"wp-block-embed__wrapper\\\">\\n<div
+        class=\\\"video-container\\\">\\n<div class=\\\"iframe\\\">\\n<div id=\\\"player\\\">\\n\\n</div>\\n<div
+        class=\\\"player-unavailable\\\">\\n<h1 id=\\\"an-error-occurred.\\\" class=\\\"message\\\">An
+        error occurred.</h1>\\n<div class=\\\"submessage\\\">\\n<a href=\\\"https://www.youtube.com/watch?v=o7YhSWdLsZY\\\"\\ntarget=\\\"_blank\\\">Try
+        watching this video on www.youtube.com</a>, or\\nenable JavaScript if it is
+        disabled in your browser.\\n</div>\\n</div>\\n</div>\\n</div>\\n</div>\\n</figure>\\n\\nOtro
+        cambio (del que estoy muy agradecido) es que ahora el men\xFA \xABExport\\nwit\\\\[ness\\\\]\xBB
+        permite exportar todos los testimonios al mismo tiempo\\n(*all witnesses*),
+        una tarea repetitiva que antes deb\xEDa hacerse\\nmanualmente (como explicaba\\n[aqu\xED](https://lucidarios.hypotheses.org/5626){data-type=\\\"URL\\\"\\ndata-id=\\\"https://lucidarios.hypotheses.org/5626\\\"
+        target=\\\"_blank\\\"\\nrel=\\\"noreferrer noopener\\\"}):\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.48.36.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.48.36-500x240.png\\\"\\nclass=\\\"wp-image-5880\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.48.36-500x240.png
+        500w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.48.36-300x144.png
+        300w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.48.36-768x369.png
+        768w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.48.36-1536x739.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.48.36-2048x985.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"240\\\" /></a>\\n<figcaption>Men\xFA <em>Export the text of a witness</em></figcaption>\\n</figure>\\n:::\\n\\nTambi\xE9n
+        se ha introducido una mejora en la visualizaci\xF3n de los\\ntestimonios.
+        Hasta la versi\xF3n 1.3 de ChyrsoCollate, todas las casillas\\nen blanco revert\xEDan
+        por defecto al color verde (si la casilla estaba en\\nblanco en el primer
+        testimonio) u otro color, de acuerdo con la casilla\\n(y lectura) en la que
+        ocurr\xEDan. Este es un ejemplo del cap\xEDtulo 3 del\\n*Lucidario*:\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.53.47.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.53.47-500x140.png\\\"\\nclass=\\\"wp-image-5882\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.53.47-500x140.png
+        500w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.53.47-300x84.png
+        300w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.53.47-768x215.png
+        768w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.53.47-1536x430.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.53.47-2048x574.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"140\\\" /></a>\\n<figcaption>Cap\xEDtulo 3 del <em>Lucidario</em>,
+        ChrysoCollate\\n1.3</figcaption>\\n</figure>\\n:::\\n\\nEl problema de esta
+        visualizaci\xF3n es que si bien los colores permiten\\nidentificar r\xE1pidamente
+        d\xF3nde los textos son iguales, no ocurre lo mismo\\ncon su ausencia. Un
+        truco que utilizaba hasta la versi\xF3n 1.3 era marcar\\nlas casillas donde
+        hab\xEDa omisiones por salto de igual a igual:\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.59.19.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.59.19-500x134.png\\\"\\nclass=\\\"wp-image-5885\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.59.19-500x134.png
+        500w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.59.19-300x80.png
+        300w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.59.19-768x206.png
+        768w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.59.19-1536x411.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-13.59.19-2048x548.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"134\\\" /></a>\\n<figcaption>Cap\xEDtulo 3 del <em>Lucidario</em>,
+        ChrysoCollate\\n1.3</figcaption>\\n</figure>\\n:::\\n\\nSin embargo, este
+        marcado solo identifica el salto por homoioteleuton\\n(*e...e*), m\xE1s no
+        la larga laguna en E. La nueva versi\xF3n de\\nChrysoCollate marca por defecto
+        todas las casillas sin contenido en\\ncolor gris, lo que permite visualizar
+        mejor las ausencias en los\\ndistintos testimonios (y tambi\xE9n identificar
+        las interpolaciones, pues\\nlas a\xF1adiduras en testimonios particulares
+        crean un espacio en blanco\\ngris, como ocurre en las casillas 58-59 y 62):\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-14.11.03.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-14.11.03-500x139.png\\\"\\nclass=\\\"wp-image-5888\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-14.11.03-500x139.png
+        500w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-14.11.03-300x84.png
+        300w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-14.11.03-768x214.png
+        768w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-14.11.03-1536x428.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-14.11.03-2048x571.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"139\\\" /></a>\\n<figcaption>Cap\xEDtulo 3 del <em>Lucidario</em>,
+        ChrysoCollate\\n1.3.1</figcaption>\\n</figure>\\n:::\\n\\nBueno, dejo la entrada
+        aqu\xED, que ya he hablado bastante, y en la\\n[pr\xF3xima\\nentrada](https://lucidarios.hypotheses.org/?p=5983){data-type=\\\"link\\\"\\ndata-id=\\\"https://lucidarios.hypotheses.org/?p=5983\\\"
+        target=\\\"_blank\\\"\\nrel=\\\"noreferrer noopener\\\"} (ahora s\xED) hablar\xE9
+        extensamente de \xABOptions\xBB.\\n\\n------------------------------------------------------------------------\\n\\nImagen
+        de miniatura: detalle del cap\xEDtulo 34  \\ndel *Lucidario*, ChrysoCollate
+        1.3.1\\n\",\"doi\":\"https://doi.org/10.58079/11ru3\",\"guid\":\"https://lucidarios.hypotheses.org/?p=5863\",\"id\":\"cd017364-c915-443b-a6f2-2759be029414\",\"image\":\"https://lucidarios.hypotheses.org/files/2024/06/Capture-de\u0301cran-2024-06-05-a\u0300-14.26.45.png\",\"language\":\"es\",\"published_at\":1717602900,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Hab\xEDa
+        prometido hablar del bot\xF3n \xABOptions\xBB de ChrysoCollate en esta entrada.\",\"tags\":[\"Entradas\",\"ChrysoCollate\",\"Collatio\",\"Constitutio
+        Textus\",\"Edici\xF3n Cr\xEDtica\"],\"title\":\"Herramientas de <em>collatio</em>
+        digital: ChyrsoCollate (6)\",\"updated_at\":1718809648,\"url\":\"https://lucidarios.hypotheses.org/5863\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Coss\xEDo
+        Olavide, Mario\",\"url\":\"https://orcid.org/0000-0002-1447-3891\"}],\"blog_name\":\"Lucidarios\",\"blog_slug\":\"lucidarios\",\"category\":\"languagesAndLiterature\",\"content_text\":\"Antes
+        de comenzar con el modo de edici\xF3n, en esta y las siguientes\\nentradas
+        explicar\xE9 el funcionamiento de los botones de configuraci\xF3n\\ngeneral
+        de ChrysoCollate. Se trata de los ocho botones grises que est\xE1n\\nen la
+        parte inferior de la pantalla, tanto en el modo de colaci\xF3n:\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.05.02.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.05.02-500x244.png\\\"\\nclass=\\\"wp-image-5826\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.05.02-500x244.png
+        500w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.05.02-300x146.png
+        300w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.05.02-768x374.png
+        768w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.05.02-1536x749.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.05.02-2048x999.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"244\\\" /></a>\\n<figcaption>Botones de configuraci\xF3n de ChrysoCollate,
+        modo de\\ncolaci\xF3n</figcaption>\\n</figure>\\n:::\\n\\nComo en el modo
+        de edici\xF3n:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.05.22.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.05.22-500x248.png\\\"\\nclass=\\\"wp-image-5827\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.05.22-500x248.png
+        500w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.05.22-300x149.png
+        300w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.05.22-768x381.png
+        768w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.05.22-1536x762.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.05.22-2048x1016.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"248\\\" /></a>\\n<figcaption>Botones de configuraci\xF3n de ChrysoCollate,
+        modo de\\nedici\xF3n</figcaption>\\n</figure>\\n:::\\n\\nMientras que los
+        botones de funci\xF3n cambian seg\xFAn el usuario est\xE9\\ntrabajando en
+        el modo de edici\xF3n (naranja) o el modo de colaci\xF3n\\n(celeste), estos
+        botones no cambian porque permiten acceder a\\nconfiguraciones y funciones
+        que pueden ser cambiadas en cualquier\\nmomento.\\n\\nEn vez de comenzar de
+        izquierda a derecha, lo har\xE9 de derecha a\\nizquierda, ya que el bot\xF3n
+        final, \xABOptions\xBB, es el m\xE1s complejo y ser\xE1\\nel tema de la pr\xF3xima
+        entrada. El \xFAltimo bot\xF3n es \xAB+N\\\\[ote\\\\]\xBB, que\\npermite a\xF1adir
+        una nota a una casilla (en un testimonio espec\xEDfico):\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.14.17.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.14.17-500x244.png\\\"\\nclass=\\\"wp-image-5830\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.14.17-500x244.png
+        500w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.14.17-300x146.png
+        300w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.14.17-768x375.png
+        768w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.14.17-1536x749.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.14.17-2048x999.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"244\\\" /></a>\\n<figcaption>Men\xFA <em>Add a note to varian location\u2026</em></figcaption>\\n</figure>\\n:::\\n\\n\xAB+N\\\\[ote\\\\]\xBB
+        funciona de manera similar al bot\xF3n de funci\xF3n\\n\xAB+C\\\\[omment\\\\]\xBB,
+        que expliqu\xE9 en [esta\\nentrada](https://lucidarios.hypotheses.org/5573){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://lucidarios.hypotheses.org/5573\\\"\\ntarget=\\\"_blank\\\"}
+        *\\\\[Actualizaci\xF3n: a partir de ChrysoCollate 1.3.1, [ver\\naqu\xED](https://lucidarios.hypotheses.org/?p=5863){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://lucidarios.hypotheses.org/?p=5863\\\"\\ntarget=\\\"_blank\\\"}\\\\]*.
+        Pero a diferencia de este bot\xF3n, la nota resultante\\nde usar este bot\xF3n
+        no es reflejada en el aparato cr\xEDtico, siendo visible\\nsolamente como
+        un peque\xF1o cuadrado marr\xF3n en la esquina inferior derecha\\nde la casilla
+        correspondiente (tanto en el modo de edici\xF3n, como el modo\\nde colaci\xF3n),
+        como se ve en el siguiente v\xEDdeo:\\n\\n<figure\\nclass=\\\"wp-block-embed
+        is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9
+        wp-has-aspect-ratio\\\">\\n<div class=\\\"wp-block-embed__wrapper\\\">\\n<div
+        class=\\\"video-container\\\">\\n<div class=\\\"iframe\\\">\\n<div id=\\\"player\\\">\\n\\n</div>\\n<div
+        class=\\\"player-unavailable\\\">\\n<h1 id=\\\"an-error-occurred.\\\" class=\\\"message\\\">An
+        error occurred.</h1>\\n<div class=\\\"submessage\\\">\\n<a href=\\\"https://www.youtube.com/watch?v=Q2IV2vlJ1Ak\\\"\\ntarget=\\\"_blank\\\">Try
+        watching this video on www.youtube.com</a>, or\\nenable JavaScript if it is
+        disabled in your browser.\\n</div>\\n</div>\\n</div>\\n</div>\\n</div>\\n</figure>\\n\\nEl
+        bot\xF3n \xABHelp\xBB permite acceder al tutorial de ChrysoCollate en una\\nnueva
+        ventana. El tutorial explica la mayor\xEDa de las funcionalidades del\\naplicativo:\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.20.00.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.20.00-500x242.png\\\"\\nclass=\\\"wp-image-5834\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.20.00-500x242.png
+        500w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.20.00-300x145.png
+        300w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.20.00-768x371.png
+        768w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.20.00-1536x742.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-15.20.00-2048x990.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"242\\\" /></a>\\n<figcaption>Tutorial de ChrysoCollate</figcaption>\\n</figure>\\n:::\\n\\nAl
+        seleccionar una casilla y luego dar clic en el siguiente bot\xF3n,\\n\xABViewer\xBB,
+        la pantalla de ChrysoCollate se divide en dos, con la parte\\nsuperior ocupada
+        por la colaci\xF3n/edici\xF3n y la inferior por un visor\\nnativo que presenta
+        el folio correspondiente en un sitio web que\\ncontenga el manuscrito (o,
+        si se trata de un PDF, un enlace que se\\nabrir\xE1 en una nueva ventana).
+        Para usar esta funci\xF3n es necesario\\nconfigurar la foliaci\xF3n primero,
+        como [expliqu\xE9\\naqu\xED](https://lucidarios.hypotheses.org/5626){data-type=\\\"URL\\\"\\ndata-id=\\\"https://lucidarios.hypotheses.org/5626\\\"
+        target=\\\"_blank\\\"\\nrel=\\\"noreferrer noopener\\\"}. Se trata de una
+        funci\xF3n muy \xFAtil,\\nespecialmente cuando creemos que nuestra transcripci\xF3n
+        contiene un error\\n(que los habr\xE1 siempre). Demuestro su uso en el siguiente
+        v\xEDdeo:\\n\\n<figure\\nclass=\\\"wp-block-embed is-type-video is-provider-youtube
+        wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\\\">\\n<div
+        class=\\\"wp-block-embed__wrapper\\\">\\n<div class=\\\"video-container\\\">\\n<div
+        class=\\\"iframe\\\">\\n<div id=\\\"player\\\">\\n\\n</div>\\n<div class=\\\"player-unavailable\\\">\\n<h1
+        id=\\\"an-error-occurred.\\\" class=\\\"message\\\">An error occurred.</h1>\\n<div
+        class=\\\"submessage\\\">\\n<a href=\\\"https://www.youtube.com/watch?v=y14XDIuaZ0c\\\"\\ntarget=\\\"_blank\\\">Try
+        watching this video on www.youtube.com</a>, or\\nenable JavaScript if it is
+        disabled in your browser.\\n</div>\\n</div>\\n</div>\\n</div>\\n</div>\\n</figure>\\n\\nLa
+        siguiente funci\xF3n es \xABTransl\\\\[ate\\\\]\xBB, que permite a\xF1adir
+        una\\ntraducci\xF3n sincronizada del texto que se edita. La sincronizaci\xF3n\\naparece
+        en la parte inferior de la ventana y puede ser exportada desde\\nel modo de
+        colaci\xF3n en varios formatos (por el momento .*cte* para el\\nClassical
+        Text Editor y .*tex* para el paquete Reledmac de LaTeX, con\\nuna opci\xF3n
+        para el paquete Ekdosis en desarrollo), o como una traducci\xF3n\\nsuelta
+        en formato *.odt*:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-16.07.08.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-16.07.08-500x244.png\\\"\\nclass=\\\"wp-image-5838\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-16.07.08-500x244.png
+        500w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-16.07.08-300x146.png
+        300w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-16.07.08-768x374.png
+        768w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-16.07.08-1536x749.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-16.07.08-2048x998.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"244\\\" /></a>\\n<figcaption>Men\xFA <em>Translate</em></figcaption>\\n</figure>\\n:::\\n\\nLa
+        siguiente funci\xF3n es \xABImport\xBB, que permite importar las opciones
+        (es\\ndecir la configuraci\xF3n del comportamiento de los testimonios y del\\naplicativo),
+        los testimonios y las opciones o el *stemma* que tenemos en\\notro documento.
+        Es decir, en vez de tener que volver a configurar cada\\nnuevo documento,
+        podemos importar de nuestra configuraci\xF3n preferida y\\ntrabajar sobre
+        ella, como vemos en el siguiente v\xEDdeo (que contiene, al\\nfinal, una alternativa
+        a esta funci\xF3n: abrir un documento\\npre-configurado y trabajar sobre \xE9l):\\n\\n<figure\\nclass=\\\"wp-block-embed
+        is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9
+        wp-has-aspect-ratio\\\">\\n<div class=\\\"wp-block-embed__wrapper\\\">\\n<div
+        class=\\\"video-container\\\">\\n<div class=\\\"iframe\\\">\\n<div id=\\\"player\\\">\\n\\n</div>\\n<div
+        class=\\\"player-unavailable\\\">\\n<h1 id=\\\"an-error-occurred.\\\" class=\\\"message\\\">An
+        error occurred.</h1>\\n<div class=\\\"submessage\\\">\\n<a href=\\\"https://www.youtube.com/watch?v=cAY8xMuUfoE\\\"\\ntarget=\\\"_blank\\\">Try
+        watching this video on www.youtube.com</a>, or\\nenable JavaScript if it is
+        disabled in your browser.\\n</div>\\n</div>\\n</div>\\n</div>\\n</div>\\n</figure>\\n\\nLas
+        dos siguientes funciones bastante claras: \xABLoad\xBB y \xABSave\xBB que\\npermiten,
+        respectivamente, cargar un archivo o guardarlo. La\\nparticularidad de ChrysoCollate
+        (una que agradezco) es que los\\ndocumentos que produce no se guardan autom\xE1ticamente.
+        El usuario tiene\\nque dar clic en \xABSave\xBB, o en su defecto, usar la
+        abreviaci\xF3n de teclado\\nControl + S (o Command + S en Mac) para salvar
+        el documento. Dada la\\nsimplicidad y estabilidad del aplicativo a\xFAn no
+        he experimentado con un\\nnavegador congelado, por lo que no ocurrir\xE1 lo
+        que es frecuente para los\\nusuarios de Ms. Word, que el aplicativo deje de
+        responder y todo el\\ntrabajo se pierda. Si cerramos la pesta\xF1a el trabajo
+        se perder\xE1, pero\\nChrysoCollate tiene una advertencia cuando esto ocurre
+        accidentalmente:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-19.36.31.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-19.36.31-500x280.png\\\"\\nclass=\\\"wp-image-5842\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-19.36.31-500x280.png
+        500w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-19.36.31-300x168.png
+        300w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-19.36.31-768x430.png
+        768w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-19.36.31-1536x860.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-21-a\u0300-19.36.31-2048x1147.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"280\\\" /></a>\\n<figcaption>Advertencia de cierre de navegador</figcaption>\\n</figure>\\n:::\\n\\nEn
+        la [pr\xF3xima\\nentrada](https://lucidarios.hypotheses.org/?p=5863){data-type=\\\"URL\\\"\\ndata-id=\\\"https://lucidarios.hypotheses.org/?p=5863\\\"
+        target=\\\"_blank\\\"\\nrel=\\\"noreferrer noopener\\\"} explicar\xE9 el uso
+        del bot\xF3n \xABOptions\xBB.\\n\\n------------------------------------------------------------------------\\n\\nImagen
+        de miniatura: detalle del visor  \\nnativo de ChrysoCollate\\n\",\"doi\":\"https://doi.org/10.58079/11pfy\",\"guid\":\"https://lucidarios.hypotheses.org/?p=5823\",\"id\":\"99dfda1a-9c23-432e-b33c-92136a449e0a\",\"image\":\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-22-a\u0300-19.59.42-copie.png\",\"language\":\"es\",\"published_at\":1716396900,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Antes
+        de comenzar con el modo de edici\xF3n, en esta y las siguientes entradas explicar\xE9
+        el funcionamiento de los botones de configuraci\xF3n general de ChrysoCollate.\",\"tags\":[\"Entradas\",\"ChrysoCollate\",\"Collatio\",\"Constitutio
+        Textus\",\"Edici\xF3n Cr\xEDtica\"],\"title\":\"Herramientas de <em>collatio</em>
+        digital: ChyrsoCollate (5)\",\"updated_at\":1720022295,\"url\":\"https://lucidarios.hypotheses.org/5823\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Coss\xEDo
+        Olavide, Mario\",\"url\":\"https://orcid.org/0000-0002-1447-3891\"}],\"blog_name\":\"Lucidarios\",\"blog_slug\":\"lucidarios\",\"category\":\"languagesAndLiterature\",\"content_text\":\"Retomo
+        la explicaci\xF3n de la [entrada\\nanterior](https://lucidarios.hypotheses.org/5626){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://lucidarios.hypotheses.org/5626\\\"\\ntarget=\\\"_blank\\\"}
+        --y con ella, termino la serie de entradas sobre los\\nbotones de funci\xF3n
+        en el modo colaci\xF3n de ChrysoCollate. El siguiente\\nbot\xF3n, \xABDelete
+        v\\\\[ariant\\\\] l\\\\[ocation\\\\]\xBB, permite borrar m\xE1s de una\\ncelda
+        y todas las lecturas (palabras) que contiene la celda (en todos\\nlos testimonios
+        colacionados):\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-15.02.13.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-15.02.13-500x243.png\\\"\\nclass=\\\"wp-image-5687\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-15.02.13-500x243.png
+        500w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-15.02.13-300x146.png
+        300w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-15.02.13-768x374.png
+        768w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-15.02.13-1536x747.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-15.02.13-2048x996.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"243\\\" /></a>\\n<figcaption><em>Men\xFA Delete variant location</em></figcaption>\\n</figure>\\n:::\\n\\nEsta
+        funci\xF3n es la contraparte del bot\xF3n \xABAdd text\xBB, que expliqu\xE9
+        en\\n[esta\\nentrada](https://lucidarios.hypotheses.org/5573){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://lucidarios.hypotheses.org/5573\\\"\\ntarget=\\\"_blank\\\"},
+        que permite a\xF1adir m\xE1s de una lectura en un\\ntestimonio. Estas dos
+        tareas, a\xF1adir y eliminar texto, pueden ser\\nrealizadas individualmente
+        empleando los botones \xAB-\xBB y \xAB+\xBB, situados\\ndebajo del n\xFAmero
+        de la celda. El primero borra la celda seleccionada y\\nel segundo a\xF1ade
+        una celda en blanco a su derecha. Se trata de funciones\\nrealmente \xFAtiles,
+        pues a menudo los testimonios que se van a\xF1adiendo a\\nla colaci\xF3n incluyen
+        interpolaciones, reformulaciones del texto o\\ntransmiten versiones m\xE1s
+        completas que el testimonio base. Demuestro\\ntodas estas funciones en este
+        v\xEDdeo:\\n\\n<figure\\nclass=\\\"wp-block-embed is-type-video is-provider-youtube
+        wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\\\">\\n<div
+        class=\\\"wp-block-embed__wrapper\\\">\\n<div class=\\\"video-container\\\">\\n<div
+        class=\\\"iframe\\\">\\n<div id=\\\"player\\\">\\n\\n</div>\\n<div class=\\\"player-unavailable\\\">\\n<h1
+        id=\\\"er-is-een-fout-opgetreden.\\\" class=\\\"message\\\">Er is een fout\\nopgetreden.</h1>\\n<div
+        class=\\\"submessage\\\">\\n<a href=\\\"https://www.youtube.com/watch?v=v1dM7iQrYXs\\\"\\ntarget=\\\"_blank\\\">Bekijk
+        deze video op www.youtube.com</a> of zet\\nJavaScript aan als dit uitstaat
+        in je browser.\\n</div>\\n</div>\\n</div>\\n</div>\\n</div>\\n</figure>\\n\\nFinalmente
+        est\xE1 el bot\xF3n \xABMerge v\\\\[ariant\\\\] l\\\\[ocations\\\\]\xBB, que
+        permite\\nfusionar todas las celdas con valores iguales en todos los testimonios\\ncolacionados.
+        Como resultado, el texto se agrupar\xE1 en bloques de color\\nverde, que contienen
+        pasajes donde todos los testimonios coinciden,\\nquedando en celdas individuales
+        (con m\xE1s de un color), las variantes que\\ncontienen m\xFAltiples lecturas.
+        N\xF3tese que cuando una o m\xE1s de las celdas\\nde los testimonios colacionados
+        est\xE1 en blanco o contiene las etiquetas\\n`{absentia}` o `{lacuna}`, ChrysoCollate
+        ignora el testimonio que\\ncontiene la etiqueta, y realiza la fusi\xF3n de
+        celdas en el resto de los\\ntestimonios que s\xED contienen texto:\\n\\n<figure\\nclass=\\\"wp-block-embed
+        is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9
+        wp-has-aspect-ratio\\\">\\n<div class=\\\"wp-block-embed__wrapper\\\">\\n<div
+        class=\\\"video-container\\\">\\n<div class=\\\"iframe\\\">\\n<div id=\\\"player\\\">\\n\\n</div>\\n<div
+        class=\\\"player-unavailable\\\">\\n<h1 id=\\\"er-is-een-fout-opgetreden.\\\"
+        class=\\\"message\\\">Er is een fout\\nopgetreden.</h1>\\n<div class=\\\"submessage\\\">\\n<a
+        href=\\\"https://www.youtube.com/watch?v=60aQEguKjwM\\\"\\ntarget=\\\"_blank\\\">Bekijk
+        deze video op www.youtube.com</a> of zet\\nJavaScript aan als dit uitstaat
+        in je browser.\\n</div>\\n</div>\\n</div>\\n</div>\\n</div>\\n</figure>\\n\\nEsta
+        funci\xF3n tambi\xE9n tiene un equivalente manual, que encontramos al dar\\nclic
+        al s\xEDmbolo de un cuadrado (a la izquierda del n\xFAmero de la celda).\\nEste
+        s\xEDmbolo permite fusionar una celda con la que se ubica a su\\nizquierda.
+        Por su parte, el s\xEDmbolo de una tijera (a la derecha del\\nn\xFAmero de
+        celda), permite deshacer esta fusi\xF3n, separando las celdas al\\ndividirlas
+        por palabras:\\n\\n<figure\\nclass=\\\"wp-block-embed is-type-video is-provider-youtube
+        wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\\\">\\n<div
+        class=\\\"wp-block-embed__wrapper\\\">\\n<div class=\\\"video-container\\\">\\n<div
+        class=\\\"iframe\\\">\\n<div id=\\\"player\\\">\\n\\n</div>\\n<div class=\\\"player-unavailable\\\">\\n<h1
+        id=\\\"er-is-een-fout-opgetreden.\\\" class=\\\"message\\\">Er is een fout\\nopgetreden.</h1>\\n<div
+        class=\\\"submessage\\\">\\n<a href=\\\"https://www.youtube.com/watch?v=TEELelLY7D8\\\"\\ntarget=\\\"_blank\\\">Bekijk
+        deze video op www.youtube.com</a> of zet\\nJavaScript aan als dit uitstaat
+        in je browser.\\n</div>\\n</div>\\n</div>\\n</div>\\n</div>\\n</figure>\\n\\nFinalmente,
+        y para cerrar esta entrada, quiero hablar de una\\ncaracter\xEDstica adicional
+        de ChrysoCollate, muy poco evidente, de la que\\nme enter\xE9 gracias a S.
+        Moureau: la posibilidad de ordenar los\\ntestimonios de acuerdo con un criterio
+        de color (es decir, *good ol'\\nfashioned color coding*). Como expliqu\xE9
+        en [esta\\nentrada](https://lucidarios.hypotheses.org/5573){data-type=\\\"URL\\\"\\ndata-id=\\\"https://lucidarios.hypotheses.org/5573\\\"
+        target=\\\"_blank\\\"\\nrel=\\\"noreferrer noopener\\\"}, uno puede reorganizar
+        los testimonios\\nsiguiendo cualquier criterio (habitualmente, el orden stemm\xE1tico).
+        As\xED,\\npodemos pasar de esto:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-15.53.55.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-15.53.55-500x243.png\\\"\\nclass=\\\"wp-image-5692\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-15.53.55-500x243.png
+        500w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-15.53.55-300x146.png
+        300w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-15.53.55-768x373.png
+        768w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-15.53.55-1536x745.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-15.53.55-2048x993.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"243\\\" /></a>\\n<figcaption>Colaci\xF3n, cap\xEDtulo 3 del <em>Lucidario</em></figcaption>\\n</figure>\\n:::\\n\\nA
+        esto:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-15.54.50.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-15.54.50-500x243.png\\\"\\nclass=\\\"wp-image-5697\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-15.54.50-500x243.png
+        500w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-15.54.50-300x146.png
+        300w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-15.54.50-768x373.png
+        768w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-15.54.50-1536x745.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-15.54.50-2048x993.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"243\\\" /></a>\\n<figcaption>Colaci\xF3n, cap\xEDtulo 3 del <em>Lucidario</em></figcaption>\\n</figure>\\n:::\\n\\nReflejando
+        este *stemma* tentativo:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2023/06/Stemma.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2023/06/Stemma-500x394.png\\\"\\nclass=\\\"wp-image-3296\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2023/06/Stemma-500x394.png
+        500w, https://lucidarios.hypotheses.org/files/2023/06/Stemma-300x236.png 300w,
+        https://lucidarios.hypotheses.org/files/2023/06/Stemma-768x605.png 768w, https://lucidarios.hypotheses.org/files/2023/06/Stemma.png
+        968w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"394\\\"\\nalt=\\\"Stemma tentativo del Lucidario\\\" /></a>\\n<figcaption><em>Stemma</em>
+        tentativo del\\n<em>Lucidario</em></figcaption>\\n</figure>\\n:::\\n\\nPero
+        hay una forma adicional de reflejar este orden. Al dar clic sobre\\nla letra
+        del testimonio, en la primera columna del texto, se abrir\xE1 un\\nmen\xFA
+        que nos permite colorear el recuadro. En este caso, he a\xF1adido una\\ncapa
+        de color para identificar \u03BB (rojo), \u03B5 (verde) y \u03B2 (azul), las
+        tres\\nfamilias m\xE1s importantes en la transmisi\xF3n manuscrita del *Lucidario*.\\nDemuestro
+        la forma de hacerlo en este v\xEDdeo:\\n\\n<figure\\nclass=\\\"wp-block-embed
+        is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9
+        wp-has-aspect-ratio\\\">\\n<div class=\\\"wp-block-embed__wrapper\\\">\\n<div
+        class=\\\"video-container\\\">\\n<div class=\\\"iframe\\\">\\n<div id=\\\"player\\\">\\n\\n</div>\\n<div
+        class=\\\"player-unavailable\\\">\\n<h1 id=\\\"er-is-een-fout-opgetreden.\\\"
+        class=\\\"message\\\">Er is een fout\\nopgetreden.</h1>\\n<div class=\\\"submessage\\\">\\n<a
+        href=\\\"https://www.youtube.com/watch?v=Z3FFjrmEibg\\\"\\ntarget=\\\"_blank\\\">Bekijk
+        deze video op www.youtube.com</a> of zet\\nJavaScript aan als dit uitstaat
+        in je browser.\\n</div>\\n</div>\\n</div>\\n</div>\\n</div>\\n</figure>\\n\\nEn
+        la [pr\xF3xima\\nentrada](https://lucidarios.hypotheses.org/?p=5823){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://lucidarios.hypotheses.org/?p=5823\\\"\\ntarget=\\\"_blank\\\"}
+        explicar\xE9 el funcionamiento de los botones de\\nconfiguraci\xF3n.\\n\\n------------------------------------------------------------------------\\n\\nImagen
+        de miniatura: detalle de colaci\xF3n  \\ndel cap\xEDtulo 3 del *Lucidario*,
+        ChrysoCollate\\n\",\"doi\":\"https://doi.org/10.58079/11nmf\",\"guid\":\"https://lucidarios.hypotheses.org/?p=5685\",\"id\":\"e39cb115-c282-40a1-b0f3-9cadefc4097f\",\"image\":\"https://lucidarios.hypotheses.org/files/2024/05/Capture-de\u0301cran-2024-05-06-a\u0300-17.19.03.png\",\"language\":\"es\",\"published_at\":1715183700,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Retomo
+        la explicaci\xF3n de la entrada anterior \u2013y con ella, termino la serie
+        de entradas sobre los botones de funci\xF3n en el modo colaci\xF3n de ChrysoCollate.\",\"tags\":[\"Entradas\",\"ChrysoCollate\",\"Collatio\",\"Constitutio
+        Textus\",\"Edici\xF3n Cr\xEDtica\"],\"title\":\"Herramientas de <em>collatio</em>
+        digital: ChyrsoCollate (4)\",\"updated_at\":1716313548,\"url\":\"https://lucidarios.hypotheses.org/5685\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22132/20231107222423/https://norbisley.wordpress.com/2024/05/04/guia-minima-de-revision-de-textos\",\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/040qyzk67\",\"name\":\"University
+        of Camag\xFCey\"}],\"name\":\"Norbisley Fern\xE1ndez\",\"url\":\"https://orcid.org/0000-0002-9373-4622\"}],\"blog_name\":\"Edici\xF3n
+        y comunicaci\xF3n de la Ciencia\",\"blog_slug\":\"norbisley\",\"category\":\"mediaAndCommunications\",\"content_text\":\"<figure\\nclass=\\\"wp-block-gallery
+        has-nested-images columns-default is-cropped wp-block-gallery-1 is-layout-flex
+        wp-block-gallery-is-layout-flex\\\">\\n<figure class=\\\"wp-block-image size-large\\\">\\n<img
+        src=\\\"https://norbisley.files.wordpress.com/2024/05/blog.jpg?w=1024\\\"\\nclass=\\\"wp-image-584\\\"
+        data-attachment-id=\\\"584\\\"\\ndata-permalink=\\\"https://norbisley.wordpress.com/2024/05/04/guia-minima-de-revision-de-textos/blog-2/\\\"\\ndata-orig-file=\\\"https://norbisley.files.wordpress.com/2024/05/blog.jpg\\\"\\ndata-orig-size=\\\"4831,3221\\\"
+        data-comments-opened=\\\"1\\\"\\ndata-image-meta=\\\"{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}\\\"\\ndata-image-title=\\\"blog\\\"
+        data-image-description=\\\"\\\" data-image-caption=\\\"\\\"\\ndata-medium-file=\\\"https://norbisley.files.wordpress.com/2024/05/blog.jpg?w=300\\\"\\ndata-large-file=\\\"https://norbisley.files.wordpress.com/2024/05/blog.jpg?w=1024\\\"\\nloading=\\\"lazy\\\"
+        data-id=\\\"584\\\"\\nsrcset=\\\"https://norbisley.files.wordpress.com/2024/05/blog.jpg?w=1024
+        1024w, https://norbisley.files.wordpress.com/2024/05/blog.jpg?w=2046 2046w,
+        https://norbisley.files.wordpress.com/2024/05/blog.jpg?w=150 150w, https://norbisley.files.wordpress.com/2024/05/blog.jpg?w=300
+        300w, https://norbisley.files.wordpress.com/2024/05/blog.jpg?w=768 768w\\\"\\nsizes=\\\"(max-width:
+        1024px) 100vw, 1024px\\\" width=\\\"1024\\\" height=\\\"682\\\" />\\n</figure>\\n</figure>\\n\\nSe
+        me quedan muchas cosas, pero aqu\xED va lo b\xE1sico, elemental, para\\nobervar
+        en un texto con miras a su uniformidad. En las editoriales hay\\ndiversos
+        tipos de correcciones (ortotipogr\xE1fica, de estilo) y pueden\\nexistir tantas
+        intervenciones como determine el editor. Esta ser\xEDa una\\nprimera intervenci\xF3n,
+        si se quiere...\\n\\n## Haz una lectura general: {#haz-una-lectura-general
+        .wp-block-heading}\\n\\n1.  Lee el texto completo de forma r\xE1pida para
+        tener una idea general\\n    del contenido y la estructura.\\n2.  Realiza
+        el OrigEd y gu\xE1rdalo como \\\"\xFAltimos d\xEDgitos del a\xF1o-\\n    NombredelautorOrigEd\\\"
+        (Ej: 24- JoaquinOrigEd, 23- IrisOrigEd).\\n3.  Revisa en los metadatos el
+        uso de tesauros de la UNESCO y algunas\\n    bases de datos especializadas.\\n\\n##
+        Revisa la estructura y organizaci\xF3n: {#revisa-la-estructura-y-organizaci\xF3n
+        .wp-block-heading}\\n\\n- Verifica que el texto tenga una introducci\xF3n,
+        desarrollo y conclusi\xF3n\\n  claros.\\n- Verifica que se declare el objetivo.\\n-
+        Reelaborar el Resumen y agregar palabras clave en funci\xF3n de los\\n  tesauros
+        de la UNESCO.\\n- Comprueba que los p\xE1rrafos est\xE9n bien estructurados
+        y que haya una\\n  secuencia l\xF3gica entre ellos.\\n- Revisa que los t\xEDtulos
+        y subt\xEDtulos reflejen adecuadamente el\\n  contenido.\\n\\n## Analiza la
+        gram\xE1tica y ortograf\xEDa {#analiza-la-gram\xE1tica-y-ortograf\xEDa .wp-block-heading}\\n\\n-
+        Corrige errores de ortograf\xEDa, acentuaci\xF3n y puntuaci\xF3n.\\n- Verifica
+        que las estructuras gramaticales sean correctas\\n  (concordancia, verbos,
+        pronombres, etc.).\\n- Identifica y resuelve problemas de redacci\xF3n, como
+        frases confusas o\\n  ambiguas.\\n- Controla la consistencia en el uso de
+        terminolog\xEDa, abreviaturas,\\n  siglas, etc.\\n- Comprueba el correcto
+        uso de altas, cursivas, y versales.\\n\\n## Fiscaliza elementos gr\xE1ficos
+        {#fiscaliza-elementos-gr\xE1ficos .wp-block-heading}\\n\\n- Comprueba que
+        todo el elemento gr\xE1fico tenga llamada en el texto y de\\n  manera uniforme
+        (fig.#, Figura \\\\#, etc.).\\n- Coteja la calidad de las im\xE1genes (+300dpi):
+        haz clic con el bot\xF3n\\n  derecho en la imagen y ve a Propiedades. En la
+        pesta\xF1a Detalles,\\n  encontrar\xE1s los detalles de la imagen, incluyendo
+        los p\xEDxeles y los\\n  DPI.\\n- Verifica que las im\xE1genes no tengan conflicto
+        de derechos de autor.\\n- Comprueba que la informaci\xF3n contenida en las
+        tablas tenga elementos\\n  de comparaci\xF3n.\\n- Verifica si el tipo de elemento
+        visual elegido por el autor es el\\n  id\xF3neo para la informaci\xF3n que
+        representa.\\n\\n## Revisa el estilo y la coherencia {#revisa-el-estilo-y-la-coherencia
+        .wp-block-heading}\\n\\n- Aseg\xFArate de que el lenguaje utilizado sea apropiado
+        para el p\xFAblico\\n  objetivo y el tipo de texto.\\n- Verifica que haya
+        coherencia en el uso de tiempos verbales, voz, tono\\n  y nivel de formalidad.\\n\\n##
+        Verifica que las citas y referencias bibliogr\xE1ficas est\xE9n correctamente
+        formateadas {#verifica-que-las-citas-y-referencias-bibliogr\xE1ficas-est\xE9n-correctamente-formateadas
+        .wp-block-heading}\\n\\n- Aseg\xFArate de que todo lo citado en el texto aparezca
+        en las\\n  referencias.\\n- Comprueba adherencia a una norma bibliogr\xE1fica
+        determinada por el\\n  editor.\\n- Verifica que los enlaces de los links en
+        las referencias conduzcan a\\n  los trabajos citados y no a otros.\\n- Confirma
+        que no falten datos en las entradas de las referencias.\\n- Verifica el nivel
+        de actualizaci\xF3n de las referencias (+del 75% debe\\n  pertenecer a los
+        \xFAltimos 5 a\xF1os) y su digitalizaci\xF3n (+del 50 % debe\\n  ser digital).\\n-
+        Confirma al menos el 25% de la citaci\xF3n sea a fuente indexada en\\n  SCOPUS,
+        SciELo o WOS.\\n- En el caso de la citaci\xF3n de blogs verifica que este
+        refiera fuentes.\\n\\n## Lee el texto de nuevo de forma detenida, asegur\xE1ndote
+        de haber detectado y corregido todos los errores y problemas. {#lee-el-texto-de-nuevo-de-forma-detenida-asegur\xE1ndote-de-haber-detectado-y-corregido-todos-los-errores-y-problemas.
+        .wp-block-heading}\\n\",\"doi\":\"https://doi.org/10.59350/f6p33-h9986\",\"guid\":\"https://norbisley.wordpress.com/?p=582\",\"id\":\"b58a6eb4-9fef-4d4b-9986-99c0b6787d15\",\"image\":\"https://norbisley.files.wordpress.com/2024/05/blog.jpg?w=1024\",\"language\":\"es\",\"published_at\":1714827644,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Se
+        me quedan muchas cosas, pero aqu\xED va lo b\xE1sico, elemental, para obervar
+        en un texto con miras a su uniformidad. En las editoriales  hay diversos tipos
+        de correcciones (ortotipogr\xE1fica, de estilo) y pueden existir tantas intervenciones
+        como determine el editor. Esta ser\xEDa una primera intervenci\xF3n, si se
+        quiere\u2026 Haz una lectura general:  Lee el texto completo de forma r\xE1pida
+        para tener una idea general del contenido y la estructura.\",\"tags\":[\"Edici\xF3n
+        Acad\xE9mica\",\"Gu\xEDas De Actuaci\xF3n\"],\"title\":\"Gu\xEDa m\xEDnima
+        de revisi\xF3n de textos\",\"updated_at\":1714827644,\"url\":\"https://norbisley.wordpress.com/2024/05/04/guia-minima-de-revision-de-textos\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22132/20231107222423/https://norbisley.wordpress.com/2024/05/04/rogue-scholar-y-cobertura-de-visibilidad-a-la-ciencia-latinoamericana\",\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/040qyzk67\",\"name\":\"University
+        of Camag\xFCey\"}],\"name\":\"Norbisley Fern\xE1ndez\",\"url\":\"https://orcid.org/0000-0002-9373-4622\"}],\"blog_name\":\"Edici\xF3n
+        y comunicaci\xF3n de la Ciencia\",\"blog_slug\":\"norbisley\",\"category\":\"mediaAndCommunications\",\"content_text\":\"<figure
+        class=\\\"wp-block-image size-large\\\">\\n<img\\nsrc=\\\"https://norbisley.files.wordpress.com/2024/05/rogue.png?w=1024\\\"\\nclass=\\\"wp-image-579\\\"
+        data-attachment-id=\\\"579\\\"\\ndata-permalink=\\\"https://norbisley.wordpress.com/2024/05/04/rogue-scholar-y-cobertura-de-visibilidad-a-la-ciencia-latinoamericana/rogue/\\\"\\ndata-orig-file=\\\"https://norbisley.files.wordpress.com/2024/05/rogue.png\\\"\\ndata-orig-size=\\\"1084,642\\\"
+        data-comments-opened=\\\"1\\\"\\ndata-image-meta=\\\"{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}\\\"\\ndata-image-title=\\\"rogue\\\"
+        data-image-description=\\\"\\\" data-image-caption=\\\"\\\"\\ndata-medium-file=\\\"https://norbisley.files.wordpress.com/2024/05/rogue.png?w=300\\\"\\ndata-large-file=\\\"https://norbisley.files.wordpress.com/2024/05/rogue.png?w=1024\\\"\\nloading=\\\"lazy\\\"\\nsrcset=\\\"https://norbisley.files.wordpress.com/2024/05/rogue.png?w=1024
+        1024w, https://norbisley.files.wordpress.com/2024/05/rogue.png?w=150 150w,
+        https://norbisley.files.wordpress.com/2024/05/rogue.png?w=300 300w, https://norbisley.files.wordpress.com/2024/05/rogue.png?w=768
+        768w, https://norbisley.files.wordpress.com/2024/05/rogue.png 1084w\\\"\\nsizes=\\\"(max-width:
+        1024px) 100vw, 1024px\\\" width=\\\"1024\\\" height=\\\"606\\\" />\\n</figure>\\n\\nYo
+        creo que la sobrevivencia de los blogs depender\xE1 de la capacidad de\\nhacerlos
+        realmente colaborativos y de volver al concepto primigenio de\\nentradas cortas.\\n\\nMonsalve,
+        Valencia y Franco, 2019\\n\\nPara nadie es un secreto que la ciencia en pa\xEDses
+        subdesarrollados es\\nmenos visible en las grandes plataformas de indexaci\xF3n
+        de contenido\\ncient\xEDfico, sobre todo aquella en idioma espa\xF1ol, ya
+        que \\\"el ingl\xE9s es\\nla lengua franca de la ciencia.\\\" A esto sumemos
+        la posibilidad de pagar\\npor publicar para un cient\xEDfico latinoamericano,
+        pues en palabras de\\nGanga, Paredes y Pedraja (2015), citado por Artigas
+        (2023) \\\"los\\ninvestigadores de pa\xEDses desarrollados normalmente publican
+        en revistas\\nreconocidas y cuentan con altos presupuestos de investigaci\xF3n,
+        los de\\npa\xEDses con pocos recursos no logran publicar m\xE1s all\xE1 de
+        sus fronteras,\\npor tanto, no podemos hablar en general, ni esperar los mismos\\nresultados\\\"
+        (p.2). Es por eso que surgi\xF3 la idea de agregar blogs de\\nciencia en idioma
+        espa\xF1ol a Rogue Scholar a fin de que puedan obtener un\\nDOI y hacer m\xE1s
+        visible la ciencia de su pa\xEDs.\\n\\nEmpec\xE9 a buscar en internet y encontr\xE9
+        varios portales que agregaban\\nblogs pero ninguno exhib\xEDa requisitos,
+        solo ResearchBlogging ped\xEDa el\\nenv\xEDo de un post con una referencia
+        a fuente arbitrada.\\n\\nPens\xE9 entonces en el proyecto de Martin Fenner
+        y en c\xF3mo podr\xEDa ayudar a\\nque mejores blogs fueran indexados. Como
+        la navaja de Occam: lo m\xE1s\\nsimple es lo m\xE1s indicado.\\n\\n1.  Los
+        blogs son aconsejados por muchos investigadores como un medio\\n    para obtener
+        visibilidad (Aviles, 2023; Ruiz, L\xF3pez, Arteaga y\\n    Gonz\xE1lez, 2020,
+        Cabezas, Torres y Delgado, 2009; Portuguez, Rey y\\n    G\xF3mez, 2019; D\xEDaz
+        y Vit\xF3n, 2020) su contenido no siempre es validado\\n    (Rodr\xEDguez,
+        2019), y no puede validarse por el arbitraje tradicional\\n    pues tardar\xEDa
+        mucho, por tanto lo primero que debe presentar un blog\\n    de ciencia es
+        citaci\xF3n a fuentes arbitradas. Analic\xE9 muchos y muy\\n    pocos ---incluso
+        algunos con muy buenos art\xEDculos--- refieren\\n    fuentes. Un blog es
+        un formato citable, reconocido por las normas de\\n    citaci\xF3n \xBFPor
+        qu\xE9 no referenciar tambi\xE9n?\\n2.  El lector de ciencia ya est\xE1 familiarizado
+        con el uso de\\n    referencias, es o un par intelectual, o un estudiante
+        o alguien\\n    interesado en un tema con capacidad de investigaci\xF3n y
+        ansias de\\n    conocimientos. Un lector ansioso, es un lector atento. Por
+        tanto,\\n    independientemente que un blog se escribe por pasi\xF3n, ha de
+        tener un\\n    objetivo claro y una audiencia identificada.\\n3.  El acceso
+        abierto es la v\xEDa m\xE1s expedita para visibilizar la ciencia\\n    (Hern\xE1ndez,
+        Ramos y Fl\xF3rez, 2020; Fajardo, 2019 y Garc\xEDa, 2022,\\n    entre otros)
+        entonces los blogs pueden promover el acceso abierto y\\n    la colaboraci\xF3n
+        cient\xEDfica.\\n4.  Los servicios de muchos blogs podr\xEDan a\xF1adirle
+        valor a la plataforma\\n    y retroalimentar la comunidad de bloggers y lectores.\\n5.
+        \ Un recurso importante para la confiabilidad del contenido\\n    compartido,
+        adem\xE1s de la citaci\xF3n de fuentes arbitradas, es la\\n    informaci\xF3n
+        del autor, verificable a trav\xE9s de su ORCID y perfiles\\n    de redes acad\xE9micas
+        y profesionales.\\n\\nRogue Scholar es una gran oportunidad para la ciencia
+        latinoamericana y\\ndel Sur, en general. Podemos visibilizar la ciencia de
+        pa\xEDses en v\xEDas de\\ndesarrollo a fin de promover el trabajo colaborativo
+        y el acceso abierto\\na informaci\xF3n confiable. Pueden presentarse blogs
+        de cualquier \xE1rea\\ncient\xEDfica que aborden soluciones cient\xEDficas
+        a problemas de la sociedad\\no divulguen el quehacer de una instituci\xF3n
+        investigativa.\\n\\nReferencias\\n\\nArtigas (2023). El arduo camino de la
+        gesti\xF3n editorial Latinoamericana:\\nComentarios sobre una realidad actual.
+        Journal of the Academy. N\xFAm. 8.\\nEnero-Junio 2023. [157-Texto del\\nart\xEDculo-978-1-10-20230106.pdf](/Users/PC/AppData/Local/Temp/MicrosoftEdgeDownloads/cee0a1ba-5ea5-43bb-ba4f-780613e676aa/157-Texto%20del%20art%C3%ADculo-978-1-10-20230106.pdf)\\n\\nAvilez,
+        A. (2023). Mejora de la visibilidad de la Unidad M\xE9dica Vascular\\nSAS
+        mediante estrategias innovadoras de marketing en salud.\\n\\nCabezas-Clavijo,
+        \xC1., Torres-Salinas, D., & Delgado-L\xF3pez-C\xF3zar, E.\\n(2009). Ciencia
+        2.0: cat\xE1logo de herramientas e implicaciones para la\\nactividad investigadora.\_*Profesional
+        de la Informaci\xF3n*,\_*18*(1),\\n72-80.\\n\\nD\xEDaz-Samada, R. E., & Vit\xF3n-Castillo,
+        A. A. (2020) \xBF C\xF3mo aumentar la\\nvisibilidad de las publicaciones cient\xEDficas?.\_*Revista
+        Cubana de\\nMedicina Militar*,\_*49*(2).\\n\\nEsteve-Guillen, A. (2022). Blogs
+        y lectura: Un an\xE1lisis cr\xEDtico de los\\nart\xEDculos de investigaci\xF3n.\_*Ocnos.
+        Revista De Estudios Sobre\\nLectura*,\_*21*(1). <https://doi.org/10.18239/ocnos_2022.21.1.2739>\\n\\nFajardo,
+        J. L. C. (2019). Acceso abierto v\xEDa diamante en revistas\\ncient\xEDficas
+        latinoamericanas.\_*Tlatemoani: revista acad\xE9mica de\\ninvestigaci\xF3n*,\_*10*(30),
+        170-187.\\n\\nGarc\xEDa, A. B. (2022). Favorecer los canales de publicaci\xF3n
+        y\\ndistribuci\xF3n inclusivos de manera que nunca se excluya a los autores
+        por\\nmotivos econ\xF3micos: el Acceso Abierto \\\"verde\\\" y \\\"diamante\\\"
+        en Am\xE9rica\\nLatina en el marco de BOAI20.\_*Tramas y Redes*, (3), 327-337.\\n\\nHern\xE1ndez,
+        D. Y. H., Ramos, D. P. L., & Fl\xF3rez, D. T. (2020).\\nImportancia de las
+        revistas de acceso abierto: la indizaci\xF3n como meta\\nfundamental.\_*Dictamen
+        Libre*, (26), 81-98.\\n\\nPortuguez Castro, M., Rey Castillo, M., & G\xF3mez
+        Zerme\xF1o, M. G. (2019).\\nEstrategias de visibilidad para la producci\xF3n
+        cient\xEDfica en revistas\\nelectr\xF3nicas de acceso abierto: revisi\xF3n
+        sistem\xE1tica de\\nliteratura.\_*Education in the knowledge society: EKS*.\\n\\nRodr\xEDguez
+        Camacaro, J. E. (2019). Visibilidad de las publicaciones\\ncient\xEDficas:
+        un modo de fortalecerlas.\_*Suma de Negocios*,\_*10*(21),\\n63-69.\\n\\nRuiz
+        Corbella, M., L\xF3pez G\xF3mez, E., Arteaga Mart\xEDnez, B. P., & Gonz\xE1lez\\nGal\xE1n,
+        A. (2020). Visibilidad, impacto y transferencia del conocimiento\\nen revistas
+        cient\xEDficas de educaci\xF3n: la experiencia de Aula Magna\\n2.0.\_*Revista
+        electr\xF3nica de investigaci\xF3n y evaluaci\xF3n educativa*.\\n\",\"doi\":\"https://doi.org/10.59350/h5hjn-bft07\",\"guid\":\"https://norbisley.wordpress.com/?p=533\",\"id\":\"368dd5e2-1d4d-460c-a7d3-91495dafe35f\",\"image\":\"https://norbisley.files.wordpress.com/2024/05/rogue.png?w=1024\",\"language\":\"es\",\"published_at\":1714824179,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Yo
+        creo que la sobrevivencia de los blogs depender\xE1 de la capacidad de hacerlos
+        realmente colaborativos y de volver al concepto primigenio de entradas cortas.\",\"tags\":[],\"title\":\"Rogue
+        Scholar y cobertura de visibilidad a la ciencia latinoamericana\",\"updated_at\":1714824179,\"url\":\"https://norbisley.wordpress.com/2024/05/04/rogue-scholar-y-cobertura-de-visibilidad-a-la-ciencia-latinoamericana\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22132/20231107222423/https://norbisley.wordpress.com/2024/05/04/guia-de-actuacion-para-el-trabajo-editorial\",\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/040qyzk67\",\"name\":\"University
+        of Camag\xFCey\"}],\"name\":\"Norbisley Fern\xE1ndez\",\"url\":\"https://orcid.org/0000-0002-9373-4622\"}],\"blog_name\":\"Edici\xF3n
+        y comunicaci\xF3n de la Ciencia\",\"blog_slug\":\"norbisley\",\"category\":\"mediaAndCommunications\",\"content_text\":\"##
+        \ {#section .wp-block-heading}\\n\\n<figure class=\\\"wp-block-image size-large\\\">\\n<img\\nsrc=\\\"https://norbisley.files.wordpress.com/2024/05/procedimiento-1-2.jpg?w=270\\\"\\nclass=\\\"wp-image-576\\\"
+        loading=\\\"lazy\\\" data-attachment-id=\\\"576\\\"\\ndata-permalink=\\\"https://norbisley.wordpress.com/2024/05/04/guia-de-actuacion-para-el-trabajo-editorial/procedimiento-1-2/\\\"\\ndata-orig-file=\\\"https://norbisley.files.wordpress.com/2024/05/procedimiento-1-2.jpg\\\"\\ndata-orig-size=\\\"270,270\\\"
+        data-comments-opened=\\\"1\\\"\\ndata-image-meta=\\\"{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}\\\"\\ndata-image-title=\\\"procedimiento-1-2\\\"
+        data-image-description=\\\"\\\"\\ndata-image-caption=\\\"\\\"\\ndata-medium-file=\\\"https://norbisley.files.wordpress.com/2024/05/procedimiento-1-2.jpg?w=270\\\"\\ndata-large-file=\\\"https://norbisley.files.wordpress.com/2024/05/procedimiento-1-2.jpg?w=270\\\"\\nsrcset=\\\"https://norbisley.files.wordpress.com/2024/05/procedimiento-1-2.jpg
+        270w, https://norbisley.files.wordpress.com/2024/05/procedimiento-1-2.jpg?w=150
+        150w\\\"\\nsizes=\\\"(max-width: 270px) 100vw, 270px\\\" width=\\\"270\\\"
+        height=\\\"270\\\" />\\n</figure>\\n\\nEstas entregas no aspiran a ser una
+        gu\xEDa como tal sino un punto de\\npartida y orientaci\xF3n m\xEDnima para
+        qui\xE9n se comienza en este maravilloso\\nmundo. Est\xE1n basadas en las
+        cosas que me han sucedido en estos a\xF1os como\\neditora. Si bien al autor
+        de ciencia es un autor muy preparado, a menudo\\ndesestima cuestiones importantes
+        para la mejor comprensi\xF3n de sus textos\\n(como el correcto ajuste a la
+        norma en las referencias, por ejemplo). La\\nrecepci\xF3n adecuada de una
+        \xFAnica entrega, es vital para ahorrar tiempo y\\nesfuerzo en los procesos
+        editoriales posteriores.\\n\\nHacer una lectura general.\\n\\n1.  Leer el
+        texto completo de forma r\xE1pida para tener una idea general\\n    del contenido
+        y la estructura.\\n2.  Cerciorarse de que la entrega sea un manuscrito en
+        PDF y uno en\\n    Word.\\n3.  Revisar los avales acompa\xF1antes (devenidos
+        de la revisi\xF3n por pares)\\n    debidamente firmados, as\xED como la carta
+        de originalidad.\\n4.  Confirmar ajuste a la norma o requisitos de admisi\xF3n
+        de la\\n    editorial.\\n5.  Revisar que coincidencia entre el \xEDndice y
+        la presencia real de\\n    cap\xEDtulos o subt\xEDtulos en cuerpo del texto.\\n6.
+        \ Preguntar al autor si observ\xF3 el nivel de actualizaci\xF3n de las\\n
+        \   referencias (+del 75% debe pertenecer a los \xFAltimos 5 a\xF1os) y su\\n
+        \   digitalizaci\xF3n (+del 50 % debe ser digital). Confirmar que al menos\\n
+        \   el 25% de la citaci\xF3n sea a fuente indexada en SCOPUS, SciELo o WOS.\\n7.
+        \ Tomar datos del autor principal (tel\xE9fono, correo electr\xF3nico,\\n
+        \   direcci\xF3n, categor\xEDa acad\xE9mica y cient\xEDfica, facultad o universidad\\n
+        \   y sexo).\\n8.  Subir el original a la plataforma como \\\"dos \xFAltimos
+        d\xEDgitos del a\xF1o-\\n    NombredelautorOrigAutor\\\". Ej: 24- Joaqu\xEDnOrigAutor.\\n9.
+        \ Buscar fechas especiales con ajuste tem\xE1tico para posibles\\n    presentaciones
+        y consignarlas en la entrega a editor.\\n\",\"doi\":\"https://doi.org/10.59350/yz256-b8g32\",\"guid\":\"https://norbisley.wordpress.com/?p=568\",\"id\":\"e761264e-a499-48d3-ae00-84c78ec6155b\",\"image\":\"https://norbisley.files.wordpress.com/2024/05/procedimiento-1-2.jpg?w=270\",\"language\":\"es\",\"published_at\":1714796882,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Estas
+        entregas no aspiran a ser una gu\xEDa como tal sino un punto de partida y
+        orientaci\xF3n m\xEDnima para qui\xE9n se comienza en este maravilloso mundo.
+        Est\xE1n basadas en las cosas que me han sucedido en estos a\xF1os como editora.\",\"tags\":[\"Gu\xEDas
+        De Actuaci\xF3n\"],\"title\":\"Gu\xEDa para la recepci\xF3n de manuscritos\",\"updated_at\":1714828777,\"url\":\"https://norbisley.wordpress.com/2024/05/04/guia-de-actuacion-para-el-trabajo-editorial\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Coss\xEDo
+        Olavide, Mario\",\"url\":\"https://orcid.org/0000-0002-1447-3891\"}],\"blog_name\":\"Lucidarios\",\"blog_slug\":\"lucidarios\",\"category\":\"languagesAndLiterature\",\"content_text\":\"Retomando
+        el hilo de la [entrada\\nanterior](https://lucidarios.hypotheses.org/5573){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://lucidarios.hypotheses.org/5573\\\"\\ntarget=\\\"_blank\\\"},
+        en esta entrada explicar\xE9 c\xF3mo funcionan los botones\\nfunci\xF3n \xAB+L\\\\[acuna\\\\]/A\\\\[bsentia\\\\]\xBB,
+        \xAB+F\\\\[olio\\\\]\xBB y \xABExport wit\\\\[ness\\\\]\xBB\\nde ChrysoCollate.
+        El primero es un bot\xF3n bastante \xFAtil porque permite\\nmarcar [errores
+        por\\nomisi\xF3n](https://lucidarios.hypotheses.org/1350){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://lucidarios.hypotheses.org/1350\\\"\\ntarget=\\\"_blank\\\"}:
+        lagunas textuales y pasajes ausentes en un testimonio\\nen el documento que
+        se est\xE1 colacionando.\\n\\nLas lagunas pueden ocurrir por p\xE9rdida de
+        folios (ya sea por\\ndesprendimiento en el testimonio o por desprendimiento
+        en el ant\xEDgrafo,\\ncomo ocurre con los testimonios A y C del *Lucidario*)
+        o porque el\\ncopista encuentra un pasaje particularmente dif\xEDcil y decide
+        dejarlo en\\nblanco. La forma m\xE1s com\xFAn de saltos por homoioteleuton
+        (de igual a\\nigual) ocurre cuando dos pasajes consecutivos tienen la misma
+        palabra o\\nuna muy similar y el copista se despista creyendo que ya copi\xF3
+        un pasaje\\n(que omite). En ambos casos, es necesario identificar los casilleros
+        que\\nfaltan copiar y dar clic en \xAB+L/A\xBB. Se abrir\xE1 la siguiente
+        ventana:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-11.36.21.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-11.36.21-500x244.png\\\"\\nclass=\\\"wp-image-5638\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-11.36.21-500x244.png
+        500w, https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-11.36.21-300x146.png
+        300w, https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-11.36.21-768x375.png
+        768w, https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-11.36.21-1536x749.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-11.36.21-2048x999.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"244\\\" /></a>\\n<figcaption>Men\xFA <em>Notify a lacuna or an
+        absent\\nreading</em></figcaption>\\n</figure>\\n:::\\n\\nEn la primera opci\xF3n
+        hay que elegir si se quiere marcar una laguna\\n(*lacuna*) o un pasaje omitido
+        (*absent reading*). Luego, seleccionar el\\ntestimonio en el que ocurre de
+        la lista desplegable *witness* y\\nfinalmente rellenar el rango de las casillas
+        que ser\xE1n afectadas por la\\nfalta. Al dar clic, el programa introduce
+        una etiqueta: **`{lacuna}`**\\npara lagunas y **`{absentia}`** para omisiones,
+        que cambia el color de\\nla casilla a negro o azul oscuro, respectivamente.
+        Esta nota es\\nreflejada en el aparato cr\xEDtico en ChrysoCollate y en el
+        documento\\ncolacionado que se exporta. Este video demuestra c\xF3mo emplear
+        la funci\xF3n\\n+L/A:\\n\\n<figure\\nclass=\\\"wp-block-embed is-type-video
+        is-provider-youtube wp-block-embed-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio\\\">\\n<div
+        class=\\\"wp-block-embed__wrapper\\\">\\n<div class=\\\"video-container\\\">\\n<div
+        class=\\\"iframe\\\">\\n<div id=\\\"player\\\">\\n\\n</div>\\n<div class=\\\"player-unavailable\\\">\\n<h1
+        id=\\\"an-error-occurred.\\\" class=\\\"message\\\">An error occurred.</h1>\\n<div
+        class=\\\"submessage\\\">\\n<a href=\\\"https://www.youtube.com/watch?v=aYkAJJJnLD8\\\"\\ntarget=\\\"_blank\\\">Try
+        watching this video on www.youtube.com</a>, or\\nenable JavaScript if it is
+        disabled in your browser.\\n</div>\\n</div>\\n</div>\\n</div>\\n</div>\\n</figure>\\n\\nY
+        el siguiente, c\xF3mo aparecen las lagunas y las omisiones en un\\ndocumento
+        exportado por ChrysoCollate:\\n\\n<figure\\nclass=\\\"wp-block-embed is-type-video
+        is-provider-youtube wp-block-embed-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio\\\">\\n<div
+        class=\\\"wp-block-embed__wrapper\\\">\\n<div class=\\\"video-container\\\">\\n<div
+        class=\\\"iframe\\\">\\n<div id=\\\"player\\\">\\n\\n</div>\\n<div class=\\\"player-unavailable\\\">\\n<h1
+        id=\\\"an-error-occurred.\\\" class=\\\"message\\\">An error occurred.</h1>\\n<div
+        class=\\\"submessage\\\">\\n<a href=\\\"https://www.youtube.com/watch?v=desIG-olU1E\\\"\\ntarget=\\\"_blank\\\">Try
+        watching this video on www.youtube.com</a>, or\\nenable JavaScript if it is
+        disabled in your browser.\\n</div>\\n</div>\\n</div>\\n</div>\\n</div>\\n</figure>\\n\\nHay
+        que tener en cuenta que si ChrysoCollate detecta que hay contenido\\nen alguna
+        de las casillas que se quiere marcar como laguna u omisi\xF3n, el\\nprograma
+        advertir\xE1 al usuario antes de realizar la operaci\xF3n, pues\\ncualquier
+        texto en las casillas ser\xE1 borrado.\\n\\nEl siguiente bot\xF3n de funci\xF3n
+        es \xAB+F\\\\[olio\\\\]\xBB, que permite a\xF1adir la\\nfoliaci\xF3n de cada
+        testimonio colacionado y un enlace, ya sea a un sitio\\nweb, ya sea a un documento
+        local, donde se puede consultar directamente\\nel documento:\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-09.20.46-1.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-09.20.46-1-500x244.png\\\"\\nclass=\\\"wp-image-5640\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-09.20.46-1-500x244.png
+        500w, https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-09.20.46-1-300x146.png
+        300w, https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-09.20.46-1-768x374.png
+        768w, https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-09.20.46-1-1536x748.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-09.20.46-1-2048x998.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"244\\\" /></a>\\n<figcaption>Men\xFA <em>Add folio or page reference</em></figcaption>\\n</figure>\\n:::\\n\\nIntroducir
+        la foliaci\xF3n en ChrysoCollate permite encontrar con rapidez\\nun pasaje
+        en el testimonio original. Esto puede ser necesario por varios\\nmotivos,
+        por ejemplo, si dudamos que nuestra transcripci\xF3n contenga un\\nerror y
+        queremos confirmarlo, o si queremos confirmar el origen de una\\nlectura err\xF3nea
+        directamente en el manuscrito. Lo segundo, es que nos\\npermite navegar empleando
+        la funci\xF3n *Where are you in your witness*,\\nindicada por un \xEDcono
+        de un libro abierto en la barra superior,\\nfuncionalidades demostradas en
+        el siguiente v\xEDdeo:\\n\\n<figure\\nclass=\\\"wp-block-embed is-type-video
+        is-provider-youtube wp-block-embed-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio\\\">\\n<div
+        class=\\\"wp-block-embed__wrapper\\\">\\n<div class=\\\"video-container\\\">\\n<div
+        class=\\\"iframe\\\">\\n<div id=\\\"player\\\">\\n\\n</div>\\n<div class=\\\"player-unavailable\\\">\\n<h1
+        id=\\\"an-error-occurred.\\\" class=\\\"message\\\">An error occurred.</h1>\\n<div
+        class=\\\"submessage\\\">\\n<a href=\\\"https://www.youtube.com/watch?v=9h5L43P5mM8\\\"\\ntarget=\\\"_blank\\\">Try
+        watching this video on www.youtube.com</a>, or\\nenable JavaScript if it is
+        disabled in your browser.\\n</div>\\n</div>\\n</div>\\n</div>\\n</div>\\n</figure>\\n\\nAunque
+        las notas de foliaci\xF3n aparecen tanto en el modo colaci\xF3n\\n(*Collation
+        Mode*) como en el modo de edici\xF3n (*Edition Mode*), no son\\ntransmitidas
+        al documento exportado.\\n\\nLuego est\xE1 el bot\xF3n \xABExport wit\\\\[ness\\\\]\xBB
+        que, como su nombre lo indica,\\npermite exportar los testimonios que se han
+        a\xF1adido a un documento en\\nformato de texto plano (txt):\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-11.37.54.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-11.37.54-500x244.png\\\"\\nclass=\\\"wp-image-5641\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-11.37.54-500x244.png
+        500w, https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-11.37.54-300x146.png
+        300w, https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-11.37.54-768x374.png
+        768w, https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-11.37.54-1536x749.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-11.37.54-2048x998.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"244\\\" /></a>\\n<figcaption>Men\xFA <em>Export witness</em></figcaption>\\n</figure>\\n:::\\n\\nPor
+        el momento, la exportaci\xF3n debe realizarse individualmente, es\\ndecir,
+        testimonio por testimonio (aunque la siguiente versi\xF3n de\\nChrysoCollate
+        incorporar\xE1 una opci\xF3n para exportar todos los testimonios\\nal mismo
+        tiempo, *actualizaci\xF3n: a partir de ChrysoCollate 1.3.1, [ver\\naqu\xED](https://lucidarios.hypotheses.org/?p=5863){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://lucidarios.hypotheses.org/?p=5863\\\"\\ntarget=\\\"_blank\\\"}*).
+        Ahora, \xBFpara qu\xE9 sirve esta funci\xF3n? Pues para\\nconfirmar que nuestra
+        digitaci\xF3n de un testimonio no est\xE1 plagada de\\nerrores. Y si lo est\xE1
+        (y lo estar\xE1), permite corregirlos r\xE1pidamente.\\n\\nEn ChrysoCollate,
+        cualquier testimonio que no sea el primero debe\\nintroducirse manualmente,
+        como lo expliqu\xE9\\n[aqu\xED](https://lucidarios.hypotheses.org/5431){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://lucidarios.hypotheses.org/5431\\\"\\ntarget=\\\"_blank\\\"}.
+        La opci\xF3n \xABChoose the closest witness\xBB nos permite\\nsemi-automatizar
+        el proceso de digitaci\xF3n de un testimonio, al repetir\\nautom\xE1ticamente
+        la lectura del testimonio base. Pero esta automatizaci\xF3n\\n(y los lapsos
+        en nuestra atenci\xF3n) puede causar errores insospechados.\\nEl m\xE1s habitual
+        es que el testimonio que digitamos tenga una lectura\\nligeramente diferente
+        que la del testimonio base, pero no lo notemos.\\nPor ello, exportar los testimonios
+        y compararlos con la transcripci\xF3n\\noriginal siempre es recomendable.
+        Para comparar los testimonios del\\n*Lucidario* con los textos digitados en
+        ChrysoCollate, utilizo\\n[Kaleidoscope](https://kaleidoscope.app/){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://kaleidoscope.app/\\\"
+        target=\\\"_blank\\\"}, un\\naplicativo capaz de comparar documentos de formatos
+        diferentes. Este es\\nun ejemplo de la correcci\xF3n de errores de la colaci\xF3n
+        del cap\xEDtulo 75\\ndel *Lucidario*:\\n\\n<figure\\nclass=\\\"wp-block-embed
+        is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-4-3
+        wp-has-aspect-ratio\\\">\\n<div class=\\\"wp-block-embed__wrapper\\\">\\n<div
+        class=\\\"video-container\\\">\\n<div class=\\\"iframe\\\">\\n<div id=\\\"player\\\">\\n\\n</div>\\n<div
+        class=\\\"player-unavailable\\\">\\n<h1 id=\\\"an-error-occurred.\\\" class=\\\"message\\\">An
+        error occurred.</h1>\\n<div class=\\\"submessage\\\">\\n<a href=\\\"https://www.youtube.com/watch?v=8vZfxNWei2g\\\"\\ntarget=\\\"_blank\\\">Try
+        watching this video on www.youtube.com</a>, or\\nenable JavaScript if it is
+        disabled in your browser.\\n</div>\\n</div>\\n</div>\\n</div>\\n</div>\\n</figure>\\n\\nDejo
+        para la [pr\xF3xima\\nsemana](https://lucidarios.hypotheses.org/?p=5685){data-type=\\\"URL\\\"\\ndata-id=\\\"https://lucidarios.hypotheses.org/?p=5685\\\"
+        target=\\\"_blank\\\"\\nrel=\\\"noreferrer noopener\\\"} el \xFAltimo bot\xF3n
+        de funci\xF3n y una descripci\xF3n\\ngeneral de otras caracter\xEDsticas del
+        modo de colaci\xF3n de ChrysoCollate.\\n\\n------------------------------------------------------------------------\\n\\nImagen
+        de miniatura: captura de pantalla,  \\npantalla *Notify a lacuna*, ChrysoCollate\\n\",\"doi\":\"https://doi.org/10.58079/w9nf\",\"guid\":\"https://lucidarios.hypotheses.org/?p=5626\",\"id\":\"c8e4e5d4-0748-4364-8b08-63720cb889d0\",\"image\":\"https://lucidarios.hypotheses.org/files/2024/04/Capture-de\u0301cran-2024-04-24-a\u0300-12.36.54.png\",\"language\":\"es\",\"published_at\":1713974100,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Retomando
+        el hilo de la entrada anterior, en esta entrada explicar\xE9 c\xF3mo funcionan
+        los botones funci\xF3n \xAB+L[acuna]/A[bsentia]\xBB, \xAB+F[olio]\xBB y \xABExport
+        wit[ness]\xBB de ChrysoCollate. El primero es un bot\xF3n bastante \xFAtil
+        porque permite marcar errores por omisi\xF3n: lagunas textuales y pasajes
+        ausentes en un testimonio en el documento que se est\xE1 colacionando.\",\"tags\":[\"Entradas\",\"ChrysoCollate\",\"Collatio\",\"Constitutio
+        Textus\",\"Edici\xF3n Cr\xEDtica\"],\"title\":\"Herramientas de <em>collatio</em>
+        digital: ChyrsoCollate (3)\",\"updated_at\":1717590766,\"url\":\"https://lucidarios.hypotheses.org/5626\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}}],\"out_of\":16364,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"\"},\"search_cutoff\":false,\"search_time_ms\":10}"
+    headers:
+      Connection:
+      - keep-alive
+      accept-ranges:
+      - none
+      access-control-allow-origin:
+      - '*'
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: OK
 version: 1
