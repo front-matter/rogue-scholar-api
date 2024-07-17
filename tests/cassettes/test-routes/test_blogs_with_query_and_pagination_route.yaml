@@ -47,4 +47,69 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      prefer:
+      - count=exact
+      user-agent:
+      - python-httpx/0.24.1
+      x-client-info:
+      - supabase-py/2.5.3
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=slug%2C%20title%2C%20description%2C%20language%2C%20favicon%2C%20feed_url%2C%20feed_format%2C%20home_page_url%2C%20generator%2C%20category&status=in.%28approved%2Cactive%2Carchived%29&title=ilike.%2Awordpress%2A&limit=10&limit=11&order=created_at.desc&offset=10
+  response:
+    content: '{"code":"PGRST103","details":"An offset of 10 was requested, but there
+      are only 0 rows.","hint":null,"message":"Requested range not satisfiable"}'
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 8a4c8d57fe789056-BOS
+      content-location:
+      - /blogs?limit=10,11&offset=10&order=created_at.desc&select=slug%2C%20title%2C%20description%2C%20language%2C%20favicon%2C%20feed_url%2C%20feed_format%2C%20home_page_url%2C%20generator%2C%20category&status=in.%28approved%2Cactive%2Carchived%29&title=ilike.%2Awordpress%2A
+      content-profile:
+      - public
+      content-range:
+      - '*/0'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Wed, 17 Jul 2024 19:13:56 GMT
+      sb-gateway-version:
+      - '1'
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=15552000; includeSubDomains
+      vary:
+      - Accept-Encoding
+      via:
+      - kong/2.8.1
+      x-kong-proxy-latency:
+      - '1'
+      x-kong-upstream-latency:
+      - '4'
+    http_version: HTTP/2
+    status_code: 416
 version: 1

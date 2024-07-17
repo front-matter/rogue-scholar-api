@@ -53,4 +53,94 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      prefer:
+      - count=exact
+      user-agent:
+      - python-httpx/0.24.1
+      x-client-info:
+      - supabase-py/2.5.3
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=slug%2C%20title%2C%20description%2C%20language%2C%20favicon%2C%20feed_url%2C%20feed_format%2C%20home_page_url%2C%20generator%2C%20category&status=in.%28approved%2Cactive%2Carchived%29&title=ilike.%2A%2A&limit=10&limit=11&order=created_at.desc&offset=0
+  response:
+    content: "[{\"slug\":\"khinsen\",\"title\":\"Konrad Hinsen's blog\",\"description\":null,\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://blog.khinsen.net/feeds/all.atom.xml\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://blog.khinsen.net/\",\"generator\":\"Other\",\"category\":\"naturalSciences\"},
+      \n {\"slug\":\"epiforecasts\",\"title\":\"EpiForecasts\",\"description\":\"EpiForecasts
+      team website\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://epiforecasts.io/blog.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://epiforecasts.io/blog.html\",\"generator\":\"Quarto\",\"category\":\"otherMedicalSciences\"},
+      \n {\"slug\":\"epiverse_trace\",\"title\":\"Epiverse-TRACE developer space\",\"description\":\"A
+      place for Epiverse-TRACE developers to share their reflections, learnings, and
+      showcase their work.\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://epiverse-trace.github.io/blog-doi.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://epiverse-trace.github.io/\",\"generator\":\"Quarto\",\"category\":\"otherMedicalSciences\"},
+      \n {\"slug\":\"infomgnt\",\"title\":\"Research Group Information Management
+      @ Humboldt-Universit\xE4t zu Berlin\",\"description\":\"Research Group Information
+      Management @ Humboldt-Universit\xE4t zu Berlin\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://infomgnt.org/index.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://infomgnt.org\",\"generator\":\"Quarto\",\"category\":\"computerAndInformationSciences\"},
+      \n {\"slug\":\"drheap\",\"title\":\"dr. heap\",\"description\":\"Discover the
+      foundations of computer science.\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://www.drheap.nl/rss\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://www.drheap.nl/\",\"generator\":\"Ghost\",\"category\":\"computerAndInformationSciences\"},
+      \n {\"slug\":\"cthoyt\",\"title\":\"Biopragmatics\",\"description\":\"Unraveling
+      complex biology with biological knowledge graphs. Content licensed under CC
+      BY 4.0.\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://cthoyt.com/feed.xml\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://cthoyt.com\",\"generator\":\"Jekyll\",\"category\":\"naturalSciences\"},
+      \n {\"slug\":\"nohaytesispodcast\",\"title\":\"De esto no hay tesis\",\"description\":null,\"language\":\"es\",\"favicon\":null,\"feed_url\":\"https://www.nohaytesispodcast.com/episodes.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://www.nohaytesispodcast.com/\",\"generator\":\"Quarto\",\"category\":\"naturalSciences\"},
+      \n {\"slug\":\"etd\",\"title\":\"Economics from the Top Down\",\"description\":\"New
+      ideas in economics and the social sciences\",\"language\":\"en\",\"favicon\":\"https://i0.wp.com/economicsfromthetopdown.com/wp-content/uploads/2021/09/logo2-1-1.png?fit=32%2C32&ssl=1\",\"feed_url\":\"https://economicsfromthetopdown.com/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://economicsfromthetopdown.com/\",\"generator\":\"Other\",\"category\":\"economicsAndBusiness\"},
+      \n {\"slug\":\"tritonstation\",\"title\":\"Triton Station\",\"description\":\"A
+      Blog About the Science and Sociology of Cosmology and Dark Matter\",\"language\":\"en\",\"favicon\":\"https://tritonstation.com/wp-content/uploads/2017/02/cropped-tritonstation.png?w=32\",\"feed_url\":\"https://tritonstation.com/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://tritonstation.com/new-blog-page/\",\"generator\":\"WordPress.com\",\"category\":\"physicalSciences\"},
+      \n {\"slug\":\"tzovar\",\"title\":\"Bastian Greshake Tzovaras\",\"description\":\"Bastian
+      Greshake Tzovaras is a researcher with a background in biology and citizen science
+      and an open science activist. He works as a senior researcher at The Alan Turing
+      Institute. In 2011, he founded openSNP. He was awarded a PhD in Bioinformatics
+      in 2018. In 2017 he joined the Open Humans Foundation as the Director of Research.\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://tzovar.as/feed.xml\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://tzovar.as/\",\"generator\":\"Jekyll\",\"category\":\"otherSocialSciences\"},
+      \n {\"slug\":\"dataand_me\",\"title\":\"dataand.me\",\"description\":\"Mara
+      Averick's posts, notes, and talks on open-source, data science, and data visualization
+      featuring R.\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://dataand.me/blog.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://dataand.me\",\"generator\":\"Quarto\",\"category\":\"computerAndInformationSciences\"}]"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 8a4c8d548a519056-BOS
+      content-location:
+      - /blogs?limit=10,11&offset=0&order=created_at.desc&select=slug%2C%20title%2C%20description%2C%20language%2C%20favicon%2C%20feed_url%2C%20feed_format%2C%20home_page_url%2C%20generator%2C%20category&status=in.%28approved%2Cactive%2Carchived%29&title=ilike.%2A%2A
+      content-profile:
+      - public
+      content-range:
+      - 0-10/101
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Wed, 17 Jul 2024 19:13:56 GMT
+      sb-gateway-version:
+      - '1'
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=15552000; includeSubDomains
+      vary:
+      - Accept-Encoding
+      via:
+      - kong/2.8.1
+      x-kong-proxy-latency:
+      - '0'
+      x-kong-upstream-latency:
+      - '4'
+    http_version: HTTP/2
+    status_code: 206
 version: 1

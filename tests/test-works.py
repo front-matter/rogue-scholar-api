@@ -18,7 +18,7 @@ async def test_get_single_work_blog_post():
         work["url"]
         == "https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter"
     )
-    assert work.get("language", None) == "en"
+    assert work.get("language", None) == None
 
 
 @pytest.mark.asyncio

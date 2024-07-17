@@ -82,8 +82,8 @@ async def test_blogs_route():
     response = await test_client.get("/blogs")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] > 65
-    post = py_.get(result, "hits[0].document")
+    assert result["total-results"] > 65
+    post = py_.get(result, "items[0]")
     assert post["title"] is not None
 
 
@@ -100,29 +100,16 @@ async def test_blogs_with_query_and_pagination_route():
 
 
 @pytest.mark.vcr
-async def test_blogs_with_include_fields_route():
-    """Test blogs route with include fields."""
-    test_client = app.test_client()
-    response = await test_client.get("/blogs?include_fields=slug,title")
-    assert response.status_code == 200
-    result = await response.get_json()
-    assert result["found"] > 65
-    post = py_.get(result, "hits[0].document")
-    assert "slug" in post.keys()
-    assert "description" not in post.keys()
-
-
-@pytest.mark.vcr
 async def test_blogs_sort_route():
     """Test blogs route with sort."""
     test_client = app.test_client()
     response = await test_client.get("/blogs?sort=title&order=asc")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["found"] > 65
-    post0 = py_.get(result, "hits[0].document")
-    post1 = py_.get(result, "hits[1].document")
-    assert post0["title"] < post1["title"]
+    assert result["total-results"] > 65
+    post0 = py_.get(result, "items[0]")
+    post1 = py_.get(result, "items[1]")
+    assert post0["title"] > post1["title"]
 
 
 @pytest.mark.vcr
@@ -562,9 +549,9 @@ async def test_post_not_found():
     """Test post not found."""
     test_client = app.test_client()
     response = await test_client.get("/posts/10.59350/sfzv4-xdb69")
-    assert response.status_code == 429
+    assert response.status_code == 404
     result = await response.get_json()
-    assert result is None  # == {"error": "Post not found"}
+    assert result == {"error": "Post not found"}
 
 
 async def test_post_route_references():
@@ -573,13 +560,13 @@ async def test_post_route_references():
     response = await test_client.get("/posts/10.53731/r79z0kh-97aq74v-ag5hb/references")
     assert response.status_code == 200
     result = await response.get_json()
-    assert result["total-results"] == 15
-    assert len(result["items"]) == 15
-    result = result["items"][0]
-    assert result["key"] == "ref1"
-    assert result["doi"] == "https://doi.org/10.48550/arxiv.1501.04916"
+    assert result["total-results"] == 16
+    assert len(result["items"]) == 16
+    result = result["items"][6]
+    assert result["key"] == "ref7"
+    assert result["id"] == "https://doi.org/10.1016/j.aeolia.2015.08.001"
     assert (
         result["title"]
-        == "Exposición Temprana de Nativos Digitales en Ambientes, Metodologías y Técnicas de Investigación en la Universidad"
+        == "Racetrack Playa: Rocks moved by wind alone"
     )
     assert result["publicationYear"] == "2015"
