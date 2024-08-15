@@ -85,6 +85,7 @@ AUTHOR_IDS = {
     "Daniel Beucke": "https://orcid.org/0000-0003-4905-1936",
     "Isabella Meinecke": "https://orcid.org/0000-0001-8337-3619",
     "Marcel Wrzesinski": "https://orcid.org/0000-0002-2343-7905",
+    "Heidi Seibold": "https://orcid.org/0000-0002-8960-9642",
 }
 
 AUTHOR_NAMES = {
