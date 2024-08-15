@@ -825,7 +825,8 @@ async def extract_atom_post(post, blog):
             post.get("title", None)
         )
         summary = get_summary(content_html)
-        abstract = None
+        abstract = py_.get(post, "summary.#text", None)
+        abstract = get_abstract(summary, abstract)
         reference = await get_references(content_html)
         relationships = get_relationships(content_html)
         updated_at = get_date(post.get("updated", None))
