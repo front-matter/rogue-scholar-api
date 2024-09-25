@@ -8,8 +8,7 @@ FROM --platform=$BUILDPLATFORM python:3.12-bookworm AS builder
 # - https://pythonspeed.com/articles/multi-stage-docker-python/
 
 # Install OS package dependency: pandoc
-ENV PANDOC_VERSION=3.1.12.3 \
-    UV_VERSION=0.4.15 \
+ENV PANDOC_VERSION=3.4 \
     VIRTUAL_ENV=/opt/venv \
     PATH="/opt/venv/bin:$PATH"
 
@@ -17,7 +16,7 @@ ADD https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${P
 
 # install uv to manage Python dependencie
 # Explicitly set the virtual environment used by uv
-COPY --from=ghcr.io/astral-sh/uv:${UV_VERSION} /uv /bin/uv
+COPY --from=ghcr.io/astral-sh/uv:0.4.15 /uv /bin/uv
 
 RUN dpkg -i /tmp/pandoc-${PANDOC_VERSION}-1-amd64.deb && \
     uv venv ${VIRTUAL_ENV}
