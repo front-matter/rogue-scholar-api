@@ -23,14 +23,14 @@ from quart_rate_limiter import RateLimiter, RateLimit
 from quart_cors import cors
 from postgrest import APIError
 
-from api.supabase import (
-    supabase_client as supabase,
+from api.supabase_client import (
+    supabase_client,
     blogsSelect,
     blogWithPostsSelect,
     postsWithContentSelect,
     worksSelect,
 )
-from api.typesense import typesense_client as typesense
+from api.typesense_client import typesense_client as typesense
 from commonmeta import Metadata, doi_from_url, validate_prefix
 from api.utils import (
     get_formatted_metadata,
@@ -51,7 +51,13 @@ from api.utils import (
     format_relationships,
     translate_titles,
 )
-from api.posts import extract_all_posts, extract_all_posts_by_blog, update_all_posts, update_all_posts_by_blog, update_single_post
+from api.posts import (
+    extract_all_posts,
+    extract_all_posts_by_blog,
+    update_all_posts,
+    update_all_posts_by_blog,
+    update_single_post,
+)
 from api.blogs import extract_single_blog, extract_all_blogs
 from api.works import SUPPORTED_ACCEPT_HEADERS, get_formatted_work
 from api.schema import Blog, Post, Work, PostQuery
@@ -108,7 +114,7 @@ async def works():
     end_page = (page - 1) * per_page + (per_page - 1) if page > 0 else (per_page - 1)
     try:
         response = (
-            supabase.table("works")
+            supabase_client.table("works")
             .select(worksSelect, count="exact")
             .limit(min(per_page, 100))
             .order("date->published", desc=True)
@@ -131,7 +137,7 @@ async def work(slug: str, suffix: Optional[str] = None):
     try:
         if validate_uuid(slug):
             response = (
-                supabase.table("works")
+                supabase_client.table("works")
                 .select(worksSelect)
                 .eq("uuid", slug)
                 .maybe_single()
@@ -141,7 +147,7 @@ async def work(slug: str, suffix: Optional[str] = None):
         elif validate_prefix(slug) and suffix:
             doi = f"https://doi.org/{slug}/{suffix}"
             response = (
-                supabase.table("works")
+                supabase_client.table("works")
                 .select(worksSelect)
                 .eq("id", doi)
                 .maybe_single()
@@ -184,15 +190,15 @@ async def blogs():
     page = int(request.args.get("page") or "1")
     sort = request.args.get("sort") or "created_at"
     order = request.args.get("order") or "desc"
-    
+
     status = ["approved", "active", "archived"]
     start_page = page if page and page > 0 else 1
-    start_page = (start_page -1) * 10
+    start_page = (start_page - 1) * 10
     end_page = start_page + 10
 
     try:
         response = (
-            supabase.table("blogs")
+            supabase_client.table("blogs")
             .select(blogsSelect, count="exact")
             .in_("status", status)
             .ilike("title", f"%{query}%")
@@ -227,7 +233,7 @@ async def post_blogs():
 async def blog(slug):
     """Get blog by slug."""
     response = (
-        supabase.table("blogs")
+        supabase_client.table("blogs")
         .select(blogWithPostsSelect)
         .eq("slug", slug)
         .maybe_single()
@@ -377,12 +383,13 @@ async def post_posts():
             logger.warning(e)
             return {"error": "An error occured."}, 400
 
+
 @validate_response(Post)
 @app.route("/posts/<slug>", methods=["POST"])
 @app.route("/posts/<slug>/<suffix>", methods=["POST"])
 async def post_post(slug: str, suffix: Optional[str] = None):
     """Update post by either uuid or doi, using information from the blog's feed."""
-    
+
     try:
         result = await update_single_post(slug, suffix=suffix)
         return jsonify(result)
@@ -418,7 +425,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
     per_page = int(request.args.get("per_page") or "50")
     if slug == "unregistered":
         response = (
-            supabase.table("posts")
+            supabase_client.table("posts")
             .select(postsWithContentSelect, count="exact")
             .not_.is_("blogs.prefix", "null")
             .is_("doi", "null")
@@ -429,7 +436,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
         return jsonify({"total-results": response.count, "items": response.data})
     elif slug == "updated":
         response = (
-            supabase.table("posts")
+            supabase_client.table("posts")
             .select(postsWithContentSelect, count="exact")
             .not_.is_("blogs.prefix", "null")
             .is_("updated", True)
@@ -442,7 +449,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
     elif slug in prefixes and suffix and relation:
         if validate_uuid(slug):
             response = (
-                supabase.table("posts")
+                supabase_client.table("posts")
                 .select("reference")
                 .eq("id", slug)
                 .maybe_single()
@@ -451,7 +458,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
         else:
             doi = f"https://doi.org/{slug}/{suffix}"
             response = (
-                supabase.table("posts")
+                supabase_client.table("posts")
                 .select("reference")
                 .eq("doi", doi)
                 .maybe_single()
@@ -480,7 +487,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
     try:
         if validate_uuid(slug):
             response = (
-                supabase.table("posts")
+                supabase_client.table("posts")
                 .select(postsWithContentSelect)
                 .eq("id", slug)
                 .maybe_single()
@@ -490,7 +497,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
         else:
             doi = f"https://doi.org/{slug}/{suffix}"
             response = (
-                supabase.table("posts")
+                supabase_client.table("posts")
                 .select(postsWithContentSelect)
                 .eq("doi", doi)
                 .maybe_single()

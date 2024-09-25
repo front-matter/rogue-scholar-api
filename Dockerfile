@@ -6,34 +6,28 @@ FROM --platform=$BUILDPLATFORM python:3.12-bookworm AS builder
 # - https://medium.com/@albertazzir/blazing-fast-python-docker-builds-with-poetry-a78a66f5aed0
 # - https://pythonspeed.com/articles/smaller-python-docker-images/
 # - https://pythonspeed.com/articles/multi-stage-docker-python/
-# - https://stackoverflow.com/questions/53835198/integrating-python-poetry-with-docker
 
 # Install OS package dependency: pandoc
-# install poetry to manage Python dependencies
 ENV PANDOC_VERSION=3.1.12.3 \
-    POETRY_VERSION=1.8.3
+    UV_VERSION=0.4.15 \
+    VIRTUAL_ENV=/opt/venv \
+    PATH="/opt/venv/bin:$PATH"
 
 ADD https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb /tmp/pandoc-${PANDOC_VERSION}-1-amd64.deb
 
+# install uv to manage Python dependencie
+# Explicitly set the virtual environment used by uv
+COPY --from=ghcr.io/astral-sh/uv:${UV_VERSION} /uv /bin/uv
+
 RUN dpkg -i /tmp/pandoc-${PANDOC_VERSION}-1-amd64.deb && \
-    pip install --no-cache-dir poetry==${POETRY_VERSION}
-
-# Explicitly set the virtual environment used by Poetry
-ENV VIRTUAL_ENV=/opt/venv
-RUN python3 -m venv $VIRTUAL_ENV
-ENV PATH="$VIRTUAL_ENV/bin:$PATH"
-
-# Install Python dependencies using Poetry
-ENV POETRY_NO_INTERACTION=1 \
-    POETRY_VIRTUALENVS_CREATE=0 \
-    POETRY_CACHE_DIR=/tmp/poetry_cache
+    uv venv ${VIRTUAL_ENV}
 
 WORKDIR /app
 
-COPY pyproject.toml poetry.lock ./
+COPY pyproject.toml requirements.txt ./
 RUN touch README.md
-RUN --mount=type=cache,target=$POETRY_CACHE_DIR poetry install --without dev --no-root --no-interaction --no-ansi
-
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv pip install -r requirements.txt
 
 FROM --platform=$BUILDPLATFORM python:3.12-slim-bookworm AS runtime
 

@@ -14,7 +14,7 @@ import xmltodict
 import time
 import traceback
 from urllib.parse import unquote
-from commonmeta import validate_doi, normalize_id, validate_url, validate_prefix, doi_from_url
+from commonmeta import validate_doi, normalize_id, validate_url, validate_prefix
 from Levenshtein import ratio
 
 from api.utils import (
@@ -36,12 +36,11 @@ from api.utils import (
     EXCLUDED_TAGS,
 )
 from api.works import get_single_work
-from api.supabase import (
+from api.supabase_client import (
     supabase_admin_client as supabase_admin,
     supabase_client as supabase,
     postsWithContentSelect,
 )
-from api.typesense import typesense_client as typesense
 
 
 async def extract_all_posts(page: int = 1, update_all: bool = False):
@@ -216,7 +215,7 @@ async def extract_all_posts_by_blog(
             async with httpx.AsyncClient() as client:
                 response = await client.get(feed_url, timeout=30, follow_redirects=True)
                 # filter out error messages that are not valid json
-                json_start = response.text.find('[{')
+                json_start = response.text.find("[{")
                 response = response.text[json_start:]
                 posts = JSON.loads(response)
                 if not update_all:
@@ -249,7 +248,7 @@ async def extract_all_posts_by_blog(
                 posts = json.get("items", [])
                 # only include posts that have been modified since last update
                 if not update_all:
-                    posts = filter_updated_posts(posts, blog, key="updatedOn")
+                    posts = filter_updated_posts(posts, blog, key="pubDate")
                 extract_posts = [extract_squarespace_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/feed+json":
@@ -346,6 +345,7 @@ async def update_all_posts_by_blog(slug: str, page: int = 1):
         print(traceback.format_exc())
         return []
 
+
 async def update_single_post(slug: str, suffix: Optional[str] = None):
     """Update single post"""
     try:
@@ -371,7 +371,7 @@ async def update_single_post(slug: str, suffix: Optional[str] = None):
         blog = response.data.get("blog", None)
         if not blog:
             return {"error": "Blog not found."}, 404
-        post = py_.omit(response.data, "blog") 
+        post = py_.omit(response.data, "blog")
         updated_post = await update_rogue_scholar_post(post, blog)
         response = upsert_single_post(updated_post)
         return response
@@ -993,6 +993,7 @@ async def extract_rss_post(post, blog):
 async def update_rogue_scholar_post(post, blog):
     """Update Rogue Scholar post."""
     try:
+
         def format_author(author, published_at):
             """Format author. Optionally lookup real name from username,
             and ORCID from name."""
@@ -1039,12 +1040,11 @@ async def update_rogue_scholar_post(post, blog):
                 if i not in EXCLUDED_TAGS
             ]
         tags = py_.uniq(tags)[:5]
-        
+
         # upsert post with commonmeta if it has a DOI
         if post.get("doi", None):
             id_ = id_as_str(post.get("doi"))
             await get_single_work(id_)
-
 
         return {
             "authors": authors,
@@ -1086,6 +1086,7 @@ def filter_updated_posts(posts, blog, key):
 
 def filter_posts(posts, blog, key):
     """Filter posts if filter is set in blog settings. Used for RSS and Atom feeds."""
+
     def match_filter(post):
         """Match filter."""
         filters = blog.get("filter", "").split(":")
@@ -1096,7 +1097,7 @@ def filter_posts(posts, blog, key):
             return post.get(key, None) in filters
         m = set(post.get(key, None)).intersection(filters)
         return len(m) > 0
-    
+
     return [x for x in posts if match_filter(x)]
 
 
@@ -1215,7 +1216,7 @@ def get_contributors(content_html: str):
         return None
     author_string = author_header.find_next_sibling(["p", "ul", "ol"])
     contributors = []
-    
+
     # support for multiple authors
     if author_string.name in ["ul", "ol"]:
         for li in author_string.find_all("li"):
@@ -1278,10 +1279,10 @@ async def format_reference(url, index):
             }
         )
     else:
-        return ({
-                "key": f"ref{index + 1}",
-                "id": url,
-            })
+        return {
+            "key": f"ref{index + 1}",
+            "id": url,
+        }
 
 
 def get_title(content_html: str):
@@ -1323,7 +1324,7 @@ def get_summary(content_html: str = None, maxlen: int = 450):
         return None
     content_html = re.sub(r"(<br>|<br/>|<p>|</pr>)", " ", content_html)
     content_html = re.sub(r"(h1>|h2>|h3>|h4>)", "strong> ", content_html)
-    
+
     sanitized = nh3.clean(
         content_html,
         tags={"b", "i", "em", "strong", "sub", "sup"},
@@ -1331,13 +1332,13 @@ def get_summary(content_html: str = None, maxlen: int = 450):
         attributes={},
     )
     sanitized = re.sub(r"\n+", " ", sanitized).strip()
-    
+
     # workaround to remove script tag
     script_tag = """document.addEventListener("DOMContentLoaded", () =&gt; {     // Add skip link to the page     let element = document.getElementById("quarto-header");     let skiplink =       '&lt;a id="skiplink" class="visually-hidden-focusable" href="#quarto-document-content"&gt;Skip to main content&lt;/a&gt;';     element.insertAdjacentHTML("beforebegin", skiplink);   });"""
     sanitized = sanitized.replace(script_tag, "")
-    
+
     truncated = py_.truncate(sanitized, maxlen, omission="", separator=" ")
-    
+
     # remove incomplete last sentence
     if len(truncated) > 0 and truncated[-1] not in [".", "!", "?", ";"]:
         sentences = re.split(r"(?<=\w{3}[.!?;])\s+", truncated)

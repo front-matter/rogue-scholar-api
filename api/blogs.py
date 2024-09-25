@@ -8,7 +8,7 @@ import re
 from bs4 import BeautifulSoup as bs4
 from furl import furl
 
-from api.supabase import (
+from api.supabase_client import (
     supabase_client as supabase,
     supabase_admin_client as supabase_admin,
 )

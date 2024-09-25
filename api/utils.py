@@ -23,7 +23,6 @@ from commonmeta import (
 from commonmeta.constants import Commonmeta
 from commonmeta.date_utils import get_date_from_unix_timestamp
 from commonmeta.doi_utils import validate_prefix, get_doi_ra
-from idutils import is_doi
 import frontmatter
 import pandoc
 # from pandoc.types import Str
