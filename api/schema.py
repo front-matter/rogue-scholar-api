@@ -34,7 +34,6 @@ class Blog:
     category: str
     prefix: str
     status: str
-    plan: str
     funding: str
     items: list
 

@@ -12,7 +12,7 @@ The backend server for the [Rogue Scholar](https://rogue-scholar.org) science bl
 
 ## Installation
 
-Requires Python 3.9 or higher (Python 3.12 recommended). Uses [Poetry](https://python-poetry.org/) for dependency management. Depends on credentials for the Rogue Scholar Postgres database (hosted by Supabase) and Rogue Scholar search index (hosted by Typesense):
+Requires Python 3.12. Uses [uv](https://github.com/astral-sh/uv) for dependency management. Depends on credentials for the Rogue Scholar Postgres database (hosted by Supabase) and Rogue Scholar search index (hosted by Typesense):
 
 ```
 # required environment variables
@@ -22,11 +22,11 @@ TYPESENSE_HOST
 TYPESENSE_API_KEY
 ```
 
-The API uses Poetry for dependency management. To install Poetry, see the [Poetry documentation](https://python-poetry.org/docs/#installation). Then install the dependencies and run the server:
+The API uses uv for dependency management. To install uv, see the [uv documentation](https://docs.astral.sh/uv/). Then install the dependencies and run the server:
 
 ```
-poetry install
-poetry run start
+uv sync
+uv run start
 ```
 
 The API will then be available at `http://localhost:5000`.

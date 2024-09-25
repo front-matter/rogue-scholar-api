@@ -314,7 +314,6 @@ def test_update_single_blog():
         "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
         "category": "socialSciences",
         "status": "active",
-        "plan": "Team",
         "user_id": "a9e3541e-1e00-4bf3-8a4d-fc9b1c505651",
         "authors": None,
         "mastodon": None,

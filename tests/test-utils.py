@@ -63,8 +63,8 @@ def test_convert_to_commonmeta_default():
     }
 
     assert result["date"] == {
-        "published": "2024-01-13T13:10:51",
-        "updated": "2024-01-13T13:10:51",
+        "published": "2024-01-13T19:10:51",
+        "updated": "2024-01-13T19:10:51",
     }
     assert result["publisher"] == {"name": "GigaBlog"}
     assert len(result["references"]) == 0

@@ -89,7 +89,7 @@ async def extract_single_blog(slug: str):
     response = (
         supabase.table("blogs")
         .select(
-            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, mastodon, generator_raw, language, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter, secure"
+            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, mastodon, generator_raw, language, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure"
         )
         .eq("slug", slug)
         .maybe_single()
@@ -146,7 +146,6 @@ async def extract_single_blog(slug: str):
         "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
         "category": config["category"],
         "status": config["status"],
-        "plan": config["plan"],
         "user_id": config["user_id"],
         "authors": config["authors"],
         "mastodon": config["mastodon"],

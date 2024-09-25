@@ -104,13 +104,14 @@ async def extract_all_posts_by_blog(
         response = (
             supabase.table("blogs")
             .select(
-                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, mastodon, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter, secure"
+                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, mastodon, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure"
             )
             .eq("slug", slug)
             .maybe_single()
             .execute()
         )
         blog = response.data
+        print(f"Extracting posts from {blog['slug']}.")
         if not blog:
             return {}
         if page == 1:
@@ -122,8 +123,6 @@ async def extract_all_posts_by_blog(
             if blog.get("generator", None)
             else None
         )
-        # limit number of pages for free plan to 5 (50 posts)
-        # page = min(page, 5) if blog.get("plan", None) == "Starter" else page
         start_page = (page - 1) * 50 if page > 0 else 0
         end_page = (page - 1) * 50 + 50 if page > 0 else 50
         per_page = 50
@@ -312,7 +311,7 @@ async def update_all_posts_by_blog(slug: str, page: int = 1):
         response = (
             supabase.table("blogs")
             .select(
-                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, mastodon, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter, secure"
+                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, mastodon, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure"
             )
             .eq("slug", slug)
             .maybe_single()

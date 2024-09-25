@@ -8,6 +8,8 @@ interactions:
       - gzip, deflate, br
       accept-profile:
       - public
+      baggage:
+      - sentry-trace_id=929e4e8773a84e1c9e9b229b3c882984,sentry-environment=production,sentry-release=77d2e5fbc6625ef8ded815f1104616969f22f671,sentry-public_key=3ae354867bf244f48cf0281d7570123b
       connection:
       - keep-alive
       content-length:
@@ -18,60 +20,53 @@ interactions:
       - application/json
       host:
       - db.rogue-scholar.org
+      sentry-trace:
+      - 929e4e8773a84e1c9e9b229b3c882984-ab3deeb3404d97e5
       user-agent:
-      - python-httpx/0.25.2
+      - python-httpx/0.24.1
       x-client-info:
-      - supabase-py/2.4.0
+      - supabase-py/2.7.4
     method: GET
     uri: https://db.rogue-scholar.org/rest/v1/posts?select=updated_at&blog_slug=eq.epub_fis&order=updated_at.desc&limit=1
   response:
-    content: '[{"updated_at":1710745399}]'
+    body:
+      string: !!binary |
+        YwDQAAhbeyJ1cGRhdGVkX2F0IjoxNzI3MDkwMjcxfV0D
     headers:
-      Access-Control-Allow-Origin:
-      - '*'
-      CF-Cache-Status:
+      cf-cache-status:
       - DYNAMIC
-      CF-Ray:
-      - 86aa65c8098acb2b-DUS
-      Connection:
-      - keep-alive
-      Content-Encoding:
+      cf-ray:
+      - 8c8a0d48cb3e160b-DUS
+      content-encoding:
       - br
-      Content-Location:
+      content-location:
       - /posts?blog_slug=eq.epub_fis&limit=1&order=updated_at.desc&select=updated_at
-      Content-Range:
-      - 0-0/*
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Tue, 26 Mar 2024 21:57:39 GMT
-      Server:
-      - cloudflare
-      Strict-Transport-Security:
-      - max-age=2592000; includeSubDomains
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
-      Via:
-      - kong/2.8.1
-      alt-svc:
-      - h3=":443"; ma=86400
       content-profile:
       - public
+      content-range:
+      - 0-0/*
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Wed, 25 Sep 2024 09:40:17 GMT
       sb-gateway-version:
       - '1'
-      x-kong-proxy-latency:
-      - '1'
-      x-kong-upstream-latency:
-      - '20'
-    http_version: HTTP/1.1
-    status_code: 200
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '13'
+    status:
+      code: 200
+      message: OK
 - request:
     body: '{"title": "FIS & EPub", "description": "Gemeinsamer Blog der DINI AG Forschungsinformationssystem
       und Elektronisches Publizieren", "feed_url": "https://blog.dini.de/EPub_FIS/feed/atom/",
       "current_feed_url": null, "home_page_url": "https://blog.dini.de/EPub_FIS",
-      "feed_format": "application/atom+xml", "updated_at": 1710745399, "language":
+      "feed_format": "application/atom+xml", "updated_at": 1727090271, "language":
       "de", "category": "socialSciences", "favicon": "https://blog.dini.de/EPub_FIS/wp-content/uploads/2018/03/cropped-DINI-AG-FIS-3-1-150x150.png",
       "license": "https://creativecommons.org/licenses/by/4.0/legalcode", "generator":
       "WordPress 6.3.2", "generator_raw": null, "status": "active", "user_id": "a9e3541e-1e00-4bf3-8a4d-fc9b1c505651",
@@ -83,6 +78,8 @@ interactions:
       - gzip, deflate, br
       accept-profile:
       - public
+      baggage:
+      - sentry-trace_id=929e4e8773a84e1c9e9b229b3c882984,sentry-environment=production,sentry-release=77d2e5fbc6625ef8ded815f1104616969f22f671,sentry-public_key=3ae354867bf244f48cf0281d7570123b
       connection:
       - keep-alive
       content-length:
@@ -95,53 +92,54 @@ interactions:
       - db.rogue-scholar.org
       prefer:
       - return=representation
+      sentry-trace:
+      - 929e4e8773a84e1c9e9b229b3c882984-ab3deeb3404d97e5
       user-agent:
-      - python-httpx/0.25.2
+      - python-httpx/0.24.1
       x-client-info:
-      - supabase-py/2.4.0
+      - supabase-py/2.7.4
     method: PATCH
     uri: https://db.rogue-scholar.org/rest/v1/blogs?slug=eq.epub_fis
   response:
-    content: '[{"title":"FIS & EPub","description":"Gemeinsamer Blog der DINI AG Forschungsinformationssystem
-      und Elektronisches Publizieren","language":"de","favicon":"https://blog.dini.de/EPub_FIS/wp-content/uploads/2018/03/cropped-DINI-AG-FIS-3-1-150x150.png","feed_url":"https://blog.dini.de/EPub_FIS/feed/atom/","home_page_url":"https://blog.dini.de/EPub_FIS","user_id":"a9e3541e-1e00-4bf3-8a4d-fc9b1c505651","feed_format":"application/atom+xml","license":"https://creativecommons.org/licenses/by/4.0/legalcode","generator":"WordPress
-      6.3.2","category":"socialSciences","prefix":null,"current_feed_url":null,"status":"active","issn":"2940-1798","authors":null,"plan":"Team","slug":"epub_fis","use_mastodon":false,"funding":null,"archive_prefix":"https://wayback.archive-it.org/22121/20231105105752/","use_api":true,"relative_url":null,"canonical_url":null,"filter":null,"updated_at":1710745399,"secure":null,"created_at":1689897600,"indexed":null,"generator_raw":null,"id":"2e00349e-defb-4459-9653-f284f516ac20","ror":null,"mastodon":null}]'
+    body:
+      string: !!binary |
+        YwAwIABArjWr19fqC4lomhl+u/lytFBah1oEC3DzjZ6CQ3estV1f/Nq14XRka3yfz+NO9MevV6dD
+        o3hdwZ6w9r/vINvsEBScvvxcPC5OPqw9EDAz82lfsg0eFJzhjNYnPWMsDl2YCoOxOH757mVxcFac
+        hpiG/eqn5BallW93rN4UJw4vcgzepmGPqbihwH1rMaIHAkiwoMAgENhUSAUo2Oe8JMV578LEjPWW
+        GeQnH9a+O335mV8tdBo99XxdXNAm8VLILRcVH2JYFjT0+OW7l/TgjJ6+/EwrKqlsxLVsxAWEFyMw
+        IppujS7aT4+IhuscZg4E9mHGbtETmpMHAmvC2FkDCvQOq6aWSCUKQet+rOhW14aOw66XQyOatpHQ
+        GCpjoCBtWTqH+cX17IBA344fPlcrqUOY5+ATC3HimrWJ9ze8ZoI7nLQbAtW+KfJtQwQF30M0HyKm
+        VLSsYiUQKJEkUJDCYLW77L/TgAkILBFHew3Kr84R2DoY6hhlZGRS1nlNoEAP2V4iELApeVBQ7mpB
+        5Wa3BQIr8GCym7c47UHBF9QzEEhunUABLmvfjTbx2b6bdcrBBA9q1C4hgXH1xvrJD9clBDukfH4d
+        V/qm18MFU1KpzTw1K0tZSl6KspJSNFI0m6bk8fL0YkHluCKB5p7AM3GD9sHbQTuBbbQuY3xV63Ux
+        OqPpdAYlN+VG7ES5kQSm7yPkMRJRc0273W13m1YIAl8+IKChiE+b1kV9JQDltVyJQlT1DqnBsad1
+        3ezorm0qOpbbemxkq4dSAIEYwPmo1PnVuf9/DQM=
     headers:
-      Access-Control-Allow-Origin:
-      - '*'
-      CF-Cache-Status:
+      cf-cache-status:
       - DYNAMIC
-      CF-Ray:
-      - 86aa65c9a895162b-DUS
-      Connection:
-      - keep-alive
-      Content-Encoding:
+      cf-ray:
+      - 8c8a0d498c97c7e9-DUS
+      content-encoding:
       - br
-      Content-Range:
-      - 0-0/*
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Tue, 26 Mar 2024 21:57:39 GMT
-      Server:
-      - cloudflare
-      Strict-Transport-Security:
-      - max-age=2592000; includeSubDomains
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Accept-Encoding
-      Via:
-      - kong/2.8.1
-      alt-svc:
-      - h3=":443"; ma=86400
       content-profile:
       - public
+      content-range:
+      - 0-0/*
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Wed, 25 Sep 2024 09:40:17 GMT
       sb-gateway-version:
       - '1'
-      x-kong-proxy-latency:
-      - '0'
-      x-kong-upstream-latency:
-      - '5'
-    http_version: HTTP/1.1
-    status_code: 200
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '4'
+    status:
+      code: 200
+      message: OK
 version: 1
