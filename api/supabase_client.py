@@ -1,16 +1,16 @@
 """Supabase client configuration"""
 from os import environ
 from dotenv import load_dotenv
-from supabase import create_client, Client as SupabaseClient
+from supabase import create_client, Client
 
 load_dotenv()
 
-supabase_client: SupabaseClient = create_client(
+supabase_client: Client = create_client(
     supabase_url=environ["QUART_SUPABASE_URL"],
     supabase_key=environ["QUART_SUPABASE_ANON_KEY"],
 )
 
-supabase_admin_client: SupabaseClient = create_client(
+supabase_admin_client: Client = create_client(
     supabase_url=environ["QUART_SUPABASE_URL"],
     supabase_key=environ["QUART_SUPABASE_SERVICE_ROLE_KEY"],
 )

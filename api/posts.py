@@ -296,10 +296,10 @@ async def extract_all_posts_by_blog(
             return blog_with_posts["entries"]
         return [upsert_single_post(i) for i in blog_with_posts["entries"]]
     except TimeoutError:
-        print(f"Timeout error in blog {blog['slug']}.")
+        print("Timeout error in blog.")
         return []
     except Exception as e:
-        print(f"{e} error in blog {blog['slug']}.")
+        print(f"{e} error.")
         print(traceback.format_exc())
         return []
 
