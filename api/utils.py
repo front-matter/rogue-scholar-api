@@ -593,7 +593,7 @@ AUTHOR_AFFILIATIONS = {
     ],
     "https://orcid.org/0000-0002-5798-662X": [
         {
-            "name": "Centre de Biophysique Moléculaire",
+            "name": "Universidad Nacional Autónoma de México",
             "id": "https://ror.org/01tmp8f25",
             "start_date": "2003-01-01",
         }
