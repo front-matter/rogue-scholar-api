@@ -85,6 +85,7 @@ AUTHOR_IDS = {
     "Isabella Meinecke": "https://orcid.org/0000-0001-8337-3619",
     "Marcel Wrzesinski": "https://orcid.org/0000-0002-2343-7905",
     "Heidi Seibold": "https://orcid.org/0000-0002-8960-9642",
+    "Layla Michán": "https://orcid.org/0000-0002-5798-662X",
 }
 
 AUTHOR_NAMES = {
@@ -588,6 +589,13 @@ AUTHOR_AFFILIATIONS = {
             "name": "Centre de Biophysique Moléculaire",
             "id": "https://ror.org/02dpqcy73",
             "start_date": "1998-04-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-5798-662X": [
+        {
+            "name": "Centre de Biophysique Moléculaire",
+            "id": "https://ror.org/01tmp8f25",
+            "start_date": "2003-01-01",
         }
     ],
 }
