@@ -1,12 +1,15 @@
 """Test utils"""
+
 import pytest  # noqa: F401
 import pydash as py_  # noqa: F401
-import json
+from os import path
+import orjson as json
 import frontmatter
 
 from api.utils import (
     get_date,
-    get_doi_metadata_from_ra,
+    convert_to_commonmeta,
+    get_formatted_metadata,
     validate_uuid,
     unix_timestamp,
     end_of_date,
@@ -18,7 +21,10 @@ from api.utils import (
     get_markdown,
     write_epub,
     write_pdf,
+    write_html,
     format_markdown,
+    is_valid_url,
+    id_as_str,
 )
 
 
@@ -29,43 +35,189 @@ def test_get_date_rss():
     assert result == "2023-09-18T04:00:00+00:00"
 
 
-def test_get_doi_metadata_bibtex():
-    "get doi metadata in bibtex format"
-    doi = "https://doi.org/10.53731/ybhah-9jy85"
-    result = get_doi_metadata_from_ra(doi, format_="bibtex")
-    print(result)
+def test_convert_to_commonmeta_default():
+    """Concert metadata into commonmeta format"""
+    string = path.join(path.dirname(__file__), "fixtures", "rogue-scholar.json")
+    with open(string, encoding="utf-8") as file:
+        string = file.read()
+    data = json.loads(string)
+    result = convert_to_commonmeta(data)
+    assert result["id"] == "https://doi.org/10.59350/ps8tw-rpk77"
+    assert result["schema_version"] == "https://commonmeta.org/commonmeta_v0.12"
+    assert result["type"] == "Article"
+    assert result["url"] == "http://gigasciencejournal.com/blog/fair-workflows"
+    assert py_.get(result, "titles.0") == {
+        "title": "A Decade of FAIR – what happens next? Q&amp;A on FAIR workflows with the Netherlands X-omics Initiative"
+    }
+    assert len(result["contributors"]) == 1
+    assert py_.get(result, "contributors.0") == {
+        "type": "Person",
+        "id": "https://orcid.org/0000-0001-6444-1436",
+        "contributorRoles": ["Author"],
+        "givenName": "Scott",
+        "familyName": "Edmunds",
+    }
+    assert result["license"] == {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+    }
+
+    assert result["date"] == {
+        "published": "2024-01-13T19:10:51",
+        "updated": "2024-01-13T19:10:51",
+    }
+    assert result["publisher"] == {"name": "GigaBlog"}
+    assert len(result["references"]) == 0
+    assert result["funding_references"] == []
+    assert result["container"] == {"type": "Periodical", "title": "GigaBlog"}
+    assert py_.get(result, "descriptions.0.description").startswith(
+        "<em>\n Marking the 10\n <sup>\n  th\n </sup>\n anniversary"
+    )
+    assert result["subjects"] == [{"subject": "Biological sciences"}]
+    assert result["provider"] == "Crossref"
+    assert len(result["files"]) == 5
+    assert py_.get(result, "files.2") == {
+        "url": "https://api.rogue-scholar.org/posts/10.59350/ps8tw-rpk77.pdf",
+        "mimeType": "application/pdf",
+    }
+
+
+def test_get_formatted_metadata_bibtex():
+    "get formatted metadata in bibtex format"
+    data = path.join(path.dirname(__file__), "fixtures", "commonmeta.json")
+    result = get_formatted_metadata(data, format_="bibtex")
     assert (
         result["data"]
-        == """@article{Fenner_2023,
- author = {Fenner, Martin},
- doi = {10.53731/ybhah-9jy85},
- month = {October},
- publisher = {Front Matter},
- title = {The rise of the (science) newsletter},
- url = {http://dx.doi.org/10.53731/ybhah-9jy85},
- year = {2023}
+        == """@article{10.53731/ybhah-9jy85,
+    abstract = {Newsletters have been around forever, but their popularity has significantly increased in the past few years, also thanks to platforms such as Ghost, Medium, and Substack. Which of course also includes science newsletters.Failure of advertising as a revenue model The most important driver of this trend is probably the realization that advertising is a poor revenue model for content published on the web, including blogs.},
+    author = {Fenner, Martin},
+    copyright = {https://creativecommons.org/licenses/by/4.0/legalcode},
+    doi = {10.53731/ybhah-9jy85},
+    month = oct,
+    title = {The rise of the (science) newsletter},
+    url = {https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter},
+    urldate = {2023-10-04},
+    year = {2023}
 }"""
     )
 
 
-def test_get_doi_metadata_csl():
-    "get doi metadata in csl format"
-    doi = "https://doi.org/10.59350/e3wmw-qwx29"
-    result = get_doi_metadata_from_ra(doi, format_="csl")
-    csl = json.loads(result["data"])
+def test_get_url_metadata_bibtex():
+    "get url metadata in bibtex format"
+    data = path.join(path.dirname(__file__), "fixtures", "commonmeta-no-doi.json")
+    result = get_formatted_metadata(data, format_="bibtex")
     assert (
-        csl["title"]
-        == "Two influential textbooks &#8211; &#8220;Mee&#8221;  and &#8220;Mellor&#8221;."
+        result["data"]
+        == """@article{https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter,
+    abstract = {Newsletters have been around forever, but their popularity has significantly increased in the past few years, also thanks to platforms such as Ghost, Medium, and Substack. Which of course also includes science newsletters.Failure of advertising as a revenue model The most important driver of this trend is probably the realization that advertising is a poor revenue model for content published on the web, including blogs.},
+    author = {Fenner, Martin},
+    copyright = {https://creativecommons.org/licenses/by/4.0/legalcode},
+    month = oct,
+    title = {The rise of the (science) newsletter},
+    url = {https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter},
+    urldate = {2023-10-04},
+    year = {2023}
+}"""
     )
 
 
-def test_get_doi_metadata_citation():
+def test_get_formatted_metadata_csl():
+    "get formatted metadata in csl format"
+    data = path.join(path.dirname(__file__), "fixtures", "commonmeta.json")
+    result = get_formatted_metadata(data, format_="csl")
+    csl = json.loads(result["data"])
+    assert csl["title"] == "The rise of the (science) newsletter"
+    assert csl["author"] == [{"family": "Fenner", "given": "Martin"}]
+
+
+def test_get_url_metadata_csl():
+    "get url metadata in csl format"
+    data = path.join(path.dirname(__file__), "fixtures", "commonmeta-no-doi.json")
+    result = get_formatted_metadata(data, format_="csl")
+    csl = json.loads(result["data"])
+    assert csl["title"] == "The rise of the (science) newsletter"
+    assert csl["author"] == [{"family": "Fenner", "given": "Martin"}]
+    assert (
+        csl["URL"]
+        == "https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter"
+    )
+
+
+def test_get_formatted_metadata_ris():
+    "get formatted metadata in ris format"
+    data = path.join(path.dirname(__file__), "fixtures", "commonmeta.json")
+    result = get_formatted_metadata(data, format_="ris")
+    ris = result["data"].split("\r\n")
+    assert ris[1] == "T1  - The rise of the (science) newsletter"
+    assert ris[2] == "AU  - Fenner, Martin"
+
+
+def test_get_formatted_metadata_commonmeta():
+    "get formatted metadata in commonmeta format"
+    data = path.join(path.dirname(__file__), "fixtures", "commonmeta.json")
+    result = get_formatted_metadata(data)
+    commonmeta = json.loads(result["data"])
+    assert (
+        commonmeta["titles"][0].get("title") == "The rise of the (science) newsletter"
+    )
+    assert commonmeta["contributors"] == [
+        {
+            "id": "https://orcid.org/0000-0003-1419-2405",
+            "type": "Person",
+            "contributorRoles": ["Author"],
+            "givenName": "Martin",
+            "familyName": "Fenner",
+        }
+    ]
+
+
+def test_get_formatted_metadata_schema_org():
+    "get doi metadata in schema_org format"
+    data = path.join(path.dirname(__file__), "fixtures", "commonmeta.json")
+    result = get_formatted_metadata(data, format_="schema_org")
+    schema_org = json.loads(result["data"])
+    assert schema_org["name"] == "The rise of the (science) newsletter"
+    assert schema_org["author"] == [
+        {
+            "id": "https://orcid.org/0000-0003-1419-2405",
+            "givenName": "Martin",
+            "familyName": "Fenner",
+            "@type": "Person",
+            "name": "Martin Fenner",
+        }
+    ]
+
+
+def test_get_formatted_metadata_datacite():
+    "get doi metadata in datacite format"
+    data = path.join(path.dirname(__file__), "fixtures", "commonmeta.json")
+    result = get_formatted_metadata(data, format_="datacite")
+    datacite = json.loads(result["data"])
+    assert datacite["titles"][0].get("title") == "The rise of the (science) newsletter"
+    assert datacite["creators"] == [
+        {
+            "familyName": "Fenner",
+            "givenName": "Martin",
+            "name": "Fenner, Martin",
+            "nameIdentifiers": [
+                {
+                    "nameIdentifier": "https://orcid.org/0000-0003-1419-2405",
+                    "nameIdentifierScheme": "ORCID",
+                    "schemeUri": "https://orcid.org",
+                }
+            ],
+            "nameType": "Personal",
+        }
+    ]
+
+
+def test_get_formatted_metadata_citation():
     "get doi metadata as formatted citation"
-    doi = "https://doi.org/10.53731/ybhah-9jy85"
-    result = get_doi_metadata_from_ra(doi, format_="citation")
+    data = path.join(path.dirname(__file__), "fixtures", "commonmeta.json")
+    result = get_formatted_metadata(data, format_="citation")
     assert (
         result["data"]
-        == "Fenner, M. (2023). The rise of the (science) newsletter. https://doi.org/10.53731/ybhah-9jy85"
+        == "Fenner, M. (2023). <i>The rise of the (science) newsletter</i>. https://doi.org/10.53731/ybhah-9jy85"
     )
 
 
@@ -137,6 +289,12 @@ def test_normalize_tag_fixed():
     assert normalize_tag(tag) == "OSTP"
 
 
+def test_normalize_tag_escaped():
+    """normalize tag escaped"""
+    tag = "Forschungsinformationen &amp; Systeme"
+    assert normalize_tag(tag) == "Forschungsinformationen & Systeme"
+
+
 def test_detect_language_english():
     """detect language english"""
     text = "This is a test"
@@ -151,7 +309,9 @@ def test_detect_language_german():
 
 def test_detect_language_french():
     """detect language french"""
-    text = "Ceci est un test"
+    text = """Le logiciel libre Pandoc par John MacFarlane est un outil très utile : 
+    par exemple, Yanina Bellini Saibene, community manager de rOpenSci, a récemment 
+    demandé à Maëlle si elle pouvait convertir un document Google en livre Quarto."""
     assert detect_language(text) == "fr"
 
 
@@ -168,6 +328,13 @@ def test_normalize_author_username():
     assert result == {
         "name": "David M. Shotton",
         "url": "https://orcid.org/0000-0001-5506-523X",
+        "affiliation": [
+            {
+                "id": "https://ror.org/052gg0110",
+                "name": "University of Oxford",
+                "start_date": "1981-01-01",
+            }
+        ],
     }
 
 
@@ -191,13 +358,6 @@ def test_normalize_author_gpt4():
     }
 
 
-def test_normalize_url_slash():
-    """normalize url with slash"""
-    url = "https://www.example.com/"
-    result = normalize_url(url)
-    assert result == "https://www.example.com"
-
-
 def test_normalize_url_with_index():
     """normalize url with index_html"""
     url = "https://www.example.com/index.html"
@@ -216,7 +376,14 @@ def test_normalize_url_with_slash_param():
     """normalize url with slash param"""
     url = "https://www.ch.imperial.ac.uk/rzepa/blog/?p=25304"
     result = normalize_url(url)
-    assert result == "https://www.ch.imperial.ac.uk/rzepa/blog?p=25304"
+    assert result == "https://www.ch.imperial.ac.uk/rzepa/blog/?p=25304"
+
+
+def test_is_valid_url():
+    """is valid url"""
+    assert True == is_valid_url("https://www.example.com")
+    assert True == is_valid_url("http://www.example.com")
+    assert True == is_valid_url("//www.example.com")
 
 
 def test_get_markdown():
@@ -235,10 +402,11 @@ def test_format_markdown():
     assert (
         result
         == """---
-abstract: ''
-date: '1970-01-01T00:00:00Z'
-date_updated: '1970-01-01T00:00:00Z'
-rights: https://creativecommons.org/licenses/by/4.0/legalcode
+date: '1970-01-01T00:00:00+00:00'
+date_updated: '1970-01-01T00:00:00+00:00'
+issn: null
+rights: null
+summary: ''
 title: Test
 ---
 
@@ -267,6 +435,19 @@ def test_format_pdf():
     # reader = PdfReader(result)
     # number_of_pages = len(reader.pages)
     # assert number_of_pages == 1
+
+
+def test_format_html():
+    """format html"""
+    content = "This is a *test*"
+    result = write_html(content)
+    assert result == "<p>This is a <em>test</em></p>\n"
+
+
+def test_id_as_str():
+    """id as string"""
+    assert "10.5555/1234" == id_as_str("https://doi.org/10.5555/1234")
+    assert "www.gooogle.com/blabla" == id_as_str("https://www.gooogle.com/blabla")
 
 
 # def test_sanitize_cool_suffix():

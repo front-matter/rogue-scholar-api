@@ -1,20 +1,28 @@
 """Utility functions"""
+
 from uuid import UUID
+from os import environ
 from typing import Optional, Union
-import re
-import requests
-import json
+from babel.dates import format_date
 import iso8601
 import html
 from lxml import etree
-import bibtexparser
 import pydash as py_
 from dateutil import parser, relativedelta
-from datetime import datetime
+from datetime import datetime, timezone
 from furl import furl
 from langdetect import detect
 from bs4 import BeautifulSoup
-from commonmeta import get_one_author, validate_orcid
+from commonmeta import (
+    Metadata,
+    get_one_author,
+    validate_orcid,
+    normalize_orcid,
+    doi_from_url,
+)
+from commonmeta.constants import Commonmeta
+from commonmeta.date_utils import get_date_from_unix_timestamp
+from commonmeta.doi_utils import validate_prefix, get_doi_ra
 import frontmatter
 import pandoc
 # from pandoc.types import Str
@@ -27,6 +35,7 @@ AUTHOR_IDS = {
     "Meghal Shah": "https://orcid.org/0000-0002-2085-659X",
     "Liberate Science": "https://ror.org/0342dzm54",
     "Lars Willighagen": "https://orcid.org/0000-0002-4751-4637",
+    "Egon Willighagen": "https://orcid.org/0000-0001-7542-0286",
     "Marco Tullney": "https://orcid.org/0000-0002-5111-2788",
     "Andrew Heiss": "https://orcid.org/0000-0002-3948-3914",
     "Sebastian Karcher": "https://orcid.org/0000-0001-8249-7388",
@@ -57,6 +66,26 @@ AUTHOR_IDS = {
     "David M. Shotton": "https://orcid.org/0000-0001-5506-523X",
     "Heinz Pampel": "https://orcid.org/0000-0003-3334-2771",
     "Martin Paul Eve": "https://orcid.org/0000-0002-5589-8511",
+    "Matías Castillo-Aguilar": "https://orcid.org/0000-0001-7291-247X",
+    "Leiden Madtrics": "https://ror.org/027bh9e22",
+    "Elephant in the Lab": "https://ror.org/02h1qnm70",
+    "Ben Kaden": "https://orcid.org/0000-0002-8021-1785",
+    "Maxi Kindling": "https://orcid.org/0000-0002-0167-0466",
+    "LIBREAS": "https://ror.org/01hcx6992",
+    "Jorge Saturno": "https://orcid.org/0000-0002-3761-3957",
+    "Ted Habermann": "https://orcid.org/0000-0003-3585-6733",
+    "Erin Robinson": "https://orcid.org/0000-0001-9998-0114",
+    "Mike Taylor": "https://orcid.org/0000-0002-1003-5675",
+    "Matt Wedel": "https://orcid.org/0000-0001-6082-3103",
+    "Henrique Costa": "https://orcid.org/0000-0003-4591-4044",
+    "Bastian Greshake Tzovaras": "https://orcid.org/0000-0002-9925-9623",
+    "Stacy McGaugh": "https://orcid.org/0000-0002-9762-0980",
+    "Dorothea Strecker": "https://orcid.org/0000-0002-9754-3807",
+    "Daniel Beucke": "https://orcid.org/0000-0003-4905-1936",
+    "Isabella Meinecke": "https://orcid.org/0000-0001-8337-3619",
+    "Marcel Wrzesinski": "https://orcid.org/0000-0002-2343-7905",
+    "Heidi Seibold": "https://orcid.org/0000-0002-8960-9642",
+    "Layla Michán": "https://orcid.org/0000-0002-5798-662X",
 }
 
 AUTHOR_NAMES = {
@@ -89,7 +118,490 @@ AUTHOR_NAMES = {
     "schradera": "Antonia Schrader",
     "arningu": "Ursula Arning",
     "rmounce": "Ross Mounce",
+    "pedroandretta": "Pedro Andretta",
+    "Ben": "Ben Kaden",
+    "maxiki": "Maxi Kindling",
+    "libreas": "LIBREAS",
+    "szepanski": "Christoph Szepanski",
+    "Open Access Brandenburg": "Team OA Brandenburg",
+    "Europe PMC team": "Europe PMC Team",
+    "yn235": "Yvonne Nobis",
+    "eotyrannus": "Darren Naish",
+    "tritonstation": "Stacy McGaugh",
 }
+
+AUTHOR_AFFILIATIONS = {
+    "https://orcid.org/0000-0003-3585-6733": [
+        {
+            "name": "Metadata Game Changers",
+            "id": "https://ror.org/05bp8ka05",
+            "start_date": "2018-01-01",
+        }
+    ],
+    "https://orcid.org/0000-0001-9998-0114": [
+        {
+            "name": "Metadata Game Changers",
+            "id": "https://ror.org/05bp8ka05",
+            "start_date": "2020-10-01",
+        }
+    ],
+    "https://orcid.org/0000-0003-1419-2405": [
+        {
+            "name": "Medizinische Hochschule Hannover",
+            "id": "https://ror.org/00f2yqf98",
+            "start_date": "2005-09-01",
+        },
+        {
+            "name": "Public Library of Science",
+            "id": "https://ror.org/008zgvp64",
+            "start_date": "2012-05-01",
+        },
+        {
+            "name": "DataCite",
+            "id": "https://ror.org/04wxnsj81",
+            "start_date": "2015-08-01",
+        },
+        {
+            "name": "Front Matter",
+            "start_date": "2021-08-01",
+        },
+    ],
+    "https://orcid.org/0000-0001-5952-7630": [
+        {
+            "name": "DataCite",
+            "id": "https://ror.org/04wxnsj81",
+            "start_date": "2015-08-01",
+        },
+    ],
+    "https://orcid.org/0000-0003-3334-2771": [
+        {
+            "name": "Humboldt-Universität zu Berlin",
+            "id": "https://ror.org/01hcx6992",
+            "start_date": "2012-12-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-2343-7905": [
+        {
+            "name": "Humboldt-Universität zu Berlin",
+            "id": "https://ror.org/01hcx6992",
+            "start_date": "2023-11-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-7265-1692": [],
+    "https://orcid.org/0000-0002-4259-9774": [
+        {
+            "name": "Australian National University",
+            "id": "https://ror.org/019wvm592",
+            "start_date": "2012-02-12",
+        },
+        {
+            "name": "Swinburne University of Technology",
+            "id": "https://ror.org/031rekg67",
+            "start_date": "2018-08-10",
+        },
+    ],
+    "https://orcid.org/0000-0002-8635-8390": [
+        {
+            "name": "Imperial College London",
+            "id": "https://ror.org/041kmwe10",
+            "start_date": "1977-10-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-7101-9767": [
+        {
+            "name": "University of Glasgow",
+            "id": "https://ror.org/00vtgdb53",
+            "start_date": "1995-01-01",
+        }
+    ],
+    "https://orcid.org/0000-0001-6444-1436": [
+        {
+            "name": "GigaScience Press",
+            "id": "https://ror.org/03yty8687",
+            "start_date": "2010-10-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-5192-9835": [
+        {
+            "name": "GigaScience Press",
+            "id": "https://ror.org/03yty8687",
+            "start_date": "2016-05-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-1335-0881": [
+        {
+            "name": "GigaScience Press",
+            "id": "https://ror.org/03yty8687",
+            "start_date": "2013-03-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-9373-4622": [
+        {
+            "name": "University of Camagüey",
+            "id": "https://ror.org/040qyzk67",
+            "start_date": "2008-10-01",
+        }
+    ],
+    "https://orcid.org/0000-0001-5506-523X": [
+        {
+            "name": "University of Oxford",
+            "id": "https://ror.org/052gg0110",
+            "start_date": "1981-01-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-5427-8951": [
+        {
+            "name": "rOpenSci",
+            "start_date": "2016-09-01",
+        },
+        {
+            "name": "Openscapes",
+            "start_date": "2022-04-01",
+        },
+    ],
+    "https://orcid.org/0000-0002-7304-3787": [
+        {
+            "name": "Royal Library of Belgium",
+            "id": "https://ror.org/0105w2p42",
+            "start_date": "2021-07-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-3948-3914": [
+        {
+            "name": "Georgia State University",
+            "id": "https://ror.org/03qt6ba18",
+            "start_date": "2019-08-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-7378-2408": [
+        {
+            "name": "University of California Office of the President",
+            "id": "https://ror.org/00dmfq477",
+            "start_date": "2015-10-01",
+        }
+    ],
+    "https://orcid.org/0000-0001-8249-1752": [
+        {
+            "name": "Leiden University",
+            "id": "https://ror.org/027bh9e22",
+            "start_date": "2009-06-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-2947-9444": [
+        {
+            "name": "Leiden University",
+            "id": "https://ror.org/027bh9e22",
+            "start_date": "2023-10-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-6527-7778": [
+        {
+            "name": "Leiden University",
+            "id": "https://ror.org/027bh9e22",
+            "start_date": "2020-01-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-7465-6462": [
+        {
+            "name": "Leiden University",
+            "id": "https://ror.org/027bh9e22",
+            "start_date": "2009-01-01",
+        }
+    ],
+    "https://orcid.org/0000-0001-8448-4521": [
+        {
+            "name": "Leiden University",
+            "id": "https://ror.org/027bh9e22",
+            "start_date": "2009-06-01",
+        }
+    ],
+    "https://orcid.org/0000-0003-4853-2463": [
+        {
+            "name": "Leiden University",
+            "id": "https://ror.org/027bh9e22",
+            "start_date": "2021-01-05",
+        }
+    ],
+    "https://orcid.org/0000-0002-1598-7181": [
+        {
+            "name": "DataCite",
+            "id": "https://ror.org/04wxnsj81",
+            "start_date": "2022-05-11",
+        }
+    ],
+    "https://orcid.org/0000-0003-3484-6875": [
+        {
+            "name": "DataCite",
+            "id": "https://ror.org/04wxnsj81",
+            "start_date": "2016-08-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-1003-5675": [
+        {
+            "name": "University of Portsmouth",
+            "id": "https://ror.org/03ykbk197",
+            "start_date": "2004-01-01",
+        },
+        {
+            "name": "University College London",
+            "id": "https://ror.org/02jx3x895",
+            "start_date": "2009-05-16",
+        },
+        {
+            "name": "University of Bristol",
+            "id": "https://ror.org/0524sp257",
+            "start_date": "2011-06-07",
+        },
+    ],
+    "https://orcid.org/0000-0001-6082-3103": [
+        {
+            "name": "University of California, Merced",
+            "id": "https://ror.org/00d9ah105",
+            "start_date": "2007-08-01",
+        },
+        {
+            "name": "Western University of Health Sciences",
+            "id": "https://ror.org/05167c961",
+            "start_date": "2008-08-01",
+        },
+    ],
+    "https://orcid.org/0000-0001-5934-7525": [
+        {
+            "name": "University of Illinois Urbana-Champaign",
+            "id": "https://ror.org/047426m28",
+            "start_date": "2016-03-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-8424-0604": [
+        {
+            "name": "Polyneme LLC",
+            "start_date": "2020-07-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-5589-8511": [
+        {
+            "name": "Queen Mary University of London",
+            "id": "https://ror.org/026zzn846",
+            "start_date": "2005-09-01",
+        },
+        {
+            "name": "University of Sussex",
+            "id": "https://ror.org/00ayhx656",
+            "start_date": "2009-09-01",
+        },
+        {
+            "name": "University of Lincoln",
+            "id": "https://ror.org/03yeq9x20",
+            "start_date": "2013-01-07",
+        },
+        {
+            "name": "Birkbeck, University of London",
+            "id": "https://ror.org/02mb95055",
+            "start_date": "2015-05-01",
+        },
+        {
+            "name": "Crossref",
+            "id": "https://ror.org/02twcfp32",
+            "start_date": "2023-01-01",
+        },
+    ],
+    "https://orcid.org/0009-0004-4949-9284": [
+        {
+            "name": "Australian National University",
+            "id": "https://ror.org/019wvm592",
+            "start_date": "2022-01-01",
+        },
+    ],
+    "https://orcid.org/0009-0002-2884-2771": [
+        {
+            "name": "Australian National University",
+            "id": "https://ror.org/019wvm592",
+            "start_date": "2023-02-01",
+        },
+    ],
+    "https://orcid.org/0009-0003-5348-4264": [
+        {
+            "name": "Australian National University",
+            "id": "https://ror.org/019wvm592",
+        },
+    ],
+    "https://orcid.org/0009-0009-8807-5982": [
+        {
+            "name": "Australian National University",
+            "id": "https://ror.org/019wvm592",
+            "start_date": "2023-02-01",
+        },
+    ],
+    "https://orcid.org/0009-0004-7109-5403": [
+        {
+            "name": "Australian National University",
+            "id": "https://ror.org/019wvm592",
+        },
+    ],
+    "https://orcid.org/0009-0003-3823-6609": [
+        {
+            "name": "Australian National University",
+            "id": "https://ror.org/019wvm592",
+            "start_date": "2023-07-01",
+        },
+    ],
+    "https://orcid.org/0009-0003-3823-6609": [
+        {
+            "name": "Australian National University",
+            "id": "https://ror.org/019wvm592",
+            "start_date": "2023-07-01",
+        },
+    ],
+    "https://orcid.org/0009-0009-9720-9233": [
+        {
+            "name": "Swinburne University of Technology",
+            "id": "https://ror.org/031rekg67",
+            "start_date": "2023-06-16",
+        },
+    ],
+    "https://orcid.org/0009-0008-8672-3168": [
+        {
+            "name": "Swinburne University of Technology",
+            "id": "https://ror.org/031rekg67",
+            "start_date": "2024-01-01",
+        },
+    ],
+    "https://orcid.org/0000-0001-9940-9233": [
+        {
+            "name": "ORCID",
+            "id": "https://ror.org/04fa4r544",
+            "start_date": "2016-12-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-8689-4935": [
+        {
+            "name": "ORCID",
+            "id": "https://ror.org/04fa4r544",
+            "start_date": "2014-05-01",
+        },
+        {
+            "name": "Crossref",
+            "id": "https://ror.org/02twcfp32",
+            "start_date": "2019-05-01",
+        },
+    ],
+    "https://orcid.org/0000-0003-0207-2705": [
+        {
+            "name": "European Organization for Nuclear Research",
+            "id": "https://ror.org/01ggx4157",
+            "start_date": "2015-06-01",
+        },
+        {
+            "name": "DataCite",
+            "id": "https://ror.org/04wxnsj81",
+            "start_date": "2021-10-01",
+        },
+    ],
+    "https://orcid.org/0000-0002-6137-2348": [
+        {
+            "name": "European Organization for Nuclear Research",
+            "id": "https://ror.org/01ggx4157",
+            "start_date": "2009-12-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-4542-9906": [
+        {
+            "name": "European Organization for Nuclear Research",
+            "id": "https://ror.org/01ggx4157",
+            "start_date": "2012-02-01",
+        }
+    ],
+    "https://orcid.org/0000-0003-3412-7192": [
+        {
+            "name": "ORCID",
+            "id": "https://ror.org/04fa4r544",
+            "start_date": "2016-02-01",
+        },
+        {
+            "name": "Freie Universität Berlin",
+            "id": "https://ror.org/046ak2485",
+            "start_date": "2022-01-07",
+        },
+    ],
+    "https://orcid.org/0000-0003-0902-4386": [
+        {
+            "name": "ORCID",
+            "id": "https://ror.org/04fa4r544",
+            "start_date": "2015-06-10",
+        }
+    ],
+    "https://orcid.org/0000-0001-5492-3212": [
+        {
+            "name": "University of Bremen",
+            "id": "https://ror.org/04ers2y35",
+            "start_date": "2016-02-01",
+        },
+        {
+            "name": "Technische Informationsbibliothek (TIB)",
+            "id": "https://ror.org/04aj4c181",
+            "start_date": "2017-12-01",
+        },
+    ],
+    "https://orcid.org/0000-0001-5853-0432": [
+        {
+            "name": "British Library",
+            "id": "https://ror.org/05dhe8b71",
+            "start_date": "2016-02-12",
+        }
+    ],
+    "https://orcid.org/0000-0001-5331-6592": [
+        {
+            "name": "British Library",
+            "id": "https://ror.org/05dhe8b71",
+            "start_date": "2004-12-01",
+        }
+    ],
+    "https://orcid.org/0000-0001-7542-0286": [
+        {
+            "name": "Maastricht University",
+            "id": "https://ror.org/02jz4aj89",
+            "start_date": "2012-01-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-9762-0980": [
+        {
+            "name": "Case Western Reserve University",
+            "id": "https://ror.org/051fd9666",
+            "start_date": "2012-08-25",
+        }
+    ],
+    "https://orcid.org/0000-0001-8337-3619": [
+        {
+            "name": "Hamburg State and University Library",
+            "id": "https://ror.org/00pwcvj19",
+            "start_date": "2006-07-01",
+        }
+    ],
+    "https://orcid.org/0000-0003-4905-1936": [
+        {
+            "name": "Göttingen State and University Library",
+            "id": "https://ror.org/05745n787",
+            "start_date": "2007-07-01",
+        }
+    ],
+    "https://orcid.org/0000-0003-0330-9428": [
+        {
+            "name": "Centre de Biophysique Moléculaire",
+            "id": "https://ror.org/02dpqcy73",
+            "start_date": "1998-04-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-5798-662X": [
+        {
+            "name": "Universidad Nacional Autónoma de México",
+            "id": "https://ror.org/01tmp8f25",
+            "start_date": "2003-01-01",
+        }
+    ],
+}
+
+
+EXCLUDED_TAGS = ["Uncategorized", "Uncategorised", "Blog", "doi", "justdoi"]
 
 
 def wrap(item) -> list:
@@ -112,28 +624,29 @@ def compact(dict_or_list: Union[dict, list]) -> Optional[Union[dict, list]]:
     return None
 
 
-def doi_from_url(url: str) -> Optional[str]:
-    """Return a DOI from a URL"""
-    match = re.search(
-        r"\A(?:(http|https)://(dx\.)?(doi\.org|handle\.stage\.datacite\.org|handle\.test\.datacite\.org)/)?(doi:)?(10\.\d{4,5}/.+)\Z",
-        url,
-    )
-    if match is None:
-        return None
-    return match.group(5).lower()
-
-
-def normalize_author(name: str, url: str = None) -> dict:
+def normalize_author(
+    name: str, published_at: int = 0, url: Optional[str] = None
+) -> dict:
     """Normalize author name and url. Strip text after comma
-    if suffix is an academic title"""
+    if suffix is an academic title. Lookup affiliation based on name and publication date."""
 
     if name.split(", ", maxsplit=1)[-1] in ["MD", "PhD"]:
         name = name.split(", ", maxsplit=1)[0]
 
-    name_ = AUTHOR_NAMES.get(name, None) or name
-    url_ = url if url and validate_orcid(url) else AUTHOR_IDS.get(name_, None)
+    _name = AUTHOR_NAMES.get(name, None) or name
+    _url = url if url and validate_orcid(url) else AUTHOR_IDS.get(_name, None)
+    affiliation = AUTHOR_AFFILIATIONS.get(_url, None)
+    if affiliation is not None and len(affiliation) > 0 and published_at > 0:
+        affiliation = [
+            i
+            for i in affiliation
+            if unix_timestamp(i.get("start_date", 0)) < published_at
+        ]
+        affiliation = (
+            [py_.pick(affiliation[-1], ["id", "name"])] if affiliation else None
+        )
 
-    return compact({"name": name_, "url": url_})
+    return compact({"name": _name, "url": _url, "affiliation": affiliation})
 
 
 def get_date(date: str):
@@ -157,11 +670,11 @@ def unix_timestamp(date_str: str) -> int:
         return 0
 
 
-def format_datetime(date_str: str) -> str:
+def format_datetime(date_str: str, lc: str = "en") -> str:
     """convert iso8601 date to formatted date"""
     try:
         dt = iso8601.parse_date(date_str)
-        return dt.strftime("%B %-d, %Y")
+        return format_date(dt, format="long", locale=lc)
     except ValueError as e:
         print(e)
         return "January 1, 1970"
@@ -223,6 +736,64 @@ def format_authors_full(authors):
     return [format_author(x) for x in authors]
 
 
+def format_authors_commonmeta(authors):
+    """Extract author names"""
+
+    def format_author(author):
+        return get_one_author(author)
+
+    return [format_author(x) for x in authors]
+
+
+def format_license(authors, date, rights):
+    """Generate license string"""
+    if rights == "https://creativecommons.org/publicdomain/zero/1.0/legalcode":
+        return """This is an open access article, free of all copyright, 
+    and may be freely reproduced, distributed, transmitted, modified, 
+    built upon, or otherwise used by anyone for any lawful purpose."""
+
+    auth = format_authors(authors)
+    length = len(auth)
+    year = date[:4]
+    if length == 0:
+        auth = ""
+    if length > 0:
+        auth = auth[0]
+    if length > 1:
+        auth = auth + " et al."
+    return f'Copyright <span class="copyright">©</span> {auth} {year}.'
+
+
+def format_relationships(relationships):
+    "Format relationships metadata"
+
+    def format_relationship(relationship):
+        if relationship.get("type", None) == "IsIdenticalTo":
+            return {"identical": relationship.get("url", None)}
+        elif relationship.get("type", None) == "IsPreprintOf":
+            return {"preprint": relationship.get("url", None)}
+        elif relationship.get("type", None) == "HasAward":
+            return {"funding": relationship.get("url", None)}
+
+    return [format_relationship(x) for x in relationships]
+
+
+def format_authors_with_orcid(authors):
+    """Parse author names into names and orcid"""
+
+    def format_author(author):
+        name = author.get("name", None)
+        orcid = normalize_orcid(author.get("url", None))
+        return compact(
+            {
+                "orcid": orcid,
+                "name": name,
+            }
+        )
+
+    return [format_author(x) for x in authors]
+
+
 def validate_uuid(slug: str) -> bool:
     """validate uuid"""
     try:
@@ -269,60 +840,135 @@ def normalize_tag(tag: str) -> str:
         "WikiData": "WikiData",
     }
 
+    tag = html.unescape(tag)
     tag = tag.replace("#", "")
     return fixed_tags.get(tag, start_case(tag))
 
 
-def get_doi_metadata_from_ra(
-    doi: str, format_: str = "csl", style: str = "apa", locale: str = "en-US"
-) -> Optional[dict]:
-    """use DOI content negotiation to get metadata in various formats.
+def convert_to_commonmeta(meta: dict) -> Commonmeta:
+    """Convert post metadata to commonmeta format"""
+
+    doi = doi_from_url(meta.get("doi"))
+    published = get_date_from_unix_timestamp(meta.get("published_at", 0))
+    updated = get_date_from_unix_timestamp(meta.get("updated_at", None))
+    container_title = py_.get(meta, "blog.title")
+    identifier = py_.get(meta, "blog.issn")
+    identifier_type = "ISSN" if identifier else None
+    subjects = py_.human_case(py_.get(meta, "blog.category"))
+    publisher = py_.get(meta, "blog.title")
+    provider = get_known_doi_ra(doi) or get_doi_ra(doi)
+    alternate_identifiers = [
+        {"alternateIdentifier": meta.get("id"), "alternateIdentifierType": "UUID"}
+    ]
+    return {
+        "id": meta.get("doi", None) or meta.get("id", None),
+        "url": meta.get("url", None),
+        "type": "Article",
+        "contributors": format_authors_commonmeta(meta.get("authors", None)),
+        "titles": [{"title": meta.get("title", None)}],
+        "descriptions": [
+            {"description": meta.get("summary", None), "descriptionType": "Summary"}
+        ],
+        "date": {"published": published, "updated": updated},
+        "publisher": {
+            "name": publisher,
+        },
+        "container": compact(
+            {
+                "type": "Periodical",
+                "title": container_title,
+                "identifier": identifier,
+                "identifierType": identifier_type,
+            }
+        ),
+        "subjects": [{"subject": subjects}],
+        "language": meta.get("language", None),
+        "references": meta.get("reference", None),
+        "funding_references": [],
+        "license": {
+            "id": "CC-BY-4.0"
+            if py_.get(meta, "blog.license")
+            == "https://creativecommons.org/licenses/by/4.0/legalcode"
+            else "CC0-1.0",
+            "url": py_.get(meta, "blog.license"),
+        },
+        "provider": provider,
+        "alternateIdentifiers": alternate_identifiers,
+        "files": [
+            {
+                "url": meta.get("url", None),
+                "mimeType": "text/html",
+            },
+            {
+                "url": f"https://api.rogue-scholar.org/posts/{doi}.md",
+                "mimeType": "text/plain",
+            },
+            {
+                "url": f"https://api.rogue-scholar.org/posts/{doi}.pdf",
+                "mimeType": "application/pdf",
+            },
+            {
+                "url": f"https://api.rogue-scholar.org/posts/{doi}.epub",
+                "mimeType": "application/epub+zip",
+            },
+            {
+                "url": f"https://api.rogue-scholar.org/posts/{doi}.xml",
+                "mimeType": "application/xml",
+            },
+        ],
+        "schema_version": "https://commonmeta.org/commonmeta_v0.12",
+    }
+
+
+def get_formatted_metadata(
+    meta: dict = {},
+    format_: str = "commonmeta",
+    style: str = "apa",
+    locale: str = "en-US",
+):
+    """use commonmeta library to get metadata in various formats.
     format_ can be bibtex, ris, csl, citation, with bibtex as default."""
 
     content_types = {
+        "commonmeta": "application/vnd.commonmeta+json",
         "bibtex": "application/x-bibtex",
         "ris": "application/x-research-info-systems",
         "csl": "application/vnd.citationstyles.csl+json",
+        "schema_org": "application/vnd.schemaorg.ld+json",
+        "datacite": "application/vnd.datacite.datacite+json",
+        "crossref_xml": "application/vnd.crossref.unixref+xml",
         "citation": f"text/x-bibliography; style={style}; locale={locale}",
     }
     content_type = content_types.get(format_)
-
-    response = requests.get(doi, headers={"Accept": content_type}, timeout=10)
-    response.encoding = "UTF-8"
-    if response.status_code >= 400:
-        return None
-
-    basename = doi_from_url(doi).replace("/", "-")
-    if format_ == "csl":
+    subject = Metadata(meta, via="commonmeta")
+    doi = doi_from_url(subject.id) if subject.id else None
+    basename = doi_from_url(doi).replace("/", "-") if doi else subject.id
+    if format_ == "commonmeta":
         ext = "json"
-        csl = response.json()
-
-        # cleanup to align with CSL spec
-        csl = py_.omit(csl, ["license", "original-title"])
-        csl["id"] = doi
-        csl["title"] = html.unescape(csl["title"])
-
-        # correctly parse metadata for posted_content type
-        if csl["type"] == "posted-content":
-            csl["type"] = "article-journal"
-            csl["container-title"] = py_.get(csl, "institution[0].name", None)
-
-        result = json.dumps(csl, indent=2)
+        result = subject.write()
+    elif format_ == "csl":
+        ext = "json"
+        result = subject.write(to="csl")
     elif format_ == "ris":
         ext = "ris"
-        result = response.text
+        result = subject.write(to="ris")
     elif format_ == "bibtex":
         ext = "bib"
-        library = bibtexparser.loads(response.text)
-
-        # cleanup to bibtex
-        # TODO: fix more fields
-        library.entries[0]["doi"] = doi_from_url(doi)
-        result = bibtexparser.dumps(library)
-
+        result = subject.write(to="bibtex")
+    elif format_ == "schema_org":
+        ext = "jsonld"
+        result = subject.write(to="schema_org")
+    elif format_ == "crossref_xml":
+        ext = "xml"
+        result = subject.write(to="crossref_xml")
+    elif format_ == "datacite":
+        ext = "json"
+        result = subject.write(to="datacite")
     else:
         ext = "txt"
-        result = response.text
+        # workaround for properly formatting blog posts
+        subject.type = "JournalArticle"
+        result = subject.write(to="citation", style=style, locale=locale)
     options = {
         "Content-Type": content_type,
         "Content-Disposition": f"attachment; filename={basename}.{ext}",
@@ -337,8 +983,8 @@ def normalize_url(url: Optional[str], secure=False, lower=False) -> Optional[str
     f = furl(url)
     f.path.normalize()
 
-    # remove trailing slash, index.html
-    if f.path.segments and f.path.segments[-1] in ["", "index.html"]:
+    # remove index.html
+    if f.path.segments and f.path.segments[-1] in ["index.html"]:
         f.path.segments.pop(-1)
 
     # remove fragments
@@ -380,9 +1026,12 @@ def get_src_url(src: str, url: str, home_page_url: str):
 
 
 def is_valid_url(url: str) -> bool:
-    """Check if url is valid"""
+    """Check if url is valid. Use https as default scheme
+    for relative urls starting with //"""
     try:
         f = furl(url)
+        if f.scheme is None and f.host is not None:
+            return True
         return f.scheme in ["http", "https", "data", "mailto"]
     except Exception:
         return False
@@ -423,6 +1072,16 @@ def get_markdown(content_html: str) -> str:
         return ""
 
 
+def write_html(markdown: str):
+    """Get html from markdown"""
+    try:
+        doc = pandoc.read(markdown, format="commonmark_x")
+        return pandoc.write(doc, format="html")
+    except Exception as e:
+        print(e)
+        return ""
+
+
 def write_epub(markdown: str):
     """Get epub from markdown"""
     try:
@@ -443,14 +1102,14 @@ def write_pdf(markdown: str):
             options=[
                 "--pdf-engine=weasyprint",
                 "--pdf-engine-opt=--pdf-variant=pdf/ua-1",
-                "--data-dir=environ['QUART_PANDOC_DATA_DIR']",
-                "--template=default.html5",
-                "--css=style.css"
+                f"--data-dir={environ['QUART_PANDOC_DATA_DIR']}",
+                "--template=pandoc/default.html5",
+                "--css=pandoc/style.css",
             ],
-        )
+        ), None
     except Exception as e:
         print(e)
-        return ""
+        return "", e
 
 
 def write_jats(markdown: str):
@@ -463,13 +1122,99 @@ def write_jats(markdown: str):
         return ""
 
 
-def format_markdown(content: str, metadata) -> str:
+def format_markdown(content: str, metadata) -> frontmatter.Post:
     """format markdown"""
     post = frontmatter.Post(content, **metadata)
-    post["date"] = datetime.utcfromtimestamp(metadata.get("date", 0)).isoformat() + "Z"
-    post["date_updated"] = (
-        datetime.utcfromtimestamp(metadata.get("date_updated", 0)).isoformat() + "Z"
-    )
-    post["abstract"] = metadata.get("abstract", "").strip()
-    post["rights"] = "https://creativecommons.org/licenses/by/4.0/legalcode"
+    post["date"] = datetime.fromtimestamp(
+        metadata.get("date", 0), tz=timezone.utc
+    ).isoformat("T", "seconds")
+    post["date_updated"] = datetime.fromtimestamp(
+        metadata.get("date_updated", 0), tz=timezone.utc
+    ).isoformat("T", "seconds")
+    post["issn"] = py_.get(metadata, "blog.issn")
+    post["rights"] = py_.get(metadata, "blog.license")
+    post["summary"] = metadata.get("summary", "")
+    if post.get("abstract", None) is not None:
+        post["abstract"] = metadata.get("abstract")
     return post
+
+
+def get_known_doi_ra(doi: str) -> Optional[str]:
+    """Get DOI registration agency from prefixes used in Rogue Scholar"""
+    crossref_prefixes = [
+        "10.53731",
+        "10.54900",
+        "10.59348",
+        "10.59349",
+        "10.59350",
+    ]
+    datacite_prefixes = [
+        "10.34732",
+        "10.57689",
+    ]
+    if doi is None:
+        return None
+    prefix = validate_prefix(doi)
+    if prefix is None:
+        return None
+    if prefix in crossref_prefixes:
+        return "Crossref"
+    if prefix in datacite_prefixes:
+        return "DataCite"
+    return None
+
+
+def translate_titles(markdown):
+    """Translate titles into respective language"""
+    lastsep = {"en": "and", "de": "und", "es": "y", "fr": "et", "it": "e", "pt": "e"}
+    date_title = {
+        "en": "Published",
+        "de": "Veröffentlicht",
+        "es": "Publicado",
+        "fr": "Publié",
+        "it": "Pubblicato",
+        "pt": "Publicados",
+    }
+    keywords_title = {
+        "en": "Keywords",
+        "de": "Schlüsselwörter",
+        "es": "Palabras clave",
+        "fr": "Mots clés",
+        "it": "Parole chiave",
+        "pt": "Palavras-chave",
+    }
+    citation_title = {
+        "en": "Citation",
+        "de": "Zitiervorschlag",
+        "es": "Cita",
+        "fr": "Citation",
+        "it": "Citazione",
+        "pt": "Citação",
+    }
+    copyright_title = {
+        "en": "Copyright",
+        "de": "Urheberrecht",
+        "es": "Copyright",
+        "fr": "Droit d'auteur",
+        "it": "Copyright",
+        "pt": "Direitos de autor",
+    }
+    lang = markdown.get("lang", "en")
+    markdown["lastsep"] = lastsep.get(lang, "and")
+    markdown["date-title"] = date_title.get(lang, "Published")
+    markdown["keywords-title"] = keywords_title.get(lang, "Keywords")
+    markdown["citation-title"] = citation_title.get(lang, "Citation")
+    markdown["copyright-title"] = copyright_title.get(lang, "Copyright")
+    return markdown
+
+
+def id_as_str(id: str) -> Optional[str]:
+    """Get id as string, strip scheme and doi.org host"""
+    if id is None:
+        return None
+    u = furl(id)
+    if u.host == "doi.org":
+        return str(u.path).lstrip("/")
+    if u.host != "":
+        return u.host + str(u.path)
+    return None

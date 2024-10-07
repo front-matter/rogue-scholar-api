@@ -6,6 +6,7 @@ from datetime import datetime
 @dataclass
 class PostQuery:
     """Query parameters for posts."""
+
     query: Optional[str] = None
     tags: Optional[str] = None
     language: Optional[str] = None
@@ -16,9 +17,11 @@ class PostQuery:
     include_fields: Optional[str] = None
     blog_slug: Optional[str] = None
 
+
 @dataclass
 class Blog:
     """Blog schema."""
+
     slug: str
     title: str
     description: str
@@ -29,10 +32,8 @@ class Blog:
     home_page_url: str
     generator: str
     category: str
-    backlog: int
     prefix: str
     status: str
-    plan: str
     funding: str
     items: list
 
@@ -40,6 +41,7 @@ class Blog:
 @dataclass
 class Post:
     """Post schema."""
+
     id: str
     guid: str
     doi: str
@@ -60,3 +62,16 @@ class Post:
     blog_name: str
     blog_slug: str
     blog: dict
+
+
+@dataclass
+class Work:
+    """Work schema."""
+
+    id: str
+    url: str
+    titles: list
+    contributors: list
+    language: str
+    references: list
+    relations: list
