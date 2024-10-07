@@ -2,33 +2,61 @@
 import socket
 import asyncio
 from typing import Optional
-import requests
+import httpx
 import feedparser
 import re
 from bs4 import BeautifulSoup as bs4
 from furl import furl
 
-from api.supabase import (
+from api.supabase_client import (
     supabase_client as supabase,
     supabase_admin_client as supabase_admin,
 )
-from api.utils import start_case, get_date, unix_timestamp, wrap, normalize_url, is_valid_url
+from api.utils import (
+    start_case,
+    get_date,
+    unix_timestamp,
+    wrap,
+    normalize_url,
+    is_valid_url,
+)
 
 
 async def find_feed(url: str) -> Optional[str]:
     """Find RSS feed in homepage. Based on https://gist.github.com/alexmill/9bc634240531d81c3abe
     Prefer JSON Feed over Atom over RSS"""
     url = normalize_url(url)
-    raw = requests.get(url).text
+    raw = httpx.get(url, follow_redirects=True).text
     html = bs4(raw, features="lxml")
     feeds = html.findAll("link", rel="alternate")
     if len(feeds) == 0:
         return None
-    feed_url = next((feed.get("href", None) for feed in feeds if feed.get('type', None) == "application/feed+json"), None)
+    feed_url = next(
+        (
+            feed.get("href", None)
+            for feed in feeds
+            if feed.get("type", None) == "application/feed+json"
+        ),
+        None,
+    )
     if feed_url is None:
-       feed_url = next((feed.get("href", None) for feed in feeds if feed.get('type', None) == "application/atom+xml"), None)
+        feed_url = next(
+            (
+                feed.get("href", None)
+                for feed in feeds
+                if feed.get("type", None) == "application/atom+xml"
+            ),
+            None,
+        )
     if feed_url is None:
-       feed_url = next((feed.get("href", None) for feed in feeds if feed.get('type', None) == "application/rss+xml"), None)
+        feed_url = next(
+            (
+                feed.get("href", None)
+                for feed in feeds
+                if feed.get("type", None) == "application/rss+xml"
+            ),
+            None,
+        )
     if is_valid_url(feed_url):
         return feed_url
     # else feed_url is relative url
@@ -43,7 +71,7 @@ async def extract_all_blogs():
     blogs = (
         supabase.table("blogs")
         .select("slug")
-        .in_("status", ["active"])
+        .in_("status", ["approved", "active"])
         .order("title", desc=False)
         .execute()
     )
@@ -61,7 +89,7 @@ async def extract_single_blog(slug: str):
     response = (
         supabase.table("blogs")
         .select(
-            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, use_mastodon, generator_raw, language, favicon, title, description, category, status, user_id, authors, plan, use_api, relative_url, filter, secure"
+            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, mastodon, generator_raw, language, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure"
         )
         .eq("slug", slug)
         .maybe_single()
@@ -102,7 +130,6 @@ async def extract_single_blog(slug: str):
     blog = {
         "id": config["id"],
         "slug": slug,
-        "version": "https://jsonfeed.org/version/1.1",
         "feed_url": feed_url,
         "created_at": config["created_at"],
         "updated_at": updated_at,
@@ -119,10 +146,9 @@ async def extract_single_blog(slug: str):
         "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
         "category": config["category"],
         "status": config["status"],
-        "plan": config["plan"],
         "user_id": config["user_id"],
         "authors": config["authors"],
-        "use_mastodon": config["use_mastodon"],
+        "mastodon": config["mastodon"],
         "use_api": config["use_api"],
         "relative_url": config["relative_url"],
         "filter": config["filter"],
@@ -145,7 +171,7 @@ def parse_generator(generator):
             f = furl(name)
             name = f.host.split(".")[0]
             version = f.args.get("v", None)
-            
+
         names = name.split(" ")
 
         # split name and version
@@ -158,11 +184,11 @@ def parse_generator(generator):
 
         # capitalize first letter without lowercasing the rest
         name = start_case(name)
-        
+
         # versions prior to 6.1
         if name == "Wordpress":
             name = "WordPress"
-            
+
         elif name == "Wowchemy":
             name = "Hugo"
         elif name == "Site Server":
@@ -222,7 +248,7 @@ def update_single_blog(blog):
                     "generator_raw": blog.get("generator_raw", None),
                     "status": blog.get("status", None),
                     "user_id": blog.get("user_id", None),
-                    "use_mastodon": blog.get("use_mastodon", None),
+                    "mastodon": blog.get("mastodon", None),
                     "secure": blog.get("secure", None),
                 }
             )

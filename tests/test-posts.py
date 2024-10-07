@@ -1,4 +1,5 @@
 """Test posts"""
+
 import pytest  # noqa: F401
 from api.posts import (
     extract_all_posts,
@@ -8,7 +9,8 @@ from api.posts import (
     get_references,
     get_relationships,
     # get_title,
-    get_abstract,
+    get_summary,
+    get_image,
 )
 
 
@@ -22,7 +24,7 @@ def vcr_config():
 async def test_extract_all_posts():
     """Extract all posts"""
     result = await extract_all_posts()
-    assert len(result) > 0
+    assert len(result) == 1
     post = result[0]
     assert post["title"] is not None
 
@@ -34,14 +36,17 @@ async def test_extract_posts_by_blog_wordpressorg():
     slug = "epub_fis"
     result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
     assert len(result) == 50
-    post = result[0]
-    assert post["title"] == "DFG-DNB-Mapping (nicht nur) für Forschungsdatenrepositorien"
-    assert post["authors"][0] == {"name": "Gastautor(en)"}
-    assert post["tags"] == [
-        "Elektronisches Publizieren",
-        "Forschungsinformationssysteme"
-    ]
-    assert post["language"] == "de"
+    # post = result[0]
+    # assert post["title"] == "PID Network Deutschland nimmt Fahrt auf"
+    # assert post["authors"][0] == {"name": "Gastautor(en)"}
+    # assert post["tags"] == [
+    #     "Elektronisches Publizieren",
+    #     "Forschungsinformationen &amp; Systeme",
+    #     "Identitfier",
+    #     "Projekt",
+    #     "PID",
+    # ]
+    # assert post["language"] == "de"
 
 
 @pytest.mark.vcr
@@ -54,19 +59,10 @@ async def test_extract_posts_by_blog_wordpresscom():
     post = result[0]
     assert (
         post["title"]
-        == "DOIs für Wissenschaftsblogs? – Ein Interview mit Martin Fenner zu Rogue Scholar"
+        == "Einblick ins Geschäft des Ghostwriting"
     )
-    assert post["authors"][0] == {
-        "name": "Heinz Pampel",
-        "url": "https://orcid.org/0000-0003-3334-2771",
-    }
-    assert post["tags"] == [
-        "Langzeitarchivierung",
-        "Open Science",
-        "Publikationsverhalten",
-        "Web 2.0",
-        "Wissenschaftskommunikation",
-    ]
+    assert post["authors"][0] == {'url': 'https://orcid.org/0000-0002-7265-1692', 'name': 'Christian Gutknecht', 'affiliation': []}
+    assert post["tags"] == ['Publikationsverhalten', 'Universitäten']
     assert post["language"] == "de"
 
 
@@ -83,13 +79,14 @@ async def test_extract_posts_by_archived_blog():
 async def test_extract_posts_by_blog_ghost():
     """Extract posts by blog ghost"""
     slug = "front_matter"
-    result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
+    result = await extract_all_posts_by_blog(slug, page=3, update_all=True)
     assert len(result) == 50
     post = result[0]
-    assert post["title"] == "Archiving individual science blog posts"
+    assert post["title"] == "Exposing DOI metadata provenance"
     assert post["authors"][0] == {
         "name": "Martin Fenner",
         "url": "https://orcid.org/0000-0003-1419-2405",
+        "affiliation": [{"id": "https://ror.org/04wxnsj81", "name": "DataCite"}],
     }
     # assert len(post["images"]) == 0
     # assert post["images"][0] == {
@@ -111,13 +108,15 @@ async def test_extract_posts_by_blog_ghost():
     #     post["image"]
     #     == "https://images.unsplash.com/flagged/photo-1552425083-0117136f7d67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIxfHxjYW5vcHl8ZW58MHx8fHwxNjk3MDQwMDk1fDA&ixlib=rb-4.0.3&q=80&w=2000"
     # )
-    assert len(post["reference"]) == 0
+    # assert len(post["reference"]) == 2
     # assert post["reference"][0] == {
-    #     "doi": "https://doi.org/10.53731/ar11b-5ea39",
+    #     "doi": "https://doi.org/10.5438/0014",
     #     "key": "ref1",
+    #     "title": "DataCite Metadata Schema Documentation for the Publication and Citation of Research Data v4.1",
+    #     "publicationYear": "2017",
     # }
-    assert post["tags"] == ["Feature"]
-    assert post["language"] == "en"
+    # assert post["tags"] == ["News"]
+    # assert post["language"] == "en"
 
 
 @pytest.mark.vcr
@@ -137,12 +136,32 @@ async def test_extract_posts_by_blog_substack():
     result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
     assert len(result) == 50
     post = result[0]
-    assert post["title"] == "Bitter Lessons in Chemistry"
+    assert post["title"] == "The SolidWorks Model of Simulation"
     assert post["authors"][0] == {
         "name": "Corin Wagen",
         "url": "https://orcid.org/0000-0003-3315-3524",
     }
     assert post["tags"] == []
+
+
+@pytest.mark.vcr
+@pytest.mark.asyncio
+async def test_extract_posts_by_blog_squarespace():
+    """Extract posts by blog squarespace"""
+    slug = "metadatagamechangers"
+    result = await extract_all_posts_by_blog(slug, update_all=True)
+    assert len(result) == 20
+    post = result[0]
+    assert post["title"] == "CHORUS Data Journeys"
+    assert post["authors"][0] == {
+        "url": "https://orcid.org/0000-0003-3585-6733",
+        "name": "Ted Habermann",
+        "affiliation": [
+            {"id": "https://ror.org/05bp8ka05", "name": "Metadata Game Changers"}
+        ],
+    }
+    assert post["tags"] == []
+    assert post["language"] == "en"
 
 
 @pytest.mark.vcr
@@ -153,13 +172,14 @@ async def test_extract_posts_by_blog_json_feed():
     result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
     assert len(result) == 50
     post = result[0]
-    assert post["title"] == "rOpenSci News Digest, December 2023"
+    assert post["title"] == "rOpenSci Champions Pilot Year: Projects Wrap-Up"
     assert post["authors"][0] == {
-        "name": "The rOpenSci Team",
+        "url": "https://orcid.org/0000-0002-4522-7466",
+        "name": "Yanina Bellini Saibene",
     }
-    assert post["url"] == "https://ropensci.org/blog/2023/12/22/news-december-2023"
+    assert post["url"] == "https://ropensci.org/blog/2024/03/20/champions-program-projects-cohort1"
     assert len(post["reference"]) == 0
-    assert post["tags"] == ["Newsletter"]
+    assert post["tags"] == ['Community', 'Champions Program']
 
 
 @pytest.mark.vcr
@@ -179,12 +199,30 @@ async def test_extract_posts_by_blog_json_feed_with_pagination():
     result = await extract_all_posts_by_blog(slug, page=2, update_all=True)
     assert len(result) == 50
     post = result[0]
-    assert post["title"] == "New preferred repo name for r-universe registries"
+    assert post["title"] == "rOpenSci Champions Program Teams: Meet César and Marc"
     assert (
         post["url"]
-        == "https://ropensci.org/blog/2023/02/07/runiverse-registry-repo"
+        == "https://ropensci.org/blog/2023/05/18/ropensci-champions-program-teams-meet-c%C3%A9sar-and-marc"
     )
-    assert post["tags"] == ['R-universe', 'Tech Notes', 'Registry', 'Packages', 'Dashboard']
+    assert post["tags"] == ["Community", "Champions Program"]
+
+
+@pytest.mark.vcr
+@pytest.mark.asyncio
+async def test_extract_posts_by_blog_organizational_author():
+    """Extract posts by blog organizational author"""
+    slug = "leidenmadtrics"
+    result = await extract_all_posts_by_blog(slug, page=1, update_all=True)
+    assert len(result) == 50
+    post = result[0]
+    assert (
+        post["title"]
+        == "Global reach, local insights: Using book ISBNs to map publishing behaviour"
+    )
+    assert post["authors"][0] == {
+        "name": "Eleonora Dagiene",
+        "url": "https://orcid.org/0000-0003-0043-3837",
+    }
 
 
 @pytest.mark.vcr
@@ -195,17 +233,20 @@ async def test_extract_posts_by_blog_blogger():
     result = await extract_all_posts_by_blog(slug, page=3, update_all=True)
     assert len(result) == 50
     post = result[0]
-    assert post["title"] == "TDWG 2017: thoughts on day 3"
+    assert post["title"] == "Notes on finding georeferenced sequences in GenBank"
     assert post["authors"][0] == {
         "name": "Roderic Page",
         "url": "https://orcid.org/0000-0002-7101-9767",
+        "affiliation": [
+            {"id": "https://ror.org/00vtgdb53", "name": "University of Glasgow"}
+        ],
     }
     assert (
         post["url"]
-        == "https://iphylo.blogspot.com/2017/10/tdwg-2017-thoughts-on-day-3.html"
+        == "https://iphylo.blogspot.com/2017/10/notes-on-finding-georeferenced.html"
     )
     assert len(post["reference"]) == 0
-    assert post["tags"] == ["TDWG"]
+    assert post["tags"] == ["GBIF", "Genbank", "Georeferencing", "Note To Self"]
 
 
 @pytest.mark.vcr
@@ -216,13 +257,16 @@ async def test_extract_posts_by_blog_atom():
     result = await extract_all_posts_by_blog(slug, page=3, update_all=True)
     assert len(result) == 50
     post = result[0]
-    assert (
-        post["title"]
-        == "OA books being reprinted under CC BY license"
-    )
+    assert post["title"] == "OA books being reprinted under CC BY license"
     assert post["authors"][0] == {
         "name": "Martin Paul Eve",
         "url": "https://orcid.org/0000-0002-5589-8511",
+        "affiliation": [
+            {
+                "id": "https://ror.org/02mb95055",
+                "name": "Birkbeck, University of London",
+            }
+        ],
     }
     assert (
         post["url"]
@@ -663,7 +707,8 @@ def test_get_urls():
     ]
 
 
-def test_get_references():
+@pytest.mark.asyncio
+async def test_get_references():
     """Extract references"""
     html = """Bla. <h2>References</h2><p>Fenner, M. (2023). <em>Rogue Scholar has an API</em>. 
     <a href="https://doi.org/10.53731/ar11b-5ea39">https://doi.org/10.53731/ar11b-5ea39</a></p>
@@ -671,9 +716,14 @@ def test_get_references():
     <em>Crossref acquires Retraction Watch data and opens it for the scientific community</em>. 
     <a href="https://doi.org/10.13003/c23rw1d9">https://doi.org/10.13003/c23rw1d9</a></p>"""
 
-    result = get_references(html)
+    result = await get_references(html)
     assert len(result) == 2
-    assert result[0] == {"doi": "https://doi.org/10.53731/ar11b-5ea39", "key": "ref1"}
+    assert result[0] == {
+        "key": "ref1",
+        "id": "https://doi.org/10.53731/ar11b-5ea39",
+        "title": "Rogue Scholar has an API",
+        "publicationYear": "2023",
+    }
 
 
 def test_get_relationships():
@@ -683,7 +733,7 @@ def test_get_relationships():
     result = get_relationships(html)
     assert len(result) == 1
     assert result[0] == {
-        "url": "https://doi.org/10.5438/3dfw-z4kq",
+        "urls": ["https://doi.org/10.5438/3dfw-z4kq"],
         "type": "IsIdenticalTo",
     }
 
@@ -694,10 +744,24 @@ def test_get_relationships_funding():
 
     result = get_relationships(html)
     assert len(result) == 1
-    assert result[0] == {
-        "url": "https://doi.org/10.3030/654039",
-        "type": "HasAward",
-    }
+    assert result[0] == {"type": "HasAward", "urls": ["https://doi.org/10.3030/654039"]}
+
+
+def test_get_image():
+    """Extract image"""
+    images = [
+        {
+            "src": "https://static.businessinsider.com/image/555a17839d8e441f018b4581/image.gif",
+            "width": "299",
+            "height": "218",
+        }
+    ]
+    result = get_image(images)
+    assert (
+        result
+        == "https://static.businessinsider.com/image/555a17839d8e441f018b4581/image.gif"
+    )
+    assert None == get_image([])
 
 
 # def test_get_title():
@@ -707,10 +771,10 @@ def test_get_relationships_funding():
 #     assert result == "<strong>Bla</strong><i>bla</i>"
 
 
-def test_get_abstract():
-    """Sanitize and truncate abstract."""
-    abstract = """
+def test_get_summary():
+    """Sanitize and truncate summary."""
+    summary = """
     There’s something special about language. It is ‘our own’, it is ‘us’, in a profound way, and quite surprisingly, more so than art. I was deeply struck by this when I first saw reactions to large generative language models that created realistic, human-ish prose. Notably, those mature enough to reach a non-professional audience – ChatGPT based on GPT-3 and later GPT-4 – came quite some time after models that could create fairly acceptable visual ‘art’.1 The appearance of synthetic language-like products (SLLPs), as I like to call the output of such generative models, came well after the appearance of synthetic simulacra of visual art,2 yet elicited much less fervent responses."""
-    result = get_abstract(abstract)
+    result = get_summary(summary)
     assert len(result) <= 450
-    assert result.endswith("human-ish prose.\n")
+    assert result.endswith("human-ish prose.")

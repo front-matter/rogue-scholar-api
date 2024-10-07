@@ -122,8 +122,8 @@ async def test_find_feed_quarto():
     url = "https://www.andrewheiss.com/"
     result = await find_feed(url)
     assert result is None
-    
-    
+
+
 @pytest.mark.vcr
 @pytest.mark.asyncio
 async def test_find_feed_blogger():
@@ -171,7 +171,7 @@ def test_parse_generator_wordpress():
 
 def test_parse_generator_wordpress_alternate():
     """Parse generator wordpress alternate format"""
-    generator = {'name': 'https://wordpress.org/?v=6.4.2'}
+    generator = {"name": "https://wordpress.org/?v=6.4.2"}
     result = parse_generator(generator)
     assert result == "WordPress 6.4.2"
 
@@ -299,7 +299,6 @@ def test_update_single_blog():
     """Upsert single blog"""
     blog = {
         "slug": "epub_fis",
-        "version": "https://jsonfeed.org/version/1.1",
         "feed_url": "https://blog.dini.de/EPub_FIS/feed/atom/",
         "created_at": "2023-07-21",
         "updated_at": 1695639719,
@@ -315,10 +314,9 @@ def test_update_single_blog():
         "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
         "category": "socialSciences",
         "status": "active",
-        "plan": "Team",
         "user_id": "a9e3541e-1e00-4bf3-8a4d-fc9b1c505651",
         "authors": None,
-        "use_mastodon": False,
+        "mastodon": None,
         "use_api": True,
         "relative_url": None,
         "filter": None,

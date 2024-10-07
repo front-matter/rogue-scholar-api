@@ -1,28 +1,52 @@
-# Based on https://dev.to/farcellier/package-a-poetry-project-in-a-docker-container-for-production-3b4m
-# and https://stackoverflow.com/questions/53835198/integrating-python-poetry-with-docker
+# syntax=docker/dockerfile:1.5
 ARG BUILDPLATFORM=linux/amd64
-FROM --platform=$BUILDPLATFORM python:3.11-slim-bookworm AS base
+FROM --platform=$BUILDPLATFORM python:3.12-bookworm AS builder
 
-ENV PANDOC_VERSION=3.1.11
-ENV POETRY_VERSION=1.7.1
+# Dockerfile that builds the Rogue Scholar API Docker image. Based on the following:
+# - https://medium.com/@albertazzir/blazing-fast-python-docker-builds-with-poetry-a78a66f5aed0
+# - https://pythonspeed.com/articles/smaller-python-docker-images/
+# - https://pythonspeed.com/articles/multi-stage-docker-python/
 
-# Update installed APT packages
-RUN apt-get update && apt-get upgrade -y && \
-    apt-get install wget nano tmux tzdata weasyprint -y && \
-    wget -q https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb && \
-    dpkg -i pandoc-${PANDOC_VERSION}-1-amd64.deb && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# Install OS package dependency: pandoc
+ENV PANDOC_VERSION=3.4 \
+    VIRTUAL_ENV=/opt/venv \
+    PATH="/opt/venv/bin:$PATH"
 
-RUN pip install --no-cache-dir poetry==${POETRY_VERSION} 
-COPY . /.
+ADD https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb /tmp/pandoc-${PANDOC_VERSION}-1-amd64.deb
 
-# WORKDIR /app
+# install uv to manage Python dependencie
+# Explicitly set the virtual environment used by uv
+COPY --from=ghcr.io/astral-sh/uv:0.4.15 /uv /bin/uv
 
-ENV PATH .venv/bin:$PATH
+RUN dpkg -i /tmp/pandoc-${PANDOC_VERSION}-1-amd64.deb && \
+    uv venv ${VIRTUAL_ENV}
 
-RUN poetry install --without dev
+WORKDIR /app
 
+COPY pyproject.toml requirements.txt ./
+RUN touch README.md
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv pip install -r requirements.txt
+
+FROM --platform=$BUILDPLATFORM python:3.12-slim-bookworm AS runtime
+
+# Install OS package dependency (for weasyprint): pango
+RUN --mount=type=cache,target=/var/cache/apt apt-get update -y && \
+    apt-get install pango1.0-tools=1.50.12+ds-1 -y --no-install-recommends && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+ENV VIRTUAL_ENV=/opt/venv \
+    PATH="/opt/venv/bin:$PATH"
+
+COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
+
+# Copy pandoc binary
+COPY --from=builder /usr/bin/pandoc /usr/bin/pandoc
+
+COPY api ./api
+COPY pandoc ./pandoc
+COPY hypercorn.toml ./
 EXPOSE 8080
 
-# CMD ["hypercorn", "-b", "0.0.0.0:5000", "api:app"]
-CMD ["poetry", "run", "hypercorn", "-b",  "0.0.0.0:8080", "api:app"]
+CMD ["hypercorn", "-b",  "0.0.0.0:8080", "api:app"]
