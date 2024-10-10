@@ -75,7 +75,7 @@ async def extract_all_blogs():
     blogs = (
         supabase.table("blogs")
         .select("slug")
-        .in_("status", ["approved", "active"])
+        .in_("status", ["approved", "active", "archived"])
         .order("title", desc=False)
         .execute()
     )
@@ -122,6 +122,8 @@ async def extract_single_blog(slug: str):
     )
     generator = re.split(" ", generator_raw)[0]
     description = feed.get("subtitle", None) or config["description"]
+    if description is not None:
+        description = bs4(description, "html.parser").get_text()
     favicon = feed.get("icon", None) or config["favicon"]
 
     # ignore the default favicons
