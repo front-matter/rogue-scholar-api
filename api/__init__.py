@@ -22,6 +22,7 @@ from quart_schema import (
 from quart_rate_limiter import RateLimiter, RateLimit
 from quart_cors import cors
 from postgrest import APIError
+from commonmeta import Metadata, doi_from_url, validate_prefix
 
 from api.supabase_client import (
     supabase_client,
@@ -31,7 +32,6 @@ from api.supabase_client import (
     worksSelect,
 )
 from api.typesense_client import typesense_client as typesense
-from commonmeta import Metadata, doi_from_url, validate_prefix
 from api.utils import (
     get_formatted_metadata,
     convert_to_commonmeta,
@@ -67,7 +67,7 @@ config.from_toml("hypercorn.toml")
 load_dotenv()
 rate_limiter = RateLimiter()
 logger = logging.getLogger(__name__)
-version = "0.8.0"  # TODO: importlib.metadata.version('rogue-scholar-api')
+version = "0.11.0"  # TODO: importlib.metadata.version('rogue-scholar-api')
 
 sentry_sdk.init(
     dsn=environ["QUART_SENTRY_DSN"],
@@ -245,7 +245,8 @@ async def blog(slug):
 @validate_response(Blog)
 @app.route("/blogs/<slug>", methods=["POST"])
 async def post_blog(slug):
-    """Update blog by slug, using information from the blog's feed."""
+    """Update blog by slug, using information from the blog's feed.
+    Create InvenioRDM entry for the blog."""
     result = await extract_single_blog(slug)
     return jsonify(result)
 

@@ -1,0 +1,54 @@
+interactions:
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      user-agent:
+      - python-httpx/0.27.2
+      x-client-info:
+      - supabase-py/2.9.0
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/works?select=%2A&uuid=eq.c2182771-c786-4c51-b3db-4f5c599948f3
+  response:
+    content: '{"code":"42703","details":null,"hint":"Perhaps you meant to reference
+      the column \"works.id\" or the column \"works.pid\".","message":"column works.uuid
+      does not exist"}'
+    headers:
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 8d053f68bc60dbe4-FRA
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Thu, 10 Oct 2024 08:30:19 GMT
+      sb-gateway-version:
+      - '1'
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '9'
+    http_version: HTTP/2
+    status_code: 400
+version: 1

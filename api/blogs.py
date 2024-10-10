@@ -1,12 +1,16 @@
 """Blogs module."""
+
 import socket
 import asyncio
+from os import environ
 from typing import Optional
 import httpx
 import feedparser
 import re
 from bs4 import BeautifulSoup as bs4
 from furl import furl
+import datetime
+import pydash as py_
 
 from api.supabase_client import (
     supabase_client as supabase,
@@ -154,8 +158,12 @@ async def extract_single_blog(slug: str):
         "filter": config["filter"],
         "secure": config["secure"],
     }
-    blog = update_single_blog(blog)
-    return blog
+    update_single_blog(blog)
+    r = upsert_blog_community(blog)
+    result = py_.pick(
+        r.json(), ["slug", "metadata.title", "metadata.description", "metadata.website"]
+    )
+    return result
 
 
 def parse_generator(generator):
@@ -256,6 +264,103 @@ def update_single_blog(blog):
             .execute()
         )
         return response.data[0]
+    except Exception as error:
+        print(error)
+        return None
+
+
+# async def create_all_blog_communities():
+#     """Create all blog communities for active blogs."""
+#     blogs = (
+#         supabase.table("blogs")
+#         .select("slug, title, description, home_page_url, favicon")
+#         .in_("status", ["active"])
+#         .order("title", desc=False)
+#         .execute()
+#     )
+#     tasks = []
+#     for blog in blogs.data:
+#         task = create_blog_community(blog)
+#         tasks.append(task)
+
+#     results = asyncio.run(asyncio.gather(*tasks))
+#     return results
+
+
+def upsert_blog_community(blog):
+    """Upsert an InvenioRDM blog community."""
+    response = create_blog_community(blog)
+    if response.status_code == 400:
+        response = update_blog_community(blog)
+    return response
+
+
+def create_blog_community(blog):
+    """Create an InvenioRDM blog community."""
+    try:
+        url = "https://beta.rogue-scholar.org/api/communities"
+        headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
+        data = {
+            "access": {
+                "visibility": "public",
+                "member_policy": "open",
+                "record_policy": "open",
+            },
+            "slug": blog.get("slug"),
+            "metadata": {
+                "title": blog.get("title"),
+                "description": blog.get("description", None),
+                "type": {"id": "blog"},
+                "website": blog.get("home_page_url"),
+            },
+        }
+        response = httpx.post(url, headers=headers, json=data, timeout=10)
+        return response
+    except Exception as error:
+        print(error)
+        return None
+
+
+def update_blog_community(blog):
+    """Update an InvenioRDM blog community."""
+    try:
+        url = f"https://beta.rogue-scholar.org/api/communities/{blog.get('slug')}"
+        headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
+        data = {
+            "access": {
+                "visibility": "public",
+                "member_policy": "open",
+                "record_policy": "open",
+            },
+            "slug": blog.get("slug"),
+            "metadata": {
+                "title": blog.get("title"),
+                "description": blog.get("description", None),
+                "type": {"id": "blog"},
+                "website": blog.get("home_page_url"),
+            },
+        }
+        response = httpx.put(url, headers=headers, json=data, timeout=10)
+        # TODO: upload optional logo
+        # if response.status_code == 200 and blog.get("favicon", None) is not None:
+        #     url = f"https://beta.rogue-scholar.org/api/communities/{blog.get('slug')}/logo"
+        #     headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
+
+        return response
+    except Exception as error:
+        print(error)
+        return None
+
+
+def feature_community(id):
+    """Feature an InvenioRDM community."""
+    try:
+        url = f"https://beta.rogue-scholar.org/api/communities/{id}/featured"
+        headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
+        now = datetime.datetime.now().isoformat()
+        data = {"start_date": now}
+        response = httpx.post(url, headers=headers, json=data, timeout=10)
+        return response
     except Exception as error:
         print(error)
         return None

@@ -1,0 +1,62 @@
+interactions:
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      user-agent:
+      - python-httpx/0.27.2
+      x-client-info:
+      - supabase-py/2.9.0
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20mastodon%2C%20generator_raw%2C%20language%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.ropensci
+  response:
+    content: '{"id":"ba402233-14af-48e4-b8b1-6fd22ac75a0c","slug":"ropensci","feed_url":"https://ropensci.org/blog/index.json","current_feed_url":null,"home_page_url":"https://ropensci.org/blog","archive_prefix":"https://wayback.archive-it.org/22126/20231105110646/","feed_format":"application/feed+json","created_at":1693440000,"updated_at":1727425740,"mastodon":null,"generator_raw":"Hugo
+      -- gohugo.io","language":"en","favicon":"https://ropensci.org/apple-touch-icon.png","title":"rOpenSci
+      - open tools for open science","description":"Open Tools and R Packages for
+      Open Science","category":"computerAndInformationSciences","status":"active","user_id":"3ea9676b-41b6-4e57-aeda-44a7d7fe1dba","authors":[{"name":
+      "The rOpenSci Team"}],"use_api":null,"relative_url":null,"filter":null,"secure":true}'
+    headers:
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 8d053a9c99ae8fd0-FRA
+      content-location:
+      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20mastodon%2C%20generator_raw%2C%20language%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.ropensci
+      content-profile:
+      - public
+      content-range:
+      - 0-0/*
+      content-type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      date:
+      - Thu, 10 Oct 2024 08:27:02 GMT
+      sb-gateway-version:
+      - '1'
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '4'
+    http_version: HTTP/2
+    status_code: 200
+version: 1

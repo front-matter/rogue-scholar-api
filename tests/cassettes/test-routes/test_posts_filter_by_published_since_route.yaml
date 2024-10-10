@@ -729,6 +729,1076 @@ interactions:
       - gzip
       content-type:
       - application/json; charset=utf-8
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Cabstract%2Ccontent_text%2Creference&filter_by=status%3A%21%3D%5Bpending%5D+%26%26+published_at%3A%3E%3D+1696550400+%26%26+published_at%3A%3C%3D+1697155199&sort_by=published_at%3Adesc&per_page=10&page=1
+  response:
+    body:
+      string: "{\"facet_counts\":[],\"found\":27,\"hits\":[{\"document\":{\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/041kmwe10\",\"name\":\"Imperial
+        College London\"}],\"name\":\"Henry Rzepa\",\"url\":\"https://orcid.org/0000-0002-8635-8390\"}],\"blog_name\":\"Henry
+        Rzepa's Blog\",\"blog_slug\":\"rzepa\",\"category\":\"chemicalSciences\",\"content_text\":\"In
+        an earlier post on this\\ntopic,\\\\[cite\\\\]10.59350/f00wf-5tq46\\\\[/cite\\\\]^\u2021^
+        I described how the\\ncurly-arrows describing the mechanism of a nucleophilic
+        addition at a\\ncarbonyl group choreograph in two distinct ways, as seen in
+        red or blue\\nbelow. The arrows in red can be described as firstly addition
+        to the\\ncarbonyl group to form either a transient intermediate (a two-step\\nprocess)
+        or instead a formal transition state state as a concerted\\nsingle-step mechanism.
+        The blue arrows do the reverse; firstly\\nelimination and then followed by
+        addition. I will use the shorthand\\n**AE** for the first type and **EA**
+        for the second type. Here I explore\\nsome more nucleophiles to see which
+        of these two mechanisms they follow.\\nData for these results can be found
+        at\\n[10.14469/hpc/13171](https://doi.org/10.14469/hpc/13171)  \\n[![](https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/10/double-headed4.svg){.aligncenter\\n.size-full
+        .wp-image-26546 decoding=\\\"async\\\"\\nwidth=\\\"450\\\"}](https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/10/double-headed4.svg)**N-\\ncarbon
+        ylid:** This is a very facile (low-barrier) reaction with a C-O\\nbond length
+        response that initially increases steeply, followed by a\\nmore modest decline
+        and hence corresponds to an **AE** mechanism.\\n\\n![](https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/10/acetyl-chlorine-C-Nuc_tot_ener.gif){.aligncenter\\n.size-medium
+        .wp-image-26534 decoding=\\\"async\\\" width=\\\"540\\\"}\\n\\n![](https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/10/acetyl-chlorine-C-Nuc_tot_ener.svg){.aligncenter\\n.size-medium
+        .wp-image-26530 decoding=\\\"async\\\" width=\\\"450\\\"}\\n\\n![](https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/10/acetyl-chlorine-add-C-nuc-DM.svg){.aligncenter\\n.size-medium
+        .wp-image-26535 decoding=\\\"async\\\" width=\\\"450\\\"}\\n\\n![](https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/10/acetyl-chlorine-C-Nuc-BL.svg){.aligncenter\\n.size-medium
+        .wp-image-26536 decoding=\\\"async\\\" width=\\\"450\\\"}\\n\\n**P carbon-Ylid:**\_
+        Essentially identical to the previous example, and\\nagain an **AE** mechanism.\\n\\n![](https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/10/acetyl-chloride-P-ylid.gif){.aligncenter\\n.size-medium
+        .wp-image-26527 decoding=\\\"async\\\" width=\\\"540\\\"}\\n\\n[![](https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/10/acetyl-chloride-P-ylid_tot_ener.svg){.aligncenter\\n.size-full
+        .wp-image-26524 decoding=\\\"async\\\"\\nwidth=\\\"450\\\"}](https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/10/acetyl-chloride-P-ylid_tot_ener.svg)\\n\\n![](https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/10/acetyl-chloride-P-ylid_DM.svg){.aligncenter\\n.size-medium
+        .wp-image-26525 decoding=\\\"async\\\" width=\\\"450\\\"}\\n\\n![](https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/10/acetyl-chloride-P-ylid_BL12.svg){.aligncenter\\n.size-medium
+        .wp-image-26526 decoding=\\\"async\\\" width=\\\"450\\\"}\\n\\n**S carbon-ylid:**
+        Again, an AE mechanism.\\n\\n![](https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/10/acetyl-chloride-S-ylid.gif){.aligncenter\\n.size-medium
+        .wp-image-26533 decoding=\\\"async\\\" width=\\\"540\\\"}\\n\\n![](https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/10/acetyl-chloride-S-ylid_tot_ener.svg){.aligncenter\\n.size-medium
+        .wp-image-26529 decoding=\\\"async\\\" width=\\\"450\\\"}\\n\\n![](https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/10/acetyl-chloride-S-ylid_DM.svg){.aligncenter\\n.size-medium
+        .wp-image-26531 decoding=\\\"async\\\" width=\\\"450\\\"}\\n\\n![](https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/10/acetyl-chloride-S-ylid_BL12.svg){.aligncenter\\n.size-medium
+        .wp-image-26532 decoding=\\\"async\\\" width=\\\"450\\\"}\\n\\n**S-nucleophile:\_**
+        This one is different, showing a larger barrier and\\ninitial small decrease
+        in the C-O length followed by a larger increase.\\nThis one is an **EA** mechanism.\\n\\n![](https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/10/acetyl-chloride-MeSH_tot_ener.gif){.aligncenter\\n.size-medium
+        .wp-image-26537 decoding=\\\"async\\\" width=\\\"540\\\"}\\n\\n![](https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/10/acetyl-chloride-MeSH_tot_ener.svg){.aligncenter\\n.size-medium
+        .wp-image-26528 decoding=\\\"async\\\" width=\\\"450\\\"}\\n\\n![](https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/10/acetyl-chloride-MeSH_DM.svg){.aligncenter\\n.size-medium
+        .wp-image-26538 decoding=\\\"async\\\" width=\\\"450\\\"}\\n\\n![](https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/10/acetyl-chloride-MeSH_BL12.svg){.aligncenter\\n.size-medium
+        .wp-image-26539 decoding=\\\"async\\\" width=\\\"450\\\"}\\n\\nAs I noted
+        previously, it would be useful to have two double headed\\ncurly arrows available
+        in palletes of these; **\\\\<---\\\\>** (AE) and\\n**\\\\>---\\\\<** (EA)
+        to illustrate the difference between the two\\nmechanistic types.\\n\\n------------------------------------------------------------------------\\n\\n^\u2021^This
+        is the first instance where I cite a blog using a CrossRef DOI\\ngenerated
+        for it. Previous such citations used a DataCite DOI, which the\\nbibliographic
+        software used here to add them to the post (Kcite) does\\nnot support.\\n\\n------------------------------------------------------------------------\\n\",\"doi\":\"https://doi.org/10.59350/h7vdj-cky15\",\"guid\":\"https://www.ch.imperial.ac.uk/rzepa/blog/?p=26523\",\"id\":\"de10c9d9-2c7c-421f-ada4-a96decf11b5d\",\"image\":\"https://www.ch.ic.ac.uk/rzepa/blog/wp-content/uploads/2023/10/double-headed4.svg\",\"language\":\"en\",\"published_at\":1697111844,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"In
+        an earlier post on this topic,[cite]10.59350/f00wf-5tq46[/cite]\\n<sup>\\n
+        \u2021\\n</sup>\\nI described how the curly-arrows describing the mechanism
+        of a nucleophilic addition at a carbonyl group choreograph in two distinct
+        ways, as seen in red or blue below.\",\"tags\":[\"Interesting Chemistry\"],\"title\":\"More
+        examples of &#8220;double-headed&#8221; curly arrows: S and C Nucleophiles
+        attacking acetyl chloride\",\"updated_at\":1697112211,\"url\":\"https://www.ch.ic.ac.uk/rzepa/blog/?p=26523\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22135/20231101173016/https://irights.info/artikel/3d-scans-und-das-recht/32063\",\"authors\":[{\"name\":\"Paul
+        Klimpel\"}],\"blog_name\":\"iRights.info\",\"blog_slug\":\"irights\",\"category\":\"law\",\"content_text\":\"Neue
+        Technologien fordern das Recht heraus. Das gilt besonders f\xFCrs\\nUrheberrecht,
+        das immer wieder auf neue Kopiertechniken reagiert. So\\nauch bei sogenannten
+        3D-Scans, mit den sich Skulpturen, Bauwerke und\\nandere dreidimensionale
+        Objekte erstaunlich originalgetreu abbilden\\nlassen. Die rechtlichen Fragen
+        rund ums 3D-Scannen beleuchtet Paul\\nKlimpel.\\n\\n[]{#more-32063}\\n\\n*Wem
+        es nicht m\xF6glich ist, eine Skulptur vor Ort (beispielsweise im\\nMuseum)
+        zu betrachten, kann auf sogenannte 3D-Scans ausweichen. Das sind\\ndigitale
+        Reproduktionen von dreidimensionalen Objekten. Der\\n\xF6sterreichische K\xFCnstler
+        [Oliver Laric](http://oliverlaric.com/) fertigt\\nsolche 3D-Scans an und stellt
+        diese auf digitalen Plattformen der\\n\xD6ffentlichkeit frei zur Verf\xFCgung
+        (zum Beispiel\\n[hier](https://threedscans.com/)).*\\n\\n*Anfang Oktober zeigte
+        Laric auf der Konferenz [Zugang\\ngestalten!](https://irights.info/artikel/zugang-gestalten-2023/32003),\\ndass
+        gerade der Kontrollverzicht eine faszinierende Facette der\\nrechtliche Freigabe
+        bedeutet. Denn weil die 3D-Scans von allen frei\\ngenutzt werden d\xFCrfen,
+        tauchen sie in Musikvideos, Magazinen, auf Social\\nMedia und an anderen Orten
+        der Popkultur wieder auf, teils mit\\nverbl\xFCffenden Ergebnissen.\_*\\n\\n*Wie
+        aber sieht die generelle (urheber-)rechtliche Situation bei\\n3D-Reproduktionen
+        aus? Mit dieser Frage befasst sich [Paul\\nKlimpel](https://irights-law.de/team/dr-paul-klimpel/),
+        Anwalt bei\\niRights.Law und Mitglied von iRights.info, in einer ausf\xFChrlichen\\nAnalyse.
+        Urspr\xFCnglich ist der Text im Katalog von Laric' Ausstellung\\n[M\xE9moire\\nVive](https://museedelaromanite.fr/en/agenda/memoire-vive-oliver-laric-from-21-april-to-31-december-2023)\\nerschienen.
+        iRights.info ver\xF6ffentlicht hier nun die deutsche Fassung in\\nvollst\xE4ndiger
+        L\xE4nge.*\\n\\n::: {#attachment_32066 .wp-caption .alignnone style=\\\"width:
+        410px\\\"}\\n[![](https://irights.info/wp-content/uploads/2023/10/Thorne.gif){.wp-image-32066\\n.size-full
+        aria-describedby=\\\"caption-attachment-32066\\\" loading=\\\"lazy\\\"\\nwidth=\\\"400\\\"\\nheight=\\\"500\\\"}](https://irights.info/wp-content/uploads/2023/10/Thorne.gif)\\n\\nOliver
+        Laric,\\n[3D-Scan](https://threedscans.com/institut-fur-klassische-archaologie/boy-with-thorn/)\\nder
+        antiken Skulptur [Junge mit\\nDorn](https://en.wikipedia.org/wiki/Boy_with_Thorn)\\n:::\\n\\n#
+        3D-Scans und das Recht {#d-scans-und-das-recht}\\n\\nDie Technik erm\xF6glicht
+        heute, originalgetreue Kopien von Skulpturen,\\nBauwerken oder anderen dreidimensionalen
+        Objekten anzufertigen. Dabei\\nentwickelt sich die Technik st\xE4ndig weiter;
+        die daf\xFCr notwendigen Daten\\nk\xF6nnen inzwischen auch durch wenige Fotografien
+        aus verschiedenen\\nPerspektiven hochgerechnet werden. So faszinierend die
+        technische\\nEntwicklung ist, so unklar ist oft, welche rechtlichen Implikationen
+        mit\\nsolchen 3D-Scans einhergehen.\\n\\n## 1. 3D-Scans urheberrechtlich gesch\xFCtzter
+        Werke {#d-scans-urheberrechtlich-gesch\xFCtzter-werke}\\n\\nDas Urheberrecht
+        sch\xFCtzt Werke der Kunst und als solche auch Skulpturen\\nund andere dreidimensionale
+        Objekte, sofern diese Ausdruck einer\\npers\xF6nlichen geistigen Sch\xF6pfung
+        sind. Dabei w\xE4hrt dieser\\nurheberrechtliche Schutz bis zu dem Jahr, nach
+        dem der Urheber 70 Jahre\\nverstorben ist -- erst danach ist ein Werk gemeinfrei.\\nUrheberrechtlicher
+        Schutz bewirkt, dass ein Werk nur mit ausdr\xFCcklicher\\nZustimmung des Sch\xF6pfers
+        oder seines Rechtsnachfolgers \u201Egenutzt\\\" werden\\nkann. Unter \u201ENutzung\\\"
+        im urheberrechtlichen Sinn versteht man\\nbeispielsweise die \u201EVervielf\xE4ltigung\\\",
+        also das Kopieren (daher der\\nenglische Begriff \u201Ecopyright\\\"), aber
+        auch das Bearbeiten, Ausstellen,\\nVorf\xFChren, Verfilmen usw. Nicht vom
+        urheberrechtlichen Schutz umfasst\\nist der blo\xDFe Werkgenuss.\\n\\nScannen
+        ganz allgemein wie auch 3D-Scans im Besonderen sind im\\nurheberrechtlichen
+        Sinn ein \u201EVervielf\xE4ltigen\\\", also ein Kopieren. Sofern\\ndies nicht
+        im rein privaten Rahmen geschieht und diese Kopien\\nver\xF6ffentlicht werden,
+        ist dies nur mit Zustimmung des Rechteinhabers\\nerlaubt. Im Rahmen einer
+        k\xFCnstlerischen Arbeit, die sich ja an eine\\n\xD6ffentlichkeit wendet,
+        bedarf es also grunds\xE4tzlich der Erlaubnis des\\nRechteinhabers des Originalkunstwerks.\\n\\nDie
+        Ver\xF6ffentlichung von Bearbeitungen bedarf der Zustimmung des\\nRechteinhabers
+        des Ursprungswerks. Doch selbst davon gibt es Ausnahmen.\\nZul\xE4ssig sind
+        etwa die Verfremdungen von Werken als Karikatur, Satire\\noder Pastiche. Zul\xE4ssig
+        w\xE4re auch, ein neues Werk zu schaffen, das sich\\nvom Original sehr weitgehend
+        unterscheidet. Wenn das urspr\xFCngliche Werk\\ninfolge der gravierenden Ver\xE4nderungen
+        hinter dem neuen Werk verblasst\\nund kaum noch erkennbar ist, wird dies rechtlich
+        nicht als Bearbeitung,\\nsondern als eigenst\xE4ndiges, neues Werk gesehen.
+        Diese Ausnahmef\xE4lle\\nsollen hier jedoch nicht weiter ausgef\xFChrt werden.
+        Denn das Besondere an\\n3D-Scans ist ja gerade, dass sie das Original m\xF6glichst
+        unver\xE4ndert\\nabbilden. Solche originalgetreuen Vervielf\xE4ltigungen bed\xFCrfen
+        -- genau\\nwie Bearbeitungen -- der Zustimmung des Rechteinhabers.\\n\\n##
+        2. Dreidimensionale Scans von gemeinfreien Werken {#dreidimensionale-scans-von-gemeinfreien-werken}\\n\\nG\xE4nzlich
+        anders ist die Situation bei dreidimensionalen Scans von\\ngemeinfreien Werken.\\n\\n###
+        Kein urheberrechtlicher Schutz\\n\\n[Gemeinfreie\\nWerke](https://irights.info/artikel/gemeinfreiheit-wie-frei-ist-frei/29619)\\nd\xFCrfen
+        frei genutzt werden. Auch das Herstellen von 3D-Scans ist\\nurheberrechtlich
+        zul\xE4ssig, wobei ohne Bedeutung ist, welche Technik\\nhierbei genutzt wird.\\n\\n###
+        Hausrecht der Institutionen\\n\\nGeht es um das Scannen gemeinfreier Werke,
+        so ist dies jedoch auch mit\\nganz praktischen Schwierigkeiten verbunden.
+        Um eine Skulptur scannen zu\\nk\xF6nnen, muss man Zugang zu ihr haben. Abh\xE4ngig
+        davon, welche Technik\\nverwendet wird, muss entweder ein aufw\xE4ndiger 3D-Scanner
+        eingesetzt\\nwerden. Oder aber es m\xFCssen mindestens einige Fotos gemacht
+        werden, die\\ndann die Basis f\xFCr eine computergest\xFCtzte Hochrechnung
+        des 3D-Modells\\nsind.\\n\\nHier stellt sich die Frage, inwieweit das Hausrecht
+        einer Institution,\\nbeispielsweise eines Museums oder eines Archivs, dem
+        entgegensteht. Es\\nist zwar anerkannt, dass Fotoverbote in Museen rechtlich
+        zul\xE4ssig sind.\\nIn Deutschland hat dies der Bundesgerichtshof damit begr\xFCndet,
+        dass\\nsolche Fotoverbote auch andere Zwecke verfolgen k\xF6nnen, als eine\\nVervielf\xE4ltigung
+        zu verhindern, beispielsweise restauratorische Zwecke\\noder solche der Besucherf\xFChrung
+        und des organisatorischen Ablaufs. In\\nEuropa d\xFCrfen auch \xF6ffentlich
+        finanzierte Institutionen das\\nFotografieren verbieten.\\n\\nIn der Praxis
+        werden solche Fotoverbote jedoch zunehmend fraglich. Mehr\\nund mehr Kulturerbe-Einrichtungen
+        \xFCberall auf der Welt verzichten ganz\\nbewusst auf Fotografierverbote,
+        f\xFChlen sich dem Prinzip eines Offenen\\nZugangs verpflichtet und wollen
+        auch die freie Nachnutzung von Werken in\\nihrer Obhut erm\xF6glichen. Bahnbrechend
+        f\xFCr eine solche Position war das\\nRijksmuseum in Amsterdam. In vielen
+        L\xE4ndern ist eine freie Verf\xFCgbarkeit\\nund Nachnutzbarkeit inzwischen
+        Bedingung f\xFCr eine \xF6ffentliche F\xF6rderung\\nvon Digitalisierungsprojekten.
+        Als typisch f\xFCr diese Entwicklung mag\\nauch die [Open Access Policy der
+        Kulturerbe-Einrichtungen des Landes\\nHessens](https://archiv.ub.uni-marburg.de/es/2021/0029)
+        gelten, die sich\\nexplizit gegen Fotografierverbote ausspricht.\\n\\nHinzu
+        kommt, dass die\\n[PSI-Richtlinie](https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX:32019L1024&from=DE)\_auch\\nstaatliche
+        oder \xF6ffentlich finanzierte Kulturerbe-Einrichtungen in\\nEuropa verpflichtet,
+        die Nutzung ihrer Best\xE4nde zu gestatten. Mittels\\ndes Hausrechts die Nutzung
+        von Daten \xFCber gemeinfreie Werke zu\\nverhindern, widerspricht zwar dem
+        Geist der PSI-Richtlinie. Ein Recht\\nauf Zugang, insbesondere auf eine spezifische
+        Art des Zugangs, kann\\ndaraus aber nicht abgeleitet werden.\\n\\nIn der Praxis
+        gibt es zwar immer noch einige Kulturerbe-Einrichtungen,\\ndie versuchen,
+        den Zugang auch zu gemeinfreien Best\xE4nden durch Vertr\xE4ge\\nso zu gestalten,
+        dass eine Nachnutzung eingeschr\xE4nkt wird. Angesichts\\nder klaren Wertentscheidung
+        des europ\xE4ischen Gesetzgebers f\xFCr die\\nGemeinfreiheit ist die rechtliche
+        Zul\xE4ssigkeit solcher Bestimmungen aber\\nzweifelhaft. Hier gibt es jedoch
+        in Europa Unterschiede in den\\njeweiligen nationalen Gesetzgebungen.\\n\\n###
+        Recht aus dem Sacheigentum\\n\\nGrunds\xE4tzlich gilt in Europa, dass aus
+        dem Sacheigentum an einem\\nKunstwerk kein Recht an einem Foto oder einer
+        der Kopie dieses\\nKunstwerks folgt. Dies ist eine Frage des Urheberrechts,
+        nicht des\\nSachenrechts.\\n\\nEntgegen diesem Grundsatz gibt es vereinzelt
+        Bestrebungen, dem\\nSacheigent\xFCmer auch die Kontrolle \xFCber Abbildungen
+        zuzugestehen. So hat\\nin Deutschland der Bundesgerichtshof dem Eigent\xFCmer
+        einer Immobilie das\\nRecht zugesprochen, gegen die Nutzung von Fotos vorzugehen,
+        die gegen\\nsein ausdr\xFCckliches Verbot vom Grund und Boden der Immobilie
+        aus von\\neinem dort ebenfalls befindlichen Bauwerk gemacht wurden (Schloss\\nSanssouci).
+        Aus diesem umstrittenen Urteil l\xE4sst sich jedoch nicht\\nableiten, dass
+        die Nutzung von Fotos f\xFCr eine computergest\xFCtzte\\nRekonstruktion eines
+        Bauwerks ebenfalls gegen die Rechte des Eigent\xFCmers\\nverst\xF6\xDFt. Dies
+        w\xE4re eine \xDCberdehnung der Rechte des Sacheigent\xFCmers, da\\nmit der
+        3D-Rekonstruktion eines Geb\xE4udes (oder auch einer Skulptur) auf\\nder Grundlage
+        von Fotos keine Beeintr\xE4chtigung des Eigentums selbst\\nverbunden ist und
+        auch keine Handlungen erfolgen, die gegen ein\\nausdr\xFCckliches und durch
+        den Eigent\xFCmer durchsetzbares Verbot erfolgen.\\n\\n### Nutzung von Fotos
+        f\xFCr computergest\xFCtzte Rekonstruktionen\\n\\nSofern gemeinfreie dreidimensionale
+        Werke nicht frei zug\xE4nglich sind\\noder Institutionen ihr Hausrecht nutzen,
+        um dreidimensionale Scans zu\\nverhindern, so verbleibt gleichwohl die M\xF6glichkeit,
+        bereits bestehende\\nFotos zu nutzen, um computergest\xFCtzt die dreidimensionalen
+        Objekte\\nhochzurechnen und zu rekonstruieren.\\n\\nIn aller Regel ist die
+        Nutzung von Fotos f\xFCr solche computergest\xFCtzten\\nRekonstruktionen zul\xE4ssig.
+        Dies gilt zum einen, wenn es sich bei den\\nFotos um reine Lichtbilder und
+        nicht um Lichtbildwerke handelt. Die\\nAbgrenzung von Lichtbildern und Lichtbildwerken
+        ist kompliziert;\\nvereinfacht gesagt trifft bei einem Lichtbildwerk der Fotograf
+        eigene\\ngestalterische Entscheidungen und ist damit sch\xF6pferisch t\xE4tig.
+        Bei\\neinem Lichtbild hingegen kommt es zu keiner sch\xF6pferischen Entscheidung.\\nBilder
+        von Skulpturen, die nach festen, vorgegebene Parameter gefertigt\\nwerden
+        und nur der Dokumentation eines Bestandes dienen, wird man als\\nLichtbilder
+        einzuordnen haben, w\xE4hrend Fotografien, in denen ein Objekt\\nin besonderer,
+        kreativer Weise durch Licht und Schatten und den\\nAufnahmewinkel inszeniert
+        wird, als Werke gelten.\\n\\nReine Lichtbilder gemeinfreier Werke sind urheberrechtlich
+        nicht\\ngesch\xFCtzt. Sie d\xFCrfen daher zur computergest\xFCtzten Rekonstruktion\\ngenutzt
+        werden. Doch das gilt in aller Regel auch f\xFCr Fotos, die einen\\nWerkcharakter
+        und mithin einen urheberrechtlichen Schutz haben. Denn\\nArt. 4 der DSM-Richtlinie
+        sieht vor, dass zum Zwecke des \u201EText and Data\\nMining\\\" Vervielf\xE4ltigungen
+        auch von urheberrechtlich gesch\xFCtzten Werken\\ngemacht werden d\xFCrfen,
+        sofern dies zur automatisierten Analyse der darin\\nenthaltenen Information
+        notwendig ist. Die Nutzung auch urheberrechtlich\\ngesch\xFCtzter Werke w\xE4re
+        nur dann unzul\xE4ssig, wenn im konkreten Einzelfall\\nin geeigneter Weise
+        -- und das hei\xDFt bei der Pr\xE4sentation im Internet in\\nmaschinenlesbarer
+        Weise -- der Nutzung durch automatisiert Analyse ganz\\nausdr\xFCcklich widersprochen
+        wurde. Dies ist bei Fotos (bisher) nur in\\nAusnahmef\xE4llen so.\\n\\nAllerdings
+        ist hier vieles im Fluss. Das Aufkommen von KI-erzeugten\\nBildern hat dazu
+        gef\xFChrt, dass die Funktionsweise solcher maschinellen\\nVorg\xE4nge ins
+        Blickfeld der \xD6ffentlichkeit ger\xFCckt sind. Denn zumeist\\nnutzen KI-Prozesse
+        frei im Netz verf\xFCgbare Bilder als Trainingsdaten.\\nHiergegen gibt es
+        zunehmend Vorbehalte von K\xFCnstlern. Um die Nutzung als\\nTrainingsdaten
+        zu verhindern, nutzen Sie die Metadaten von Bildern, um\\nin maschinenlesbarer
+        Form einer automatisierten Analyse zu\\nwidersprechen. Dies ist jedoch erst
+        eine relativ neue Entwicklung und\\nbetrifft vor allem die Abbildungen von
+        noch urheberrechtlich gesch\xFCtzten\\nKunstwerken. K\xFCnstler wollen dadurch
+        verhindern, dass infolge von\\nKI-Prozessen ihr Stil automatisiert nachempfunden
+        wird.\\n\\n## 3. Eigene Rechte am Scans {#eigene-rechte-am-scans}\\n\\nDie
+        durch 3D-Scans entstehenden Kopien haben grunds\xE4tzlich keinen\\neigenen
+        urheberrechtlichen Schutz.\\n\\n### Keine neuen Rechte an Reproduktionen\\n\\nReproduktionen
+        von dreidimensionalen Objekten waren und sind in Europa\\ngrunds\xE4tzlich
+        nicht urheberrechtlich gesch\xFCtzt. Dies ist in Hinblick auf\\nden Schutz
+        als Werk offensichtlich: Da es sich lediglich um die\\nReproduktion eines
+        bereits bestehenden Werkes handelt, ist damit keine\\neigene pers\xF6nliche,
+        sch\xF6pferische Leistung verbunden.\\n\\nGleichwohl gab es eine lange rechtliche
+        Auseinandersetzung um den\\nrechtlichen Schutz von Reproduktionen gemeinfreier
+        Werke. In Italien\\nging es dabei auch um Skulpturen, in Deutschland vorrangig
+        um die\\nReproduktionsfotografie. Dort hatte der Bundesgerichtshof nach einem\\nlangen
+        Rechtsstreit 2018 schlie\xDFlich entschieden, dass\\nReproduktionsfotografien
+        zwar nicht als Werke, wohl aber als blo\xDFe\\n\u201ELichtbilder\\\" gesch\xFCtzt
+        waren. Der Lichtbildschutz, den es zwar in\\neinigen, nicht aber in allen
+        L\xE4ndern der EU gibt, sch\xFCtzt -- wie bereits\\noben ausgef\xFChrt --
+        solche Fotografien, die keine Werke im Sinne einer\\npers\xF6nlichen geistigen
+        Sch\xF6pfung sind. Dar\xFCber hinaus k\xF6nnte man auch\\neinen Schutz der
+        Daten eines 3D-Scans durch das Datenbankherstellerrecht\\ndenken.\\n\\nDie
+        Entwicklungen in verschiedenen europ\xE4ischen L\xE4ndern, Reproduktionen\\ngemeinfreier
+        Werke durch verwandte Schutzrechte zu sch\xFCtzen, hat die EU\\nveranlasst,
+        im Rahmen der DSM-Richtlinie 2020 klarzustellen, dass bei\\nder [werkgetreuen\\nReproduktion](https://irights.info/artikel/was-wir-kopieren-wenn-wir-kopieren/31674)\\nvon
+        gemeinfreien Werke kein neuer Schutz entsteht -- weder durch das\\nUrheberrecht
+        noch durch verwandte Schutzrechte. Dies wird durch Art. 14\\nder DSM-Richtlinie
+        geregelt. Allerdings gilt dies nicht, sofern das\\ndurch die Vervielf\xE4ltigung
+        entstandene Material eine eigene geistige\\nSch\xF6pfung ist.\\n\\n### 3D-Scans
+        als eigenes Werk? {#d-scans-als-eigenes-werk}\\n\\nAngesichts dieser Formulierung
+        in der DSM-Richtlinie stellt sich die\\nFrage, unter welchen Umst\xE4nden
+        3D-Scans als eigene Werke desjenigen\\ngelten, der sie schafft.\\n\\nDer blo\xDFe
+        3D-Scan als solcher ist kein eigenes Werk, sondern eine\\nVervielf\xE4ltigung.\\n\\nIm
+        Weiteren ist zu unterscheiden. Es ist denkbar, dass die weitere\\nBearbeitung
+        eines solchen Scans, oder die Wahl von Materialien und die\\nVer\xE4nderung,
+        die daran bei der Ausfertigung vorgenommen werden, selbst\\neinen Werkcharakter
+        haben. Denkbar w\xE4re, einer g\xE4nzlich anderen Farb-\\nund Materialgestaltung
+        einen Werkcharakter zuzubilligen. Dann bezieht\\nsich dieser urheberrechtliche
+        Schutz aber weder auf das Original noch\\nauf den 3D-Scan als solchen, sondern
+        nur auf die spezifische\\nAusgestaltung und Kontextualisierung.\\n\\nAber
+        selbst wenn man einen Werkcharakter durch die Bearbeitung verneint,\\nja selbst
+        wenn auf der Grundlage des 3D-Scans eine absolut\\noriginalgetreue Kopie erstellt
+        wird, kann der Pr\xE4sentation und\\nKontextualisierung dieser Kopie ein Werkcharakter
+        zukommen. Insofern sei\\nauf das Konzept der \u201EReady-mades\\\" bzw. Objet
+        Trouve verwiesen. Danach\\nk\xF6nnen auch Alltags- oder Naturgegenst\xE4nde
+        zum Kunstwerk avancieren\\n(also \u201Egemacht\\\" werden), indem der K\xFCnstler
+        sie findet und in einen\\nanderen Funktions- und Bedeutungszusammenhang integriert.
+        Dies ist auch\\ndurch Scans von gemeinfreien Skulpturen denkbar, die eben
+        infolge der\\nnicht nur rechtlich zul\xE4ssigen, sondern auch technisch jederzeit\\nm\xF6glichen
+        freien Nachnutzbarkeit in einen neuen Bedeutungszusammenhang\\ngestellt werden
+        -- von einem museal ausgestellten und bewunderten Unikat\\nzur jederzeit verf\xFCgbaren
+        und nachnutzbaren Alltagsgegenstand.\\n\\n## 4. Fazit {#fazit}\\n\\nDas [Urheberrecht](https://irights.info/kategorie/urheberrecht)
+        gilt\\ngemeinhin als Garant daf\xFCr, dass K\xFCnstlern auch eine Grundlage
+        f\xFCr die\\nVerwertung ihre Werke gegeben wird. Dies erst schaffe die (materiellen)\\nVoraussetzungen
+        f\xFCr k\xFCnstlerische Kreativit\xE4t. Im Bereich der 3D-Scans\\nwird jedoch
+        deutlich, dass dies keineswegs eine so zwingende und\\neindeutige Korrelation
+        ist, wie oft behauptet wird.\\n\\nDies gilt zum einen, weil das Konzept des
+        Urheberrechts,\\nVerbreitungshandlungen (und damit auch die Wirkung) eines
+        Werkes zu\\nbeschr\xE4nken, zu kontrollieren und von der Zustimmung des K\xFCnstlers\\nabh\xE4ngig
+        zu machen, nicht in jedem Fall im Interesse des K\xFCnstlers (und\\nder Kunst)
+        liegt. Dies wird durch den Zuspruch deutlich, den freie\\nLizenzen auch unter
+        K\xFCnstlern haben.\\n\\nHinzu kommt, dass das Konzept des urheberrechtlichen
+        Werkschutzes dort\\nan seine Grenzen ger\xE4t, wo eine reine Kopie und freie
+        Kopierbarkeit\\nkonzeptioneller Ausgangspunkt der Kunst ist. Denn dort besteht
+        der\\nk\xFCnstlerische Schaffensakt ja in der Inszenierung und Kontextualisierung\\nund
+        auch in der freien Verf\xFCgbarkeit und Nutzbarkeit des Objektes. Und\\ndamit
+        ist nicht das Objekt selbst das Werk, sondern seine Inszenierung,\\nNutzung
+        und Nutzbarmachung. Von daher ist es auch kein Widerspruch,\\neinem 3D-Scan
+        \u201Eals solchem\\\" urheberrechtlichen Schutz abzusprechen und\\ngleichwohl
+        die spezifischen Inszenierung, ja sogar das Prinzip der\\nfreien Nachnutzbarkeit
+        und Neukontextualisierung als k\xFCnstlerischen\\nAusdruck zu begreifen. Es
+        geh\xF6rt zur gro\xDFen und subversiven Kraft der\\nKunst, die Nachnutzbarkeit
+        selbst zum konzeptionellen Prinzip zu erheben\\nund damit die traditionelle
+        Verhaftung des urheberrechtlichen Schutzes\\nals eines Schutzes des Objektes
+        vor der Kopie und Nachnutzbarkeit ad\\nabsurdum zu f\xFChren.\\n\\n### Vom
+        Sockel geholt, zur Nachnutzung freigegeben\\n\\nDer 3D-Scan wird so zu einer
+        digitalen sozialen Plastik, bei welcher der\\ndurch die freie Nachnutzbarkeit
+        vermittelte kommunikative Gehalt\\nintegraler Bestandteil ist.\\n\\nHier zeigt
+        sich auch die besondere Kraft des Werkes von Oliver Laric.\\nWurde beim Ready-made
+        ein vorbestehender, industrieller Gegenstand zum\\nKunstwerk erkl\xE4rt und
+        beispielsweise ein Urinal auf den musealen Sockel\\nerhoben, so geht Laric
+        den umgekehrten Weg: Durch die Erstellung von\\n3D-Scans holt er gemeinfreie
+        Skulpturen vom Sockel der Museen herunter,\\nbefreit sie und macht sie f\xFCr
+        jede Nachnutzung zug\xE4nglich. Und durch\\nseine eigene Nachnutzung kehrt
+        diese Kopie des gemeinfreien Werks,\\nangereichert durch die Besonderheiten
+        von Larics Adaption und\\nInszenierung, wieder auf den Sockel des Museums
+        zur\xFCck. Damit vollendet\\nsich ein Kreislauf von Kreation, freier Verf\xFCgbarkeit,
+        Adaption und\\nNeuinterpretation, der die Grenzen urheberrechtlich vermittelter\\nWerkkontrolle
+        \xFCberwindet und Raum f\xFCr immer Neues schafft.\\n\\nLaric hebt die vorgefundenen
+        Skulpturen durch seine 3D-Scans im\\ndreifachen Sinne Hegels auf: Er \xFCberwindet
+        sie, wie man eine alte\\nVorschrift aufhebt, da die Skulpturen aufh\xF6ren,
+        museale Unikate zu sein.\\nEr bewahrt sie -- und auch dies ist ja eine Bedeutung
+        des Wortes\\n\u201Eaufheben\\\" -- indem er ihre Gestalt vervielf\xE4ltigt,
+        vor dem Vergessen\\nbewahrt und neu kontextualisiert. Und letztlich hebt er
+        sie dadurch auf\\neine neue Stufe, erhebt sie vom verstaubten musealen Unikat
+        zur\\ndigitalen sozialen Plastik.\\n\\n::: {.merksatz}\\n## Sie m\xF6chten
+        iRights.info unterst\xFCtzen? {#sie-m\xF6chten-irights.info-unterst\xFCtzen}\\n\\n**[iRights.info](https://irights.info/)\_informiert
+        und erkl\xE4rt rund um\\ndas Thema \u201EUrheberrecht und Kreativit\xE4t in
+        der digitalen Welt\\\". Alle\\nTexte erscheinen kostenlos und offen lizenziert.**\\n\\n**Wenn
+        Sie m\xF6gen, k\xF6nnen Sie uns \xFCber die\\ngemeinn\xFCtzige\_[Spendenplattform\\nBetterplace](https://www.betterplace.org/de/projects/120241-irights-info-informationsplattform-zum-urheberrecht-in-der-digitalen-welt)\_unterst\xFCtzen\\nund
+        daf\xFCr eine Spendenbescheinigung erhalten. Betterplace akzeptiert\\nPayPal,
+        Bankeinzug, Kreditkarte, paydirekt oder \xDCberweisung.**\\n\\n**Besonders
+        freuen wir uns \xFCber einen regelm\xE4\xDFigen Beitrag,\\nbeispielsweise
+        als monatlicher Dauerauftrag.\_F\xFCr Ihre Unterst\xFCtzung\\ndankt Ihnen
+        herzlich der\_[gemeinn\xFCtzige iRights\\ne.V.](https://irights.info/was-ist-irightsinfo-projekttrger)!**\\n\\n------------------------------------------------------------------------\\n\\n**DOI
+        f\xFCr diesen Text: <https://doi.org/10.59350/b5cz8-kr253>\_\xB7\\nautomatische
+        DOI-Vergabe f\xFCr Blogs \xFCber\_[The Rogue\\nScholar](https://rogue-scholar.org/de/blogs/irights)**\\n:::\\n\\nThe
+        post [3D-Scans und das\\nRecht](https://irights.info/artikel/3d-scans-und-das-recht/32063){rel=\\\"nofollow\\\"}\\nappeared
+        first on [iRights.info](https://irights.info){rel=\\\"nofollow\\\"}.\\n\",\"doi\":\"https://doi.org/10.59350/b5cz8-kr253\",\"guid\":\"https://irights.info/?post_type=custom_artikel&p=32063\",\"id\":\"df297a7d-3d64-402d-9287-af7a83ff50f0\",\"image\":\"https://irights.info/wp-content/uploads/2023/10/Thorne.gif\",\"language\":\"de\",\"published_at\":1697105252,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Neue
+        Technologien fordern das Recht heraus. Das gilt besonders f\xFCrs Urheberrecht,
+        das immer wieder auf neue Kopiertechniken reagiert. So auch bei sogenannten
+        3D-Scans, mit den sich Skulpturen, Bauwerke und andere dreidimensionale Objekte
+        erstaunlich originalgetreu abbilden lassen. Die rechtlichen Fragen rund ums
+        3D-Scannen beleuchtet Paul Klimpel.\",\"tags\":[\"Gesellschaft + Kunst\",\"Museen
+        + Archive\",\"Urheberrecht\",\"3D-Scan\",\"Gemeinfreiheit\"],\"title\":\"3D-Scans
+        und das Recht\",\"updated_at\":1698071011,\"url\":\"https://irights.info/artikel/3d-scans-und-das-recht/32063\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22123/20231101171300/https://eve.gd/2023/10/12/self-referential-language-counting\",\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/02twcfp32\",\"name\":\"Crossref\"}],\"name\":\"Martin
+        Paul Eve\",\"url\":\"https://orcid.org/0000-0002-5589-8511\"}],\"blog_name\":\"Martin
+        Paul Eve\",\"blog_slug\":\"eve\",\"category\":\"languagesAndLiterature\",\"content_text\":\"A
+        \\\\[recent\\nXKCD\\\\](https://www.explainxkcd.com/wiki/index.php/2839:\\\\_Language_Acquisition)\\ncaused
+        some amusement: \\\\\\\"Vocabulary update: I learned another word\\ntoday,
+        bringing my total to twelve\\\\\\\". We wondered whether there might be\\npossible
+        formulations of this joke that also contained the unique\\ncharacter count,
+        so I wrote the following python script: import num2word\\nimport numpy def
+        find_self_reference(): sentence = \\\\\\\"I learned another\\nword today bringing
+        my total to {0} words and {1} letters\\\\\\\" words = 12\\nfor i in range(0,
+        1000): num_word = num2word.word(i) final_words =\\nwords + numpy.char.count(num_word,
+        \\\\\\\" \\\\\\\") + 1 final_num_words = (\\nint(final_words) + int(numpy.char.count(num2word.word(int(final_words)),\\n\\\\\\\"
+        \\\\\\\")) + 1 ) sentence_sub =\\nsentence.format(num2word.word(final_num_words),
+        num_word) characters =\\nlen(set(sentence_sub.replace(\\\\\\\" \\\\\\\", \\\\\\\"\\\\\\\")))
+        print(f\\\\\\\"Needed {characters}\\ncharacters but got {i}.\\\\\\\") if characters
+        == i: print(sentence_sub)\\nreturn This gives us the following results: \\\\*
+        I learned another word\\ntoday bringing my total to fourteen words and twenty
+        letters or \\\\*\\nVocabulary update: I learned another word today bringing
+        my total to\\nseventeen words and twenty five letters Good to have a hobby.\\n\",\"doi\":\"https://doi.org/10.59348/sf2b0-q3k31\",\"guid\":\"https://eve.gd/2023/10/12/self-referential-language-counting\",\"id\":\"277a2797-fdea-4ad0-9e68-b1897d345252\",\"image\":\"https://eve.gd/images/header_words.png\",\"language\":\"en\",\"published_at\":1697068800,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"A
+        [recent XKCD](https://www.explainxkcd.com/wiki/index.php/2839:_Language_Acquisition)
+        caused some amusement: \\\"Vocabulary update: I learned another word today,
+        bringing my total to twelve\\\". We wondered whether there might be possible
+        formulations of this joke that also contained the unique character count,
+        so I wrote the following python script: import num2word import numpy def find_self_reference():
+        sentence = \\\"I learned another word today\",\"tags\":[],\"title\":\"Self-referential
+        language counting (I learned another word today bringing my total to fourteen
+        words and twenty letters)\",\"updated_at\":1697068800,\"url\":\"https://eve.gd/2023/10/12/self-referential-language-counting\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22148/20231101173122/https://recology.info/2023/10/weird-thoughts\",\"authors\":[{\"name\":\"Scott
+        Chamberlain\"}],\"blog_name\":\"recology\",\"blog_slug\":\"recology\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"My
+        parents just found this email they had printed out from me from May 19, 2006,
+        when I was 26. I chatted about some family stuff, then had this rambling string
+        of weird thoughts below. I thought others might appreciate a good cringe -
+        or cringy laugh - at my expense. It's especially funny because I'm most def
+        an atheist. I don't know, those Tucson sunsets really are transformative.\\n\\n>
+        ... Actually, some deep thoughts:\\n\\n> So, what is it about a sunset that
+        makes you feel so good? Is it that the sun is what provides us food ultimately,
+        and we are grateful for its good day's work once again. Or is it that we know
+        that the day is over and we have survived it once again. Perhaps we think
+        that it is god looking down on us and sendins us off to lay our heads down
+        at the pillow again. But, what if a sunset allows us to get in touch with
+        some more spiritual side of ourselves for a small period of time; for the
+        sun setting marks the division between day and night, light and dark, and
+        signifies maybe the division between our physical and spiritual bodies, such
+        that its a moment to connect with that spiritual side for a moment before
+        returning to the physical. Anyway...blah blah blah\\n\",\"doi\":\"https://doi.org/10.59350/1rj60-rwp37\",\"guid\":\"https://recology.info/2023/10/weird-thoughts/\",\"id\":\"e862b8f2-a4eb-4fec-8c84-50c14aabb244\",\"language\":\"en\",\"published_at\":1697068800,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"My
+        parents just found this email they had printed out from me from May 19, 2006,
+        when I was 26. I chatted about some family stuff, then had this rambling string
+        of weird thoughts below. I thought others might appreciate a good cringe -
+        or cringy laugh - at my expense. It\u2019s especially funny because I\u2019m
+        most def an atheist. I don\u2019t know, those Tucson sunsets really are transformative.\",\"tags\":[],\"title\":\"Weird
+        thoughts\",\"updated_at\":1697068800,\"url\":\"https://recology.info/2023/10/weird-thoughts\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Eric
+        Gilliam\"}],\"blog_name\":\"FreakTakes\",\"blog_slug\":\"freaktakes\",\"category\":\"philosophyEthicsAndReligion\",\"content_text\":\"I've
+        taken to calling the pieces I write for FreakTakes \\\"administrative\\nhistories.\\\"
+        The reason I opted for that name instead of \\\"progress\\nstudies histories\\\"
+        or \\\"metascience histories\\\" is that it was the name\\nthat drew the fewest
+        confused stares and/or eye rolls from the\\nscientists and engineers whom
+        I hope to attract. Some think this\\nclassification is a bit boring...but
+        I have no problem with that! After\\nall, I have --- to some extent --- made
+        my name diving deeper into the\\nboring details of science and engineering
+        history than most would ever\\nfeel incentivized to do just to answer specific
+        questions like \\\"[How did\\nBell Labs choose its research\\nquestions?](https://www.freaktakes.com/p/how-did-places-like-bell-labs-know)\\\"\\nor
+        \\\"[Why in the hell was Warren Weaver confident enough to shift 80% of\\nthe
+        Rockefeller Foundation's natural sciences budget to some no-name\\nfield halfway
+        between biology and\\nphysics?](https://www.freaktakes.com/p/a-report-on-scientific-branch-creation)\\\"\\n\\nLuckily,
+        it turns out those who run research orgs and fund research\\nbelieve administrative
+        histories like these help them do their jobs\\nbetter. Some in the community
+        have even reached out to me asking if I\\ncould expand my work to cover a
+        specific sub-area of particular\\nimportance: ARPA history.\\n\\nIn the coming
+        months, I plan to do jus that. I will be writing\\nadministrative histories
+        on specific DARPA/ARPA projects throughout\\nhistory just as I have been doing
+        with industrial R&D labs. Each\\nindividual write-up will be a bit shorter
+        and there will be a bit less\\nstorytelling, but there will be many more of
+        them to make us of. The\\nhope is that these will prove useful to PMs at organizations
+        similar to\\nDARPA as well as the broader science and engineering research
+        community.\\nThe work is being done with the help of former ARPA PMs, making
+        full use\\nof those who have written books containing details on specific
+        ARPA\\nprojects, and in my role as a Fellow with the Good Science Project.\\n\\nPlease
+        subscribe to follow along with the work! And, of course, I would\\nbe happy
+        to talk through any of the write-ups with practitioners who\\nhave questions.
+        Later this month, I'll be releasing the first batch of\\npieces covering the
+        history of 8-10 DARPA projects in about 40-50 pages\\nof writing. This first
+        batch will largely cover computing projects from\\nthe late 1970s into the
+        early 1990s. The following batch will largely\\ncover projects from DARPA's
+        earlier decades of computing projects. As\\nthe project wears on, I hope to
+        cover projects from all eras and general\\nsubject areas of DARPA history.\\n\\nThis
+        project will take a deep look at projects that are considered\\nunequivocal
+        successes as well as those that are remembered more for\\ntheir lessons learned
+        than scientific outputs. The goal of the project\\nis, first and foremost,
+        to produce materials that help those who manage\\nresearch funding portfolios
+        and labs to do their jobs even better. The\\ntone of the administrative histories
+        on this Substack has always been a\\npositive one and I intend to keep it
+        that way even when writing about\\nprojects that did not work out.\\n\\nPlease
+        subscribe to follow along! If you know any great ARPA alumni who\\nI should
+        talk with or projects from history that I should look into,\\nplease ping
+        me and let me know! Pointing me to any useful reading\\nmaterials is always
+        appreciated as well. My Twitter is [right\\nhere](https://twitter.com/home)
+        and my email is egillia3 \\\\| at \\\\| alumni\\n\\\\| dot \\\\| stanford
+        \\\\| dot \\\\| edu.\\n\\n*Please subscribe and follow along! Thanks for reading.*\\n\\n[Subscribe
+        now](https://www.freaktakes.com/subscribe?){.button .primary}\\n\\n[Share](https://www.freaktakes.com/p/coming-soondiving-into-arpa-history?utm_source=substack&utm_medium=email&utm_content=share&action=share){.button\\n.primary}\\n\",\"doi\":\"https://doi.org/10.59350/qra2w-7hm04\",\"guid\":\"137872483\",\"id\":\"9dad42e1-8153-404d-bcd6-197c00e26727\",\"image\":\"https://substack-post-media.s3.amazonaws.com/public/images/a7c05531-1dba-433c-a954-9f3533eeff25_314x314.png\",\"language\":\"en\",\"published_at\":1697047982,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"I\u2019ve
+        taken to calling the pieces I write for FreakTakes \u201Cadministrative histories.\u201D
+        The reason I opted for that name instead of \u201Cprogress studies histories\u201D
+        or \u201Cmetascience histories\u201D is that it was the name that drew the
+        fewest confused stares and/or eye rolls from the scientists and engineers
+        whom I hope to attract. Some think this classification is a bit boring\u2026but
+        I have no problem with that!\",\"tags\":[],\"title\":\"Coming Soon...Diving
+        into ARPA History\",\"updated_at\":1697047982,\"url\":\"https://www.freaktakes.com/p/coming-soondiving-into-arpa-history\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/generating-overlay-blog-posts\",\"authors\":[{\"affiliation\":[{\"name\":\"Front
+        Matter\"}],\"name\":\"Martin Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"On
+        Monday the Rogue Scholar science blog archive [launched a dedicated\\nAPI](https://doi.org/10.53731/ar11b-5ea39){rel=\\\"noreferrer\\\"}.
+        Today I am\\nreporting on the first Jupyter notebook using that API to generate
+        an\\noverlay blog post.\\n\\n> An\_**overlay journal**\_or\_**overlay ejournal**\_is
+        a type of\_open\\n> access\_academic journal, almost always an online\_electronic\\n>
+        journal\_(ejournal), that does not produce its own content, but selects\\n>
+        from texts that are already freely available online.\_From\\n> [Wikipedia](https://en.wikipedia.org/wiki/Overlay_journal){rel=\\\"noreferrer\\\"}\\n\\nAn
+        **overlay blog post** applies the idea of an **overlay journal** to\\nscience
+        blog posts, and the Rogue Scholar API -- in combination with\\ncontent that
+        has an open license\\n([CC-BY](https://creativecommons.org/licenses/by/4.0/legalcode){rel=\\\"noreferrer\\\"})\\n--
+        makes that easy.\\n\\nThe Jupyter notebook that I started and [made available
+        via\\nGitHub](https://github.com/front-matter/rogue-scholar-notebooks) and\\n[Zenodo](https://doi.org/10.5281/zenodo.8433675){rel=\\\"noreferrer\\\"}\\nfetches
+        all blog posts using a search term and some other conditions\\n(here written
+        in English and published after 2010). I thought a good\\nsearch term to try
+        out the concept would be **Retraction Watch**, after\\nthe [announcement in\\nSeptember](https://doi.org/10.13003/c23rw1d9){rel=\\\"noreferrer\\\"}
+        that\\n*Crossref has acquired the Retraction Watch database of expressions
+        of\\nconcerns and retractions and has made it openly accessible to anyone
+        who\\nwants to use it.*\\n\\nThe notebook includes this note:\\n\\n::::: {.kg-card
+        .kg-callout-card .kg-callout-card-blue}\\n::: {.kg-callout-emoji}\\n\U0001F4A1\\n:::\\n\\n:::
+        {.kg-callout-text}\\nWe use the query\_`retraction watch`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space:
+        pre-wrap;\\\"}. We limit results to posts published\\nsince\_`2010`{spellcheck=\\\"false\\\"
+        style=\\\"white-space: pre-wrap;\\\"}\_(the\\nyear Retraction Watch launched)
+        and\_`en`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space: pre-wrap;\\\"}\_as
+        language. We retrieve\\nthe\_`title`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space:
+        pre-wrap;\\\"},\_`authors`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space:
+        pre-wrap;\\\"},\_`publication date`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space:
+        pre-wrap;\\\"},\_`abstract`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space:
+        pre-wrap;\\\"},\_`blog name`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space:
+        pre-wrap;\\\"},\_`doi`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space: pre-wrap;\\\"}\_and\_`url.`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space:
+        pre-wrap;\\\"}We sort the results in reverse\\nchronological order (newest
+        first).\\n:::\\n:::::\\n\\nThe query for that search term returned 17 blog
+        posts included in Rogue\\nScholar (out of about 9,000 posts), and manual curation
+        narrowed that\\nlist further down to 12 posts (visualized with\\n[Mermaid](https://mermaid.js.org/){rel=\\\"noreferrer\\\"}):\\n\\n<figure
+        class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2023/10/mermaid-figure-1.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2023/10/mermaid-figure-1.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2023/10/mermaid-figure-1.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2023/10/mermaid-figure-1.png
+        1600w, https://blog.front-matter.io/content/images/2023/10/mermaid-figure-1.png
+        2000w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"2000\\\" height=\\\"190\\\"
+        />\\n</figure>\\n\\nThe notebook then generates a bibtex file of all 12 blog
+        posts (easy as\\nthey all have DOIs) and generates a summary written in markdown
+        using\\nthe title, author, blog name, publication date, and abstract.\\n\\n##
+        Conclusions\\n\\nThe notebook needs some more fine-tuning, and I plan to publish
+        the\\nfirst overlay blog post next week. But notebooks are an interesting\\napproach
+        to automate the generating of overlay blog posts, open to\\neveryone as the
+        content of the Rogue Scholar API is freely available for\\nreuse. I particularly
+        like using both automation and manual curation\\nusing open source tools,
+        which is a powerful combination\\n\\n## References\\n\\nFenner, M. (2023).
+        *Rogue Scholar has an API*.\\n<https://doi.org/10.53731/ar11b-5ea39>\\n\\nFenner,
+        M. (2023). *front-matter/rogue-scholar-notebooks: Initial public\\nrelease*
+        (0.8) \\\\[Computer software\\\\]. Zenodo.\\n<https://doi.org/10.5281/ZENODO.8433675>\\n\\nCrossref,
+        Hendricks, G., Center for Scientific Integrity, & Lammey, R.\\n(2023). *Crossref
+        acquires Retraction Watch data and opens it for the\\nscientific community*.
+        <https://doi.org/10.13003/c23rw1d9>\\n\",\"doi\":\"https://doi.org/10.53731/gzrse-p5d35\",\"guid\":\"6526c60bf23c390001a8394c\",\"id\":\"1cc6de6d-9eef-4305-a936-933446c315dd\",\"image\":\"https://images.unsplash.com/flagged/photo-1552425083-0117136f7d67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIxfHxjYW5vcHl8ZW58MHx8fHwxNjk3MDQwMDk1fDA&ixlib=rb-4.0.3&q=80&w=2000\",\"language\":\"en\",\"published_at\":1697042431,\"reference\":[{\"id\":\"https://doi.org/10.53731/ar11b-5ea39\",\"key\":\"ref1\"},{\"id\":\"https://doi.org/10.5281/zenodo.8433675\",\"key\":\"ref2\",\"publicationYear\":\"2023\",\"title\":\"front-matter/rogue-scholar-notebooks:
+        Initial public release\"},{\"id\":\"https://doi.org/10.13003/c23rw1d9\",\"key\":\"ref3\",\"publicationYear\":\"2023\",\"title\":\"Crossref
+        acquires Retraction Watch data and opens it for the scientific community\"}],\"relationships\":[],\"status\":\"active\",\"summary\":\"On
+        Monday the Rogue Scholar science blog archive launched a dedicated API. Today
+        I am reporting on the first Jupyter notebook using that API to generate an
+        overlay blog post. An\\n<strong>\\n overlay blog post\\n</strong>\\napplies
+        the idea of an\\n<strong>\\n overlay journal\\n</strong>\\nto science blog
+        posts, and the Rogue Scholar API \u2013 in combination with content that has
+        an open license (CC-BY) \u2013 makes that easy.\",\"tags\":[\"Feature\",\"Rogue
+        Scholar\"],\"title\":\"Generating Overlay blog posts\",\"updated_at\":1707334779,\"url\":\"https://blog.front-matter.io/posts/generating-overlay-blog-posts\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"abstract\":\"By
+        embracing DataCite and Crossref DOIs, the global scholarly community is empowered,
+        reducing financial barriers and fostering broad creation, dissemination, and
+        recognition of research outputs and resources.\",\"archive_url\":\"https://wayback.archive-it.org/22124/20231105103706/https://upstream.force11.org/working-for-global-equity-through-digital-object-identifiers\",\"authors\":[{\"name\":\"Ginny
+        Hendricks\",\"url\":\"https://orcid.org/0000-0002-0353-2702\"},{\"name\":\"Matt
+        Buys\",\"url\":\"https://orcid.org/0000-0001-7234-3684\"}],\"blog_name\":\"Upstream\",\"blog_slug\":\"upstream\",\"category\":\"humanities\",\"content_text\":\"Persistent
+        Identifiers, or \\\"PIDs\\\", have become a popular topic for\\nanyone involved
+        in the research communications world. PIDs play a\\ncrucial role in the scholarly
+        ecosystem by providing long-lasting\\nreferences to and between all kinds
+        of digital resources. PIDs usually\\nconsist of a unique identifier and a
+        service that resolves resource\\nreferences over time. While various types
+        of PIDs are available, the\\nDigital Object Identifier (DOI) is perhaps the
+        most recognized in\\nscholarly communities and has a particular focus on the
+        'P':\\nPersistence. As organisations explore the world of PIDs and try to\\nnavigate
+        what is increasingly becoming a subjective landscape with\\nunintentional
+        obfuscation, it becomes evident that the choice of\\nidentifier infrastructure
+        can significantly impact global inclusivity\\nand accessibility, especially
+        for lower-income countries.\\n\\nIn this post, we present the facts about
+        DataCite and Crossref DOIs and\\ntheir infrastructures, their use, their growth,
+        their governance, their\\ntransparency, and their cost---so that organisations
+        that care about the\\nrigour of the scholarly record can make more informed
+        decisions. By\\ndoing so, we dispel some misconceptions that may risk damaging
+        a healthy\\nopen research ecosystem for future generations.\\n\\n## DataCite
+        and Crossref DOIs Can Lower Financial Barriers\\n\\nOne of the key advantages
+        of DataCite and Crossref DOIs is their\\ncost-effectiveness. Unlike other
+        identifier systems that require\\nsubstantial development resources to implement
+        and maintain, DOIs offer\\na more budget-friendly alternative. Hidden costs
+        associated with\\nimplementing some other PIDs, such as development and maintenance\\nexpenses,
+        can often outweigh the perceived upfront savings, posing\\nfinancial barriers
+        to their long-term sustainability. These lower costs\\ncan make a significant
+        difference for many organizations, particularly\\nthose in lower-income countries.
+        It\\\\'s crucial to recognize that\\nDataCite and Crossref DOIs are not merely
+        identifiers but valuable\\nmetadata resources for downstream services, fostering
+        economies of scale\\nwithin the entire research communications ecosystem.
+        This collective and\\nreciprocal network ultimately supports broader dissemination,
+        reuse, and\\nrecognition of outputs and resources on a global scale.\\n\\nTogether,
+        the nine scholarly-related DOI Registration Agencies have\\nenabled the community
+        to create and manage 300 million DOI records.\\nThese DOIs are used approximately
+        1.3 billion times every month - and\\ngrowing. With an estimated 8.8 million
+        researchers worldwide, that's the\\nequivalent of one article, dataset, preprint,
+        report, sample or other\\noutput being read or used 150 times a month. The
+        users are not just\\nindividuals but also the systems and tools that are baked
+        into research\\nand academia. These open, free-to-use, mineable DOI records
+        are\\nincorporated into platforms that span academia, government, and\\nindustry.\\n\\n<figure
+        class=\\\"kg-card kg-image-card kg-card-hascaption\\\">\\n<img\\nsrc=\\\"https://lh3.googleusercontent.com/pajGdj7Bw4P0xqEC2spRlw-fRVL2hYBIrtqhBi-9mVSGZq7Ag-Rs0_ZTd9A_JL38PeBd2AsKBQ2sOGRs7ra1OPQs2YeTobdBBXn19ERGPNSFI-rd0Tk_iLWDQmzwFQMQgX4hUdImGo986z_VTNMppNw\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\" width=\\\"1600\\\" height=\\\"1077\\\"\\nalt=\\\"CHart
+        showing growth in DOI usage (resolutions) over time, topping at almost 1.4
+        billion in a month\\\" />\\n<figcaption><span style=\\\"white-space: pre-wrap;\\\">Source
+        </span><a\\nhref=\\\"https://www.doi.org/the-identifier/what-is-a-doi/#doi-resolutions\\\"><span\\nstyle=\\\"white-space:
+        pre-wrap;\\\">doi.org/the-identifier/what-is-a-doi/#doi-resolutions</span></a><span\\nstyle=\\\"white-space:
+        pre-wrap;\\\">, retrieved\\n2023-Oct-02</span></figcaption>\\n</figure>\\n\\nRecognising
+        the disparity in trying to run a \\\"global\\\" system and meet\\nthe needs
+        of the very wealthy as well as the least wealthy, both\\norganisations have
+        long-run programs that encourage all low-income\\ncountries to participate,
+        offering education, support, and outreach\\nalongside fee waivers and support
+        programmes such as collective savings\\nlike consortia and sponsorship.\\n\\n##
+        DataCite and Crossref Work Globally, Acknowledging There Is More To Be Done\\n\\nDataCite
+        is a worldwide community with members in 52 countries, as well\\nas over 2,950
+        repositories in many other countries across the globe.\\nIt\\\\'s important
+        to note that repositories are not required to be members\\nthemselves; instead,
+        they can be affiliated with a DataCite Consortium\\nOrganization or Member.
+        Moreover, there are 20 national or regional\\nconsortia operating in emerging
+        regions. DataCite\\\\'s open infrastructure\\nservices are a valuable resource
+        for repositories in emerging regions,\\nincluding the *National Academic Digital
+        Repository (Ethiopia),\\nInternational Institute of Tropical Agriculture,
+        IITA (Nigeria),\\nUniversit\xE9 Gaston Berger (Senegal), Corporacion Ecuatoriana
+        Para El\\nDesarrollo De La Investigacion Y La Academia (CEDIA) (Ecuador),
+        NRCT\\nData Center (Thailand), International Centre for Integrated Mountain\\nDevelopment
+        Regional Database System (Nepal),* and countless others\\nacross the globe.\\n\\nCrossref
+        has members in 151 countries, creating and stewarding DOI\\nrecords. Crossref's
+        research of ISSN data shows that it already includes\\nover 50% of the journals
+        produced in the following low-income countries:\\n*Bhutan*, *Central African
+        Republic*, *Kyrgyzstan*, *Mali*, *Sudan*, and\\n*Tajikistan*. And it is actively
+        working towards filling in the gaps\\nwhere it covers fewer than 49% of the
+        journals published in the\\ncountries where research is also increasingly
+        produced: *Bangladesh*,\\n*Cote d\\\\'Ivoire*, *Ethiopia*, *Ghana*, *Madagascar*,
+        *Nepal*,\\n*Nicaragua*, *Senegal*, and *Tanzania* --- among others.\\n\\nDataCite's
+        [GAP Program](https://datacite.org/global-access-program/) is\\nan ongoing
+        initiative to improve access and enable communities in\\nlesser-represented
+        regions to further benefit from DataCite\\\\'s open\\ninfrastructure services.
+        Crossref's [GEM\\nProgram](https://www.crossref.org/gem/) has seen a tripling
+        of members\\nin some of the lowest-income countries in the world from 100
+        to 305 from\\nJanuary to September 2023. The two organisations, with other
+        partners,\\nare working on co-creating a guide to consider how academic and\\ngovernment
+        bodies might collaborate at a country level to get involved\\nwith foundational
+        global open infrastructures in a sustainable way.\\n\\nOf course, more can
+        definitely be done, and practical and informed ideas\\nare always very welcome.\\n\\n##
+        DataCite and Crossref DOIs Are Community-Governed Infrastructure\\n\\nResponsible
+        open infrastructure organizations do not operate as\\nmonopolies. Instead,
+        they emphasize collective community governance and\\nownership. Most DOI Registration
+        Agencies (RAs) exemplify this approach;\\nthey are predominantly not-for-profit
+        and offer participatory models\\nthat extend beyond membership structures.
+        Organizations can join these\\nagencies at no charge, work through consortia
+        or sponsors, or opt for\\nannual membership fees, ensuring that financial
+        constraints do not\\nhinder accessibility. This community-driven governance
+        model safeguards\\nagainst monopolization and ensures that PIDs remain accessible
+        to\\ndiverse stakeholders. Further, providing open data and open source code\\nbases
+        further safeguards the community investment in open infrastructure\\nservices.\\n\\nBoth
+        DataCite and Crossref have tools that allow each member to manage\\ntheir
+        resources in the way that they want. Provenance metadata is a high\\npriority
+        so that everyone can see who is asserted as the steward of a\\nresearch object,
+        whether that\\\\'s changed, who and how much is paid to\\nmaintain the record,
+        and any other contributors and acknowledgements.\\n\\nEvery member gets a
+        say in the governance, policies, fees, and key\\ndecisions that are made.
+        By voting in or standing for board elections,\\njoining fee committees or
+        consultations, and approving budgets through\\nopen governance, thousands
+        of institutions around the world are\\neffecting change to make the whole
+        system properly broadly governed and\\nmore and more inclusive as every month
+        and year passes.\\n\\n## DataCite and Crossref DOIs are Persistent and Openly
+        Available\\n\\nAnother advantage of Crossref and DataCite DOIs is their persistence.\\nOnce
+        registered, the associated metadata is openly available without the\\nneed
+        for further financial or resource commitments. For an initial\\none-time registration
+        fee, each DOI record is maintained for free -\\nforever. No registration fees
+        are levied for the numerous updates and\\nadditional metadata added, which
+        will continue to add and enrich the\\nscholarly record for and with future
+        generations. This is a crucial\\ndifferentiator compared to some local identifiers,
+        which may require\\nongoing investments to maintain accessibility. The stability
+        and\\nlongevity of DOIs make them a reliable choice for organizations seeking\\nto
+        ensure the enduring accessibility of their digital resources.\\n\\n## DataCite
+        and Crossref DOIs come with infrastructure support that isn't free {#datacite-and-crossref-dois-come-with-infrastructure-support-that-isn%E2%80%99t-free}\\n\\nThe
+        DOI itself is only one component of our activities; what can be done\\nover
+        and above a mere PID tells a very different---and fuller---story. A\\nDOI
+        is not just an identifier but a link, a locator, but even then,\\nit\\\\'s
+        almost as useless as a URL; the numerous community-led initiatives\\nthat
+        have extended and built upon this identifier have real community\\nvalue.
+        It\\\\'s the metadata, the relationships, and the connection with\\nother
+        parts of the digital infrastructure. These initiatives take time,\\nresources,
+        volunteers, tools, consultation, and sometimes funding. Also,\\nexpertise
+        and experience. Examples are:\\n\\n- Building an open data citation corpus\\n-
+        Co-creating and advising on FAIR projects\\n- Developing infrastructure to
+        connect clinical trials to outputs\\n- Urgent flagging of 'free-to-read' COVID
+        content\\n- Connecting funding and funders with outputs\\n- Founding and contributing
+        to ORCID and ROR and countless other\\n  initiatives\\n- Text-based plagiarism
+        checking and other research integrity tools\\n- Ability to track retracted,
+        withdrawn, or corrected outputs\\n- Co-developing and supporting open-source
+        tool development\\n- Creating a public resource by opening critical data about
+        retracted\\n  papers\\n\\nIt's surprising to occasionally hear the argument
+        that DOIs should be\\nfree to create when the extensive support systems and
+        initiatives\\ndeveloped by Crossref and DataCite are not free to run (nor
+        are\\n*distributed* systems, for that matter). The cost of supporting a\\nfunctioning
+        global infrastructure should not be underestimated. If the\\ncommunity wants
+        a persistent and robust scholarly record, and if it\\nwants a say in its governance,
+        then it should be aware of the cost not\\njust of technical things like resolver
+        systems, data storage and APIs -\\nbut also of community engagement, collaboration,
+        and technical support.\\n\\nIn 2024, Crossref will employ ten full-time staff
+        and six contractors on\\nmembership support alone (that's not including proactive
+        outreach or\\nengagement activities), plus the cost of the tools and systems
+        needed to\\nmanage their 19,000 members and the 3500+ support requests the
+        team\\nreceives each month. In 2024, Crossref is projecting an outlay of up
+        to\\n1 million USD for data costs with physical and cloud storage and\\nprocessing.\\n\\nSimilarly,
+        DataCite has three full-time staff dedicated to supporting\\nand partnering
+        with emerging regions and three full-time staff members\\nwho support technical
+        community support and best practice development.\\nParticular emphasis lies
+        in the coordination with more than 50 national\\nor regional consortia to
+        cater to their unique needs. With over 2,950\\nrepositories globally and hundreds
+        of new repositories joining the\\ncollective community effort each year, our
+        efforts are directed towards\\nfostering an open, global, interconnected ecosystem.\\n\\nDataCite
+        and Crossref also support and develop other PID services - both\\nORCID iDs
+        and ROR IDs have been or are supported operationally,\\nfinancially, or both.
+        These evolved from community collaborations and\\ncontinue thriving as essential
+        open infrastructures interacting with\\nDOIs.\\n\\nWe know that collectively,
+        we benefit from economies of scale and can\\nreduce costs as a community when
+        we cooperate globally. It would be far\\nmore costly for the community to
+        replicate Crossref and DataCite\\ninfrastructures at the national level, let
+        alone at the level of each\\nresearch-performing or research-publishing organisation.\\n\\nWhen
+        drawing an analogy to regional electric outlet systems, it becomes\\napparent
+        that the issue of interoperability presents significant\\nchallenges.\\n\\n<figure
+        class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://upstream.force11.org/content/images/2023/10/plugs-1.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://upstream.force11.org/content/images/size/w600/2023/10/plugs-1.png
+        600w, https://upstream.force11.org/content/images/size/w1000/2023/10/plugs-1.png
+        1000w, https://upstream.force11.org/content/images/size/w1600/2023/10/plugs-1.png
+        1600w, https://upstream.force11.org/content/images/2023/10/plugs-1.png 2000w\\\"\\nsizes=\\\"(min-width:
+        720px) 720px\\\" width=\\\"2000\\\" height=\\\"1169\\\"\\nalt=\\\"Image of
+        multiple plugs used around the world with caption &quot;The effect of developing
+        regional infrastructures&quot;\\\" />\\n</figure>\\n\\nIn the context of persistent
+        identifiers in research communications,\\nadhering to universal design principles
+        may, on the surface, seem to\\naddress interoperability issues. However, there
+        is a potential risk of\\nexacerbating fragmentation within the ecosystem,
+        thereby disadvantaging\\nemerging regions. Rather, we should advocate for
+        collaborative---and\\nglobal---initiatives aimed at preserving open infrastructure
+        under\\nresponsible governance that avoids further fragmentation.\\n\\n##
+        Collaboration and Gathering Context\\n\\nIn discussing the merits of various
+        identifier systems, gathering\\ninsights and context from stakeholders with
+        practical experience in\\nimplementing both is vital. Hypothetical arguments
+        should be avoided, as\\nDataCite and Crossref actively collaborate with communities
+        to address\\nreal-life challenges by enhancing their services.\\n\\nWe recommend
+        that people explore the facts. Ask questions such as \\\"*what\\nis the expected
+        resource requirement for us now and in the future?*\\\",\\n\\\"*who is on
+        the board?*\\\" and \\\"*how can I get on the board?*\\\", \\\"*how open\\nis
+        the metadata, i.e. is it both available and accessible?*\\\". \\\"*What is\\nthe
+        likelihood of this going away?*\\\" and \\\"*What safeguards are there for\\nlong-term
+        preservation?*\\\". Find out what training and support is\\noffered. Talk
+        to your local community that speaks your language, and ask\\nthe members in
+        151 countries using DataCite and/or Crossref, e.g., an\\nAmbassador, Consortia
+        Lead, or Sponsor.\\n\\nIn conclusion, DOIs through DataCite and Crossref represent
+        a\\ncost-effective, community-governed, and persistent solution for\\nidentifying
+        and referencing digital resources. By embracing DataCite and\\nCrossref DOIs,
+        the global scholarly community is empowered, reducing\\nfinancial barriers
+        and fostering broad creation, dissemination, and\\nrecognition of research
+        outputs and resources.\\n\\nDataCite and Crossref are actively investing in
+        working on community\\ncollaboration, making it essential for stakeholders
+        to engage in\\nconstructive dialogues that contribute to the ongoing improvement
+        of\\nresearch services. If you tell us more specifics about your needs and\\nexperience,
+        we'll tell you more about the reality of running\\ninfrastructure, and we'll
+        figure something out to help you get involved.\\nTogether, we can build a
+        more equitable and accessible scholarly\\nlandscape for all communities and
+        all countries.\\n\\nVisit [DataCite](https://www.datacite.org) and\\n[Crossref](https://www.crossref.org)
+        websites for more information.\\n\\n***Thanks to the following people for
+        reviewing and adding context to\\nthis post: Britta Dreyer, Ed Pentz, Helena
+        Cousijn, and John\\nChodacki.***\\n\",\"doi\":\"https://doi.org/10.54900/6sz4q-47185\",\"guid\":\"652689904e902104cd51d1c9\",\"id\":\"658f301f-1e22-4b45-8b69-6c5414745001\",\"image\":\"https://upstream.force11.org/content/images/2023/10/pexels-monstera-production-7412043.jpg\",\"language\":\"en\",\"published_at\":1697038421,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Persistent
+        Identifiers, or \u201CPIDs\u201D, have become a popular topic for anyone involved
+        in the research communications world. PIDs play a crucial role in the scholarly
+        ecosystem by providing long-lasting references to and between all kinds of
+        digital resources. PIDs usually consist of a unique identifier and a service
+        that resolves resource references over time.\",\"tags\":[\"Thought Pieces\"],\"title\":\"Working
+        for Global Equity through Digital Object Identifiers\",\"updated_at\":1727449972,\"url\":\"https://upstream.force11.org/working-for-global-equity-through-digital-object-identifiers\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Coss\xEDo
+        Olavide, Mario\",\"url\":\"https://orcid.org/0000-0002-1447-3891\"}],\"blog_name\":\"Lucidarios\",\"blog_slug\":\"lucidarios\",\"category\":\"languagesAndLiterature\",\"content_text\":\"En
+        la [\xFAltima\\nentrada](https://lucidarios.hypotheses.org/3569){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://lucidarios.hypotheses.org/3569\\\"\\ntarget=\\\"_blank\\\"}
+        habl\xE9 de las transcripciones semipaleogr\xE1ficas de los\\ntestimonios
+        del *Lucidario* emprendidas para esta edici\xF3n y sus\\ncaracter\xEDsticas.
+        Retomo esa explicaci\xF3n para ahondar un poco sobre la\\nexperiencia de transcripci\xF3n.\\n\\nLa
+        mayor\xEDa de las transcripciones fueron realizadas empleando\\nTranskribus,
+        un aplicativo de transcripci\xF3n automatizada del que he\\nhablado en [varias\\nentradas](https://lucidarios.hypotheses.org/tag/transkribus){data-type=\\\"URL\\\"\\ndata-id=\\\"https://lucidarios.hypotheses.org/tag/transkribus\\\"\\ntarget=\\\"_blank\\\"
+        rel=\\\"noreferrer noopener\\\"}. Se desarrollaron cuatro\\nmodelos de transcripci\xF3n
+        de letra manuscrita (*HTR models*) para los\\ntestimonios A, C, D y G, que
+        suman un total de 237.445 palabras-token.\\nEsto representa 70% de las transcripciones
+        realizadas hasta ahora (que\\nsuman 336.543 palabras-token).\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2023/10/Lucid-A.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2023/10/Lucid-A-500x350.png\\\"\\ntitle=\\\"Modelo
+        de transcripci\xF3n Lucidario A, v 0.4\\\" class=\\\"wp-image-3649\\\"\\ndecoding=\\\"async\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2023/10/Lucid-A-500x350.png
+        500w, https://lucidarios.hypotheses.org/files/2023/10/Lucid-A-300x210.png
+        300w, https://lucidarios.hypotheses.org/files/2023/10/Lucid-A-768x538.png
+        768w, https://lucidarios.hypotheses.org/files/2023/10/Lucid-A-1536x1075.png
+        1536w, https://lucidarios.hypotheses.org/files/2023/10/Lucid-A.png 2000w\\\"\\nsizes=\\\"(max-width:
+        660px) 100vw, 660px\\\" width=\\\"660\\\" height=\\\"462\\\"\\nalt=\\\"Modelo
+        de transcripci\xF3n Lucidario A, v 0.4\\\" /></a>\\n</figure>\\n:::\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2023/10/Lucid-C.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2023/10/Lucid-C-500x349.png\\\"\\ntitle=\\\"Modelo
+        de transcripci\xF3n Lucidario C, v 0.2\\\" class=\\\"wp-image-3653\\\"\\ndecoding=\\\"async\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2023/10/Lucid-C-500x349.png
+        500w, https://lucidarios.hypotheses.org/files/2023/10/Lucid-C-300x209.png
+        300w, https://lucidarios.hypotheses.org/files/2023/10/Lucid-C-768x536.png
+        768w, https://lucidarios.hypotheses.org/files/2023/10/Lucid-C-1536x1073.png
+        1536w, https://lucidarios.hypotheses.org/files/2023/10/Lucid-C.png 2002w\\\"\\nsizes=\\\"(max-width:
+        655px) 100vw, 655px\\\" width=\\\"655\\\" height=\\\"457\\\"\\nalt=\\\"Modelo
+        de transcripci\xF3n Lucidario C, v 0.2\\\" /></a>\\n</figure>\\n:::\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2023/10/Lucid-D.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2023/10/Lucid-D-500x350.png\\\"\\ntitle=\\\"Modelo
+        de transcripci\xF3n D, v 0.1\\\" class=\\\"wp-image-3656\\\"\\ndecoding=\\\"async\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2023/10/Lucid-D-500x350.png
+        500w, https://lucidarios.hypotheses.org/files/2023/10/Lucid-D-300x210.png
+        300w, https://lucidarios.hypotheses.org/files/2023/10/Lucid-D-768x537.png
+        768w, https://lucidarios.hypotheses.org/files/2023/10/Lucid-D-1536x1074.png
+        1536w, https://lucidarios.hypotheses.org/files/2023/10/Lucid-D.png 1994w\\\"\\nsizes=\\\"(max-width:
+        657px) 100vw, 657px\\\" width=\\\"657\\\" height=\\\"460\\\"\\nalt=\\\"Modelo
+        de transcripci\xF3n D, v 0.1\\\" /></a>\\n</figure>\\n:::\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2023/10/Lucid-G.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2023/10/Lucid-G-500x347.png\\\"\\ntitle=\\\"Modelo
+        de transcripci\xF3n Lucidario G\\\" class=\\\"wp-image-3658\\\"\\ndecoding=\\\"async\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2023/10/Lucid-G-500x347.png
+        500w, https://lucidarios.hypotheses.org/files/2023/10/Lucid-G-300x208.png
+        300w, https://lucidarios.hypotheses.org/files/2023/10/Lucid-G-768x533.png
+        768w, https://lucidarios.hypotheses.org/files/2023/10/Lucid-G-1536x1065.png
+        1536w, https://lucidarios.hypotheses.org/files/2023/10/Lucid-G.png 1996w\\\"\\nsizes=\\\"(max-width:
+        658px) 100vw, 658px\\\" width=\\\"658\\\" height=\\\"457\\\"\\nalt=\\\"Modelo
+        de transcripci\xF3n Lucidario G\\\" /></a>\\n</figure>\\n:::\\n\\nCada testimonio
+        supuso el entrenamiento de un modelo nuevo, pues\\ntempranamente en el proceso
+        descubr\xED que emplear un modelo anterior\\n--desarrollado para otro manuscrito--
+        como modelo base (*Base model*)\\npara un nuevo trabajo suele acarrear m\xE1s
+        problemas de los que soluciona\\n(hablo de ello\\n[aqu\xED](https://lucidarios.hypotheses.org/1906){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://lucidarios.hypotheses.org/1906\\\"\\ntarget=\\\"_blank\\\"}).
+        Esto ocurre debido a que los modelos de transcripci\xF3n\\nde Transkribus
+        son realmente modelos matem\xE1ticos, expresiones\\nestad\xEDsticas de las
+        normas morfol\xF3gicas que rigen un texto (escrito en\\nun idioma X).\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2023/10/Capture-de\u0301cran-2023-10-11-a\u0300-14.12.01.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2023/10/Capture-de\u0301cran-2023-10-11-a\u0300-14.12.01-500x283.png\\\"\\ntitle=\\\"Transcripci\xF3n
+        del fol. 99v-100r de A\\\" class=\\\"wp-image-3663\\\"\\ndecoding=\\\"async\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2023/10/Capture-de\u0301cran-2023-10-11-a\u0300-14.12.01-500x283.png
+        500w, https://lucidarios.hypotheses.org/files/2023/10/Capture-de\u0301cran-2023-10-11-a\u0300-14.12.01-300x170.png
+        300w, https://lucidarios.hypotheses.org/files/2023/10/Capture-de\u0301cran-2023-10-11-a\u0300-14.12.01-768x435.png
+        768w, https://lucidarios.hypotheses.org/files/2023/10/Capture-de\u0301cran-2023-10-11-a\u0300-14.12.01-1536x870.png
+        1536w, https://lucidarios.hypotheses.org/files/2023/10/Capture-de\u0301cran-2023-10-11-a\u0300-14.12.01-2048x1161.png
+        2048w\\\"\\nsizes=\\\"(max-width: 723px) 100vw, 723px\\\" width=\\\"723\\\"
+        height=\\\"409\\\"\\nalt=\\\"Transcripci\xF3n del fol. 99v-100r de A\\\" /></a>\\n</figure>\\n:::\\n\\nPor
+        la diversidad de pr\xE1cticas gr\xE1ficas medievales, cada modelo suele\\nser
+        efectivo con uno o m\xE1s manuscritos escritos por la misma mano y con\\nel
+        mismo sistema de abreviaturas (lo explico\\n[aqu\xED](https://lucidarios.hypotheses.org/2255){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://lucidarios.hypotheses.org/2255\\\"\\ntarget=\\\"_blank\\\"}).
+        Si un manuscrito tiene m\xE1s de un copista, habr\xE1 que\\nentrenar el modelo
+        con una transcripci\xF3n inicial representativa de\\ncuantas manos haya en
+        el manuscrito. Si solo hay un copista, pero cambia\\nel sistema de abreviaci\xF3n
+        que usa a la mitad del trabajo --como pasa con\\nlos BNE ms. 10814 y 10815,
+        las dos partes de la refundici\xF3n castellana\\nde la *Cr\xF3nica de 1344*,
+        ejecutadas por la misma mano con sistemas\\ndistintos en cada volumen--, pues
+        habr\xE1 que entrenar el modelo con una\\ntranscripci\xF3n inicial que recoja
+        ambos sistemas de abreviaci\xF3n.\\n\\nPara el 30% de las transcripciones
+        restantes, es decir, de los\\ntestimonios E, H e I, se emple\xF3 el proceso
+        tradicional (humano). En el\\ncaso de H esto ocurri\xF3 porque su transcripci\xF3n
+        es anterior al inicio del\\nproyecto editorial. I fue transcrito *in situ*
+        en la Biblioteca March\\nporque las normas de la colecci\xF3n no permiten
+        la digitalizaci\xF3n de sus\\nfondos (...en el siglo 21). La \xFAnica decisi\xF3n
+        real, pues, fue la de no\\nusar Transkribus con E. Esto se debe a dos factores:
+        a que est\xE1 escrito\\nen una caligraf\xEDa muy irregular (g\xF3tica de transici\xF3n
+        a human\xEDstica) y a\\nque la copia fue ejecutada sobre papel delgado de
+        mala calidad, cuya\\ndelgadez permite ver el texto escrito en la cara opuesta.
+        Tras varios\\nintentos fallidos de entrenar un modelo de transcripci\xF3n
+        en Transkribus,\\nse decidi\xF3 terminar la transcripci\xF3n manualmente.\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2023/10/64r-de-E.jpg\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2023/10/64r-de-E-375x500.jpg\\\"\\nclass=\\\"wp-image-3668\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2023/10/64r-de-E-375x500.jpg
+        375w, https://lucidarios.hypotheses.org/files/2023/10/64r-de-E-225x300.jpg
+        225w, https://lucidarios.hypotheses.org/files/2023/10/64r-de-E-768x1024.jpg
+        768w, https://lucidarios.hypotheses.org/files/2023/10/64r-de-E-1152x1536.jpg
+        1152w, https://lucidarios.hypotheses.org/files/2023/10/64r-de-E-1536x2048.jpg
+        1536w, https://lucidarios.hypotheses.org/files/2023/10/64r-de-E.jpg 1920w\\\"\\nsizes=\\\"(max-width:
+        660px) 100vw, 660px\\\" width=\\\"660\\\" height=\\\"880\\\"\\nalt=\\\"Fol.
+        64r de E\\\" /></a>\\n</figure>\\n:::\\n\\nFalta solamente realizar la transcripci\xF3n
+        que se anuncia m\xE1s complicada\\npor el tipo de letra, la del testimonio
+        B, que debe comenzar en los\\npr\xF3ximos meses y para la que tambi\xE9n se
+        utilizar\xE1 Transkribus. En la\\n[pr\xF3xima\\nentrada](https://lucidarios.hypotheses.org/?p=3748){rel=\\\"noreferrer
+        noopener\\\"\\ndata-type=\\\"URL\\\" data-id=\\\"https://lucidarios.hypotheses.org/?p=3748\\\"\\ntarget=\\\"_blank\\\"}
+        hablar\xE9 de la *constitutio textus*.\\n\\n------------------------------------------------------------------------\\n\\nImagen
+        de miniatura: detalle del fol. 100r de A en *Transkribus*\\n\",\"doi\":\"https://doi.org/10.59350/qpezf-4w626\",\"guid\":\"https://lucidarios.hypotheses.org/?p=3644\",\"id\":\"ee865a2e-8596-4af5-b9a8-dfee320bf9ad\",\"image\":\"https://lucidarios.hypotheses.org/files/2023/10/Capture-de\u0301cran-2023-10-11-a\u0300-14.37.28.png\",\"language\":\"es\",\"published_at\":1697027883,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"En
+        la \xFAltima entrada habl\xE9 de las transcripciones semipaleogr\xE1ficas
+        de los testimonios del\\n<em>\\n Lucidario\\n</em>\\nemprendidas para esta
+        edici\xF3n y sus caracter\xEDsticas. Retomo esa explicaci\xF3n para ahondar
+        un poco sobre la experiencia de transcripci\xF3n. La mayor\xEDa de las transcripciones
+        fueron realizadas empleando Transkribus, un aplicativo de transcripci\xF3n
+        automatizada del que he hablado en varias entradas.\",\"tags\":[\"Entradas\",\"Edici\xF3n
+        Cr\xEDtica\",\"Humanidades Digitales\",\"Lucidario A\",\"Lucidario B\"],\"title\":\"Editando
+        el <em>Lucidario</em> de Sancho IV usando humanidades digitales (5)\",\"updated_at\":1708639815,\"url\":\"https://lucidarios.hypotheses.org/3644\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Sarah
+        de Rijcke\"}],\"blog_name\":\"Leiden Madtrics\",\"blog_slug\":\"leidenmadtrics\",\"category\":\"socialSciences\",\"content_text\":\"On
+        the occasion of the 2023 Nobel Prize announcements, [the Rijksmuseum\\nBoerhaave
+        symposium\\n\\\"](https://rijksmuseumboerhaave.nl/symposium-does-science-need-heroes/){target=\\\"_blank\\\"}*[Does\\nscience
+        need\\nheroes?\\\"](https://rijksmuseumboerhaave.nl/symposium-does-science-need-heroes/){target=\\\"_blank\\\"}*\\nattempted
+        to explore the evolution of prize cultures over time and\\nexamine the current
+        and potential roles of prizes in contemporary\\nscientific practices. I would
+        like to thank Ad Maas, Curator of Modern\\nNatural Sciences of Rijksmuseum
+        Boerhaave and professor in Museological\\nAspects of the Natural Sciences
+        at the Centre for the Arts in Society of\\nLeiden University, for inviting
+        me to give a comment on the second day\\nof the symposium. This blog post
+        is an adaptation of the talk I gave\\nthere.\\n\\n*Does science need heroes?*
+        Spoken like a proper academic, my answer to\\nthis question would be: yes
+        and no.\\n\\nLet me start with the latter.\\n\\nNo, the last thing contemporary
+        science needs are heroes. What it does\\nneed is structural reform. Science
+        suffers from major flaws, including\\nvarious forms of bias, structural inequality,
+        lack of transparency and\\nrigor, excessive competition, commercialization,
+        and vanity publishing.\\nIt is unhealthy for researchers to want to be a hero
+        in the current\\nsystem.\\n\\nBut also: yes! Science is in dire need of heroes!
+        Because the science\\nsystem needs to reform, we need different types of people
+        who can lead\\nthe way and set an example with good leadership. This is what
+        I want to\\naddress in this commentary.\\n\\n<figure style=\\\"text-align:center;\\\">\\n<img
+        src=\\\"https://www.leidenmadtrics.nl/images/community/boerhaave.jpg\\\"\\ndata-image=\\\"36499\\\"
+        />\\n<figcaption>Rijksmuseum Boerhaave, Leiden. Source: <a\\nhref=\\\"https://commons.wikimedia.org/wiki/File:Gevel_van_entree_Rijksmuseum_Boerhaave.jpg\\\"\\ntarget=\\\"_blank\\\">Wikimedia
+        Commons</a></figcaption>\\n</figure>\\n\\n  \\nBut first, and inspired by
+        Museum Boerhaave\\\\'s wonderful collection, I\\nwill go back to the 19^th^
+        century, when the first university ranking\\nwas conceived. People often think
+        the first ranking appeared around the\\n2000s, with the publication of the
+        first commercial ranking. But that is\\nnot true. As is more often the case,
+        problematic metrics for assessing\\nexcellence are in fact invented by scientists
+        themselves!\\n\\nA few years ago, I examined the work of the American psychologist
+        James\\nMcKeen Cattell [with two of my\\ncolleagues](https://link.springer.com/content/pdf/10.1007/s11024-017-9329-x.pdf){target=\\\"_blank\\\"}.\\nCattell
+        lived from 1860 to 1944, served as the long-time editor of the\\njournal *Science*,
+        and his primary academic interest was the study of\\n\\\\'eminence\\\\', a
+        somewhat ambiguous concept that I translate here as\\nexcellence, eminence,
+        or greatness. There is an interesting connection\\nbetween Cattell\\\\'s work
+        on \\\\'eminence\\\\' as the primary \\\\'virtue\\\\' of\\nindividual researchers
+        and the contemporary university rankings of the\\nmost prestigious, high-performing,
+        Nobel Prize-winning universities with\\nthe most flourishing research and
+        best teaching environments.\\n\\nCattell studied in England and later held
+        an office in Cambridge, where\\nhe eventually came into contact with proponents
+        of eugenics. Cattell,\\nand many other contemporaries interested in \\\\'eminence\\\\'
+        or greatness,\\nobserved a decrease in the number of \\\\'great men\\\\' compared
+        to earlier\\nperiods, which they found concerning. They feared the biological\\ndegeneration
+        of the population, and this fear was exacerbated by a more\\ngeneral concern
+        about the decline of the British Empire. This fear was\\nfurther intensified
+        by the rise of industrialization, democratization,\\nand a growing working
+        class. The preoccupation with \\\\'great men\\\\' was\\nalso reflected in
+        a growing interest in the role of the scientist in a\\ntime when scientific
+        work increasingly became a \\\\'profession\\\\' among\\nother professions.
+        The scientific method of eugenics gave Cattell the\\ntools to classify \\\\'eminence\\\\'
+        in a new way. His idea was that\\nprofessors could be placed on a single ranked
+        list based on peer review.\\nHe asked a large number of scientists to create
+        a list, ranking\\nscientists from the most to the least prominent, based on
+        a selection of\\nnames provided in advance. High \\\\\\\"output\\\\\\\" was
+        insufficient as an\\nindicator of \\\\'eminence\\\\'; it was primarily about
+        reputation among\\npeers. What exactly this reputation was based on remained
+        ambiguous.\\nCattell kept various background and biographical information
+        about the\\nmen on the lists, including data on birthplace, residence, age,
+        and\\nespecially the university where researchers had received their\\neducation.
+        But his lists also quickly started to serve other purposes:\\nhe mapped how
+        \\\\'scientific eminence\\\\' was distributed across cities and\\nuniversities.
+        And I quote from a piece in 1903: \\\\\\\"We can tell whether\\nthe average
+        scientific standard in one part of the country or at a\\ncertain university
+        is higher or lower than elsewhere; we can also\\nquantitatively map the scientific
+        strength of a university or\\ndepartment.\\\\\\\" So, initially, Cattell\\\\'s
+        lists were not compiled with the\\npurpose of comparing institutions, but
+        the information these instruments\\nprovided was indeed used for these comparisons.\\n\\n<figure
+        style=\\\"text-align:center;\\\">\\n<img src=\\\"https://www.leidenmadtrics.nl/images/community/tblCattell.png\\\"\\ndata-image=\\\"36480\\\"
+        />\\n<figcaption>Table from <a href=\\\"https://www.jstor.org/stable/1627220\\\"\\ntarget=\\\"_blank\\\">Cattell,
+        1898</a>: Doctorates in Philosophy from\\nAmerican universities in a single
+        year</figcaption>\\n</figure>\\n\\n  \\n\\nCattell\\\\'s study of scientific
+        men and his subsequent ranking of\\nuniversities was deeply rooted in a larger
+        debate about the role of the\\nscientist. The ideal image of a researcher
+        was evolving significantly at\\nthe end of the 19th and the beginning of the
+        20th century, as I think is\\nhappening again today. But back then, older
+        ideas about the\\ngentleman-scholar, driven by intrinsic motivation, were
+        increasingly\\njuxtaposed with ideals that were more in line with the concept
+        of\\nscience as a paid profession. Just as the current preoccupation with\\nexcellence
+        and ranking is related to a much broader discussion about\\nwhat universities
+        are exactly for today!\\n\\nOver the past 30+ years the Dutch and European
+        governments have\\nintroduced several different policy instruments to foster
+        excellent\\nresearch. These policy instruments worked by stimulating competition
+        in\\nscience, and what I find very interesting is how these research policy\\ninstruments
+        have in the past decades started to shape our perception of\\nexcellent science
+        through an interactive feedback loop between policy on\\nthe one hand and
+        the practice of doing research on the other. An\\nexcellent researcher's standing
+        is now primarily determined by their\\nresearch production. This is partly
+        still science as a profession that\\nCattell and others instigated, but this
+        profession is now saturated with\\nkey performance indicators (like a lot
+        of other professions in\\nneoliberal democratic societies). The primary tactical
+        and strategic\\naims have become competing for (ever decreasing amounts of)
+        research\\nincome, and publishing in prestigious journals, and aiming for
+        a Nobel\\nPrize. Put even stronger, prizes and awards have become important
+        parts\\nof academic CVs. And because of gender and other diversity gaps, this\\nmakes
+        it harder for women and other minority groups to make a career in\\nscience.
+        University rankings use prizes and awards as input, and this\\ntrickles down
+        in university policies. Universities over the past decades\\nhave started
+        to think in terms of globalised economic markets for\\nexcellent researchers.\\n\\nThe
+        motivation behind policies for excellence perhaps at one point made\\nsense,
+        and Dutch science is doing well by the numbers, but obviously,\\nand this
+        is not often acknowledged, there is a big structural issue with\\nthe way
+        we measure excellence. If we are truly honest: current notions\\nof excellence
+        and metrics-driven assessment criteria are threatening to\\nshape the content
+        of the work and the diversity of the subject matter.\\nWe are observing that
+        research is designed and adjusted in a way that\\nensures a good score. We
+        see that people are choosing research questions\\nnot just based on interest
+        or importance, but also to improve their\\nchances of getting a job. This
+        ['thinking with\\nindicators'](https://academic.oup.com/rev/article/26/3/157/3933574){target=\\\"_blank\\\"}\\nis
+        obviously problematic for science when important research questions\\nare
+        not being addressed and even become 'unthinkable'.\\n\\nThis type of thinking
+        also has consequences for the space in academia\\nfor what you could call
+        'social' elements. Think of decreasing\\ncollegiality, less commitment to
+        the community, or bad leadership. And\\nif we\\\\'re mostly noticing and applauding
+        the \\\\'big names,\\\\' those\\nveteran academics with a significant reputation,
+        we are hurting the\\nopportunities for talented newcomers and other team members
+        who play\\ncrucial roles. What worries me is that the pressure in many places
+        is so\\nhigh that ambitious young researchers think they cannot go on holiday\\nbecause
+        otherwise their work will be 'scooped'. Competitiveness can\\ncreate feelings
+        of constant failure among early career researchers, as\\nthey may never feel
+        they meet the required standards. And even those who\\nare at the top, and
+        we have interviewed many, often feel they must\\ncontinue to work ever harder
+        to keep out-competing others. Group leaders\\nand heads of department warn
+        each other about the health risks that they\\nrun by chronically working very
+        hard, year after year. This is an actual\\nquote from an actual interview:
+        \ \\n\\nThe example these senior researchers are setting with that behaviour
+        to\\ntheir younger colleagues is that it is heroic to work eighty hours a\\nweek,
+        and that if people can't keep up, they are not fit for the\\nChampions League.
+        These senior researchers have really internalised that\\nthis is what it takes
+        to play the game, and that if you can't stand the\\nheat, you should get out
+        of the kitchen. But let's face it, that kitchen\\nis on fire.\\n\\nFor one,
+        we have globally had several severe integrity and\\nreproducibility crises.
+        We have seen the shadow side of competition,\\nwhere researchers focus too
+        much on finding new things and trying to do\\nthat quickly, even if that means
+        that they might not be doing\\nhigh-quality research. Of course, we all want
+        to tell our students to\\ndream big and ideally, we also provide them with
+        the protected space to\\ndevelop their own research and strive for the highest
+        quality. However,\\nif in the meantime we also encourage them to focus on
+        chasing after\\ngroundbreaking results and judge success mainly by how many
+        times our\\nwork gets cited by others, we create a culture where short-termism
+        and\\nrisk aversion thrive. This culture is today also driven by a pressure
+        to\\nsecure funding in competitive four-year cycles. This, in turn, makes
+        it\\nvery hard for researchers to do long-term, risky projects, or work in\\nfields
+        that have a big impact on society but don\\\\'t get cited as much,\\nlike
+        applied sciences or social sciences. As a result, research agendas\\ndon\\\\'t
+        always focus on what society really needs. Also, all this\\ncompetition can
+        make scientists less likely to collaborate, which is\\ncrucial for solving
+        complex problems.\\n\\nTo make science better, we need to change our priorities,
+        and support a\\nwider range of research. We very urgently need more diverse
+        perspectives\\nand inclusive participation in science. [We need to collaborate
+        and open\\nup,](https://blogs.lse.ac.uk/impactofsocialsciences/2023/08/14/the-benefits-of-open-science-are-not-inevitable-monitoring-its-development-should-be-value-led/){target=\\\"_blank\\\"}\\nsimply
+        because what is expected of science today greatly exceeds the\\nproblem-solving
+        capacity of science alone. And that is why we also\\nreally need to rethink
+        the criteria for excellent research. These\\ncriteria need to be more inclusive,
+        because research evaluation has the\\npower to affect the culture of research;
+        individual career trajectories\\nand researchers' well-being; the quality
+        of evidence informing policy\\nmaking; and importantly, the priorities in
+        research and research\\nfunding.\\n\\nI would also like to address a misunderstanding
+        about the Dutch\\n['recognition and rewards'\\nprogram](https://recognitionrewards.nl/){target=\\\"_blank\\\"}.
+        I often hear\\na concern that the program wants to wishy-washily include everyone
+        and\\nforgets about upholding excellence. I do not think that this is a fair\\nportrayal
+        of the program. At its core, the program is about an honest\\nlook in the
+        mirror, and about fixing what is broken. The program is part\\nof a much larger
+        set of national, regional, and global initiatives\\nincluding the [DORA Declaration](https://sfdora.org/){target=\\\"_blank\\\"}\\nand
+        the [Leiden Manifesto for research\\nmetrics](https://www.nature.com/articles/520429a){target=\\\"_blank\\\"},
+        the\\n[Manifesto for Reproducible\\nScience](https://www.nature.com/articles/s41562-016-0021;){target=\\\"_blank\\\"}\\nfrom
+        2017, [FOLEC-CLASCO's 2020\\nreport](https://www.clacso.org/en/folec/){target=\\\"_blank\\\"}
+        on reforming\\nresearch assessment in Latin America and the Caribbean, Europe's\\n[CoARA](https://coara.eu/){target=\\\"_blank\\\"},
+        [The Future of Research\\nEvaluation synthesis paper by the International
+        Science Council, The\\nInter Academy Partnership, and the Global Young\\nAcademy](https://www.interacademies.org/news/future-research-evaluation-synthesis-current-debates-and-developments){target=\\\"_blank\\\"},\\nand
+        the global [UNESCO Recommendation on Open\\nScience](https://unesdoc.unesco.org/ark:/48223/pf0000379949){target=\\\"_blank\\\"}.\\n\\nAll
+        these initiatives are part of a global effort to re-think\\nevaluation. And
+        we need other types of leaders and heroes in academia,\\nwho will work together
+        to implement responsible forms of research\\nassessment. We should stop sending
+        each other the message that\\nregardless of how hard we all work, there is
+        always more we need to do\\nto succeed. If we want our work to be meaningful,
+        we need to invest more\\nin building strong academic communities that value
+        collaboration and\\nshare a commitment to advancing research and teaching,
+        while making a\\npositive impact on and with society.\\n\\nOne of my heroes
+        in life is Pippi Langstr\xF6m, or Pippie Langkous in\\nDutch. I used to watch
+        her show when I was little. Pippi has this\\nsaying: \\\"I have never tried
+        this before, so I think I should definitely\\nbe able to do that.\\\" I love
+        it. And I believe that we need to reward\\nthis type of behaviour more than
+        we currently do in academia, sadly. We\\nshould foster taking risks, trying
+        something new, stepping out of our\\ncomfort zone, and being bold whilst not
+        taking ourselves too seriously.\\nBut in fact, we see the opposite happen
+        among early career researchers.\\nMany of them suffer from [anxiety and an
+        unhealthy pressure to conform\\nto a problematic\\nnorm](https://hetpnn.nl/wp-content/uploads/2023/06/202306_Improving-mental-health-of-early-career-researchers-2.pdf){target=\\\"_blank\\\"}.\\nHelping
+        to change that was one of my drivers to be part of [this\\nsymposium](https://rijksmuseumboerhaave.nl/symposium-does-science-need-heroes/){target=\\\"_blank\\\"},\\non
+        a Saturday afternoon.\\n\\n*  \\n*\\n\\n*Header photo: [Adam\\nBaker](https://flickr.com/photos/44124479650@N01/8459286843){target=\\\"_blank\\\"}*\\n\",\"doi\":\"https://doi.org/10.59350/w5cy9-wtb76\",\"guid\":\"https://www.leidenmadtrics.nl/articles/does-science-need-heroes\",\"id\":\"a86f13fa-2084-4e1a-a75a-c194cc313b94\",\"image\":\"https://www.leidenmadtrics.nl/images/community/boerhaave.jpg\",\"language\":\"en\",\"published_at\":1697023980,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"On
+        the occasion of the 2023 Nobel Prize announcements, the Rijksmuseum Boerhaave
+        symposium \u201C\\n<em>\\n Does science need heroes?\u201D\\n</em>\\nattempted
+        to explore the evolution of prize cultures over time and examine the current
+        and potential roles of prizes in contemporary scientific practices.\",\"tags\":[],\"title\":\"Does
+        science need heroes?\",\"updated_at\":1712784023,\"url\":\"https://www.leidenmadtrics.nl/articles/does-science-need-heroes\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"abstract\":\"Brenda
+        R. Fern\xE1ndez, DR \xA9 Colecci\xF3n: Transponibilidad Sitio de la autora:
+        Esta es una reproducci\xF3n digital, con fines de divulgaci\xF3n, de una obra
+        original proporcionada por su autor/a o propietario/a. Todos los derechos
+        est\xE1n reservados por el/la artista.\",\"authors\":[{\"name\":\"Atarraya\"}],\"blog_name\":\"BLOG
+        ATARRAYA\",\"blog_slug\":\"atarraya\",\"category\":\"humanities\",\"content_text\":\"<figure
+        class=\\\"wp-block-image size-large\\\">\\n<img\\nsrc=\\\"https://blogatarraya.com/wp-content/uploads/2023/10/por-los-tejados-del-insomnio.-mixed-media-on-canvas.-120-x-100-cms.jpg?w=851\\\"\\nclass=\\\"wp-image-3443\\\"
+        loading=\\\"lazy\\\" data-attachment-id=\\\"3443\\\"\\ndata-permalink=\\\"http://blogatarraya.com/2023/10/10/por-los-tejados-del-insomnio/por-los-tejados-del-insomnio-mixed-media-on-canvas-120-x-100-cms/\\\"\\ndata-orig-file=\\\"https://blogatarraya.com/wp-content/uploads/2023/10/por-los-tejados-del-insomnio.-mixed-media-on-canvas.-120-x-100-cms.jpg\\\"\\ndata-orig-size=\\\"4690,5641\\\"
+        data-comments-opened=\\\"1\\\"\\ndata-image-meta=\\\"{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;NIKON
+        D5200&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;952438715&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;100&quot;,&quot;shutter_speed&quot;:&quot;0.00625&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}\\\"\\ndata-image-title=\\\"por-los-tejados-del-insomnio.-mixed-media-on-canvas.-120-x-100-cms\\\"\\ndata-image-description=\\\"\\\"
+        data-image-caption=\\\"\\\"\\ndata-medium-file=\\\"https://blogatarraya.com/wp-content/uploads/2023/10/por-los-tejados-del-insomnio.-mixed-media-on-canvas.-120-x-100-cms.jpg?w=249\\\"\\ndata-large-file=\\\"https://blogatarraya.com/wp-content/uploads/2023/10/por-los-tejados-del-insomnio.-mixed-media-on-canvas.-120-x-100-cms.jpg?w=851\\\"\\ntabindex=\\\"0\\\"
+        role=\\\"button\\\"\\nsrcset=\\\"https://blogatarraya.com/wp-content/uploads/2023/10/por-los-tejados-del-insomnio.-mixed-media-on-canvas.-120-x-100-cms.jpg?w=851
+        851w, https://blogatarraya.com/wp-content/uploads/2023/10/por-los-tejados-del-insomnio.-mixed-media-on-canvas.-120-x-100-cms.jpg?w=1702
+        1702w, https://blogatarraya.com/wp-content/uploads/2023/10/por-los-tejados-del-insomnio.-mixed-media-on-canvas.-120-x-100-cms.jpg?w=125
+        125w, https://blogatarraya.com/wp-content/uploads/2023/10/por-los-tejados-del-insomnio.-mixed-media-on-canvas.-120-x-100-cms.jpg?w=249
+        249w, https://blogatarraya.com/wp-content/uploads/2023/10/por-los-tejados-del-insomnio.-mixed-media-on-canvas.-120-x-100-cms.jpg?w=768
+        768w\\\"\\nsizes=\\\"(max-width: 851px) 100vw, 851px\\\" width=\\\"851\\\"
+        height=\\\"1023\\\" />\\n</figure>\\n\\n**Brenda R. Fern\xE1ndez**, DR \xA9\\n\\nColecci\xF3n:
+        Transponibilidad\\n\\nSitio de la autora:\\n\\n- [![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdib3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIj48cGF0aCBkPSJNMTIsNC42MjJjMi40MDMsMCwyLjY4OCwwLjAwOSwzLjYzNywwLjA1MmMwLjg3NywwLjA0LDEuMzU0LDAuMTg3LDEuNjcxLDAuMzFjMC40MiwwLjE2MywwLjcyLDAuMzU4LDEuMDM1LDAuNjczIGMwLjMxNSwwLjMxNSwwLjUxLDAuNjE1LDAuNjczLDEuMDM1YzAuMTIzLDAuMzE3LDAuMjcsMC43OTQsMC4zMSwxLjY3MWMwLjA0MywwLjk0OSwwLjA1MiwxLjIzNCwwLjA1MiwzLjYzNyBzLTAuMDA5LDIuNjg4LTAuMDUyLDMuNjM3Yy0wLjA0LDAuODc3LTAuMTg3LDEuMzU0LTAuMzEsMS42NzFjLTAuMTYzLDAuNDItMC4zNTgsMC43Mi0wLjY3MywxLjAzNSBjLTAuMzE1LDAuMzE1LTAuNjE1LDAuNTEtMS4wMzUsMC42NzNjLTAuMzE3LDAuMTIzLTAuNzk0LDAuMjctMS42NzEsMC4zMWMtMC45NDksMC4wNDMtMS4yMzMsMC4wNTItMy42MzcsMC4wNTIgcy0yLjY4OC0wLjAwOS0zLjYzNy0wLjA1MmMtMC44NzctMC4wNC0xLjM1NC0wLjE4Ny0xLjY3MS0wLjMxYy0wLjQyLTAuMTYzLTAuNzItMC4zNTgtMS4wMzUtMC42NzMgYy0wLjMxNS0wLjMxNS0wLjUxLTAuNjE1LTAuNjczLTEuMDM1Yy0wLjEyMy0wLjMxNy0wLjI3LTAuNzk0LTAuMzEtMS42NzFDNC42MzEsMTQuNjg4LDQuNjIyLDE0LjQwMyw0LjYyMiwxMiBzMC4wMDktMi42ODgsMC4wNTItMy42MzdjMC4wNC0wLjg3NywwLjE4Ny0xLjM1NCwwLjMxLTEuNjcxYzAuMTYzLTAuNDIsMC4zNTgtMC43MiwwLjY3My0xLjAzNSBjMC4zMTUtMC4zMTUsMC42MTUtMC41MSwxLjAzNS0wLjY3M2MwLjMxNy0wLjEyMywwLjc5NC0wLjI3LDEuNjcxLTAuMzFDOS4zMTIsNC42MzEsOS41OTcsNC42MjIsMTIsNC42MjIgTTEyLDMgQzkuNTU2LDMsOS4yNDksMy4wMSw4LjI4OSwzLjA1NEM3LjMzMSwzLjA5OCw2LjY3NywzLjI1LDYuMTA1LDMuNDcyQzUuNTEzLDMuNzAyLDUuMDExLDQuMDEsNC41MTEsNC41MTEgYy0wLjUsMC41LTAuODA4LDEuMDAyLTEuMDM4LDEuNTk0QzMuMjUsNi42NzcsMy4wOTgsNy4zMzEsMy4wNTQsOC4yODlDMy4wMSw5LjI0OSwzLDkuNTU2LDMsMTJjMCwyLjQ0NCwwLjAxLDIuNzUxLDAuMDU0LDMuNzExIGMwLjA0NCwwLjk1OCwwLjE5NiwxLjYxMiwwLjQxOCwyLjE4NWMwLjIzLDAuNTkyLDAuNTM4LDEuMDk0LDEuMDM4LDEuNTk0YzAuNSwwLjUsMS4wMDIsMC44MDgsMS41OTQsMS4wMzggYzAuNTcyLDAuMjIyLDEuMjI3LDAuMzc1LDIuMTg1LDAuNDE4QzkuMjQ5LDIwLjk5LDkuNTU2LDIxLDEyLDIxczIuNzUxLTAuMDEsMy43MTEtMC4wNTRjMC45NTgtMC4wNDQsMS42MTItMC4xOTYsMi4xODUtMC40MTggYzAuNTkyLTAuMjMsMS4wOTQtMC41MzgsMS41OTQtMS4wMzhjMC41LTAuNSwwLjgwOC0xLjAwMiwxLjAzOC0xLjU5NGMwLjIyMi0wLjU3MiwwLjM3NS0xLjIyNywwLjQxOC0yLjE4NSBDMjAuOTksMTQuNzUxLDIxLDE0LjQ0NCwyMSwxMnMtMC4wMS0yLjc1MS0wLjA1NC0zLjcxMWMtMC4wNDQtMC45NTgtMC4xOTYtMS42MTItMC40MTgtMi4xODVjLTAuMjMtMC41OTItMC41MzgtMS4wOTQtMS4wMzgtMS41OTQgYy0wLjUtMC41LTEuMDAyLTAuODA4LTEuNTk0LTEuMDM4Yy0wLjU3Mi0wLjIyMi0xLjIyNy0wLjM3NS0yLjE4NS0wLjQxOEMxNC43NTEsMy4wMSwxNC40NDQsMywxMiwzTDEyLDN6IE0xMiw3LjM3OCBjLTIuNTUyLDAtNC42MjIsMi4wNjktNC42MjIsNC42MjJTOS40NDgsMTYuNjIyLDEyLDE2LjYyMnM0LjYyMi0yLjA2OSw0LjYyMi00LjYyMlMxNC41NTIsNy4zNzgsMTIsNy4zNzh6IE0xMiwxNSBjLTEuNjU3LDAtMy0xLjM0My0zLTNzMS4zNDMtMywzLTNzMywxLjM0MywzLDNTMTMuNjU3LDE1LDEyLDE1eiBNMTYuODA0LDYuMTE2Yy0wLjU5NiwwLTEuMDgsMC40ODQtMS4wOCwxLjA4IHMwLjQ4NCwxLjA4LDEuMDgsMS4wOGMwLjU5NiwwLDEuMDgtMC40ODQsMS4wOC0xLjA4UzE3LjQwMSw2LjExNiwxNi44MDQsNi4xMTZ6IiAvPjwvc3ZnPg==)[Instagram]{.wp-block-social-link-label\\n
+        \ .screen-reader-text}](https://www.instagram.com/brenda_r_fernandez/){.wp-block-social-link-anchor}\\n\\nEsta
+        es una reproducci\xF3n digital, con fines de divulgaci\xF3n, de una obra\\noriginal
+        proporcionada por su autor/a o propietario/a. Todos los\\nderechos est\xE1n
+        reservados por el/la artista.\\n\\n- [![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdib3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIj48cGF0aCBkPSJNMTIgMkM2LjUgMiAyIDYuNSAyIDEyYzAgNSAzLjcgOS4xIDguNCA5Ljl2LTdINy45VjEyaDIuNVY5LjhjMC0yLjUgMS41LTMuOSAzLjgtMy45IDEuMSAwIDIuMi4yIDIuMi4ydjIuNWgtMS4zYy0xLjIgMC0xLjYuOC0xLjYgMS42VjEyaDIuOGwtLjQgMi45aC0yLjN2N0MxOC4zIDIxLjEgMjIgMTcgMjIgMTJjMC01LjUtNC41LTEwLTEwLTEweiIgLz48L3N2Zz4=)[Facebook]{.wp-block-social-link-label\\n
+        \ .screen-reader-text}](https://www.facebook.com/Historiapoliticaysocial){.wp-block-social-link-anchor}\\n-
+        [![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdib3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIj48cGF0aCBkPSJNMTIsNC42MjJjMi40MDMsMCwyLjY4OCwwLjAwOSwzLjYzNywwLjA1MmMwLjg3NywwLjA0LDEuMzU0LDAuMTg3LDEuNjcxLDAuMzFjMC40MiwwLjE2MywwLjcyLDAuMzU4LDEuMDM1LDAuNjczIGMwLjMxNSwwLjMxNSwwLjUxLDAuNjE1LDAuNjczLDEuMDM1YzAuMTIzLDAuMzE3LDAuMjcsMC43OTQsMC4zMSwxLjY3MWMwLjA0MywwLjk0OSwwLjA1MiwxLjIzNCwwLjA1MiwzLjYzNyBzLTAuMDA5LDIuNjg4LTAuMDUyLDMuNjM3Yy0wLjA0LDAuODc3LTAuMTg3LDEuMzU0LTAuMzEsMS42NzFjLTAuMTYzLDAuNDItMC4zNTgsMC43Mi0wLjY3MywxLjAzNSBjLTAuMzE1LDAuMzE1LTAuNjE1LDAuNTEtMS4wMzUsMC42NzNjLTAuMzE3LDAuMTIzLTAuNzk0LDAuMjctMS42NzEsMC4zMWMtMC45NDksMC4wNDMtMS4yMzMsMC4wNTItMy42MzcsMC4wNTIgcy0yLjY4OC0wLjAwOS0zLjYzNy0wLjA1MmMtMC44NzctMC4wNC0xLjM1NC0wLjE4Ny0xLjY3MS0wLjMxYy0wLjQyLTAuMTYzLTAuNzItMC4zNTgtMS4wMzUtMC42NzMgYy0wLjMxNS0wLjMxNS0wLjUxLTAuNjE1LTAuNjczLTEuMDM1Yy0wLjEyMy0wLjMxNy0wLjI3LTAuNzk0LTAuMzEtMS42NzFDNC42MzEsMTQuNjg4LDQuNjIyLDE0LjQwMyw0LjYyMiwxMiBzMC4wMDktMi42ODgsMC4wNTItMy42MzdjMC4wNC0wLjg3NywwLjE4Ny0xLjM1NCwwLjMxLTEuNjcxYzAuMTYzLTAuNDIsMC4zNTgtMC43MiwwLjY3My0xLjAzNSBjMC4zMTUtMC4zMTUsMC42MTUtMC41MSwxLjAzNS0wLjY3M2MwLjMxNy0wLjEyMywwLjc5NC0wLjI3LDEuNjcxLTAuMzFDOS4zMTIsNC42MzEsOS41OTcsNC42MjIsMTIsNC42MjIgTTEyLDMgQzkuNTU2LDMsOS4yNDksMy4wMSw4LjI4OSwzLjA1NEM3LjMzMSwzLjA5OCw2LjY3NywzLjI1LDYuMTA1LDMuNDcyQzUuNTEzLDMuNzAyLDUuMDExLDQuMDEsNC41MTEsNC41MTEgYy0wLjUsMC41LTAuODA4LDEuMDAyLTEuMDM4LDEuNTk0QzMuMjUsNi42NzcsMy4wOTgsNy4zMzEsMy4wNTQsOC4yODlDMy4wMSw5LjI0OSwzLDkuNTU2LDMsMTJjMCwyLjQ0NCwwLjAxLDIuNzUxLDAuMDU0LDMuNzExIGMwLjA0NCwwLjk1OCwwLjE5NiwxLjYxMiwwLjQxOCwyLjE4NWMwLjIzLDAuNTkyLDAuNTM4LDEuMDk0LDEuMDM4LDEuNTk0YzAuNSwwLjUsMS4wMDIsMC44MDgsMS41OTQsMS4wMzggYzAuNTcyLDAuMjIyLDEuMjI3LDAuMzc1LDIuMTg1LDAuNDE4QzkuMjQ5LDIwLjk5LDkuNTU2LDIxLDEyLDIxczIuNzUxLTAuMDEsMy43MTEtMC4wNTRjMC45NTgtMC4wNDQsMS42MTItMC4xOTYsMi4xODUtMC40MTggYzAuNTkyLTAuMjMsMS4wOTQtMC41MzgsMS41OTQtMS4wMzhjMC41LTAuNSwwLjgwOC0xLjAwMiwxLjAzOC0xLjU5NGMwLjIyMi0wLjU3MiwwLjM3NS0xLjIyNywwLjQxOC0yLjE4NSBDMjAuOTksMTQuNzUxLDIxLDE0LjQ0NCwyMSwxMnMtMC4wMS0yLjc1MS0wLjA1NC0zLjcxMWMtMC4wNDQtMC45NTgtMC4xOTYtMS42MTItMC40MTgtMi4xODVjLTAuMjMtMC41OTItMC41MzgtMS4wOTQtMS4wMzgtMS41OTQgYy0wLjUtMC41LTEuMDAyLTAuODA4LTEuNTk0LTEuMDM4Yy0wLjU3Mi0wLjIyMi0xLjIyNy0wLjM3NS0yLjE4NS0wLjQxOEMxNC43NTEsMy4wMSwxNC40NDQsMywxMiwzTDEyLDN6IE0xMiw3LjM3OCBjLTIuNTUyLDAtNC42MjIsMi4wNjktNC42MjIsNC42MjJTOS40NDgsMTYuNjIyLDEyLDE2LjYyMnM0LjYyMi0yLjA2OSw0LjYyMi00LjYyMlMxNC41NTIsNy4zNzgsMTIsNy4zNzh6IE0xMiwxNSBjLTEuNjU3LDAtMy0xLjM0My0zLTNzMS4zNDMtMywzLTNzMywxLjM0MywzLDNTMTMuNjU3LDE1LDEyLDE1eiBNMTYuODA0LDYuMTE2Yy0wLjU5NiwwLTEuMDgsMC40ODQtMS4wOCwxLjA4IHMwLjQ4NCwxLjA4LDEuMDgsMS4wOGMwLjU5NiwwLDEuMDgtMC40ODQsMS4wOC0xLjA4UzE3LjQwMSw2LjExNiwxNi44MDQsNi4xMTZ6IiAvPjwvc3ZnPg==)[Instagram]{.wp-block-social-link-label\\n
+        \ .screen-reader-text}](https://www.instagram.com/blogatarraya.nuestrashistorias/?hl=es-la){.wp-block-social-link-anchor}\\n-
+        [![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdib3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIj48cGF0aCBkPSJNMjIuMjMsNS45MjRjLTAuNzM2LDAuMzI2LTEuNTI3LDAuNTQ3LTIuMzU3LDAuNjQ2YzAuODQ3LTAuNTA4LDEuNDk4LTEuMzEyLDEuODA0LTIuMjcgYy0wLjc5MywwLjQ3LTEuNjcxLDAuODEyLTIuNjA2LDAuOTk2QzE4LjMyNCw0LjQ5OCwxNy4yNTcsNCwxNi4wNzcsNGMtMi4yNjYsMC00LjEwMywxLjgzNy00LjEwMyw0LjEwMyBjMCwwLjMyMiwwLjAzNiwwLjYzNSwwLjEwNiwwLjkzNUM4LjY3LDguODY3LDUuNjQ3LDcuMjM0LDMuNjIzLDQuNzUxQzMuMjcsNS4zNTcsMy4wNjcsNi4wNjIsMy4wNjcsNi44MTQgYzAsMS40MjQsMC43MjQsMi42NzksMS44MjUsMy40MTVjLTAuNjczLTAuMDIxLTEuMzA1LTAuMjA2LTEuODU5LTAuNTEzYzAsMC4wMTcsMCwwLjAzNCwwLDAuMDUyYzAsMS45ODgsMS40MTQsMy42NDcsMy4yOTIsNC4wMjMgYy0wLjM0NCwwLjA5NC0wLjcwNywwLjE0NC0xLjA4MSwwLjE0NGMtMC4yNjQsMC0wLjUyMS0wLjAyNi0wLjc3Mi0wLjA3NGMwLjUyMiwxLjYzLDIuMDM4LDIuODE2LDMuODMzLDIuODUgYy0xLjQwNCwxLjEtMy4xNzQsMS43NTYtNS4wOTYsMS43NTZjLTAuMzMxLDAtMC42NTgtMC4wMTktMC45NzktMC4wNTdjMS44MTYsMS4xNjQsMy45NzMsMS44NDMsNi4yOSwxLjg0MyBjNy41NDcsMCwxMS42NzUtNi4yNTIsMTEuNjc1LTExLjY3NWMwLTAuMTc4LTAuMDA0LTAuMzU1LTAuMDEyLTAuNTMxQzIwLjk4NSw3LjQ3LDIxLjY4LDYuNzQ3LDIyLjIzLDUuOTI0eiIgLz48L3N2Zz4=)[Twitter]{.wp-block-social-link-label\\n
+        \ .screen-reader-text}](https://twitter.com/atarrayahpysi){.wp-block-social-link-anchor}\\n\",\"doi\":\"https://doi.org/10.59350/ce88k-9g080\",\"guid\":\"https://blogatarraya.com/?p=3439\",\"id\":\"aa6ba682-8786-45d8-81d7-29e96aaf71f3\",\"image\":\"https://blogatarraya.com/wp-content/uploads/2023/10/por-los-tejados-del-insomnio.-mixed-media-on-canvas.-120-x-100-cms.jpg?w=851\",\"language\":\"en\",\"published_at\":1696953660,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"<strong>\\n
+        Brenda R. Fern\xE1ndez\\n</strong>\\n, DR \xA9 Colecci\xF3n: Transponibilidad
+        \   Sitio de la autora: Instagram  Esta es una reproducci\xF3n digital, con
+        fines de divulgaci\xF3n, de una obra original proporcionada por su autor/a
+        o propietario/a. Todos los derechos est\xE1n reservados por el/la artista.\",\"tags\":[\"Artes
+        Visuales\"],\"title\":\"Por los tejados del insomnio\",\"updated_at\":1698238640,\"url\":\"https://blogatarraya.com/2023/10/10/por-los-tejados-del-insomnio\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}}],\"out_of\":17580,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"\"},\"search_cutoff\":false,\"search_time_ms\":12}"
+    headers:
+      Connection:
+      - keep-alive
+      accept-ranges:
+      - none
+      access-control-allow-origin:
+      - '*'
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
       transfer-encoding:
       - chunked
       vary:

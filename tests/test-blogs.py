@@ -1,4 +1,5 @@
 """Test blogs"""
+
 import pytest  # noqa: F401
 
 from api.blogs import (
@@ -8,6 +9,9 @@ from api.blogs import (
     parse_generator,
     parse_feed_format,
     find_feed,
+    create_blog_community,
+    update_blog_community,
+    feature_community,
 )
 
 
@@ -103,7 +107,7 @@ async def test_find_feed_wordpress_subfolder():
     "find feed in wordpress homepage"
     url = "https://www.ch.imperial.ac.uk/rzepa/blog/"
     result = await find_feed(url)
-    assert result == "https://www.ch.imperial.ac.uk/rzepa/blog/?feed=rss2"
+    assert result == "https://www.ch.ic.ac.uk/rzepa/blog/?feed=rss2"
 
 
 @pytest.mark.vcr
@@ -324,3 +328,71 @@ def test_update_single_blog():
     result = update_single_blog(blog)
     assert result["title"] == "FIS & EPub"
     assert result["slug"] == "epub_fis"
+
+
+@pytest.mark.vcr
+def test_create_blog_community_metadatagamechangers():
+    "create blog community metadatagamechangers"
+    blog = {
+        "slug": "metadatagamechangers",
+        "home_page_url": "https://metadatagamechangers.com/blog",
+        "title": "Blog - Metadata Game Changers",
+        "description": "Exploring metadata, communities, and new idea.",
+    }
+    result = create_blog_community(blog)
+    assert result.status_code == 201
+    assert result.json() == {
+        "slug": "metadatagamechangers",
+        "title": "Metadata Game Changers",
+    }
+
+
+@pytest.mark.vcr
+def test_create_blog_community_already_exits():
+    "create blog community that already exists"
+    blog = {
+        "slug": "metadatagamechangers",
+        "home_page_url": "https://metadatagamechangers.com/blog",
+        "title": "Blog - Metadata Game Changers",
+        "description": "Exploring metadata, communities, and new idea.",
+    }
+    result = create_blog_community(blog)
+    assert result.status_code == 400
+    assert result.json() == {
+        "status": 400,
+        "message": "A validation error occurred.",
+        "errors": [
+            {
+                "field": "slug",
+                "messages": ["A community with this identifier already exists."],
+            }
+        ],
+    }
+
+
+@pytest.mark.vcr
+def test_update_blog_community_metadatagamechangers():
+    "update blog community metadatagamechangers"
+    blog = {
+        "slug": "metadatagamechangers",
+        "home_page_url": "https://metadatagamechangers.com/blog",
+        "title": "Blog - Metadata Game Changers",
+        "description": "Exploring metadata, communities, and new idea.",
+    }
+    result = update_blog_community(blog)
+    assert result.status_code == 200
+    response = result.json()
+    assert response["created"] == "2024-10-10T17:20:36.354632+00:00"
+    assert response["updated"] == "2024-10-10T17:39:45.216965+00:00"
+    assert response["deletion_status"] == {"is_deleted": False, "status": "P"}
+    assert response["metadata"]["title"] == "Blog - Metadata Game Changers"
+
+
+# @pytest.mark.vcr
+# def test_feature_community_metascience():
+#     "feature community metascience"
+#     _id = "metascience"
+#     result = feature_community(_id)
+#     assert result.status_code == 201
+#     response = result.json()
+#     assert response["id"] == _id

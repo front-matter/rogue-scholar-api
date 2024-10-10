@@ -14,7 +14,7 @@ import xmltodict
 import time
 import traceback
 from urllib.parse import unquote
-from commonmeta import validate_doi, normalize_id, validate_url, validate_prefix
+from commonmeta import Metadata, validate_doi, normalize_id, validate_url, validate_prefix
 from Levenshtein import ratio
 
 from api.utils import (
@@ -1153,6 +1153,22 @@ def upsert_single_post(post):
             .execute()
         )
         return post_to_update.data[0]
+    except Exception as e:
+        print(e)
+        return None
+
+
+def upsert_single_record(post):
+    """Upsert single record to InvenioRDM."""
+
+    # missing title or publication date
+    if not post.get("title", None) or post.get("published_at", None) > int(time.time()):
+        return {}
+
+    try:
+        subject = Metadata(post, via="json_feed_item")
+        print(subject.titles)
+        return subject
     except Exception as e:
         print(e)
         return None
