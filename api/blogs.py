@@ -165,6 +165,9 @@ async def extract_single_blog(slug: str):
     result = py_.pick(
         r.json(), ["slug", "metadata.title", "metadata.description", "metadata.website"]
     )
+    if blog.get("favicon", None) is not None:
+        upload_blog_logo(blog)
+        result["logo"] = blog.get("favicon")
     return result
 
 
@@ -343,11 +346,24 @@ def update_blog_community(blog):
             },
         }
         response = httpx.put(url, headers=headers, json=data, timeout=10)
-        # TODO: upload optional logo
-        # if response.status_code == 200 and blog.get("favicon", None) is not None:
-        #     url = f"https://beta.rogue-scholar.org/api/communities/{blog.get('slug')}/logo"
-        #     headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
-
+        return response
+    except Exception as error:
+        print(error)
+        return None
+    
+    
+def upload_blog_logo(blog):
+    """Upload an InvenioRDM blog community logo."""
+    try:
+        url = f"https://beta.rogue-scholar.org/api/communities/{blog.get('slug')}/logo"
+        headers = {
+            "Content-Type": "application/octet-stream",
+            "Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}",
+        }
+        content = httpx.get(
+            blog.get("favicon"), timeout=10, follow_redirects=True
+        ).content
+        response = httpx.put(url, headers=headers, content=content, timeout=10)
         return response
     except Exception as error:
         print(error)
