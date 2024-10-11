@@ -274,24 +274,6 @@ def update_single_blog(blog):
         return None
 
 
-# async def create_all_blog_communities():
-#     """Create all blog communities for active blogs."""
-#     blogs = (
-#         supabase.table("blogs")
-#         .select("slug, title, description, home_page_url, favicon")
-#         .in_("status", ["active"])
-#         .order("title", desc=False)
-#         .execute()
-#     )
-#     tasks = []
-#     for blog in blogs.data:
-#         task = create_blog_community(blog)
-#         tasks.append(task)
-
-#     results = asyncio.run(asyncio.gather(*tasks))
-#     return results
-
-
 def upsert_blog_community(blog):
     """Upsert an InvenioRDM blog community."""
     response = create_blog_community(blog)
@@ -310,6 +292,7 @@ def create_blog_community(blog):
                 "visibility": "public",
                 "member_policy": "open",
                 "record_policy": "open",
+                "review_policy": "open",
             },
             "slug": blog.get("slug"),
             "metadata": {
@@ -336,6 +319,7 @@ def update_blog_community(blog):
                 "visibility": "public",
                 "member_policy": "open",
                 "record_policy": "open",
+                "review_policy": "open",
             },
             "slug": blog.get("slug"),
             "metadata": {
@@ -350,8 +334,8 @@ def update_blog_community(blog):
     except Exception as error:
         print(error)
         return None
-    
-    
+
+
 def upload_blog_logo(blog):
     """Upload an InvenioRDM blog community logo."""
     try:
