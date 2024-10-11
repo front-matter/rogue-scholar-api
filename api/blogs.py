@@ -124,7 +124,7 @@ async def extract_single_blog(slug: str):
     description = feed.get("subtitle", None) or config["description"]
     if description is not None:
         description = bs4(description, "html.parser").get_text()
-    favicon = feed.get("icon", None) or config["favicon"]
+    favicon = config["favicon"] or feed.get("icon", None)
 
     # ignore the default favicons
     if favicon in ["https://s0.wp.com/i/buttonw-com.png"]:
