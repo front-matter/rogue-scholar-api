@@ -900,13 +900,13 @@ test = ["pytest"]
 
 [[package]]
 name = "commonmeta-py"
-version = "0.24"
+version = "0.25"
 description = "Library for conversions to/from the Commonmeta scholarly metadata format"
 optional = false
 python-versions = "<4.0.0,>=3.9"
 files = [
-    {file = "commonmeta_py-0.24-py3-none-any.whl", hash = "sha256:11916a9db4ea70fca7471d65a050a4722f02c452729983bef9cc9d4d2691879d"},
-    {file = "commonmeta_py-0.24.tar.gz", hash = "sha256:15cf705af36485bc31ffae7ebe5afc1294d182d9c077f5ec3aa528f451e2e073"},
+    {file = "commonmeta_py-0.25-py3-none-any.whl", hash = "sha256:5a75183cf4a7db4a1beb088a8c739bdc66383e307cc8bdac5d9c0a2b2d437771"},
+    {file = "commonmeta_py-0.25.tar.gz", hash = "sha256:a1dece0536253150a067c7d9cf20f091b04787cd752a160bddfbbfc67dca56ce"},
 ]
 
 [package.dependencies]
@@ -940,7 +940,7 @@ pyjwt = ">=2.8.0,<3.0.0"
 python-dateutil = ">=2.8.2,<3.0.0"
 PyYAML = ">=6.0,<7.0"
 quartodoc = ">=0.7.1,<0.8.0"
-setuptools = ">=69.0,<70.0"
+setuptools = ">=70.0,<71.0"
 simplejson = ">=3.18,<4.0"
 sphinx-autodoc-typehints = ">=1.19,<2.0"
 sphinxcontrib-issuetracker = ">=0.11,<0.12"
@@ -4768,19 +4768,18 @@ tornado = ["tornado (>=5)"]
 
 [[package]]
 name = "setuptools"
-version = "69.5.1"
+version = "70.3.0"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "setuptools-69.5.1-py3-none-any.whl", hash = "sha256:c636ac361bc47580504644275c9ad802c50415c7522212252c033bd15f301f32"},
-    {file = "setuptools-69.5.1.tar.gz", hash = "sha256:6c1fccdac05a97e598fb0ae3bbed5904ccb317337a51139dcd51453611bbb987"},
+    {file = "setuptools-70.3.0-py3-none-any.whl", hash = "sha256:fe384da74336c398e0d956d1cae0669bc02eed936cdb1d49b57de1990dc11ffc"},
+    {file = "setuptools-70.3.0.tar.gz", hash = "sha256:f171bab1dfbc86b132997f26a119f6056a57950d058587841a0082e8830f9dc5"},
 ]
 
 [package.extras]
-docs = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (>=1,<2)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
-testing = ["build[virtualenv]", "filelock (>=3.4.0)", "importlib-metadata", "ini2toml[lite] (>=0.9)", "jaraco.develop (>=7.21)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "mypy (==1.9)", "packaging (>=23.2)", "pip (>=19.1)", "pytest (>=6,!=8.1.1)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-home (>=0.5)", "pytest-mypy", "pytest-perf", "pytest-ruff (>=0.2.1)", "pytest-timeout", "pytest-xdist (>=3)", "tomli", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel"]
-testing-integration = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "packaging (>=23.2)", "pytest", "pytest-enabler", "pytest-xdist", "tomli", "virtualenv (>=13.0.0)", "wheel"]
+doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "pyproject-hooks (!=1.1)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (>=1,<2)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
+test = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "importlib-metadata", "ini2toml[lite] (>=0.14)", "jaraco.develop (>=7.21)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "jaraco.test", "mypy (==1.10.0)", "packaging (>=23.2)", "pip (>=19.1)", "pyproject-hooks (!=1.1)", "pytest (>=6,!=8.1.*)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-home (>=0.5)", "pytest-mypy", "pytest-perf", "pytest-ruff (>=0.3.2)", "pytest-subprocess", "pytest-timeout", "pytest-xdist (>=3)", "tomli", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel"]
 
 [[package]]
 name = "sgmllib3k"
@@ -6142,4 +6141,4 @@ test = ["pytest"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "bcf8581dcf3c10886c89ed00b78616591b9aab330ae277ea6e62dfbc3f149160"
+content-hash = "552c4c19ddea503bb1118f90c1c61436dc9c397a2e3d9dcbe0e73ca520a56cf6"
