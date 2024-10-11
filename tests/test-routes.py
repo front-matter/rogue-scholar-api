@@ -565,8 +565,5 @@ async def test_post_route_references():
     result = result["items"][6]
     assert result["key"] == "ref7"
     assert result["id"] == "https://doi.org/10.1016/j.aeolia.2015.08.001"
-    assert (
-        result["title"]
-        == "Racetrack Playa: Rocks moved by wind alone"
-    )
+    assert result["title"] == "Racetrack Playa: Rocks moved by wind alone"
     assert result["publicationYear"] == "2015"

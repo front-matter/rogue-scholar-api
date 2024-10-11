@@ -294,7 +294,9 @@ def create_blog_community(blog):
             "website": blog.get("home_page_url"),
         }
         if blog.get("description", None):
-            metadata["description"] = py_.truncate(blog.get("description", None), 250, omission="", separator=" ")
+            metadata["description"] = py_.truncate(
+                blog.get("description", None), 250, omission="", separator=" "
+            )
         data = {
             "access": {
                 "visibility": "public",
@@ -323,7 +325,9 @@ def update_blog_community(blog):
             "website": blog.get("home_page_url"),
         }
         if blog.get("description", None):
-            metadata["description"] = py_.truncate(blog.get("description", None), 250, omission="", separator=" ")
+            metadata["description"] = py_.truncate(
+                blog.get("description", None), 250, omission="", separator=" "
+            )
         data = {
             "access": {
                 "visibility": "public",

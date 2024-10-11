@@ -14,7 +14,13 @@ import xmltodict
 import time
 import traceback
 from urllib.parse import unquote
-from commonmeta import Metadata, validate_doi, normalize_id, validate_url, validate_prefix
+from commonmeta import (
+    Metadata,
+    validate_doi,
+    normalize_id,
+    validate_url,
+    validate_prefix,
+)
 from Levenshtein import ratio
 
 from api.utils import (
