@@ -277,6 +277,7 @@ def update_single_blog(blog):
 def upsert_blog_community(blog):
     """Upsert an InvenioRDM blog community."""
     response = create_blog_community(blog)
+    print(response.json())
     if response.status_code == 400:
         response = update_blog_community(blog)
     return response
@@ -287,6 +288,13 @@ def create_blog_community(blog):
     try:
         url = "https://beta.rogue-scholar.org/api/communities"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
+        metadata = {
+            "title": blog.get("title"),
+            "type": {"id": "blog"},
+            "website": blog.get("home_page_url"),
+        }
+        if blog.get("description", None):
+            metadata["description"] = py_.truncate(blog.get("description", None), 250, omission="", separator=" ")
         data = {
             "access": {
                 "visibility": "public",
@@ -295,12 +303,7 @@ def create_blog_community(blog):
                 "review_policy": "open",
             },
             "slug": blog.get("slug"),
-            "metadata": {
-                "title": blog.get("title"),
-                "description": blog.get("description", None),
-                "type": {"id": "blog"},
-                "website": blog.get("home_page_url"),
-            },
+            "metadata": metadata,
         }
         response = httpx.post(url, headers=headers, json=data, timeout=10)
         return response
@@ -314,6 +317,13 @@ def update_blog_community(blog):
     try:
         url = f"https://beta.rogue-scholar.org/api/communities/{blog.get('slug')}"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
+        metadata = {
+            "title": blog.get("title"),
+            "type": {"id": "blog"},
+            "website": blog.get("home_page_url"),
+        }
+        if blog.get("description", None):
+            metadata["description"] = py_.truncate(blog.get("description", None), 250, omission="", separator=" ")
         data = {
             "access": {
                 "visibility": "public",
@@ -322,12 +332,7 @@ def update_blog_community(blog):
                 "review_policy": "open",
             },
             "slug": blog.get("slug"),
-            "metadata": {
-                "title": blog.get("title"),
-                "description": blog.get("description", None),
-                "type": {"id": "blog"},
-                "website": blog.get("home_page_url"),
-            },
+            "metadata": metadata,
         }
         response = httpx.put(url, headers=headers, json=data, timeout=10)
         return response
