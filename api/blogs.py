@@ -93,7 +93,7 @@ async def extract_single_blog(slug: str):
     response = (
         supabase.table("blogs")
         .select(
-            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, mastodon, generator_raw, language, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure"
+            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, mastodon, generator_raw, language, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure, community_id"
         )
         .eq("slug", slug)
         .maybe_single()
@@ -159,6 +159,7 @@ async def extract_single_blog(slug: str):
         "relative_url": config["relative_url"],
         "filter": config["filter"],
         "secure": config["secure"],
+        "community_id": config["community_id"],
     }
     update_single_blog(blog)
     r = upsert_blog_community(blog)
@@ -168,6 +169,13 @@ async def extract_single_blog(slug: str):
     if blog.get("favicon", None) is not None:
         upload_blog_logo(blog)
         result["logo"] = blog.get("favicon")
+
+    # fetch community id and store it in the blog
+    if blog.get("community_id", None) is None:
+        community_id = push_blog_community_id(slug)
+
+    result["community_id"] = community_id
+
     return result
 
 
@@ -274,11 +282,38 @@ def update_single_blog(blog):
         return None
 
 
+def push_blog_community_id(slug):
+    """Get InvenioRDM blog community id and store in blog."""
+    try:
+        url = f"https://beta.rogue-scholar.org/api/communities?q=slug:{slug}"
+        headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
+        response = httpx.get(url, headers=headers, timeout=10)
+        result = response.json()
+        if py_.get(result, "hits.total") != 1:
+            return result
+        community_id = py_.get(result, "hits.hits[0].id")
+        blog_to_update = (
+            supabase_admin.table("blogs")
+            .update(
+                {
+                    "community_id": community_id,
+                }
+            )
+            .eq("slug", slug)
+            .execute()
+        )
+        if len(blog_to_update.data) > 0:
+            return community_id
+    except Exception as error:
+        print(error)
+        return None
+
+
 def upsert_blog_community(blog):
     """Upsert an InvenioRDM blog community."""
-    response = create_blog_community(blog)
-    print(response.json())
-    if response.status_code == 400:
+    if blog.get("community_id", None) is None:
+        response = create_blog_community(blog)
+    else:
         response = update_blog_community(blog)
     return response
 
@@ -339,6 +374,8 @@ def update_blog_community(blog):
             "metadata": metadata,
         }
         response = httpx.put(url, headers=headers, json=data, timeout=10)
+
+        print(response.json())
         return response
     except Exception as error:
         print(error)
