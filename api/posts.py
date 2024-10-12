@@ -46,6 +46,7 @@ from api.supabase_client import (
     supabase_admin_client as supabase_admin,
     supabase_client as supabase,
     postsWithContentSelect,
+    postsForUpsertSelect,
 )
 
 
@@ -1158,25 +1159,86 @@ def upsert_single_post(post):
             .eq("id", data["id"])
             .execute()
         )
+
+        # upsert InvenioRDM record
+        record = (
+            supabase.table("posts")
+            .select(postsForUpsertSelect)
+            .eq("guid", post.get("guid", None))
+            .maybe_single()
+            .execute()
+        )
+        invenio_id = record.data.get("invenio_id", None)
+        guid = record.data.get("guid", None)
+        
+        # if InvenioRDM record exists, update it, otherwise create it
+        if invenio_id is not None:
+            update_draft_record(record.data, guid, invenio_id)
+        else:
+            create_draft_record(record.data, guid)
+
         return post_to_update.data[0]
     except Exception as e:
         print(e)
         return None
 
 
-def upsert_single_record(post):
-    """Upsert single record to InvenioRDM."""
-
-    # missing title or publication date
-    if not post.get("title", None) or post.get("published_at", None) > int(time.time()):
-        return {}
-
+def create_draft_record(record, guid:str):
+    """Create InvenioRDM draft record."""
     try:
-        subject = Metadata(post, via="json_feed_item")
-        print(subject.titles)
-        return subject
-    except Exception as e:
-        print(e)
+        subject = Metadata(record, via="json_feed_item")
+        record = JSON.loads(subject.write(to="inveniordm"))
+
+        # remove publisher field, currently not used with InvenioRDM
+        record = py_.omit(record, "metadata.publisher")
+
+        url = "https://beta.rogue-scholar.org/api/records"
+        headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
+        response = httpx.post(url, headers=headers, json=record, timeout=10)
+
+        # update rogue scholar database with InvenioRDM record id (invenio_id) if record was created
+        if response.status_code == 201:
+            invenio_id = response.json()["id"]
+            post_to_update = (
+                supabase_admin.table("posts")
+                .update(
+                    {
+                        "invenio_id": invenio_id,
+                    }
+                )
+                .eq("guid", guid)
+                .execute()
+            )
+            if len(post_to_update.data) > 0:
+                print(f"created record invenio_id {invenio_id} for guid {guid}")
+        else:
+            print(response.json())
+
+        return response
+    except Exception as error:
+        print(error)
+        return None
+
+
+def update_draft_record(record, guid:str, invenio_id:str):
+    """Update InvenioRDM draft record."""
+    try:
+        subject = Metadata(record, via="json_feed_item")
+        record = JSON.loads(subject.write(to="inveniordm"))
+
+        # remove publisher field, currently not used with InvenioRDM
+        record = py_.omit(record, "metadata.publisher")
+        
+        url = f"https://beta.rogue-scholar.org/api/records/{invenio_id}/draft"
+        headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
+        response = httpx.put(url, headers=headers, json=record, timeout=10)
+        if response.status_code == 200:
+            print(f"updated record invenio_id {invenio_id} for guid {guid}")
+        else:
+            print(response.json())
+        return response
+    except Exception as error:
+        print(error)
         return None
 
 
