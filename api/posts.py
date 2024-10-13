@@ -1168,14 +1168,16 @@ def upsert_single_post(post):
             .maybe_single()
             .execute()
         )
-        invenio_id = record.data.get("invenio_id", None)
         guid = record.data.get("guid", None)
+        invenio_id = record.data.get("invenio_id", None)
+        community_id = py_.get(record.data, "blog.community_id")
+        print(community_id)
         
         # if InvenioRDM record exists, update it, otherwise create it
         if invenio_id is not None:
             update_draft_record(record.data, guid, invenio_id)
         else:
-            create_draft_record(record.data, guid)
+            create_draft_record(record.data, guid, community_id)
 
         return post_to_update.data[0]
     except Exception as e:
@@ -1183,36 +1185,55 @@ def upsert_single_post(post):
         return None
 
 
-def create_draft_record(record, guid:str):
+def create_draft_record(record, guid: str, community_id: str):
     """Create InvenioRDM draft record."""
     try:
+        if community_id is None:
+            return {"error": "Blog community not found"}
+        
         subject = Metadata(record, via="json_feed_item")
         record = JSON.loads(subject.write(to="inveniordm"))
 
         # remove publisher field, currently not used with InvenioRDM
         record = py_.omit(record, "metadata.publisher")
 
-        url = "https://beta.rogue-scholar.org/api/records"
+        url = "{environ['QUART_INVENIORDM_API']}/api/records"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         response = httpx.post(url, headers=headers, json=record, timeout=10)
+        
+        # return error if record was not created
+        if response.status_code != 201:
+            return response.json()
+
+        invenio_id = response.json()["id"]
+        print(f"created draft record invenio_id {invenio_id} for guid {guid}")
+        
+        # add draft record to blog community
+        data = {
+            "communities": [
+                {"id": community_id},
+            ]
+        }
+        url = "{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/communities"
+        response = httpx.post(url, headers=headers, json=data, timeout=10)
+        print(response.status_code)
+        print(response.json())
+        if response.status_code != 201:
+            return response.json()
 
         # update rogue scholar database with InvenioRDM record id (invenio_id) if record was created
-        if response.status_code == 201:
-            invenio_id = response.json()["id"]
-            post_to_update = (
-                supabase_admin.table("posts")
-                .update(
-                    {
-                        "invenio_id": invenio_id,
-                    }
-                )
-                .eq("guid", guid)
-                .execute()
+        post_to_update = (
+            supabase_admin.table("posts")
+            .update(
+                {
+                    "invenio_id": invenio_id,
+                }
             )
-            if len(post_to_update.data) > 0:
-                print(f"created record invenio_id {invenio_id} for guid {guid}")
-        else:
-            print(response.json())
+            .eq("guid", guid)
+            .execute()
+        )
+        if len(post_to_update.data) > 0:
+            print(f"created record invenio_id {invenio_id} for guid {guid}")
 
         return response
     except Exception as error:
@@ -1220,7 +1241,7 @@ def create_draft_record(record, guid:str):
         return None
 
 
-def update_draft_record(record, guid:str, invenio_id:str):
+def update_draft_record(record, guid: str, invenio_id: str):
     """Update InvenioRDM draft record."""
     try:
         subject = Metadata(record, via="json_feed_item")
@@ -1228,8 +1249,8 @@ def update_draft_record(record, guid:str, invenio_id:str):
 
         # remove publisher field, currently not used with InvenioRDM
         record = py_.omit(record, "metadata.publisher")
-        
-        url = f"https://beta.rogue-scholar.org/api/records/{invenio_id}/draft"
+
+        url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         response = httpx.put(url, headers=headers, json=record, timeout=10)
         if response.status_code == 200:
