@@ -171,6 +171,7 @@ async def extract_single_blog(slug: str):
         result["logo"] = blog.get("favicon")
 
     # fetch community id and store it in the blog
+    community_id = blog.get("community_id", None)
     if blog.get("community_id", None) is None:
         community_id = push_blog_community_id(slug)
 

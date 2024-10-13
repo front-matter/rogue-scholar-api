@@ -352,6 +352,34 @@ async def update_all_posts_by_blog(slug: str, page: int = 1):
         return []
 
 
+async def get_single_post(slug: str, suffix: Optional[str] = None):
+    """Get single post."""
+    try:
+        if validate_uuid(slug):
+            response = (
+                supabase.table("posts")
+                .select(postsWithContentSelect)
+                .eq("id", slug)
+                .maybe_single()
+                .execute()
+            )
+        elif validate_prefix(slug) and suffix:
+            doi = f"https://doi.org/{slug}/{suffix}"
+            response = (
+                supabase.table("posts")
+                .select(postsWithContentSelect)
+                .eq("doi", doi)
+                .maybe_single()
+                .execute()
+            )
+        else:
+            return {"error": "An error occured."}, 400
+        return response.data
+    except Exception:
+        print(traceback.format_exc())
+        return {}
+
+
 async def update_single_post(slug: str, suffix: Optional[str] = None):
     """Update single post"""
     try:
@@ -1171,13 +1199,15 @@ def upsert_single_post(post):
         guid = record.data.get("guid", None)
         invenio_id = record.data.get("invenio_id", None)
         community_id = py_.get(record.data, "blog.community_id")
-        print(community_id)
-        
+
         # if InvenioRDM record exists, update it, otherwise create it
-        if invenio_id is not None:
-            update_draft_record(record.data, guid, invenio_id)
+        # The invenio_id has not been added for some posts
+        if invenio_id:
+            print(f"updating record invenio_id {invenio_id} for guid {guid}")
+            update_record(record.data, invenio_id, community_id)
         else:
-            create_draft_record(record.data, guid, community_id)
+            print(f"creating record for guid {guid}")
+            create_record(record.data, guid, community_id)
 
         return post_to_update.data[0]
     except Exception as e:
@@ -1185,41 +1215,40 @@ def upsert_single_post(post):
         return None
 
 
-def create_draft_record(record, guid: str, community_id: str):
-    """Create InvenioRDM draft record."""
+def create_record(record, guid: str, community_id: str):
+    """Create InvenioRDM record."""
     try:
         if community_id is None:
             return {"error": "Blog community not found"}
-        
+
         subject = Metadata(record, via="json_feed_item")
         record = JSON.loads(subject.write(to="inveniordm"))
 
         # remove publisher field, currently not used with InvenioRDM
         record = py_.omit(record, "metadata.publisher")
-
-        url = "{environ['QUART_INVENIORDM_API']}/api/records"
+        
+        # create draft record
+        url = f"{environ['QUART_INVENIORDM_API']}/api/records"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         response = httpx.post(url, headers=headers, json=record, timeout=10)
-        
+
         # return error if record was not created
         if response.status_code != 201:
+            print(response.json())
             return response.json()
 
         invenio_id = response.json()["id"]
-        print(f"created draft record invenio_id {invenio_id} for guid {guid}")
-        
-        # add draft record to blog community
-        data = {
-            "communities": [
-                {"id": community_id},
-            ]
-        }
-        url = "{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/communities"
-        response = httpx.post(url, headers=headers, json=data, timeout=10)
+
+        # publish draft record
+        url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft/actions/publish"
+        headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
+        response = httpx.post(url, headers=headers, timeout=10)
         print(response.status_code)
-        print(response.json())
-        if response.status_code != 201:
-            return response.json()
+        if response.status_code != 202:
+            print(response.json())
+
+        # add draft record to blog community
+        add_record_to_community(invenio_id, community_id)
 
         # update rogue scholar database with InvenioRDM record id (invenio_id) if record was created
         post_to_update = (
@@ -1241,22 +1270,59 @@ def create_draft_record(record, guid: str, community_id: str):
         return None
 
 
-def update_draft_record(record, guid: str, invenio_id: str):
-    """Update InvenioRDM draft record."""
+def update_record(record, invenio_id: str, community_id: str):
+    """Update InvenioRDM record."""
     try:
         subject = Metadata(record, via="json_feed_item")
         record = JSON.loads(subject.write(to="inveniordm"))
 
         # remove publisher field, currently not used with InvenioRDM
         record = py_.omit(record, "metadata.publisher")
-
+        
+        # create draft record from published record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
-        response = httpx.put(url, headers=headers, json=record, timeout=10)
-        if response.status_code == 200:
-            print(f"updated record invenio_id {invenio_id} for guid {guid}")
-        else:
+        response = httpx.post(url, headers=headers, timeout=10)
+        if response.status_code != 200:
             print(response.json())
+
+        # update draft record
+        url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}"
+        headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
+        response = httpx.put(url, headers=headers, json=record, timeout=10)
+        if response.status_code != 200:
+            print(response.json())
+
+        # publish draft record
+        url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft/actions/publish"
+        headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
+        response = httpx.post(url, headers=headers, timeout=10)
+        print(response.status_code)
+        if response.status_code != 202:
+            print(response.json())
+            
+        # add draft record to blog community
+        add_record_to_community(invenio_id, community_id)
+
+        return response
+    except Exception as error:
+        print(error)
+        return None
+
+
+def add_record_to_community(invenio_id: str, community_id: str):
+    """Add record to community."""
+    try:
+        data = {
+            "communities": [
+                {"id": community_id},
+            ]
+        }
+        url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/communities"
+        headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
+        response = httpx.post(url, headers=headers, json=data, timeout=10)
+        print(response.status_code)
+        print(response.json())
         return response
     except Exception as error:
         print(error)
