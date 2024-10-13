@@ -1243,7 +1243,6 @@ def create_record(record, guid: str, community_id: str):
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft/actions/publish"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         response = httpx.post(url, headers=headers, timeout=10)
-        print(response.status_code)
         if response.status_code != 202:
             print(response.json())
 
@@ -1297,7 +1296,6 @@ def update_record(record, invenio_id: str, community_id: str):
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft/actions/publish"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         response = httpx.post(url, headers=headers, timeout=10)
-        print(response.status_code)
         if response.status_code != 202:
             print(response.json())
             
@@ -1321,8 +1319,6 @@ def add_record_to_community(invenio_id: str, community_id: str):
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/communities"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         response = httpx.post(url, headers=headers, json=data, timeout=10)
-        print(response.status_code)
-        print(response.json())
         return response
     except Exception as error:
         print(error)
