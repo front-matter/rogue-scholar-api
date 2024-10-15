@@ -118,7 +118,6 @@ async def extract_all_posts_by_blog(
             .execute()
         )
         blog = response.data
-        print(f"Extracting posts from {blog['slug']}.")
         if not blog:
             return {}
         if page == 1:
