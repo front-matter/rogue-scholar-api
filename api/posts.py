@@ -1202,10 +1202,8 @@ def upsert_single_post(post):
         # if InvenioRDM record exists, update it, otherwise create it
         # The invenio_id has not been added for some posts
         if invenio_id:
-            print(f"updating record invenio_id {invenio_id} for guid {guid}")
             update_record(record.data, invenio_id, community_id)
         else:
-            print(f"creating record for guid {guid}")
             create_record(record.data, guid, community_id)
 
         return post_to_update.data[0]
