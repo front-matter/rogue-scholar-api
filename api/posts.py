@@ -1286,7 +1286,7 @@ def update_record(record, invenio_id: str, community_id: str):
             print(response.json())
 
         # update draft record
-        url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}"
+        url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         response = httpx.put(url, headers=headers, json=record, timeout=10)
         if response.status_code != 200:
