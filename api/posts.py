@@ -1721,18 +1721,21 @@ def get_urls(content_html: str):
         return []
 
 
-def validate_funding(funding: dict) -> Optional[dict]:
+def validate_funding(funding: list) -> Optional[list]:
     """Validate funding."""
-    if not funding.get("award", None):
-        return None
-    if not py_.get(funding, "award.number"):
-        return None
-    if not py_.get(funding, "award.number"):
-        award = get_award(py_.get(funding, "award.number"))
+    def format_funding(item):
+        """Format funding."""
+        if not item.get("award", None):
+            return None
+        if not item.get("award", None).get("number", None):
+            return None
+        award = get_award(item.get("award", None).get("number", None))
         if not award:
-            return py_.omit(funding, "award")
-        funding["award"] = award
-    return funding
+            return py_.omit(item, "award")
+        item["award"] = award
+        return item
+
+    return [format_funding(i) for i in funding]
 
 
 def get_award(id: Optional[str]) -> Optional[dict]:
