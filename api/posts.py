@@ -1,10 +1,11 @@
 """Posts module."""
 
-from os import environ
+from os import environ, path
 from typing import Optional
 from furl import furl
 import httpx
 import json as JSON
+import yaml
 import asyncio
 import re
 import pydash as py_
@@ -1223,7 +1224,13 @@ def create_record(record, guid: str, community_id: str):
 
         # remove publisher field, currently not used with InvenioRDM
         record = py_.omit(record, "metadata.publisher")
-        
+
+        # validate funding, lookup award metadata if needed
+        if py_.get(record, "metadata.funding"):
+            record["metadata"]["funding"] = validate_funding(
+                py_.get(record, "metadata.funding")
+            )
+
         # create draft record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
@@ -1257,8 +1264,8 @@ def create_record(record, guid: str, community_id: str):
             .eq("guid", guid)
             .execute()
         )
-        if len(post_to_update.data) > 0:
-            print(f"created record invenio_id {invenio_id} for guid {guid}")
+        if len(post_to_update.data) == 0:
+            print(f"error creating record invenio_id {invenio_id} for guid {guid}")
 
         return response
     except Exception as error:
@@ -1274,7 +1281,13 @@ def update_record(record, invenio_id: str, community_id: str):
 
         # remove publisher field, currently not used with InvenioRDM
         record = py_.omit(record, "metadata.publisher")
-        
+
+        # validate funding, lookup award metadata if needed
+        if py_.get(record, "metadata.funding"):
+            record["metadata"]["funding"] = validate_funding(
+                py_.get(record, "metadata.funding")
+            )
+
         # create draft record from published record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
@@ -1295,7 +1308,7 @@ def update_record(record, invenio_id: str, community_id: str):
         response = httpx.post(url, headers=headers, timeout=10)
         if response.status_code != 202:
             print(response.json())
-            
+
         # add draft record to blog community
         add_record_to_community(invenio_id, community_id)
 
@@ -1706,3 +1719,29 @@ def get_urls(content_html: str):
         print(e)
         print(traceback.format_exc())
         return []
+
+
+def validate_funding(funding: dict) -> Optional[dict]:
+    """Validate funding."""
+    if not funding.get("award", None):
+        return None
+    if not py_.get(funding, "award.number"):
+        return None
+    if not py_.get(funding, "award.number"):
+        award = get_award(py_.get(funding, "award.number"))
+        if not award:
+            return py_.omit(funding, "award")
+        funding["award"] = award
+    return funding
+
+
+def get_award(id: Optional[str]) -> Optional[dict]:
+    """Get award from award ID"""
+    file_path = path.join(path.dirname(__file__), "../pandoc/awards.yaml")
+    with open(file_path, encoding="utf-8") as file:
+        string = file.read()
+        awards = yaml.safe_load(string)
+    award = py_.find(awards, lambda x: x["id"] == id)
+    if id is None or award is None:
+        return None
+    return award

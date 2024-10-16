@@ -5,13 +5,13 @@ from api.posts import (
     extract_all_posts,
     extract_all_posts_by_blog,
     upsert_single_post,
-    upsert_single_record,
     get_urls,
     get_references,
     get_relationships,
     # get_title,
     get_summary,
     get_image,
+    validate_funding,
 )
 
 
@@ -1198,3 +1198,42 @@ def test_get_summary():
     result = get_summary(summary)
     assert len(result) <= 450
     assert result.endswith("human-ish prose.")
+
+
+def test_validate_funding():
+    """Validate funding"""
+    funding = {
+        "funder": {"id": "00k4n6c32"},
+        "id": "777523",
+    }
+    result = validate_funding(funding)
+    assert result == {
+        "acronym": "FREYA",
+        "funder": {"id": "00k4n6c32"},
+        "id": "777523",
+        "identifiers": [
+            {"identifier": "https://doi.org/10.3030/777523", "scheme": "doi"}
+        ],
+        "number": "777523",
+        "title": {
+            "en": "Connected Open Identifiers for Discovery, Access and Use of "
+            "Research Resources"
+        },
+    }
+
+
+def test_validate_funding_award_missing():
+    """Validate funding award not found"""
+    funding = {
+        "funder": {"id": "00k4n6c32", "name": "European Commission"},
+        "id": "9999",
+    }
+    result = validate_funding(funding)
+    assert result is None
+
+
+def test_get_award_none():
+    """Validate funding award None"""
+    funding = {"funder": {"id": "00k4n6c32", "name": "European Commission"}}
+    result = validate_funding(funding)
+    assert result is None
