@@ -900,13 +900,13 @@ test = ["pytest"]
 
 [[package]]
 name = "commonmeta-py"
-version = "0.42"
+version = "0.43"
 description = "Library for conversions to/from the Commonmeta scholarly metadata format"
 optional = false
 python-versions = "<4.0.0,>=3.9"
 files = [
-    {file = "commonmeta_py-0.42-py3-none-any.whl", hash = "sha256:7f639a606da2378b661434a5bf98211a345ef0c8edb75e02a35963a5e41cd0e5"},
-    {file = "commonmeta_py-0.42.tar.gz", hash = "sha256:8b873f9e2e336beca804aac29b5bfd53e1bae93758aac0e9fc6887ccd22c96a4"},
+    {file = "commonmeta_py-0.43-py3-none-any.whl", hash = "sha256:7cd4a2ef5cee58bc043eae93489a13aeb3a5f1e3195560076dfe3ea1225310ad"},
+    {file = "commonmeta_py-0.43.tar.gz", hash = "sha256:73ac617a71ea9b1a24e8bc2e216fb812af8f0917ce0dc3f072cd76b0608ca9a6"},
 ]
 
 [package.dependencies]
@@ -1045,17 +1045,18 @@ test = ["flake8", "isort", "pytest"]
 
 [[package]]
 name = "datacite"
-version = "1.1.4"
+version = "1.2.0"
 description = "\"A Python client for DataCite MDS and REST APIs.\""
 optional = false
 python-versions = "*"
 files = [
-    {file = "datacite-1.1.4-py2.py3-none-any.whl", hash = "sha256:139ce49b0d995ee346bffaf3d884a4ed0674696372a7079c7e3a092d82953156"},
-    {file = "datacite-1.1.4.tar.gz", hash = "sha256:1850edcca821d8ac58b441f09780f9ce6f93df832b6da9039d3bb9c0226e3b5d"},
+    {file = "datacite-1.2.0-py2.py3-none-any.whl", hash = "sha256:be2731b189ddc558a42efcd402268f03edbc206fe1030c80147c1c48cc7552a7"},
+    {file = "datacite-1.2.0.tar.gz", hash = "sha256:e506dc6ce62bd930d6980b32c07c3186f3dfc8d327cd2f817b8423e4f9dd171d"},
 ]
 
 [package.dependencies]
 idutils = ">=1.0.0"
+importlib-metadata = ">=6.11.0"
 jsonschema = ">=3.0.0"
 lxml = ">=4.5.2"
 requests = ">=2.12.2"
@@ -6122,4 +6123,4 @@ test = ["pytest"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "764645b8ad8909084749e8991a358cb3fcbefba412b66d3c7526885b40c616a6"
+content-hash = "6280f6010079247a07f26a7a8dca31ac63b55085208fa47ce9c1b6569c592093"
