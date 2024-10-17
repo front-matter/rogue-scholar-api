@@ -900,13 +900,13 @@ test = ["pytest"]
 
 [[package]]
 name = "commonmeta-py"
-version = "0.41"
+version = "0.42"
 description = "Library for conversions to/from the Commonmeta scholarly metadata format"
 optional = false
 python-versions = "<4.0.0,>=3.9"
 files = [
-    {file = "commonmeta_py-0.41-py3-none-any.whl", hash = "sha256:f4a5c4a0fc4c3042dd4e886885138c7f25cdf6a32733c74f4579064eac0aedb0"},
-    {file = "commonmeta_py-0.41.tar.gz", hash = "sha256:1426e42ba8f045ea4c2b8b9e91ac9b5ce6c1e07ffc9ac8b7e38d9cc6ba571929"},
+    {file = "commonmeta_py-0.42-py3-none-any.whl", hash = "sha256:7f639a606da2378b661434a5bf98211a345ef0c8edb75e02a35963a5e41cd0e5"},
+    {file = "commonmeta_py-0.42.tar.gz", hash = "sha256:8b873f9e2e336beca804aac29b5bfd53e1bae93758aac0e9fc6887ccd22c96a4"},
 ]
 
 [package.dependencies]
@@ -1664,13 +1664,13 @@ all = ["flake8 (>=7.1.1)", "mypy (>=1.11.2)", "pytest (>=8.3.2)", "ruff (>=0.6.2
 
 [[package]]
 name = "idutils"
-version = "1.2.1"
+version = "1.4.0"
 description = "\"Small library for persistent identifiers used in scholarly communication.\""
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "idutils-1.2.1-py2.py3-none-any.whl", hash = "sha256:908aabada07bb26e5e8f2d78ff222611b493cd721a05f1451f96d373a48f504d"},
-    {file = "idutils-1.2.1.tar.gz", hash = "sha256:d09220edd893c3164837890f0d1da303111a16a231dd9dd331c64d3d6f2b52cb"},
+    {file = "idutils-1.4.0-py2.py3-none-any.whl", hash = "sha256:0370b68a0b013dfe7b1a5158cb2eda740073a75d3e32c0ba435287cf9ff99715"},
+    {file = "idutils-1.4.0.tar.gz", hash = "sha256:c9f6d97f4f46420ebf6f8a56707181d29d2708b28e79d1e07c2f19b740e720b0"},
 ]
 
 [package.dependencies]
@@ -1678,7 +1678,7 @@ isbnlib = ">=3.10.8"
 six = ">=1.10"
 
 [package.extras]
-tests = ["pytest-black (>=0.3.0,<0.3.10)", "pytest-cache (>=1.0)", "pytest-invenio (>=1.4.0)", "pytest-runner (>=2.6.2)", "sphinx (>=4.5)"]
+tests = ["pytest-black-ng (>=0.4.0)", "pytest-cache (>=1.0)", "pytest-invenio (>=1.4.0)", "pytest-runner (>=2.6.2)", "sphinx (>=4.5)"]
 
 [[package]]
 name = "imagesize"
@@ -3960,17 +3960,17 @@ files = [
 
 [[package]]
 name = "pywinpty"
-version = "2.0.13"
+version = "2.0.14"
 description = "Pseudo terminal support for Windows from Python."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "pywinpty-2.0.13-cp310-none-win_amd64.whl", hash = "sha256:697bff211fb5a6508fee2dc6ff174ce03f34a9a233df9d8b5fe9c8ce4d5eaf56"},
-    {file = "pywinpty-2.0.13-cp311-none-win_amd64.whl", hash = "sha256:b96fb14698db1284db84ca38c79f15b4cfdc3172065b5137383910567591fa99"},
-    {file = "pywinpty-2.0.13-cp312-none-win_amd64.whl", hash = "sha256:2fd876b82ca750bb1333236ce98488c1be96b08f4f7647cfdf4129dfad83c2d4"},
-    {file = "pywinpty-2.0.13-cp38-none-win_amd64.whl", hash = "sha256:61d420c2116c0212808d31625611b51caf621fe67f8a6377e2e8b617ea1c1f7d"},
-    {file = "pywinpty-2.0.13-cp39-none-win_amd64.whl", hash = "sha256:71cb613a9ee24174730ac7ae439fd179ca34ccb8c5349e8d7b72ab5dea2c6f4b"},
-    {file = "pywinpty-2.0.13.tar.gz", hash = "sha256:c34e32351a3313ddd0d7da23d27f835c860d32fe4ac814d372a3ea9594f41dde"},
+    {file = "pywinpty-2.0.14-cp310-none-win_amd64.whl", hash = "sha256:0b149c2918c7974f575ba79f5a4aad58bd859a52fa9eb1296cc22aa412aa411f"},
+    {file = "pywinpty-2.0.14-cp311-none-win_amd64.whl", hash = "sha256:cf2a43ac7065b3e0dc8510f8c1f13a75fb8fde805efa3b8cff7599a1ef497bc7"},
+    {file = "pywinpty-2.0.14-cp312-none-win_amd64.whl", hash = "sha256:55dad362ef3e9408ade68fd173e4f9032b3ce08f68cfe7eacb2c263ea1179737"},
+    {file = "pywinpty-2.0.14-cp313-none-win_amd64.whl", hash = "sha256:074fb988a56ec79ca90ed03a896d40707131897cefb8f76f926e3834227f2819"},
+    {file = "pywinpty-2.0.14-cp39-none-win_amd64.whl", hash = "sha256:5725fd56f73c0531ec218663bd8c8ff5acc43c78962fab28564871b5fce053fd"},
+    {file = "pywinpty-2.0.14.tar.gz", hash = "sha256:18bd9529e4a5daf2d9719aa17788ba6013e594ae94c5a0c27e83df3278b0660e"},
 ]
 
 [[package]]
@@ -5286,13 +5286,13 @@ files = [
 
 [[package]]
 name = "tox"
-version = "4.22.0"
+version = "4.23.0"
 description = "tox is a generic virtualenv management and test command line tool"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "tox-4.22.0-py3-none-any.whl", hash = "sha256:03734d9a9ac138cd1a898a372fb1b8079e2728618ae06dc37cbf3686cfb56eea"},
-    {file = "tox-4.22.0.tar.gz", hash = "sha256:acc6c627cb3316585238d55d2b633e132fea1bdb01b9d93b56bce7caea6ae73d"},
+    {file = "tox-4.23.0-py3-none-any.whl", hash = "sha256:46da40afb660e46238c251280eb910bdaf00b390c7557c8e4bb611f422e9db12"},
+    {file = "tox-4.23.0.tar.gz", hash = "sha256:a6bd7d54231d755348d3c3a7b450b5bf6563833716d1299a1619587a1b77a3bf"},
 ]
 
 [package.dependencies]
@@ -6122,4 +6122,4 @@ test = ["pytest"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "ccdc476bce44ba0871081d8ae69679066cd08253f369cf3de3fb0549796de209"
+content-hash = "764645b8ad8909084749e8991a358cb3fcbefba412b66d3c7526885b40c616a6"
