@@ -3149,4 +3149,856 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Cabstract%2Ccontent_text%2Creference&filter_by=status%3A%21%3D%5Bpending%5D+%26%26+published_at%3A%3E%3D+0+%26%26+published_at%3A%3C%3D+1729246176+%26%26+tags%3A%3D%5Bopen+access%5D&sort_by=published_at%3Adesc&per_page=10&page=1
+  response:
+    body:
+      string: "{\"facet_counts\":[],\"found\":954,\"hits\":[{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22141/20231105110201/https://blogs.fu-berlin.de/open-access-berlin/2024/10/10/laenderdossiers\",\"authors\":[{\"name\":\"Linda
+        Martin\"}],\"blog_name\":\"Open Access Blog Berlin\",\"blog_slug\":\"oaberlin\",\"category\":\"otherHumanities\",\"content_text\":\"Das
+        OABB hat in dieser Woche die zweite Version der L\xE4nderdossiers\\nver\xF6ffentlicht.
+        Sie stellen in strukturierter Form die strategischen\\nEntwicklungen auf Ebene
+        der deutschen Bundesl\xE4ndern dar und zeigen\\nverschiedene Aktivit\xE4ten
+        sowie Good Practices auf.\\n\\nDie L\xE4nderdossiers sind als\\n[PubPub-Collection\_](https://oabb.pubpub.org/oa-atlas)verf\xFCgbar.
+        Sie\\numfassen die Dossiers der einzelnen Bundesl\xE4nder, des BMBF sowie
+        eine\\n[Einleitung](https://doi.org/10.21428/986c5d43.a5122136) und eine\\nZweitver\xF6ffentlichung
+        der [gemeinsamen Leitlinien von Bund und\\nL\xE4ndern](https://doi.org/10.21428/986c5d43.80809de4).
+        Die\\nVer\xF6ffentlichung auf PubPub erm\xF6glicht die Kommentierung der Texte.
+        Die\\nSammlung bildet die Fortsetzung zur Brosch\xFCre \u201E[Open Access
+        Atlas\\nDeutschland: Status Quo in Bund und\\nL\xE4ndern](https://doi.org/10.5281/zenodo.6472672)\\\"
+        aus dem Jahre 2022.\\nAuch in Zukunft sollen die L\xE4nderdossiers regelm\xE4\xDFig
+        aktualisiert\\nwerden.\\n\\n\_\\n\\n<figure id=\\\"attachment_2781\\\" class=\\\"wp-caption
+        alignnone\\\"\\naria-describedby=\\\"caption-attachment-2781\\\" style=\\\"width:
+        431px\\\">\\n<img\\nsrc=\\\"https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/oaatlas-dossiers-300x257.png\\\"\\nclass=\\\"wp-image-2781\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/oaatlas-dossiers-300x257.png
+        300w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/oaatlas-dossiers-768x658.png
+        768w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/oaatlas-dossiers-250x214.png
+        250w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/oaatlas-dossiers-550x471.png
+        550w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/oaatlas-dossiers-800x685.png
+        800w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/oaatlas-dossiers-210x180.png
+        210w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/oaatlas-dossiers-350x300.png
+        350w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/oaatlas-dossiers-584x500.png
+        584w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/oaatlas-dossiers.png
+        939w\\\"\\nsizes=\\\"(max-width: 431px) 85vw, 431px\\\" width=\\\"431\\\"
+        height=\\\"369\\\" />\\n<figcaption>Screenshot L\xE4nderdossiers des oa.atlas
+        auf\\nPubPub</figcaption>\\n</figure>\\n\\nDie Dossiers wurden im Rahmen des
+        BMBF-gef\xF6rderten Verbundprojektes\\nopen-access.network erstellt und eng
+        mit den jeweils zust\xE4ndigen\\nAnsprechpersonen in den Wissenschaftsministerien
+        abgestimmt. Gemeinsam\\nmit den Informationen zu Strategien und Services der
+        wissenschaftlichen\\nInstitutionen, die \xFCber das [Portal von\\nopen-access.network](https://open-access.network/services/oaatlas)\\nabgerufen
+        werden k\xF6nnen, bilden die L\xE4nderdossiers den\\n[oa.atlas](https://doi.org/10.21428/986c5d43.54fbd167).\\n\\n\_\\n\",\"doi\":\"https://doi.org/10.59350/hsm2y-2wy42\",\"guid\":\"https://blogs.fu-berlin.de/open-access-berlin/?p=2776\",\"id\":\"c7fa0021-0c22-4fc5-b9f3-5c6ef30282d5\",\"image\":\"https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/oaatlas_visual_WebsiteMaster_double_trouble-41712600307062-e1728570281104.png\",\"language\":\"de\",\"published_at\":1728570110,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Das
+        OABB hat in dieser Woche die zweite Version der L\xE4nderdossiers ver\xF6ffentlicht.
+        Sie stellen in strukturierter Form die strategischen Entwicklungen auf Ebene
+        der deutschen Bundesl\xE4ndern dar und zeigen verschiedene Aktivit\xE4ten
+        sowie Good Practices auf. Die L\xE4nderdossiers sind als PubPub-Collection\_verf\xFCgbar.\",\"tags\":[\"Aktuelles\",\"Bericht\",\"Wissenschaftspolitik\",\"Oa.atlas\",\"Open
+        Access\"],\"title\":\"Open Access in Bund und L\xE4ndern: L\xE4nderdossiers
+        des oa.atlas in zweiter Version ver\xF6ffentlicht\",\"updated_at\":1728570319,\"url\":\"https://blogs.fu-berlin.de/open-access-berlin/2024/10/10/laenderdossiers\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22141/20231105110201/https://blogs.fu-berlin.de/open-access-berlin/2024/10/10/quo-vadis-4-ki-und-open-access\",\"authors\":[{\"name\":\"Maxi
+        Kindling\",\"url\":\"https://orcid.org/0000-0002-0167-0466\"}],\"blog_name\":\"Open
+        Access Blog Berlin\",\"blog_slug\":\"oaberlin\",\"category\":\"otherHumanities\",\"content_text\":\"####
+        3. Veranstaltung in der Reihe \u201EQuo vadis offene Wissenschaft in Berlin
+        und Brandenburg\\\" am 18. DEZEMBER 2024 {#veranstaltung-in-der-reihe-quo-vadis-offene-wissenschaft-in-berlin-und-brandenburg-am-18.-dezember-2024}\\n\\n**Termin:**
+        18. Dezember, 15:00--16:30 Uhr  \\n**Ort:** Online via Zoom  \\n**Veranstaltende:**
+        TH Wildau\\n\\nEs handelt sich bei dieser Veranstaltung um die dritte in der
+        Reihe [Quo\\nvadis offene Wissenschaft in Berlin und Brandenburg\\n2024/25.](https://blogs.fu-berlin.de/open-access-berlin/2024/08/02/quo-vadis-4/)\\n\\nFrei
+        zug\xE4ngliche Forschungsdaten bis hin zu Publikationen erlauben unter\\ngewissen
+        Creative-Commens-Bedingungen (CC BY, CC BY-SA oder CC0) auch\\ndie Verarbeitung
+        der Informationen mit Technologien der K\xFCnstlichen\\nIntelligenz. Gleichfalls
+        ist Bibliotheken bei konsortial bis\\nlizenzierten Produkten zugestanden,
+        im Kontext des Text- und Dataminings\\neine entsprechende technologiegest\xFCtzte
+        Verarbeitung\\nqualit\xE4tsgesicherter Informationen durchzuf\xFChren (sog.
+        TDM-Schranke bzw.\\nseit M\xE4rz 2018 in Kraft getretene Gesetz zur Angleichung
+        des\\nUrheberrechts an die aktuellen Erfordernisse der Wissensgesellschaft\\n(UrhWissG),
+        speziell [\xA7\\n44b](https://dejure.org/gesetze/UrhG/44b.html \\\"\xA7 44b
+        UrhG: Text und Data Mining\\\")\\nund [60d\\nUrhG](https://dejure.org/gesetze/UrhG/60d.html
+        \\\"\xA7 60d UrhG: Text und Data Mining f\xFCr Zwecke der wissenschaftlichen
+        Forschung\\\")).\\nHinzu kommen M\xF6glichkeiten, urheberrechtlich gesch\xFCtzte
+        Werke f\xFCr\\nKI-Systeme so zu ver\xE4ndern, dass eine weitere wissenschaftlichee\\nWertsch\xF6pfung
+        im forschungsgeleiteten Streben und Erkenntnisinteresse\\nm\xF6glich ist --
+        wenn die TDM-Schranke nicht anwendbar ist, durch\\nabgeleitete Textformate
+        im Rahmen der freien Benutzung nach [\xA7 23 Abs. 1\\nS. 2\\nUrhG](https://dejure.org/gesetze/UrhG/23.html
+        \\\"\xA7 23 UrhG: Bearbeitungen und Umgestaltungen\\\")\\nund damit ein Werk
+        einen hinreichenden Abstand zu vorbestehendem Werk\\nwahrt. Sogenannte abgeleitete
+        Texte bieten neue M\xF6glichkeiten der\\nAnalyse.\\n\\nAus diesen drei Aspekten
+        erwachsen Bibliotheken neue Aufgaben im Kontext\\nder Digital Humanities,
+        es kommt ihnen eine besondere Rolle zu und sie\\nsind aufgerufen, sich mit
+        ihren Ressourcen und M\xF6glichkeiten darauf\\neinzustellen. Diese neue Rolle
+        samt ihrer Limitierungen soll in diesem\\nPanel diskutiert werden.\\n\\n##
+        Programm\\n\\n**15:00--15:10 Uhr: Begr\xFC\xDFung durch Frank Seeliger (TH
+        Wildau)**\\n\\n### Teilnehmende an der Diskussion\\n\\n- Elke Brehm (TIB,
+        angefragt)\\n- Fabian Rack (FIZ Karlsruhe, iRights.Law)\\n- Christof Sch\xF6ch
+        (Universit\xE4t Trier)\\n\\n**Moderiert von**: Frank Seeliger (TH Wildau)\\n\\n###
+        Biographische Informationen\\n\\nElke Brehm ist Fachreferentin Rechtswissenschaften,
+        stellvertretende\\nJustiziarin und Datenschutzbeauftragte an der TIB --\\nLeibniz-Informationszentrum
+        Technik Naturwissenschaften \\\\|\\nUniversit\xE4tsbibliothek.\\n\\nFabian
+        Rack ist Rechtsanwalt und wissenschaftlicher Mitarbeiter bei FIZ\\nKarlsruhe
+        -- Leibniz Institut f\xFCr Informationsinfrastruktur im Bereich\\nImmaterialg\xFCterrechte.
+        Seit M\xE4rz 2020 ist er assoziierter Partner bei\\niRights.Law.\\n\\nChristof
+        Sch\xF6ch ist [Professor f\xFCr Digital\\nHumanities](https://www.uni-trier.de/index.php?id=64027){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} an der Universit\xE4t Trier und\\nwissenschaftlicher Ko-Direktor
+        des [Trier Center for Digital\\nHumanities](http://kompetenzzentrum.uni-trier.de/de/){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"}. Zweiter Vorsitzender des Verbands [Digital\\nHumanities im
+        deutschsprachigen Raum](http://dig-hum.de){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} (DHd).\\n\",\"doi\":\"https://doi.org/10.59350/9y488-ycm47\",\"guid\":\"https://blogs.fu-berlin.de/open-access-berlin/?p=2762\",\"id\":\"96fcf340-a922-4e04-ac78-53db8c5c8d38\",\"language\":\"de\",\"published_at\":1728547930,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"3.
+        Veranstaltung in der Reihe \u201EQuo vadis offene Wissenschaft in Berlin und
+        Brandenburg\u201C am 18. DEZEMBER 2024\\n<strong>\\n Termin:\\n</strong>\\n18.
+        Dezember, 15:00\u201316:30 Uhr\\n<strong>\\n Ort:\\n</strong>\\nOnline via
+        Zoom\\n<strong>\\n Veranstaltende:\\n</strong>\\nTH Wildau  Es handelt sich
+        bei dieser Veranstaltung um die dritte in der Reihe Quo vadis offene Wissenschaft
+        in Berlin und Brandenburg 2024/25.  Frei zug\xE4ngliche Forschungsdaten bis
+        hin zu Publikationen erlauben\",\"tags\":[\"Veranstaltungshinweise\",\"OpenBBB\",\"Open
+        Access\",\"K\xFCnstliche Intelligenz\",\"Artificial Intelligence\"],\"title\":\"18.
+        Dezember 2024: AI, Open Access and beyond: Konkrete bis strategische Ableitungen
+        f\xFCr Bibliotheken (3. Veranstaltung in der Reihe Quo vadis offene Wissenschaft
+        in Berlin und Brandenburg 2024/25)\",\"updated_at\":1728630110,\"url\":\"https://blogs.fu-berlin.de/open-access-berlin/2024/10/10/quo-vadis-4-ki-und-open-access\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Ulrich
+        Herb\",\"url\":\"https://orcid.org/0000-0002-3500-3119\"}],\"blog_name\":\"Sci:Debug\",\"blog_slug\":\"scidebug\",\"category\":\"otherSocialSciences\",\"content_text\":\"In
+        September, a journalistic article on Diamond Open Access (by Wolfgang\\nBenedikt
+        Schmal and myself) and a preprint on Transformative Open Access\\nAgreements
+        (by Laura Rothfritz, Wolfgang Benedikt Schmal, and myself)\\nwere published.\\n\\n###
+        On Diamond Open Access & Transformative Agreements {#on-diamond-open-access-transformative-agreements
+        .wp-block-heading}\\n\\nIn 2023, 56% of research articles were published as
+        Open Access, with\\n42% in Gold Open Access (OA) journals and 14% in hybrid
+        journals,\\nmarking a significant rise since 2018. Despite this growth, many\\nadvocates
+        of OA are pushing for Diamond Open Access, where publications\\nare free for
+        both authors and readers. Why do they think a turn to\\nDiamond OA is so important?
+        For which problem should Diamond OA be the\\nsolution?\\n\\nOn the one hand,
+        critics argue that Gold OA has created barriers for\\npoorer researchers and
+        eroded editorial standards. On the other hand,\\ntransformative agreements
+        have not reduced the power of commercial\\npublishers -- this is also the
+        main result of our paper on\\nTransformative OA Agreements (TAs).\\n\\nTAs
+        between academic publishers and research institutions are\\nwidespread, with
+        the ESAC Initiative documenting over 1,000 contracts in\\nits database. By
+        web-scraping this data, we utilised the ESAC data and\\nconducted an in-depth
+        analysis using both qualitative and quantitative\\nmethods. Our findings suggest
+        that research institutions are effectively\\n\\\"trapped\\\" in these agreements.
+        Rather than facilitating a transition to\\nfull Open Access, the current system
+        keeps academia in a hybrid model,\\nwhich strengthens the market power of
+        traditional publishers, reduces\\ncompetition, and increases costs for libraries
+        and universities.\\n\\nBut can Diamond OA really overcome these weaknesses
+        of Gold OA and\\nTAs/hybrid OA and provide both comprehensive and inclusive
+        Open Access\\nthat is attractive to researchers? Benedikt Schmal and I are
+        not so\\neuphoric in this regard and ask whether Diamond OA faces challenges
+        that\\nhave been insufficiently discussed so far, such as misconceptions about\\nits
+        costs and sustainability.\\n\\nReferences:\\n\\nLaura Rothfritz, Wolfgang
+        Benedikt Schmal, Ulrich Herb (2024). Trapped\\nin Transformative Agreements?
+        A Multifaceted Analysis of \\\\>1,000\\nContracts (arXiv:2409.20224).\\narXiv.\_[http://arxiv.org/abs/2409.20224](http://arxiv.org/abs/2409.20224){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"}\\n\\nUlrich Herb & Wolfgang Benedikt Schmal (2024).\_[The benefits
+        of diamond\\nare not crystal\\nclear](https://www.researchprofessionalnews.com/rr-news-europe-views-of-europe-2024-9-the-benefits-of-diamond-are-not-crystal-clear/){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"}. Researchprofessional News, 26.09.2024\\n\",\"doi\":\"https://doi.org/10.59350/76fyk-ph803\",\"guid\":\"https://scidebug.com/?p=7290\",\"id\":\"2b11dd4c-93fd-4716-9717-56ffc8e8a789\",\"language\":\"en\",\"published_at\":1727798907,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"In
+        September, a journalistic article on Diamond Open Access (by Wolfgang Benedikt
+        Schmal and myself) and a preprint on Transformative Open Access Agreements
+        (by Laura Rothfritz, Wolfgang Benedikt Schmal, and myself) were published.
+        On Diamond Open Access &amp;\",\"tags\":[\"Open Access\",\"ScholComm\",\"Diamond
+        Open Access\",\"Gold Open Access\",\"Open Access Transformation\"],\"title\":\"On
+        Diamond Open Access &amp; Transformative Agreements\",\"updated_at\":1727798912,\"url\":\"https://scidebug.com/2024/10/01/on-diamond-open-access-transformative-agreements\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22121/20231105105752/https://blog.dini.de/EPub_FIS/2024/09/30/stell-dir-vor-es-ist-dini-zertifizierung-und-alle-machen-mit\",\"authors\":[{\"name\":\"Arvid
+        Deppe\",\"url\":\"https://orcid.org/0000-0001-7190-9535\"}],\"blog_name\":\"Gemeinsamer
+        Blog der DINI AGs\",\"blog_slug\":\"epub_fis\",\"category\":\"socialScience\",\"content_text\":\"Alle?
+        Na gut, nicht alle. Aber doch 14 tapfere Open-Access-Expert\\\\*innen\\nfanden
+        sich am fr\xFChen Morgen des letzten Tages der [Open-Access-Tage\\n2024](https://doi.org/10.25798/s2sd-vn02)
+        ein, um gemeinsam den Antrag\\neines nordhessischen Repositoriums auf DINI-Zertifizierung
+        kritisch zu\\nbegutachten. Wie kam es dazu?\\n\\nDas [DINI-Zertifikat](https://dini.de/dienste-projekte/dini-zertifikat)\\nwird
+        seit 2004 mit dem Ziel herausgegeben, die Standardisierung von\\nOpen-Access-Publikationsdiensten
+        mit konkret formulierten Anforderungen\\nund Empfehlungen voranzutreiben.
+        Erarbeitet und weiterentwickelt werden\\ndie Kriterien von der DINI-AG Elektronisches
+        Publizieren\\n([E-Pub](https://dini.de/e-pub)). Der Kreis der Gutachtenden,
+        die die\\nZertifizierung vornehmen, setzt sich aus Mitgliedern der AG E-Pub
+        sowie\\nBetreibenden bereits zertifizierter Repositorien zusammen.\\n\\nObwohl
+        die Kriterien des Zertifikats offen sind und die Community auch\\nin ihre
+        Entwicklung einbezogen wird (vgl.\\n<https://doi.org/10.57689/DINI-BLOG.20220328>),
+        erh\xE4lt man als\\nBetreibende\\\\*r kaum Einblicke in den Prozess selbst,
+        sofern man ihn\\nnicht in der einen oder anderen Rolle durchl\xE4uft. Um dies
+        zu \xE4ndern und\\nBetreibenden von Open-Access-Publikationsdiensten praktisch
+        und\\nanschaulich Einblick in das DINI-Zertifizierungsverfahren zu geben,
+        fand\\nam 12.09.2024 der Workshop \u201ENichts wie ran -- DINI-Zertifizieren
+        zum\\nMitmachen\\\" statt (Folien siehe\\n[10.5281/zenodo.13754691](https://doi.org/10.5281/zenodo.13754691)).\\n\\nEinf\xFChrend
+        wurden die Teilnehmenden mit den Zielen und Strukturen des\\nZertifikats vertraut
+        gemacht. Die anschlie\xDFende Inspektion der\\nOAI-Schnittstelle anhand des
+        Validators\\n(<https://validator.dini.de/de/>) geschah noch gemeinsam, bevor
+        es dann\\nin Kleingruppen an die Arbeit ging: Die Teilnehmenden \xFCbernahmen
+        die\\nPerspektive der Gutachtenden und bewerteten den vorliegenden Antrag\\nhinsichtlich
+        der verschiedenen Kriteriengruppen. Wo n\xF6tig gaben\\nerfahrene Gutachter\\\\*innen
+        Hilfestellung und der Antragstellende\\nAntwort. Abschlie\xDFend wurden die
+        Entscheidungen der Gutachtenden zu den\\njeweiligen Kriterien in der gesamten
+        Gruppe besprochen. Hier zeigten\\nsich einerseits durch die Bank sehr pr\xE4zise,
+        informierte und\\nnachvollziehbare Urteile der Gruppen, andererseits wurde
+        deutlich, dass\\nes in vielen F\xE4llen nicht zu einem schnellen Ja oder Nein
+        kommt:\\nNachfragen, Erl\xE4uterungen, erg\xE4nzende Dokumente, Hinweise,\\nNachbesserungsbedarf
+        und Abw\xE4gung machen die Zertifizierung zu einem\\ndynamischen und dialogischen
+        Prozess sowohl zwischen den Gutachtenden\\nuntereinander, als auch zwischen
+        ihnen und der antragstellenden\\nInstitution. Die kritische Auseinandersetzung
+        mit den Standards und der\\neigenen Infrastruktur macht gewisserma\xDFen den
+        Weg zum Ziel.\\n\\n<figure class=\\\"wp-block-image size-full\\\">\\n<a\\nhref=\\\"https://blog.dini.de/EPub_FIS/wp-content/uploads/2024/09/ablauf-zertifizierung2.png\\\"><img\\nsrc=\\\"https://blog.dini.de/EPub_FIS/wp-content/uploads/2024/09/ablauf-zertifizierung2.png\\\"\\nclass=\\\"wp-image-3551\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://blog.dini.de/EPub_FIS/wp-content/uploads/2024/09/ablauf-zertifizierung2.png
+        1020w, https://blog.dini.de/EPub_FIS/wp-content/uploads/2024/09/ablauf-zertifizierung2-300x169.png
+        300w, https://blog.dini.de/EPub_FIS/wp-content/uploads/2024/09/ablauf-zertifizierung2-768x432.png
+        768w\\\"\\nsizes=\\\"(max-width: 1020px) 100vw, 1020px\\\" width=\\\"1020\\\"\\nheight=\\\"574\\\"
+        /></a>\\n<figcaption><em>Abb 1: Typischer Ablauf einer\\nDINI-Zertifizierung</em></figcaption>\\n</figure>\\n\\nDie
+        Workshopverantwortlichen bedanken sich ganz herzlich bei allen\\nTeilnehmer\\\\*innen
+        f\xFCr das Interesse, die engagierte Mitarbeit und das\\nwertvolle Feedback.
+        (Wir wissen eure Anwesenheit sehr zu sch\xE4tzen --\\nschlie\xDFlich war die
+        Programmkonkurrenz mit der gleichzeitig\\nstattfindenden Podiumsdiskussion
+        \u201EPublish and pay or Perish?!\\\" nahezu\\n\xFCberm\xE4chtig.) Vielleicht
+        hat sogar die eine oder der andere durch diese\\nErfahrung Lust bekommen,
+        sich aktiv in der AG einzubringen.  \\nF\xFCr die AG ergaben die Diskussionen
+        wertvolle Hinweise etwa bez\xFCglich\\nder technischen Gestaltung des Fragebogens,
+        der Anforderungen an die\\nAusf\xFCllung der Antr\xE4ge und an ben\xF6tigte
+        Informationen und\\nHilfestellungen sowohl f\xFCr Gutachtende als auch Antragstellende,
+        die mit\\nSicherheit ihren Weg in die Zertifizierungspraxis finden werden.\\n\\n##
+        Autor\\\\*innen {#autorinnen .wp-block-heading}\\n\\n- Ute Blumtritt (Technische
+        Universit\xE4t Chemnitz,\\n  Universit\xE4tsbibliothek; <https://orcid.org/0000-0003-4209-3893>)\\n-
+        Arvid Deppe (Universit\xE4t Kassel, Universit\xE4tsbibliothek;\\n  <https://orcid.org/0000-0001-7190-9535>)\\n-
+        Michaela Voigt (Technische Universit\xE4t Berlin, Universit\xE4tsbibliothek;\\n
+        \ <https://orcid.org/0000-0001-9486-3189>)\\n\\n## Zitiervorschlag {#zitiervorschlag
+        .wp-block-heading}\\n\\nBlumtritt, Ute; Deppe, Arvid & Michaela Voigt. \u201EStell
+        dir vor, es ist\\nDINI-Zertifizierung und alle machen mit.\\\"\_*Deutsche
+        Initiative f\xFCr\\nNetzwerkinformation*, 2024.\\n<https://doi.org/10.57689/DINI-BLOG.20240930>.\\n\\n------------------------------------------------------------------------\\n\\n*Dieser
+        Beitrag -- ausgenommen Zitate und anderweitig gekennzeichnete\\nTeile -- ist
+        lizenziert unter der [Creative Commons Namensnennung 4.0\\nInternational Lizenz](http://creativecommons.org/licenses/by/4.0/)
+        (CC\\nBY 4.0).*\\n\\n<figure class=\\\"wp-block-image\\\">\\n<a href=\\\"http://creativecommons.org/licenses/by/4.0/\\\"><img\\nsrc=\\\"https://i.creativecommons.org/l/by/4.0/88x31.png\\\"
+        decoding=\\\"async\\\"\\nalt=\\\"Creative Commons Lizenzvertrag\\\" /></a>\\n</figure>\\n\",\"doi\":\"https://doi.org/10.57689/dini-blog.20240930\",\"guid\":\"https://blog.dini.de/EPub_FIS/?p=3548\",\"id\":\"f2f4d5b1-ef52-438a-9ddc-bebab23da258\",\"image\":\"https://blog.dini.de/EPub_FIS/wp-content/uploads/2024/09/DINI-Blog-FISE-Pub-9.png\",\"language\":\"de\",\"published_at\":1727683698,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Alle?
+        Na gut, nicht alle. Aber doch 14 tapfere Open-Access-Expert*innen fanden sich
+        am fr\xFChen Morgen des letzten Tages der Open-Access-Tage 2024 ein, um gemeinsam
+        den Antrag eines nordhessischen Repositoriums auf DINI-Zertifizierung kritisch
+        zu begutachten. Wie kam es dazu?\",\"tags\":[\"DINI\",\"Elektronisches Publizieren\",\"Open
+        Access\",\"Zertifikat\",\"Hands-on\"],\"title\":\"Stell dir vor, es ist DINI-Zertifizierung
+        und alle machen mit\",\"updated_at\":1727690132,\"url\":\"https://blog.dini.de/EPub_FIS/2024/09/30/stell-dir-vor-es-ist-dini-zertifizierung-und-alle-machen-mit\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Ross
+        Mounce\"}],\"blog_name\":\"A blog by Ross Mounce\",\"blog_slug\":\"rossmounce\",\"category\":\"naturalSciences\",\"content_text\":\"If
+        you're getting a sense of d\xE9j\xE0 vu from this blog post title it is\\nprobably
+        because we've been here before e.g. in\\n[2017](https://rossmounce.co.uk/2017/02/20/hybrid-open-access-is-unreliable/),\\nin
+        [2016](https://x.com/RaoOfPhysics/status/740811591084576768), in\\n[2015](https://rossmounce.co.uk/2015/03/11/wrongly-paywalled-articles-a-recap-of-what-we-now-know/),\\nin\\n[2014](https://www.timeshighereducation.com/news/elsevier-bumps-on-road-to-open-access/2012238.article).\\nThese
+        profitable 'errors' seem to keep occurring...\\n\\n<figure class=\\\"wp-block-image
+        size-large\\\">\\n<a\\nhref=\\\"https://rossmounce.co.uk/wp-content/uploads/2024/09/Elsevier-sale-priced-up.png\\\"><img\\nsrc=\\\"https://rossmounce.co.uk/wp-content/uploads/2024/09/Elsevier-sale-priced-up-1024x822.png\\\"\\nclass=\\\"wp-image-2566\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2024/09/Elsevier-sale-priced-up-1024x822.png
+        1024w, https://rossmounce.co.uk/wp-content/uploads/2024/09/Elsevier-sale-priced-up-300x241.png
+        300w, https://rossmounce.co.uk/wp-content/uploads/2024/09/Elsevier-sale-priced-up-768x616.png
+        768w, https://rossmounce.co.uk/wp-content/uploads/2024/09/Elsevier-sale-priced-up-1536x1232.png
+        1536w, https://rossmounce.co.uk/wp-content/uploads/2024/09/Elsevier-sale-priced-up-2048x1643.png
+        2048w\\\"\\nsizes=\\\"(max-width: 1024px) 100vw, 1024px\\\" width=\\\"1024\\\"
+        height=\\\"822\\\"\\nalt=\\\"Purchase document, US$24.95 for 48 hours of online
+        access\\\" /></a>\\n</figure>\\n\\nToday, Elsevier sold me 48-hours of access
+        to an article in the journal\\n*Computational Toxicology*, with the title:
+        \\\"[Ab initio chemical safety\\nassessment: A workflow based on exposure
+        considerations and non-animal\\nmethods](https://doi.org/10.1016/j.comtox.2017.10.001)\\\".
+        The price? Only\\n\\\\$24.95 USD. You can see evidence of my purchase in the
+        screenshot\\nbelow:\\n\\n<figure class=\\\"wp-block-image size-large\\\">\\n<a\\nhref=\\\"https://rossmounce.co.uk/wp-content/uploads/2024/09/Elsevier-sale-redacted.png\\\"><img\\nsrc=\\\"https://rossmounce.co.uk/wp-content/uploads/2024/09/Elsevier-sale-redacted-1024x552.png\\\"\\nclass=\\\"wp-image-2565\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2024/09/Elsevier-sale-redacted-1024x552.png
+        1024w, https://rossmounce.co.uk/wp-content/uploads/2024/09/Elsevier-sale-redacted-300x162.png
+        300w, https://rossmounce.co.uk/wp-content/uploads/2024/09/Elsevier-sale-redacted-768x414.png
+        768w, https://rossmounce.co.uk/wp-content/uploads/2024/09/Elsevier-sale-redacted-1536x828.png
+        1536w, https://rossmounce.co.uk/wp-content/uploads/2024/09/Elsevier-sale-redacted-2048x1104.png
+        2048w\\\"\\nsizes=\\\"(max-width: 1024px) 100vw, 1024px\\\" width=\\\"1024\\\"\\nheight=\\\"552\\\"
+        /></a>\\n</figure>\\n\\nElsevier are well known for selling access to academic
+        journal articles,\\nso what's the big deal here?  \\n  \\nWell... I've seen
+        alternative versions of this exact same article\\navailable in different places
+        on the internet that appear to be the\\njournal Version of Record, and in
+        this Version of Record the article is\\nclearly marked in the footer with
+        \\\"This is an open access article under\\nthe CC BY license.\\\"  \\n  \\nOne
+        place you can see this for your own eyes is at [NCBI PubMed\\nCentral](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5695905/)
+        (PMC),\\nscreenshot below. The version available at PMC is not a 'green' OA
+        copy,\\nit is not an author accepted manuscript. It is the Version of Record
+        and\\nit is marked as both \\\"open access\\\" and licensed under CC BY by
+        the\\n*publisher*, and this was certainly not added by PMC. PMC just display\\nwhat
+        they get. Can the Version of Record of a single article be both\\n\\\"open
+        access\\\" + CC BY on one platform and paywalled access + \\\"all rights\\nreserved\\\"
+        on another? That is quite a 'publishing innovation'.\\n\\n<figure class=\\\"wp-block-image
+        size-large\\\">\\n<a\\nhref=\\\"https://rossmounce.co.uk/wp-content/uploads/2024/09/image.png\\\"><img\\nsrc=\\\"https://rossmounce.co.uk/wp-content/uploads/2024/09/image-1024x587.png\\\"\\nclass=\\\"wp-image-2567\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2024/09/image-1024x587.png
+        1024w, https://rossmounce.co.uk/wp-content/uploads/2024/09/image-300x172.png
+        300w, https://rossmounce.co.uk/wp-content/uploads/2024/09/image-768x440.png
+        768w, https://rossmounce.co.uk/wp-content/uploads/2024/09/image-1536x881.png
+        1536w, https://rossmounce.co.uk/wp-content/uploads/2024/09/image-2048x1174.png
+        2048w\\\"\\nsizes=\\\"(max-width: 1024px) 100vw, 1024px\\\" width=\\\"1024\\\"\\nheight=\\\"587\\\"
+        /></a>\\n</figure>\\n\\nIt is certainly not necessarily *illegal* to sell
+        access to open access\\narticles. But I do wonder about the ethics of all
+        of this. Is this an\\nintended new revenue stream for Elsevier? To sell open
+        access articles\\npay-per-view, and hope no-one notices the dubious ethics
+        of this\\npractice, whilst they rake in the money?\\n\\nHow many other people
+        have been tricked into purchasing access to open\\naccess articles? How much
+        money has Elsevier made in the past 10 years\\nfrom selling \\\"open access\\\"
+        articles to readers -- precisely against the\\nbasic ethos of the phrase?\\n\\nIn
+        late 2014 Elsevier fessed-up to [incorrectly selling about \\\\$70,000\\nUSD
+        worth of pay-per-views to customers wanting to read open access\\narticles](https://web.archive.org/web/20151118042606/https://www.elsevier.com/connect/open-access-the-systems-journey)\\n(and
+        I note that the web page on Elsevier's website documenting this\\napology
+        seems to have been moved, or taken down, and thus I have to\\npoint you to
+        an archived copy at the Internet Archive. Hmmm...). I think\\nElsevier, and
+        preferably an external independent auditor need to take a\\nhard look again
+        at Elsevier's pay-per-view sales records -- are they all\\nlegit?  \\n  \\nI
+        also repeat my statement from 2017: [hybrid open access *continues* to\\nbe\\n**unreliable**](https://rossmounce.co.uk/2017/02/20/hybrid-open-access-is-unreliable/).\\n\",\"doi\":\"https://doi.org/10.59350/wnp5t-q9g18\",\"guid\":\"https://rossmounce.co.uk/?p=2564\",\"id\":\"04c948bb-5612-4a91-9ae5-8799de843e95\",\"image\":\"https://rossmounce.co.uk/wp-content/uploads/2024/09/Elsevier-sale-priced-up-1024x822.png\",\"language\":\"en\",\"published_at\":1727213793,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"If
+        you\u2019re getting a sense of d\xE9j\xE0 vu from this blog post title it
+        is probably because we\u2019ve been here before e.g. in 2017, in 2016, in
+        2015, in 2014. These profitable \u2018errors\u2019 seem to keep occurring\u2026
+        \ Today, Elsevier sold me 48-hours of access to an article in the journal\\n<em>\\n
+        Computational Toxicology\\n</em>\\n, with the title: \u201CAb initio chemical
+        safety assessment: A workflow based on exposure considerations and non-animal
+        methods\u201D. The price?\",\"tags\":[\"Elsevier\",\"Open Access\",\"Paywall
+        Watch\"],\"title\":\"Elsevier selling access to an open access article, again
+        (2024 edition)\",\"updated_at\":1727214950,\"url\":\"https://rossmounce.co.uk/2024/09/24/elsevier-selling-access-to-an-open-access-article-again-2024-edition\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22121/20231105105752/https://blog.dini.de/EPub_FIS/2024/09/23/allianz-studie\",\"authors\":[{\"name\":\"Gastautorin(nen)
+        und -autor(en)\"}],\"blog_name\":\"Gemeinsamer Blog der DINI AGs\",\"blog_slug\":\"epub_fis\",\"category\":\"socialScience\",\"content_text\":\"*Allianz-Studie
+        best\xE4tigt Investitionsbedarf f\xFCr zukunftsf\xE4hige\\nwissenschaftsgeleitete
+        Open-Access-Infrastrukturen*\\n\\nDie Allianz der Wissenschaftsorganisationen
+        verfolgt eine\\nOpen-Access-Strategie, die sowohl Transformationsvertr\xE4ge
+        (wie etwa\\nDEAL) als auch nicht-kommerzielle Infrastrukturen f\xFCr das\\nwissenschaftliche
+        Publizieren als Elemente zur Gestaltung der\\nOpen-Access-Transformation gleicherma\xDFen
+        unterst\xFCtzt.\_\\n\\nVor diesem Hintergrund wurde erstmals eine Studie zur
+        \u201EKartierung und\\nBeschreibung der Open-Access-Dienste in Deutschland\\\"
+        beauftragt und von\\nder Technopolis Deutschland GmbH f\xFCr die Allianz der\\nWissenschaftsorganisationen
+        durchgef\xFChrt.\_Diese bietet einen \xDCberblick\\n\xFCber den Status Quo
+        der \xF6ffentlich finanzierten,\_wissenschaftsgeleiteten\\nOpen-Access-Dienste
+        und -Infrastrukturen in Deutschland. Dabei\\nwerden\_Angebote, Nutzung, Kosten
+        und Finanzierungsmodelle,\\nHerausforderungen und die\_internationale Anschlussf\xE4higkeit
+        von \xFCber 200\\nDiensten untersucht. Dar\xFCber hinaus sind zehn Fallstudien
+        (u. a. zu\\nDeepGreen, SSOAR und dem Open-Access-Monitor) im Bericht enthalten
+        und\\ndienen zur weiteren Erl\xE4uterung.\\n\\nDie wichtigsten Ergebnisse
+        der Studie lauten zusammengefasst:\\n\\n1.  Die Landschaft der wissenschaftsgeleiteten\\n
+        \   Open-Access-Infrastrukturen (OAInf) in Deutschland ist stark\\n    diversifiziert
+        und dezentralisiert -- u. a. ist etwa die H\xE4lfte der\\n    untersuchten
+        OAInfs (v. a. institutionelle Repositorien) auf die\\n    eigene Forschungseinrichtung
+        ausgerichtet.\_\\n2.  Das Nutzungsverhalten von Forschenden gegen\xFCber OAInf
+        unterscheidet\\n    sich stark je nach Wissenschaftsbereich und individueller
+        Affinit\xE4t.\\n    Insbesondere OAInf, die Preprints (wie z. B. arXiv) sowie\\n
+        \   Verbreitung und Sichtbarmachung anbieten, sind wichtig f\xFCr die\\n    Forschenden.\_\\n3.
+        \ Viele OAInfs und deren Nutzen sind bei Forschenden zu wenig bekannt.\\n4.
+        \ Die meisten OAInf in Deutschland werden mit schmalem\\n    Finanzierungsaufwand
+        betrieben, wobei vor allem Personalkosten\\n    anfallen. Die typische Gr\xF6\xDFenordnung
+        von OAInf bewegt sich bei ca.\\n    zwei Vollzeitstellen.\_\\n5.  Die Infrastrukturen
+        werden zumeist nur von einer einzelnen\\n    Institution getragen und finanziert
+        (\xFCberwiegend die Bibliothek der\\n    eigenen Einrichtung). Drittmittel
+        spielen dagegen nur bei einem\\n    Drittel der OAInfs eine Rolle (vgl. Tabelle
+        7).\\n6.  Als potenziell nachhaltig, aber schwierig umzusetzen bewerten die\\n
+        \   befragten OAInfs Ko-Finanzierungsmodelle, z.B.\\n    Konsortialfinanzierungen
+        oder Crowdfunding-Modelle.\\n\\n<figure class=\\\"wp-block-image size-large\\\">\\n<img\\nsrc=\\\"https://blog.dini.de/EPub_FIS/wp-content/uploads/2024/09/Bildschirmfoto-2024-09-16-um-14.52.29-1024x499.png\\\"\\nclass=\\\"wp-image-3533\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://blog.dini.de/EPub_FIS/wp-content/uploads/2024/09/Bildschirmfoto-2024-09-16-um-14.52.29-1024x499.png
+        1024w, https://blog.dini.de/EPub_FIS/wp-content/uploads/2024/09/Bildschirmfoto-2024-09-16-um-14.52.29-300x146.png
+        300w, https://blog.dini.de/EPub_FIS/wp-content/uploads/2024/09/Bildschirmfoto-2024-09-16-um-14.52.29-768x374.png
+        768w, https://blog.dini.de/EPub_FIS/wp-content/uploads/2024/09/Bildschirmfoto-2024-09-16-um-14.52.29.png
+        1262w\\\"\\nsizes=\\\"(max-width: 1024px) 100vw, 1024px\\\" width=\\\"1024\\\"
+        height=\\\"499\\\" />\\n<figcaption>Biela, J., Stalla, M., Hohmann, L. (2024).\_Kartierung
+        und\\nBeschreibung der Open-Access-Dienste in Deutschland. Zenodo.\_<a\\nhref=\\\"https://doi.org/10.5281/zenodo.11121906\\\"
+        target=\\\"_blank\\\"\\nrel=\\\"noreferrer noopener\\\">https://doi.org/10.5281/zenodo.11121906</a>\_(S.\\n38)</figcaption>\\n</figure>\\n\\nAls
+        Reaktion auf die Studie ruft die Allianz der\\nWissenschaftsorganisationen
+        im Rahmen einer Stellungnahme die deutschen\\nWissenschaftsorganisationen
+        dazu auf, Investitionen in\\nnicht-kommerzielle Angebote als strategisch bedeutsamen
+        Beitrag zu einer\\nzukunftsorientierten Publikationsinfrastruktur zu sehen:
+        \u201EDie\\nFinanzierung der durch wissenschaftliche Einrichtungen getragenen\\nPublikationsinfrastruktur
+        sollte von der Forschungspolitik und den\\nWissenschaftseinrichtungen als
+        strategische Investition gesehen und in\\nden Kontext der regul\xE4ren Erwerbung
+        bzw. Informationsbeschaffung\\neingeordnet werden. Hierf\xFCr bildet die Etablierung
+        von\\nInformationsbudgets eine wichtige Voraussetzung. Aus Sicht der Allianz\\nist
+        die dauerhafte Finanzierung einer institutionell getragenen\\nPublikationsinfrastruktur
+        f\xFCr deren weitere Professionalisierung und\\nSteigerung der Innovationsf\xE4higkeit
+        n\xF6tig.\\\"\\n\\nDar\xFCber hinaus m\xFCssten die Marketingaktivit\xE4ten
+        der OAInfs deutlich\\nausgebaut werden, um in der Sichtbarkeit mit kommerziellen
+        Angeboten\\nmithalten zu k\xF6nnen. Der Nutzen der jeweiligen Publikationsangebote
+        f\xFCr\\ndie Wissenschaft muss dabei im Vordergrund stehen. Hierbei sind\\ndisziplinenspezifische
+        Strategien zu w\xE4hlen, da sich die Verbreitung und\\nAnerkennung von \xF6ffentlich
+        finanzierten vs. kommerziellen Anbietern\\nzwischen den Disziplinen unterscheidet.\\n\\nIm
+        Rahmen des aktuellen Schwerpunkts der Allianz \u201EDigitalit\xE4t in der\\nWissenschaft\\\"
+        werden \xDCberlegungen angestellt, welche Konsequenzen die\\nErgebnisse der
+        Studie f\xFCr einzelne Organisationen haben und mit welchen\\nMa\xDFnahmen
+        die Allianz diesen Sektor\_unterst\xFCtzen sollte.\_\\n\\nLink zur Studie:\_<https://zenodo.org/records/11121906>\\n\\nStellungnahme
+        der Allianz zur\\nStudie:\_<https://www.allianz-der-wissenschaftsorganisationen.de/themen-stellungnahmen/stellungnahme-zur-studie-kartierung-und-beschreibung-der-open-access-dienste-in-deutschland/>\\n\\nInfos
+        zur Allianz-Interessengruppe \u201EWeiterentwicklung des\\nwissenschaftlichen\\nPublizierens\\\":<https://www.allianzschwerpunkt-digitalitaet.de/weiterentwicklung-des-wissenschaftlichen-publizierens/>\\n\\n##
+        Autor\\\\*innen {#autorinnen .wp-block-heading}\\n\\nJan Biela (Technopolis
+        Deutschland GmbH),\\n<https://orcid.org/0009-0001-9816-4796>; Lea Maria Ferguson
+        (Helmholtz\\nOpen Science Office), <https://orcid.org/0000-0002-7060-3670>;
+        Kristine\\nHillenk\xF6tter (SUB G\xF6ttingen); Angela Holzer (DFG),\\n<https://orcid.org/0000-0002-9009-8093>;
+        Lisa Kressin\\n(Leibniz-Gemeinschaft), <https://orcid.org/0000-0001-7421-0180>;\\nHildegard
+        Sch\xE4ffler (BSB M\xFCnchen),\\n<https://orcid.org/0000-0001-9382-7848>;
+        Olaf Siegert (ZBW),\\n<https://orcid.org/0000-0003-2122-0857>; Maria Stalla
+        (Technopolis\\nDeutschland GmbH), <https://orcid.org/0009-0000-6313-5517>;
+        Marco\\nTullney (TIB), <https://orcid.org/0000-0002-5111-2788>\\n\\n## Zitiervorschlag
+        {#zitiervorschlag .wp-block-heading}\\n\\nBiela, Jan, Lea Maria Ferguson,
+        Kristine Hillenk\xF6tter, Angela Cornelia\\nHolzer, Lisa Kressin, Hildegard
+        Sch\xE4ffler, Olaf Siegert, Maria Stalla &\\nMarco Tullney. \u201EInvestitionen
+        in wissenschaftsgeleitete\\nOpen-Access-Infrastrukturen sind zukunftstr\xE4chtig.\\\"\_*Deutsche
+        Initiative\\nf\xFCr Netzwerkinformation*, 2024.\\n<https://doi.org/10.57689/DINI-BLOG.20240923>.\\n\\n------------------------------------------------------------------------\\n\\n*Dieser
+        Beitrag -- ausgenommen Zitate und anderweitig gekennzeichnete\\nTeile -- ist
+        lizenziert unter der [Creative Commons Namensnennung 4.0\\nInternational Lizenz](http://creativecommons.org/licenses/by/4.0/)
+        (CC\\nBY 4.0).*\\n\\n<figure class=\\\"wp-block-image\\\">\\n<a href=\\\"http://creativecommons.org/licenses/by/4.0/\\\"><img\\nsrc=\\\"https://i.creativecommons.org/l/by/4.0/88x31.png\\\"
+        decoding=\\\"async\\\"\\nalt=\\\"Creative Commons Lizenzvertrag\\\" /></a>\\n</figure>\\n\",\"doi\":\"https://doi.org/10.57689/dini-blog.20240923\",\"guid\":\"https://blog.dini.de/EPub_FIS/?p=3532\",\"id\":\"51cab63e-fa86-4add-93b9-a5b096b9f755\",\"image\":\"https://blog.dini.de/EPub_FIS/wp-content/uploads/2024/09/DINI-Blog-FISE-Pub-8.png\",\"language\":\"de\",\"published_at\":1727090239,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"<em>\\n
+        Allianz-Studie best\xE4tigt Investitionsbedarf f\xFCr zukunftsf\xE4hige wissenschaftsgeleitete
+        Open-Access-Infrastrukturen\\n</em>\\nDie Allianz der Wissenschaftsorganisationen
+        verfolgt eine Open-Access-Strategie, die sowohl Transformationsvertr\xE4ge
+        (wie etwa DEAL) als auch nicht-kommerzielle Infrastrukturen f\xFCr das wissenschaftliche
+        Publizieren als Elemente zur Gestaltung der Open-Access-Transformation gleicherma\xDFen
+        unterst\xFCtzt.\",\"tags\":[\"Elektronisches Publizieren\",\"Open Access\",\"Allianz
+        Der Wissenschaftsorganisationen\"],\"title\":\"Investitionen in wissenschaftsgeleitete
+        Open-Access-Infrastrukturen sind zukunftstr\xE4chtig\",\"updated_at\":1727090271,\"url\":\"https://blog.dini.de/EPub_FIS/2024/09/23/allianz-studie\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22153/20231105213934/https://svpow.com/2024/08/12/more-on-palarch-its-dead\",\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/0524sp257\",\"name\":\"University
+        of Bristol\"}],\"name\":\"Mike Taylor\",\"url\":\"https://orcid.org/0000-0002-1003-5675\"}],\"blog_name\":\"Sauropod
+        Vertebra Picture of the Week\",\"blog_slug\":\"svpow\",\"category\":\"earthAndRelatedEnvironmentalSciences\",\"content_text\":\"Last
+        time we talked about [the evident hijacking of the PalArch Journal\\nof Vertebrate\\nPaleontology](https://svpow.com/2024/07/22/palarchs-journal-of-vertebrate-paleontology-has-been-hijacked/).\\nNo-one
+        seemed to know what had happened or how. I managed to track down\\nAndre J.
+        Veldmeijer, who was involved with the PalArch journals a while\\nback. Based
+        on my Facebook Messenger discussions with him, here's what\\nwe now know:\\n\\nAndre
+        is not involved any more with these journals. **He advises to stay\\naway
+        from the journals.** The old publications that were published when\\nthe journal
+        was still managed by the PalArch Foundation can apparently\\nbe found elsewhere
+        on the web (though I don't know where).\\n\\nSo how did we get here? [It seems
+        another publisher took them over,\\nprobably by a legitimate\\nbuy-out](https://www.leatherandshoes.nl/the-palarch-foundation/),
+        with\\nthe idea to expand their fields of publishing. At that time, the PalArch\\nFoundation
+        saw no signs they were predatory. But now they're making\\ntheir money with
+        bad papers that appear to be peer-reviewed but which\\nare not in any meaningful
+        sense.\\n\\nApparently the hijacking was announced several times on various
+        websites\\nand email lists, but somehow I missed them all and I think most
+        of us\\ndid.\\n\\nAnyway, this is an ignominious end to a journal that I liked
+        and that\\nwas one of only a few in the important Diamond OA niche. Rest In
+        Peace,\\nPalArch.\\n\\n[![](https://svpow.com/wp-content/uploads/2024/08/chjpdmf0zs9sci9pbwfnzxmvd2vic2l0zs8ymdiylta1l2pvyjcxni0xotitec5qcgc.webp){.alignnone\\n.size-full
+        .wp-image-22594 loading=\\\"lazy\\\" attachment-id=\\\"22594\\\"\\npermalink=\\\"http://svpow.com/2024/08/12/more-on-palarch-its-dead/chjpdmf0zs9sci9pbwfnzxmvd2vic2l0zs8ymdiylta1l2pvyjcxni0xotitec5qcgc/\\\"\\norig-file=\\\"https://svpow.com/wp-content/uploads/2024/08/chjpdmf0zs9sci9pbwfnzxmvd2vic2l0zs8ymdiylta1l2pvyjcxni0xotitec5qcgc.webp\\\"\\norig-size=\\\"1024,1024\\\"
+        comments-opened=\\\"1\\\"\\nimage-meta=\\\"{\\\\\\\"aperture\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"credit\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"camera\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"caption\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"created_timestamp\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"copyright\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"focal_length\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"iso\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"shutter_speed\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"title\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"orientation\\\\\\\":\\\\\\\"0\\\\\\\"}\\\"\\nimage-title=\\\"cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjcxNi0xOTIteC5qcGc\\\"\\nimage-description=\\\"\\\"
+        image-caption=\\\"\\\"\\nmedium-file=\\\"https://svpow.com/wp-content/uploads/2024/08/chjpdmf0zs9sci9pbwfnzxmvd2vic2l0zs8ymdiylta1l2pvyjcxni0xotitec5qcgc.webp?w=300\\\"\\nlarge-file=\\\"https://svpow.com/wp-content/uploads/2024/08/chjpdmf0zs9sci9pbwfnzxmvd2vic2l0zs8ymdiylta1l2pvyjcxni0xotitec5qcgc.webp?w=1024\\\"\\ntabindex=\\\"0\\\"
+        role=\\\"button\\\" width=\\\"480\\\"\\nheight=\\\"480\\\"}](https://svpow.com/wp-content/uploads/2024/08/chjpdmf0zs9sci9pbwfnzxmvd2vic2l0zs8ymdiylta1l2pvyjcxni0xotitec5qcgc.webp)\\n\\n\_\\n\\n------------------------------------------------------------------------\\n\\n[doi:10.59350/mpzrk-7tw46](https://doi.org/10.59350/mpzrk-7tw46)\\n\",\"doi\":\"https://doi.org/10.59350/mpzrk-7tw46\",\"guid\":\"https://svpow.com/?p=22586\",\"id\":\"7f8fc584-9f3b-499e-b867-a74efde33adc\",\"image\":\"https://svpow.com/wp-content/uploads/2024/08/chjpdmf0zs9sci9pbwfnzxmvd2vic2l0zs8ymdiylta1l2pvyjcxni0xotitec5qcgc.webp\",\"language\":\"en\",\"published_at\":1723473249,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Last
+        time we talked about the evident hijacking of the PalArch Journal of Vertebrate
+        Paleontology. No-one seemed to know what had happened or how. I managed to
+        track down Andre J. Veldmeijer, who was involved with the PalArch journals
+        a while back. Based on my Facebook Messenger discussions with him, here\u2019s
+        what we now know:  Andre is not involved any more with these journals.\",\"tags\":[\"Open
+        Access\",\"Stinkin' Publishers\"],\"title\":\"More on PalArch: it\u2019s dead\",\"updated_at\":1726156583,\"url\":\"https://svpow.com/2024/08/12/more-on-palarch-its-dead\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22121/20231105105752/https://blog.dini.de/EPub_FIS/2024/08/05/open-gender-journal\",\"authors\":[{\"name\":\"Gastautorin(nen)
+        und -autor(en)\"}],\"blog_name\":\"Gemeinsamer Blog der DINI AGs\",\"blog_slug\":\"epub_fis\",\"category\":\"socialScience\",\"content_text\":\"Zu
+        den wichtigsten Anforderungen an wissenschaftliches Publizieren --\\nauch
+        in digitaler Form --\_geh\xF6rt, dass die Ver\xF6ffentlichungen integer im\\nSinne
+        von unverletzlich, datenstabil und konsistent sind. Anders als auf\\nden meisten
+        Websites, wo es nicht nur problemlos m\xF6glich, sondern auch\\n\xFCblich
+        ist, Inhalte mehr oder weniger stillschweigend zu modifizieren,\\naktualisieren
+        oder depublizieren, ist es ein Qualit\xE4tsmerkmal\\nwissenschaftlicher Publikationsorgane,
+        jede \xC4nderung nach der\\nVer\xF6ffentlichung transparent nachzuweisen und
+        zu begr\xFCnden. Dies stellt\\nwissenschaftliche Zeitschriften vor die Herausforderung,
+        klare Regeln\\nf\xFCr nachtr\xE4gliche Ver\xE4nderungen, Korrekturen oder
+        den R\xFCckzug von\\nArtikeln aufzustellen. Dieser Beitrag zeigt, wie das
+        Open Gender Journal\\ndies in der Redaktionsarbeit umsetzt.\_\\n\\nDass die
+        Entwicklung einer eigenen Umgangsweise mit Revisionen und\\nR\xFCcknahmen
+        \xFCberhaupt Teil der Redaktionsarbeit ist, liegt am\\n\u201EBetriebsmodell\\\"
+        der Zeitschrift. Das Open Gender Journal ist eine\\nwissenschaftsgeleitete
+        Diamond-Open-Access-Zeitschrift f\xFCr die\\nintersektionale Geschlechterforschung.
+        Die Zeitschrift wird von vier\\nGender-Studies-Einrichtungen gemeinsam mit
+        der Fachgesellschaft\\nGeschlechterstudien herausgegeben. Sie erscheint seit
+        2017 -- zun\xE4chst\\nverlagsunabh\xE4ngig; seit 2024 ist sie Teil des Programms
+        des\\nOpen-Access-Universit\xE4tsverlags Berlin Universities Publishing. Die\\nVerantwortung
+        f\xFCr den Betrieb der Zeitschrift tr\xE4gt in erster Linie die\\nRedaktion,
+        die sich aus Fachredakteur\\\\*innen sowie dem Editorial\\nManagement zusammensetzt.
+        Dies hat zur Folge, dass beispielsweise\\nAnfragen nach Korrekturen bereits
+        publizierter Beitr\xE4ge bei der\\nRedaktion landen, von dieser entschieden,
+        mit Hilfe des\\nRedaktionssystems Open Journal System (OJS) umgesetzt und
+        verantwortet\\nwerden m\xFCssen. Die Zeitschrift kann sich dabei nicht auf
+        eine etablierte\\nVerlagspraxis berufen oder die Anfrage an eine Fachabteilung
+        des\\nVerlages delegieren.\\n\\nAus diesem Grund war die Besch\xE4ftigung
+        mit Artikelversionierung Teil\\neines Arbeitsschwerpunktes zur Erweiterung
+        der Services und Verbesserung\\nvon Workflows f\xFCr das elektronische Publizieren
+        in einem DFG-gef\xF6rderten\\nExpansionshilfe-Projekt der\\nZeitschrift.^[1](#02576268-2951-4db9-ac97-e404a488f2bc){#02576268-2951-4db9-ac97-e404a488f2bc-link}^\\nAusgehend
+        von der ab Version 3.2 von OJS zur Verf\xFCgung stehenden\\nM\xF6glichkeit
+        der Versionierung von Artikeln, der Auseinandersetzung mit\\nGuidelines der
+        Coalition of Publication Ethics (COPE) und konkreten\\nAnwendungsf\xE4llen
+        hat sich das Projekt intensiv mit der Frage\\nbesch\xE4ftigt, wann und wie
+        das Open Gender Journal \xC4nderungen an\\nver\xF6ffentlichten Artikeln vornimmt.
+        Ziel dieses Beitrags ist es, die\\nErkenntnisse des Open Gender Journal im
+        Sinne eines kollektiven Aufbaus\\nvon Kompetenzen mit anderen wissenschaftsgeleiteten
+        Zeitschriften zu\\nteilen und unsere Vorgehensweise zur Diskussion zu stellen.\\n\\n##
+        Ausgangslage {#ausgangslage .wp-block-heading}\\n\\nDie Ausgangslage ist dabei
+        folgende: Grunds\xE4tzlich sperrt das\\nRedaktionssystem ab OJS 3.2 nach der
+        Ver\xF6ffentlichung eines Artikels die\\nBearbeitungsm\xF6glichkeit. Der Ist-Zustand
+        von Artikel-Datei(en) sowie der\\nMetadaten zum Zeitpunkt der Ver\xF6ffentlichung
+        wird auf diese Weise\\nfestgeschrieben. Dies ist einerseits w\xFCnschenswert,
+        denn zu guter\\nwissenschaftlicher Praxis geh\xF6rt die [\u201Eintegrity of
+        the publishing\\nrecord\\\"](https://publicationethics.org/case/how-correct-published-paper).\\nSie
+        ist ein wichtiger Faktor f\xFCr die Vertrauensw\xFCrdigkeit digitaler\\nPublikationen.\_\\n\\nAndererseits
+        gibt es verschiedene Anl\xE4sse, Artikel doch noch einmal\\n\xFCberarbeiten
+        zu wollen: Diese reichen von Fl\xFCchtigkeitsfehlern der\\nVerfasser\\\\*innen
+        oder der Redaktion, die im Lektorat \xFCbersehen worden\\nsind, bis hin zu
+        wissenschaftlichem Fehlverhalten, das eine kommentierte\\nKorrektur oder die
+        R\xFCcknahme eines Artikels nach sich ziehen muss.\\nDar\xFCber hinaus sind
+        \xC4nderungen und Fehler, die Pronomen und neue\\nVornamen betreffen, ein
+        wichtiges Thema in unserer Redaktionspraxis, das\\nzugleich einen Sonderfall
+        darstellt: In vielen F\xE4llen w\xFCrde ein\\ntransparenter Umgang mit Namens\xE4nderungen
+        das Outing der betroffenen\\nPerson bedeuten. Ein sensibler Umgang mit Namens\xE4nderungen
+        ist ein\\nbesonderes Anliegen unserer Zeitschrift, betrifft aber auch im Kontext\\naktueller
+        rechtlicher Entwicklungen alle wissenschaftlichen\\nPublikationsorgane gleicherma\xDFen.\_\\n\\nAb
+        OJS-Version 3.2 stehen zwei M\xF6glichkeiten der Korrektur zur\\nVerf\xFCgung:
+        Versionierung und Depublikation. Beide M\xF6glichkeiten haben\\nunterschiedliche
+        Auswirkungen auf die \u201Eintegrity of the publishing\\nrecord\\\". Wie diese
+        durch OJS, aber auch die Redaktion abgemildert werden\\n(k\xF6nnen), wird
+        im Folgenden diskutiert.\\n\\n## Transparente Korrektur durch Versionierung
+        {#transparente-korrektur-durch-versionierung .wp-block-heading}\\n\\nSowohl
+        Autor\\\\*innen als auch Redakteur\\\\*innen k\xF6nnen im Redaktionsalltag\\nFehler
+        machen. Ein konkretes Beispiel aus unserer Arbeit: Einer Autorin\\nfiel nach
+        der Ver\xF6ffentlichung auf, dass sich trotz mehrere\\nKorrekturschleifen
+        in einer \xDCberarbeitung ein fehl\xFCbersetzter Begriff\\neingeschlichen
+        hatte. \xC4hnliche F\xE4lle w\xE4ren versehentliche Zahlendreher\\noder fehlerhafte
+        Literaturangaben. Wenn ein solcher Fehler auff\xE4llt, ist\\ndas Editorial
+        Management erster Adressat f\xFCr Korrekturw\xFCnsche. Es\\nkoordiniert oder
+        \xFCbernimmt alle weiteren Schritte.\\n\\nGem\xE4\xDF der\\n[Publikationsethik](https://opengenderjournal.de/publicationethics)
+        des\\nOpen Gender Journals werden unbeabsichtigte Fehler durch Versionierung\\nkorrigiert.
+        Ihr entscheidender Vorteil ist die Nachvollziehbarkeit, die\\nsowohl durch
+        das Redaktionssystem als auch durch das Editorial\\nManagement gew\xE4hrleistet
+        wird.\_\\n\\nDurch OJS werden auf der Artikelseite alle Versionen des Artikels
+        mit\\nihren Ver\xF6ffentlichungsdaten in einem Infokasten aufgef\xFChrt und\\nverlinkt,
+        sodass Lesende die Unterschiede selbst nachvollziehen k\xF6nnen.\\nDabei verhindert
+        OJS Verwechslungen zwischen den Versionen: Die\\nArtikel\xFCbersicht verlinkt
+        immer auf die aktuelle Artikelseite samt der\\nArtikel-PDF, auch die DOI verweist
+        dorthin. Wer im Infokasten (Abb. 1)\\neine \xE4ltere Fassung ausw\xE4hlt,
+        wird durch einen Textkasten dar\xFCber\\ninformiert, dass es eine aktualisierte
+        Version gibt, die auch verlinkt\\nist. Ruft man dennoch die veraltete Artikel-Datei
+        auf, wiederholt ein\\nroter Banner den Hinweis (Abb. 2).\_\\n\\n<figure class=\\\"wp-block-image
+        size-full\\\">\\n<img\\nsrc=\\\"https://blog.dini.de/EPub_FIS/wp-content/uploads/2024/08/bild1.png\\\"\\nclass=\\\"wp-image-3483\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://blog.dini.de/EPub_FIS/wp-content/uploads/2024/08/bild1.png
+        260w, https://blog.dini.de/EPub_FIS/wp-content/uploads/2024/08/bild1-182x300.png
+        182w\\\"\\nsizes=\\\"(max-width: 260px) 100vw, 260px\\\" width=\\\"260\\\"
+        height=\\\"428\\\" />\\n<figcaption>Abbildung 1: Infobox auf einer Artikelseite
+        mit verlinktem\\nErratum und Versionierungshinweisen</figcaption>\\n</figure>\\n\\n<figure
+        class=\\\"wp-block-image size-full\\\">\\n<img\\nsrc=\\\"https://blog.dini.de/EPub_FIS/wp-content/uploads/2024/08/bild2.png\\\"\\nclass=\\\"wp-image-3484\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://blog.dini.de/EPub_FIS/wp-content/uploads/2024/08/bild2.png
+        894w, https://blog.dini.de/EPub_FIS/wp-content/uploads/2024/08/bild2-300x89.png
+        300w, https://blog.dini.de/EPub_FIS/wp-content/uploads/2024/08/bild2-768x227.png
+        768w\\\"\\nsizes=\\\"(max-width: 894px) 100vw, 894px\\\" width=\\\"894\\\"
+        height=\\\"264\\\" />\\n<figcaption>Abbildung 2: PDF-Ansicht einer zur\xFCckgezogenen\\nArtikelfassung
+        mit Hinweisbanner</figcaption>\\n</figure>\\n\\nF\xFCr inhaltliche Transparenz
+        sorgt das Editorial Management: Es vermerkt\\nin der Artikeldatei, dass es
+        sich um eine korrigierte Fassung handelt\\nund wann diese ver\xF6ffentlicht
+        wurde. Zus\xE4tzlich zur korrigierten Datei\\nwird entsprechend der [Empfehlung
+        von\\nCOPE](https://publicationethics.org/postpublication) ein Erratum\\nhochgeladen,
+        in dem die Korrektur erl\xE4utert wird. Es enth\xE4lt\_\\n\\n1.  die ge\xE4nderte
+        Textstelle in der Originalfassung mit einem Hinweis,\\n    wo diese Stelle
+        im Artikel zu finden ist;\\n2.  die Textstelle in korrigierter Form;\_\\n3.
+        \ eine Einsch\xE4tzung, ob und wie sich die Korrektur auf die Aussage des\\n
+        \   Beitrags auswirkt, sowie\\n4.  eine ausf\xFChrliche Zitationsangabe, um
+        den eindeutigen Bezug\\n    sicherzustellen.\\n\\nDiese transparente Korrektur
+        ist f\xFCr kleinere Fehler oder\\nnicht-intendiertes Fehlverhalten passend.
+        Allerdings gibt es auch F\xE4lle,\\nin denen die Originalfassung nicht l\xE4nger
+        verf\xFCgbar bleiben soll. In\\ndiesen F\xE4llen greift die zweite Korrekturm\xF6glichkeit,
+        die Depublikation.\\n\\n## Depublikation bei intendiertem wissenschaftlichen
+        Fehlverhalten {#depublikation-bei-intendiertem-wissenschaftlichen-fehlverhalten
+        .wp-block-heading}\\n\\nUnter schwerwiegenden Fehlern oder intendiertem wissenschaftlichen\\nFehlverhalten,
+        die einen R\xFCckzug des Beitrags zur Folge haben k\xF6nnen,\\nverstehen wir
+        -- den [Retraction Guidelines von\\nCOPE](https://publicationethics.org/retraction-guidelines)
+        entsprechend\\n-- Plagiate, grobe Messfehler oder Datenmanipulation ebenso
+        wie Verst\xF6\xDFe\\ngegen Urheber- oder Pers\xF6nlichkeitsrechte bei Abbildungen.
+        In all diesen\\nF\xE4llen werden die zust\xE4ndigen Redakteur\\\\*innen und
+        Herausgeber\\\\*innen\\nvom Editorial Management informiert und in den Prozess
+        mit einbezogen.\_\\n\\nTechnisch wird dabei zun\xE4chst neben der Originalfassung
+        auch die\\nArtikelseite komplett aus dem f\xFCr Leser\\\\*innen sichtbaren
+        Bereich\\nentfernt. Anders als bei der Versionierung gibt es systemseitig
+        keine\\nTransparenzhinweise. Der Nachteil liegt auf der Hand: Wer den Artikel\\nsucht,
+        kann nicht einsch\xE4tzen, ob eine Entscheidung der Redaktion oder\\nein technischer
+        Fehler Ursache ist. Und wer bisher noch nichts von dem\\nArtikel wusste, bleibt
+        unwissend. Diese Intransparenz kann nur das\\nEditorial Management durch einen
+        entsprechenden Hinweis ausgleichen.\\nDaf\xFCr stellt es im n\xE4chsten Schritt
+        die Artikelseite wieder online --\\nohne Artikel-PDF, stattdessen mit einem
+        Depublikationsvermerk\\n(\u201ERetraction Note\\\"), wie er auch von COPE
+        in den [Retraction\\nGuidelines](https://publicationethics.org/retraction-guidelines)\\nempfohlen
+        wird. Analog zum oben beschriebenen Erratum enth\xE4lt dieser\\nVermerk eine
+        klare Identifikation des zur\xFCckgezogenen Artikels sowie\\nseiner Autor\\\\*innen
+        und erl\xE4utert, wer f\xFCr die Depublikation\\nverantwortlich ist und welche
+        Gr\xFCnde zu der Entscheidung gef\xFChrt haben.\\n\\n## Ungewollte Outings
+        bei Korrekturen verhindern {#ungewollte-outings-bei-korrekturen-verhindern
+        .wp-block-heading}\\n\\nIn den acht Jahren seit der Gr\xFCndung des Journals
+        hat es noch keinen\\nFall gegeben, in dem intendiertes wissenschaftliches
+        Fehlverhalten eine\\nRetraction n\xF6tig gemacht h\xE4tte. Dennoch haben wir
+        uns bereits daf\xFCr\\nentschieden, Artikel zur\xFCckzuziehen: wenn in einem
+        Beitrag trans, inter\\noder nichtbin\xE4re Personen versehentlich mit ihrem
+        abgelegten Vornamen\\noder falschen Pronomen genannt werden, entweder aus
+        Unwissen oder weil\\ndie \xC4nderungen erst nach der Ver\xF6ffentlichung der
+        Artikel vorgenommen\\nwurden.\_\\n\\nNach unserem beschriebenen Vorgehen liegt
+        daher zun\xE4chst die Korrektur\\nper Versionierung nahe. Allerdings blieben
+        dabei der *dead name*, also\\nder abgelegte Vorname, und/oder das falsche
+        Pronomen in der \xE4lteren\\nFassung f\xFCr alle Lesenden sichtbar. Die falsch
+        adressierte Person w\xFCrde\\nweiterhin misgendert, also mit einer Geschlechtsidentit\xE4t
+        genannt, die\\nihr nicht entspricht. Lesende k\xF6nnten sogar erst durch diese
+        Korrektur\\ndarauf aufmerksam werden, dass die Person trans, inter oder nichtbin\xE4r\\nist
+        -- das Erratum w\xE4re dann ein ungewolltes Outing durch das Journal.\\nDass
+        ein solches Outing inakzeptabel ist, ist Konsens. Sowohl das\\nmittlerweile
+        abgel\xF6ste Transsexuellengesetz als auch das neue\\nSelbstbestimmungsgesetz
+        enthalten ein \u201EOffenbarungsverbot\\\"\\n([Bundesministerium der Justiz:
+        zum\\nSelbstbestimmungsgesetz](https://www.bmj.de/DE/themen/gesellschaft_familie/queeres_leben/selbstbestimmung/selbstbestimmung_node.html)).\\nDieses
+        verbietet Zwangsoutings, um m\xF6gliche Sch\xE4digungen zu verhindern.\\nZwar
+        bezieht sich das Offenbarungsverbot nur auf die Beziehung zwischen\\nStaat
+        und Einzelpersonen, dennoch zeigt sich daran, dass der Schutz der\\nBetroffenen
+        sehr hohe Priorit\xE4t hat.\_\\n\\nAusgehend von diesen \xDCberlegungen zieht
+        das Editorial Management in den\\ngeschilderten F\xE4llen die Originalfassung
+        des Artikels zur\xFCck und ersetzt\\nsie durch eine korrigierte Neufassung.
+        Systemseitig bleibt dies ohne\\nTransparenzhinweise, auch das Editorial Management
+        f\xFCgt keine\\nErl\xE4uterung hinzu. Allerdings zeichnen wir den Artikel
+        auf dem Deckblatt\\nals \u201Ekorrigiert\\\" aus, um zumindest minimal auf
+        eine Abweichung\\nhinzuweisen.\\n\\nDenkbar sind auch andere F\xE4lle, in
+        denen ungewollt personenbezogene\\nDaten ver\xF6ffentlicht wurden, sodass
+        aus pers\xF6nlichkeitsrechtlichen\\nGr\xFCnden eine Depublikation n\xF6tig
+        ist. Bei einer erneuten\\nVer\xF6ffentlichung des korrigierten Artikels darf
+        der Fehler auch in\\ndiesen F\xE4llen nicht reproduziert werden. Ihn allgemein
+        zu benennen,\\noutet aber nicht wie im vorangegangenen Beispiel eine Person
+        als Teil\\neiner diskriminierten Gruppe, sondern schafft Transparenz \xFCber
+        einen\\nFehler der Autor\\\\*innen und der Redaktion. Entsprechend w\xFCrde
+        das\\nEditorial Management in einem beigef\xFCgten Erratum allgemein darauf\\nhinweisen,
+        dass die Originalfassung aus pers\xF6nlichkeitsrechtlichen\\nGr\xFCnden korrigiert
+        wurde, diese aber nicht weiter spezifizieren.\\nGrunds\xE4tzlich gilt f\xFCr
+        uns: Wenn es m\xF6glich ist, Leser\\\\*innen in Form\\neines Erratums transparent
+        zu informieren, ohne Pers\xF6nlichkeitsrechte\\nverletzen, kommen wir dem
+        nach.\\n\\n## Metadaten \xFCber Schnittstellen korrigieren {#metadaten-\xFCber-schnittstellen-korrigieren
+        .wp-block-heading}\\n\\nUnabh\xE4ngig davon, welche \xC4nderungsform gew\xE4hlt
+        und wie diese begr\xFCndet\\nwird, ist die Korrektur auf der Journal-Website
+        nur der erste Schritt.\\nZus\xE4tzlich muss man bei wissenschaftlichen Publikationen
+        auch bedenken,\\ndass die Metadaten von Beitr\xE4gen\_\xFCber verschiedene
+        Schnittstellen\\ngeteilt werden. Kommt es zu einer \xC4nderung, muss diese
+        \xFCberall erfolgen.\\n\\nDas Open Gender Journal liefert Metadaten an DataCite,
+        Directory of Open\\nAccess Journals (DOAJ) und die Deutsche Nationalbibliothek
+        (DNB). Sowohl\\nbei DataCite als auch bei DOAJ erfolgt die \xDCbernahme der
+        korrigierten\\nMetadaten \xFCber eine h\xE4ndische Neuregistrierung der korrigierten
+        Artikel\\n\xFCber die Schnittstellen in OJS. Etwas komplizierter ist das Vorgehen
+        bei\\nder DNB, wo neben den Metadaten auch das Artikel-Dokument zum Zweck
+        der\\nLangzeit-Archivierung \xFCbertragen wird: Hierzu stellt das Editorial\\nManagement
+        \xFCber den Katalog eine Korrekturanfrage und \xFCbermittelt\\nanschlie\xDFend
+        die Metadaten sowie das Artikel-Dokument als Archivobjekt\\nvia OJS erneut.
+        Dieser Vorgang dauert zwar l\xE4nger als bei DataCite und\\nDOAJ, funktioniert
+        jedoch erfahrungsgem\xE4\xDF zuverl\xE4ssig.\_\\n\\nDar\xFCber hinaus bietet
+        OJS weitere Schnittstellen an, die vom Open Gender\\nJournal nicht genutzt
+        werden, die aber eigene An- und Herausforderungen\\nstellen. Zu nennen ist
+        dabei beispielsweise die SWORD-Schnittstelle, die\\nOJS mit DSpace Repositorien
+        verkn\xFCpft, sowie die \xF6ffentlich verf\xFCgbare\\nOAI-PMH Schnittstelle.
+        Bei letzterer haben Journals keine Kontrolle\\ndar\xFCber, wer dar\xFCber
+        Metadaten sammelt und k\xF6nnen so auch keine\\nAktualisierungen ansto\xDFen.\\n\\n##
+        Fazit {#fazit .wp-block-heading}\\n\\nGrunds\xE4tzlich besteht der Anspruch,
+        einmal publizierte Artikel\\nunangetastet zu lassen. Das Open Gender Journal
+        verfolgt deshalb das\\nZiel, Korrekturen nur in Ausnahmen und dabei so transparent
+        wie m\xF6glich\\nvorzunehmen. Dabei l\xE4sst sich bei keiner der beschriebenen
+        Varianten\\nkomplett ausschlie\xDFen, dass der korrigierte bzw. zur\xFCckgezogene
+        Artikel\\nweiterhin in der urspr\xFCnglichen Fassung zirkuliert. Wir k\xF6nnen\\nbeispielsweise
+        nicht verhindern, dass eine private Kopie eines Beitrags\\nabgespeichert und
+        sp\xE4ter auf einer Lernplattform geteilt wird, obwohl es\\nmittlerweile eine
+        neue Fassung gibt. Lesende sollten jedoch, wann immer\\nes ethisch vertretbar
+        ist, dazu in die Lage versetzt werden, Versionen\\neinzusehen und/oder erg\xE4nzende
+        Dokumente zu finden, die aufschl\xFCsseln,\\nwelche Textstellen wie und aus
+        welchen Gr\xFCnden ge\xE4ndert wurden. Von\\ndieser Orientierung an gr\xF6\xDFtm\xF6glicher
+        Transparenz weichen wir allerdings\\nab, wenn wir den Schutz der betroffenen
+        Personen h\xF6her bewerten als die\\nNachvollziehbarkeit f\xFCr Dritte. Daher
+        depublizieren wir in diesen F\xE4llen\\ndie diskriminierende Textfassung und
+        reproduzieren die entsprechende\\nTextstelle nicht in einem Erratum.\_\\n\\nDer
+        forschungsethische Umgang mit Fehlern in bereits publizierten\\nArtikel ist
+        eine Herausforderung, mit der sich die Herausgebenden und\\nRedaktionen wissenschaftsgeleiteter
+        Zeitschriften selbst intensiv\\nauseinandersetzen m\xFCssen. Dies erm\xF6glicht
+        jedoch, L\xF6sungen zu finden,\\ndie dem Stand guter wissenschaftlicher Praxis
+        sowie den\\npublikationsethischen Anspr\xFCchen der eigenen Community entsprechen
+        und\\nauf spezifische Herausforderungen reagieren, wie sie sich etwa am hier\\ndiskutierten
+        Beispiel ge\xE4nderter Namen und Pronomen ergeben. Mit\\nSicherheit l\xE4sst
+        sich die L\xF6sung des Open Gender Journals nicht auf jede\\nZeitschrift \xFCbertragen,
+        die Open Journal Systems als Redaktionssystem\\neinsetzt. Die Geschlechterforschung
+        steht vor anderen Fach- und\\nkontextspezifischen Herausforderungen als etwa
+        Pharmazie, Mathematik\\noder Regionalstudien.\\n\\nDas Thema Versionierung
+        ist eines von vielen, das zeigt, dass f\xFCr die\\nRedaktionsarbeit in nicht-kommerziellen,
+        wissenschaftsgeleiteten\\nOpen-Access-Modellen Ressourcen zur Verf\xFCgung
+        stehen m\xFCssen, um sich\\nintensiv in solche Fragestellungen einzuarbeiten,
+        Policies zu\\nentwickeln, die Vorgehensweise so zu dokumentieren, dass\\nVerfahrensweisen
+        unabh\xE4ngig von einzelnen Personen genutzt und m\xF6glichst\\nauch mit anderen
+        Zeitschriften geteilt werden k\xF6nnen.\\n\\n## Autorinnen {#autorinnen .wp-block-heading}\\n\\nKathrin
+        Ganz (Freie Universit\xE4t Berlin, Margherita-von-Brentano-Zentrum,\\n<https://orcid.org/0000-0003-3968-3470>)
+        arbeitet f\xFCr das\\nFachrespositorium GenderOpen und leitet die Redaktion
+        des Open Gender\\nJournal.\_\\n\\nSabrina Schotten (Freie Universit\xE4t Berlin,\\nMargherita-von-Brentano-Zentrum,\\n<https://orcid.org/0000-0003-3924-0303>)
+        ist Teil des Editorial\\nManagements des Open Gender Journals.\\n\\n## Zitiervorschlag
+        {#zitiervorschlag .wp-block-heading}\\n\\nGanz, Kathrin; Schotten, Sabrina.
+        \u201EIntegrit\xE4t im wissenschaftlichen\\nPublizieren: Der Ansatz des Open
+        Gender Journals zu Artikel\xE4nderungen\\\".\\nBlog der DINI AGs, 2024. <https://doi.org/10.57689/DINI-BLOG.20240805>\\n\\n##
+        Fu\xDFnoten {#fu\xDFnoten .wp-block-heading}\\n\\n1.  [Open Gender Journal
+        -- Expansionshilfe (Projektnummer 471748397):\\n    Projektleitung: Prof.
+        Dr. Martin L\xFCcke,\\n    Margherita-von-Brentano-Zentrum, FU Berlin und
+        Prof. Dr. Susanne\\n    V\xF6lker, Zentrale Einrichtung Gender Studies in
+        K\xF6ln, Universit\xE4t zu\\n    K\xF6ln; Laufzeit 07/2022 -- 10/2024.\\n
+        \   [\u21A9\uFE0E](#02576268-2951-4db9-ac97-e404a488f2bc-link){aria-label=\\\"Zur
+        Fu\xDFnotenreferenz 1 navigieren\\\"}]{#02576268-2951-4db9-ac97-e404a488f2bc}\\n\\n------------------------------------------------------------------------\\n\\n*Dieser
+        Beitrag -- ausgenommen Zitate und anderweitig gekennzeichnete\\nTeile -- ist
+        lizenziert unter der [Creative Commons Namensnennung 4.0\\nInternational Lizenz](http://creativecommons.org/licenses/by/4.0/)
+        (CC\\nBY 4.0).*\\n\\n<figure class=\\\"wp-block-image\\\">\\n<a href=\\\"http://creativecommons.org/licenses/by/4.0/\\\"><img\\nsrc=\\\"https://i.creativecommons.org/l/by/4.0/88x31.png\\\"
+        decoding=\\\"async\\\"\\nalt=\\\"Creative Commons Lizenzvertrag\\\" /></a>\\n</figure>\\n\",\"doi\":\"https://doi.org/10.57689/dini-blog.20240805\",\"guid\":\"https://blog.dini.de/EPub_FIS/?p=3481\",\"id\":\"1db4111f-0938-4aa6-94bc-3809abbd3d38\",\"image\":\"https://blog.dini.de/EPub_FIS/wp-content/uploads/2024/08/96.png\",\"language\":\"de\",\"published_at\":1722839052,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Zu
+        den wichtigsten Anforderungen an wissenschaftliches Publizieren \u2013 auch
+        in digitaler Form \u2013\_geh\xF6rt, dass die Ver\xF6ffentlichungen integer
+        im Sinne von unverletzlich, datenstabil und konsistent sind.\",\"tags\":[\"Elektronisches
+        Publizieren\",\"Identitfier\",\"Open Access\",\"GWP\",\"Journal\"],\"title\":\"Integrit\xE4t
+        von wissenschaftlichen Ver\xF6ffentlichungen: Der Ansatz des Open Gender Journals
+        zu Artikel\xE4nderungen\",\"updated_at\":1722839231,\"url\":\"https://blog.dini.de/EPub_FIS/2024/08/05/open-gender-journal\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22098/20231101171344/http://gigasciencejournal.com/blog/ismb2024-ai-and-publishing\",\"authors\":[{\"name\":\"Scott
+        Edmunds\",\"url\":\"http://orcid.org/0000-0001-6444-1436\"}],\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"category\":\"biologicalSciences\",\"content_text\":\"***Opening
+        a** **Cabinet of Curiosities\_in Montreal  \\n***Readers of this blog must
+        know every summer the GigaScience Press\\nteam [gathers at the ISMB](http://gigasciencejournal.com/blog/tag/ismb/)\\n(International
+        Conference on Intelligent Systems for Molecular Biology)\\nconference, where
+        the great and good of computational biology gather for\\nthe largest bioinformatics
+        conference of the year. Being the meeting\\nwhere *GigaScience* [launched
+        in\\n2012](https://doi.org/10.1186/2047-217X-1-1), which is why we always\\ncelebrate
+        our birthday here. The heart of the [scientific\\nprogram](https://www.iscb.org/ismb2024/programme-schedule/schedule-at-a-glance)\\nis
+        the many parallel Communities of Special Interest (COSI) meetings,\\nand of
+        these BOSC- The [Bioinformatics Open Source\\nConference](https://www.open-bio.org/events/bosc-2021/about/),
+        is a\\nparticular fave of ours and we again were silver sponsors and\\nparticipated
+        in this track.\\n\\n![ISMB2024\\nCirque](http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/ISMB-logo-thumbnail-283x300.jpg){.wp-image-5881\\n.aligncenter
+        fetchpriority=\\\"high\\\" decoding=\\\"async\\\" width=\\\"651\\\"\\nheight=\\\"690\\\"\\nsrcset=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/ISMB-logo-thumbnail-283x300.jpg
+        283w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/ISMB-logo-thumbnail.jpg
+        700w\\\"\\nsizes=\\\"(max-width: 651px) 100vw, 651px\\\"}\\n\\n**Another Giga-Birthday
+        Ball, in Montreal  \\n**This year ISMB2024 was in Montreal, and the organisers
+        (including our\\nEd Board Member Francis Ouellette) did a fantastic job organising
+        a\\nfantastic program with plenty of French-Canadian flavour. \_With poutine\\nstations
+        in the opening reception, the 25^th^ anniversary party for the\\nBioinformatics.ca
+        community, and an [Explore\\nMontreal](Explore%20Montreal) event on the Saturday
+        evening. We got into\\nthe Qu\xE9b\xE9cois spirit, providing birthday maple
+        flavoured beignets on the\\nOUP booth, and local boy Denis Villeneuve inspired
+        GigaPanda t-shirts\\ngiven away at our birthday party in Winnie's bar in Old
+        Montreal. It was\\nanother good turnout this year, and great to catch up with
+        old and new\\nfriends to celebrate turning 12 (see the [photo album of the\\ntrip](https://www.facebook.com/media/set/?set=a.893160316164814&type=3)).\\n\\n:::
+        {#attachment_5883 .wp-caption .aligncenter style=\\\"width: 715px\\\"}\\n![ISMB2024\\nbirthday](http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/f1077862c627adcfe6da333df8a8d36e-300x243.jpg){.wp-image-5883\\ndecoding=\\\"async\\\"
+        aria-describedby=\\\"caption-attachment-5883\\\" width=\\\"705\\\"\\nheight=\\\"571\\\"\\nsrcset=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/f1077862c627adcfe6da333df8a8d36e-300x243.jpg
+        300w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/f1077862c627adcfe6da333df8a8d36e-1024x830.jpg
+        1024w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/f1077862c627adcfe6da333df8a8d36e-768x623.jpg
+        768w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/f1077862c627adcfe6da333df8a8d36e-1536x1246.jpg
+        1536w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/f1077862c627adcfe6da333df8a8d36e.jpg
+        1576w\\\"\\nsizes=\\\"(max-width: 705px) 100vw, 705px\\\"}\\n\\nThe GigaScience
+        contingent (plus birthday beignets) at ISMB2024\\n:::\\n\\nAnother famous
+        Montreal export is Cirque Du Soleil, and this year the\\nshow had a topical
+        theme for the nearly two-thousand computational\\nbiologists coming to the
+        city. The show -- [*KUROS -- Cabinet of\\nCuriosities*](https://www.cirquedusoleil.com/kurios)\_--
+        covered\\nblue-skies exploration and innovation, where a scientist and his
+        team\\ncreates a machine that leads to a place where the craziest ideas and
+        the\\ngrandest dreams lie waiting.\_Talking of crazy-idea generating machines,\\nas
+        with [last year Machine\\nLearning](http://gigasciencejournal.com/blog/going-large-language-models-at-ismb2023/)\\nwas
+        a dominant theme of the ISMB program, and on top of a number of\\nkeynotes
+        and tracks in the other COSI's there was dedicated \\\"Machine\\nLearning
+        in Computational and Systems Biology\\\" COSI also running.\\n\\n![](http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/CirqueDuSoleil-300x228.jpg){.wp-image-5882\\n.aligncenter
+        decoding=\\\"async\\\" width=\\\"707\\\" height=\\\"538\\\"}\\n\\n**Another
+        Yearly Tech Check, in Quebec  \\n**On top of the usual community, standards
+        and open science talks, BOSC\\nhad a heavy ML and LLM focus year. With M\xE9lanie
+        Courtot and Andrew Su\\nboth covering the topic in their keynotes, and a panel
+        featuring them.\\nLarry Hunter, and Thomas Mboa covering \\\"Open Source AI/ML:
+        A Game\\nChanger for Bioinformatics?\\\". Covering the issue of responsible
+        AI,\\nthere was interesting debate between Larry and Andrew on the\\neffectiveness
+        of open v closed sourced models. Larry saying we need to\\nbe patient as the
+        open models are going to lag in utility, but the\\nclosed models will eventually
+        be skewed by advertising and will not be\\nsuitable for good science.\\n\\n**Increasing
+        Transparency in AI/ML Research**  \\nOn the second day of the BOSC COSI there
+        was a specific session on \\\"Open\\napproaches to AI/ML\\\", and we participated
+        in this, our Data Scientist\\nChris Armit presenting on our trial using the
+        [DOME-ML\\nstandards](https://dome-ml.org/) and annotation wizard in our publishing\\nprocess
+        for Machine Learning submissions. You can see Chris's [slides in\\nZenodo](https://doi.org/10.5281/zenodo.12752392),
+        and the talk was our\\nfirst public announcement on how we are using \_the
+        DOME-ML standards to\\nhelp us deal with the exponential increase of ML publications
+        in\\nbiology. DOME stands for data, optimization, model and evaluation, which\\nare
+        the key components of an ML implementation, and\\n[DOME-ML](https://dome-ml.org/)
+        proposes a list of minimal requirements\\nthat when followed help to assess
+        the quality and reliability of\\nreported methods more faithfully. Coupled
+        with their registry and an\\nannotation wizard that helps authors collect
+        this key information\\ntogether, and then share it with reviewers and readers
+        to scrutinize and\\nfind the key information and inputs and outputs they need.
+        As Chris\\npointed out in his talk, if you submit this type of work to GigaScience\\nyou
+        will see this workflow in practice, and there are already a number\\nof papers
+        that have passed this process. Where if you see in [this\\nexample](https://doi.org/10.1093/gigascience/giad111)
+        (\\\"Machine Learning\\nMade Easy (MLme): a comprehensive toolkit for machine
+        learning--driven\\ndata analysis\\\") the DOME-ML annotations are highlighted
+        and linked in\\nthe associated [GigaDB entry](https://doi.org/10.5524/102486),
+        and then\\nthe end products eventually curated and hosted in the\\n[DOME-wizard](https://dome.dsw.elixir-europe.org/wizard/projects/8f4d5243-32b1-419a-b27d-c826e99ee689)\\nand
+        DOME-registry (see t[his\\nexample](https://registry.dome-ml.org/review/ck60ijuxvo)).
+        This trial is\\nstill evolving and underway, and watch this space or further
+        updates and\\nannouncements from GigaScience and the DOME-ML consortium.\\n\\n:::
+        {#attachment_5880 .wp-caption .aligncenter style=\\\"width: 688px\\\"}\\n![Chris
+        Armit at\\nISMB2024](http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/Chriis-Armit-300x252.jpg){.wp-image-5880\\nloading=\\\"lazy\\\"
+        decoding=\\\"async\\\"\\naria-describedby=\\\"caption-attachment-5880\\\"
+        width=\\\"678\\\" height=\\\"569\\\"\\nsrcset=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/Chriis-Armit-300x252.jpg
+        300w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/Chriis-Armit-1024x860.jpg
+        1024w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/Chriis-Armit-768x645.jpg
+        768w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/Chriis-Armit.jpg
+        1528w\\\"\\nsizes=\\\"(max-width: 678px) 100vw, 678px\\\"}\\n\\n*GigaScience*
+        Data Scientist Chris Armit presenting on our DOME-ML trial\\nat ISMB2024\\n:::\\n\\nIn
+        the rest of the program there was a huge amount of interest to catch\\nup
+        on and see. The opening keynote from [Fiona\\nBrinkman](https://www.sfu.ca/mbb/people/faculty/fiona-brinkman.html)\\nreally
+        set the conference on an Open Science path, covering \\\"Sensitive\\nSustainable
+        Science\\\", presenting from her microbial genomics and\\ninfectious disease
+        background on how open science is evolving, building\\nand building upon the\\n[FAIR](https://www.nature.com/articles/sdata201618)
+        \_and\\n[CARE](https://www.gida-global.org/care) Principles for Indigenous
+        Data\\nGovernance. As Open Science is also baked into the mission of\\nGigaScience,
+        talks like this remind us why ISMB is our favourite\\nmeeting. There was also
+        a great keynote from Tandy Warnow on progress in\\nlarge-scale phylogenomic
+        estimation methods, presenting examples from\\nmany of the taxa-specific phylogenomics
+        projects that she worked on and\\nwe published the data for including the
+        [Avian Phylogenomic\\nProject,](https://doi.org/10.1186/s13742-014-0038-1)
+        and the [1000 Plant\\ntranscriptomes initiative](https://doi.org/10.1093/gigascience/giz126)\\n(1KP).\\n\\nOn
+        the last day of the meeting the ISCB Publication Committee organised\\na dedicated
+        session on [\\\"Demystifying the World of Scientific\\nPublishing\\\"](https://www.iscb.org/ismb2024/programme-schedule/scientific-programme/dwsp),\\nas
+        to most researchers the \\\"under the hood\\\" processes of how publishing\\nworks
+        is every bit as much a black box as Machine Learning is. Co-hosted\\nby our
+        Editorial Board Member Francis Ouellette and Ragothaman\\nYennamalli, the
+        session covered essential topics such as navigating the\\npublication process,
+        ethical considerations, different publishing\\nmodels, and managing rejections.
+        With Editors participating and\\npresenting from many Computational Biology
+        journals such as *PLOS\\nComputational Biology*, *Bioinformatics Advances*,
+        *Database Journal*,\\nand ourselves. It covered many of our favourite topics,
+        Patricia Palagi\\npresenting on reproducible published on FAIR, Alex Bateman
+        again\\ncovering the use of LLMs in writing papers (see our recent [policies\\nupdates
+        on the\\ntopic](http://gigasciencejournal.com/blog/llms-openboxscience-getfreecopy/)),\\nand
+        our Editor in Chief Scott Edmunds covered the tricky topic of\\nchallenges
+        with reviewers: reviewing fatigue, acknowledgement, and\\ndealing with delays
+        and rejections. Making a depressing topic a bit\\nlighter by presenting it
+        through the medium of Canadian icon John Candy\\nfilms, and also providing
+        suggestions of making the review process more\\nscalable through applying
+        the FAIR priciples to it, making peer reviews\\nmore interoperable and reusable
+        (see for example our [preprint review\\nand Sciety\\nintegration](http://gigasciencejournal.com/blog/peer-review-week-2023/)).\\nThe
+        session then concluded with a panel, with lots of audience questions\\ndemonstrating
+        how this is a topic badly in need of demystification.\\n\\n![ISMB2024\\ntalk](http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/b0b27a70-8b48-417b-b061-022e38a36f3a-300x162.jpg){.wp-image-5884\\n.aligncenter
+        loading=\\\"lazy\\\" decoding=\\\"async\\\" width=\\\"717\\\" height=\\\"387\\\"\\nsrcset=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/b0b27a70-8b48-417b-b061-022e38a36f3a-300x162.jpg
+        300w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/b0b27a70-8b48-417b-b061-022e38a36f3a-1024x553.jpg
+        1024w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/b0b27a70-8b48-417b-b061-022e38a36f3a-768x415.jpg
+        768w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/b0b27a70-8b48-417b-b061-022e38a36f3a-1536x830.jpg
+        1536w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/b0b27a70-8b48-417b-b061-022e38a36f3a.jpg
+        2048w\\\"\\nsizes=\\\"(max-width: 717px) 100vw, 717px\\\"}\\n\\nNext year
+        ISMB will be located in Liverpool, and we look forward to some\\nfurther BOSC,
+        Beatles and Bioinformatics experiences in 2025.\\n\\n**References  \\n**Carpenter
+        EJ at al. Access to RNA-sequencing data from 1,173 plant\\nspecies: The 1000
+        Plant transcriptomes initiative (1KP). *Gigascience*.\\n2019 Oct 1;8(10):giz126.\\ndoi:[10.1093/gigascience/giz126](https://doi.org/10.1093/gigascience/giz126).\\n\\nJarvis
+        ED et al. Avian Phylogenomics Consortium. Phylogenomic analyses\\ndata of
+        the avian phylogenomics project. *Gigascience*. 2015 Feb 12;4:4.\\ndoi:[10.1186/s13742-014-0038-1](https://doi.org/10.1093/gigascience/giz126).\\n\\nArmit
+        C. (2024). Trust and Transparency in Reporting Machine Learning:\\nThe DOME-GigaScience
+        Press Trial. Bioinformatics Open Source Conference\\n2024 (BOSC2024), Montreal.
+        *Zenodo*.\\n<https://doi.org/10.5281/zenodo.12752392>\\n\\nWalsh I, et al.
+        DOME: recommendations for supervised machine learning\\nvalidation in biology.
+        *Nat Methods*. 2021 Oct;18(10):1122-1127.\\ndoi:[10.1038/s41592-021-01205-4](https://doi.org/10.1038/s41592-021-01205-4).\\n\\nAkshay
+        A et al. Machine Learning Made Easy (MLme): a comprehensive\\ntoolkit for
+        machine learning-driven data analysis. Gigascience. 2024 Jan\\n2;13:giad111.\\ndoi:[10.1093/gigascience/giad111](https://doi.org/10.1093/gigascience/giad111).\\n\\nThe
+        post [ISMB2024 -- Demystifying the World of AI (and\\nPublishing)](http://gigasciencejournal.com/blog/ismb2024-ai-and-publishing/){rel=\\\"nofollow\\\"}\\nappeared
+        first on\\n[GigaBlog](http://gigasciencejournal.com/blog){rel=\\\"nofollow\\\"}.\\n\",\"doi\":\"https://doi.org/10.59350/dy0xy-0cg84\",\"guid\":\"http://gigasciencejournal.com/blog/?p=5879\",\"id\":\"054f5ada-9eb9-4f6d-9684-9dbbc453b0f3\",\"image\":\"http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/ISMB-logo-thumbnail-283x300.jpg\",\"language\":\"en\",\"published_at\":1721574126,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"<em>\\n
+        <strong>\\n  Opening a\\n </strong>\\n <strong>\\n  Cabinet of Curiosities\\n
+        </strong>\\n <strong>\\n  in Montreal\\n </strong>\\n</em>\\nReaders of this
+        blog must know every summer the GigaScience Press team gathers at the ISMB
+        (International Conference on Intelligent Systems for Molecular Biology) conference,
+        where the great and good of computational biology gather for the largest bioinformatics
+        conference of the year.\",\"tags\":[\"Open Access\",\"AI\",\"BOSC\",\"Conferences\",\"ISMB\"],\"title\":\"ISMB2024
+        \u2013 Demystifying the World of AI (and Publishing)\",\"updated_at\":1721574126,\"url\":\"http://gigasciencejournal.com/blog/ismb2024-ai-and-publishing\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22152/20231101171820/https://www.samuelmoore.org/2024/06/25/new-article-in-new-formations-on-supporting-editorial-labour-for-ethical-publishing-within-the-university\",\"authors\":[{\"name\":\"Samuel
+        Moore\"}],\"blog_name\":\"Samuel Moore\",\"blog_slug\":\"samuelmoore\",\"category\":\"socialSciences\",\"content_text\":\"Today
+        Janneke Adema and I published a new article in the journal *New\\nFormations*
+        entitled ''Just One Day of Unstructured Autonomous Time':\\nSupporting Editorial
+        Labour for Ethical Publishing within the\\nUniversity'. The article will be
+        available in our repositories but is\\nalso currently freely accessible via
+        the *New Formations* site:\\n<https://journals.lwbooks.co.uk/newformations/vol-2023-issue-110/abstract-9909/>\\n(although
+        I'm not sure for how long!) The article is part of a special\\nissue on the
+        topic of public knowledge.\\n\",\"doi\":\"https://doi.org/10.59350/cemeq-hwt61\",\"guid\":\"https://www.samuelmoore.org/?p=1497\",\"id\":\"1e0ed733-0f07-41e6-951b-cac32dd2b9a9\",\"image\":\"https://www.samuelmoore.org/wp-content/uploads/2024/06/newformations-2023-110.jpg\",\"language\":\"en\",\"published_at\":1719326828,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Today
+        Janneke Adema and I published a new article in the journal\\n<em>\\n New Formations\\n</em>\\nentitled
+        \u2018\u2018Just One Day of Unstructured Autonomous Time\u2019: Supporting
+        Editorial Labour for Ethical Publishing within the University\u2019. The article
+        will be available in our repositories but is also currently freely accessible
+        via the\\n<em>\\n New Formations\\n</em>\\nsite: https://journals.lwbooks.co.uk/newformations/vol-2023-issue-110/abstract-9909/
+        (although I\u2019m not\",\"tags\":[\"Open Access\"],\"title\":\"New article
+        in New Formations on supporting editorial labour for ethical publishing within
+        the university\",\"updated_at\":1719326873,\"url\":\"https://www.samuelmoore.org/2024/06/25/new-article-in-new-formations-on-supporting-editorial-labour-for-ethical-publishing-within-the-university\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}}],\"out_of\":17617,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"\"},\"search_cutoff\":false,\"search_time_ms\":14}"
+    headers:
+      Connection:
+      - keep-alive
+      accept-ranges:
+      - none
+      access-control-allow-origin:
+      - '*'
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: OK
 version: 1

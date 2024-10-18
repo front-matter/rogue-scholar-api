@@ -900,13 +900,13 @@ test = ["pytest"]
 
 [[package]]
 name = "commonmeta-py"
-version = "0.44"
+version = "0.45"
 description = "Library for conversions to/from the Commonmeta scholarly metadata format"
 optional = false
 python-versions = "<4.0.0,>=3.9"
 files = [
-    {file = "commonmeta_py-0.44-py3-none-any.whl", hash = "sha256:95ca824984c6fc8bddbec4f8c6489ae2ce3821e82bb483a317984a412bc87f1d"},
-    {file = "commonmeta_py-0.44.tar.gz", hash = "sha256:7b24e8514cb4b6c668d206606d3a670da74e255ab1514c6cfa45e328c6a8a8e2"},
+    {file = "commonmeta_py-0.45-py3-none-any.whl", hash = "sha256:79159a6b969c388bc28918c67e8acae1eceeabc4787a322d266c296df496024a"},
+    {file = "commonmeta_py-0.45.tar.gz", hash = "sha256:7fb120ed746118141d00946b1a9b0cad8ddf8f6832aab2a6be29877cb733dcf5"},
 ]
 
 [package.dependencies]
@@ -3307,20 +3307,19 @@ files = [
 
 [[package]]
 name = "postgrest"
-version = "0.17.1"
+version = "0.17.2"
 description = "PostgREST client for Python. This library provides an ORM interface to PostgREST."
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "postgrest-0.17.1-py3-none-any.whl", hash = "sha256:ec1d00dc8532fe5ffb342cfc7c4e610a1e0e2272eb14f78f9b2b61094f9be510"},
-    {file = "postgrest-0.17.1.tar.gz", hash = "sha256:e31d9977dbb80dc5f9fdd4d444014686606692dc4ddb9adc85639e56c6d54c92"},
+    {file = "postgrest-0.17.2-py3-none-any.whl", hash = "sha256:f7c4f448e5a5e2d4c1dcf192edae9d1007c4261e9a6fb5116783a0046846ece2"},
+    {file = "postgrest-0.17.2.tar.gz", hash = "sha256:445cd4e4a191e279492549df0c4e827d32f9d01d0852599bb8a6efb0f07fcf78"},
 ]
 
 [package.dependencies]
 deprecation = ">=2.1.0,<3.0.0"
 httpx = {version = ">=0.26,<0.28", extras = ["http2"]}
 pydantic = ">=1.9,<3.0"
-strenum = ">=0.4.9,<0.5.0"
 
 [[package]]
 name = "priority"
@@ -5164,22 +5163,6 @@ python-dateutil = ">=2.8.2,<3.0.0"
 typing-extensions = ">=4.2.0,<5.0.0"
 
 [[package]]
-name = "strenum"
-version = "0.4.15"
-description = "An Enum that inherits from str."
-optional = false
-python-versions = "*"
-files = [
-    {file = "StrEnum-0.4.15-py3-none-any.whl", hash = "sha256:a30cda4af7cc6b5bf52c8055bc4bf4b2b6b14a93b574626da33df53cf7740659"},
-    {file = "StrEnum-0.4.15.tar.gz", hash = "sha256:878fb5ab705442070e4dd1929bb5e2249511c0bcf2b0eeacf3bcd80875c82eff"},
-]
-
-[package.extras]
-docs = ["myst-parser[linkify]", "sphinx", "sphinx-rtd-theme"]
-release = ["twine"]
-test = ["pylint", "pytest", "pytest-black", "pytest-cov", "pytest-pylint"]
-
-[[package]]
 name = "supabase"
 version = "2.9.0"
 description = "Supabase client for Python."
@@ -6124,4 +6107,4 @@ test = ["pytest"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "3f9dd4b90829b4840b9a1239ce683d519d09c26eb7c4f80a1a1b05f43ab9ffcb"
+content-hash = "dda8cf08dc744587e4ac7d5ab281c20e010f01ac47e40620b6e126c4a259f165"

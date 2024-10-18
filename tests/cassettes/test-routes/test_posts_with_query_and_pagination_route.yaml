@@ -4852,4 +4852,1494 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=retraction-watch&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Cabstract%2Ccontent_text%2Creference&filter_by=status%3A%21%3D%5Bpending%5D+%26%26+published_at%3A%3E%3D+0+%26%26+published_at%3A%3C%3D+1729246174&sort_by=_text_match%3Adesc&per_page=10&page=1
+  response:
+    body:
+      string: "{\"facet_counts\":[],\"found\":35,\"hits\":[{\"document\":{\"abstract\":\"Ce
+        billet est la traduction adapt\xE9e d\u2019un billet du blog Zotero. Stillman
+        Dan, Retracted item notifications with Retraction Watch integration, https://www.zotero.org/blog/retracted-item-notifications/,
+        14 juin 2019.\",\"authors\":[{\"name\":\"Collectif\"}],\"blog_name\":\"Le
+        blog Zotero francophone\",\"blog_slug\":\"zotero_fr\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"*Billet
+        r\xE9dig\xE9 par* \u270F\uFE0F *Alain Marois,* \u270F\uFE0F *Fr\xE9d\xE9rique
+        Flamerie et* \u270F\uFE0F\\n*Nicolas Chachereau*\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter\\\">\\n<a href=\\\"https://zotero.hypotheses.org/files/2019/06/blue_five.jpg\\\"><img\\nsrc=\\\"https://zotero.hypotheses.org/files/2019/06/blue_five.jpg\\\"\\nclass=\\\"wp-image-2810\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://zotero.hypotheses.org/files/2019/06/blue_five.jpg
+        480w, https://zotero.hypotheses.org/files/2019/06/blue_five-225x300.jpg 225w\\\"\\nsizes=\\\"(max-width:
+        480px) 100vw, 480px\\\" width=\\\"480\\\" height=\\\"640\\\"\\nalt=\\\"blue_five\\\"
+        /></a>\\n<figcaption>Blue Five \u2013 auteur: Christopher Sessums (CC BY-SA)
+        \u2013 source:\\nhttps://www.flickr.com/photos/csessums/12507215604/</figcaption>\\n</figure>\\n:::\\n\\n*Ce
+        billet est la traduction adapt\xE9e d'un billet du blog Zotero.*\\n\\nStillman
+        Dan, *Retracted item notifications with Retraction Watch\\nintegration*,\\n[https://www.zotero.org/blog/retracted-item-notifications/](https://www.zotero.org/blog/retracted-item-notifications/){rel=\\\"noopener\\\"},\\n14
+        juin 2019.\\n\\nZotero peut maintenant vous aider \xE0 \xE9viter de vous appuyer
+        sur des\\npublications r\xE9tract\xE9es dans votre recherche, en v\xE9rifiant\\nautomatiquement
+        la pr\xE9sence d'articles r\xE9tract\xE9s dans votre base de\\ndonn\xE9es.
+        Nous offrons ce service en partenariat avec [Retraction\\nWatch](https://retractionwatch.com/){rel=\\\"noopener\\\"},
+        qui tient \xE0 jour\\nla plus grande base de donn\xE9es de r\xE9tractations
+        disponible, et nous\\nsommes fiers de les aider \xE0 poursuivre leur important
+        travail.\\n\\n## Comment cela fonctionne {#Comment-cela-fonctionne .part startline=\\\"26\\\"
+        endline=\\\"26\\\"}\\n\\nLes publications r\xE9tract\xE9es sont signal\xE9es
+        dans votre biblioth\xE8que, dans\\nla liste des documents. Si vous cliquez
+        sur l'une d'entre elles, vous\\nverrez sous l'onglet \\\"Info\\\" de l'affichage
+        d\xE9taill\xE9 un avertissement\\ncomportant des d\xE9tails sur la r\xE9tractation
+        et des liens vers des\\ninformations compl\xE9mentaires.\\n\\n[![retraction-warning-cropped](https://zotero.hypotheses.org/files/2019/06/retraction-warning-cropped.png){.aligncenter\\n.size-full
+        .wp-image-2812 decoding=\\\"async\\\" loading=\\\"lazy\\\" width=\\\"800\\\"\\nheight=\\\"501\\\"\\nsrcset=\\\"https://zotero.hypotheses.org/files/2019/06/retraction-warning-cropped.png
+        800w, https://zotero.hypotheses.org/files/2019/06/retraction-warning-cropped-300x188.png
+        300w, https://zotero.hypotheses.org/files/2019/06/retraction-warning-cropped-768x481.png
+        768w\\\"\\nsizes=\\\"(max-width: 800px) 100vw, 800px\\\"}](https://zotero.hypotheses.org/files/2019/06/retraction-warning-cropped.png)\\n\\n\_\\n\\nSi
+        vous essayez de citer un document r\xE9tract\xE9 \xE0 l'aide de l'extension
+        de\\ntraitement de texte, Zotero vous avertira et vous demandera de confirmer\\nque
+        vous voulez toujours le citer. Si vous avez d\xE9j\xE0 cit\xE9 dans un texte\\nun
+        document r\xE9tract\xE9 par la suite, Zotero vous avertira lors de la\\nprochaine
+        mise \xE0 jour des citations de ce texte, m\xEAme si le document\\nn'existe
+        plus dans votre biblioth\xE8que Zotero ou a \xE9t\xE9 ajout\xE9 par un\\nco-auteur.\\n\\n[![citation_warning](https://zotero.hypotheses.org/files/2019/06/citation-warning.png){.aligncenter\\n.size-full
+        .wp-image-2813 decoding=\\\"async\\\" loading=\\\"lazy\\\" width=\\\"800\\\"\\nheight=\\\"453\\\"\\nsrcset=\\\"https://zotero.hypotheses.org/files/2019/06/citation-warning.png
+        800w, https://zotero.hypotheses.org/files/2019/06/citation-warning-300x170.png
+        300w, https://zotero.hypotheses.org/files/2019/06/citation-warning-768x435.png
+        768w\\\"\\nsizes=\\\"(max-width: 800px) 100vw, 800px\\\"}](https://zotero.hypotheses.org/files/2019/06/citation-warning.png)\\n\\nActuellement,
+        cette fonctionnalit\xE9 est limit\xE9e aux documents avec DOI ou\\nPMID, saisi
+        soit dans le champ \\\"DOI\\\", soit dans le champ \\\"Extra\\\" sous la\\nforme
+        \\\"DOI:\\\", \\\"PMID:\\\", ou \\\"PubMed ID:\\\". Cela couvre environ 3/4
+        des\\ndonn\xE9es de Retraction Watch, mais nous esp\xE9rons prendre en charge
+        le\\nmieux possible les documents sans identifiant dans une prochaine\\nversion.\\n\\n##
+        Con\xE7u pour prot\xE9ger votre vie priv\xE9e {#Con\xE7u-pour-prot\xE9ger-votre-vie-priv\xE9e
+        .part startline=\\\"38\\\" endline=\\\"38\\\"}\\n\\nL'ensemble des donn\xE9es
+        de r\xE9tractation est stock\xE9 sur les serveurs\\nZotero, mais nous avons
+        con\xE7u cette fonctionnalit\xE9 de mani\xE8re \xE0\\npermettre au client
+        Zotero de v\xE9rifier les documents r\xE9tract\xE9s sans\\npartager le contenu
+        de votre biblioth\xE8que. Vous n'avez pas besoin\\nd'utiliser la synchronisation
+        Zotero ni de t\xE9l\xE9charger une liste de\\ndocuments pour b\xE9n\xE9ficier
+        de cette fonctionnalit\xE9.\\n\\nPour chaque document de votre biblioth\xE8que,
+        Zotero calcule un\\nidentifiant non-unique, qui pourrait correspondre \xE0
+        des centaines ou des\\nmilliers de publications. Du c\xF4t\xE9 des serveurs
+        Zotero, un identifiant du\\nm\xEAme type est calcul\xE9 pour chaque publication
+        r\xE9tract\xE9e. Zotero\\nt\xE9l\xE9charge la liste des identifiants des publications
+        r\xE9tract\xE9es depuis\\nles serveurs. Il compare les identifiants de votre
+        biblioth\xE8que et ceux\\nde cette liste. Lorsqu'un identifiant se retrouve
+        dans les deux listes,\\nZotero demande aux serveurs les d\xE9tails (auteur,
+        titre, etc.) de toutes\\nles r\xE9tractations correspondant \xE0 cet identifiant
+        et v\xE9rifie si ces\\ndocuments r\xE9tract\xE9s sont enregistr\xE9s dans
+        votre biblioth\xE8que. Si tel est\\nle cas ils sont signal\xE9s. Ainsi, les
+        serveurs Zotero n'ont re\xE7u de votre\\npart, anonymement, qu'un identifiant
+        vague, qui ne permet pas de savoir\\nquelles publications vous avez enregistr\xE9es
+        parmi des centaines ou des\\nmilliers d'autres. (Une approche similaire est
+        utilis\xE9e par certains\\noutils pour [v\xE9rifier les mots de passe\\ncompromis](https://www.troyhunt.com/ive-just-launched-pwned-passwords-version-2/#cloudflareprivacyandkanonymity){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} sans partager les mots de passe qu'ils\\nv\xE9rifient avec
+        le serveur.) Et, comme pour nos autres services, nous\\nn'enregistrons pas
+        le contenu de ces recherches, m\xEAmes anonymes.\\n\\nCette fonctionnalit\xE9
+        est disponible aujourd'hui dans Zotero 5.0.67.\\n\",\"doi\":\"https://doi.org/10.59350/6sg2m-r7997\",\"guid\":\"https://zotero.hypotheses.org/?p=2809\",\"id\":\"b8fc033a-c7b8-4eeb-9dae-1c6d49577540\",\"image\":\"https://zotero.hypotheses.org/files/2019/06/blue_five.jpg\",\"language\":\"fr\",\"published_at\":1561560239,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"<em>\\n
+        Billet r\xE9dig\xE9 par\\n</em>\\n\u270F\uFE0F\\n<em>\\n Alain Marois,\\n</em>\\n\u270F\uFE0F\\n<em>\\n
+        Fr\xE9d\xE9rique Flamerie et\\n</em>\\n\u270F\uFE0F\\n<em>\\n Nicolas Chachereau\\n</em>\\n<em>\\n
+        Ce billet est la traduction adapt\xE9e d\u2019un billet du blog Zotero.\\n</em>\\nStillman
+        Dan,\\n<em>\\n Retracted item notifications with Retraction Watch integration\\n</em>\\n,
+        https://www.zotero.org/blog/retracted-item-notifications/, 14 juin 2019.\",\"tags\":[\"Actualit\xE9s\"],\"title\":\"Notifications
+        pour les articles r\xE9tract\xE9s gr\xE2ce \xE0 l\u2019int\xE9gration de Retraction
+        Watch\",\"updated_at\":1620202030,\"url\":\"https://zotero.hypotheses.org/2809\"},\"highlight\":{\"abstract\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Retracted
+        item notifications with <mark>Retraction</mark> <mark>Watch</mark> integration,
+        https://www.zotero\"},\"content_text\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Retracted
+        item notifications with <mark>Retraction</mark> <mark>Watch</mark>\\nintegration*,\\n[https://www.zotero\"},\"summary\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Retracted
+        item notifications with <mark>Retraction</mark> <mark>Watch</mark> integration\\n</em>\\n,
+        https://www\"},\"title\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Notifications
+        pour les articles r\xE9tract\xE9s gr\xE2ce \xE0 l\u2019int\xE9gration de <mark>Retraction</mark>
+        <mark>Watch</mark>\"}},\"highlights\":[{\"field\":\"content_text\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Retracted
+        item notifications with <mark>Retraction</mark> <mark>Watch</mark>\\nintegration*,\\n[https://www.zotero\"},{\"field\":\"title\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Notifications
+        pour les articles r\xE9tract\xE9s gr\xE2ce \xE0 l\u2019int\xE9gration de <mark>Retraction</mark>
+        <mark>Watch</mark>\"},{\"field\":\"abstract\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Retracted
+        item notifications with <mark>Retraction</mark> <mark>Watch</mark> integration,
+        https://www.zotero\"},{\"field\":\"summary\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Retracted
+        item notifications with <mark>Retraction</mark> <mark>Watch</mark> integration\\n</em>\\n,
+        https://www\"}],\"text_match\":1157451471441100916,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":14,\"fields_matched\":4,\"score\":\"1157451471441100916\",\"tokens_matched\":2}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22145/20231106080607/https://quantixed.org/2016/01/01/what-difference-does-it-make\",\"authors\":[{\"name\":\"Stephen
+        Royle\",\"url\":\"https://orcid.org/0000-0001-8927-6967\"}],\"blog_id\":\"s1e9w75\",\"blog_name\":\"quantixed\",\"blog_slug\":\"quantixed\",\"category\":\"computerAndInformationSciences\",\"content_html\":\"<p>A
+        few days ago, Retraction Watch published the <a href=\\\"http://retractionwatch.com/the-retraction-watch-leaderboard/top-10-most-highly-cited-retracted-papers/\\\">top
+        ten\_most-cited retracted papers</a>. I saw <a href=\\\"http://qz.com/583497/researchers-keep-citing-these-retracted-papers/\\\">this
+        post</a> with a bar chart to visualise these citations. It didn&#8217;t quite
+        capture what the effect (if any) a retraction has on citations. I thought
+        I&#8217;d quickly plot this out for the number one article on the list.</p>\\n<p><a
+        href=\\\"https://quantixed.org/2016/01/01/what-difference-does-it-make/retract/\\\"
+        rel=\\\" rel=&quot;attachment wp-att-675&quot;\\\"><img loading=\\\"lazy\\\"
+        decoding=\\\"async\\\" data-attachment-id=\\\"675\\\" data-permalink=\\\"https://quantixed.org/retract/\\\"
+        data-orig-file=\\\"https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?fit=2080%2C1112&amp;ssl=1\\\"
+        data-orig-size=\\\"2080,1112\\\" data-comments-opened=\\\"1\\\" data-image-meta=\\\"{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}\\\"
+        data-image-title=\\\"Retract\\\" data-image-description=\\\"\\\" data-image-caption=\\\"\\\"
+        data-medium-file=\\\"https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?fit=300%2C160&amp;ssl=1\\\"
+        data-large-file=\\\"https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?fit=640%2C342&amp;ssl=1\\\"
+        class=\\\"aligncenter size-large wp-image-675\\\" src=\\\"https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?resize=640%2C342&#038;ssl=1\\\"
+        alt=\\\"Retract\\\" width=\\\"640\\\" height=\\\"342\\\" srcset=\\\"https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?w=2080&amp;ssl=1
+        2080w, https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?resize=300%2C160&amp;ssl=1
+        300w, https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?resize=768%2C411&amp;ssl=1
+        768w, https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?resize=1024%2C547&amp;ssl=1
+        1024w, https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?w=1280&amp;ssl=1
+        1280w, https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?w=1920&amp;ssl=1
+        1920w\\\" sizes=\\\"(max-width: 640px) 100vw, 640px\\\" data-recalc-dims=\\\"1\\\"
+        /></a></p>\\n<p>The plot is pretty depressing. The retraction has no effect
+        on citations. Note that the retraction notice has racked up 125 citations,
+        which could\_mean that at least some of the\_~1000 citations to the original
+        article that came after the retraction, acknowledge the fact that the article
+        has been pulled.</p>\\n<p>&#8212;</p>\\n<p>The post title is taken from &#8220;What
+        Difference Does it Make?&#8221; by The Smiths from &#8216;The Smiths&#8217;
+        and &#8216;Hatful of Hollow&#8217;</p>\\n\",\"content_text\":\"A few days
+        ago, Retraction Watch published the [top ten\_most-cited\\nretracted\\npapers](http://retractionwatch.com/the-retraction-watch-leaderboard/top-10-most-highly-cited-retracted-papers/).\\nI
+        saw [this\\npost](http://qz.com/583497/researchers-keep-citing-these-retracted-papers/)\\nwith
+        a bar chart to visualise these citations. It didn't quite capture\\nwhat the
+        effect (if any) a retraction has on citations. I thought I'd\\nquickly plot
+        this out for the number one article on the list.\\n\\n[![Retract](https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?resize=640%2C342&ssl=1){.aligncenter\\n.size-large
+        .wp-image-675 loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nattachment-id=\\\"675\\\"
+        permalink=\\\"https://quantixed.org/retract/\\\"\\norig-file=\\\"https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?fit=2080%2C1112&ssl=1\\\"\\norig-size=\\\"2080,1112\\\"
+        comments-opened=\\\"1\\\"\\nimage-meta=\\\"{\\\\\\\"aperture\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"credit\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"camera\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"caption\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"created_timestamp\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"copyright\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"focal_length\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"iso\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"shutter_speed\\\\\\\":\\\\\\\"0\\\\\\\",\\\\\\\"title\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"orientation\\\\\\\":\\\\\\\"0\\\\\\\"}\\\"\\nimage-title=\\\"Retract\\\"
+        image-description=\\\"\\\" image-caption=\\\"\\\"\\nmedium-file=\\\"https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?fit=300%2C160&ssl=1\\\"\\nlarge-file=\\\"https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?fit=640%2C342&ssl=1\\\"\\nwidth=\\\"640\\\"
+        height=\\\"342\\\"\\nsrcset=\\\"https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?w=2080&ssl=1
+        2080w, https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?resize=300%2C160&ssl=1
+        300w, https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?resize=768%2C411&ssl=1
+        768w, https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?resize=1024%2C547&ssl=1
+        1024w, https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?w=1280&ssl=1
+        1280w, https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?w=1920&ssl=1
+        1920w\\\"\\nsizes=\\\"(max-width: 640px) 100vw, 640px\\\"\\nrecalc-dims=\\\"1\\\"}](https://quantixed.org/2016/01/01/what-difference-does-it-make/retract/){rel=\\\"
+        rel=\\\\\\\"attachment wp-att-675\\\\\\\"\\\"}\\n\\nThe plot is pretty depressing.
+        The retraction has no effect on\\ncitations. Note that the retraction notice
+        has racked up 125 citations,\\nwhich could\_mean that at least some of the\_\\\\~1000
+        citations to the\\noriginal article that came after the retraction, acknowledge
+        the fact\\nthat the article has been pulled.\\n\\n---\\n\\nThe post title
+        is taken from \\\"What Difference Does it Make?\\\" by The\\nSmiths from 'The
+        Smiths' and 'Hatful of Hollow'\\n\",\"doi\":\"https://doi.org/10.59350/cmyz9-ms451\",\"guid\":\"https://quantixed.wordpress.com/?p=663\",\"id\":\"0f700cb9-9bf3-492b-944e-56c3d9dba0e9\",\"image\":\"https://i0.wp.com/quantixed.org/wp-content/uploads/2016/01/retract.png?resize=640%2C342&ssl=1\",\"language\":\"en\",\"published_at\":1451633924,\"reference\":[],\"relationships\":[],\"summary\":\"A
+        few days ago, Retraction Watch published the top ten\_most-cited retracted
+        papers. I saw this post with a bar chart to visualise these citations. It
+        didn\u2019t quite capture what the effect (if any) a retraction has on citations.
+        I thought I\u2019d quickly plot this out for the number one article on the
+        list. The plot is pretty depressing. The retraction has no effect on citations.\\n\",\"tags\":[\"Publishing\",\"Science\",\"Metrics\",\"Retraction\"],\"title\":\"What
+        Difference Does It Make?\",\"updated_at\":1451633924,\"url\":\"https://quantixed.org/2016/01/01/what-difference-does-it-make\"},\"highlight\":{\"content_text\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"A
+        few days ago, <mark>Retraction</mark> <mark>Watch</mark> published the [top
+        ten\_most\"},\"summary\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"A
+        few days ago, <mark>Retraction</mark> <mark>Watch</mark> published the top
+        ten\_most\"},\"tags\":[{\"matched_tokens\":[],\"snippet\":\"Publishing\"},{\"matched_tokens\":[],\"snippet\":\"Science\"},{\"matched_tokens\":[],\"snippet\":\"Metrics\"},{\"matched_tokens\":[\"Retraction\"],\"snippet\":\"<mark>Retraction</mark>\"}]},\"highlights\":[{\"field\":\"summary\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"A
+        few days ago, <mark>Retraction</mark> <mark>Watch</mark> published the top
+        ten\_most\"},{\"field\":\"content_text\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"A
+        few days ago, <mark>Retraction</mark> <mark>Watch</mark> published the [top
+        ten\_most\"},{\"field\":\"tags\",\"indices\":[3],\"matched_tokens\":[[\"Retraction\"]],\"snippets\":[\"<mark>Retraction</mark>\"]}],\"text_match\":1157451471441100883,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":3,\"score\":\"1157451471441100883\",\"tokens_matched\":2}},{\"document\":{\"abstract\":\"Businesses
+        have emerged that sell authorship to aspiring doctors to make their residency
+        applications more competitive.\",\"authors\":[{\"name\":\"Reese Richardson\"}],\"blog_name\":\"Reese
+        Richardson\",\"blog_slug\":\"reeserichardson\",\"category\":\"engineeringAndTechnology\",\"content_text\":\"*Science*
+        and *Retraction Watch* just released a large investigation\\ninto what I consider
+        a new breed of paper mill. I can explain this\\nphenomenon no better than
+        Frederik Joelving's article in *Science*,\\nwhich you can read here:\\n\\n#####
+        [Prescription for controversy: Firms offering a fast track to publication
+        target foreign applicants to U.S. medical residency programs](https://doi.org/10.1126/science.z7vuqtq)
+        {#prescription-for-controversy-firms-offering-a-fast-track-to-publication-target-foreign-applicants-to-u.s.-medical-residency-programs
+        .wp-block-heading}\\n\\nEssentially, these businesses sell guaranteed publications
+        to\\ninternational medical graduates (IMGs) hoping to attain medical\\nresidency
+        in the United States. These publications will hypothetically\\nbeef up the
+        customer's CV and increase their chances of being matched.  \\n  \\nMany such
+        businesses are based in the United States. They mostly follow\\nvariations
+        on the same playbook: for a hefty sum (often around 1,000\\nUSD), the customer
+        can attend an online course (often meeting once a\\nweek for an hour for four
+        to eight weeks), after which their name will\\nbe on one to five meeting abstracts
+        or articles in the \\\"peer reviewed\\\"\\nand indexed literature.\\n\\nHassaan
+        Tohid, co-founder and CEO of the [California Institute of\\nBehavioral Neurosciences
+        and Psychology\\n(CIBNP)](https://web.archive.org/web/20240430190848/https://www.cibnp.com/),\\nexplains
+        in [this\\nvideo](https://youtu.be/RMMozJx1UGg?si=PzfrwMqH0nKMIB8e) that his\\nprogram
+        offers courses matching this pattern where customers will obtain\\none published
+        paper as first author, four published papers as middle\\nauthor, a letter
+        of recommendation, a certificate of completion, and\\npermission to list CIBNP
+        as an institutional affiliation for two years.\\n\\nIs eight hours of instruction
+        enough for someone to make a genuine\\ncontribution to five research papers?
+        I would contend not, but that\\ndoesn't seem to matter to the people selling
+        these courses. Often, the\\nmain selling point isn't training, but clout.
+        Among the benefits of\\nthese programs, CIBNP lists:\\n\\n> Increase chances
+        of residency in the US because only 1 in 3 residency\\n> candidates who match
+        has publications. Now just think and answer, how\\n> many of these candidates
+        have Meta-Analysis or Systematic Reviews\\n> published? Very very very few.....
+        right? Once you have this\\n> publication, you will be one of the top most
+        candidates applying for\\n> the US residency.  \\n> ...  \\n> Having a Meta-Analysis
+        not only open doors for you as a clinician but\\n> opens more doors for you
+        in the university, pharmaceutical, and\\n> corporate industry. You can just
+        ask any employer and hand them 2 CVs.\\n> One with a Meta-Analysis published,
+        other without it. Then ask them to\\n> invite only one for the interview-
+        you will see majority will call the\\n> candidate with Meta-Analysis for interview
+        because of immediate\\n> impression of being an expert in the field.  \\n>
+        ...  \\n> More feeling of success- once you feel success only then you can
+        know\\n> what success is really all about. Success is a feeling which is\\n>
+        actually a kind of healthy addiction. Once you are on a journey of\\n> success,
+        you want to repeat the process to get the same feeling again\\n> and again.
+        Once you learn Meta-Analysis and writing a manuscript, you\\n> surely will
+        feel that feeling that is priceless.  \\n> ...  \\n> California name on your
+        CV will do wonders for you for your future.\\n\\nCIBNP's website, in anticipation
+        of the *Science* and *Retraction Watch*\\ninvestigation, now bears a banner
+        reading \\\"**WE DO NOT OFFER\\nPUBLICATIONS**\\\". Beneath this banner, they
+        offer \\\"the chance to get\\npublications\\\".  \\n\\n<figure class=\\\"wp-block-image
+        size-large\\\">\\n<img\\nsrc=\\\"https://reeserichardson.blog/wp-content/uploads/2024/05/screenshot-2024-05-05-at-13-19-29-cibnp-3-edited.png\\\"\\nclass=\\\"wp-image-165\\\"
+        data-attachment-id=\\\"165\\\"\\ndata-permalink=\\\"https://reeserichardson.blog/screenshot-2024-05-05-at-13-19-29-cibnp-3-2/\\\"\\ndata-orig-file=\\\"https://reeserichardson.blog/wp-content/uploads/2024/05/screenshot-2024-05-05-at-13-19-29-cibnp-3-edited.png\\\"\\ndata-orig-size=\\\"778,584\\\"
+        data-comments-opened=\\\"1\\\" data-image-meta=\\\"{\\\"\\naperture\\\":\\\"0\\\",\\\"credit\\\":\\\"\\\",\\\"camera\\\":\\\"\\\",\\\"caption\\\":\\\"\\\",\\\"created_timestamp\\\":\\\"0\\\",\\\"copyright\\\":\\\"\\\",\\\"focal_length\\\":\\\"0\\\",\\\"iso\\\":\\\"0\\\",\\\"shutter_speed\\\":\\\"0\\\",\\\"title\\\":\\\"\\\",\\\"orientation\\\":\\\"0\\\"}\\\"=\\\"\\\"\\ndata-image-title=\\\"screenshot-2024-05-05-at-13-19-29-cibnp-3\\\"\\ndata-image-description=\\\"\\\"
+        data-image-caption=\\\"\\\"\\ndata-medium-file=\\\"https://reeserichardson.blog/wp-content/uploads/2024/05/screenshot-2024-05-05-at-13-19-29-cibnp-3-edited.png?w=300\\\"\\ndata-large-file=\\\"https://reeserichardson.blog/wp-content/uploads/2024/05/screenshot-2024-05-05-at-13-19-29-cibnp-3-edited.png?w=778\\\"\\ntabindex=\\\"0\\\"
+        role=\\\"button\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://reeserichardson.blog/wp-content/uploads/2024/05/screenshot-2024-05-05-at-13-19-29-cibnp-3-edited.png
+        778w, https://reeserichardson.blog/wp-content/uploads/2024/05/screenshot-2024-05-05-at-13-19-29-cibnp-3-edited.png?w=150&amp;h=113
+        150w, https://reeserichardson.blog/wp-content/uploads/2024/05/screenshot-2024-05-05-at-13-19-29-cibnp-3-edited.png?w=300&amp;h=225
+        300w, https://reeserichardson.blog/wp-content/uploads/2024/05/screenshot-2024-05-05-at-13-19-29-cibnp-3-edited.png?w=768&amp;h=576
+        768w\\\"\\nsizes=\\\"(max-width: 778px) 100vw, 778px\\\" width=\\\"778\\\"
+        height=\\\"584\\\" />\\n<figcaption>The front page of CIBNP\u2019s website
+        as of May 5,\\n2024.</figcaption>\\n</figure>\\n\\nBelow, the website reads:\\n\\n>
+        While so many CiBNP students who learn to write scientific articles\\n> successfully
+        write great articles, there still are some students who\\n> would make mistakes,
+        and unintentional errors.\\n>\\n> While we teach them research methodology
+        and writing, and look after\\n> their writing style and rules and methodology,
+        we do know that in\\n> order to get a fast publication some students may produce
+        low quality\\n> papers. Therefore, if you come across papers written by our
+        students\\n> and find mistakes and errors, rather than laughing, mocking,
+        or making\\n> fun of them or criticizing them, please respectfully point out
+        the\\n> mistakes so the author can learn and write an improved version of\\n>
+        article in the future.\\n>\\n> Our students are young doctors, and your mocking
+        and criticism can\\n> destroy their confidence and self-esteem and they may
+        give up and stop\\n> writing in the future.\\n>\\n> Many of our students don't
+        produce highest quality of articles but we\\n> still appreciate our students
+        and love them unconditionally.\\n>\\n> We teach our students honesty, and
+        integrity, and educate them about\\n> the importance of truth and honesty.
+        Yet it is also possible that any\\n> of our students lies or fabricates data
+        in the paper deliberately.\\n> Therefore, we CiBNP hold no responsibility
+        of the content of the\\n> article produced. We teach the students the importance
+        of honesty and\\n> integrity and if they still don't listen to us and make
+        intentional\\n> mistakes or fabricate the data, and submit to a journal and\\n>
+        accidentally the journal reviewers missed the mistakes and journal\\n> publishes
+        that article, then the student is himself/herself\\n> responsible.\\n>\\n>
+        Just like a medical school that trains students to become doctors and\\n>
+        if the same student becomes a corrupt doctor or harms the patient\\n> deliberately
+        or unintentionally, is the medical school responsible?\\n> Similarly, when
+        a building or a bridge collapses due to bad\\n> calculations by the civil
+        engineers, should we hold the engineering\\n> university responsible? The
+        obvious answer is NO.\\n>\\n> Similarly, if our students who learned the skill
+        of writing and make\\n> deliberate mistakes or are involved in scientific
+        fraud or fabrication\\n> of data, should we be responsible? For this reason
+        we don't take\\n> responsibility of the scientific content and our students
+        sign an\\n> agreement and agree that they are fully responsible for the content.\\n>
+        CiBNP and its faculty can only teach and guide but are not responsible\\n>
+        for the content, fabrication, or deception or lies of any kind, the\\n> content
+        is solely Students' responsibility.\\n\\nAs you might guess from this disclaimer
+        absolving CIBNP from any of its\\nstudent's errors or misconduct, the publications
+        produced by these\\ntraining programs are often not very good. I've included
+        an updating\\nlist of select PubPeer threads for articles originating from
+        these\\nbusinesses at the bottom of this post.\\n\\nThe global landscape of
+        medical training is exceptionally unequal and\\nhyper-competitive. Within
+        this system, dozens of businesses have emerged\\nto prey on aspiring doctors
+        from the Global South, litter the medical\\nliterature with low-quality and
+        fraudulent studies, and throw these\\ndoctors under the bus when the backlash
+        begins. While some of these\\nbusinesses may have helped a handful of doctors
+        to surmount the high\\nwalls surrounding the United States medical system,
+        the for-profit\\nnature of these businesses ensures this privilege is only
+        available to\\nthose that can pay, perpetuating the same inequality that these\\nbusinesses
+        claim to fight. CIBNP is right; the victims of these\\nbusinesses deserve
+        our compassion, not our scorn.\\n\\nAs long as global economies of scientific
+        and medical research remain\\nhighly stratified and cutthroat, paper mills
+        will continue to\\nmaterialize to exploit these ills and the people most vulnerable
+        to\\nthem.\\n\\n#### Selected publications from IMG-targeting paper mills
+        (PubPeer threads, last updated June 10, 2024) {#selected-publications-from-img-targeting-paper-mills-pubpeer-threads-last-updated-june-10-2024
+        .wp-block-heading}\\n\\n[California Institute of Behavioral Neurosciences
+        and\\nPsychology](https://web.archive.org/web/20240430190848/https://www.cibnp.com/)\\n\\n1.
+        \ [Tumor Necrosis Factor Alpha Blockade and Multiple Sclerosis:\\n    Exploring
+        New\\n    Avenues](https://pubpeer.com/publications/8A2CF2E1EBFD3ADCD835ADB91DDFE8)\\n
+        \   (2019, *Cureus)*\\n2.  [A Systematic Review on Pulmonary Complications
+        Secondary to\\n    Hematopoietic Stem Cell\\n    Transplantation](https://pubpeer.com/publications/C1CB60040F89A25F69789C195201A9)\\n
+        \   (2022, *Cureus*)\\n3.  [The Outcome of Electrical Cardioversion in Hyperthyroid
+        Induced\\n    Atrial\\n    Fibrillation](https://pubpeer.com/publications/1ADE7871B3CD8734DC654A772D37A3)\\n
+        \   (2023, *Cureus*)\\n4.  [The Efficacy of Probiotics in the Management of
+        Helicobacter\\n    Pylori: A Systematic\\n    Review](https://pubpeer.com/publications/59456A93396425BB883807A183672B)\\n
+        \   (2021, *Cureus*)\\n5.  [Live Bacteria Supplementation as Probiotic for
+        Managing Fishy,\\n    Odorous Vaginal Discharge Disease of Bacterial Vaginosis:
+        An\\n    Alternative Treatment\\n    Option?](https://pubpeer.com/publications/6E8756FAB18C392065D8313D271090)\\n
+        \   (2020, *Cureus*)\\n6.  [Meditation and Its Mental and Physical Health
+        Benefits in\\n    2023](https://pubpeer.com/publications/D3E493ADF94B3031D24C280F54F37E)\\n
+        \   (2023, *Cureus*)\\n7.  [Sodium-Glucose Cotransporter-2 (SGLT-2) Inhibitors:
+        Benefits in\\n    Diabetics With Cardiovascular\\n    Disease](https://pubpeer.com/publications/D54A8E3C7897CF0EC0D2DE20E7BDDD)\\n
+        \   (2020, *Cureus*)\\n8.  [Statins and Antidepressants: A Comprehensive Review
+        and Clinical\\n    Outlook of the Risks and Benefits of\\n    Co-prescription](https://pubpeer.com/publications/065E2F5F8FA33274837B8E0EC05596)\\n
+        \   (2022, *Cureus*)\\n9.  [Unraveling the Mysteries of Restless Leg\\n    Syndrome](https://pubpeer.com/publications/71C2D3ED61EBA480485ECA10DE5C2F)\\n
+        \   (2020, *Cureus*)\\n10. [The Effects of Mental Stress on Non-insulin-dependent
+        Diabetes:\\n    Determining the Relationship Between Catecholamine and Adrenergic\\n
+        \   Signals from Stress, Anxiety, and Depression on the Physiological\\n    Changes
+        in the Pancreatic Hormone\\n    Secretion](https://pubpeer.com/publications/9260EC89FDBBF4F3F0DC31F4F4603E)\\n
+        \   (2019, *Cureus*)\\\\*  \\n    \\\\* An image from Figure 1 of this article
+        is used in this post's\\n    header image.\\n11. [A Rising Hope of an Artificial
+        Heart: Left Ventricular Assisted\\n    Device -- Outcome, Convenience, and
+        Quality of\\n    Life](https://pubpeer.com/publications/9A3D5783102D48EE18670FDA72CCA7)\\n
+        \   (2019, *Cureus*)\\n12. [The Psychosocial Outcome of Conduct and Oppositional
+        Defiant\\n    Disorder in Children With Attention Deficit Hyperactivity\\n
+        \   Disorder](https://pubpeer.com/publications/9DBF55133FC4A4E34A73EF67DBD52F)\\n
+        \   (2020, *Cureus*)\\n13. [A Systematic Review of Fibromyalgia and Recent
+        Advancements in\\n    Treatment: Is Medicinal Cannabis a New\\n    Hope?](https://pubpeer.com/publications/AB8EEBA756B3C50A44F83998804D2D)\\n
+        \   (2021, *Cureus*)\\n14. [Diagnostic Scores and Treatment Options for Acute
+        Disseminated\\n    Intravascular Coagulation in\\n    Children](https://pubpeer.com/publications/DF6F290655CF85923C5756F1B4CA0B)\\n
+        \   (2021, *Cureus*)\\n15. [The Association between Hypertensive Disorders
+        of Pregnancy and\\n    Peripartum\\n    Cardiomyopathy](https://pubpeer.com/publications/01385B83622D981B02EF61203593BB)\\n
+        \   (2019, *Cureus*)\\n16. [Exploring the Impact of Personalized Nutritional
+        Approaches on\\n    Metabolism and Immunity: A Systematic Review of Various
+        Nutrients\\n    and Dietary\\n    Patterns](https://pubpeer.com/publications/D9ADC7C22CF143BFFE56B00FC10C37)\\n
+        \   (2024, *Cureus*)\\n17. [Social Media Use and Its Connection to Mental
+        Health: A Systematic\\n    Review](https://pubpeer.com/publications/563E3521AE2312A0642FBF4FC1D8F6)\\n
+        \   (2020, *Cureus*)\\n\\n[Research Update\\nOrganization](https://web.archive.org/web/20240428044935/https://researchupdate.org/)\\n\\n1.
+        \ [Post-Hemorrhagic Hydrocephalus and Outcomes Amongst Neonates With\\n    Intraventricular
+        Hemorrhage: A Systematic Review and Pooled\\n    Analysis](https://pubpeer.com/publications/C21D670DD4C94B02C78809A55ED385)\\n
+        \   (2021, *Cureus*)\\n2.  [Effect Comparison of E-Cigarette and Traditional
+        Smoking and\\n    Association with Stroke---A Cross-Sectional Study of\\n
+        \   NHANES](https://pubpeer.com/publications/1F118DC9A92A4FC13507BB5448462D)\\n
+        \   (2022, *Neurology International*)\\n3.  [E-cigarette Use and Severe Coronavirus
+        Disease 2019 (COVID-19)\\n    Outcomes: A\\n    Meta-Analysis](https://pubpeer.com/publications/31AB34DAFE015DE67327C8C53BC115)\\n
+        \   (2024, *Cureus*)\\n4.  [Comparing Simvastatin Monotherapy V/S Simvastatin-Ezetimibe\\n
+        \   Combination Therapy for the Treatment of Hyperlipidemia: A\\n    Meta-Analysis
+        and\\n    Review](https://pubpeer.com/publications/1C233F9A9011844F8EDDC1EC27A18E)\\n
+        \   (2022, *Cureus*)\\n5.  [Role of Probiotics in the Management of Helicobacter\\n
+        \   pylori](https://pubpeer.com/publications/DBFAB5803DF1D041FD8CD727B834A5)\\n
+        \   (2022, *Cureus*)\\n6.  [An Analysis of Epidemiological Factors in Heart
+        Failure\\n    Outcomes](https://pubpeer.com/publications/93B7C01B730AE91801CDC77EDB6D56)\\n
+        \   (2022, *Cureus*)\\n7.  [Frontliners on the Move: A Quantitative Analysis
+        of the Prevalence\\n    of COVID-19 Reinfection Among Healthcare\\n    Workers](https://pubpeer.com/publications/39AF08DA983A6B2A0B04464529416E)\\n
+        \   (2022, *Cureus*)\\n8.  [Opportunistic Infections in COVID-19: A Systematic
+        Review and\\n    Meta-Analysis](https://pubpeer.com/publications/B916C412E63674CD3E008085D5D8CF)\\n
+        \   (2022, *Cureus*)\\n9.  [Vitamin D: The Missing Nutrient Behind the Two
+        Deadly Pandemics,\\n    COVID-19 and Cardiovascular\\n    Diseases](https://pubpeer.com/publications/2B9A23D9153EA6910E669656AD7101)\\n
+        \   (2022, *Cureus*)\\n\\n[Global Remote Research Scholars\\nProgram](https://web.archive.org/web/20240324120925/https://grrsp.com/)\\n\\n1.
+        \ [Effect of breathing exercises on blood pressure and heart rate: A\\n    systematic
+        review and\\n    meta-analysis](https://pubpeer.com/publications/4681BA9687EF33AE97FE37C8FB6793)\\n
+        \   (2024, *International Journal of Cardiology Cardiovascular Risk and\\n
+        \   Prevention*)\\n2.  [Exploring the Dorian Gray Trait: Unveiling the Complexities
+        of\\n    Perceived Aging and\\n    Self-Image](https://pubpeer.com/publications/252313E9450A91CDB90DA300B8A746)\\n
+        \   (2023, *Cureus*)\\n3.  [A Review of the Association of Blue Food Coloring
+        With Attention\\n    Deficit Hyperactivity Disorder Symptoms in\\n    Children](https://pubpeer.com/publications/899EC66DAD0F4B045EBF65B22459D5)\\n
+        \   (2022, *Cureus*)\\n4.  I[s Coffee and Tea a Threat or Ally to Cardiovascular\\n
+        \   Health?](https://pubpeer.com/publications/F4549992EDBBC7211F4D2836587F66)\\n
+        \   (2023, *Cureus*)\\n5.  [Mortality Benefit of Remdesivir in COVID-19: A
+        Systematic Review\\n    and\\n    Meta-Analysis](https://pubpeer.com/publications/D8588C49A785CD5692536B5C4C2AE0)\\n
+        \   (2021, *Frontiers in Medicine*)\\n6.  [A Literature Review on Holistic
+        Well-Being and Dopamine Fasting: An\\n    Integrated\\n    Approach](https://pubpeer.com/publications/22B49499316D8CC7B713A489AB365F)\\n
+        \   (2024, *Cureus*)\\n\\n[USMLESarthi](https://web.archive.org/web/20240419221645/https://www.usmlesarthi.com/)\\n\\n1.
+        \ [WITHDRAWN: Non-Anti-TNF Biologics as Salvage Therapy for Refractory\\n
+        \   Acute Severe Ulcerative Colitis, A Systematic\\n    Review](https://pubpeer.com/publications/F8CB6A2094B79FE414F5CC6C4A1595)\\n
+        \   (2024, *Current Reviews in Clinical and Experimental Pharmacology*)\\n2.
+        \ [Bipolar Disorder in Social Media: An Examination of Instagram's\\n    Role
+        in Disseminating Accurate\\n    Information](https://pubpeer.com/publications/EDAF4875CB463DB2D99207452234E0)\\n
+        \   (2023, *Cureus*)\\n\\n[The Good Research\\nProject](https://web.archive.org/web/20240506020157/https://thegoodresearchproject.com/)\\n\\n1.
+        \ [Gender Trends in First Authorship of Academic Publications Related\\n    to
+        Wolff-Parkinson-White\\n    Syndrome](https://pubpeer.com/publications/43D87288229B5E7C17D7F7BF43BA51)\\n
+        \   (2023, *Cureus*)\\n2.  [Gender Equality Trends of First Authors in Publications
+        of\\n    Artificial Intelligence and\\n    Thyroid](https://pubpeer.com/publications/EAA7F084C411B60366F81D22B706E9)\\n
+        \   (2023, *Cureus*)\\n3.  [Gender Disparities in First Authorship in Publications
+        Related to\\n    Attention Deficit Hyperkinetic Disorder (ADHD) and Artificial\\n
+        \   Intelligence\\n    (AI)](https://pubpeer.com/publications/8439542C6B4A026D8998992260576B)\\n
+        \   (2023, *Cureus*)\\n\\n[Meta-Analysis\\nAcademy](https://web.archive.org/web/20240328081401/https://metaanalysis.academy/)\\n\\n1.
+        \ [Effects of Tezepelumab on Quality of Life of Patients with\\n    Moderate-to-Severe,
+        Uncontrolled Asthma: Systematic Review and\\n    Meta-Analysis](https://pubpeer.com/publications/DA24DA689A755AA614926BECD102A0)\\n
+        \   (2023, *Current Allergy and Asthma Reports*)\\n2.  [Efficacy and safety
+        of bexagliflozin in patients with type 2\\n    diabetes mellitus: A systematic
+        review and\\n    meta-analysis](https://pubpeer.com/publications/49ABA893C5BB9D0924F6EBCD95A694)\\n
+        \   (2023, *Diabetes, Obesity and Metabolism*)\\n3.  [Transradial versus transfemoral
+        access in carotid artery stenting:\\n    A\\n    meta-analysis](https://pubpeer.com/publications/9A0BD4522C91D3CBEA92019E6B3AAD)\\n
+        \   (2023, *Interventional Neuroradiology*)\\n4.  [Survival Impact of Combined
+        Biguanide and Temozolomide in\\n    Glioblastoma Preclinical Models: A Systematic
+        Review and\\n    Meta-Analysis](https://pubpeer.com/publications/CCA6875DD7E452EA1FB1FB33FC6CCD)\\n
+        \   (2024, *World Neurosurgery*)\\n5.  [Machine Learning Algorithms to Predict
+        Delayed Cerebral Ischemia\\n    After Subarachnoid Hemorrhage: A Systematic
+        Review and\\n    Meta-analysis](https://pubpeer.com/publications/9D8BF8FAE2597C655FD07BA45DFAE1)\\n
+        \   (2023, *Neurocritical Care*)\\n\\n[Research Academy](https://www.instagram.com/researchacademy_ok/)\\n\\n1.
+        \ [Insulin Pump Therapy vs Multiple Daily Insulin Injections for\\n    Glycemic
+        Control in Children With Type 1 Diabetes: A Systematic\\n    Review and\\n
+        \   Meta-Analysis](https://pubpeer.com/publications/29AB030045BFA15AA1D751DE7FBF36)\\n
+        \   (2024, *Cureus*)\\n\\n[IMG Helping\\nHands](https://web.archive.org/web/20231226174650/https://imghelpinghands.com/)\\n\\n1.
+        \ [Early Versus Delayed Thoracic Endovascular Aortic Repair for Blunt\\n    Traumatic
+        Aortic Injury: A Systematic Review and\\n    Meta-Analysis](https://pubpeer.com/publications/F044613ACC232065B3D705563BD3B1)\\n
+        \   (2023, *Cureus*)\\n2.  [Effects of Non-steroidal Anti-inflammatory Drugs
+        (NSAIDs) and\\n    Gastroprotective NSAIDs on the Gastrointestinal Tract:
+        A Narrative\\n    Review](https://pubpeer.com/publications/5703A8AA97C96F136AD5DFB5ACE27B)\\n
+        \   (2023, *Cureus*)\\n3.  [Typical and Atypical Presentations of Appendicitis
+        and Their\\n    Implications for Diagnosis and Treatment: A Literature\\n
+        \   Review](https://pubpeer.com/publications/982A204BB781BDFCA3AE07B535EB12)\\n
+        \   (2023, *Cureus*)\\n\",\"doi\":\"https://doi.org/10.59350/s8gaf-vsn10\",\"guid\":\"http://reeserichardson.blog/?p=140\",\"id\":\"9a4b81a9-0896-4925-bf36-d2c77fab3eae\",\"image\":\"https://reeserichardson.blog/wp-content/uploads/2024/05/screenshot-2024-05-05-at-13-19-29-cibnp-3-edited.png\",\"language\":\"en\",\"published_at\":1714942872,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"<em>\\n
+        Science\\n</em>\\nand\\n<em>\\n Retraction Watch\\n</em>\\njust released a
+        large investigation into what I consider a new breed of paper mill.\",\"tags\":[\"Paper
+        Mills\",\"Education\",\"Research\",\"Science Integrity\"],\"title\":\"A new
+        breed of paper mill targeting international medical graduates\",\"updated_at\":1718023215,\"url\":\"https://reeserichardson.blog/2024/05/05/a-new-breed-of-paper-mill-targeting-international-medical-graduates\"},\"highlight\":{\"content_text\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Science*
+        and *<mark>Retraction</mark> <mark>Watch</mark>* just released a large\"},\"summary\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"<em>\\n
+        Science\\n</em>\\nand\\n<em>\\n <mark>Retraction</mark> <mark>Watch</mark>\\n</em>\\njust
+        released a large investigation into what I consider a new breed of paper mill.\"}},\"highlights\":[{\"field\":\"content_text\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Science*
+        and *<mark>Retraction</mark> <mark>Watch</mark>* just released a large\"},{\"field\":\"summary\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"<em>\\n
+        Science\\n</em>\\nand\\n<em>\\n <mark>Retraction</mark> <mark>Watch</mark>\\n</em>\\njust
+        released a large investigation into what I consider a new breed of paper mill.\"}],\"text_match\":1157451471441100882,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":2,\"score\":\"1157451471441100882\",\"tokens_matched\":2}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22123/20231101171300/https://eve.gd/2023/09/12/retract-this\",\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/02twcfp32\",\"name\":\"Crossref\"}],\"name\":\"Martin
+        Paul Eve\",\"url\":\"https://orcid.org/0000-0002-5589-8511\"}],\"blog_name\":\"Martin
+        Paul Eve\",\"blog_slug\":\"eve\",\"category\":\"languagesAndLiterature\",\"content_text\":\"Today's
+        big news is that [Crossref has acquired the Retraction Watch\\ndatabase of
+        expressions of concerns and retractions and has made it\\nopenly accessible
+        to anyone who wants to use\\nit](https://doi.org/10.13003/c23rw1d9). I'm waiting
+        for full\\nconfirmation of the license or public domain dedication under which
+        it\\nwill be released, but this is still a great commitment of Crossref to\\nthe
+        POSI principles. The liberation of this database is good for science\\nand
+        scholarship in general. It means that Crossref now knows about\\napproximately
+        50,000 retractions.\\n\\nAccess to the database, for now, is via the Crossref
+        Labs API, which I\\nwrite and maintain. The Crossref Labs API sits in between
+        the user and\\nthe Live API to inject new experimental metadata fields. The
+        API can\\nalso serve files, so you can get the CSV of the latest Retraction
+        Watch\\ndata at\\nhttps://api.labs.crossref.org/data/retractionwatch?mailto=\\\\[YOUR@EMAIL.HERE\\\\].\\n\\nMeanwhile,
+        the Labs API will show you retraction data in the\\ncr-labs-updates entry
+        if you visit a work that has data, e.g.\\nhttps://api.labs.crossref.org/works/10.2147/CMAR.S324920?mailto=\\\\[YOUR@EMAIL.HERE\\\\].\\n\\nThe
+        obvious question (and one that [was asked within an hour of our\\nlaunch](https://twitter.com/gcabanac/status/1701594642142363877))
+        is:\\nhow can I retrieve a list of all retractions via the API? This is what\\nwe
+        call a \\\"filter\\\" in the API and, for Reasons\u2122, it is very difficult
+        to\\ndo in the Labs API. The Reasons\xAE that it's so difficult is because
+        the\\nLabs API gets its data by pulling from the Live API, which knows nothing\\nabout
+        retractions, and then injecting the data. So pulling out just the\\nentries
+        that have retractions means building a separate index of all\\nitems with
+        retractions, then fetching these, and paging through them\\nwith the user's
+        requests. This gets to be HORRIBLY slow on the\\nperformance front with even
+        not much load, and I don't recommend it. We\\ntried several ways of implementing
+        this but to no avail. So, for now,\\nplease download and parse the CSV if
+        you want a full list of\\nretractions. We'll continue to work on an API solution,
+        but it's going\\nto take us a bit longer.\\n\\nIn the meantime, publishers:
+        please continue to deposit retractions.\\nIt's really important and we need
+        to end the culture of *shame* (at\\nleast for publishers) around declaring
+        retractions. It is vital for the\\nprogress of science that we accurately
+        mark papers that have been shown\\nto be defective.\\n\\nThe other important
+        thing to note about all this is that, with any luck,\\nit will help to make
+        Retraction Watch itself sustainable. As they say\\n[in their\\nannouncement](https://retractionwatch.com/2023/09/12/the-retraction-watch-database-becomes-completely-open-and-rw-becomes-far-more-sustainable/):\\n\\\"That
+        means we have achieved sustainability -- the highest priority goal\\nfor any
+        nonprofit -- for the database side of our operation. And the\\nacquisition
+        fee provides important unrestricted reserves that allow for\\nbreathing room
+        and the potential for growth.\\\" It's really great that\\nCrossref can contribute
+        towards this sustainability, in the spirit of\\nalso improving the metadata
+        that we can offer.\\n\\n[Retract this!](https://eve.gd/2023/09/12/retract-this/)
+        was originally\\npublished by Martin Paul Eve at [Martin Paul Eve](https://eve.gd)
+        on\\nSeptember 12, 2023.\\n\",\"doi\":\"https://doi.org/10.59348/9b1f4-29n44\",\"guid\":\"https://eve.gd/2023/09/12/retract-this\",\"id\":\"dbb3d159-4b12-4c31-8666-25316d4d5fdd\",\"language\":\"en\",\"published_at\":1694534158,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Today\u2019s
+        big news is that Crossref has acquired the Retraction Watch database of expressions
+        of concerns and retractions and has made it openly accessible to anyone who
+        wants to use it. I\u2019m waiting for full confirmation of the license or
+        public domain dedication under which it will be released, but this is still
+        a great commitment of Crossref to the POSI principles. The liberation of this
+        database is good for science and scholarship in general.\",\"tags\":[],\"title\":\"Retract
+        this!\",\"updated_at\":1694476800,\"url\":\"https://eve.gd/2023/09/12/retract-this\"},\"highlight\":{\"content_text\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Crossref
+        has acquired the <mark>Retraction</mark> <mark>Watch</mark>\\ndatabase of
+        expressions of\"},\"summary\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Crossref
+        has acquired the <mark>Retraction</mark> <mark>Watch</mark> database of expressions
+        of\"}},\"highlights\":[{\"field\":\"summary\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Crossref
+        has acquired the <mark>Retraction</mark> <mark>Watch</mark> database of expressions
+        of\"},{\"field\":\"content_text\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Crossref
+        has acquired the <mark>Retraction</mark> <mark>Watch</mark>\\ndatabase of
+        expressions of\"}],\"text_match\":1157451471441100882,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":2,\"score\":\"1157451471441100882\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Ross
+        Mounce\"}],\"blog_name\":\"A blog by Ross Mounce\",\"blog_slug\":\"rossmounce\",\"category\":\"naturalSciences\",\"content_text\":\"On
+        Monday 29th June 2020, I learned [from Retraction\\nWatch](https://retractionwatch.com/2020/06/29/major-indexing-service-sounds-alarm-on-self-citations-by-nearly-50-journals/)\\nthat
+        Clarivate, the for-profit proprietor of *Journal Impact Factor* \u2122\\nhas
+        newly \\\"suppressed\\\" 33 journals from their indexing service. The\\nimmediate
+        consequence of this \\\"suppression\\\" is that these 33 journals do\\nnot
+        get assigned an official Clarivate *Journal Impact Factor* \u2122 .\\nClarivate
+        justify this action on the basis of \\\"anomalous citation\\npatterns\\\"
+        but without much further detail given for each of the journals\\nother than
+        the overall \\\"% Self-cites\\\" of the journal, and the effect of\\nthose
+        self-cites on Clarivate's citation-based ranking of journals (%\\nDistortion
+        of category rank).\\n\\nAmongst the 33 journals, I spotted not one but two\\n[systematics](https://en.wikipedia.org/wiki/Systematics)
+        journals that I\\nknow very well:\\n\\n- [Zootaxa](https://www.mapress.com/j/zt/)\\n
+        \ - published by a small independent publisher 'Magnolia Press' based in\\n
+        \   New Zealand\\n- [International Journal of Systematic and Evolutionary\\n
+        \ Microbiology](https://www.microbiologyresearch.org/content/journal/ijsem)\\n
+        \ - published by the Microbiology Society\\n  - the official publication of
+        the\_[International Committee on\\n    Systematics of\\n    Prokaryotes](https://www.the-icsp.org/){rel=\\\"noreferrer
+        noopener\\\"\\n    target=\\\"_blank\\\"}\_and the Bacteriology and Applied
+        Microbiology\\n    Division of the\_[International Union of Microbiological\\n
+        \   Societies](https://www.iums.org/){rel=\\\"noreferrer noopener\\\"\\n    target=\\\"_blank\\\"}\\n\\nI
+        have read, cited, and analysed (textmining and image analysis)\\narticles
+        from both of these journals extensively. Chapter 6 of my [PhD\\nthesis](https://ethos.bl.uk/OrderDetails.do?uin=uk.bl.ethos.642021)\\nmined
+        over 12,000 *Zootaxa* articles looking for phylogenetic data. In a\\nmore
+        [recent work published in Research Ideas and\\nOutcomes](https://doi.org/10.3897/rio.3.e13589)
+        (RIO Journal), I mined\\nover 5,800 *IJSEM* articles for [phylogenetic\\ntree](https://en.wikipedia.org/wiki/Phylogenetic_tree)
+        data. Of\\nrelevance, I should also say I was a council member of the [Systematics\\nAssociation](https://en.wikipedia.org/wiki/Systematics_Association)
+        for\\nmany years.\\n\\nGiven the experiences listed above, I am therefore
+        very well placed to\\nsay that what Clarivate has done to these two systematics
+        journals is\\nutter brainless idiocy.\\n\\nThe reason why *Zootaxa* articles
+        cite quite a high proportion of other\\n*Zootaxa* articles is obvious (\\\"self-citation\\\"
+        at the journal-level from\\nClarivate's point-of-view) to anyone in the discipline.
+        *Zootaxa* is an\\nimportant 'megajournal' for the zoological systematics community.\\nAccording
+        to [lens.org\\ndata](https://www.lens.org/lens/search/scholar/list?q=&p=0&n=10&s=_score&d=%2B&f=false&e=false&l=en&authorField=author&dateFilterField=publishedYear&presentation=false&preview=&stemmed=true&useAuthorId=false&sourceTitle.must=Zootaxa&publishedYear.from=2018&publishedYear.to=2019)\\nZootaxa
+        published over 5,000 items (articles and monographs) between\\n2018 and 2019.
+        Clarivate's own records from another one of their\\nproprietary analytics
+        services called '[Zoological\\nRecord](http://www.organismnames.com/metrics.htm?page=tsj)'
+        indicate\\nthat 26.57% of all new zoological taxa are published in *Zootaxa*.
+        For\\nmany decades descriptive taxonomy has been pushed-out of for-profit\\njournals.
+        *Zootaxa* is a vital refugia for sound science in a poorly\\nfunded discipline.\\n\\nThe
+        case for legitimate 'high' journal-level self-citation at\\n*International
+        Journal of Systematic and Evolutionary Microbiology*\\n(*IJSEM*) is even clearer
+        and easier to explain. The [International Code\\nof Nomenclature of\\nProkaryotes](https://en.wikipedia.org/wiki/International_Code_of_Nomenclature_of_Prokaryotes)\\n(ICNP)
+        ***requires*** that all new bacteria names are published in IJSEM\\nand nowhere
+        else (a very sensible idea which the bacteriology community\\nshould be commended
+        for). Hence a lot of the systematic and evolutionary\\nmicrobiology articles
+        in IJSEM will cite prior IJSEM articles.\\n\\nWayne Maddison has\\n[commented](https://twitter.com/WayneMaddison/status/1278773935656407040)\\non
+        Twitter that the hardest hit researchers by this action might be\\nthose in
+        developing countries. I agree. The problem here is that many\\ninstitutions
+        and research funders idiotically use the Journal Impact\\nFactor \u2122 to
+        assess the quality of an individual's research output. In\\nsome regimes,
+        if a researcher publishes a paper in a journal that has a\\nJournal Impact
+        Factor \u2122 then it 'counts', whereas if a researcher\\npublishes a paper
+        in a journal that has not been given an official\\nJournal Impact Factor \u2122
+        by Clarivate then that paper may not 'count'\\ntowards the assessment of that
+        researcher.\\n\\nThe [zoology section of the Chilean Society of\\nBiology](https://twitter.com/MoscasFloricola/status/1278515036139520001)\\nhas
+        already petitioned Clarivate to unsuppress Zootaxa, to give it back\\nits
+        Journal Impact Factor \u2122 . I understand why they would do this but I\\nwould
+        actually call for something quite different and more far-reaching.\\n\\nI
+        would encourage all systematists, taxonomists, zoologists,\\nmicrobiologists,
+        and biologists in general to see the real problem here:\\nClarivate, a for-profit
+        analytics company, should never be so\\nrelied-upon by research evaluation
+        committees to arbitrarily decide the\\nvalue of a research output. Especially
+        given that the Journal Impact\\nFactor \u2122 is untransparent,\\n[irreproducible](https://dx.doi.org/10.1083%2Fjcb.200801036),
+        and\\nfundamentally [statistically\\nilliterate](http://occamstypewriter.org/scurry/2012/08/13/sick-of-impact-factors/).\\n\\nThus
+        to bring us back to my title. I wonder if Clarivate's wacky\\n\\\"suppression\\\"
+        might actually be a pathway to liberation from the\\ninappropriate stupidity
+        of using Journal Impact Factor \u2122 to evaluate\\nindividual research outputs.
+        Given we have all now witnessed just how\\nbrainless some of Clarivate's decision
+        making is, I would ask Clarivate\\nto please \\\"suppress\\\" all journals
+        thereby removing the harmful stupidity\\nof Journal Impact Factor \u2122 from
+        the lives of researchers.\\n\",\"doi\":\"https://doi.org/10.59350/v5rp0-nde12\",\"guid\":\"http://rossmounce.co.uk/?p=2199\",\"id\":\"741aaa98-c929-4c12-933c-c09bc151f8e6\",\"language\":\"en\",\"published_at\":1593777776,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"On
+        Monday 29th June 2020, I learned from Retraction Watch that Clarivate, the
+        for-profit proprietor of\\n<em>\\n Journal Impact Factor\\n</em>\\n\u2122
+        has newly \u201Csuppressed\u201D 33 journals from their indexing service.\",\"tags\":[\"Research
+        Assessment\"],\"title\":\"Suppression as a form of liberation?\",\"updated_at\":1701022623,\"url\":\"https://rossmounce.co.uk/2020/07/03/suppression-as-a-form-of-liberation\"},\"highlight\":{\"content_text\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"2020,
+        I learned [from <mark>Retraction</mark>\\n<mark>Watch</mark>](https://retractionwatch.com/2020/06\"},\"summary\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"2020,
+        I learned from <mark>Retraction</mark> <mark>Watch</mark> that Clarivate,
+        the for\"}},\"highlights\":[{\"field\":\"summary\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"2020,
+        I learned from <mark>Retraction</mark> <mark>Watch</mark> that Clarivate,
+        the for\"},{\"field\":\"content_text\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"2020,
+        I learned [from <mark>Retraction</mark>\\n<mark>Watch</mark>](https://retractionwatch.com/2020/06\"}],\"text_match\":1157451471441100882,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":2,\"score\":\"1157451471441100882\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Martin
+        Schmidt\"}],\"blog_id\":\"526jy42\",\"blog_name\":\"Elephant in the Lab\",\"blog_slug\":\"elephantinthelab\",\"category\":\"socialSciences\",\"content_html\":\"<p><script
+        type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script></p>\\n<h3></h3>\\n<p><strong>Retraction
+        Watch was launched to provide insights into cases of scientific fraud and
+        grant a window on the retraction process. How does the scientific community
+        react when you publicly report on retractions of scientific papers? How should
+        retractions be received by the scientific community?</strong></p>\\n<p><span
+        style=\\\"font-weight: 400;\\\">While there are some scientists who are concerned
+        that publicizing retractions &#8212; \u201Cairing science\u2019s dirty laundry,\u201D
+        so to speak &#8212; could give ammunition to those who want to defund research,
+        most are very supportive. They realize that the best way to build trust is
+        to acknowledge that errors and misconduct exist, and to show the world how
+        science corrects itself. In other words, the growth in retractions </span><a
+        href=\\\"https://www.thenewatlantis.com/publications/two-cheers-for-the-retraction-boom\\\"><span
+        style=\\\"font-weight: 400;\\\">is a good thing</span></a><span style=\\\"font-weight:
+        400;\\\">.</span></p>\\n<p><span style=\\\"font-weight: 400;\\\">There\u2019s
+        even evidence that scientists who \u201Cdo the right thing\u201D </span><a
+        href=\\\"https://retractionwatch.com/2015/06/16/life-after-retraction-in-many-cases-its-forgive-and-forget/\\\"><span
+        style=\\\"font-weight: 400;\\\">won\u2019t see a decline in their career prospects</span></a><span
+        style=\\\"font-weight: 400;\\\">. But that depends on retraction notices that
+        provide the entire story: It\u2019s only true when those notices make it clear
+        there wasn\u2019t fraud or misconduct involved. We\u2019ve of course argued
+        for detailed notices since we launched Retraction Watch.</span></p>\\n<p><strong>How
+        have digital platforms and tools changed the way erroneous results are uncovered/discovered?
+        How have they enabled Retraction Watch?</strong></p>\\n<p><span style=\\\"font-weight:
+        400;\\\">The simple fact that the vast majority of scholarly papers are online
+        today means that more people can read &#8212; and scrutinize &#8212; them.
+        Using a program like Photoshop, a scientist or layperson can reverse engineer
+        the manipulation that created a problematic image. As I write this, a team
+        has just </span><a href=\\\"https://www.nature.com/articles/d41586-018-02421-3\\\"><span
+        style=\\\"font-weight: 400;\\\">announced</span></a><span style=\\\"font-weight:
+        400;\\\"> a way to find duplicated images that authors claim represent different
+        results, but clearly can\u2019t. And plagiarism detection software is of course
+        a good tool to screen for plagiarism and duplication &#8212; aka \u201Cself-plagiarism\u201D
+        &#8212; of text.</span></p>\\n<p><span style=\\\"font-weight: 400;\\\">What
+        has really moved the field forward, however, are platforms such as PubPeer,
+        an \u201Conline journal club\u201D where scientists share critiques of papers.
+        A number of corrections and retractions have </span><a href=\\\"https://www.statnews.com/2018/01/30/pubpeer-biotech-investors/\\\"><span
+        style=\\\"font-weight: 400;\\\">flowed from those discussions</span></a><span
+        style=\\\"font-weight: 400;\\\">. (PubMed Commons was another such tool, although
+        discussions were not as critical, and the National Library of Medicine </span><a
+        href=\\\"https://retractionwatch.com/2018/02/02/pubmed-shuts-comments-feature-pubmed-commons/\\\"><span
+        style=\\\"font-weight: 400;\\\">recently decided to shut it down</span></a><span
+        style=\\\"font-weight: 400;\\\">.) Moving forward, the growth of preprints
+        in biology and related fields could allow detection of errors before papers
+        are even officially peer-reviewed.</span></p>\\n<p><strong>Solely by control
+        or active watching the problem of intransparency of the retraction process
+        cannot be solved. In this context, research ethics matter a lot. How could
+        \_better research ethics evolve?</strong></p>\\n<p><span style=\\\"font-weight:
+        400;\\\">I would argue that sustained attention to the retraction process
+        has already led to some changes. Take the Journal of Biological Chemistry
+        (JBC), for example. For the first five years of Retraction Watch, the JBC\u2019s
+        retraction notices were bereft of content, noting simply that the article
+        in question had been retracted at the request of the authors or the editors.
+        In 2015, </span><a href=\\\"https://retractionwatch.com/2015/11/25/now-this-is-good-news-in-policy-change-jbc-will-now-make-retraction-notices-informative/\\\"><span
+        style=\\\"font-weight: 400;\\\">that changed</span></a><span style=\\\"font-weight:
+        400;\\\">, and today the JBC is one of the most aggressive journals when it
+        comes to policing the papers it publishers.</span></p>\\n<p><span style=\\\"font-weight:
+        400;\\\">In a larger sense, however, it\u2019s true that preventing all misconduct
+        is impossible, just as expecting to prevent all theft or violence is a fool\u2019s
+        errand. Just as for crimes, the best approach is one that combines prevention,
+        detection, deterrence, and rewards for the kind of behavior we want to promote.</span></p>\\n<p><strong>In
+        your opinion: What should academia change in the way it publishes and reviews
+        results? What role should academic and professional education play?</strong></p>\\n<p><span
+        style=\\\"font-weight: 400;\\\">As others have noted, the \u201C</span><a
+        href=\\\"https://www.scientificamerican.com/article/intense-competition-among-scientists-gotten-out-of-hand/\\\"><span
+        style=\\\"font-weight: 400;\\\">winner takes all</span></a><span style=\\\"font-weight:
+        400;\\\">\u201D approach to credit in science &#8212; and therefore to doling
+        out grants and jobs &#8212; has created enormous pressure and forces researchers
+        to publish in only a handful of \u201Cprestigious\u201D journals. That means
+        everyone is always striving for perfect and earth-shattering results, and
+        that there is little incentive to repeat experiments or admit error.</span></p>\\n<p><span
+        style=\\\"font-weight: 400;\\\">It sounds simplistic and perhaps even naive,
+        but we all need to remember how to read papers, instead of judging them by
+        metrics. That\u2019s where initiatives such as DORA &#8212; the </span><a
+        href=\\\"https://www.nature.com/articles/d41586-018-01642-w\\\"><span style=\\\"font-weight:
+        400;\\\">Declaration on Research Assessment</span></a><span style=\\\"font-weight:
+        400;\\\"> &#8212; come in. We need to create incentives for replication, for
+        open data, and even for openly critiquing others\u2019 work if we want to
+        see changes.</span></p>\\n\",\"content_text\":\"### \\n\\n**Retraction Watch
+        was launched to provide insights into cases of\\nscientific fraud and grant
+        a window on the retraction process. How does\\nthe scientific community react
+        when you publicly report on retractions\\nof scientific papers? How should
+        retractions be received by the\\nscientific community?**\\n\\n[While there
+        are some scientists who are concerned that publicizing\\nretractions --- \\\"airing
+        science's dirty laundry,\\\" so to speak --- could\\ngive ammunition to those
+        who want to defund research, most are very\\nsupportive. They realize that
+        the best way to build trust is to\\nacknowledge that errors and misconduct
+        exist, and to show the world how\\nscience corrects itself. In other words,
+        the growth in retractions\\n]{style=\\\"font-weight: 400;\\\"}[[is a good\\nthing]{style=\\\"font-weight:
+        400;\\\"}](https://www.thenewatlantis.com/publications/two-cheers-for-the-retraction-boom)[.]{style=\\\"font-weight:
+        400;\\\"}\\n\\n[There's even evidence that scientists who \\\"do the right
+        thing\\\"\\n]{style=\\\"font-weight: 400;\\\"}[[won't see a decline in their
+        career\\nprospects]{style=\\\"font-weight: 400;\\\"}](https://retractionwatch.com/2015/06/16/life-after-retraction-in-many-cases-its-forgive-and-forget/)[.\\nBut
+        that depends on retraction notices that provide the entire story:\\nIt's only
+        true when those notices make it clear there wasn't fraud or\\nmisconduct involved.
+        We've of course argued for detailed notices since\\nwe launched Retraction
+        Watch.]{style=\\\"font-weight: 400;\\\"}\\n\\n**How have digital platforms
+        and tools changed the way erroneous results\\nare uncovered/discovered? How
+        have they enabled Retraction Watch?**\\n\\n[The simple fact that the vast
+        majority of scholarly papers are online\\ntoday means that more people can
+        read --- and scrutinize --- them. Using\\na program like Photoshop, a scientist
+        or layperson can reverse engineer\\nthe manipulation that created a problematic
+        image. As I write this, a\\nteam has just\\n]{style=\\\"font-weight: 400;\\\"}[[announced]{style=\\\"font-weight:
+        400;\\\"}](https://www.nature.com/articles/d41586-018-02421-3)[\\na way to
+        find duplicated images that authors claim represent different\\nresults, but
+        clearly can't. And plagiarism detection software is of\\ncourse a good tool
+        to screen for plagiarism and duplication --- aka\\n\\\"self-plagiarism\\\"
+        --- of text.]{style=\\\"font-weight: 400;\\\"}\\n\\n[What has really moved
+        the field forward, however, are platforms such as\\nPubPeer, an \\\"online
+        journal club\\\" where scientists share critiques of\\npapers. A number of
+        corrections and retractions have\\n]{style=\\\"font-weight: 400;\\\"}[[flowed
+        from those\\ndiscussions]{style=\\\"font-weight: 400;\\\"}](https://www.statnews.com/2018/01/30/pubpeer-biotech-investors/)[.\\n(PubMed
+        Commons was another such tool, although discussions were not as\\ncritical,
+        and the National Library of Medicine\\n]{style=\\\"font-weight: 400;\\\"}[[recently
+        decided to shut it\\ndown]{style=\\\"font-weight: 400;\\\"}](https://retractionwatch.com/2018/02/02/pubmed-shuts-comments-feature-pubmed-commons/)[.)\\nMoving
+        forward, the growth of preprints in biology and related fields\\ncould allow
+        detection of errors before papers are even officially\\npeer-reviewed.]{style=\\\"font-weight:
+        400;\\\"}\\n\\n**Solely by control or active watching the problem of intransparency
+        of\\nthe retraction process cannot be solved. In this context, research\\nethics
+        matter a lot. How could \_better research ethics evolve?**\\n\\n[I would argue
+        that sustained attention to the retraction process has\\nalready led to some
+        changes. Take the Journal of Biological Chemistry\\n(JBC), for example. For
+        the first five years of Retraction Watch, the\\nJBC's retraction notices were
+        bereft of content, noting simply that the\\narticle in question had been retracted
+        at the request of the authors or\\nthe editors. In 2015, ]{style=\\\"font-weight:
+        400;\\\"}[[that\\nchanged]{style=\\\"font-weight: 400;\\\"}](https://retractionwatch.com/2015/11/25/now-this-is-good-news-in-policy-change-jbc-will-now-make-retraction-notices-informative/)[,\\nand
+        today the JBC is one of the most aggressive journals when it comes\\nto policing
+        the papers it publishers.]{style=\\\"font-weight: 400;\\\"}\\n\\n[In a larger
+        sense, however, it's true that preventing all misconduct is\\nimpossible,
+        just as expecting to prevent all theft or violence is a\\nfool's errand. Just
+        as for crimes, the best approach is one that\\ncombines prevention, detection,
+        deterrence, and rewards for the kind of\\nbehavior we want to promote.]{style=\\\"font-weight:
+        400;\\\"}\\n\\n**In your opinion: What should academia change in the way it
+        publishes\\nand reviews results? What role should academic and professional\\neducation
+        play?**\\n\\n[As others have noted, the \\\"]{style=\\\"font-weight: 400;\\\"}[[winner
+        takes\\nall]{style=\\\"font-weight: 400;\\\"}](https://www.scientificamerican.com/article/intense-competition-among-scientists-gotten-out-of-hand/)[\\\"\\napproach
+        to credit in science --- and therefore to doling out grants and\\njobs ---
+        has created enormous pressure and forces researchers to publish\\nin only
+        a handful of \\\"prestigious\\\" journals. That means everyone is\\nalways
+        striving for perfect and earth-shattering results, and that there\\nis little
+        incentive to repeat experiments or admit\\nerror.]{style=\\\"font-weight:
+        400;\\\"}\\n\\n[It sounds simplistic and perhaps even naive, but we all need
+        to\\nremember how to read papers, instead of judging them by metrics. That's\\nwhere
+        initiatives such as DORA --- the\\n]{style=\\\"font-weight: 400;\\\"}[[Declaration
+        on Research\\nAssessment]{style=\\\"font-weight: 400;\\\"}](https://www.nature.com/articles/d41586-018-01642-w)[\\n---
+        come in. We need to create incentives for replication, for open\\ndata, and
+        even for openly critiquing others' work if we want to see\\nchanges.]{style=\\\"font-weight:
+        400;\\\"}\\n\",\"guid\":\"http://elephantinthelab.org/?p=923\",\"id\":\"45ac386b-7ae0-46fe-95a0-f05578391532\",\"image\":\"https://elephantinthelab.org/wp-content/uploads/2018/03/d23d30480f358b5c72c90c39fca4a01742dacb6e_800x600.jpg\",\"language\":\"en\",\"published_at\":1522057651,\"reference\":[],\"relationships\":[],\"summary\":\"<strong>\\n</strong>\\n<strong>\\n
+        Retraction Watch was launched to provide insights into cases of scientific
+        fraud and grant a window on the retraction process. How does the scientific
+        community react when you publicly report on retractions of scientific papers?\\n</strong>\\n\",\"tags\":[\"Impact\",\"Interview\"],\"title\":\"What
+        is the impact of retractions in science?\",\"updated_at\":1556046093,\"url\":\"https://elephantinthelab.org/what-is-the-impact-of-retractions-in-science\"},\"highlight\":{\"content_text\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"<mark>Retraction</mark>
+        <mark>Watch</mark> was launched to provide\"},\"summary\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"strong>\\n</strong>\\n<strong>\\n
+        <mark>Retraction</mark> <mark>Watch</mark> was launched to provide\"}},\"highlights\":[{\"field\":\"content_text\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"<mark>Retraction</mark>
+        <mark>Watch</mark> was launched to provide\"},{\"field\":\"summary\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"strong>\\n</strong>\\n<strong>\\n
+        <mark>Retraction</mark> <mark>Watch</mark> was launched to provide\"}],\"text_match\":1157451471441100882,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":10,\"fields_matched\":2,\"score\":\"1157451471441100882\",\"tokens_matched\":2}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/generating-overlay-blog-posts\",\"authors\":[{\"affiliation\":[{\"name\":\"Front
+        Matter\"}],\"name\":\"Martin Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"On
+        Monday the Rogue Scholar science blog archive [launched a dedicated\\nAPI](https://doi.org/10.53731/ar11b-5ea39){rel=\\\"noreferrer\\\"}.
+        Today I am\\nreporting on the first Jupyter notebook using that API to generate
+        an\\noverlay blog post.\\n\\n> An\_**overlay journal**\_or\_**overlay ejournal**\_is
+        a type of\_open\\n> access\_academic journal, almost always an online\_electronic\\n>
+        journal\_(ejournal), that does not produce its own content, but selects\\n>
+        from texts that are already freely available online.\_From\\n> [Wikipedia](https://en.wikipedia.org/wiki/Overlay_journal){rel=\\\"noreferrer\\\"}\\n\\nAn
+        **overlay blog post** applies the idea of an **overlay journal** to\\nscience
+        blog posts, and the Rogue Scholar API -- in combination with\\ncontent that
+        has an open license\\n([CC-BY](https://creativecommons.org/licenses/by/4.0/legalcode){rel=\\\"noreferrer\\\"})\\n--
+        makes that easy.\\n\\nThe Jupyter notebook that I started and [made available
+        via\\nGitHub](https://github.com/front-matter/rogue-scholar-notebooks) and\\n[Zenodo](https://doi.org/10.5281/zenodo.8433675){rel=\\\"noreferrer\\\"}\\nfetches
+        all blog posts using a search term and some other conditions\\n(here written
+        in English and published after 2010). I thought a good\\nsearch term to try
+        out the concept would be **Retraction Watch**, after\\nthe [announcement in\\nSeptember](https://doi.org/10.13003/c23rw1d9){rel=\\\"noreferrer\\\"}
+        that\\n*Crossref has acquired the Retraction Watch database of expressions
+        of\\nconcerns and retractions and has made it openly accessible to anyone
+        who\\nwants to use it.*\\n\\nThe notebook includes this note:\\n\\n::::: {.kg-card
+        .kg-callout-card .kg-callout-card-blue}\\n::: {.kg-callout-emoji}\\n\U0001F4A1\\n:::\\n\\n:::
+        {.kg-callout-text}\\nWe use the query\_`retraction watch`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space:
+        pre-wrap;\\\"}. We limit results to posts published\\nsince\_`2010`{spellcheck=\\\"false\\\"
+        style=\\\"white-space: pre-wrap;\\\"}\_(the\\nyear Retraction Watch launched)
+        and\_`en`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space: pre-wrap;\\\"}\_as
+        language. We retrieve\\nthe\_`title`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space:
+        pre-wrap;\\\"},\_`authors`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space:
+        pre-wrap;\\\"},\_`publication date`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space:
+        pre-wrap;\\\"},\_`abstract`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space:
+        pre-wrap;\\\"},\_`blog name`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space:
+        pre-wrap;\\\"},\_`doi`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space: pre-wrap;\\\"}\_and\_`url.`{spellcheck=\\\"false\\\"\\nstyle=\\\"white-space:
+        pre-wrap;\\\"}We sort the results in reverse\\nchronological order (newest
+        first).\\n:::\\n:::::\\n\\nThe query for that search term returned 17 blog
+        posts included in Rogue\\nScholar (out of about 9,000 posts), and manual curation
+        narrowed that\\nlist further down to 12 posts (visualized with\\n[Mermaid](https://mermaid.js.org/){rel=\\\"noreferrer\\\"}):\\n\\n<figure
+        class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2023/10/mermaid-figure-1.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2023/10/mermaid-figure-1.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2023/10/mermaid-figure-1.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2023/10/mermaid-figure-1.png
+        1600w, https://blog.front-matter.io/content/images/2023/10/mermaid-figure-1.png
+        2000w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"2000\\\" height=\\\"190\\\"
+        />\\n</figure>\\n\\nThe notebook then generates a bibtex file of all 12 blog
+        posts (easy as\\nthey all have DOIs) and generates a summary written in markdown
+        using\\nthe title, author, blog name, publication date, and abstract.\\n\\n##
+        Conclusions\\n\\nThe notebook needs some more fine-tuning, and I plan to publish
+        the\\nfirst overlay blog post next week. But notebooks are an interesting\\napproach
+        to automate the generating of overlay blog posts, open to\\neveryone as the
+        content of the Rogue Scholar API is freely available for\\nreuse. I particularly
+        like using both automation and manual curation\\nusing open source tools,
+        which is a powerful combination\\n\\n## References\\n\\nFenner, M. (2023).
+        *Rogue Scholar has an API*.\\n<https://doi.org/10.53731/ar11b-5ea39>\\n\\nFenner,
+        M. (2023). *front-matter/rogue-scholar-notebooks: Initial public\\nrelease*
+        (0.8) \\\\[Computer software\\\\]. Zenodo.\\n<https://doi.org/10.5281/ZENODO.8433675>\\n\\nCrossref,
+        Hendricks, G., Center for Scientific Integrity, & Lammey, R.\\n(2023). *Crossref
+        acquires Retraction Watch data and opens it for the\\nscientific community*.
+        <https://doi.org/10.13003/c23rw1d9>\\n\",\"doi\":\"https://doi.org/10.53731/gzrse-p5d35\",\"guid\":\"6526c60bf23c390001a8394c\",\"id\":\"1cc6de6d-9eef-4305-a936-933446c315dd\",\"image\":\"https://images.unsplash.com/flagged/photo-1552425083-0117136f7d67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIxfHxjYW5vcHl8ZW58MHx8fHwxNjk3MDQwMDk1fDA&ixlib=rb-4.0.3&q=80&w=2000\",\"language\":\"en\",\"published_at\":1697042431,\"reference\":[{\"id\":\"https://doi.org/10.53731/ar11b-5ea39\",\"key\":\"ref1\"},{\"id\":\"https://doi.org/10.5281/zenodo.8433675\",\"key\":\"ref2\"},{\"id\":\"https://doi.org/10.13003/c23rw1d9\",\"key\":\"ref3\",\"publicationYear\":\"2023\",\"title\":\"Crossref
+        acquires Retraction Watch data and opens it for the scientific community\"}],\"relationships\":[],\"status\":\"active\",\"summary\":\"On
+        Monday the Rogue Scholar science blog archive launched a dedicated API. Today
+        I am reporting on the first Jupyter notebook using that API to generate an
+        overlay blog post. An\\n<strong>\\n overlay blog post\\n</strong>\\napplies
+        the idea of an\\n<strong>\\n overlay journal\\n</strong>\\nto science blog
+        posts, and the Rogue Scholar API \u2013 in combination with content that has
+        an open license (CC-BY) \u2013 makes that easy.\",\"tags\":[\"Feature\",\"Rogue
+        Scholar\"],\"title\":\"Generating Overlay blog posts\",\"updated_at\":1707334779,\"url\":\"https://blog.front-matter.io/posts/generating-overlay-blog-posts\"},\"highlight\":{\"content_text\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"the
+        concept would be **<mark>Retraction</mark> <mark>Watch</mark>**, after\\nthe
+        [announcement in\"},\"reference\":[{\"id\":{\"matched_tokens\":[],\"snippet\":\"https://doi.org/10.53731/ar11b-5ea39\"},\"key\":{\"matched_tokens\":[],\"snippet\":\"ref1\"}},{\"id\":{\"matched_tokens\":[],\"snippet\":\"https://doi.org/10.5281/zenodo.8433675\"},\"key\":{\"matched_tokens\":[],\"snippet\":\"ref2\"}},{\"id\":{\"matched_tokens\":[],\"snippet\":\"https://doi.org/10.13003/c23rw1d9\"},\"key\":{\"matched_tokens\":[],\"snippet\":\"ref3\"},\"publicationYear\":{\"matched_tokens\":[],\"snippet\":\"2023\"},\"title\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"Crossref
+        acquires <mark>Retraction</mark> <mark>Watch</mark> data and opens it for
+        the scientific community\"}}]},\"highlights\":[{\"field\":\"content_text\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"the
+        concept would be **<mark>Retraction</mark> <mark>Watch</mark>**, after\\nthe
+        [announcement in\"}],\"text_match\":1157451471441100866,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":8,\"fields_matched\":2,\"score\":\"1157451471441100866\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/01tmp8f25\",\"name\":\"Universidad
+        Nacional Aut\xF3noma de M\xE9xico\"}],\"name\":\"Layla Mich\xE1n\",\"url\":\"https://orcid.org/0000-0002-5798-662X\"}],\"blog_name\":\"BIOgarabatos\",\"blog_slug\":\"biogarabatos\",\"category\":\"naturalSciences\",\"content_text\":\"La
+        retractaci\xF3n es el proceso mediante el cual los investigadores de una\\npublicaci\xF3n
+        cient\xEDfica, principalmente los art\xEDculos, se desdicen de los\\nnuevos
+        conocimientos que publicaron. Seg\xFAn la Real Academia de la Lengua\\nEspa\xF1ola,
+        la [retractaci\xF3n](https://dle.rae.es/retractar) consiste en la\\nacci\xF3n
+        de revocar expresamente lo que se ha dicho (RAE, 2010). En el\\ncontexto acad\xE9mico,
+        la idea de retractaci\xF3n y fraude han ido\\nconstruyendo un camino conjunto,
+        por una parte las autoridades\\nacad\xE9micas y gubernamentales han tenido
+        que tomar decisiones para evitar\\nlas malas pr\xE1cticas cient\xEDficas y
+        por otro se ha establecido la\\nretractaci\xF3n como una pr\xE1ctica cient\xEDfica
+        m\xE1s.\_\\n\\n**Tipos de retractaci\xF3n**\\n\\nLa [retracci\xF3n](https://www.merriam-webster.com/dictionary/retraction)\\nde
+        los art\xEDculos cient\xEDficos pueden atribuirse a diversas causas, siendo\\ncuatro
+        las m\xE1s comunes.\\n\\n1\\\\. Errores y Fraude: Los errores honestos o el
+        fraude cient\xEDfico, como\\nla manipulaci\xF3n de datos o la falsificaci\xF3n
+        de resultados, son causas\\nfundamentales de retracci\xF3n. Estos desaf\xEDan
+        la integridad de la\\ninvestigaci\xF3n.\\n\\n2\\\\. Errores Editoriales: A
+        veces, las retractaciones se deben a errores\\neditoriales, como la publicaci\xF3n
+        de art\xEDculos incorrectos o la falta de\\nrevisi\xF3n por pares adecuada.\\n\\n3\\\\.
+        Conflictos de Intereses: La influencia de intereses financieros o\\npersonales
+        puede llevar a la publicaci\xF3n de resultados sesgados, lo que\\npuede requerir
+        una retractaci\xF3n si se descubre.\\n\\n4\\\\. Presi\xF3n para Publicar:
+        La presi\xF3n para producir resultados novedosos\\ny publicar con frecuencia
+        puede llevar a la investigaci\xF3n apresurada o a\\nla omisi\xF3n de informaci\xF3n
+        importante, lo que a su vez puede resultar en\\nretractaciones.\\n\\n[Para
+        la National Lybrary of Medicine (]{style=\\\"text-align: left;\\\"}NLM,\\n2002)\_[un
+        art\xEDculo despu\xE9s de su publicaci\xF3n puede ser objeto de las\\nsiguientes
+        modificaciones: errata, retractaci\xF3n -total o parcial-,\\ncorrecci\xF3n
+        y republicaci\xF3n, plagio -publicaci\xF3n duplicada-, comentarios\\n-incluye
+        r\xE9plicas del autor-, versiones actualizadas y republicaciones\\n-reimpresos-.
+        De todas ellas, la retractaci\xF3n y el plagio tiene un mayor\\npeso tanto
+        cient\xEDfico como\\nsocial.]{style=\\\"text-align: left;\\\"}[\_L]{style=\\\"text-align:
+        left;\\\"}a\\nretractaci\xF3n puede clasificarse en tres categor\xEDas:\\n\\n1.
+        \ Errores voluntarios, dentro de la que est\xE1n la falsificaci\xF3n, la\\n
+        \   fabricaci\xF3n o el plagio.\\n2.  Errores invonluntarios que incluyen
+        errores en el muestreo, de\\n    procedimientos, o en el an\xE1lisis de datos,
+        fallas en la reproducci\xF3n\\n    de los resultados, omisi\xF3n accidental
+        de informaci\xF3n acerca de los\\n    m\xE9todos o el an\xE1lisis de datos,
+        por mencionar los m\xE1s comunes.\\n3.  Aquellas que no caen en alguna de
+        las anteriores categor\xEDas.\_\\n\\nDos casos paradigm\xE1ticos de la retractaci\xF3n
+        son las del norcoreano Hwang\\nWoo, quien fue famoso por sus pr\xE1cticas
+        de clonaci\xF3n en humanos, y el\\nalem\xE1n Friedhelm Herrmann, quien fue
+        reconocido por sus estudios en\\nleucemias y su respuesta a las citoquinas.
+        Ambos fueron criticados y\\ncondenados por la comunidad cient\xEDfica a partir
+        de que se descubriera\\nque sus \xE9xitos estaban basado en el fraude.La retractaci\xF3n
+        en la ciencia\\nes un tema controvertido que ha generado un creciente inter\xE9s
+        y que es\\nimportante conocer y reconocer, porque un art\xEDculo retractado
+        pierde\\nvalidez. La retractaci\xF3n es una buena pr\xE1ctica de la publicaci\xF3n\\ncient\xEDfica,
+        que consiste en retractar un art\xEDculo cuando una nota no es\\nsuficiente,
+        abordar\xE9 sus causas, consecuencias y las implicaciones\\n\xE9ticas asociadas.\\n\\n
+        \ \\n\\n::: {.separator style=\\\"clear: both; text-align: center;\\\"}\\n[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhUWuFBknBrDrfyTx8yxp6VsOVFSLbWrnpjn_BPCB5lerlIlMi08xCO2f70yraUyBMoEUEuu24ZbkrDPWOt4k5JTtaUFJ0PJVcowcs4i68FraeeeyDYDep6dbTNs1LvqkflYnIXpasFyAvGv2rb53AYeji0pxP1izj_c1uGSW2xX07-_x1GSfT9wb-2S9Q/w349-h437/Untitled.png){border=\\\"0\\\"\\noriginal-height=\\\"4096\\\"
+        original-width=\\\"3277\\\" height=\\\"437\\\"\\nwidth=\\\"349\\\"}](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhUWuFBknBrDrfyTx8yxp6VsOVFSLbWrnpjn_BPCB5lerlIlMi08xCO2f70yraUyBMoEUEuu24ZbkrDPWOt4k5JTtaUFJ0PJVcowcs4i68FraeeeyDYDep6dbTNs1LvqkflYnIXpasFyAvGv2rb53AYeji0pxP1izj_c1uGSW2xX07-_x1GSfT9wb-2S9Q/s4096/Untitled.png){style=\\\"margin-left:
+        1em; margin-right: 1em;\\\"}\\n:::\\n\\n  \\n\\n::: {.separator style=\\\"clear:
+        both; text-align: center;\\\"}\\n  \\n:::\\n\\n  \\n\\n**Consecuencias de
+        la Retracci\xF3n**\\n\\nLa retractaci\xF3n de un art\xEDculo cient\xEDfico
+        tiene implicaciones\\nsignificativas como las siguientes\\n\\n- Da\xF1o a
+        la Credibilidad: La retractaci\xF3n puede socavar la credibilidad\\n  del
+        autor, la revista cient\xEDfica y la comunidad cient\xEDfica en general.\\n-
+        Desperdicio de Recursos: La inversi\xF3n de recursos en investigaciones\\n
+        \ que se retractan se considera un desperdicio de tiempo y dinero.\\n- Impacto
+        en la Ciencia: Las retractaciones pueden influir en la\\n  direcci\xF3n de
+        futuras investigaciones y pol\xEDticas cient\xEDficas.\\n\\nLa retractaci\xF3n
+        plantea cuestiones \xE9ticas, como la responsabilidad de\\nlos autores y las
+        revistas en garantizar la integridad de la\\ninvestigaci\xF3n. Los investigadores
+        tienen la responsabilidad de informar\\nlos errores y los resultados no reproducibles
+        de manera transparente.\\nPara abordar este problema, es esencial promover
+        la integridad en la\\ninvestigaci\xF3n, mejorar la revisi\xF3n por pares y
+        fomentar la transparencia\\nen la comunicaci\xF3n cient\xEDfica.\\n\\n[Todo
+        investigador debe conocer con detalle este proceso para evitar\\ngenerar una
+        retractaci\xF3n en sus publicaciones y para eliminar la\\nposibilidad de usar
+        un art\xEDculo retractado, porque tener un art\xEDculo\\nretractado en las
+        referencias es na mala pr\xE1ctica que incluso puede\\nincidir en la retractaci\xF3n
+        del propio art\xEDculo. La \xFAnica manera de saber\\nsi un art\xEDculo est\xE1
+        retractado es\_ a trav\xE9s del DOI. Por eso cada vez\\nque se lee un PDF
+        se debe consultar el HTML del art\xEDculo para consultar\\nactualizaciones
+        de los metadatos del\\ndocumento.]{style=\\\"text-align: justify;\\\"}\\n\\n[**
+        \ \\n**]{style=\\\"text-align: justify;\\\"}\\n\\n[**Para reflexionar**]{style=\\\"text-align:
+        justify;\\\"}\\n\\n- \xBFCu\xE1l es el procedimiento de retractaci\xF3n?\\n-
+        \xBFCu\xE1ntos art\xEDculos retractados hay para un tema determinado?\\n-
+        \xBFCu\xE1les filtros existen para encontrar art\xEDculos retractados?\\n-
+        \xBFQu\xE9 fuentes puedes usar para buscar art\xEDculos retractados\\n- \xBFC\xF3mo
+        se registran los art\xEDculos retractados en Wikidata?\\n\\n  \\n\\n**Recursos**\\n\\n-
+        <https://retractionwatch.com/>\\n- <http://retractiondatabase.org/RetractionSearch.aspx?>\\n-
+        [Someter una retractaci\xF3n a\\n  RW](https://docs.google.com/forms/d/e/1FAIpQLSeAsw4i5J8M7sOQ9GiG0_dglkim9gdPPba92yZRLfCq4u-o7w/viewform?c=0&w=1)\\n-
+        <https://publicationethics.org/retraction-guidelines>\\n- <https://dbrech.irit.fr/pls/apex/f?p=9999:31>\\n-
+        <https://retractionwatch.com/papers-that-cite-retraction-watch/>\\n- <https://retractions.au/>\\n-
+        <https://www.nlm.nih.gov/bsd/policy/errata.html>\\n- <https://pubmed.ncbi.nlm.nih.gov/?term=retracted&sort_order=asc>\\n-
+        <https://publicationethics.org/retraction-guidelines>\\n- <https://www.crossref.org/blog/news-crossref-and-retraction-watch/>\\n-
+        <https://docs.google.com/document/d/1GabgCP_sUwvW2XEtOfWmFwNIpizagWvlreALWvbZY8Y/edit?usp=sharing>\\n-
+        <https://en.wikipedia.org/wiki/Retractions_in_academic_publishing>\\n- <https://libguides.fau.edu/science_resources/retractions>\\n-
+        <https://universoabierto.org/2021/01/10/un-articulo-retractado-se-sigue-citando-8-anos-despues/>\\n-
+        <https://www.slideshare.net/edilsondamasio/damasiowcri20221poster90120pptx>\\n-
+        <https://infoqualitylab.org/projects/risrs2020/bibliography/>\\n- <https://pubpeer.com/publications/9F571982CF73571F41D7E533AF4A38#3>\\n-
+        <https://www.niso.org/standards-committees/crec>\\n- <https://twitter.com/infovestigacion/status/1338935876328562692>\\n\\n<div>\\n\\n**
+        \ \\n**\\n\\n</div>\\n\\n<div>\\n\\n**Bibliograf\xEDa**\\n\\n</div>\\n\\n<div>\\n\\n-
+        Cobey, K. D., Ebrahimzadeh, S., Page, M. J., Thibault, R. T., Nguyen,\\n  P.-Y.,
+        Abu-Dalfa, F., & Moher, D. (2023). Biomedical researchers'\\n  perspectives
+        on the reproducibility of research: A cross-sectional\\n  international survey
+        \\\\[Preprint\\\\]. Scientific Communication and\\n  Education. <https://doi.org/10.1101/2023.09.18.558287>\\n-
+        Oransky, I. (2020). Retraction watch: What we've learned and how\\n  metrics
+        play a role. En M. Biagioli & A. Lippman (Eds.), Gaming the\\n  Metrics (pp.
+        141-148). The MIT Press.\\n  <https://doi.org/10.7551/mitpress/11087.003.0014>\\n-
+        Publishing ethics. (2018). En Medical and Scientific Publishing (pp.\\n  179-186).
+        Elsevier.\\n  <https://doi.org/10.1016/B978-0-12-809969-8.00019-X>\\n- Scientific
+        retractions may become easier to spot as Retraction Watch\\n  finds new partner.
+        (2023). \\\\[dataset\\\\].\\n  <https://doi.org/10.1126/science.adk8174>\\n-
+        Syed, Z., Syed, F., Thabane, L., & Rodrigues, M. (2023). COVID-19\\n  retracted
+        publications on retraction watch: A systematic survey of\\n  their pre-prints
+        and citations. Heliyon, 9(4), e15184.\\n  <https://doi.org/10.1016/j.heliyon.2023.e15184>\\n-
+        Schneider, J., Lee, J., Zheng, H., & Salami, M. O. (2023, mayo 19).\\n  Assessing
+        the agreement in retraction indexing across 4\\n  multidisciplinary sources:
+        Crossref, Retraction Watch, Scopus, and Web\\n  of Science. 27th International
+        Conference on Science, Technology and\\n  Innovation Indicators (STI 2023).
+        27th International Conference on\\n  Science, Technology and Innovation Indicators
+        (STI 2023).\\n  <https://doi.org/10.55835/6441e5cae04dbe5586d06a5f>\\n\\n</div>\\n\",\"doi\":\"https://doi.org/10.59350/60mgq-q1504\",\"guid\":\"tag:blogger.com,1999:blog-3916921080498993167.post-4565833729176142010\",\"id\":\"3ba0e353-d026-4e9f-9892-9dc4dd3124a8\",\"image\":\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhUWuFBknBrDrfyTx8yxp6VsOVFSLbWrnpjn_BPCB5lerlIlMi08xCO2f70yraUyBMoEUEuu24ZbkrDPWOt4k5JTtaUFJ0PJVcowcs4i68FraeeeyDYDep6dbTNs1LvqkflYnIXpasFyAvGv2rb53AYeji0pxP1izj_c1uGSW2xX07-_x1GSfT9wb-2S9Q/s72-w349-h437-c/Untitled.png\",\"language\":\"es\",\"published_at\":1695823800,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"La
+        retractaci\xF3n es el proceso mediante el cual los investigadores de una publicaci\xF3n
+        cient\xEDfica, principalmente los art\xEDculos, se desdicen de los nuevos
+        conocimientos que publicaron.\",\"tags\":[\"BIOliteratura\U0001F4D8\",\"METAciencia\U0001F9EA\"],\"title\":\"Retractaci\xF3n\",\"updated_at\":1698850723,\"url\":\"https://biogarabatos.blogspot.com/2023/09/retractacion.html\"},\"highlight\":{\"content_text\":{\"matched_tokens\":[\"retraction\",\"watch\"],\"snippet\":\"com/papers-that-cite-<mark>retraction</mark>-<mark>watch</mark>/>\\n-
+        <https://retractions.au/>\\n- <https:\"}},\"highlights\":[{\"field\":\"content_text\",\"matched_tokens\":[\"retraction\",\"watch\"],\"snippet\":\"com/papers-that-cite-<mark>retraction</mark>-<mark>watch</mark>/>\\n-
+        <https://retractions.au/>\\n- <https:\"}],\"text_match\":1157451471441100865,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":8,\"fields_matched\":1,\"score\":\"1157451471441100865\",\"tokens_matched\":2}},{\"document\":{\"authors\":[{\"name\":\"Blog
+        team\"}],\"blog_name\":\"Leiden Madtrics\",\"blog_slug\":\"leidenmadtrics\",\"category\":\"socialSciences\",\"content_text\":\"[The
+        28th International Conference on Science, Technology and Innovation\\nIndicators
+        (STI)\\n2024](https://sti2024.org/sti-conference/){target=\\\"_blank\\\"}
+        is just\\naround the corner, set to take place in Berlin on 18-20 September!
+        The\\nconference will \\\\\\\"explore the intricate dynamics between concepts
+        of\\nopenness and closedness in science, technology, and innovation,\\nemphasising
+        their impact on research, policy, and practice.\\\\\\\"\\n\\nThis blog post
+        highlights the contributions that our colleagues at CWTS\\nwill be making
+        to this year\\\\'s event. The diversity of the topics\\nshowcases our efforts
+        to align with [our new Knowledge\\nAgenda](https://www.leidenmadtrics.nl/articles/introducing-the-cwts-knowledge-agenda-2023-2028){target=\\\"_blank\\\"}.\\nOur
+        current research is indeed deeply intertwined with the priorities of\\nour[\_three
+        Focal\\nAreas](https://www.leidenmadtrics.nl/articles/the-focal-areas-of-cwts){target=\\\"_blank\\\"},\\nranging
+        from the study of research assessment reforms to the evolving\\ndynamics of
+        scholarly communication and open science.\\n\\nAre you wondering where to
+        find CWTS at the STI conference? Below we\\nhave listed abstracts of all special
+        sessions and presentations\\nfeaturing CWTS colleagues (with their names highlighted
+        in bold).\_For\\nmore information and details, you can also check out [the
+        full STI 2024\\nprogram](https://sti2024.org/sti-conference/program/){target=\\\"_blank\\\"}.\\n\\nWe
+        are excited to see you soon in Berlin, ready to engage in meaningful\\ndiscussions
+        and help shape the future of science together!\\n\\n### Paper presentations\\n\\nHow
+        effective are research assessment reform initiatives in mobilizing\\ncollective
+        action? Framework and case studies of DORA and CoARA\\n\\n#### Authors\\n\\n***Alex
+        Rushforth**\_and Gunnar Sivertsen*\\n\\n#### Abstract\\n\\nRecent years have
+        seen considerable growth of reform movements aiming to\\narrest perceived
+        dysfunctions across science. A prominent problem that\\nhas formed the focus
+        of activism in academia has been research\\nassessment practices. Multi-actor
+        initiatives such as the Declaration on\\nResearch Assessment (DORA) and the
+        Coalition on Advancing Research\\nAssessment (CoARA) have served as prominent
+        backbone organizations for\\nthis movement, coordinating collective action
+        among diverse research\\nstakeholders. As governance structures within science,
+        a notable\\ncharacteristic is their reliance upon 'soft governance' and 'self\\nregulation',
+        rather than incentives or coercion. In this paper we take\\nstock of how effective
+        these example initiatives have been in\\ncoordinating and mobilizing collective
+        action on their respective\\nproblems. We introduce a framework to compare
+        the initiatives, apply it\\nto these two cases, and draw conclusions about
+        the respective\\nachievements, challenges, and limitations of these structures.\\n\\nThe
+        inventive spill-over of corporate publications\\n\\n#### Authors\\n\\n*Antoine
+        Schoen, Patricia Laurens, Gaston Heimeriks, Martina\\nNeul\xE4ndtner, Thomas
+        Scherngell, **Alfredo Yegros**, and Philippe Lar\xE9do*\\n\\n#### Abstract\\n\\nThis
+        paper looks at how scientific collaboration linking universities\\nand large
+        international firms fosters local invention. The first step\\naims at identifying
+        the universities engaged in collaboration with large\\ncorporate entities
+        belonging to the industrial sectors of\\npharmaceuticals, chemicals and biotechnology.
+        After having identified\\nthe corpus of corporate publications authored by
+        these enterprises we\\nanalyse in this corpus the universities engaged in
+        this corporate\\nscientific collaboration allocating the co-authoring institutions
+        in the\\nterritories hosting the academic authors. The extent and nature of
+        the\\nuniversities' collaboration with large firms is then analysed using
+        the\\nSAR model in regard to the intensity of local inventive intensity in
+        the\\nmetropolitan area hosting the universities. The results show that\\ncorporate
+        publications have a clear and significant effect on inventive\\noutcome and
+        production.\\n\\nIncentivizing, excluding, and enduring: On the complexities
+        of\\nquantitative research assessment in Lithuania\\n\\n#### Authors\\n\\n***Eleonora
+        Dagiene**, Vincent Larivi\xE8re, and **Ludo Waltman***\\n\\n#### Abstract\\n\\nLithuania's
+        research assessment prioritises Web of Science publications,\\naiming for
+        international impact. This paper examines the policy,\\nintroduced in 2012,
+        of excluding articles from journals with low impact\\nfactor or suspected
+        citation inflation. We analyse how this suspension\\npolicy affected domestic
+        journals and researchers' behaviour. The\\nresults show that Lithuanian researchers'
+        publications in foreign\\noutlets increased, but concerns remain about the
+        chosen outlets' quality\\nand potential continuing manipulation of Web of
+        Science metrics. These\\nare initial findings of a broader study exploring
+        policy dynamics and\\nunexpected consequences of quantitative research assessment.\\n\\nDoes
+        mobility help to build bridge of collaboration between origin and\\ndestination
+        country\\n\\n#### Authors\\n\\n***Huilin Ge**, **Clara Calero Medina**, and
+        **Rodrigo Costas***\\n\\n#### Abstract\\n\\nAcademic mobility is a phenomenon
+        in today's academic landscape that\\nfacilitates global collaboration and
+        knowledge transfer. Despite the\\nbenefits of academic mobility, concerns
+        about brain drain persist, and\\nfears of inequalities in mobility dynamics
+        start to emerge. Our research\\nexplores the relationship between mobile researchers
+        and the\\ncollaboration ties with their country of origin, revealing a remarkable\\ntrend:
+        mobile academics maintain varying degrees of collaboration with\\ntheir origin
+        countries after moving. Scholars migrating from\\nhigher-income countries
+        to lower-income ones exhibit a strong\\ninclination to maintain ties with
+        their highincome origins, but the\\nreverse is not observed. These findings
+        suggest unequal benefits of\\nmobility regarding the collaboration ties and
+        highlight the necessity\\nfor implementing policies and initiatives geared
+        towards nurturing more\\nbeneficial international research collaboration and
+        harnessing the\\ncontributions of mobile scientists.\\n\\nFunding flows in
+        Africa according to Dimensions grant data\\n\\n#### Authors\\n\\n***Jonathan
+        Dudek**, **Jeroen van Honk**, Isabel Basson, **Carole de\\nBordes**, **Ismael
+        Rafols**, and **Rodrigo Costas***\\n\\n#### Abstract\\n\\nMost African countries
+        have low domestic research funding and receive a\\nsignificant portion of
+        their funding from foreign sources. Consequently,\\nit is of special interest
+        to understand funding flows and their\\ninfluence on African research. The
+        Dimensions (Digital Science) database\\nbrings together information from publications
+        and projects funded by\\nmore than 500 funding agencies from more than 40
+        countries. By combining\\ngrant (project) data and funding acknowledgments
+        in publications, we\\nanalyse funding flows to African countries: who are
+        the main funders?\\nwhich countries and organizations do they support? what
+        issues do they\\nprioritize? The study will also explore the possibilities
+        and\\nlimitations of using Dimensions funding-related data for the analysis
+        of\\nfunding flows between global regions.\\n\\nTaming complexity: narrative
+        CVs in grant funding evaluations\\n\\n#### Authors\\n\\n***Judit Varga**,
+        **Wolfgang Kaltenbrunner**, and Helen Buckley Woods*\\n\\n#### Abstract\\n\\nThis
+        short paper presents preliminary findings from a research project\\ninvestigating
+        the uptake and use of so-called narrative CVs in review\\npanels for research
+        funding decisions. Our analysis draws on empirical\\nmaterial collected through
+        interviews and participant observation in two\\nsubsequent panel meetings
+        of a funding program for early career\\nresearchers of the Dutch national
+        research council NWO. As expected, we\\nfind that the recent introduction
+        of a narrative CV in this program has\\nnot instantaneously transformed evaluative
+        practices. Rather, the\\nemphasis on substantive narrative accounts of applicants'
+        achievements,\\ncombined with the backgrounding of quantifiable evidence such
+        as\\npublication counts and metrics, leads reviewers to gradually\\nproblematize
+        and reconsider previously dominant definitions of quality.\\nOur analysis
+        showcases exemplary situations in which such reflection\\nbecomes apparent,
+        and it highlights different ways in which reviewers\\ntry to resolve newly
+        underdetermined evaluative situations.\\n\\nGeography in Scientific Practice
+        and Country Biases\\n\\n#### Authors\\n\\n***Leyan Wu**, Akrati Saxena, and
+        **Vincent Traag***\\n\\n#### Abstract\\n\\nRecent decades witnessed a steady
+        increase in international scientific\\ncollaboration, alongside debates on
+        nationalist tendencies in scientific\\npractices and global disparities in
+        citation flows. Geographical\\nproximity has been shown to influence collaboration
+        and citation rates,\\nyet how this affects global patterns remains unclear.
+        Addressing this\\ngap, we examine the interplay of geography and country-level
+        effects in\\ncollaboration and citations using OpenAlex data. Analysing 1.6
+        million\\npublications with 6.8 million collaborations, and 3.7 million citations,\\nwe
+        unveil distinct distance dependencies and country-level effects.\\nCollaborations
+        between countries decline slower with distance compared\\nto intra-country
+        collaborations. Surprisingly, citations between\\ncountries display lower
+        distance dependence above a certain threshold,\\nwhile intra-country citations
+        decrease notably. These findings suggest\\nthat geographical factors alone
+        do not determine inter-country\\ncollaborations and citations, hinting at
+        underlying country-level\\neffects that we will explore further in follow-up
+        research. This study\\nadvances our understanding of the complex dynamics
+        shaping international\\nscientific engagement.\\n\\nThe use of non-institutional
+        email addresses in retracted publications\\nwith special attention to mass
+        retractions due to fraudulent peer review\\n\\n#### Authors\\n\\n***Marc Luwel**\_and
+        **Nees Jan van Eck***\\n\\n#### Abstract\\n\\nThe explosion of cases of peer
+        review fraud and activities of paper\\nmills pose a systemic threat to the
+        integrity of the scientific\\npublishing process. By linking the Retraction
+        Watch and Web of Science\\ndatabases, metadata of retracted publications are
+        analysed. In the\\nperiod 2007-2021, the use of non-institutional email addresses
+        by these\\npublications' reprint authors increased by more than 20%, mainly
+        due to\\nan even larger increase from authors with a postal address in India
+        and\\nespecially China. Among the journals with the most retracted\\npublications,
+        the use of non-institutional email addresses by reprint\\nauthors differs
+        greatly: from 7 to 99%. It is also surprising that only\\n36% of the mainly
+        Chinese reprint authors of the mass retracted\\npublications in Hindawi journals
+        used a non-institutional email address.\\nThese results indicate that caution
+        is recommended and not to\\nautomatically red-flag publications as fraudulent
+        when non-institutional\\nemail addresses are used.\\n\\nDifferent representations
+        of forest science in bibliographic databases\\nand the (in-)visibility of
+        Tanzanian research: applying an epistemic\\n(in-)justice lens\\n\\n#### Authors\\n\\n*Nelius
+        Boshoff, Similo Ngwenya, Amani J. Uisso, Susanne Koch, **Rodrigo\\nCostas**,
+        and **Jonathan Dudek***\\n\\n#### Abstract\\n\\nInspired by a search for epistemic
+        justice, the study examines the\\nrepresentation of Tanzanian forest science
+        in five databases:\\nDimensions, OpenAlex, Scopus, Web of Science and a manually
+        compiled set\\nof articles in Tanzanian journals. It also ascertains whether
+        profiles\\nof three epistemic elements (alignment of research to national
+        research\\npriorities, national region studied, and forest type studied) differ\\nbetween
+        the databases. Initial findings of the ongoing research indicate\\nthat OpenAlex
+        has the highest coverage of Tanzanian forest science\\narticles and that it
+        incorporates all the forest science articles of the\\nother databases (excluding
+        those in the Tanzanian dataset). In fact, 87%\\nof articles in Tanzanian journals
+        do not appear in the other databases'\\nforest science collections. This is
+        a form of epistemic injustice as the\\ninvisibility of large parts of forest
+        science produced by Tanzanian\\nauthors collectively marginalises them and
+        ultimately prevents them from\\nfully participating in scientific meaning-making.\\n\\nCoverage
+        and metadata availability of African publications in OpenAlex:\\na comparative
+        analysis\\n\\n#### Authors\\n\\n*Patricia Alonso-\xC1lvarez and **Nees Jan
+        van Eck***\\n\\n#### Abstract\\n\\nUnlike traditional proprietary data sources
+        like Scopus and the Web of\\nScience (WoS), OpenAlex emphasises its comprehensiveness,
+        claiming an\\nextra coverage of humanities, non-English languages, and the
+        Global\\nSouth. Strengthening diversity and inclusivity in science is crucial
+        for\\nethical and practical reasons. This paper analyses OpenAlex's coverage\\nand
+        metadata availability of African-based publications. For this\\npurpose, OpenAlex
+        is compared with Scopus, WoS, and African Journals\\nOnline (AJOL). We first
+        compare the coverage of African publications in\\nOpenAlex against that of
+        WoS, Scopus, and AJOL. We then assess and\\ncompare the available metadata
+        for OpenAlex, Scopus, and WoS\\npublications. The analysis shows that OpenAlex
+        offers the most extensive\\npublication coverage. Regarding metadata, OpenAlex
+        offers a high\\ncoverage of publication and author information. It performs
+        worse\\nregarding affiliations, references, and funder information. Importantly,\\nthe
+        results also show that metadata availability in OpenAlex is better\\nfor publications
+        also indexed in Scopus and WoS.\\n\\nUnexpected consequences of Dutch Open
+        Science policy. The effects on\\nDutch scholarly publishing\\n\\n#### Authors\\n\\n***Thed
+        van Leeuwen**, Lieuwe Kool, and Ingrid Wijk*\\n\\n#### Abstract\\n\\nIn this
+        study we aim at some unintended consequences of science policy\\nregarding
+        open access publishing by Dutch academics. Various actors in\\nthe system
+        have advocated different forms of open access publishing, and\\nour study
+        will unravel how publishing occurs in various forms of open\\naccess publishing
+        (Gold versus Hybrid), and for two types of scholarly\\npublishing, the general
+        output of the Netherlands and the output for\\nwhich authors located in the
+        Netherlands are corresponding authors. A\\nspecial focus will be on any underlying
+        field differences across the\\nDutch scholarly landscape. The study shows
+        that contrary to national and\\ninternational efforts, the main focus of Dutch
+        academics is on Hybrid\\nopen access publishing.\\n\\nHow does SDG Related
+        Research Differ?\\n\\n#### Authors\\n\\n*Tommaso Ciarli, Hugo Confraria, **Ed
+        Noyons**, and **Ismael Rafols***\\n\\n#### Abstract\\n\\nThis paper examines
+        the characteristics and impact of research related\\nto the Sustainable Development
+        Goals (SDGs), aiming to understand\\nspecific features of SDG-related research
+        compared to non- SDG related\\nresearch. The findings reveal that SDG-research
+        research, especially on\\nSDGs related to people and society (such as poverty
+        alleviation,\\neducation, gender equality, and justice) are more likely to
+        be cited in\\npolicy documents, indicating their relevance for public use,
+        and to\\nadopt features of open science, such as open access and\\ninterdisciplinary.
+        However, these publications are less likely to\\nmention funding and are less
+        likely to be cited in academic publications\\ncompared to non-SDG-related
+        research, suggesting a disconnect between\\npotentially more impactful research
+        and academic recognition. Results\\nreveal gaps in research funding priorities
+        while emphasising the\\nimportance of considering the societal relevance of
+        research alongside\\ntraditional excellence criteria.\\n\\n### Poster presentations\\n\\nUtilising
+        structural causal models to improve the study of science\\n\\n#### Authors\\n\\n*Thomas
+        Klebel and **Vincent Traag***\\n\\n#### Abstract\\n\\nSound causal inference
+        is crucial for advancing the study of science,\\nbut many publications in
+        science studies lack appropriate methods to\\nsubstantiate their causal claims.
+        Using the example of Open Science, our\\nposter provides an overview of structural
+        causal models and how they\\nallow researchers to make their causal assumptions
+        transparent,\\nproviding a foundation for causal inference in quantitative
+        science\\nstudies.\\n\\nA quantitative assessment of CSC scholarship in the
+        context of the home\\nand host countries\\n\\n#### Authors\\n\\n***Qianqian
+        Xie**\_*\\n\\n#### Abstract\\n\\nOur work assesses the effectiveness of CSC
+        program through the research\\nperformance of CSC recipients and compares
+        it to that of their home and\\nhost countries' counterparts. We contextualized
+        CSC awardees'\\nperformance benchmarking against their home and host countries'\\ncounterparts,
+        by using normalized mean citation score (MNCS) and the\\nproportion of highly
+        cited papers (PP(top 10%)) and the proportion of\\nopen access papers (PP_OA).
+        Our work reveals CSC-funded papers overall\\nconsistently demonstrate superior
+        scientific research and open access\\nperformance compared to Chinese researchers
+        of the same period.\\nAdditionally, within Physical Sciences and Engineering
+        and Mathematics &\\nComputer Science, CSC awardees exceled than their hosting
+        countries with\\nhigh MNCS and PP (top 10%), but in some countries CSC awardees
+        (e.g. the\\nUS, Canada, Australia et al) have lower open access rates. Conversely,\\nin
+        Biomedical and Health Sciences, CSC awardees show inferior\\nperformance but
+        a higher open access percentage compared to their\\ncounterparts.\\n\\nWhere
+        do Chinese scholars move to: an open-source investigation\\n\\n#### Authors\\n\\n*Wei
+        Quan, **Huilin Ge**, and **Rodrigo Costas***\\n\\n#### Abstract\\n\\nThis
+        study presents the overview of Chinese scholars' international\\nmobility
+        based on bibliometrics data from Dimension. We identify\\n2,446,785 individual
+        researchers affiliated with China from the\\n2000-2022 period. Based on those
+        data, we find that 2,381,665\\nresearchers are not moving in their academic
+        careers, and 65,120\\nresearchers have international mobile footprints. Furthermore,
+        after\\ndistinguishing China as an origin country and destination country,
+        we\\nfind that China has been losing researchers since 2000, with the United\\nStates
+        being the main destination for those who move internationally.\\nWhat's more,
+        we find that when scholars move, they generally do not\\nchange their research
+        fields on a large scale, but some do change their\\nfields, particularly in
+        the social sciences. Our study illustrates the\\nlandscape of Chinese researchers'
+        international mobility and highlights\\nthe flow patterns.\\n\\nConnecting
+        health research efforts and social attention: A dual analysis\\nof local and
+        international perspectives on Wikipedia and OpenAlex\\n\\n#### Authors\\n\\n*Wenceslao
+        Arroyo-Machado, **Rodrigo Costas**, and Adri\xE1n A. D\xEDaz-Faes*\\n\\n####
+        Abstract\\n\\nThis research-in-progress paper examines the alignment between
+        public\\ninterest, as evidenced by Wikipedia page views, and the distribution
+        of\\nacademic resources across various health conditions. Utilising data from\\nWikipedia,
+        Wikidata, and OpenAlex, the study reveals both relevant\\ngeographical correlations
+        and notable gaps in how diseases are addressed\\nin academic research compared
+        to their visibility in social media.\\nMoreover, discrepancies in content
+        quality on Wikipedia pages indicate\\npotential biases in the global research
+        agenda. These findings\\nunderscore the importance of considering both social
+        and academic\\nmetrics to address misalignments and advocate for a more equitable\\ndistribution
+        of research resources in the biomedical sciences.\\n\\n### Special sessions\\n\\nOpen
+        peer review in STI research\\n\\n#### Authors\\n\\n***Wolfgang Kaltenbrunner**,
+        Felicitas Hesselmann, Serge Horbach*\\n\\n#### Abstract\\n\\nWhile a lot of
+        STI research focuses on innovations in scholarly\\npublishing as a research
+        object, our own scholarly communication\\npractices often rely on more traditional
+        (closed) journal - based pre -\\npublication peer review. In this special
+        session, we aim to discuss to\\nwhat extent this is an intentional choice,
+        and in what ways we might\\nbenefit from the various affordances of open peer
+        review - in particular\\nthe prospect of reusing open review reports across
+        various outlets or\\ncontexts. The discussion will be prepared by four short
+        pitches. First,\\nsome of the organiz ers of the preceding STI conference
+        will report\\nabout experiences with open peer review in the 2023 STI iteration
+        in\\nLeiden (Ludo Waltman). A second pitch will collect the existing evidence\\non
+        implications of open peer review for diversity and participatio n\\n(Serge
+        Horbach). A third pitch will reflect what open and portable\\nreview reports
+        mean for the workings of the peer review economy in a\\npublishing context
+        (Wolfgang Kaltenbrunner). Finally, there will be a\\npitch on the possibilities
+        of automation in peer review and its\\nimplications for openness (Felicitas
+        Hesselmann).\\n\\nThe subsequent discussion will focus on the following questions:\\n\\n-
+        What are STI attendants' motivations to (not) engage in open review\\n  formats?\\n-
+        What are the most important opportunities and challenges related to\\n  implementing
+        open and portable peer reviews?\\n- How do open and portable reviews alter
+        the development of research\\n  arguments and the engagement with audiences?\\n-
+        How compatible are various publication cultures with open reviews?\\n\\nIn
+        search of open science-aware academic careers assessments\\n\\n#### Authors\\n\\n***Alex
+        Rushforth**, Janne P\xF6l\xF6nen (org), Neil Jacobs, **Louise\\nBezuidenhout**,
+        Maria Pietila, **Clifford Tatum**, Francesca Di Donato*\\n\\n#### Abstract\\n\\nOver
+        the past five years, the reform movements for open science and\\nresearch
+        assessment have expanded significantly. Increasingly, their\\nagendas overlap
+        , with champions of open science seeing current\\nassessment practices as
+        incentivizing behaviours that hinder wider\\naccommodation of open science
+        activities among researchers (UNESCO,\\n2021, Nosek, 2019, Spector, 2022)
+        . Reform of academic career assessment\\nsystems is often earmarked as a site
+        through which to incentivize\\nacademics to more fully embrace open ways of
+        working (e.g. EC, 2017,\\nMustajoki et al., 2021, Pietil\xE4 et al., 2023,
+        M\xE9ndez and S\xE1nchez -\\nN\xFA\xF1ez, 2023) . It is of course easy to
+        say that researchers in general\\nshould be 'recognized' and 'rewarded' for
+        open science (in its various\\nincarnations) . But what might this look like
+        in practice, what has\\nactually been tried out so far, how might researchers
+        in their roles as\\nevaluators and producers of knowledge respond to such
+        steering efforts,\\nand what might be the consequences for career evaluations
+        and research\\npractices in different research fields and academic institutional\\nsettings?\\n\\nThis
+        special session brings together a range of science studies\\nresearchers and
+        practitioners working on the emerging intersections\\nbetween open science
+        and academic career research assessment reforms ,\\nto present, discuss, and
+        debate current and future practices . Each\\nspeaker will be invited to reflect
+        upon the promises, achievements, and\\nchallenges faced in turning this broad
+        promise into workable practices.\\n\\nThe state of open research information-
+        a participatory foresight\\nexercise\\n\\n#### Authors\\n\\n*Stephan Gauch,
+        **Ludo Waltman**, Stephan Stahlschmidt, **Rodrigo\\nCostas**, **Martijn Visser**,
+        **Nees Jan van Eck**, Martin Reinhart,\\nLaura Rothfritz, Heinz Pampel, Jacqueline
+        Sachse, Clemens Bl\xFCmel, Max\\nLeckert, Marcus John, Bianca Kramer, Cameron
+        Neylon*\\n\\n#### Abstract\\n\\nThere is a growing interest in the scientometric
+        community in open\\nresearch information (ORI), that is, scientometric data
+        sources that are\\nopen. Data in these sources can be freely accessed and
+        shared. Examples\\nof open data sources include global multidisciplinary infrastructures\\n(e.g.
+        Crossref, OpenAlex, OpenAIRE, OpenCitations, an ORCID),\\ndiscipline - specific
+        infrastructures (e.g., PubMed), and regionally\\nfocused infrastructu res
+        (e.g., SciELO and Redalyc).\\n\\nThe aim of this special session is to provide
+        an overview of the current\\nstate and potential futures of the landscape
+        of open research\\ninformation. This will include the quality (e.g., accuracy
+        and\\ncompleteness) of the data available from open scientometric data\\nsources,
+        the use and adoption of open scientometric data sources, and\\ndevelopments
+        regarding governance, cooperation, and sustainability of\\nopen scientometric
+        data source. To get started, there will be four\\nfive - minut e talks aimed
+        at offering a diversity of perspectives on\\nthe state of the open research
+        information landscape. These talks will\\nbe given by the organizers of the
+        special session, highlighting the\\nvarious perspectives on openness of research
+        information in the\\norganizing team. One of the talks will cover the Barcelona
+        Declaration\\non Open Research Information. The special session then explores\\npotential
+        futures of ORI through participatory foresight methods\\nengaging present
+        stakeholders, such as bibliometrici ans, policymakers,\\nresearch evaluators,
+        and the academic community.\\n\\nAfter the conference, the scenarios and results
+        will be consolidated,\\ndiscussed with experts, and disseminated through explainer
+        videos to\\nengage a wider audience. The findings will inform the development
+        of a\\nresearch agenda for Open Research Information.\\n\\nImproving and transparency
+        and quality of bibliometrics methods and\\nreporting\\n\\n#### Authors\\n\\n*Stefanie
+        Haustein, Jeremy Y. Ng, Dimity Stephen, **Alexander\\nSchniedermann**, Stephan
+        Stahlschmidt, David Moher, **Ludo Waltman**,\\nWolfgang Gl\xE4nzel*\\n\\n####
+        Abstract\\n\\nOver the past decade, there has been a significant increase
+        in the\\nnumber of bibliometric analyses published in the peer - reviewed\\nliterature,
+        particularly outside of library and information science\\nwhere bibliometric
+        s is traditionally situated. While diversity has\\nalways been a strength,
+        it also poses challenges in ensuring quality.\\nThe variability in reporting
+        quality we currently see may, at least\\npartially, be grounded in the lack
+        of guidance on how to conduct and\\nreport bibliometric studies by experts
+        from within the field. This\\nspecial session will engage the community in
+        a discussion about quality\\nand reporting of bibliometric analyses. Our session
+        relates to the\\nconference theme of \\\"Into the great wide open?\\\" in
+        that the level of\\nopenness in the bibliometrics community -- our methods
+        and analytical\\ntools, the application of our work, our disciplinary backgrounds,
+        and\\nincreasingly more often our data sources -- have given rise to a\\nchallenge
+        in ensuring the quality of our work and the integrity of the\\nfield. The
+        session will combine an introductory panel and an open\\nfishbowl conversation.
+        Five chairs will be arranged in the center of the\\nroom, four of which will
+        be occupied initially by our panellists . A\\nfifth chair will be left empty
+        for audience members to participate in\\nthe conversation , forcing a panellist
+        to leave the fishbowl and invite\\na dynamic discussion. This session will
+        be an opportunity for\\nparticipants to provide their input and discuss current
+        issues in the\\ncontext of open science with a focus on transparency and\\nreproducibility,
+        rigor, robustness and reliability of bibliometric\\nanalyses.\\n\\nCan we
+        measure research cultures? Interactive debate on the on the\\npossibilities
+        and pitfalls\\n\\n#### Authors\\n\\n***Alex Rushforth**, Nosisa Dube, Steven
+        Hill, Moumita Koley, Cameron\\nNeylon, James Wilsdon*\\n\\n#### Abstract\\n\\nThe
+        trans-national reform movement for responsible research assessment\\nis growing
+        considerably. As part of this, there is increasing interest\\nin monitoring
+        and evaluating research cultures and environments (RCE)\\nwithin national,
+        program and institutional assessment processes. Moving\\nfrom broad aspirations
+        to workable, transparent and legitimate\\nevaluation practices is not however
+        straightforward. Meeting these\\ndemands will necessitate relevant, trusted
+        and reliable indicators, that\\ncan provide the robustness of evidence needed
+        for monitoring and\\nevaluation. Rapidly unfolding developments around RCE
+        indicators thus\\nmerit urgent attention from experts within the STI community.
+        The aim of\\nthis special session is to bring together researchers and practitioners\\nto
+        debate urgent questions over emerging RCE indicators, draw out\\nimportant
+        lessons, and compare experiences a cross research systems.\\n\\nThe format
+        will consist of short presentations from invited experts from\\nthe Research
+        on Research Institute's AgoRRA RCE workstream and audience\\nQ&A. Speakers
+        will share insider accounts of the latest policy\\ndevelopments, debates and
+        controversies in their respective national\\nresearch systems, and to draw
+        out technical and social issues RCE\\ndevelopments are throwing up. These
+        include methodological questions\\nover indicator design and data needs, potential
+        disagreements over what\\nto evaluate, resourcing, and opposition by some
+        research system\\nstakeholders.\\n\\nDiscussion for the proposed new strategy
+        for cOAlition S: Towards\\nresponsible publishing\\n\\n#### Authors\\n\\n*Gunnar
+        Sivertsen, **Ludo Waltman**, Lin Zhang, **Andr\xE9 Brasil***\\n\\n#### Abstract\\n\\n*Background*
+        \ \\nIn its proposal for a new strategy, \\\\\\\"Towards responsible publishing\\\\\\\"
+        ,\\ncOAlition S summarizes: \\\"In the five years that have elapsed since
+        the\\npublication of the Plan S principles, the move toward full and immediate\\nOpen
+        Access (OA) has become global and irreversible.\\\" However, \\\"this has\\nbeen
+        delivered through business models -- such as Read and Publish\\nagreements
+        and APCs -- which are highly inequitable\\\". The coalition now\\nenvisages
+        a \\\"scholar-led\\\" and \\\"community-based\\\" scholarly communication\\nsystem
+        \\\"without author-facing charges\\\". Furthermore, the general OA\\nambition
+        of Plan S is \\\"extended to include all scholarly outputs, such\\nas preprints
+        and peer review reports\\\" because \\\"the current practice of\\npre-publication
+        peer review needlessly delays the sharing of research\\noutputs\\\".\\n\\n*Session
+        Goals*  \\nThe aim of the session is to discuss the new focuses and priorities
+        of\\nCoalition S based on experiences so far -- including evidence provided\\nby
+        the areas of research contributing to the STI conferences. Three\\ntopics
+        will be prepared for short introductions to start discussions\\nwith the audience:\\n\\n1.
+        \ Empirical examination of the OA transformation so far: The\\n    discussion
+        will focus on the empirical evidence pertaining to the\\n    transition into
+        Open Access publishing in recent years. A core\\n    question will be how
+        the transition aligns with the traditional\\n    research policy criteria
+        of research quality and affordability.\\n2.  Challenges with changing the
+        market of scientific publishing: The\\n    discussion will focus on new initiatives
+        for scholarly publishing,\\n    their foundation and implementation issues,
+        in particular the vision\\n    of a \\\"scholar-led\\\" and \\\"community-based\\\"
+        scholarly communication\\n    system \\\"without author-facing charges\\\".
+        To what degree are the\\n    trends in the present market of scientific publishing
+        aligned with\\n    these principles, and how can they be fully aligned?\\n3.
+        \ Exploration of change trajectories for editorial practices: What are\\n
+        \   the experiences so far with alternatives to pre-publication peer\\n    review,
+        and how do they align with the plurality of existing\\n    community-based
+        efforts, including disciplinary differences?\\n\\nMethodological approaches
+        to capture knowledge flows between research\\nand public policy: the role
+        of open sources and inequalities in the\\nspotlight\\n\\n#### Authors\\n\\n*Sergio
+        Salles-Filho, Evandro Coggo Cristofoletti, **Rodrigo Costas**,\\n**Ed Noyons**,
+        **Biegzat Murat**, and Cassidy Sugimoto*\\n\\n#### Abstract\\n\\nIn today\\\\'s
+        rapidly evolving social landscape, which encompasses\\ncritical issues such
+        as climate change, poverty, and technological\\nadvancements, the intersection
+        of policy and science holds paramount\\nsignificance. Understanding how research
+        informs and shapes policy\\ndecisions has become increasingly crucial, sparking
+        discussions on\\nmethodologies for assessing impact. While tools like Overton
+        and\\nAltmetric.com have gained popularity, they do not provide neither enough\\ncoverture,
+        nor open data, presenting two significant challenges:\\nestablishing open
+        - access sources for policy documents and bridging the\\ncoverage gaps between
+        the Global South and the Global North. The special\\nsession aims to address
+        two specific interests: (i) exploring the\\ndifferences and synergies between
+        open and proprietary data sources of\\npolicy documents, and (ii) examining
+        the disparities in coverage between\\nthe Global South and Global North regarding
+        policy documents and related\\nscholarly outputs within these data sources.
+        The proposal aims to foster\\ndebate on potential methodologies for leveraging
+        open sources of policy\\ndocuments and for identifying and analyzing inequalities
+        in accessing\\nresearch impact on policy. Furthermore, the session seeks to
+        explore\\nstrategies for overcoming these inequalities and enhancing the\\nsignificance
+        of open data sources in the process.\\n\\nThe session\\\\'s dynamics will
+        involve brief speeches from invited guests,\\napproximately 10 minutes each,
+        forming a debate panel. Audience\\nparticipation will be encouraged through
+        commenting or making questions\\non the topic.\\n\\n### GLOBAL consensus\_meeting\\n\\n[Right
+        after the conference, on Saturday, 21 September, a couple of CWTS\\ncolleagues
+        will also attend the [consensus meeting by the GLOBAL\\ninitiative](https://www.leidenmadtrics.nl/articles/the-global-initiative-contribute-to-improving-the-reporting-of-bibliometric-analyses?token=PJ9Yg450VApSZCB3Zgpe0g7ArHzbdXcF
+        \\\"https://www.leidenmadtrics.nl/articles/the-global-initiative-contribute-to-improving-the-reporting-of-bibliometric-analyses?token=pj9yg450vapszcb3zgpe0g7arhzbdxcf\\\"){#menur2qh\\naria-label=\\\"Link
+        consensus meeting by the GLOBAL initiative\\\"\\nrel=\\\"noreferrer noopener\\\"
+        target=\\\"_blank\\\"}.]{dir=\\\"ltr\\\"}  \\n\\n[[Header image:\\n[Unsplash](https://unsplash.com/photos/people-standing-inside-station-during-golden-hour-BP1UJf-Nleo){target=\\\"_blank\\\"}
+        \ \\n]{.caption}]{.caption}[DOI: 10.59350/c4516-f4r42 ([export/download/cite\\nthis
+        blog\\npost](https://rogue-scholar.org/posts/10.59350/c4516-f4r42){target=\\\"_blank\\\"})]{.caption}\\n\",\"doi\":\"https://doi.org/10.59350/c4516-f4r42\",\"guid\":\"https://www.leidenmadtrics.nl/articles/cwts-ventures-into-great-wide-open\",\"id\":\"968287ea-4c18-4e97-9249-1ff60d31a08b\",\"language\":\"en\",\"published_at\":1726129800,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"The
+        28th International Conference on Science, Technology and Innovation Indicators
+        (STI) 2024 is just around the corner, set to take place in Berlin on 18-20
+        September!\",\"tags\":[],\"title\":\"CWTS ventures Into the Great Wide Open\",\"updated_at\":1728548964,\"url\":\"https://www.leidenmadtrics.nl/articles/cwts-ventures-into-great-wide-open\"},\"highlight\":{\"content_text\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"process.
+        By linking the <mark>Retraction</mark> <mark>Watch</mark> and Web of Science\"}},\"highlights\":[{\"field\":\"content_text\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"process.
+        By linking the <mark>Retraction</mark> <mark>Watch</mark> and Web of Science\"}],\"text_match\":1157451471441100865,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":8,\"fields_matched\":1,\"score\":\"1157451471441100865\",\"tokens_matched\":2}},{\"document\":{\"abstract\":\"Could
+        the fraudulent work of one researcher be responsible for the rise of curcumin
+        research?\",\"authors\":[{\"name\":\"Reese Richardson\"}],\"blog_name\":\"Reese
+        Richardson\",\"blog_slug\":\"reeserichardson\",\"category\":\"engineeringAndTechnology\",\"content_text\":\"Bharat
+        B. Aggarwal is an Indian-American biochemist who worked at MD\\nAnderson Cancer
+        Center from 1989 to 2015. His research focused on\\npotential anti-cancer
+        effects and therapeutic applications of herbs and\\nspices. Aggarwal was particularly
+        drawn to curcumin, a non-toxic\\ncompound found in turmeric that has long
+        been staple in Ayurvedic\\nsystems of medicine. He authored more than 120
+        articles about the\\ncompound from 1994 to 2020. These articles reported that
+        curcumin had\\ntherapeutic potential for a variety of diseases, including
+        various\\ncancers, Alzheimer's disease and, more recently, COVID-19. In his
+        2011\\nbook [*Healing Spices: How to Use 50 Everyday and Exotic Spices to
+        Boost\\nHealth and Beat\\nDisease*](https://www.amazon.com/Healing-Spices-Everyday-Exotic-Disease/dp/1402776632),\\nAggarwal
+        recommends \\\"taking a daily 500 mg curcumin supplement for\\ngeneral health\\\".\\n\\n<figure
+        class=\\\"wp-block-image size-large\\\">\\n<img\\nsrc=\\\"https://reeserichardson.blog/wp-content/uploads/2024/01/curcumin_and_turmeric.png?w=1024\\\"\\nclass=\\\"wp-image-72\\\"
+        data-attachment-id=\\\"72\\\"\\ndata-permalink=\\\"https://reeserichardson.blog/2024/01/30/the-king-of-curcumin-a-case-study-in-the-consequences-of-large-scale-research-fraud/curcumin_and_turmeric/\\\"\\ndata-orig-file=\\\"https://reeserichardson.blog/wp-content/uploads/2024/01/curcumin_and_turmeric.png\\\"\\ndata-orig-size=\\\"1292,454\\\"
+        data-comments-opened=\\\"1\\\" data-image-meta=\\\"{\\\"\\naperture\\\":\\\"0\\\",\\\"credit\\\":\\\"\\\",\\\"camera\\\":\\\"\\\",\\\"caption\\\":\\\"\\\",\\\"created_timestamp\\\":\\\"0\\\",\\\"copyright\\\":\\\"\\\",\\\"focal_length\\\":\\\"0\\\",\\\"iso\\\":\\\"0\\\",\\\"shutter_speed\\\":\\\"0\\\",\\\"title\\\":\\\"\\\",\\\"orientation\\\":\\\"0\\\"}\\\"=\\\"\\\"\\ndata-image-title=\\\"curcumin_and_turmeric\\\"
+        data-image-description=\\\"\\\"\\ndata-image-caption=\\\"\\\"\\ndata-medium-file=\\\"https://reeserichardson.blog/wp-content/uploads/2024/01/curcumin_and_turmeric.png?w=300\\\"\\ndata-large-file=\\\"https://reeserichardson.blog/wp-content/uploads/2024/01/curcumin_and_turmeric.png?w=1024\\\"\\ntabindex=\\\"0\\\"
+        role=\\\"button\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://reeserichardson.blog/wp-content/uploads/2024/01/curcumin_and_turmeric.png?w=1022
+        1022w, https://reeserichardson.blog/wp-content/uploads/2024/01/curcumin_and_turmeric.png?w=150
+        150w, https://reeserichardson.blog/wp-content/uploads/2024/01/curcumin_and_turmeric.png?w=300
+        300w, https://reeserichardson.blog/wp-content/uploads/2024/01/curcumin_and_turmeric.png?w=768
+        768w, https://reeserichardson.blog/wp-content/uploads/2024/01/curcumin_and_turmeric.png
+        1292w\\\"\\nsizes=\\\"(max-width: 1024px) 100vw, 1024px\\\" width=\\\"1024\\\"
+        height=\\\"359\\\" />\\n<figcaption><em>Left: Chemical structure of curcumin
+        in its keto form.\\nRight: turmeric powder.</em></figcaption>\\n</figure>\\n\\nMD
+        Anderson Cancer Center initially appeared to be fully on board with\\nAggarwal's
+        work. At one point, their website's FAQ page recommended\\nvisitors buy curcumin
+        wholesale from a company for which Aggarwal was a\\npaid speaker [(see \\\"Spice
+        Healer\\\", *Scientific\\nAmerican*)](https://www.scientificamerican.com/article/spice-healer/).\\nHowever,
+        in 2012 (following observations of image manipulation raised by\\npseudonymous
+        sleuth [Juuichi\\nJigen](http://md-anderson-cc.blogspot.com/)), MD Anderson
+        Cancer Center\\nlaunched a research fraud probe against Aggarwal which eventually
+        led to\\n30 of Aggarwal's articles being retracted. Only some of these studies\\nwere
+        about curcumin specifically, but most concerned similar natural\\nproducts.\\n\\nRetractions
+        rarely number this high for a single author; according to\\nthe [Retraction
+        Watch\\nleaderboard](https://retractionwatch.com/the-retraction-watch-leaderboard/),\\nonly
+        26 other people have authored this many retracted studies.\\nAggarwal's retracted
+        articles feature dozens of instances of spliced\\nWestern blots and duplicated
+        images, as well as several instances where\\nmice were implanted with tumors
+        exceeding volumes considered ethical.\\n[PubPeer commenters](https://pubpeer.com/search?q=Bharat+Aggarwal)
+        have\\nnoted irregularities in many publications beyond the 30 that have\\nalready
+        been retracted. Aggarwal retired from M.D. Anderson in 2015, but\\nhas continued
+        to author articles and appear at conferences.\\n\\n<figure class=\\\"wp-block-image
+        size-large is-resized\\\">\\n<img\\nsrc=\\\"https://reeserichardson.blog/wp-content/uploads/2024/01/aggarwal_presentation.png?w=1024\\\"\\nclass=\\\"wp-image-74\\\"
+        style=\\\"width:620px;height:auto\\\"\\ndata-attachment-id=\\\"74\\\"\\ndata-permalink=\\\"https://reeserichardson.blog/2024/01/30/the-king-of-curcumin-a-case-study-in-the-consequences-of-large-scale-research-fraud/aggarwal_presentation/\\\"\\ndata-orig-file=\\\"https://reeserichardson.blog/wp-content/uploads/2024/01/aggarwal_presentation.png\\\"\\ndata-orig-size=\\\"1294,339\\\"
+        data-comments-opened=\\\"1\\\" data-image-meta=\\\"{\\\"\\naperture\\\":\\\"0\\\",\\\"credit\\\":\\\"\\\",\\\"camera\\\":\\\"\\\",\\\"caption\\\":\\\"\\\",\\\"created_timestamp\\\":\\\"0\\\",\\\"copyright\\\":\\\"\\\",\\\"focal_length\\\":\\\"0\\\",\\\"iso\\\":\\\"0\\\",\\\"shutter_speed\\\":\\\"0\\\",\\\"title\\\":\\\"\\\",\\\"orientation\\\":\\\"0\\\"}\\\"=\\\"\\\"\\ndata-image-title=\\\"aggarwal_presentation\\\"
+        data-image-description=\\\"\\\"\\ndata-image-caption=\\\"\\\"\\ndata-medium-file=\\\"https://reeserichardson.blog/wp-content/uploads/2024/01/aggarwal_presentation.png?w=300\\\"\\ndata-large-file=\\\"https://reeserichardson.blog/wp-content/uploads/2024/01/aggarwal_presentation.png?w=1024\\\"\\ntabindex=\\\"0\\\"
+        role=\\\"button\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://reeserichardson.blog/wp-content/uploads/2024/01/aggarwal_presentation.png?w=1024
+        1024w, https://reeserichardson.blog/wp-content/uploads/2024/01/aggarwal_presentation.png?w=150
+        150w, https://reeserichardson.blog/wp-content/uploads/2024/01/aggarwal_presentation.png?w=300
+        300w, https://reeserichardson.blog/wp-content/uploads/2024/01/aggarwal_presentation.png?w=768
+        768w, https://reeserichardson.blog/wp-content/uploads/2024/01/aggarwal_presentation.png
+        1294w\\\"\\nsizes=\\\"(max-width: 1024px) 100vw, 1024px\\\" width=\\\"1024\\\"
+        height=\\\"268\\\" />\\n<figcaption><em>Aggarwal citing a 2017 paper he wrote,
+        <a\\nhref=\\\"https://www.frontiersin.org/articles/10.3389/fphar.2018.00400/full\\\">retracted\\nin
+        2018</a>, in a 2022 <a\\nhref=\\\"https://youtu.be/0e5Zn62IE_M?t=1854\\\">conference\\npresentation</a>.</em></figcaption>\\n</figure>\\n\\nCurcumin
+        doesn't work well as a therapeutic agent for any disease.\\nThough it is safe
+        for human consumption in most forms and will show\\nactivity in essentially
+        any in vitro assay you throw at it (via a\\nprocess known as [assay\\ninterference](https://doi.org/10.1021/acschembio.7b00903)),
+        no\\nwell-powered clinical trials have ever found it to be an effective\\nmedicine.
+        Consider the following summary from [Nelson et al.\\n2017](https://doi.org/10.1021/acs.jmedchem.6b00975):\\n\\n>
+        \\\"\\\\[No\\\\] form of curcumin, or its closely related analogues, appears
+        to\\n> possess the properties required for a good drug candidate (chemical\\n>
+        stability, high water solubility, potent and selective target\\n> activity,
+        high bioavailability, broad tissue distribution, stable\\n> metabolism, and
+        low toxicity). The in vitro interference properties of\\n> curcumin do, however,
+        offer many traps that can trick unprepared\\n> researchers into misinterpreting
+        the results of their investigations.\\\"\\n\\nDespite curcumin's apparent
+        lack of therapeutic promise, the [volume of\\nresearch produced on\\ncurcumin](https://pubmed.ncbi.nlm.nih.gov/?term=%28curcumin%5BTitle%2FAbstract%5D%29&sort=date&size=200)\\ngrows
+        each year.\_ More than 2,000 studies involving the compound are\\npublished
+        annually. [Many of these studies bear signs of fraud and\\ninvolvement of
+        paper\\nmills.](https://pubpeer.com/search?q=%22curcumin%22) As of 2020, the\\nUnited
+        States National Institutes of Health (NIH) has spent more than\\n150 million
+        USD funding projects related to curcumin. Funding increased\\ndrastically
+        in the 2007 fiscal year, shortly after Aggarwal began to\\npublish in earnest
+        about the compound and the same year he declared\\ncurcumin [\\\"the Indian
+        solid\\ngold\\\"](https://doi.org/10.1007/978-0-387-46401-5_1).\\n\\n<figure
+        class=\\\"wp-block-image size-large\\\">\\n<img\\nsrc=\\\"https://reeserichardson.blog/wp-content/uploads/2024/01/curcumin_aggarwal_story_230913.png?w=1024\\\"\\nclass=\\\"wp-image-79\\\"
+        data-attachment-id=\\\"79\\\"\\ndata-permalink=\\\"https://reeserichardson.blog/2024/01/30/the-king-of-curcumin-a-case-study-in-the-consequences-of-large-scale-research-fraud/curcumin_aggarwal_story_230913/\\\"\\ndata-orig-file=\\\"https://reeserichardson.blog/wp-content/uploads/2024/01/curcumin_aggarwal_story_230913.png\\\"\\ndata-orig-size=\\\"2078,1437\\\"
+        data-comments-opened=\\\"1\\\" data-image-meta=\\\"{\\\"\\naperture\\\":\\\"0\\\",\\\"credit\\\":\\\"\\\",\\\"camera\\\":\\\"\\\",\\\"caption\\\":\\\"\\\",\\\"created_timestamp\\\":\\\"0\\\",\\\"copyright\\\":\\\"\\\",\\\"focal_length\\\":\\\"0\\\",\\\"iso\\\":\\\"0\\\",\\\"shutter_speed\\\":\\\"0\\\",\\\"title\\\":\\\"\\\",\\\"orientation\\\":\\\"0\\\"}\\\"=\\\"\\\"\\ndata-image-title=\\\"curcumin_aggarwal_story_230913\\\"\\ndata-image-description=\\\"\\\"
+        data-image-caption=\\\"\\\"\\ndata-medium-file=\\\"https://reeserichardson.blog/wp-content/uploads/2024/01/curcumin_aggarwal_story_230913.png?w=300\\\"\\ndata-large-file=\\\"https://reeserichardson.blog/wp-content/uploads/2024/01/curcumin_aggarwal_story_230913.png?w=1024\\\"\\ntabindex=\\\"0\\\"
+        role=\\\"button\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://reeserichardson.blog/wp-content/uploads/2024/01/curcumin_aggarwal_story_230913.png?w=1024
+        1024w, https://reeserichardson.blog/wp-content/uploads/2024/01/curcumin_aggarwal_story_230913.png?w=2048
+        2048w, https://reeserichardson.blog/wp-content/uploads/2024/01/curcumin_aggarwal_story_230913.png?w=150
+        150w, https://reeserichardson.blog/wp-content/uploads/2024/01/curcumin_aggarwal_story_230913.png?w=300
+        300w, https://reeserichardson.blog/wp-content/uploads/2024/01/curcumin_aggarwal_story_230913.png?w=768
+        768w\\\"\\nsizes=\\\"(max-width: 1024px) 100vw, 1024px\\\" width=\\\"1024\\\"
+        height=\\\"708\\\" />\\n<figcaption><em>Graphs describing the volume of curcumin
+        research from\\nvarious sources. Data collected from PubMed and NIH RePORTER.
+        Data may\\nbe incomplete in recent years.</em></figcaption>\\n</figure>\\n\\nThis
+        proliferation of research on curcumin has fueled its popularity as\\na dietary
+        supplement. Grand View Research estimated the global market\\nfor curcumin
+        as a pharmaceutical to be around [30\\nmillion](https://www.grandviewresearch.com/industry-analysis/turmeric-extract-curcumin-market)\\nUSD
+        in 2020. Manufacturers are [routinely scolded by the United States\\nFood
+        and Drug\\nAdministration](https://www.fda.gov/inspections-compliance-enforcement-and-criminal-investigations/compliance-actions-and-activities/warning-letters)\\nfor
+        making false claims about the health effects of these supplements.\\n\\nCurcumin
+        is a valuable case study in how unimpeded fraud can distort an\\nentire research
+        field to the detriment of genuine research. Despite\\nindications that Aggarwal's
+        research on curcumin ought not to be\\nconsidered reliable, a majority of
+        articles and an even greater majority\\nof NIH-funded studies about curcumin
+        still cite Aggarwal's work. It\\nseems unlikely that this explosion in funding
+        and research would have\\nmaterialized if Aggarwal had not engaged in large-scale
+        research fraud.\\n\\nScientific fraud, especially at this scale, is alarming.
+        However, there\\nis a common refrain that instances like this are an exceedingly
+        rare,\\ninsular threat and that any harm done to human knowledge by them will\\ninevitably
+        be neutralized by science's remarkable tendency for\\nself-correction. Once
+        the history books are written, these instances\\nwill be little more than
+        footnotes, parked between [the Bates\\nmethod](https://en.wikipedia.org/wiki/Bates_method)
+        and\\n[orgone](https://en.wikipedia.org/wiki/Orgone).\\n\\nHowever, self-correction
+        has a high cost in the present: hundreds of\\nmillions of taxpayer dollars,
+        countless hours spent toiling by junior\\nscientists, thousands of laboratory
+        animals sacrificed, thousands of\\ncancer patients enrolled in clinical trials
+        for ineffective treatments,\\nand countless people who have eschewed expensive
+        and invasive but\\neffective cancer treatment in favor of a store-bought spice,
+        encouraged\\nby research steeped in lies.\\n\",\"doi\":\"https://doi.org/10.59350/mtd0v-mz025\",\"guid\":\"http://reeserichardson.blog/?p=71\",\"id\":\"240916ed-fb7a-4fc8-a868-b2a057e9ea30\",\"image\":\"https://reeserichardson.blog/wp-content/uploads/2024/01/curcumin_and_turmeric.png?w=1024\",\"language\":\"en\",\"published_at\":1706623200,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Bharat
+        B. Aggarwal is an Indian-American biochemist who worked at MD Anderson Cancer
+        Center from 1989 to 2015. His research focused on potential anti-cancer effects
+        and therapeutic applications of herbs and spices. Aggarwal was particularly
+        drawn to curcumin, a non-toxic compound found in turmeric that has long been
+        staple in Ayurvedic systems of medicine. He authored more than 120 articles
+        about the compound from 1994 to 2020.\",\"tags\":[\"Fraud\",\"Science Integrity\"],\"title\":\"The
+        King of Curcumin: a case study in the consequences of large-scale research
+        fraud\",\"updated_at\":1706901438,\"url\":\"https://reeserichardson.blog/2024/01/30/the-king-of-curcumin-a-case-study-in-the-consequences-of-large-scale-research-fraud\"},\"highlight\":{\"content_text\":{\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"author;
+        according to\\nthe [<mark>Retraction</mark> <mark>Watch</mark>\\nleaderboard](https://retractionwatch.com/the\"}},\"highlights\":[{\"field\":\"content_text\",\"matched_tokens\":[\"Retraction\",\"Watch\"],\"snippet\":\"author;
+        according to\\nthe [<mark>Retraction</mark> <mark>Watch</mark>\\nleaderboard](https://retractionwatch.com/the\"}],\"text_match\":1157451471441100865,\"text_match_info\":{\"best_field_score\":\"2211897868288\",\"best_field_weight\":8,\"fields_matched\":1,\"score\":\"1157451471441100865\",\"tokens_matched\":2}}],\"out_of\":17617,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"retraction-watch\"},\"search_cutoff\":false,\"search_time_ms\":32}"
+    headers:
+      Connection:
+      - keep-alive
+      accept-ranges:
+      - none
+      access-control-allow-origin:
+      - '*'
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: OK
 version: 1

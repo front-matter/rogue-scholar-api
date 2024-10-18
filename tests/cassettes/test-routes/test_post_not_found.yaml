@@ -51,4 +51,56 @@ interactions:
       - '4'
     http_version: HTTP/2
     status_code: 406
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      user-agent:
+      - python-httpx/0.27.2
+      x-client-info:
+      - supabase-py/2.9.0
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20abstract%2C%20content_text%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20invenio_id%2C%20has_files%2C%20blog%3A%20blogs%21inner%28%2A%29&doi=eq.https%3A%2F%2Fdoi.org%2F10.59350%2Fsfzv4-xdb69
+  response:
+    content: '{"code":"PGRST116","details":"Results contain 0 rows, application/vnd.pgrst.object+json
+      requires 1 row","hint":null,"message":"JSON object requested, multiple (or no)
+      rows returned"}'
+    headers:
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 8d47bcf2fdd17162-DUS
+      content-type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      date:
+      - Fri, 18 Oct 2024 10:10:21 GMT
+      sb-gateway-version:
+      - '1'
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '4'
+    http_version: HTTP/2
+    status_code: 406
 version: 1

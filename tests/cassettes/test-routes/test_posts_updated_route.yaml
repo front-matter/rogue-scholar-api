@@ -6624,4 +6624,64 @@ interactions:
       - '42'
     http_version: HTTP/2
     status_code: 206
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - db.rogue-scholar.org
+      prefer:
+      - count=exact
+      user-agent:
+      - python-httpx/0.27.2
+      x-client-info:
+      - supabase-py/2.9.0
+    method: GET
+    uri: https://db.rogue-scholar.org/rest/v1/posts?select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20abstract%2C%20content_text%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20invenio_id%2C%20has_files%2C%20blog%3A%20blogs%21inner%28%2A%29&blogs.prefix=not.is.null&updated=is.True&doi=not.is.null&order=updated_at.desc&limit=50
+  response:
+    content: '[]'
+    headers:
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 8d47bbd55be77162-DUS
+      content-encoding:
+      - br
+      content-location:
+      - /posts?blogs.prefix=not.is.null&doi=not.is.null&limit=50&order=updated_at.desc&select=id%2C%20guid%2C%20doi%2C%20url%2C%20archive_url%2C%20title%2C%20summary%2C%20abstract%2C%20content_text%2C%20published_at%2C%20updated_at%2C%20indexed_at%2C%20authors%2C%20image%2C%20tags%2C%20language%2C%20reference%2C%20relationships%2C%20blog_name%2C%20blog_slug%2C%20invenio_id%2C%20has_files%2C%20blog%3A%20blogs%21inner%28%2A%29&updated=is.True
+      content-profile:
+      - public
+      content-range:
+      - '*/0'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Fri, 18 Oct 2024 10:09:35 GMT
+      sb-gateway-version:
+      - '1'
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '32'
+    http_version: HTTP/2
+    status_code: 200
 version: 1

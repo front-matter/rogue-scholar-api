@@ -1156,6 +1156,17 @@ def test_get_relationships():
         "urls": ["https://doi.org/10.5438/3dfw-z4kq"],
         "type": "IsIdenticalTo",
     }
+    
+def test_get_relationships_preprint():
+    """Extract relationships preprint"""
+    html = """Bla. <h2>Acknowledgments</h2><p>A peer-reviewed version of this blog post has been published in <a href="https://doi.org/10.18357/kula.291">KULA</a>.</p>"""
+
+    result = get_relationships(html)
+    assert len(result) == 1
+    assert result[0] == {
+        "urls": ["https://doi.org/10.5438/3dfw-z4kq"],
+        "type": "IsIdenticalTo",
+    }
 
 
 def test_get_relationships_funding():

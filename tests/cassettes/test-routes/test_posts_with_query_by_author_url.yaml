@@ -2289,4 +2289,750 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=0000-0003-1419-2405&query_by=authors.url&filter_by=status%3A%21%3D%5Bpending%5D+%26%26+published_at%3A%3E%3D+0+%26%26+published_at%3A%3C%3D+1729246174&sort_by=_text_match%3Adesc&per_page=10&page=1
+  response:
+    body:
+      string: "{\"facet_counts\":[],\"found\":558,\"hits\":[{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/the-rogue-scholar-migration-to-inveniordm-is-taking-shape\",\"authors\":[{\"affiliation\":[{\"name\":\"Front
+        Matter\"}],\"name\":\"Martin Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"Last
+        week I integrated the InvenioRDM API with the Rogue Scholar API,\\nenabling
+        the automated export of metadata to the InvenioRDM platform. As\\nof today,
+        5,046 (28.8%) blog posts have been exported to InvenioRDM and\\ncan be explored
+        via\\n[UI](https://beta.rogue-scholar.org){rel=\\\"noreferrer\\\"} and\\n[API](https://beta.rogue-scholar.org/api/records){rel=\\\"noreferrer\\\"},
+        The\\nexport currently includes most metadata, but support for references,\\nrelations
+        and funding information still needs to be added, as does the\\nexport of full-text
+        in markdown and PDF formats.\\n\\nThere have been only minor glitches in a
+        very small number of posts that\\ncould easily be fixed manually. The management
+        of InvenioRDM communities\\nfor each blog is also now done via API, and includes
+        the blog title,\\ndescription, and homepage URL, as well as the automatic
+        upload of the\\nblog icon.\\n\\nWith a significant number of science blog
+        posts now hosted by\\nInvenioRDM, we can start exploring the functionalities
+        the platform\\nprovides. For each blog post we display the metadata in the
+        standard\\nformat of the InvenioRDM platform, including the field of science
+        (FOS)\\nfollowing the OECD classification, the language and license, and export\\nfunctions
+        for formatted citations and metadata in a variety of formats.\\n\\n<figure
+        class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/10/Bildschirmfoto-2024-10-14-um-17.29.36.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/10/Bildschirmfoto-2024-10-14-um-17.29.36.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/10/Bildschirmfoto-2024-10-14-um-17.29.36.png
+        1000w, https://blog.front-matter.io/content/images/2024/10/Bildschirmfoto-2024-10-14-um-17.29.36.png
+        1346w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"1346\\\" height=\\\"1286\\\"
+        />\\n</figure>\\n\\nIn the search interface, we provide customized facets
+        for language and\\nsubjects, and order the results by best match, publication
+        date, or date\\nand time the record was last updated.\\n\\n<figure class=\\\"kg-card
+        kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/10/Bildschirmfoto-2024-10-14-um-17.35.58.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/10/Bildschirmfoto-2024-10-14-um-17.35.58.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/10/Bildschirmfoto-2024-10-14-um-17.35.58.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/10/Bildschirmfoto-2024-10-14-um-17.35.58.png
+        1600w, https://blog.front-matter.io/content/images/2024/10/Bildschirmfoto-2024-10-14-um-17.35.58.png
+        2110w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"2000\\\" height=\\\"1276\\\"
+        />\\n</figure>\\n\\nThe faceted search interface is an improvement over the
+        current Rogue\\nScholar interface, as it makes it easy to further drill down
+        on the\\nresults, e.g. to only show posts published in a specific language.\\n\\nThe
+        same search interface is also available for communities, either all\\nposts
+        of a blog or all posts in a curated topic area, as [discussed last\\nweek](https://doi.org/10.53731/dv8z6-a6s33){rel=\\\"noreferrer\\\"}.
+        As\\nsubjects/keywords/categories/tags are not standardized across blogs\\nbesides
+        the OECD fields of science, they show more variety across blog\\ncommunities.
+        In the rOpenSci blog community, you can for example filter\\nby [posts about
+        software peer\\nreview](https://beta.rogue-scholar.org/communities/ropensci/records?q=&f=subject%3ASoftware%20Peer%20Review&l=list&p=1&s=10&sort=newest){rel=\\\"noreferrer\\\"}.\\n\\n<figure
+        class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/10/Bildschirmfoto-2024-10-14-um-17.44.11.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/10/Bildschirmfoto-2024-10-14-um-17.44.11.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/10/Bildschirmfoto-2024-10-14-um-17.44.11.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/10/Bildschirmfoto-2024-10-14-um-17.44.11.png
+        1600w, https://blog.front-matter.io/content/images/2024/10/Bildschirmfoto-2024-10-14-um-17.44.11.png
+        2050w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"2000\\\" height=\\\"1237\\\"
+        />\\n</figure>\\n\\nSince last week I have expanded the topic communities
+        to also include\\nthe following topics, all popular with multiples science
+        blogs:\\n\\n- [Book\\n  Review](https://beta.rogue-scholar.org/communities/bookreview){rel=\\\"noreferrer\\\"}
+        \ \\n  Reviews of books of interest to scholars.\\n- [Interviews](https://beta.rogue-scholar.org/communities/interviews){rel=\\\"noreferrer\\\"}
+        \ \\n  Interviews with scholars of all kinds.\\n- [Events](https://beta.rogue-scholar.org/communities/events){rel=\\\"noreferrer\\\"}
+        \ \\n  Scholarly events (announcements, summaries, feedback)\\n- [Rogue\\n
+        \ Scholar](https://beta.rogue-scholar.org/communities/oaweek){rel=\\\"noreferrer\\\"}
+        \ \\n  Blog posts talking about Rogue Scholar.\\n- [Open Access\\n  Week](https://beta.rogue-scholar.org/communities/oaweek){rel=\\\"noreferrer\\\"}
+        \ \\n  Blog posts about the [Open Access\\n  Week](https://www.openaccessweek.org/){rel=\\\"noreferrer\\\"},
+        the 2024\\n  edition is from October 21-27 (next week)\\n\\nThe relaunch of
+        Rogue Scholar on the InvenioRDM platform on November 4\\nis on track. There
+        is lots of work ahead for the next three weeks, but\\nplease explore the new
+        service and provide feedback or report bugs via\\n[email](mailto:info@rogue-scholar.org){rel=\\\"noreferrer\\\"}
+        or\\n[Mastodon](https://wisskomm.social/@rogue_scholar){rel=\\\"noreferrer\\\"}.\\n\\n##
+        References\\n\\nFenner, M. (2024, October 7). Rogue Scholar learns about communities.\\n*Front
+        Matter*. as\\n\",\"doi\":\"https://doi.org/10.53731/a7v8h-8px31\",\"guid\":\"670d34fd6f7fee0001d3734a\",\"id\":\"d2d23670-4fd9-4652-8b6f-d78218c75008\",\"image\":\"https://images.unsplash.com/photo-1587582423116-ec07293f0395?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIzfHxjb25zdHJ1Y3Rpb258ZW58MHx8fHwxNzI4OTE4NzQ2fDA&ixlib=rb-4.0.3&q=80&w=2000\",\"language\":\"en\",\"published_at\":1728922249,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Last
+        week I integrated the InvenioRDM API with the Rogue Scholar API, enabling
+        the automated export of metadata to the InvenioRDM platform. As of today,
+        5,046 (28.8%) blog posts have been exported to InvenioRDM and can be explored
+        via UI and API, The export currently includes most metadata, but support for
+        references, relations and funding information still needs to be added, as
+        does the export of full-text in markdown and PDF formats.\",\"tags\":[\"Feature\",\"Rogue
+        Scholar\"],\"title\":\"The Rogue Scholar migration to InvenioRDM is taking
+        shape\",\"updated_at\":1728922402,\"url\":\"https://blog.front-matter.io/posts/the-rogue-scholar-migration-to-inveniordm-is-taking-shape\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/rogue-scholar-learns-about-communities\",\"authors\":[{\"affiliation\":[{\"name\":\"Front
+        Matter\"}],\"name\":\"Martin Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"The
+        Rogue Scholar infrastructure [started\\nmigrating](https://doi.org/10.53731/sdazp-kzn55){rel=\\\"noreferrer\\\"}
+        to\\nInvenioRDM infrastructure a few weeks ago. This first phase of the\\nmigration
+        will conclude on November 4 with the switch of the Rogue\\nScholar frontend\\n([rogue-scholar.org](https://rogue-scholar.org){rel=\\\"noreferrer\\\"})
+        to\\nInvenioRDM (to what is currently hosted at\\n[beta.rogue-scholar.org](https://beta.rogue-scholar.org){rel=\\\"noreferrer\\\"}).\\n\\n###
+        InvenioRDM record\\n\\nFor the most part and [not by\\ncoincidence](https://doi.org/10.53731/d6vdvbt-tffmezj){rel=\\\"noreferrer\\\"},\\nInvenioRDM
+        is a very good fit for Rogue Scholar. Showing the metadata\\nand content of
+        Rogue Scholar blog posts can use more or less the default\\nInvenioRDM record
+        view, which you can see for example in\\n[Zenodo](https://zenodo.org/records/5479442){rel=\\\"noreferrer\\\"}.
+        We show\\noptional metadata for the journal title (i.e. the blog name) and
+        ISSN.\\nWe display previews of the markdown and PDF version of the blog post,\\nautomatically
+        generated by the Rogue Scholar API. The Rogue Scholar DOI\\nis displayed as
+        *identifier*, and clicking the DOI link brings you to\\nthe original blog
+        post hosted on the blog participating in Rogue Scholar\\n(here [Science in
+        the\\nOpen](https://cameronneylon.net/){rel=\\\"noreferrer\\\"}).\\n\\n<figure
+        class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/10/Bildschirmfoto-2024-10-07-um-08.17.41.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/10/Bildschirmfoto-2024-10-07-um-08.17.41.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/10/Bildschirmfoto-2024-10-07-um-08.17.41.png
+        1000w, https://blog.front-matter.io/content/images/2024/10/Bildschirmfoto-2024-10-07-um-08.17.41.png
+        1251w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"1251\\\" height=\\\"1024\\\"
+        />\\n</figure>\\n\\nIn contrast to Zenodo and most other InvenioRDM instances,
+        Rogue Scholar\\nDOIs point to content hosted elsewhere (by the participating
+        science\\nblog), as Rogue Scholar is an archive and not the primary place
+        where\\ncontent is hosted and metadata generated. Further work is needed to\\nchange
+        what is displayed prominently, including the Rogue Scholar DOI,\\nlanguage,
+        and subject areas (the latter two are also used as search\\nfilters/facets).
+        In contrast, the resource-type and license status\\ndon\\\\'t need to be displayed
+        prominently as they are the same --\\nresource-type *preprint* and license
+        *open* (either CC-BY or CC0) -- for\\nall blog posts.\\n\\nThe only Rogue
+        Scholar metadata that are not easy to show in InvenioRDM\\nare *feature images*
+        of blog posts, but this requires more work on the\\nworkflow for storing these
+        images (not just the references) in Rogue\\nScholar, and then showing them
+        as custom metadata.\\n\\nAgain in contrast to most other InvenioRDM instances,
+        the record content\\nand metadata are not generated by users filling out a
+        web form, but are\\nautomatically generated from blog RSS feeds by the Rogue
+        Scholar API. In\\nthe coming weeks, I will focus on integrating the Rogue
+        Scholar API with\\nthe InvenioRDM API and bring all 100+ participating science
+        blogs with\\nmore than 15,000 blog posts into the Rogue Scholar InvenioRDM
+        instance.\\n\\n### Communities\\n\\nOne core functionality of InvenioRDM that
+        enables exciting new features\\nfor Rogue Scholar is *communities*. Communities
+        allow the grouping of\\nblog posts into collections, and the most obvious
+        use case is the\\ngrouping of blog posts by blog:\\n\\n<figure class=\\\"kg-card
+        kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/10/Bildschirmfoto-2024-10-07-um-08.54.55-1.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/10/Bildschirmfoto-2024-10-07-um-08.54.55-1.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/10/Bildschirmfoto-2024-10-07-um-08.54.55-1.png
+        1000w, https://blog.front-matter.io/content/images/2024/10/Bildschirmfoto-2024-10-07-um-08.54.55-1.png
+        1260w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"1260\\\" height=\\\"604\\\"
+        />\\n</figure>\\n\\nThis enables functionality similar to what Rogue Scholar
+        currently\\nprovides with [blog-specific\\nviews](https://rogue-scholar.org/blogs/ropensci){rel=\\\"noreferrer\\\"}.
+        More\\nwork is needed to [customize the blog community\\nmetadata](https://inveniordm.docs.cern.ch/customize/metadata/custom_fields/communities/){rel=\\\"noreferrer\\\"}\\nto
+        include the RSS feed URL and blogging platform (both needed for\\nautomated
+        content and metadata extraction).\\n\\nThese blog communities -- like everything
+        else in InvenioRDM -- can be\\nmanaged by the InvenioRDM API, and integration
+        with the Rogue Scholar\\nAPI is a top priority for October.\\n\\nOne important
+        task for blogs participating in Rogue Scholar is\\nintegrating the DOIs registered
+        by Rogue Scholar in the blog itself. For\\nblogs publishing at low-frequency,
+        this can be done manually, but for\\nblogs publishing multiple times per month,
+        this process should be\\nautomated. With the InvenioRDM API this can now be
+        done with an API that\\nis much more widely used and adopted, for the example
+        above via the\\nendpoint\\n<https://beta.rogue-scholar.org/api/communities/ropensci/records>.\\n\\nInvenioRDM
+        records can be included in more than one community, and the\\nobvious communities
+        to use in addition to *blogs* are *topics*. The\\nRogue Scholar beta instance
+        has started with 12 topic communities, which\\ninclude these six *Open Science*
+        communities:\\n\\n- [Open\\n  Access](https://beta.rogue-scholar.org/communities/openaccess){rel=\\\"noreferrer\\\"}\\n-
+        [Open\\n  Data](https://beta.rogue-scholar.org/communities/opendata){rel=\\\"noreferrer\\\"}\\n-
+        [Open\\n  Source](https://beta.rogue-scholar.org/communities/opensource){rel=\\\"noreferrer\\\"}\\n-
+        [Open Educational\\n  Resources](https://beta.rogue-scholar.org/communities/oer){rel=\\\"noreferrer\\\"}\\n-
+        [Open\\n  Evaluation](https://beta.rogue-scholar.org/communities/openevaluation){rel=\\\"noreferrer\\\"}\\n-
+        [Open\\n  Infrastructure](https://beta.rogue-scholar.org/communities/openinfrastructure){rel=\\\"noreferrer\\\"}\\n\\nIn
+        addition, there are six other topic communities covering topics that\\nare
+        popular with multiple Rogue Scholar blogs:\\n\\n- [Metascience](https://beta.rogue-scholar.org/communities/metascience){rel=\\\"noreferrer\\\"}\\n-
+        [Data\\n  Science](https://beta.rogue-scholar.org/communities/datascience){rel=\\\"noreferrer\\\"}\\n-
+        [Copyright](https://beta.rogue-scholar.org/communities/copyright){rel=\\\"noreferrer\\\"}\\n-
+        [Citizen\\n  Science](https://beta.rogue-scholar.org/communities/citizenscience){rel=\\\"noreferrer\\\"}\\n-
+        [Computational\\n  Chemistry](https://beta.rogue-scholar.org/communities/computational_chemistry){rel=\\\"noreferrer\\\"}\\n-
+        [Artificial\\n  Intelligence](https://beta.rogue-scholar.org/communities/ai){rel=\\\"noreferrer\\\"}\\n\\nThese
+        topic communities have just started and only include a few blog\\nposts each.
+        Below is a screenshot of part of the [Open\\nInfrastructure](https://beta.rogue-scholar.org/communities/openinfrastructure){rel=\\\"noreferrer\\\"}\\ncommunity,
+        where you can see that several Rogue Scholar blog posts talk\\nabout adopting
+        the [Principles of Open Scholarly\\nInfrastructure](https://doi.org/10.59350/b7mtv-gpn88){rel=\\\"noreferrer\\\"},\\nitself
+        originally a blog post and included in Rogue Scholar (see also\\nscreenshot
+        above).\\n\\n<figure class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/10/Bildschirmfoto-2024-10-07-um-08.14.22.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/10/Bildschirmfoto-2024-10-07-um-08.14.22.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/10/Bildschirmfoto-2024-10-07-um-08.14.22.png
+        1000w, https://blog.front-matter.io/content/images/2024/10/Bildschirmfoto-2024-10-07-um-08.14.22.png
+        1269w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"1269\\\" height=\\\"912\\\"
+        />\\n</figure>\\n\\nA topic that has been very popular with Rogue Scholar
+        bloggers since the\\nlaunch of ChatGPT 3.5 two years ago is [*Artificial\\nIntelligence*](https://beta.rogue-scholar.org/communities/ai/){rel=\\\"noreferrer\\\"},\\ncovering
+        aspects such as [practical\\nadvice](https://doi.org/10.59350/66xvc-kjy06){rel=\\\"noreferrer\\\"},\\n[background\\nresearch](https://doi.org/10.59350/bgk5r-gaw57){rel=\\\"noreferrer\\\"},
+        and\\n[legal\\nimplications](https://doi.org/10.54900/zg929-e9595){rel=\\\"noreferrer\\\"}.\\n\\nMore
+        experience and feedback regarding topic communities is needed,\\nplease [reach
+        out](mailto:info@rogue-scholar.org){rel=\\\"noreferrer\\\"} with\\ncomments,
+        or if you want to help curate a new or existing community. As\\nRogue Scholar
+        generates all metadata automatically from blog metadata,\\nthe question of
+        changing blog post metadata by communities also needs\\nmore discussion.\\n\\nAs
+        of today, 78 Rogue Scholar blog posts have been added to the Beta\\nversion
+        of the InvenioRDM-based service. In the coming weeks, all\\ncurrently 17,468
+        blog posts will be added via API, and added to\\nappropriate topic communities.
+        Until November 4, I will also work on\\ninterface glitches and bugs I encounter,
+        and make sure the InvenioRDM\\nRogue Scholar instance scales appropriately
+        with traffic. Please reach\\nout [via email](mailto:info@rogue-scholar.org){rel=\\\"noreferrer\\\"}
+        if you\\nencounter bugs or performance issues.\\n\\nThe next InvenioRDM release
+        (v12.1, planned for the next few weeks) will\\nimprove language support, and
+        Rogue Scholar will benefit as it currently\\nsupports seven languages and
+        31% of blog posts are currently written in\\nlanguages other than English
+        (predominantly German and Spanish). Some\\nwork will be needed to translate
+        the Rogue Scholar customizations.\\n\\n### Future Work\\n\\nAfter re-launching
+        the Rogue Scholar frontend on November 4, the next\\nphase of developing work
+        will focus on consolidating duplicated\\nresources, including two separate
+        Postgres databases, Search indexes and\\nAPIs. Rogue Scholar currently uses\\n[Typesense](https://typesense.org/){rel=\\\"noreferrer\\\"}
+        for search versus\\n[OpenSearch](https://opensearch.org/){rel=\\\"noreferrer\\\"}
+        used by\\nInvenioRDM. In contrast to the Rogue Scholar Typesense integration,\\nInvenioRDM
+        currently does not offer full-text search of content, so\\nsubstantial development
+        work is needed and will not be completed until\\n2025.\\n\\nBoth the Rogue
+        Scholar and InvenioRDM API are written in Python and\\nintegrate with the
+        similar\\n[Quart](https://quart.palletsprojects.com/){rel=\\\"noreferrer\\\"}
+        and\\n[Flask](https://flask.palletsprojects.com/){rel=\\\"noreferrer\\\"}\\nframeworks,
+        respectively. Consolidating them is mostly about deciding\\nwhat part of the
+        Rogue Scholar functionality is of broader interest to\\nthe InvenioRDM community,
+        e.g. automatic metadata extraction from RSS\\nfeeds or automatic generation
+        of markdown, PDF, and other document\\nformats using the [Pandoc](https://pandoc.org){rel=\\\"noreferrer\\\"}\\ndocument
+        converter.\\n\\nDOI registration of Rogue Scholar DOIs and metadata is done
+        with\\nCrossref. InvenioRDM supports DOIs registered externally, but for a\\ndeeper
+        integration with fewer dependencies more work is needed.\\nFull-text search,
+        support for Crossref DOI registration, and RSS support\\nare features of interest
+        to other members of the InvenioRDM community,\\nso this work will be coordinated.\\n\\n##
+        References\\n\\nFenner, M. (2024, September 2). Rogue Scholar migrates to
+        InvenioRDM.\\n*Front Matter*. <https://doi.org/10.53731/sdazp-kzn55>\\n\\nFenner,
+        M. (2023, January 16). RSS, Atom, JSON Feed. *Front Matter*.\\n<https://doi.org/10.53731/d6vdvbt-tffmezj>\\n\\nTay,
+        A. (2024, September 16). Primo Research Assistant launches- a first\\nlook
+        and some things you should know. *Aaron Tay's Musings about\\nLibrarianship*.
+        <https://doi.org/10.59350/66xvc-kjy06>\\n\\nResearch Graph. (2024, August
+        2). What is Gemma2? *Stories by Research\\nGraph on Medium*. <https://doi.org/10.59350/bgk5r-gaw57>\\n\\nPooley,
+        J. (2024, January 2). Large Language Publishing. *Upstream*.\\n<https://doi.org/10.54900/zg929-e9595>\\n\",\"doi\":\"https://doi.org/10.53731/dv8z6-a6s33\",\"guid\":\"67037a86ee0f940001187cd8\",\"id\":\"c5c2e4e7-ac05-413b-b377-f989a72a5356\",\"image\":\"https://images.unsplash.com/photo-1450609283058-0ec52fa7eac4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDYyfHxjb21tdW5pdHl8ZW58MHx8fHwxNzI4MzAxMDk4fDA&ixlib=rb-4.0.3&q=80&w=2000\",\"language\":\"en\",\"published_at\":1728301297,\"reference\":[{\"id\":\"https://doi.org/10.53731/sdazp-kzn55\",\"key\":\"ref1\"},{\"id\":\"https://doi.org/10.53731/d6vdvbt-tffmezj\",\"key\":\"ref2\"},{\"id\":\"https://doi.org/10.59350/66xvc-kjy06\",\"key\":\"ref3\",\"publicationYear\":\"2024\",\"title\":\"Primo
+        Research Assistant launches- a first look and some things you should know\"},{\"id\":\"https://doi.org/10.59350/bgk5r-gaw57\",\"key\":\"ref4\"},{\"id\":\"https://doi.org/10.54900/zg929-e9595\",\"key\":\"ref5\"}],\"relationships\":[],\"status\":\"active\",\"summary\":\"The
+        Rogue Scholar infrastructure started migrating to InvenioRDM infrastructure
+        a few weeks ago. This first phase of the migration will conclude on November
+        4 with the switch of the Rogue Scholar frontend (rogue-scholar.org) to InvenioRDM
+        (to what is currently hosted at beta.rogue-scholar.org). InvenioRDM record
+        \  For the most part and not by coincidence, InvenioRDM is a very good fit
+        for Rogue Scholar.\",\"tags\":[\"News\",\"Rogue Scholar\"],\"title\":\"Rogue
+        Scholar learns about communities\",\"updated_at\":1728302105,\"url\":\"https://blog.front-matter.io/posts/rogue-scholar-learns-about-communities\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/rogue-scholar-migrates-to-inveniordm-2\",\"authors\":[{\"affiliation\":[{\"name\":\"Front
+        Matter\"}],\"name\":\"Martin Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"In
+        August v.12.0 of the InvenioRDM turn-key research data management\\nrepository
+        [was\\nreleased](https://inveniosoftware.org/blog/2024-08-20-invenio-rdm-12/){rel=\\\"noreferrer\\\"},\\nthe
+        first long-term support (LTS) release of the open source software\\nsince
+        January 2023. This release enabled the migration of the Rogue\\nScholar infrastructure
+        to the\\n[InvenioRDM](https://inveniosoftware.org/products/rdm/){rel=\\\"noreferrer\\\"}\\nplatform,
+        a process that will take the next four months.\\n\\n### Deployment\\n\\nThe
+        first stage of the migration was setting up the InvenioRDM\\nproduction infrastructure.
+        The software depends heavily on Docker\\ncontainers, which can be run on public
+        cloud infrastructure or virtual\\nmachines on premises. The Rogue Scholar
+        API is already running via the\\n[fly.io](https://fly.io/){rel=\\\"noreferrer\\\"}
+        cloud provider and their\\nservices are developer-friendly and competitively
+        priced compared to the\\nhyperscalers AWS, Google Cloud, or Microsoft Azure.\\n\\nPersistent
+        data is stored in a Postgres database and S3-compatible\\nobject storage,
+        and Rogue Scholar uses the managed services of\\n[Supabase](https://supabase.com/){rel=\\\"noreferrer\\\"}
+        and\\n[Tigris](https://www.tigrisdata.com/){rel=\\\"noreferrer\\\"} for these\\nfunctionalities,
+        integrated with the fly.io platform. The initial setup\\nof redundant production
+        infrastructure has been completed and you can\\nsee the beta version of Rogue
+        Scholar powered by InvenioRDM at\\n[https://beta.rogue-scholar.org.](https://beta.rogue-scholar.org){rel=\\\"noreferrer\\\"}\\nThe
+        initial release uses InvenioRDM demo data and has some minor issues,\\nplease
+        provide feedback in the comments, via\\n[email](mailto:info@rogue-scholar.org){rel=\\\"noreferrer\\\"},
+        or\\n[Mastodon](https://wisskomm.social/@rogue_scholar){rel=\\\"noreferrer\\\"}.\\n\\n###
+        Customization\\n\\nThe current Rogue Scholar infrastructure aligns well with
+        the InvenioRDM\\ndata model: blog posts are *records* with metadata and downloadable\\ncontent
+        (e.g. in markdown or PDF formats), and blogs can be represented\\nby\\n[*communities*](https://inveniordm.docs.cern.ch/develop/architecture/communities/){rel=\\\"noreferrer\\\"}\\nthat
+        group blog posts and may provide additional functionality, e.g.\\nfunding,
+        membership and reviews. I\\\\'ve started setting up the Rogue\\nScholar communities
+        but it will take some time with more than 100\\nparticipating blogs. Blog
+        posts (records) can be included in multiple\\ncommunities, so it would be
+        possible to add communities by subject area\\n(e.g. chemistry) or broader
+        topics (e.g. metascience) and/or communities\\n(e.g. German language science
+        bloggers).\\n\\n<figure class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/09/Bildschirmfoto-2024-09-01-um-09.14.39.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/09/Bildschirmfoto-2024-09-01-um-09.14.39.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/09/Bildschirmfoto-2024-09-01-um-09.14.39.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/09/Bildschirmfoto-2024-09-01-um-09.14.39.png
+        1600w, https://blog.front-matter.io/content/images/size/w2400/2024/09/Bildschirmfoto-2024-09-01-um-09.14.39.png
+        2400w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"2000\\\" height=\\\"1128\\\"
+        />\\n</figure>\\n\\nInvenioRDM can be customized in many ways, and I started
+        doing this for\\nRogue Scholar by providing a custom logo, color scheme, and
+        footer.\\n\\n<figure class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/09/Bildschirmfoto-2024-09-01-um-08.59.07.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/09/Bildschirmfoto-2024-09-01-um-08.59.07.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/09/Bildschirmfoto-2024-09-01-um-08.59.07.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/09/Bildschirmfoto-2024-09-01-um-08.59.07.png
+        1600w, https://blog.front-matter.io/content/images/size/w2400/2024/09/Bildschirmfoto-2024-09-01-um-08.59.07.png
+        2400w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"2000\\\" height=\\\"133\\\"
+        />\\n</figure>\\n\\n<figure class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/09/Bildschirmfoto-2024-09-01-um-08.59.26.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/09/Bildschirmfoto-2024-09-01-um-08.59.26.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/09/Bildschirmfoto-2024-09-01-um-08.59.26.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/09/Bildschirmfoto-2024-09-01-um-08.59.26.png
+        1600w, https://blog.front-matter.io/content/images/2024/09/Bildschirmfoto-2024-09-01-um-08.59.26.png
+        1644w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"1644\\\" height=\\\"508\\\"
+        />\\n</figure>\\n\\nA big topic is customizing metadata vocabularies, and
+        that work has\\nstarted with adding the community category *blog*. Future
+        work will\\ninclude customizing community metadata to allow for blog RSS feeds
+        and\\nplatforms (e.g. Wordpress or Jekyll). For *records* metadata most of
+        the\\nstandard metadata are also useful for blog posts, but one important\\nmetadata
+        element for blog posts needs to be added to InvenioRDM: the\\nfeature image:\\n\\n<figure
+        class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/09/Bildschirmfoto-2024-09-01-um-21.01.59.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/09/Bildschirmfoto-2024-09-01-um-21.01.59.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/09/Bildschirmfoto-2024-09-01-um-21.01.59.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/09/Bildschirmfoto-2024-09-01-um-21.01.59.png
+        1600w, https://blog.front-matter.io/content/images/2024/09/Bildschirmfoto-2024-09-01-um-21.01.59.png
+        1622w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"1622\\\" height=\\\"372\\\"
+        />\\n</figure>\\n\\nInvenioRDM supports translations of the user interface
+        into other\\nlanguages, and translations for the v12.0 release are planned
+        for the\\nOctober v12.1 release. Rogue Scholar currently supports seven languages\\nand
+        more work will be needed to translate the Rogue Scholar\\ncustomizations into
+        other languages.\\n\\n### InvenioRDM modules\\n\\nOne key difference between
+        Rogue Scholar and the InvenioRDM platform is\\nthe automatic extraction of
+        metadata and content via blog RSS feeds. To\\nimplement this in the InvenioRDM
+        platform would require a custom\\nInvenioRDM module, written in Python. Luckily
+        this work can be based on\\nthe\\n[rogue-scholar-api](https://github.com/front-matter/rogue-scholar-api){rel=\\\"noreferrer\\\"}\\npackage,
+        also written in Python and integrated with the Quart framework\\n(very similar
+        to the Flask framework that InvenioRDM is using). The main\\nquestion to answer
+        is whether there is interest in the broader\\nInvenioRDM community for this
+        functionality, as RSS feeds can not only\\nbe used for blogs but also other
+        content, e.g. journals or conference\\nproceedings.\\n\\nAnother functionality
+        where Rogue Scholar differs from InvenioRDM is\\nthat Rogue Scholar used Crossref
+        for DOI registration whereas InvenioRDM\\nhas built-in registration for DataCite
+        DOIs. InvenioRDM also accepts\\nmetadata from externally registered DOIs,
+        but to make Crossref DOI\\nregistration part of the InvenioRDM platform --
+        e.g. for a preprint\\nserver powered by InvenioRDM -- would require yet another
+        InvenioRDM\\nmodule.\\n\\nAnother big change in migrating Rogue Scholar to
+        the InvenioRDM platform\\nis full-text search. InvenioRDM uses\\n[OpenSearch](https://opensearch.org/){rel=\\\"noreferrer\\\"}
+        (an open source\\nfork of Elasticsearch), whereas Rogue Scholar currently
+        uses\\n[Typesense](https://typesense.org/){rel=\\\"noreferrer\\\"}. Typesense
+        is an\\neasier to use alternative to Elasticsearch, and InvenioRDM currently\\ndoes
+        not support full-text search of content but only indexes metadata.\\nBoth
+        Elasticsearch/Opensearch and Typesense require synchronization with\\nthe
+        Postgres database, and this adds complexity, overhead and potential\\ndelays.
+        An alternative would be to implement full-text search directly\\nin Postgres
+        via extensions such as\\n[pg_search](https://www.paradedb.com/){rel=\\\"noreferrer\\\"}.
+        This is a\\ncomplex topic that needs more discussion with the broader InvenioRDM\\ncommunity,
+        and will not be part of the initial migration of Rogue\\nScholar to InvenioRDM
+        by the end of the year.\\n\\nMigrating to InvenioRDM means that Rogue Scholar
+        will become part of the\\n[InvenioRDM](https://inveniosoftware.org/products/rdm/){rel=\\\"noreferrer\\\"}\\ncommunity,
+        an active and growing international community started in 2019\\nby CERN based
+        on their [Zenodo](https://zenodo.org){rel=\\\"noreferrer\\\"}\\nrepository.
+        This starts the next chapter in the short history of Rogue\\nScholar, and
+        I am excited by the opportunities that lie ahead. If you\\nhave questions
+        or ideas regarding this migration to InvenioRDM, please\\nreach out via the
+        comments,\\n[email](mailto:info@rogue-scholar.org){rel=\\\"noreferrer\\\"},
+        or\\n[Mastodon](https://wisskomm.social/@rogue_scholar){rel=\\\"noreferrer\\\"}.\\n\",\"doi\":\"https://doi.org/10.53731/sdazp-kzn55\",\"guid\":\"66d40898daafca000116e8d5\",\"id\":\"cda3244c-4735-4964-96c8-246f4e091174\",\"image\":\"https://blog.front-matter.io/content/images/2024/09/Bildschirmfoto-2024-09-01-um-08.25.06.png\",\"language\":\"en\",\"published_at\":1725264001,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"In
+        August v.12.0 of the InvenioRDM turn-key research data management repository
+        was released, the first long-term support (LTS) release of the open source
+        software since January 2023. This release enabled the migration of the Rogue
+        Scholar infrastructure to the InvenioRDM platform, a process that will take
+        the next four months. Deployment   The first stage of the migration was setting
+        up the InvenioRDM production infrastructure.\",\"tags\":[\"News\",\"Rogue
+        Scholar\"],\"title\":\"Rogue Scholar migrates to InvenioRDM\",\"updated_at\":1729112152,\"url\":\"https://blog.front-matter.io/posts/rogue-scholar-migrates-to-inveniordm-2\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/zotero-7-released-2\",\"authors\":[{\"affiliation\":[{\"name\":\"Front
+        Matter\"}],\"name\":\"Martin Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"Version
+        7 of the open source reference manager Zotero [was released last\\nFriday](https://www.zotero.org/blog/zotero-7/){rel=\\\"noreferrer\\\"}.
+        Read\\nthe linked announcement for details, but the most excited feature for
+        me\\nis an improved built-in reader with ePub support.\\n\\nZotero allows
+        you to store metadata and full-text publications and while\\nPDF is the standard
+        format for journal articles and preprints, books\\n(and book chapters) are
+        more commonly distributed as ePub files. The\\nmain advantages that ePub has
+        over PDF are a) support for variable\\nscreen sizes including mobile phones,
+        and b) a file format that remains\\neditable. ePub - and the various readers
+        and writers that support the\\nformat - is not perfect, and it will be interesting
+        to see how the\\nrelease of built-in ePub support in Zotero will change the
+        adoption of\\nePub.\\n\\nThe Rogue Scholar science blog archive uses markdown
+        as the basic file\\nformat and then converts to PDF, ePub, and JATS XML using
+        the\\n[Pandoc](https://pandoc.org){rel=\\\"noreferrer\\\"} document converter\\nlibrary.
+        In initial testing in early 2024 I found ePub and JATS to\\ncomplicated to
+        work with and not a good fit for science blog posts. The\\nrelease of Zotero
+        7 will allow me to explore the different file formats\\nfor scholarly documents
+        more, and possibly adapt the Rogue Scholar\\noutput options.\\n\\nIn the past
+        15 years I written repeatedly about Zotero, including an\\n[interview with
+        Trevor Owens\\n2009](https://doi.org/10.53731/ftm7mbj-jpteh8h){rel=\\\"noreferrer\\\"},
+        a\\nwebinar on [writing Zotero translators with Sebastian Karcher in\\n2014](https://doi.org/10.53731/r294649-6f79289-8cw02){rel=\\\"noreferrer\\\"},\\nplus
+        many blog post about the [Citation Style\\nLanguage](https://rogue-scholar.org/?page=1&query=citation+style+language){rel=\\\"noreferrer\\\"}\\nand
+        other [reference\\nmanagers](https://rogue-scholar.org/?page=1&query=reference+manager){rel=\\\"noreferrer\\\"}.\\nZotero
+        is an essential building block of my scholarly toolkit and I wish\\nthe team
+        all the best for the release of version 7.\\n\\n## References\\n\\nFenner,
+        M. (2009, March 4). Zotero: Interview with Trevor Owens. *Front\\nMatter*.
+        <https://doi.org/10.53731/ftm7mbj-jpteh8h>\\n\\nFenner, M. (2014, October
+        17). Webinar on Writing Zotero Translators.\\n*Front Matter*. <https://doi.org/10.53731/r294649-6f79289-8cw02>\\n\",\"doi\":\"https://doi.org/10.53731/j24pt-fm768\",\"guid\":\"66be1596a07ea4000105825f\",\"id\":\"58a1c62f-fc38-4f13-bd01-2a94826b3d7d\",\"image\":\"https://blog.front-matter.io/content/images/2024/08/library.png\",\"language\":\"en\",\"published_at\":1723734947,\"reference\":[{\"id\":\"https://doi.org/10.53731/ftm7mbj-jpteh8h\",\"key\":\"ref1\"},{\"id\":\"https://doi.org/10.53731/r294649-6f79289-8cw02\",\"key\":\"ref2\"}],\"relationships\":[],\"status\":\"active\",\"summary\":\"Version
+        7 of the open source reference manager Zotero was released last Friday. Read
+        the linked announcement for details, but the most excited feature for me is
+        an improved built-in reader with ePub support. Zotero allows you to store
+        metadata and full-text publications and while PDF is the standard format for
+        journal articles and preprints, books (and book chapters) are more commonly
+        distributed as ePub files.\",\"tags\":[\"News\",\"Rogue Scholar\"],\"title\":\"Zotero
+        7 released\",\"updated_at\":1723735431,\"url\":\"https://blog.front-matter.io/posts/zotero-7-released-2\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/rogue-scholar-reaches-another-milestone-and-drops-all-registration-fees-2\",\"authors\":[{\"affiliation\":[{\"name\":\"Front
+        Matter\"}],\"name\":\"Martin Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"Earlier
+        this month the [Rogue Scholar science blog\\narchive](https://rogue-scholar.org){rel=\\\"noreferrer\\\"}
+        reached another\\nimportant milestone: 100 science blogs registered and archived
+        (with in\\ntotal 16,179 posts). Rogue Scholar launched twelve months ago and
+        this\\nrate of adoption of the service has greatly surpassed my expectations.\\nTo
+        celebrate this milestone, Rogue Scholar will drop all fees for blog\\nauthors
+        going forward. Rogue Scholar content was always free to read,\\nbut by dropping
+        the fees for all authors (including blogs that published\\nmore than 50 posts
+        per year), Rogue Scholar becomes a [Diamond Open\\nAccess](https://www.coalition-s.org/diamond-open-acces){rel=\\\"noreferrer\\\"}\\nplatform,
+        consistent with current trends in scholarly publishing.\\n\\nRogue Scholar
+        currently has no stable long-term funding, so this change\\ncreates challenges
+        sustaining the platform in the long run in the\\nfuture. Three strategies
+        will be important:\\n\\n- running Rogue Scholar for twelve months means I
+        have a fairly good\\n  understanding of the effort and costs involved in running
+        a science\\n  blog archive, and important steps are planned to further improve
+        the\\n  archive in the coming months,\\n- not charging readers or authors
+        using Rogue Scholar doesn\\\\'t mean that\\n  Rogue Scholar doesn\\\\'t need
+        revenue sources. Rogue Scholar will\\n  continue to accept one-time and regular
+        donations (e.g. via the\\n  donation button in the menu bar), and I will increase
+        efforts to\\n  receive funding from organizations who want to support Diamond
+        Open\\n  Access and in particular scholarly blogs,\\n- the work on Rogue Scholar
+        is very instrumental for other work Front\\n  Matter is doing on scholarly
+        infrastructure, and making Rogue Scholar\\n  free to readers and authors can
+        be seen as my contribution to the next\\n  generation of scholarly infrastructure,
+        which is more open, more\\n  diverse, and less technically challenging.\\n\",\"doi\":\"https://doi.org/10.53731/xkfsa-xkk56\",\"guid\":\"6695473aa160960001caf7d1\",\"id\":\"d52048b5-cfee-4281-8096-fa265c7ab73e\",\"image\":\"https://images.unsplash.com/photo-1621085507903-64478b6c1bd5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fDEwMHxlbnwwfHx8fDE3MjEwNTkwNDV8MA&ixlib=rb-4.0.3&q=80&w=2000\",\"language\":\"en\",\"published_at\":1721060935,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"Earlier
+        this month the Rogue Scholar science blog archive reached another important
+        milestone: 100 science blogs registered and archived (with in total 16,179
+        posts). Rogue Scholar launched twelve months ago and this rate of adoption
+        of the service has greatly surpassed my expectations. To celebrate this milestone,
+        Rogue Scholar will drop all fees for blog authors going forward.\",\"tags\":[\"News\",\"Rogue
+        Scholar\"],\"title\":\"Rogue Scholar reaches another milestone and drops all
+        registration fees\",\"updated_at\":1721071928,\"url\":\"https://blog.front-matter.io/posts/rogue-scholar-reaches-another-milestone-and-drops-all-registration-fees-2\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/announcing-inveniordm-starter-beta\",\"authors\":[{\"affiliation\":[{\"name\":\"Front
+        Matter\"}],\"name\":\"Martin Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"Today
+        I am happy to announce the first beta release of InvenioRDM\\nStarter.\\n[InvenioRDM](https://inveniordm.docs.cern.ch/){rel=\\\"noreferrer\\\"}
+        is an\\nopen source repository management platform developed by more than
+        25\\norganizations coordinated by\\n[CERN](https://home.cern/){rel=\\\"noreferrer\\\"}.
+        The release of the next\\nmajor version (v12.0) will happen in a few weeks,
+        with [the second\\nrelease](https://pypi.org/project/invenio-app-rdm/12.0.0rc2/){rel=\\\"noreferrer\\\"}\\ncandidate
+        released on May 31st. InvenioRDM Starter aims to make\\ninstalling InvenioRDM
+        easy via a prebuilt Docker image and Docker\\nCompose file.\\n\\nIn [May 2023](https://doi.org/10.53731/4nwxn-frt36){rel=\\\"noreferrer\\\"}
+        I\\nwrote about the importance of Docker and Docker Compose for simplifying\\ndeployment
+        of complex web applications, mentioning InvenioRDM as an\\nexample. A lot
+        has happened with InvenioRDM since, including the\\nmigration of Zenodo to
+        the InvenioRDM platform [in October\\n2023](https://blog.zenodo.org/2023/10/13/2023-10-13-zenodo-rdm/){rel=\\\"noreferrer\\\"},\\nthe
+        first in-person workshop after COVID by InvenioRDM partners [in\\nMarch\\n2024](https://invenio-software.org/blog/2024-04-25-project-meeting-actions/){rel=\\\"noreferrer\\\"},\\nand
+        the imminent release of version v12.0. Front Matter is helping with\\nthe
+        development of InvenioRDM as one of the project partners, and my\\nprimary
+        use case is the migration of the [Rogue Scholar science blogging\\narchive](https://rogue-scholar.org){rel=\\\"noreferrer\\\"}
+        to the InvenioRDM\\nplatform. With the stable release of v12.0 (v11.0 was
+        released in\\nJanuary 2023) I can now finally address this migration, which
+        will\\nhappen in three stages:\\n\\n- setting up a production InvenioRDM instance
+        for Rogue Scholar,\\n- rewrite missing functionality as InvenioRDM API integration
+        or Python\\n  module(s),\\n- bring everything together and relaunch Rogue
+        Scholar.\\n\\nThis migration will take about six months (i.e. until the end
+        of 2024),\\nand InvenioRDM Starter announced in Beta today is the first step.
+        Over\\nthe coming weeks, I will tweak the InvenioRDM Starter package to fix\\nseveral
+        outstanding issues, refine the layout, set up custom pages, and\\nof course
+        help with the release of InvenioRDM v12.0.\\n\\nThe traditional approach in
+        the InvenioRDM project (and ideal for\\ndevelopment) is starting with a Python
+        development environment with the\\nhelp of the\\n[invenio-cli](https://github.com/inveniosoftware/invenio-cli){rel=\\\"noreferrer\\\"}\\ncommand-line
+        application. For production deployments this is often not\\nideal, and invenio-cli
+        can sometimes be challenging for a quick demo of\\nInvenioRDM (the local setup
+        is not trivial and has many dependencies).\\nInvenioRDM Starter provides an
+        alternative for these situations: the\\nonly requirement is a local installation
+        of [Docker\\nDesktop](https://www.docker.com/products/docker-desktop/){rel=\\\"noreferrer\\\"}\\n(Mac,
+        Windows) or Docker Engine (Linux), and the prebuilt Docker image\\ncan be\\n[downloaded](https://github.com/front-matter/invenio-rdm-starter/pkgs/container/invenio-rdm-starter){rel=\\\"noreferrer\\\"}\\nfrom
+        the GitHub Container Registry (with versions both for linux/amd64\\nand linux/arm64).
+        With a stable network connection it should not take\\nlonger than 15 min to
+        have InvenioRDM Starter up and running, and the\\nprocess is documented on
+        the InvenioRDM Starter [documentation\\nwebsite](https://starter.front-matter.io/){rel=\\\"noreferrer\\\"}.\\n\\nInvenioRDM
+        Starter differs in several details from the standard\\nconfiguration provided
+        by invenio-cli:\\n\\n- `invenio-cli`, a local Python installation and a Python
+        virtual\\n  environment are not used on the host computer.\\n- The\_[invenio-app-rdm](https://github.com/front-matter/invenio-rdm-starter/pkgs/container/invenio-rdm-starter)\_prebuilt\\n
+        \ Docker image provided by InvenioRDM Starter is used instead of\\n  building
+        the image locally.\\n- [Debian Bookworm](https://www.debian.org/releases/bookworm/)\_is
+        used\\n  as the Docker image Linux distribution instead of\_`Almalinux`.\\n-
+        The Docker image uses\_`Python 3.12`\_(not\_`3.9`)\\n  and\_`Node 20`\_(not\_`18`).\\n-
+        The Docker image uses\_`gunicorn`\_as the WSGI server instead\\n  of\_`uwsgi`.\\n-
+        Docker Compose uses\_`Caddy`\_as the reverse proxy server instead\\n  of\_`Nginx`.
+        InvenioRDM Starter will run locally\\n  at\_`https://localhost`, and uses
+        a self-signed SSL certificate issued\\n  by\_`Caddy`:\\n\\n<figure class=\\\"kg-card
+        kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/06/Bildschirmfoto-2024-06-17-um-10.49.47.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/06/Bildschirmfoto-2024-06-17-um-10.49.47.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/06/Bildschirmfoto-2024-06-17-um-10.49.47.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/06/Bildschirmfoto-2024-06-17-um-10.49.47.png
+        1600w, https://blog.front-matter.io/content/images/2024/06/Bildschirmfoto-2024-06-17-um-10.49.47.png
+        2216w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"2000\\\" height=\\\"343\\\"
+        />\\n</figure>\\n\\n- Docker Compose uses\_`Redis`\_as the message broker
+        instead\\n  of\_`RabbitMQ`\\n- Initial setup happens via a script running
+        at container startup\\n  instead of via invenio-cli.\\n\\nHigh-level Planning
+        has started for the second stage of the Rogue\\nScholar migration. Some of
+        the functionalities that need to be rewritten\\nare:\\n\\n- Automatic extraction
+        of metadata and full-text from blog RSS feeds,\\n- DOI registration with Crossref,\\n-
+        Full-text search,\\n- Automatic conversion of full-text from markdown into
+        PDF and other\\n  formats.\\n\\nSome of these functionalities are of broader
+        interest to the InvenioRDM\\ncommunity (e.g. full-text search), and I will
+        explore how to coordinate\\nwith other InvenioRDM project partners and how
+        to migrate them from the\\ncurrent implementation.\\n\\nIf you have any questions
+        regarding InvenioRDM Starter, please reach out\\nto me via [email](mailto:info@front-matter.io){rel=\\\"noreferrer\\\"}
+        or in\\nthe comments.\\n\\n## References\\n\\nFenner, M. (2023, May 16). Does
+        it compose? *Front Matter*.\\n<https://doi.org/10.53731/4nwxn-frt36>\\n\\n*Zenodo
+        launched on next generation platform---InvenioRDM \U0001F680*. (n.d.).\\nRetrieved
+        June 17, 2024, from\\n<https://blog.zenodo.org/2023/10/13/2023-10-13-zenodo-rdm/>\\n\\n*InvenioRDM
+        Partner Meeting / Developer Workshop: Action\\nItems---Inveniosoftware.org*.
+        (n.d.). Retrieved June 17, 2024, from\\n<https://invenio-software.org/blog/2024-04-25-project-meeting-actions/>\\n\",\"doi\":\"https://doi.org/10.53731/jxecm-0me48\",\"guid\":\"667059b9abdfd9000198c2e1\",\"id\":\"34e67347-b17a-4003-ac7f-95e83a148bb5\",\"image\":\"https://blog.front-matter.io/content/images/2024/06/screenshot.png\",\"language\":\"en\",\"published_at\":1718643055,\"reference\":[{\"id\":\"https://doi.org/10.53731/4nwxn-frt36\",\"key\":\"ref1\"},{\"id\":\"https://blog.zenodo.org/2023/10/13/2023-10-13-zenodo-rdm\",\"key\":\"ref2\"},{\"id\":\"https://invenio-software.org/blog/2024-04-25-project-meeting-actions\",\"key\":\"ref3\"}],\"relationships\":[],\"status\":\"active\",\"summary\":\"Today
+        I am happy to announce the first beta release of InvenioRDM Starter. InvenioRDM
+        is an open source repository management platform developed by more than 25
+        organizations coordinated by CERN. The release of the next major version (v12.0)
+        will happen in a few weeks, with the second release candidate released on
+        May 31st. InvenioRDM Starter aims to make installing InvenioRDM easy via a
+        prebuilt Docker image and Docker Compose file.\",\"tags\":[\"News\",\"Rogue
+        Scholar\"],\"title\":\"Announcing InvenioRDM Starter Beta\",\"updated_at\":1718698814,\"url\":\"https://blog.front-matter.io/posts/announcing-inveniordm-starter-beta\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/blogs-are-not-journals-2\",\"authors\":[{\"affiliation\":[{\"name\":\"Front
+        Matter\"}],\"name\":\"Martin Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"This
+        week I updated the submission form for the [Rogue Scholar science\\nblog archive](https://rogue-scholar.org){rel=\\\"noreferrer\\\"}
+        to clarify\\nthat participating blogs can\\\\'t be journals (or books). Journals
+        and\\njournal articles have many similarities to blogs and blog posts, but\\nthey
+        are something different, and out of scope for the Rogue Scholar\\nscience
+        blog archive.\\n\\n<figure class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2024/05/Bildschirmfoto-2024-05-23-um-11.11.28.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2024/05/Bildschirmfoto-2024-05-23-um-11.11.28.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2024/05/Bildschirmfoto-2024-05-23-um-11.11.28.png
+        1000w, https://blog.front-matter.io/content/images/size/w1600/2024/05/Bildschirmfoto-2024-05-23-um-11.11.28.png
+        1600w, https://blog.front-matter.io/content/images/2024/05/Bildschirmfoto-2024-05-23-um-11.11.28.png
+        1920w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"1920\\\" height=\\\"1406\\\"
+        />\\n</figure>\\n\\nOne feature that can differentiate a journal from a blog
+        is that\\njournals often have volumes and issues. Growing Rogue Scholar into
+        a\\nvaluable resource involves many considerations, and one important one
+        is\\nto clarify what a science blog archived by Rogue Scholar is and isn\\\\'t.\\nThe
+        Rogue Scholar Advisory Board that [first met in\\nJanuary](https://doi.org/10.53731/9yf86-p8541){rel=\\\"noreferrer\\\"}
+        asked\\nfor\\n\\n> more work on clarifying what kind of organizations and
+        blog content\\n> Rogue Scholar should aim to attract, and how the service
+        should be\\n> positioned in relation to other scholarly output formats, such
+        as\\n> preprints and journal articles.\\n\\nThis change in the submission
+        form is another step towards that goal.\\nPlease reach out to me if you have
+        any comments or questions regarding\\nthe distinction between blog and journal.\\n\\n*May
+        23, 2024: updated post to clarify the language regarding journal\\nvolumes
+        and issues.*\\n\\n## References\\n\\nFenner, M. (2024, February 8). Introducing
+        the Rogue Scholar Advisory\\nBoard. *Front Matter*. <https://doi.org/10.53731/9yf86-p8541>\\n\",\"doi\":\"https://doi.org/10.53731/tvsdw-12637\",\"guid\":\"664f0befc8b70800014e774c\",\"id\":\"b655ffad-f39a-4aba-a565-5871e8af7cec\",\"image\":\"https://images.unsplash.com/photo-1501349800519-48093d60bde0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDI0fHxibG9nJTIwcG9zdHxlbnwwfHx8fDE3MTY0NTY1MTF8MA&ixlib=rb-4.0.3&q=80&w=2000\",\"language\":\"en\",\"published_at\":1716457500,\"reference\":[{\"id\":\"https://doi.org/10.53731/9yf86-p8541\",\"key\":\"ref1\"}],\"relationships\":[],\"status\":\"active\",\"summary\":\"This
+        week I updated the submission form for the Rogue Scholar science blog archive
+        to clarify that participating blogs can't be journals (or books). Journals
+        and journal articles have many similarities to blogs and blog posts, but they
+        are something different, and out of scope for the Rogue Scholar science blog
+        archive. One feature that can differentiate a journal from a blog is that
+        journals often have volumes and issues.\",\"tags\":[\"News\",\"Rogue Scholar\"],\"title\":\"Blogs
+        are not Journals\",\"updated_at\":1716493382,\"url\":\"https://blog.front-matter.io/posts/blogs-are-not-journals-2\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/going-for-doi-registration\",\"authors\":[{\"affiliation\":[{\"name\":\"Front
+        Matter\"}],\"name\":\"Martin Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"Starting
+        this week, all DOIs for the [Rogue\\nScholar](https://rogue-scholar.org/){rel=\\\"noreferrer\\\"}
+        blog posts are\\nregistered and updated using the new [commonmeta\\nGo](https://github.com/front-matter/commonmeta){rel=\\\"noreferrer\\\"}\\nlibrary,
+        replacing the [commonmeta\\nPython](https://pypi.org/project/commonmeta-py/){rel=\\\"noreferrer\\\"}\\nlibrary.
+        Authors and readers of blogs archived by Rogue Scholar\\nshouldn\\\\'t notice
+        a difference, but going forward this change will make\\nit easier to manage
+        the DOIs (close to 16K DOIs for currently 93 blogs)\\nregistered for Rogue
+        Scholar blog posts.\\n\\nSince Rogue Scholar launched last year, DOIs and
+        metadata have been\\nregistered automatically with Crossref within minutes
+        after blog post\\npublication using a [GitHub\\nActions](https://docs.github.com/actions){rel=\\\"noreferrer\\\"}
+        workflow\\nusing the [commonmeta](https://docs.commonmeta.org){rel=\\\"noreferrer\\\"}\\nmetadata
+        conversion library at its center. While this workflow has\\nworked well for
+        Rogue Scholar, two aspects could see improvements:\\n\\n- registering lots
+        of DOIs (e.g. with a new blog joining Rogue Scholar)\\n  is a challenge, as
+        the GitHub Actions workflow currently only allows\\n  registration of one
+        DOI every 10 min. Updates of existing DOI metadata\\n  scale better with currently
+        up to 100 DOI records updated every 10\\n  min,\\n- updating downstream services
+        (e.g. participating blogs) is\\n  complicated, as the integration of GitHub
+        Action outputs is not\\n  trivial, and the Crossref API mainly uses email
+        for notifications.\\n\\nI know for a while now that I have to implement background
+        workers for\\nRogue Scholar to address these issues. The challenge is to build
+        this\\nwithout making Rogue Scholar overly complicated.\\n[Celery](https://docs.celeryq.dev/en/stable/index.html){rel=\\\"noreferrer\\\"}\\nis
+        a popular library for implementing background queues in Python and\\nrequires
+        a Redis, RabbitMQ, or AmazonSQS backend. The migration of DOI\\nregistration
+        to a Go package allows Rogue Scholar to use one of the\\navailable Go packages
+        (e.g.\\n[async](https://github.com/hibiken/asynq){rel=\\\"noreferrer\\\"}
+        or\\n[faktory](https://contribsys.com/faktory/){rel=\\\"noreferrer\\\"}) as
+        I want\\nto consolidate more of the Rogue Scholar infrastructure into a single
+        Go\\npackage.\\n\\nSome aspects of this need further exploration, in particular
+        how to\\nautomatically updated blog posts when a DOI has been registered.
+        Rogue\\nScholar offers a workflow for blogs providing an API (e.g. hosted
+        by\\nWordpress or Ghost) but for blogs run by static site generators (e.g.\\nHugo,
+        Jekyll, or Quarto) a different workflow is needed.\\n\\nThe commonmeta Go
+        package is also a useful command-line tool for DOI\\nregistration. In contrast
+        to Python, Ruby, or Javascript it is available\\nas a [single\\nbinary](https://github.com/front-matter/commonmeta/releases){rel=\\\"noreferrer\\\"}\\n(for
+        Mac, Windows, or Linux) with no external dependencies or the need\\nfor a
+        virtual environment. Support for DOI registration with DataCite\\nwill be
+        added in a future release. Please reach out to me if you are\\ninterested,
+        including other content types besides blog posts, or if you\\nare mainly interested
+        in updating existing metadata.\\n\\n## References\\n\\nFenner, M. (2024, April
+        29). Rogue Scholar: Commonmeta grows up. *Rogue\\nScholar*. <https://doi.org/10.53731/zkrxq-mj859>\\n\\nFenner,
+        M. (2024). *Commonmeta-py* (013.2) \\\\[Computer software\\\\].\\n<https://doi.org/10.5281/ZENODO.8340374>\\n\",\"doi\":\"https://doi.org/10.53731/43qt9-x6p52\",\"guid\":\"6642237ae6df360001fb417b\",\"id\":\"0b775000-94d8-4e22-81ff-2f28aec2c98d\",\"image\":\"https://images.unsplash.com/photo-1566462944611-0b48d868f423?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDY5fHxnb2luZ3xlbnwwfHx8fDE3MTU2MTA1NTJ8MA&ixlib=rb-4.0.3&q=80&w=2000\",\"language\":\"en\",\"published_at\":1715614175,\"reference\":[{\"id\":\"https://doi.org/10.53731/zkrxq-mj859\",\"key\":\"ref1\"},{\"id\":\"https://doi.org/10.5281/zenodo.8340374\",\"key\":\"ref2\"}],\"relationships\":[],\"status\":\"active\",\"summary\":\"Starting
+        this week, all DOIs for the Rogue Scholar blog posts are registered and updated
+        using the new commonmeta Go library, replacing the commonmeta Python library.
+        Authors and readers of blogs archived by Rogue Scholar shouldn't notice a
+        difference, but going forward this change will make it easier to manage the
+        DOIs (close to 16K DOIs for currently 93 blogs) registered for Rogue Scholar
+        blog posts.\",\"tags\":[\"News\",\"Rogue Scholar\"],\"title\":\"Going for
+        DOI registration\",\"updated_at\":1715616408,\"url\":\"https://blog.front-matter.io/posts/going-for-doi-registration\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/commonmeta-grows-up\",\"authors\":[{\"affiliation\":[{\"name\":\"Front
+        Matter\"}],\"name\":\"Martin Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"The
+        [Commonmeta](https://commonmeta.org){rel=\\\"noreferrer\\\"} standard for\\nscholarly
+        metadata continues towards version 1.0 with some important\\nchanges in version
+        v0.14, released this week. And metadata for all DOIs\\nfrom Crossref and DataCite
+        can now be retrieved in commonmeta format via\\na new web service.\\n\\nThe
+        major changes in the [commonmeta v0.14 JSON\\nschema](https://docs.commonmeta.org/schema){rel=\\\"noreferrer\\\"}
+        are the\\nfollowing:\\n\\n- all property names are now consistently in CamelCase
+        (e.g.\\n  *geoLocations* instead of *geo_locations*),\\n- the schema now validates
+        both single scholarly works as well as lists\\n  of scholarly works,\\n- definitions
+        for *person* and *organization* that are used for\\n  *contributors* and *publisher*,\\n-
+        dropping *sizes* and *formats*, which are covered by the more\\n  comprehensive
+        *files*, supported in the Crossref and Schema.org\\n  formats,\\n- many harmonizations,
+        e.g. consolidating *titleType* and\\n  *descriptionType* into *type*.\\n\\nSupport
+        for schema v0.14 has been implemented in the\\n[commonmeta](https://github.com/front-matter/commonmeta){rel=\\\"noreferrer\\\"}\\nGo
+        package, and will be added to the\\n[commonmeta-py](https://pypi.org/project/commonmeta-py/){rel=\\\"noreferrer\\\"}\\nPython
+        library later this week, and to the\\n[commonmeta-ruby](https://rubygems.org/gems/commonmeta-ruby){rel=\\\"noreferrer\\\"}\\ngem
+        in May.\\n\\nAlso this week a web service at\\n[https://commonmeta.org](https://commonmeta.org){rel=\\\"noreferrer\\\"}
+        has\\nlaunched that supports metadata conversion via content negotiation,\\nworking
+        similarly to the [DOI\\ncontent](https://citation.crosscite.org/docs.html){rel=\\\"noreferrer\\\"}\\nnegotiation
+        offered by Crossref and DataCite. The service was built with\\nthe new commonmeta
+        Go library, and currently supports metadata\\nconversion from the Crossref
+        or DataCite metadata formats into\\ncommonmeta. For example:\\n\\n    curl
+        -LH \\\"Accept: application/vnd.commonmeta+json\\\" https://commonmeta.org/10.1126/science.169.3946.635\\n\\n```
+        `\\ncurl -LH \\\"Accept: application/vnd.commonmeta+json\\\" https://commonmeta.org/10.5524/100005\\n```\\n\\nLink-based
+        content negotiation in the format implemented by Crossref is\\nalso supported,
+        e.g. to access the service via a web browser:\\n\\n``` `\\ncurl https://commonmeta.org/10.1126/science.169.3946.635/transform/application/vnd.commonmeta+json\\n```\\n\\nThe
+        service will grow as the Go library adds support to more formats,\\nbut the
+        commonmeta output can already used as input for the commonmeta\\nlibraries
+        written in Go, Python, or Ruby, or to develop commonmeta\\nsupport in other
+        languages.\\n\",\"doi\":\"https://doi.org/10.53731/zkrxq-mj859\",\"guid\":\"662f4d3d1716b00001f25448\",\"id\":\"04d07de1-769f-4f77-8c94-c8272f894aa0\",\"image\":\"https://images.unsplash.com/photo-1476966464598-edd2da7b056c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDEwNXx8Z3Jvd3xlbnwwfHx8fDE3MTQzNzYyMDV8MA&ixlib=rb-4.0.3&q=80&w=2000\",\"language\":\"en\",\"published_at\":1714379014,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"The
+        Commonmeta standard for scholarly metadata continues towards version 1.0 with
+        some important changes in version v0.14, released this week. And metadata
+        for all DOIs from Crossref and DataCite can now be retrieved in commonmeta
+        format via a new web service.\",\"tags\":[\"News\",\"Rogue Scholar\"],\"title\":\"Commonmeta
+        grows up\",\"updated_at\":1715503274,\"url\":\"https://blog.front-matter.io/posts/commonmeta-grows-up\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/rogue-scholar-new-language\",\"authors\":[{\"affiliation\":[{\"name\":\"Front
+        Matter\"}],\"name\":\"Martin Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"The
+        [Rogue Scholar](https://rogue-scholar.org){rel=\\\"noreferrer\\\"} science\\nblog
+        archive is built with Open Source software, starting with\\n[Javascript](https://doi.org/10.53731/m9fs5-nap05){rel=\\\"noreferrer\\\"}
+        in\\nJune 2023 and adding an API written in\\n[Python](https://doi.org/10.53731/ar11b-5ea39){rel=\\\"noreferrer\\\"}
+        in\\nOctober 2023. This week I am releasing the first version of\\n[commonmeta](https://github.com/front-matter/commonmeta){rel=\\\"noreferrer\\\"}\\nwritten
+        in Go to simplify the Rogue Scholar backend.\\n\\n[Commonmeta](https://doi.org/10.53731/cp7apdj-jk5f471){rel=\\\"noreferrer\\\"}\\nis
+        the scholarly metadata format that I started in March 2023 based on\\nwork
+        going back to 2017, most notably a metadata conversion library I\\nhad [written
+        in Ruby that is heavily used internally at\\nDataCite](10.53731/r7adm61-97aq74v-ag5kv){rel=\\\"noreferrer\\\"}.
+        One\\nimportant use case for commonmeta is Rogue Scholar DOI registration
+        with\\nCrossref, and in 2023 I switched from Ruby to the\\n[commonmeta-py](https://doi.org/10.5281/ZENODO.8340374){rel=\\\"noreferrer\\\"}\\nPython
+        library, continuing a GitHub Actions workflow.\\n\\nThe second important commonmeta
+        use case for Rogue Scholar is providing\\nblog post metadata in [a variety
+        of of\\nformats](https://doi.org/10.53731/n4vfp-nwb08){rel=\\\"noreferrer\\\"},\\nincluding
+        bibtex and formatted citations, to help with reusing science\\nblog posts
+        in reference managers and then cite them in other scholarly\\nworks. This
+        functionality is currently also provided by the Python\\nlibrary and is available
+        via both the Rogue Scholar website and API.\\n\\nThe third important commonmeta
+        use case for Rogue Scholar is automated\\n[reference extraction of blog\\nposts](Fenner,%20M.%20(2024,%20March%2027).%20Tracking%20references%20of%20Rogue%20Scholar%20blog%20posts.%20Front%20Matter.%20https://doi.org/10.53731/j77gv-54g66){rel=\\\"noreferrer\\\"}\\nand
+        storing them with the Crossref DOI metadata. As of today, [1,124\\nRogue Scholar
+        blog\\nposts](https://api.crossref.org/members/31795/works?filter=has-references:true){rel=\\\"noreferrer\\\"}\\ninclude
+        references registered with Crossref. The references are stored\\nin a dedicated
+        Rogue Scholar database in commonmeta format and shown for\\neach post via
+        both the Rogue Scholar website and API [since earlier this\\nmonth](https://doi.org/10.53731/mgmcc-yvt53){rel=\\\"noreferrer\\\"}.
+        This is\\nagain done by the commonmeta Python library, in combination with
+        the\\nRogue Scholar Python API.\\n\\nJust as the Rogue Scholar Javascript
+        frontend reached its limitations in\\nlate 2023 and led to the launch of a
+        dedicated Rogue Scholar API written\\nin Python in [October\\n2023](https://doi.org/10.53731/ar11b-5ea39){rel=\\\"noreferrer\\\"},
+        the work\\non references stretches the capabilities of the current Rogue Scholar\\nservice.\\n\\nOne
+        possible path forward would be to not implement references for\\nscholarly
+        blog posts, but references and the linking they provide are a\\ncore functionality
+        of the scholarly record. And if not for the\\nreferences, Rogue Scholar would
+        run into challenges with other desired\\nfunctionalities in the future, e.g.
+        aggregation of blog posts by author\\nand/or organization, using their ORCID
+        and ROR identifiers.\\n\\nThe path forward I have decided to take is to improve
+        the Rogue Scholar\\nbackend which currently consists of database, storage,
+        and\\nauthentication. And just as frontends are typically written in\\nJavascript
+        and APIs are commonly written in Python, a common language\\nfor cloud and
+        network services is Go. Despite an initial extra effort, I\\nbet that in the
+        long run Go will make the needed backend work easier\\ncompared to Javascript
+        and Python, and will [simplify Rogue Scholar\\ninfrastructure](https://doi.org/10.53731/ne1kh-9mn38){rel=\\\"noreferrer\\\"}.\\n\\nIt
+        will take time to refactor the Rogue Scholar backend, but a good\\nstarting
+        point is commonmeta metadata conversions, which are central to\\nseveral Rogue
+        Scholar functionalities, as described above. I have\\nstarted to work on implementing
+        commonmeta metadata conversions in Go,\\nand today I am launching the [first
+        public\\nversion](https://github.com/front-matter/commonmeta/releases/tag/v0.1.14){rel=\\\"noreferrer\\\"}\\nwhich
+        converts Crossref and DataCite metadata into the commonmeta\\nformat, both
+        for single DOIs and for lists of DOIs. Installing the\\ncommonmeta Go application
+        means downloading a single 3 MB binary\\n(versions for Linux, Windows or Mac)
+        from\\n[GitHub](https://github.com/front-matter/commonmeta/releases){rel=\\\"noreferrer\\\"},\\na
+        very different experience from Javascript, Python (or Ruby). You can\\nthen
+        use the command line to fetch the metadata for a particular DOI\\n(Crossref
+        or DataCite), e.g.\\n\\n    commonmeta convert 10.59350/s859z-eqy17\\n\\nYou
+        can do the same with commonmeta-py but would have to worry about\\nPython
+        versions, virtual environments, and installing dependencies\\n(similarly with
+        commonmeta-ruby). Another advantage of Go is that it is\\nreally fast. This
+        will only show if you convert lots of scholarly works,\\nyou can try out fetching
+        a random sample of 1,000 DOIs from Crossref:\\n\\n    commonmeta sample -n
+        1000\\n\\nOne use case for the commonmeta command-line application is the
+        quick\\ncollection of scholarly metadata in bulk for coverage analysis, which
+        is\\nthen typically done with notebooks written in Python, R, or Javascript.\\nThe
+        following command will fetch all Rogue Scholar blog posts (up to\\n1,000 posts,
+        Front Matter is Crossref member *31795*) with funding\\ninformation and ORCID
+        IDs for at least one author, and store the results\\n(79 blog posts) in `funding.json`:\\n\\n
+        \   commonmeta list -n 1000 --member 31795 --has-award --has-orcid > funding.json\\n\\nCombined
+        with the Open Data provided by Crossref, DataCite, ORCID, ROR,\\nand others
+        via API and bulk download, this approach can dramatically\\nchange how we
+        study research information on our path [towards\\ndecentralized and federated
+        research information\\nsources](https://doi.org/10.59350/gmrzb-e2p83){rel=\\\"noreferrer\\\"}.\\n\\nOver
+        the coming weeks and months, I will improve the functionality of\\nthe commonmeta
+        Go application to match the features of commonmeta-py and\\ncommonmeta-ruby,
+        in particular the conversion into other formats in\\nbulk, e.g. bibtex, schema.org,
+        and formatted citations. And for the\\n`datacite` and `crossrefxml` formats
+        enable DOI registrations, so that\\nthe Rogue Scholar DOI registrations and
+        updates are handled with Go.\\n\\nGo not only works well for command-line
+        applications but also for\\nnetwork services. Building a HTTP server connected
+        to a database around\\nthe commonmeta package is straightforward, and the
+        next step after the\\nbasic commonmeta features are implemented in Go will
+        be to build a Rogue\\nScholar references server. Then (later in 2024 or 2025)
+        the next focus\\nwill be improving workflows around blog post metadata extraction
+        and DOI\\nregistration. In Python message queues are frequently implemented
+        with\\n[Celery](https://docs.celeryq.dev/en/stable/index.html){rel=\\\"noreferrer\\\"}\\n(and
+        Redis or RabbitMQ), in Go there are several solid options.\\n\\nDetails of
+        the suggested path will become clearer when working on this\\nin the coming
+        months, including whether to use another language instead\\nof Go. Rust is
+        probably the most interesting alternative in 2024 rather\\nthan C++, Haskell,
+        or Java.\\n\\nThe approach taken for Rogue Scholar and the lessons learned
+        are also\\nrelevant for other scholarly infrastructures that try to follow
+        the\\n[Principles of Open Scholarly\\nInfrastructure](https://doi.org/10.24343/C34W2H){rel=\\\"noreferrer\\\"},\\nincluding
+        preprint servers, repositories, and journal publishing\\nplatforms. To paraphrase
+        a famous quote from the [1953\\npaper](https://doi.org/10.1038/171737a0){rel=\\\"noreferrer\\\"}
+        on the\\nstructure of DNA, *it has not escaped our notice that the specific\\napproach
+        we have postulated immediately suggests a possible architecture\\nfor Diamond
+        Open Access scholarly infrastructure*.\\n\\n## References\\n\\nFenner, M.
+        (2023, June 5). Starting to register DOIs for all blog posts\\nincluded in
+        the Rogue Scholar. *Front Matter*.\\n<https://doi.org/10.53731/m9fs5-nap05>\\n\\nFenner,
+        M. (2023, October 9). Rogue Scholar has an API. *Front Matter*.\\n<https://doi.org/10.53731/ar11b-5ea39>\\n\\nFenner,
+        M. (2023, March 9). Announcing Commonmeta. *Front Matter*.\\n<https://doi.org/10.53731/cp7apdj-jk5f471>\\n\\nFenner,
+        M. (2017, April 28). A Content Negotiation Update. *Front\\nMatter*. <https://doi.org/10.53731/r7adm61-97aq74v-ag5kv>\\n\\nFenner,
+        M. (2024). *Commonmeta-py* \\\\[Computer software\\\\]. *Zenodo*.\\n<https://doi.org/10.5281/ZENODO.8340374>\\n\\nFenner,
+        M. (2024, January 16). Improving Rogue Scholar metadata\\nconversions. *Front
+        Matter*. <https://doi.org/10.53731/n4vfp-nwb08>\\n\\nFenner, M. (2024, April
+        10). Rogue Scholar references learn new tricks.\\n*Front Matter*. <https://doi.org/10.53731/mgmcc-yvt53>\\n\\nBilder,
+        G., Lin, J., & Neylon, C. (2020). *The Principles of Open\\nScholarly Infrastructure*.
+        <https://doi.org/10.24343/C34W2H>\\n\\nFenner, M. (2024, April 8). Simplifying
+        Rogue Scholar Infrastructure.\\n*Front Matter*. <https://doi.org/10.53731/ne1kh-9mn38>\\n\\nBabini,
+        D., Garcia, A. B., Costas, R., Matas, L., Rafols, I., & Rovelli,\\nL. (2024,
+        April 22). Not only Open, but also Diverse and Inclusive:\\nTowards Decentralised
+        and Federated Research Information Sources.\\n*Leiden Madtrics*. <https://doi.org/10.59350/gmrzb-e2p83>\\n\\nWatson,
+        J. D., & Crick, F. H. C. (1953). Molecular Structure of Nucleic\\nAcids: A
+        Structure for Deoxyribose Nucleic Acid. *Nature*, *171*(4356),\\n737--738.
+        <https://doi.org/10.1038/171737a0>\\n\",\"doi\":\"https://doi.org/10.53731/azg9q-3vn50\",\"guid\":\"66275c727b71460001ebf026\",\"id\":\"8f00ca53-4e4b-488a-b1fe-3c991cfb3bb6\",\"image\":\"https://images.unsplash.com/photo-1494178270175-e96de2971df9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDQ4fHxuZXclMjBsYW5ndWFnZXxlbnwwfHx8fDE3MTM4NTU1NjN8MA&ixlib=rb-4.0.3&q=80&w=2000\",\"language\":\"en\",\"published_at\":1713870421,\"reference\":[{\"id\":\"https://doi.org/10.53731/m9fs5-nap05\",\"key\":\"ref1\"},{\"id\":\"https://doi.org/10.53731/ar11b-5ea39\",\"key\":\"ref2\"},{\"id\":\"https://doi.org/10.53731/cp7apdj-jk5f471\",\"key\":\"ref3\"},{\"id\":\"https://doi.org/10.53731/r7adm61-97aq74v-ag5kv\",\"key\":\"ref4\"},{\"id\":\"https://doi.org/10.5281/zenodo.8340374\",\"key\":\"ref5\"},{\"id\":\"https://doi.org/10.53731/n4vfp-nwb08\",\"key\":\"ref6\"},{\"id\":\"https://doi.org/10.53731/mgmcc-yvt53\",\"key\":\"ref7\"},{\"id\":\"https://doi.org/10.24343/c34w2h\",\"key\":\"ref8\"},{\"id\":\"https://doi.org/10.53731/ne1kh-9mn38\",\"key\":\"ref9\"},{\"id\":\"https://doi.org/10.59350/gmrzb-e2p83\",\"key\":\"ref10\"},{\"id\":\"https://doi.org/10.1038/171737a0\",\"key\":\"ref11\"}],\"relationships\":[],\"status\":\"active\",\"summary\":\"The
+        Rogue Scholar science blog archive is built with Open Source software, starting
+        with Javascript in June 2023 and adding an API written in Python in October
+        2023. This week I am releasing the first version of commonmeta written in
+        Go to simplify the Rogue Scholar backend.\",\"tags\":[\"News\",\"Rogue Scholar\"],\"title\":\"Rogue
+        Scholar is learning a new language\",\"updated_at\":1713870856,\"url\":\"https://blog.front-matter.io/posts/rogue-scholar-new-language\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}}],\"out_of\":17617,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"0000-0003-1419-2405\"},\"search_cutoff\":false,\"search_time_ms\":13}"
+    headers:
+      Connection:
+      - keep-alive
+      accept-ranges:
+      - none
+      access-control-allow-origin:
+      - '*'
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: OK
 version: 1
