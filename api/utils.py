@@ -86,6 +86,7 @@ AUTHOR_IDS = {
     "Marcel Wrzesinski": "https://orcid.org/0000-0002-2343-7905",
     "Heidi Seibold": "https://orcid.org/0000-0002-8960-9642",
     "Layla Michán": "https://orcid.org/0000-0002-5798-662X",
+    "Wilma van Wezenbeek": "https://orcid.org/0000-0002-9558-3709",
 }
 
 AUTHOR_NAMES = {
@@ -597,6 +598,28 @@ AUTHOR_AFFILIATIONS = {
             "id": "https://ror.org/01tmp8f25",
             "start_date": "2003-01-01",
         }
+    ],
+    "https://orcid.org/0000-0002-9558-3709": [
+        {
+            "name": "Delft University of Technology",
+            "id": "https://ror.org/02e2c7k09",
+            "start_date": "2006-08-01",
+        },
+        {
+            "name": "Vrije Universiteit Amsterdam",
+            "id": "https://ror.org/008xxew50",
+            "start_date": "2020-09-01",
+        },
+        {
+            "name": "SURF",
+            "id": "https://ror.org/009vhk114",
+            "start_date": "2023-07-01",
+        },
+        {
+            "name": "National Library of the Netherlands",
+            "id": "https://ror.org/02w4jbg70",
+            "start_date": "2024-09-01",
+        },
     ],
 }
 
