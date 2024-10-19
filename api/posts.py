@@ -1191,7 +1191,7 @@ def upsert_single_post(post):
         # upsert InvenioRDM record
         record = (
             supabase.table("posts")
-            .select(postsForUpsertSelect)
+            .select(postsWithContentSelect)
             .eq("guid", post.get("guid", None))
             .maybe_single()
             .execute()
