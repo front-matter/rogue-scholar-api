@@ -1201,7 +1201,6 @@ def upsert_single_post(post):
         community_id = py_.get(record.data, "blog.community_id")
 
         # if InvenioRDM record exists, update it, otherwise create it
-        # The invenio_id has not been added for some posts
         if invenio_id:
             update_record(record.data, invenio_id, community_id)
         else:

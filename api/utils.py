@@ -87,6 +87,7 @@ AUTHOR_IDS = {
     "Heidi Seibold": "https://orcid.org/0000-0002-8960-9642",
     "Layla Michán": "https://orcid.org/0000-0002-5798-662X",
     "Wilma van Wezenbeek": "https://orcid.org/0000-0002-9558-3709",
+    "Ross Mounce": "https://orcid.org/0000-0002-3520-2046",
 }
 
 AUTHOR_NAMES = {
