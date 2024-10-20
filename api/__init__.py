@@ -379,7 +379,7 @@ async def post_posts():
                 extracted_posts = await extract_all_posts(
                     page=page, update_all=(update == "all")
                 )
-            return jsonify(extracted_posts)
+                return jsonify(extracted_posts)
         except Exception as e:
             logger.warning(e)
             return {"error": "An error occured."}, 400
