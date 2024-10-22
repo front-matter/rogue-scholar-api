@@ -211,90 +211,114 @@ async def extract_all_posts_by_blog(
         if generator == "Substack":
             async with httpx.AsyncClient() as client:
                 response = await client.get(feed_url, follow_redirects=True)
-                posts = response.json()
-                # only include posts that have been modified since last update
-                if not update_all:
-                    posts = filter_updated_posts(posts, blog, key="post_date")
+                if response.status_code < 400:
+                    posts = response.json()
+                    # only include posts that have been modified since last update
+                    if not update_all:
+                        posts = filter_updated_posts(posts, blog, key="post_date")
+                else:
+                    posts = []
                 extract_posts = [extract_substack_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "WordPress" and blog["use_api"]:
             async with httpx.AsyncClient() as client:
                 response = await client.get(feed_url, timeout=30, follow_redirects=True)
-                # filter out error messages that are not valid json
-                json_start = response.text.find("[{")
-                response = response.text[json_start:]
-                posts = JSON.loads(response)
-                if not update_all:
-                    posts = filter_updated_posts(posts, blog, key="modified_gmt")
+                if response.status_code < 400:
+                    # filter out error messages that are not valid json
+                    json_start = response.text.find("[{")
+                    response = response.text[json_start:]
+                    posts = JSON.loads(response)
+                    if not update_all:
+                        posts = filter_updated_posts(posts, blog, key="modified_gmt")
+                else:
+                    posts = []
                 extract_posts = [extract_wordpress_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "WordPress.com" and blog["use_api"]:
             async with httpx.AsyncClient() as client:
                 response = await client.get(feed_url, follow_redirects=True)
-                json = response.json()
-                posts = json.get("posts", [])
-                if not update_all:
-                    posts = filter_updated_posts(posts, blog, key="modified")
+                if response.status_code < 400:
+                    json = response.json()
+                    posts = json.get("posts", [])
+                    if not update_all:
+                        posts = filter_updated_posts(posts, blog, key="modified")
+                else:
+                    posts = []
                 extract_posts = [extract_wordpresscom_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "Ghost" and blog["use_api"]:
             headers = {"Accept-Version": "v5.0"}
             async with httpx.AsyncClient() as client:
-                response = await client.get(feed_url, headers=headers)
-                json = response.json()
-                posts = json.get("posts", [])
-                if not update_all:
-                    posts = filter_updated_posts(posts, blog, key="updated_at")
+                response = await client.get(feed_url, timeout=30, headers=headers)
+                if response.status_code < 400:
+                    json = response.json()
+                    posts = json.get("posts", [])
+                    if not update_all:
+                        posts = filter_updated_posts(posts, blog, key="updated_at")
+                else:
+                    posts = []
                 extract_posts = [extract_ghost_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "Squarespace":
             async with httpx.AsyncClient() as client:
-                response = await client.get(feed_url, follow_redirects=True)
-                json = response.json()
-                posts = json.get("items", [])
-                # only include posts that have been modified since last update
-                if not update_all:
-                    posts = filter_updated_posts(posts, blog, key="pubDate")
+                response = await client.get(feed_url, timeout=30, follow_redirects=True)
+                if response.status_code < 400:
+                    json = response.json()
+                    posts = json.get("items", [])
+                    # only include posts that have been modified since last update
+                    if not update_all:
+                        posts = filter_updated_posts(posts, blog, key="pubDate")
+                else:
+                    posts = []
                 extract_posts = [extract_squarespace_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/feed+json":
             async with httpx.AsyncClient() as client:
                 response = await client.get(feed_url, timeout=30, follow_redirects=True)
-                json = response.json()
-                posts = json.get("items", [])
-                if not update_all:
-                    posts = filter_updated_posts(posts, blog, key="date_modified")
-                posts = posts[start_page:end_page]
+                if response.status_code < 400:
+                    json = response.json()
+                    posts = json.get("items", [])
+                    if not update_all:
+                        posts = filter_updated_posts(posts, blog, key="date_modified")
+                    posts = posts[start_page:end_page]
+                else:
+                    posts = []
                 extract_posts = [extract_json_feed_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/atom+xml":
             async with httpx.AsyncClient() as client:
                 response = await client.get(feed_url, timeout=30, follow_redirects=True)
-                # fix malformed xml
-                xml = fix_xml(response.read())
-                json = xmltodict.parse(xml, dict_constructor=dict, force_list={"entry"})
-                posts = py_.get(json, "feed.entry", [])
-                if not update_all:
-                    posts = filter_updated_posts(posts, blog, key="published")
-                if blog.get("filter", None):
-                    posts = filter_posts(posts, blog, key="category")
-                posts = posts[start_page:end_page]
+                if response.status_code < 400:
+                    # fix malformed xml
+                    xml = fix_xml(response.read())
+                    json = xmltodict.parse(xml, dict_constructor=dict, force_list={"entry"})
+                    posts = py_.get(json, "feed.entry", [])
+                    if not update_all:
+                        posts = filter_updated_posts(posts, blog, key="published")
+                    if blog.get("filter", None):
+                        posts = filter_posts(posts, blog, key="category")
+                    posts = posts[start_page:end_page]
+                else:
+                    posts = []
             extract_posts = [extract_atom_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/rss+xml":
             async with httpx.AsyncClient() as client:
                 response = await client.get(feed_url, timeout=30, follow_redirects=True)
-                # fix malformed xml
-                xml = fix_xml(response.read())
-                json = xmltodict.parse(
-                    xml, dict_constructor=dict, force_list={"category", "item"}
-                )
-                posts = py_.get(json, "rss.channel.item", [])
-                if not update_all:
-                    posts = filter_updated_posts(posts, blog, key="pubDate")
-                if blog.get("filter", None):
-                    posts = filter_posts(posts, blog, key="category")
-                posts = posts[start_page:end_page]
+                if response.status_code < 400:
+                    # fix malformed xml
+                    xml = fix_xml(response.read())
+                    json = xmltodict.parse(
+                        xml, dict_constructor=dict, force_list={"category", "item"}
+                    )
+                    posts = py_.get(json, "rss.channel.item", [])
+                    if not update_all:
+                        posts = filter_updated_posts(posts, blog, key="pubDate")
+                    if blog.get("filter", None):
+                        posts = filter_posts(posts, blog, key="category")
+                    posts = posts[start_page:end_page]
+                else:
+                    posts = []
             extract_posts = [extract_rss_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         else:
@@ -307,10 +331,6 @@ async def extract_all_posts_by_blog(
         return []
     except Exception as e:
         print(f"{e} error.")
-        print(traceback.format_exc())
-        return []
-    except json.decoder.JSONDecodeError as e:
-        print(f"JSON error in blog {blog['slug']}.")
         print(traceback.format_exc())
         return []
 
