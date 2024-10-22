@@ -653,8 +653,11 @@ def normalize_author(
 ) -> dict:
     """Normalize author name and url. Strip text after comma
     if suffix is an academic title. Lookup affiliation based on name and publication date."""
-
-    if name.split(", ", maxsplit=1)[-1] in ["MD", "PhD"]:
+    if isinstance(name, dict):
+        url = name.get("url", None)
+        name = name.get("name", None)
+        
+    if isinstance(name, str) and name.split(", ", maxsplit=1)[-1] in ["MD", "PhD"]:
         name = name.split(", ", maxsplit=1)[0]
 
     _name = AUTHOR_NAMES.get(name, None) or name

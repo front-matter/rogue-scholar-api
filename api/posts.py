@@ -958,7 +958,7 @@ async def extract_rss_post(post, blog):
         )
         if isinstance(author, str):
             authors_ = [{"name": author}]
-        elif isinstance(author, list):
+        elif isinstance(author, list) and author[0] is not None:
             authors_ = [{"name": a} for a in author]
         elif isinstance(author, dict):
             authors_ = [author]
@@ -1378,9 +1378,9 @@ def get_contributors(content_html: str):
             return None
         name = get_name(contributor.text)
         url = get_url(contributor.find("a", href=True))
-        if not name or not url:
+        if not name:
             return None
-        return {"name": name, "url": url}
+        return compact({"name": name, "url": url})
 
     soup = get_soup(content_html)
 
