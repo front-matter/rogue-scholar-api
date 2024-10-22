@@ -1041,11 +1041,12 @@ async def update_rogue_scholar_post(post, blog):
         content_html = write_html(content_text)
 
         # use default author for blog if no post author found and no author header in content
-        authors_ = get_contributors(content_html) or wrap(post.get("authors", None))
+        authors_ = wrap(post.get("authors", None))
+        if len(authors_) == 0 or authors_[0] is None or authors_[0].get("name", None) is None:
+            authors_ = get_contributors(content_html)
         if len(authors_) == 0 or authors_[0] is None or authors_[0].get("name", None) is None:
             authors_ = wrap(blog.get("authors", None))
         authors = [format_author(i, published_at) for i in authors_ if i]
-
         summary = get_summary(content_html)
         abstract = post.get("abstract", None)
         abstract = get_abstract(summary, abstract)
