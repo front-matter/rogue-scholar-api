@@ -21,6 +21,7 @@ from commonmeta import (
     normalize_id,
     validate_url,
     validate_prefix,
+    presence,
 )
 from Levenshtein import ratio
 
@@ -47,7 +48,6 @@ from api.supabase_client import (
     supabase_admin_client as supabase_admin,
     supabase_client as supabase,
     postsWithContentSelect,
-    postsForUpsertSelect,
 )
 
 
@@ -1042,7 +1042,7 @@ async def update_rogue_scholar_post(post, blog):
 
         # use default author for blog if no post author found and no author header in content
         authors_ = get_contributors(content_html) or wrap(post.get("authors", None))
-        if len(authors_) == 0 or authors_[0].get("name", None) is None:
+        if len(authors_) == 0 or authors_[0] is None or authors_[0].get("name", None) is None:
             authors_ = wrap(blog.get("authors", None))
         authors = [format_author(i, published_at) for i in authors_ if i]
 
@@ -1234,7 +1234,6 @@ def create_record(record, guid: str, community_id: str):
         url = f"{environ['QUART_INVENIORDM_API']}/api/records"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         response = httpx.post(url, headers=headers, json=record, timeout=10)
-
         # return error if record was not created
         if response.status_code != 201:
             print(response.json())
@@ -1248,6 +1247,7 @@ def create_record(record, guid: str, community_id: str):
         response = httpx.post(url, headers=headers, timeout=10)
         if response.status_code != 202:
             print(response.json())
+            return response.json()
 
         # add draft record to blog community
         add_record_to_community(invenio_id, community_id)
@@ -1293,6 +1293,7 @@ def update_record(record, invenio_id: str, community_id: str):
         response = httpx.post(url, headers=headers, timeout=10)
         if response.status_code != 200:
             print(response.json())
+            return response.json()
 
         # update draft record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft"
@@ -1300,6 +1301,7 @@ def update_record(record, invenio_id: str, community_id: str):
         response = httpx.put(url, headers=headers, json=record, timeout=10)
         if response.status_code != 200:
             print(response.json())
+            return response.json()
 
         # publish draft record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft/actions/publish"
@@ -1307,6 +1309,7 @@ def update_record(record, invenio_id: str, community_id: str):
         response = httpx.post(url, headers=headers, timeout=10)
         if response.status_code != 202:
             print(response.json())
+            return response.json()
 
         # add draft record to blog community
         add_record_to_community(invenio_id, community_id)
@@ -1398,7 +1401,7 @@ def get_contributors(content_html: str):
             contributors.append(li)
     else:
         contributors.append(author_string)
-    return [get_contributor(contributor) for contributor in contributors]
+    return [get_contributor(contributor) for contributor in contributors if contributor]
 
 
 async def get_references(content_html: str):
