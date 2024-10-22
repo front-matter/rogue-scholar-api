@@ -58,7 +58,7 @@ async def extract_all_posts(page: int = 1, update_all: bool = False):
         supabase.table("blogs")
         .select("slug")
         .in_("status", ["active"])
-        .order("title", desc=False)
+        .order("slug", desc=False)
         .execute()
     )
     tasks = []
@@ -259,7 +259,7 @@ async def extract_all_posts_by_blog(
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/feed+json":
             async with httpx.AsyncClient() as client:
-                response = await client.get(feed_url, follow_redirects=True)
+                response = await client.get(feed_url, timeout=30, follow_redirects=True)
                 json = response.json()
                 posts = json.get("items", [])
                 if not update_all:
@@ -269,7 +269,7 @@ async def extract_all_posts_by_blog(
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/atom+xml":
             async with httpx.AsyncClient() as client:
-                response = await client.get(feed_url, follow_redirects=True)
+                response = await client.get(feed_url, timeout=30, follow_redirects=True)
                 # fix malformed xml
                 xml = fix_xml(response.read())
                 json = xmltodict.parse(xml, dict_constructor=dict, force_list={"entry"})
@@ -283,7 +283,7 @@ async def extract_all_posts_by_blog(
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/rss+xml":
             async with httpx.AsyncClient() as client:
-                response = await client.get(feed_url, follow_redirects=True)
+                response = await client.get(feed_url, timeout=30, follow_redirects=True)
                 # fix malformed xml
                 xml = fix_xml(response.read())
                 json = xmltodict.parse(
@@ -307,6 +307,10 @@ async def extract_all_posts_by_blog(
         return []
     except Exception as e:
         print(f"{e} error.")
+        print(traceback.format_exc())
+        return []
+    except json.decoder.JSONDecodeError as e:
+        print(f"JSON error in blog {blog['slug']}.")
         print(traceback.format_exc())
         return []
 
