@@ -687,8 +687,10 @@ def get_date(date: str):
         return None
 
 
-def unix_timestamp(date_str: str) -> int:
+def unix_timestamp(date_str: Optional[str]) -> int:
     """convert iso8601 date to unix timestamp"""
+    if date_str is None:
+        return 0
     try:
         dt = iso8601.parse_date(date_str)
         return int(dt.timestamp())

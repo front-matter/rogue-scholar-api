@@ -23,6 +23,7 @@ from commonmeta import (
     validate_prefix,
 )
 from Levenshtein import ratio
+from sentry_sdk import capture_exception
 
 from api.utils import (
     unix_timestamp,
@@ -209,85 +210,126 @@ async def extract_all_posts_by_blog(
 
         if generator == "Substack":
             async with httpx.AsyncClient() as client:
-                response = await client.get(feed_url, follow_redirects=True)
-                if response.status_code < 400:
+                try:
+                    response = await client.get(feed_url, follow_redirects=True)
+                    response.raise_for_status()
                     posts = response.json()
                     # only include posts that have been modified since last update
                     if not update_all:
                         posts = filter_updated_posts(posts, blog, key="post_date")
-                else:
+                except httpx.ReadTimeout:
+                    print(f"Timeout error for feed {feed_url}.")
+                    posts = []
+                except httpx.HTTPError as e:
+                    capture_exception(e)
                     posts = []
                 extract_posts = [extract_substack_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "WordPress" and blog["use_api"]:
             async with httpx.AsyncClient() as client:
-                response = await client.get(feed_url, timeout=30, follow_redirects=True)
-                if response.status_code < 400:
+                try:
+                    response = await client.get(
+                        feed_url, timeout=10.0, follow_redirects=True
+                    )
+                    response.raise_for_status()
                     # filter out error messages that are not valid json
                     json_start = response.text.find("[{")
                     response = response.text[json_start:]
                     posts = JSON.loads(response)
                     if not update_all:
                         posts = filter_updated_posts(posts, blog, key="modified_gmt")
-                else:
+                except httpx.ReadTimeout:
+                    print(f"Timeout error for feed {feed_url}.")
+                    posts = []
+                except httpx.HTTPError as e:
+                    capture_exception(e)
                     posts = []
                 extract_posts = [extract_wordpress_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "WordPress.com" and blog["use_api"]:
             async with httpx.AsyncClient() as client:
-                response = await client.get(feed_url, follow_redirects=True)
-                if response.status_code < 400:
+                try:
+                    response = await client.get(
+                        feed_url, timeout=10.0, follow_redirects=True
+                    )
+                    response.raise_for_status()
                     json = response.json()
                     posts = json.get("posts", [])
                     if not update_all:
                         posts = filter_updated_posts(posts, blog, key="modified")
-                else:
+                except httpx.ReadTimeout:
+                    print(f"Timeout error for feed {feed_url}.")
+                    posts = []
+                except httpx.HTTPError as e:
+                    capture_exception(e)
                     posts = []
                 extract_posts = [extract_wordpresscom_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "Ghost" and blog["use_api"]:
             headers = {"Accept-Version": "v5.0"}
             async with httpx.AsyncClient() as client:
-                response = await client.get(feed_url, timeout=30, headers=headers)
-                if response.status_code < 400:
+                try:
+                    response = await client.get(feed_url, timeout=10.0, headers=headers)
+                    response.raise_for_status()
                     json = response.json()
                     posts = json.get("posts", [])
                     if not update_all:
                         posts = filter_updated_posts(posts, blog, key="updated_at")
-                else:
+                except httpx.ReadTimeout:
+                    print(f"Timeout error for feed {feed_url}.")
+                    posts = []
+                except httpx.HTTPError as e:
+                    capture_exception(e)
                     posts = []
                 extract_posts = [extract_ghost_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "Squarespace":
             async with httpx.AsyncClient() as client:
-                response = await client.get(feed_url, timeout=30, follow_redirects=True)
-                if response.status_code < 400:
+                try:
+                    response = await client.get(
+                        feed_url, timeout=10.0, follow_redirects=True
+                    )
+                    response.raise_for_status()
                     json = response.json()
                     posts = json.get("items", [])
                     # only include posts that have been modified since last update
                     if not update_all:
                         posts = filter_updated_posts(posts, blog, key="pubDate")
-                else:
+                except httpx.ReadTimeout:
+                    print(f"Timeout error for feed {feed_url}.")
+                    posts = []
+                except httpx.HTTPError as e:
+                    capture_exception(e)
                     posts = []
                 extract_posts = [extract_squarespace_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/feed+json":
             async with httpx.AsyncClient() as client:
-                response = await client.get(feed_url, timeout=30, follow_redirects=True)
-                if response.status_code < 400:
+                try:
+                    response = await client.get(
+                        feed_url, timeout=10.0, follow_redirects=True
+                    )
+                    response.raise_for_status()
                     json = response.json()
                     posts = json.get("items", [])
                     if not update_all:
                         posts = filter_updated_posts(posts, blog, key="date_modified")
                     posts = posts[start_page:end_page]
-                else:
+                except httpx.ReadTimeout:
+                    print(f"Timeout error for feed {feed_url}.")
+                    posts = []
+                except httpx.HTTPError as e:
+                    capture_exception(e)
                     posts = []
                 extract_posts = [extract_json_feed_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/atom+xml":
             async with httpx.AsyncClient() as client:
-                response = await client.get(feed_url, timeout=30, follow_redirects=True)
-                if response.status_code < 400:
+                try:
+                    response = await client.get(
+                        feed_url, timeout=10.0, follow_redirects=True
+                    )
+                    response.raise_for_status()
                     # fix malformed xml
                     xml = fix_xml(response.read())
                     json = xmltodict.parse(
@@ -299,14 +341,21 @@ async def extract_all_posts_by_blog(
                     if blog.get("filter", None):
                         posts = filter_posts(posts, blog, key="category")
                     posts = posts[start_page:end_page]
-                else:
+                except httpx.ReadTimeout:
+                    print(f"Timeout error for feed {feed_url}.")
+                    posts = []
+                except httpx.HTTPError as e:
+                    capture_exception(e)
                     posts = []
             extract_posts = [extract_atom_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/rss+xml":
             async with httpx.AsyncClient() as client:
-                response = await client.get(feed_url, timeout=30, follow_redirects=True)
-                if response.status_code < 400:
+                try:
+                    response = await client.get(
+                        feed_url, timeout=10.0, follow_redirects=True
+                    )
+                    response.raise_for_status()
                     # fix malformed xml
                     xml = fix_xml(response.read())
                     json = xmltodict.parse(
@@ -318,7 +367,11 @@ async def extract_all_posts_by_blog(
                     if blog.get("filter", None):
                         posts = filter_posts(posts, blog, key="category")
                     posts = posts[start_page:end_page]
-                else:
+                except httpx.ReadTimeout:
+                    print(f"Timeout error for feed {feed_url}.")
+                    posts = []
+                except httpx.HTTPError as e:
+                    capture_exception(e)
                     posts = []
             extract_posts = [extract_rss_post(x, blog) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
@@ -327,9 +380,6 @@ async def extract_all_posts_by_blog(
         if blog.get("status", None) not in ["pending", "active"]:
             return blog_with_posts["entries"]
         return [upsert_single_post(i) for i in blog_with_posts["entries"]]
-    except TimeoutError:
-        print("Timeout error in blog.")
-        return []
     except Exception as e:
         print(f"{e} error.")
         print(traceback.format_exc())
@@ -870,6 +920,11 @@ async def extract_atom_post(post, blog):
 
         published_at = get_date(post.get("published", None))
         published_at = unix_timestamp(published_at)
+        updated_at = get_date(post.get("updated", None))
+        updated_at = unix_timestamp(updated_at)
+        # if updated date is missing or earlier than published date, use published date
+        if published_at > updated_at:
+            updated_at = published_at
 
         # use default authors for blog if no post authors found
         authors_ = wrap(post.get("author", None))
@@ -888,7 +943,6 @@ async def extract_atom_post(post, blog):
         abstract = get_abstract(summary, abstract)
         reference = await get_references(content_html)
         relationships = get_relationships(content_html)
-        updated_at = get_date(post.get("updated", None))
 
         def get_url(links):
             """Get url."""
@@ -936,7 +990,7 @@ async def extract_atom_post(post, blog):
             "summary": summary,
             "abstract": abstract,
             "published_at": published_at,
-            "updated_at": unix_timestamp(updated_at or published_at),
+            "updated_at": updated_at,
             "image": image,
             "images": images,
             "language": detect_language(content_html),
@@ -1062,6 +1116,9 @@ async def update_rogue_scholar_post(post, blog):
             )
 
         published_at = post.get("published_at")
+        updated_at = post.get("updated_at")
+        if published_at > updated_at:
+            updated_at = published_at
         content_text = post.get("content_text")
         content_html = write_html(content_text)
 
@@ -1122,7 +1179,7 @@ async def update_rogue_scholar_post(post, blog):
             "summary": summary,
             "abstract": abstract,
             "published_at": published_at,
-            "updated_at": post.get("updated_at"),
+            "updated_at": updated_at,
             "image": image,
             "images": images,
             "language": detect_language(content_text),
@@ -1267,10 +1324,11 @@ def create_record(record, guid: str, community_id: str):
         # create draft record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
-        response = httpx.post(url, headers=headers, json=record, timeout=10)
+        response = httpx.post(url, headers=headers, json=record, timeout=10.0)
         # return error if record was not created
         if response.status_code != 201:
-            print(response.json())
+            print(response.status_code, "create_draft_record")
+            # print(response.json())
             return response.json()
 
         invenio_id = response.json()["id"]
@@ -1278,9 +1336,10 @@ def create_record(record, guid: str, community_id: str):
         # publish draft record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft/actions/publish"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
-        response = httpx.post(url, headers=headers, timeout=10)
+        response = httpx.post(url, headers=headers, timeout=10.0)
         if response.status_code != 202:
-            print(response.json())
+            print(response.status_code, "publish_draft_record")
+            # print(response.json())
             return response.json()
 
         # add draft record to blog community
@@ -1324,29 +1383,34 @@ def update_record(record, invenio_id: str, community_id: str):
         # create draft record from published record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
-        response = httpx.post(url, headers=headers, timeout=10)
-        if response.status_code != 200:
-            print(response.json())
+        response = httpx.post(url, headers=headers, timeout=10.0)
+        if response.status_code != 201:
+            print(response.status_code, "u create_draft_record")
+            # print(response.json())
             return response.json()
 
         # update draft record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
-        response = httpx.put(url, headers=headers, json=record, timeout=10)
+        response = httpx.put(url, headers=headers, json=record, timeout=10.0)
         if response.status_code != 200:
-            print(response.json())
+            print(response.status_code, "u update_draft_record")
+            # print(response.json())
             return response.json()
 
         # publish draft record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft/actions/publish"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
-        response = httpx.post(url, headers=headers, timeout=10)
+        response = httpx.post(url, headers=headers, timeout=10.0)
         if response.status_code != 202:
-            print(response.json())
+            print(response.status_code, "u publish_draft_record")
+            # print(response.json())
             return response.json()
 
-        # add draft record to blog community
-        add_record_to_community(invenio_id, community_id)
+        # add draft record to blog community if not already added
+        communities = py_.get(response.json(), "parent.communities.entries", [])
+        if len(communities) == 0:
+            add_record_to_community(invenio_id, community_id)
 
         return response
     except Exception as error:
@@ -1364,7 +1428,9 @@ def add_record_to_community(invenio_id: str, community_id: str):
         }
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/communities"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
-        response = httpx.post(url, headers=headers, json=data, timeout=10)
+        response = httpx.post(url, headers=headers, json=data, timeout=10.0)
+        if response.status_code != 201:
+            print(response.json())
         return response
     except Exception as error:
         print(error)

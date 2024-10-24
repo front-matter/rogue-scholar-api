@@ -25,7 +25,6 @@ from api.utils import (
     is_valid_url,
 )
 
-
 async def find_feed(url: str) -> Optional[str]:
     """Find RSS feed in homepage. Based on https://gist.github.com/alexmill/9bc634240531d81c3abe
     Prefer JSON Feed over Atom over RSS"""
@@ -76,7 +75,7 @@ async def extract_all_blogs():
         supabase.table("blogs")
         .select("slug")
         .in_("status", ["approved", "active", "archived"])
-        .order("title", desc=False)
+        .order("slug", desc=False)
         .execute()
     )
     tasks = []
