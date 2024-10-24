@@ -211,7 +211,9 @@ async def extract_all_posts_by_blog(
         if generator == "Substack":
             async with httpx.AsyncClient() as client:
                 try:
-                    response = await client.get(feed_url, follow_redirects=True)
+                    response = await client.get(
+                        feed_url, timeout=10.0, follow_redirects=True
+                    )
                     response.raise_for_status()
                     posts = response.json()
                     # only include posts that have been modified since last update
