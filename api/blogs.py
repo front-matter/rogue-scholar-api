@@ -165,20 +165,23 @@ async def extract_single_blog(slug: str):
     # update InvenioRDM blog community if blog is active or archived
     if config["status"] in ["active", "archived"]:
         r = upsert_blog_community(blog)
-        result = py_.pick(
-            r.json(),
-            ["slug", "metadata.title", "metadata.description", "metadata.website"],
-        )
-        if blog.get("favicon", None) is not None:
-            upload_blog_logo(blog)
-            result["logo"] = blog.get("favicon")
+        if r:
+            result = py_.pick(
+                r.json(),
+                ["slug", "metadata.title", "metadata.description", "metadata.website"],
+            )
+            if blog.get("favicon", None) is not None:
+                upload_blog_logo(blog)
+                result["logo"] = blog.get("favicon")
 
-        # fetch community id and store it in the blog
-        community_id = blog.get("community_id", None)
-        if blog.get("community_id", None) is None:
-            community_id = push_blog_community_id(slug)
+            # fetch community id and store it in the blog
+            community_id = blog.get("community_id", None)
+            if blog.get("community_id", None) is None:
+                community_id = push_blog_community_id(slug)
 
-        result["community_id"] = community_id
+            result["community_id"] = community_id
+        else:
+            result = r
         return result
     return blog
 

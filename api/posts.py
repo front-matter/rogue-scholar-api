@@ -815,7 +815,7 @@ async def extract_squarespace_post(post, blog):
             for i in wrap(post.get("categories", None))
             if i.split(":")[0] not in EXCLUDED_TAGS
         ][:5]
-
+        
         return {
             "authors": authors,
             "blog_name": blog.get("title", None),
