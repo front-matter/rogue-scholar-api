@@ -217,7 +217,7 @@ async def extract_all_posts_by_blog(
                     # only include posts that have been modified since last update
                     if not update_all:
                         posts = filter_updated_posts(posts, blog, key="post_date")
-                except httpx.ReadTimeout:
+                except httpx.TimeoutException:
                     print(f"Timeout error for feed {feed_url}.")
                     posts = []
                 except httpx.HTTPError as e:
@@ -238,7 +238,7 @@ async def extract_all_posts_by_blog(
                     posts = JSON.loads(response)
                     if not update_all:
                         posts = filter_updated_posts(posts, blog, key="modified_gmt")
-                except httpx.ReadTimeout:
+                except httpx.TimeoutException:
                     print(f"Timeout error for feed {feed_url}.")
                     posts = []
                 except httpx.HTTPError as e:
@@ -257,7 +257,7 @@ async def extract_all_posts_by_blog(
                     posts = json.get("posts", [])
                     if not update_all:
                         posts = filter_updated_posts(posts, blog, key="modified")
-                except httpx.ReadTimeout:
+                except httpx.TimeoutException:
                     print(f"Timeout error for feed {feed_url}.")
                     posts = []
                 except httpx.HTTPError as e:
@@ -275,7 +275,7 @@ async def extract_all_posts_by_blog(
                     posts = json.get("posts", [])
                     if not update_all:
                         posts = filter_updated_posts(posts, blog, key="updated_at")
-                except httpx.ReadTimeout:
+                except httpx.TimeoutException:
                     print(f"Timeout error for feed {feed_url}.")
                     posts = []
                 except httpx.HTTPError as e:
@@ -295,7 +295,7 @@ async def extract_all_posts_by_blog(
                     # only include posts that have been modified since last update
                     if not update_all:
                         posts = filter_updated_posts(posts, blog, key="pubDate")
-                except httpx.ReadTimeout:
+                except httpx.TimeoutException:
                     print(f"Timeout error for feed {feed_url}.")
                     posts = []
                 except httpx.HTTPError as e:
@@ -315,7 +315,7 @@ async def extract_all_posts_by_blog(
                     if not update_all:
                         posts = filter_updated_posts(posts, blog, key="date_modified")
                     posts = posts[start_page:end_page]
-                except httpx.ReadTimeout:
+                except httpx.TimeoutException:
                     print(f"Timeout error for feed {feed_url}.")
                     posts = []
                 except httpx.HTTPError as e:
@@ -341,7 +341,7 @@ async def extract_all_posts_by_blog(
                     if blog.get("filter", None):
                         posts = filter_posts(posts, blog, key="category")
                     posts = posts[start_page:end_page]
-                except httpx.ReadTimeout:
+                except httpx.TimeoutException:
                     print(f"Timeout error for feed {feed_url}.")
                     posts = []
                 except httpx.HTTPError as e:
@@ -367,7 +367,7 @@ async def extract_all_posts_by_blog(
                     if blog.get("filter", None):
                         posts = filter_posts(posts, blog, key="category")
                     posts = posts[start_page:end_page]
-                except httpx.ReadTimeout:
+                except httpx.TimeoutException:
                     print(f"Timeout error for feed {feed_url}.")
                     posts = []
                 except httpx.HTTPError as e:
