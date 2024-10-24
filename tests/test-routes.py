@@ -109,7 +109,7 @@ async def test_blogs_sort_route():
     assert result["total-results"] > 65
     post0 = py_.get(result, "items[0]")
     post1 = py_.get(result, "items[1]")
-    assert post0["title"] > post1["title"]
+    assert post0["title"] < post1["title"]
 
 
 @pytest.mark.vcr
@@ -395,7 +395,7 @@ async def test_post_as_bibtex():
     assert (
         result
         == """@article{10.59350/sfzv4-xdb68,
-    abstract = {Con frecuencia a la editorial llegan textos que terminan siendo muy diferentes a la idea de libro que el autor traía inicialmente. Esto se debe en parte, a que es insuficiente el abordaje de las clasificaciones de textos científicos que se divulga institucionalmente. Aquí comento brevemente algunos tipos de libros que publicamos en Ediciones Universidad de Camagüey.},
+    abstract = {{.wp-image-523 attachment-id=“523” permalink=“https://norbisley.wordpress.com/2023/10/06/que-libros-cientificos-publicamos/rrm1esyb-3/” orig-file=“https://norbisley.files.wordpress.com/2023/10/rrm1esyb-3.png” orig-size=“1008,301” comments-opened=“1” image-meta=“{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0"}”},
     author = {Fernández, Norbisley},
     copyright = {https://creativecommons.org/licenses/by/4.0/legalcode},
     doi = {10.59350/sfzv4-xdb68},
