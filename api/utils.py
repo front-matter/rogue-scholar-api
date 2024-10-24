@@ -656,7 +656,7 @@ def normalize_author(
     if isinstance(name, dict):
         url = name.get("url", None)
         name = name.get("name", None)
-        
+
     if isinstance(name, str) and name.split(", ", maxsplit=1)[-1] in ["MD", "PhD"]:
         name = name.split(", ", maxsplit=1)[0]
 

@@ -162,12 +162,13 @@ async def extract_single_blog(slug: str):
         "community_id": config["community_id"],
     }
     update_single_blog(blog)
-    
+
     # update InvenioRDM blog community if blog is active or archived
     if config["status"] in ["active", "archived"]:
         r = upsert_blog_community(blog)
         result = py_.pick(
-            r.json(), ["slug", "metadata.title", "metadata.description", "metadata.website"]
+            r.json(),
+            ["slug", "metadata.title", "metadata.description", "metadata.website"],
         )
         if blog.get("favicon", None) is not None:
             upload_blog_logo(blog)
@@ -389,7 +390,9 @@ def update_blog_community(blog):
 def upload_blog_logo(blog):
     """Upload an InvenioRDM blog community logo."""
     try:
-        url = f"{environ['QUART_INVENIORDM_API']}/api/communities/{blog.get('slug')}/logo"
+        url = (
+            f"{environ['QUART_INVENIORDM_API']}/api/communities/{blog.get('slug')}/logo"
+        )
         headers = {
             "Content-Type": "application/octet-stream",
             "Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}",

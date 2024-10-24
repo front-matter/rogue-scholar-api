@@ -21,7 +21,6 @@ from commonmeta import (
     normalize_id,
     validate_url,
     validate_prefix,
-    presence,
 )
 from Levenshtein import ratio
 
@@ -291,7 +290,9 @@ async def extract_all_posts_by_blog(
                 if response.status_code < 400:
                     # fix malformed xml
                     xml = fix_xml(response.read())
-                    json = xmltodict.parse(xml, dict_constructor=dict, force_list={"entry"})
+                    json = xmltodict.parse(
+                        xml, dict_constructor=dict, force_list={"entry"}
+                    )
                     posts = py_.get(json, "feed.entry", [])
                     if not update_all:
                         posts = filter_updated_posts(posts, blog, key="published")
@@ -1066,9 +1067,17 @@ async def update_rogue_scholar_post(post, blog):
 
         # use default author for blog if no post author found and no author header in content
         authors_ = wrap(post.get("authors", None))
-        if len(authors_) == 0 or authors_[0] is None or authors_[0].get("name", None) is None:
+        if (
+            len(authors_) == 0
+            or authors_[0] is None
+            or authors_[0].get("name", None) is None
+        ):
             authors_ = get_contributors(content_html)
-        if len(authors_) == 0 or authors_[0] is None or authors_[0].get("name", None) is None:
+        if (
+            len(authors_) == 0
+            or authors_[0] is None
+            or authors_[0].get("name", None) is None
+        ):
             authors_ = wrap(blog.get("authors", None))
         authors = [format_author(i, published_at) for i in authors_ if i]
         summary = get_summary(content_html)
@@ -1750,6 +1759,7 @@ def get_urls(content_html: str):
 
 def validate_funding(funding: list) -> Optional[list]:
     """Validate funding."""
+
     def format_funding(item):
         """Format funding."""
         if not item.get("award", None):
