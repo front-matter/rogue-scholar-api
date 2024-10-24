@@ -7,7 +7,7 @@ load_dotenv()
 
 typesense_client = TypesenseClient(
     {
-        "api_key": environ.get("QUART_TYPESENSE_ANON_KEY", None),
+        "api_key": environ.get("QUART_TYPESENSE_ANON_KEY", "abc"),
         "nodes": [
             {
                 "host": environ.get("QUART_TYPESENSE_HOST", None),
