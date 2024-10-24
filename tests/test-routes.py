@@ -1,5 +1,4 @@
 import pytest  # noqa: F401
-import pytest_asyncio  # noqa: F401
 import pydash as py_  # noqa: F401
 from os import environ
 
