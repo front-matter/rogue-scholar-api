@@ -1329,9 +1329,6 @@ def create_record(record, guid: str, community_id: str):
             record["metadata"]["funding"] = validate_funding(
                 py_.get(record, "metadata.funding")
             )
-            
-        # validate dates
-        # print( py_.get(record, "metadata.dates"))
 
         # create draft record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records"
@@ -1392,9 +1389,6 @@ def update_record(record, invenio_id: str, community_id: str):
             record["metadata"]["funding"] = validate_funding(
                 py_.get(record, "metadata.funding")
             )
-            
-        # validate dates
-        # print( py_.get(record, "metadata.dates.0"))
 
         # create draft record from published record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft"
