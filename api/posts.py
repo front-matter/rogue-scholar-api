@@ -84,6 +84,7 @@ async def update_all_posts(page: int = 1):
         supabase.table("blogs")
         .select("slug")
         .in_("status", ["active", "archived", "pending"])
+        .not_.is_("prefix", "null")
         .order("title", desc=False)
         .execute()
     )
