@@ -195,6 +195,8 @@ async def extract_all_posts_by_blog(
                 url = url.set(path="/api/v1/posts/")
                 params = {"sort": "new", "offset": start_page, "limit": per_page}
             case "Squarespace":
+                if not offset:
+                    offset = 0
                 params = compact({"format": "json", "offset": offset})
             case _:
                 params = {}
@@ -231,7 +233,7 @@ async def extract_all_posts_by_blog(
             async with httpx.AsyncClient() as client:
                 try:
                     response = await client.get(
-                        feed_url, timeout=10.0, follow_redirects=True
+                        feed_url, timeout=30.0, follow_redirects=True
                     )
                     response.raise_for_status()
                     # filter out error messages that are not valid json
@@ -1322,6 +1324,9 @@ def create_record(record, guid: str, community_id: str):
             record["metadata"]["funding"] = validate_funding(
                 py_.get(record, "metadata.funding")
             )
+            
+        # validate dates
+        # print( py_.get(record, "metadata.dates"))
 
         # create draft record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records"
@@ -1330,7 +1335,7 @@ def create_record(record, guid: str, community_id: str):
         # return error if record was not created
         if response.status_code != 201:
             print(response.status_code, "create_draft_record")
-            # print(response.json())
+            print(response.json())
             return response.json()
 
         invenio_id = response.json()["id"]
@@ -1381,14 +1386,15 @@ def update_record(record, invenio_id: str, community_id: str):
             record["metadata"]["funding"] = validate_funding(
                 py_.get(record, "metadata.funding")
             )
+            
+        # validate dates
+        # print( py_.get(record, "metadata.dates.0"))
 
         # create draft record from published record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         response = httpx.post(url, headers=headers, timeout=10.0)
         if response.status_code != 201:
-            print(response.status_code, "u create_draft_record")
-            # print(response.json())
             return response.json()
 
         # update draft record
@@ -1406,7 +1412,7 @@ def update_record(record, invenio_id: str, community_id: str):
         response = httpx.post(url, headers=headers, timeout=10.0)
         if response.status_code != 202:
             print(response.status_code, "u publish_draft_record")
-            # print(response.json())
+            print(response.json())
             return response.json()
 
         # add draft record to blog community if not already added
