@@ -1368,7 +1368,9 @@ def create_record(record, guid: str, community_id: str):
         )
         if len(post_to_update.data) == 0:
             print(f"error creating record invenio_id {invenio_id} for guid {guid}")
-
+            return response
+        
+        print(f"created record invenio_id {invenio_id} for guid {guid}")
         return response
     except Exception as error:
         print(error)
