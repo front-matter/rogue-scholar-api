@@ -1009,35 +1009,38 @@ def normalize_url(url: Optional[str], secure=False, lower=False) -> Optional[str
     """Normalize URL"""
     if url is None or not isinstance(url, str):
         return None
-    f = furl(url)
-    f.path.normalize()
+    try:
+        f = furl(url)
+        f.path.normalize()
 
-    # remove index.html
-    if f.path.segments and f.path.segments[-1] in ["index.html"]:
-        f.path.segments.pop(-1)
+        # remove index.html
+        if f.path.segments and f.path.segments[-1] in ["index.html"]:
+            f.path.segments.pop(-1)
 
-    # remove fragments
-    f.remove(fragment=True)
+        # remove fragments
+        f.remove(fragment=True)
 
-    # remove specific query parameters
-    f.remove(
-        [
-            "origin",
-            "ref",
-            "referrer",
-            "source",
-            "utm_content",
-            "utm_medium",
-            "utm_campaign",
-            "utm_source",
-        ]
-    )
-    if secure and f.scheme == "http":
-        f.set(scheme="https")
-    if lower:
-        return f.url.lower().strip("/")
-    return f.url.strip("/")
-
+        # remove specific query parameters
+        f.remove(
+            [
+                "origin",
+                "ref",
+                "referrer",
+                "source",
+                "utm_content",
+                "utm_medium",
+                "utm_campaign",
+                "utm_source",
+            ]
+        )
+        if secure and f.scheme == "http":
+            f.set(scheme="https")
+        if lower:
+            return f.url.lower().strip("/")
+        return f.url.strip("/")
+    except Exception as e:
+        print(e)
+        return None
 
 def get_src_url(src: str, url: str, home_page_url: str):
     """Get src url"""
