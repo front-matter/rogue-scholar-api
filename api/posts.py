@@ -382,7 +382,9 @@ async def extract_all_posts_by_blog(
             blog_with_posts["entries"] = []
         if blog.get("status", None) not in ["pending", "active"]:
             return blog_with_posts["entries"]
-        print(f"Extracting {len(blog_with_posts["entries"])} posts from {blog['slug']} at {feed_url}.")
+        n = len(blog_with_posts["entries"])
+        if n > 0:
+            print(f"Extracting {n} posts from {blog['slug']} at {feed_url}.")
         return [upsert_single_post(i) for i in blog_with_posts["entries"]]
     except Exception as e:
         print(f"{e} error.")
