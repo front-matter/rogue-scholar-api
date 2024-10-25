@@ -1302,6 +1302,7 @@ def upsert_single_post(post):
         if invenio_id:
             update_record(record.data, invenio_id, community_id)
         else:
+            print(f"creating record for guid {guid}")
             create_record(record.data, guid, community_id)
 
         return post_to_update.data[0]
@@ -1339,6 +1340,7 @@ def create_record(record, guid: str, community_id: str):
         if response.status_code != 201:
             print(response.status_code, "create_draft_record")
             print(response.json())
+            print(record)
             return response.json()
 
         invenio_id = response.json()["id"]
@@ -1412,10 +1414,12 @@ def update_record(record, invenio_id: str, community_id: str):
         # publish draft record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft/actions/publish"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
-        response = httpx.post(url, headers=headers, timeout=10.0)
-        if response.status_code != 202:
+        try:
+            response = httpx.post(url, headers=headers, timeout=10.0)
+            response.raise_for_status()
+        except httpx.HTTPError as e:
             print(response.status_code, "u publish_draft_record")
-            print(response.json())
+            capture_exception(e)
             return response.json()
 
         # add draft record to blog community if not already added
