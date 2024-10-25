@@ -203,7 +203,6 @@ async def extract_all_posts_by_blog(
 
         feed_url = url.set(params).url
         blog_with_posts = {}
-        print(f"Extracting posts from {blog['slug']} at {feed_url}.")
 
         # use pagination of results only for non-API blogs
         if params:
@@ -383,6 +382,7 @@ async def extract_all_posts_by_blog(
             blog_with_posts["entries"] = []
         if blog.get("status", None) not in ["pending", "active"]:
             return blog_with_posts["entries"]
+        print(f"Extracting {len(blog_with_posts["entries"])} posts from {blog['slug']} at {feed_url}.")
         return [upsert_single_post(i) for i in blog_with_posts["entries"]]
     except Exception as e:
         print(f"{e} error.")
@@ -1135,6 +1135,7 @@ async def update_rogue_scholar_post(post, blog):
         ):
             authors_ = get_contributors(content_html)
         if (
+            authors_ is None or
             len(authors_) == 0
             or authors_[0] is None
             or authors_[0].get("name", None) is None
