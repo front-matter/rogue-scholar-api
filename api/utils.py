@@ -26,6 +26,7 @@ from commonmeta.doi_utils import validate_prefix, get_doi_ra
 import frontmatter
 import pandoc
 # from pandoc.types import Str
+from sentry_sdk import capture_exception
 
 
 AUTHOR_IDS = {
@@ -1039,7 +1040,7 @@ def normalize_url(url: Optional[str], secure=False, lower=False) -> Optional[str
             return f.url.lower().strip("/")
         return f.url.strip("/")
     except Exception as e:
-        print(e)
+        capture_exception(e)
         return None
 
 def get_src_url(src: str, url: str, home_page_url: str):
