@@ -1411,6 +1411,8 @@ def update_record(record, invenio_id: str, community_id: str):
         try:
             response = httpx.post(url, headers=headers, timeout=10.0)
             response.raise_for_status()
+        except httpx.TimeoutException:
+            print(f"Timeout error for url {url}.")
         except httpx.HTTPError as e:
             print(response.status_code, "u publish_draft_record")
             capture_exception(e)
