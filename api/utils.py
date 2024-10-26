@@ -1184,6 +1184,7 @@ def get_known_doi_ra(doi: str) -> Optional[str]:
     datacite_prefixes = [
         "10.34732",
         "10.57689",
+        "10.58079",
     ]
     if doi is None:
         return None

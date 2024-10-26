@@ -820,7 +820,7 @@ async def extract_squarespace_post(post, blog):
             for i in wrap(post.get("categories", None))
             if i.split(":")[0] not in EXCLUDED_TAGS
         ][:5]
-        
+
         return {
             "authors": authors,
             "blog_name": blog.get("title", None),
@@ -1138,8 +1138,8 @@ async def update_rogue_scholar_post(post, blog):
         ):
             authors_ = get_contributors(content_html)
         if (
-            authors_ is None or
-            len(authors_) == 0
+            authors_ is None
+            or len(authors_) == 0
             or authors_[0] is None
             or authors_[0].get("name", None) is None
         ):
@@ -1304,7 +1304,7 @@ def upsert_single_post(post):
             update_record(record.data, invenio_id, community_id)
         else:
             print(f"creating record for guid {guid}")
-            create_record(record.data, guid, community_id)
+            return create_record(record.data, guid, community_id)
 
         return post_to_update.data[0]
     except Exception as e:
@@ -1335,10 +1335,8 @@ def create_record(record, guid: str, community_id: str):
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         response = httpx.post(url, headers=headers, json=record, timeout=10.0)
         # return error if record was not created
-        if response.status_code != 201:
-            print(response.status_code, "create_draft_record")
-            print(response.json())
-            print(record)
+        if response.status_code >= 400:
+            print(response.status_code, "create_draft_record", guid)
             return response.json()
 
         invenio_id = response.json()["id"]
@@ -1348,8 +1346,7 @@ def create_record(record, guid: str, community_id: str):
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         response = httpx.post(url, headers=headers, timeout=10.0)
         if response.status_code >= 400:
-            print(response.status_code, "publish_draft_record")
-            # print(response.json())
+            print(response.status_code, "publish_draft_record", guid)
             return response.json()
 
         # add draft record to blog community
@@ -1369,9 +1366,9 @@ def create_record(record, guid: str, community_id: str):
         if len(post_to_update.data) == 0:
             print(f"error creating record invenio_id {invenio_id} for guid {guid}")
             return response
-        
+
         print(f"created record invenio_id {invenio_id} for guid {guid}")
-        return response
+        return response.json()
     except Exception as error:
         print(error)
         return None

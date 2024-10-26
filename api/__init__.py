@@ -406,15 +406,14 @@ async def post_post(slug: str, suffix: Optional[str] = None):
 async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] = None):
     """Get post by slug."""
     prefixes = [
-        "10.13003",
-        "10.34732",
+        "10.34732",  # not managed by Front Matter
         "10.53731",
         "10.54900",
-        "10.57689",
+        "10.57689",  # not managed by Front Matter
+        "10.58079",  # not managed by Front Matter
         "10.59348",
         "10.59349",
         "10.59350",
-        "10.59704",
     ]
     permitted_slugs = ["unregistered", "updated"] + prefixes
     if slug not in permitted_slugs and not validate_uuid(slug):
@@ -457,7 +456,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
                 .execute()
             )
         else:
-            doi = f"https://doi.org/{slug}/{suffix}"
+            doi = f"https://doi.org/{slug}/{suffix.lower()}"
             response = (
                 supabase_client.table("posts")
                 .select("reference")
@@ -497,6 +496,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
             basename = slug
         else:
             doi = f"https://doi.org/{slug}/{suffix}"
+            print(doi)
             response = (
                 supabase_client.table("posts")
                 .select(postsWithContentSelect)
@@ -504,6 +504,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
                 .maybe_single()
                 .execute()
             )
+            print(response)
             basename = doi_from_url(doi).replace("/", "-")
         content = response.data.get("content_text", None)
         if format_ == "json":
