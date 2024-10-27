@@ -25,6 +25,7 @@ from api.utils import (
     is_valid_url,
 )
 
+
 async def find_feed(url: str) -> Optional[str]:
     """Find RSS feed in homepage. Based on https://gist.github.com/alexmill/9bc634240531d81c3abe
     Prefer JSON Feed over Atom over RSS"""
@@ -102,35 +103,48 @@ async def extract_single_blog(slug: str):
         return None
     config = response.data
     feed_url = config.get("feed_url", None)
+    print(f"Extracting {slug} from {feed_url}")
     if feed_url is None:
         feed_url = await find_feed(config["home_page_url"])
     socket.setdefaulttimeout(60)
-    parsed = feedparser.parse(config.get("feed_url", None) or feed_url)
-    feed = parsed.feed
-    home_page_url = config["home_page_url"] or feed.get("link", None)
-    updated_at = get_date(feed.get("updated", None))
-    if updated_at:
-        updated_at = unix_timestamp(updated_at) or config["updated_at"]
+    try:
+        parsed = feedparser.parse(config.get("feed_url", None) or feed_url)
+        feed = parsed.feed
+        home_page_url = config["home_page_url"] or feed.get("link", None)
+        updated_at = get_date(feed.get("updated", None))
+        if updated_at:
+            updated_at = unix_timestamp(updated_at) or config["updated_at"]
 
-    feed_format = parse_feed_format(feed) or config["feed_format"]
-    title = feed.get("title", None) or config["title"]
-    generator_raw = (
-        parse_generator(feed.get("generator_detail", None) or feed.get("generator"))
-        or config["generator_raw"]
-        or "Other"
-    )
-    generator = re.split(" ", generator_raw)[0]
-    description = feed.get("subtitle", None) or config["description"]
-    if description is not None:
-        description = bs4(description, "html.parser").get_text()
-    favicon = config["favicon"] or feed.get("icon", None)
+        feed_format = parse_feed_format(feed) or config["feed_format"]
+        title = feed.get("title", None) or config["title"]
+        generator_raw = (
+            parse_generator(feed.get("generator_detail", None) or feed.get("generator"))
+            or config["generator_raw"]
+            or "Other"
+        )
+        generator = re.split(" ", generator_raw)[0]
+        description = feed.get("subtitle", None) or config["description"]
+        if description is not None:
+            description = bs4(description, "html.parser").get_text()
+        favicon = config["favicon"] or feed.get("icon", None)
 
-    # ignore the default favicons
-    if favicon in ["https://s0.wp.com/i/buttonw-com.png"]:
-        favicon = None
-    language = feed.get("language", None) or config["language"]
-    if language:
-        language = language.split("-")[0]
+        # ignore the default favicons
+        if favicon in ["https://s0.wp.com/i/buttonw-com.png"]:
+            favicon = None
+        language = feed.get("language", None) or config["language"]
+        if language:
+            language = language.split("-")[0]
+    except Exception as error:
+        print(error)
+        
+        home_page_url = config["home_page_url"]
+        updated_at = config["updated_at"] or 0
+        feed_format = config["feed_format"]
+        title = config["title"]
+        generator = config["generator"]
+        generator_raw = config["generator_raw"]
+        favicon = config["favicon"]
+        language = config["language"]
 
     blog = {
         "id": config["id"],
@@ -328,7 +342,7 @@ def upsert_blog_community(blog):
 def create_blog_community(blog):
     """Create an InvenioRDM blog community."""
     try:
-        url = "{environ['QUART_INVENIORDM_API']}/api/communities"
+        url = f"{environ['QUART_INVENIORDM_API']}/api/communities"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         metadata = {
             "title": blog.get("title"),
@@ -389,6 +403,8 @@ def update_blog_community(blog):
 
 def upload_blog_logo(blog):
     """Upload an InvenioRDM blog community logo."""
+    if blog.get("favicon", None) is None:
+        return None
     try:
         url = (
             f"{environ['QUART_INVENIORDM_API']}/api/communities/{blog.get('slug')}/logo"
