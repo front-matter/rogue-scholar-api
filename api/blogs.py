@@ -93,7 +93,7 @@ async def extract_single_blog(slug: str):
     response = (
         supabase.table("blogs")
         .select(
-            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, mastodon, generator_raw, language, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure, community_id"
+            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, registered_at, mastodon, generator_raw, language, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure, community_id"
         )
         .eq("slug", slug)
         .maybe_single()
@@ -253,20 +253,20 @@ def parse_feed_format(feed):
 def update_single_blog(blog):
     """Update single blog."""
 
-    # find timestamp from last updated post
+    # find timestamp from last registered post
     response = (
         supabase.table("posts")
-        .select("updated_at")
+        .select("registered_at")
         .eq("blog_slug", blog.get("slug"))
-        .order("updated_at", desc=True)
+        .order("registered_at", desc=True)
         .limit(1)
         .execute()
     )
 
-    blog["updated_at"] = (
+    blog["registered_at"] = (
         response.data
         and response.data[0]
-        and response.data[0].get("updated_at", 0)
+        and response.data[0].get("registered_at", 0)
         or 0
     )
 
@@ -282,6 +282,7 @@ def update_single_blog(blog):
                     "home_page_url": blog.get("home_page_url", None),
                     "feed_format": blog.get("feed_format", None),
                     "updated_at": blog.get("updated_at", None),
+                    "registered_at": blog.get("registered_at", None),
                     "language": blog.get("language", None),
                     "category": blog.get("category", None),
                     "favicon": blog.get("favicon", None),
