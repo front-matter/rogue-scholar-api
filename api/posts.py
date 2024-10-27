@@ -414,7 +414,7 @@ async def update_all_posts_by_blog(slug: str, page: int = 1):
         response = (
             supabase.table("blogs")
             .select(
-                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, mastodon, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure"
+                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, registered_at, mastodon, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure"
             )
             .eq("slug", slug)
             .maybe_single()
@@ -1272,6 +1272,7 @@ def upsert_single_post(post):
                     "content_text": post.get("content_text", ""),
                     "images": post.get("images", None),
                     "updated_at": post.get("updated_at", None),
+                    "registered_at": post.get("registered_at", None),
                     "published_at": post.get("published_at", None),
                     "image": post.get("image", None),
                     "language": post.get("language", None),

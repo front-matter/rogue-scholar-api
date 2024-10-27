@@ -152,6 +152,7 @@ async def extract_single_blog(slug: str):
         "feed_url": feed_url,
         "created_at": config["created_at"],
         "updated_at": updated_at,
+        "registered_at": config["registered_at"],
         "current_feed_url": config["current_feed_url"],
         "home_page_url": home_page_url,
         "archive_prefix": config["archive_prefix"],
