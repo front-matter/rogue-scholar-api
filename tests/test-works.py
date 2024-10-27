@@ -11,7 +11,6 @@ async def test_get_single_work_blog_post():
     """get single work not found"""
     string = "10.53731/ybhah-9jy85"
     work = await get_single_work(string)
-    print(work)
     assert work["id"] == "https://doi.org/10.53731/ybhah-9jy85"
     assert work["type"] == "Article"
     assert (

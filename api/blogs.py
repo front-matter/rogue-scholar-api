@@ -381,8 +381,6 @@ def update_blog_community(blog):
             "metadata": metadata,
         }
         response = httpx.put(url, headers=headers, json=data, timeout=10)
-
-        print(response.json())
         return response
     except Exception as error:
         print(error)

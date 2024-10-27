@@ -1296,9 +1296,14 @@ def upsert_single_post(post):
             .execute()
         )
         guid = record.data.get("guid", None)
+        doi = record.data.get("doi", None)
         invenio_id = record.data.get("invenio_id", None)
         community_id = py_.get(record.data, "blog.community_id")
 
+        # if DOI doen't exist (yet), ignore InvenioRDM
+        if doi is None:
+            return post_to_update.data[0]
+        
         # if InvenioRDM record exists, update it, otherwise create it
         if invenio_id:
             update_record(record.data, invenio_id, community_id)
@@ -1402,7 +1407,6 @@ def update_record(record, invenio_id: str, community_id: str):
         response = httpx.put(url, headers=headers, json=record, timeout=10.0)
         if response.status_code != 200:
             print(response.status_code, "u update_draft_record")
-            # print(response.json())
             return response.json()
 
         # publish draft record
@@ -1440,7 +1444,7 @@ def add_record_to_community(invenio_id: str, community_id: str):
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/communities"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         response = httpx.post(url, headers=headers, json=data, timeout=10.0)
-        if response.status_code != 201:
+        if response.status_code >= 400:
             print(response.json())
         return response
     except Exception as error:
