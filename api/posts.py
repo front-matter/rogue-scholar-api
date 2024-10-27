@@ -1272,7 +1272,7 @@ def upsert_single_post(post):
                     "content_text": post.get("content_text", ""),
                     "images": post.get("images", None),
                     "updated_at": post.get("updated_at", None),
-                    "registered_at": post.get("registered_at", None),
+                    "registered_at": post.get("registered_at", 0),
                     "published_at": post.get("published_at", None),
                     "image": post.get("image", None),
                     "language": post.get("language", None),
