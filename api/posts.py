@@ -147,22 +147,35 @@ async def extract_all_posts_by_blog(
                         "_embed": 1,
                     }
                     if blog.get("filter", None):
-                        filters = blog.get("filter", "").split(":")
-                        if len(filters) == 2 and filters[0] == "category":
-                            if int(filters[1]) < 0:
-                                # exclude category if prefixed with minus sign
-                                params["categories_exclude"] = filters[1][1:]
-                            else:
-                                # otherwise include category
-                                params["categories"] = filters[1]
-                        elif len(filters) == 2 and filters[0] == "tag":
-                            if int(filters[1]) < 0:
-                                # exclude tag if prefixed with minus sign
-                                params["tags_exclude"] = filters[1][1:]
-                            else:
-                                # otherwise include tag
-                                params["tags"] = filters[1]
-
+                        filters = blog.get("filter", "").split(",")
+                        categories = []
+                        categories_exclude = []
+                        tags = []
+                        tags_exclude = []
+                        for fi in filters:
+                            f = fi.split(":")
+                            if len(f) == 2 and f[0] == "category":
+                                if int(f[1]) < 0:
+                                    # exclude category if prefixed with minus sign
+                                    categories_exclude.append(f[1][1:])
+                                else:
+                                    # otherwise include category
+                                    categories.append(f[1])
+                            elif len(f) == 2 and f[0] == "tag":
+                                if int(f[1]) < 0:
+                                    # exclude tag if prefixed with minus sign
+                                    tags_exclude.append(f[1][1:])
+                                else:
+                                    # otherwise include tag
+                                    tags.append(f[1])
+                        if len(categories) > 0:
+                            params["categories"] = ",".join(categories)
+                        if len(categories_exclude) > 0:
+                            params["categories_exclude"] = ",".join(categories_exclude)
+                        if len(tags) > 0:
+                            params["tags"] = ",".join(tags)
+                        if len(tags_exclude) > 0:
+                            params["tags_exclude"] = ",".join(tags_exclude)
                 else:
                     params = {"paged": page}
             case "WordPress.com":
@@ -203,6 +216,7 @@ async def extract_all_posts_by_blog(
                 params = {}
 
         feed_url = url.set(params).url
+        print(f"Extracting posts from {blog['slug']} at {feed_url}.")
         blog_with_posts = {}
 
         # use pagination of results only for non-API blogs
@@ -534,13 +548,19 @@ async def extract_wordpress_post(post, blog):
             or post.get("jetpack_featured_media_url", None)
         ) or get_image(images)
 
-        # optionally remove category that is used to filter posts
-        if blog.get("filter", None) and blog.get("filter", "").startswith("category"):
-            cat = blog.get("filter", "").split(":")[1]
+        # optionally remove terms (categories and tags) used to filter posts
+        if blog.get("filter", None):
+            filters = blog.get("filter", "").split(",")
+            terms = []
+            for fi in filters:
+                f = fi.split(":")
+                if int(f[1]) < 0:
+                    # exclude term if prefixed with minus sign
+                    terms.append(f[1][1:])
             categories = [
                 normalize_tag(i.get("name", None))
                 for i in wrap(py_.get(post, "_embedded.wp:term.0", None))
-                if i.get("id", None) != int(cat)
+                if i.get("id", None) not in terms
                 and i.get("name", "").split(":")[0] not in EXCLUDED_TAGS
             ]
         else:
@@ -1303,7 +1323,7 @@ def upsert_single_post(post):
         # if DOI doen't exist (yet), ignore InvenioRDM
         if doi is None:
             return post_to_update.data[0]
-        
+
         # if InvenioRDM record exists, update it, otherwise create it
         if invenio_id:
             update_record(record.data, invenio_id, community_id)
