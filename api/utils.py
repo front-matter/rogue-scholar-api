@@ -623,6 +623,13 @@ AUTHOR_AFFILIATIONS = {
             "start_date": "2024-09-01",
         },
     ],
+    "https://orcid.org/0000-0002-3761-3957": [
+        {
+            "name": "Physikalisch-Technische Bundesanstalt",
+            "id": "https://ror.org/05r3f7h03",
+            "start_date": "2018-01-01",
+        }
+    ],
 }
 
 
