@@ -57,6 +57,8 @@ from api.posts import (
     update_all_posts,
     update_all_posts_by_blog,
     update_single_post,
+    delete_draft_record,
+    delete_all_draft_records,
 )
 from api.blogs import extract_single_blog, extract_all_blogs
 from api.works import SUPPORTED_ACCEPT_HEADERS, get_formatted_work
@@ -632,6 +634,40 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
         return (response["data"], 200, response["options"])
     else:
         return {"error": "Post not found"}, 404
+
+
+@app.route("/records", methods=["DELETE"])
+async def delete_all_records():
+    """Delete all_InvenioRDM draft records."""
+    if (
+        request.headers.get("Authorization", None) is None
+        or request.headers.get("Authorization").split(" ")[1]
+        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
+    ):
+        return {"error": "Unauthorized."}, 401
+
+    try:
+        result = await delete_all_draft_records()
+        return jsonify(result)
+    except APIError as e:
+        return {"error": e.message or "An error occured."}, 400
+
+
+@app.route("/records/<slug>", methods=["DELETE"])
+async def delete_record(slug: str):
+    """Delete InvenioRDM draft record using the invenio_id."""
+    if (
+        request.headers.get("Authorization", None) is None
+        or request.headers.get("Authorization").split(" ")[1]
+        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
+    ):
+        return {"error": "Unauthorized."}, 401
+    try:
+        result = await delete_draft_record(slug)
+        return jsonify(result)
+    except Exception as e:
+        logger.warning(e.args[0])
+        return {"error": "An error occured."}, 400
 
 
 @app.errorhandler(RequestSchemaValidationError)

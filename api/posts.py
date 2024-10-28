@@ -22,6 +22,7 @@ from commonmeta import (
     validate_url,
     validate_prefix,
 )
+from math import ceil
 from Levenshtein import ratio
 from sentry_sdk import capture_exception
 
@@ -113,7 +114,7 @@ async def extract_all_posts_by_blog(
         response = (
             supabase.table("blogs")
             .select(
-                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, registered_at, mastodon, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure"
+                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, registered_at, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure"
             )
             .eq("slug", slug)
             .maybe_single()
@@ -1887,3 +1888,71 @@ def get_award(id: Optional[str]) -> Optional[dict]:
     if id is None or award is None:
         return None
     return award
+
+async def delete_draft_record(invenio_id: str):
+    """Delete an InvenioRDM draft record."""
+    if invenio_id is None:
+        return None
+    try:
+        url = (
+            f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft"
+        )
+        headers = {
+            "Content-Type": "application/octet-stream",
+            "Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}",
+        }
+        async with httpx.AsyncClient() as client:
+            response = await client.delete(
+                        url, headers=headers, timeout=10.0
+                    )
+            if response.status_code != 204:
+                print(response.json())
+        return {"message": f"Draft record {invenio_id} deleted"}
+    except Exception as error:
+        print(error)
+        return None
+    
+async def delete_all_draft_records():
+    """Delete all InvenioRDM draft records."""
+    try:
+        number_of_records = await get_number_of_draft_records()
+        pages = ceil(number_of_records / 50)
+        for page in range(1, pages + 1):
+            message = await delete_draft_records(page)
+            print(message)
+        return {"message": f"{number_of_records} draft records deleted"}
+    except Exception as error:
+        print(error)
+        return None
+
+async def delete_draft_records(page: int=1):
+    """Delete InvenioRDM draft records."""
+    try:
+        url = f"{environ['QUART_INVENIORDM_API']}/api/user/records?q=is_published:false&page={page}&size=50&sort=updated-desc"
+        headers = {
+            "Content-Type": "application/octet-stream",
+            "Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}",
+        }
+        response = httpx.get(url, headers=headers, timeout=10)
+        records = py_.get(response.json(), "hits.hits", [])
+        n = py_.get(response.json(), "hits.total", 0)
+        await asyncio.gather(*[delete_draft_record(record["id"]) for record in records])
+        return {"message": f"{n} draft records deleted"}
+    except Exception as error:
+        print(error)
+        return None
+    
+async def get_number_of_draft_records():
+    """Get number of InvenioRDM draft records."""
+    try:
+        url = f"{environ['QUART_INVENIORDM_API']}/api/user/records?q=is_published:false"
+        headers = {
+            "Content-Type": "application/octet-stream",
+            "Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}",
+        }
+        response = httpx.get(url, headers=headers, timeout=10)
+        n = py_.get(response.json(), "hits.total", 0)
+        return n
+    except Exception as error:
+        print(error)
+        return None
