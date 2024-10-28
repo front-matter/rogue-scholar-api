@@ -1235,7 +1235,7 @@ def filter_updated_posts(posts, blog, key):
         date_updated = get_date(date)
         return unix_timestamp(date_updated)
 
-    return [x for x in posts if parse_date(x.get(key, None)) > blog["registered_at"]]
+    return [x for x in posts if parse_date(x.get(key, None)) > blog["updated_at"]]
 
 
 def filter_posts(posts, blog, key):

@@ -254,20 +254,20 @@ def parse_feed_format(feed):
 def update_single_blog(blog):
     """Update single blog."""
 
-    # find timestamp from last registered post
+    # find timestamp from last updated post
     response = (
         supabase.table("posts")
-        .select("registered_at")
+        .select("updated_at")
         .eq("blog_slug", blog.get("slug"))
-        .order("registered_at", desc=True)
+        .order("updated_at", desc=True)
         .limit(1)
         .execute()
     )
 
-    blog["registered_at"] = (
+    blog["updated_at"] = (
         response.data
         and response.data[0]
-        and response.data[0].get("registered_at", 0)
+        and response.data[0].get("updated_at", 0)
         or 0
     )
 
