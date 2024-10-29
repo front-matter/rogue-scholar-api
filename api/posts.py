@@ -1406,6 +1406,8 @@ def update_record(record, invenio_id: str, community_id: str):
     try:
         subject = Metadata(record, via="json_feed_item")
         record = JSON.loads(subject.write(to="inveniordm"))
+        
+        guid = py_.get(record, "metadata.identifiers[1].identifier")
 
         # remove publisher field, currently not used with InvenioRDM
         record = py_.omit(record, "metadata.publisher")
@@ -1441,7 +1443,8 @@ def update_record(record, invenio_id: str, community_id: str):
             print(f"Timeout error for url {url}.")
         except httpx.HTTPError as e:
             print(response.status_code, "u publish_draft_record")
-            capture_exception(e)
+            print(e)
+            # capture_exception(e)
             return response.json()
 
         # add draft record to blog community if not already added
@@ -1449,6 +1452,7 @@ def update_record(record, invenio_id: str, community_id: str):
         if len(communities) == 0:
             add_record_to_community(invenio_id, community_id)
 
+        print(f"Updated record invenio_id {invenio_id} for guid {guid}")
         return response
     except Exception as error:
         print(error)
