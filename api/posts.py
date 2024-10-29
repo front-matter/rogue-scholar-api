@@ -1203,6 +1203,7 @@ async def update_rogue_scholar_post(post, blog):
         images = get_images(content_html, url, blog["home_page_url"])
         image = post.get("image", None) or get_image(images)
 
+        language = post.get("language", None) or detect_language(content_text)
         # optionally remove tag that is used to filter posts
         if blog.get("filter", None) and blog.get("filter", "").startswith("tag"):
             tag = blog.get("filter", "").split(":")[1]
@@ -1235,7 +1236,7 @@ async def update_rogue_scholar_post(post, blog):
             "updated_at": updated_at,
             "image": image,
             "images": images,
-            "language": detect_language(content_text),
+            "language": language,
             "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
