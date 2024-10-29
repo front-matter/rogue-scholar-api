@@ -260,6 +260,9 @@ async def extract_all_posts_by_blog(
                 except httpx.TimeoutException:
                     print(f"Timeout error for feed {feed_url}.")
                     posts = []
+                except httpx.NetworkError as e:
+                    print(f"Network error for feed {feed_url}.")
+                    posts = []
                 except httpx.HTTPError as e:
                     capture_exception(e)
                     posts = []
@@ -279,6 +282,9 @@ async def extract_all_posts_by_blog(
                 except httpx.TimeoutException:
                     print(f"Timeout error for feed {feed_url}.")
                     posts = []
+                except httpx.NetworkError as e:
+                    print(f"Network error for feed {feed_url}.")
+                    posts = []
                 except httpx.HTTPError as e:
                     capture_exception(e)
                     posts = []
@@ -296,6 +302,9 @@ async def extract_all_posts_by_blog(
                         posts = filter_updated_posts(posts, blog, key="updated_at")
                 except httpx.TimeoutException:
                     print(f"Timeout error for feed {feed_url}.")
+                    posts = []
+                except httpx.NetworkError as e:
+                    print(f"Network error for feed {feed_url}.")
                     posts = []
                 except httpx.HTTPError as e:
                     capture_exception(e)
@@ -317,6 +326,9 @@ async def extract_all_posts_by_blog(
                 except httpx.TimeoutException:
                     print(f"Timeout error for feed {feed_url}.")
                     posts = []
+                except httpx.NetworkError as e:
+                    print(f"Network error for feed {feed_url}.")
+                    posts = []
                 except httpx.HTTPError as e:
                     capture_exception(e)
                     posts = []
@@ -336,6 +348,9 @@ async def extract_all_posts_by_blog(
                     posts = posts[start_page:end_page]
                 except httpx.TimeoutException:
                     print(f"Timeout error for feed {feed_url}.")
+                    posts = []
+                except httpx.NetworkError as e:
+                    print(f"Network error for feed {feed_url}.")
                     posts = []
                 except httpx.HTTPError as e:
                     capture_exception(e)
@@ -363,6 +378,9 @@ async def extract_all_posts_by_blog(
                 except httpx.TimeoutException:
                     print(f"Timeout error for feed {feed_url}.")
                     posts = []
+                except httpx.NetworkError as e:
+                    print(f"Network error for feed {feed_url}.")
+                    posts = []
                 except httpx.HTTPError as e:
                     capture_exception(e)
                     posts = []
@@ -388,6 +406,9 @@ async def extract_all_posts_by_blog(
                     posts = posts[start_page:end_page]
                 except httpx.TimeoutException:
                     print(f"Timeout error for feed {feed_url}.")
+                    posts = []
+                except httpx.NetworkError as e:
+                    print(f"Network error for feed {feed_url}.")
                     posts = []
                 except httpx.HTTPError as e:
                     capture_exception(e)
