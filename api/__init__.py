@@ -249,6 +249,13 @@ async def blog(slug):
 async def post_blog(slug):
     """Update blog by slug, using information from the blog's feed.
     Create InvenioRDM entry for the blog."""
+    if (
+        request.headers.get("Authorization", None) is None
+        or request.headers.get("Authorization").split(" ")[1]
+        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
+    ):
+        return {"error": "Unauthorized."}, 401
+
     result = await extract_single_blog(slug)
     return jsonify(result)
 
@@ -392,6 +399,12 @@ async def post_posts():
 @app.route("/posts/<slug>/<suffix>", methods=["POST"])
 async def post_post(slug: str, suffix: Optional[str] = None):
     """Update post by either uuid or doi, using information from the blog's feed."""
+    if (
+        request.headers.get("Authorization", None) is None
+        or request.headers.get("Authorization").split(" ")[1]
+        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
+    ):
+        return {"error": "Unauthorized."}, 401
 
     try:
         result = await update_single_post(slug, suffix=suffix)
@@ -668,6 +681,18 @@ async def delete_record(slug: str):
     except Exception as e:
         logger.warning(e.args[0])
         return {"error": "An error occured."}, 400
+
+
+# @app.route("/communities/<slug>/featured", methods=["POST"])
+# async def feature_community(slug: str):
+#     """feature InvenioRDM community using slug."""
+#     try:
+#         community_id = await get_community_id(slug)
+#         result = await get_community(slug)
+#         return jsonify(result)
+#     except Exception as e:
+#         logger.warning(e.args[0])
+#         return {"error": "An error occured."}, 400
 
 
 @app.errorhandler(RequestSchemaValidationError)
