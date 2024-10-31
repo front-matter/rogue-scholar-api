@@ -974,7 +974,6 @@ async def extract_atom_post(post, blog):
     """Extract Atom post."""
 
     try:
-
         def format_author(author, published_at):
             """Format author."""
             return normalize_author(
@@ -997,6 +996,8 @@ async def extract_atom_post(post, blog):
 
         # workaround, as content should be encodes as CDATA block
         content_html = html.unescape(py_.get(post, "content.#text", ""))
+        if content_html == "":
+            content_html = html.unescape(py_.get(post, "content.div.#text", ""))
         content_text = get_markdown(content_html)
         title = get_title(py_.get(post, "title.#text", None)) or get_title(
             post.get("title", None)
