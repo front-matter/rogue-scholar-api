@@ -548,10 +548,21 @@ async def extract_wordpress_post(post, blog):
             return normalize_author(
                 author.get("name", None), published_at, author.get("url", None)
             )
-
+        
         published_at = unix_timestamp(post.get("date_gmt", None))
-        # use default author for blog if no post author found
         authors_ = wrap(py_.get(post, "_embedded.author", None))
+        title = py_.get(post, "title.rendered", "")
+        
+        # check for author name in title
+        author = None
+        title_parts = title.split(" by ")
+        if len(title_parts) > 1:
+            title = title_parts[0]
+            author = title_parts[1]
+        if author:
+            authors_ = [{"name": author}]
+        
+        # use default author for blog if no post author found
         if len(authors_) == 0 or authors_[0].get("name", None) is None:
             authors_ = wrap(blog.get("authors", None))
         authors = [format_author(i, published_at) for i in authors_]
@@ -628,7 +639,7 @@ async def extract_wordpress_post(post, blog):
             "reference": reference,
             "relationships": relationships,
             "tags": terms,
-            "title": py_.get(post, "title.rendered", ""),
+            "title": title,
             "url": url,
             "archive_url": archive_url,
             "guid": py_.get(post, "guid.rendered", None),
