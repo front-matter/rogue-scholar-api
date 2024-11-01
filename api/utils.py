@@ -90,6 +90,7 @@ AUTHOR_IDS = {
     "Wilma van Wezenbeek": "https://orcid.org/0000-0002-9558-3709",
     "Ross Mounce": "https://orcid.org/0000-0002-3520-2046",
     "Abhishek Tiwari": "https://orcid.org/0000-0003-2222-2395",
+    "Cameron Neylon": "https://orcid.org/0000-0002-0068-716X",
 }
 
 AUTHOR_NAMES = {
@@ -629,6 +630,23 @@ AUTHOR_AFFILIATIONS = {
             "name": "Physikalisch-Technische Bundesanstalt",
             "id": "https://ror.org/05r3f7h03",
             "start_date": "2018-01-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-0068-716X": [
+        {
+            "name": "Science and Technology Facilities Council",
+            "id": "https://ror.org/057g20z61",
+            "start_date": "2005-09-01",
+        },
+        {
+            "name": "Public Library of Science",
+            "id": "https://ror.org/008zgvp64",
+            "start_date": "2012-07-12",
+        },
+        {
+            "name": "Curtin University",
+            "id": "https://ror.org/02n415q13",
+            "start_date": "2015-07-21",
         }
     ],
 }
