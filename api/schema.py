@@ -45,6 +45,7 @@ class Post:
     id: str
     guid: str
     doi: str
+    rid: str
     url: str
     archive_url: str
     title: str
