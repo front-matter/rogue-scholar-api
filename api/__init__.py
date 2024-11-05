@@ -668,7 +668,7 @@ async def delete_all_records():
 
 @app.route("/records/<slug>", methods=["DELETE"])
 async def delete_record(slug: str):
-    """Delete InvenioRDM draft record using the invenio_id."""
+    """Delete InvenioRDM draft record using the rid."""
     if (
         request.headers.get("Authorization", None) is None
         or request.headers.get("Authorization").split(" ")[1]

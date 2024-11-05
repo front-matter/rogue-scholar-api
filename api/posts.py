@@ -1356,7 +1356,7 @@ def upsert_single_post(post):
         )
         guid = record.data.get("guid", None)
         doi = record.data.get("doi", None)
-        invenio_id = record.data.get("invenio_id", None)
+        rid = record.data.get("rid", None)
         community_id = py_.get(record.data, "blog.community_id")
 
         # if DOI doen't exist (yet), ignore InvenioRDM
@@ -1364,8 +1364,8 @@ def upsert_single_post(post):
             return post_to_update.data[0]
 
         # if InvenioRDM record exists, update it, otherwise create it
-        if invenio_id:
-            update_record(record.data, invenio_id, community_id)
+        if rid:
+            update_record(record.data, rid, community_id)
         else:
             print(f"creating record for guid {guid}")
             return create_record(record.data, guid, community_id)
@@ -1403,10 +1403,10 @@ def create_record(record, guid: str, community_id: str):
             print(response.status_code, "create_draft_record", guid)
             return response.json()
 
-        invenio_id = response.json()["id"]
+        rid = response.json()["id"]
 
         # publish draft record
-        url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft/actions/publish"
+        url = f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/draft/actions/publish"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         response = httpx.post(url, headers=headers, timeout=10.0)
         if response.status_code >= 400:
@@ -1414,31 +1414,31 @@ def create_record(record, guid: str, community_id: str):
             return response.json()
 
         # add draft record to blog community
-        add_record_to_community(invenio_id, community_id)
+        add_record_to_community(rid, community_id)
 
-        # update rogue scholar database with InvenioRDM record id (invenio_id) if record was created
+        # update rogue scholar database with InvenioRDM record id (rid) if record was created
         post_to_update = (
             supabase_admin.table("posts")
             .update(
                 {
-                    "invenio_id": invenio_id,
+                    "rid": rid,
                 }
             )
             .eq("guid", guid)
             .execute()
         )
         if len(post_to_update.data) == 0:
-            print(f"error creating record invenio_id {invenio_id} for guid {guid}")
+            print(f"error creating record rid {rid} for guid {guid}")
             return response
 
-        print(f"created record invenio_id {invenio_id} for guid {guid}")
+        print(f"created record rid {rid} for guid {guid}")
         return response.json()
     except Exception as error:
         print(error)
         return None
 
 
-def update_record(record, invenio_id: str, community_id: str):
+def update_record(record, rid: str, community_id: str):
     """Update InvenioRDM record."""
     try:
         subject = Metadata(record, via="json_feed_item")
@@ -1456,14 +1456,14 @@ def update_record(record, invenio_id: str, community_id: str):
             )
 
         # create draft record from published record
-        url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft"
+        url = f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/draft"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         response = httpx.post(url, headers=headers, timeout=10.0)
         if response.status_code != 201:
             return response.json()
 
         # update draft record
-        url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft"
+        url = f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/draft"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         response = httpx.put(url, headers=headers, json=record, timeout=10.0)
         if response.status_code != 200:
@@ -1471,7 +1471,7 @@ def update_record(record, invenio_id: str, community_id: str):
             return response.json()
 
         # publish draft record
-        url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft/actions/publish"
+        url = f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/draft/actions/publish"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         try:
             response = httpx.post(url, headers=headers, timeout=10.0)
@@ -1487,16 +1487,16 @@ def update_record(record, invenio_id: str, community_id: str):
         # add draft record to blog community if not already added
         communities = py_.get(response.json(), "parent.communities.entries", [])
         if len(communities) == 0:
-            add_record_to_community(invenio_id, community_id)
+            add_record_to_community(rid, community_id)
 
-        print(f"Updated record invenio_id {invenio_id} for guid {guid}")
+        print(f"Updated record rid {rid} for guid {guid}")
         return response
     except Exception as error:
         print(error)
         return None
 
 
-def add_record_to_community(invenio_id: str, community_id: str):
+def add_record_to_community(rid: str, community_id: str):
     """Add record to community."""
     try:
         data = {
@@ -1504,7 +1504,7 @@ def add_record_to_community(invenio_id: str, community_id: str):
                 {"id": community_id},
             ]
         }
-        url = f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/communities"
+        url = f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/communities"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         response = httpx.post(url, headers=headers, json=data, timeout=10.0)
         if response.status_code >= 400:
@@ -1930,13 +1930,13 @@ def get_award(id: Optional[str]) -> Optional[dict]:
         return None
     return award
 
-async def delete_draft_record(invenio_id: str):
+async def delete_draft_record(rid: str):
     """Delete an InvenioRDM draft record."""
-    if invenio_id is None:
+    if rid is None:
         return None
     try:
         url = (
-            f"{environ['QUART_INVENIORDM_API']}/api/records/{invenio_id}/draft"
+            f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/draft"
         )
         headers = {
             "Content-Type": "application/octet-stream",
@@ -1948,7 +1948,7 @@ async def delete_draft_record(invenio_id: str):
                     )
             if response.status_code != 204:
                 print(response.json())
-        return {"message": f"Draft record {invenio_id} deleted"}
+        return {"message": f"Draft record {rid} deleted"}
     except Exception as error:
         print(error)
         return None
