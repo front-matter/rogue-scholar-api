@@ -548,20 +548,24 @@ async def extract_wordpress_post(post, blog):
             return normalize_author(
                 author.get("name", None), published_at, author.get("url", None)
             )
-        
+
         published_at = unix_timestamp(post.get("date_gmt", None))
         authors_ = wrap(py_.get(post, "_embedded.author", None))
         title = py_.get(post, "title.rendered", "")
-        
+
         # check for author name in title
         author = None
         title_parts = title.split(" by ")
-        if len(title_parts) > 1 and len(title_parts[1].split(" ")) < 4:
+        if (
+            len(title_parts) > 1
+            and authors_
+            and py_.get(authors_, "0.name", None) in ["CSTonline"]
+        ):
             title = title_parts[0]
             author = title_parts[1]
         if author:
             authors_ = [{"name": author}]
-        
+
         # use default author for blog if no post author found
         if len(authors_) == 0 or authors_[0].get("name", None) is None:
             authors_ = wrap(blog.get("authors", None))
@@ -974,6 +978,7 @@ async def extract_atom_post(post, blog):
     """Extract Atom post."""
 
     try:
+
         def format_author(author, published_at):
             """Format author."""
             return normalize_author(
@@ -1406,7 +1411,9 @@ def create_record(record, guid: str, community_id: str):
         rid = response.json()["id"]
 
         # publish draft record
-        url = f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/draft/actions/publish"
+        url = (
+            f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/draft/actions/publish"
+        )
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         response = httpx.post(url, headers=headers, timeout=10.0)
         if response.status_code >= 400:
@@ -1443,7 +1450,7 @@ def update_record(record, rid: str, community_id: str):
     try:
         subject = Metadata(record, via="json_feed_item")
         record = JSON.loads(subject.write(to="inveniordm"))
-        
+
         guid = py_.get(record, "metadata.identifiers[1].identifier")
 
         # remove publisher field, currently not used with InvenioRDM
@@ -1468,10 +1475,13 @@ def update_record(record, rid: str, community_id: str):
         response = httpx.put(url, headers=headers, json=record, timeout=10.0)
         if response.status_code != 200:
             print(response.status_code, "u update_draft_record")
+            print(response.json())
             return response.json()
 
         # publish draft record
-        url = f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/draft/actions/publish"
+        url = (
+            f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/draft/actions/publish"
+        )
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         try:
             response = httpx.post(url, headers=headers, timeout=10.0)
@@ -1930,29 +1940,27 @@ def get_award(id: Optional[str]) -> Optional[dict]:
         return None
     return award
 
+
 async def delete_draft_record(rid: str):
     """Delete an InvenioRDM draft record."""
     if rid is None:
         return None
     try:
-        url = (
-            f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/draft"
-        )
+        url = f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/draft"
         headers = {
             "Content-Type": "application/octet-stream",
             "Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}",
         }
         async with httpx.AsyncClient() as client:
-            response = await client.delete(
-                        url, headers=headers, timeout=10.0
-                    )
+            response = await client.delete(url, headers=headers, timeout=10.0)
             if response.status_code != 204:
                 print(response.json())
         return {"message": f"Draft record {rid} deleted"}
     except Exception as error:
         print(error)
         return None
-    
+
+
 async def delete_all_draft_records():
     """Delete all InvenioRDM draft records."""
     try:
@@ -1966,7 +1974,8 @@ async def delete_all_draft_records():
         print(error)
         return None
 
-async def delete_draft_records(page: int=1):
+
+async def delete_draft_records(page: int = 1):
     """Delete InvenioRDM draft records."""
     try:
         url = f"{environ['QUART_INVENIORDM_API']}/api/user/records?q=is_published:false&page={page}&size=50&sort=updated-desc"
@@ -1982,7 +1991,8 @@ async def delete_draft_records(page: int=1):
     except Exception as error:
         print(error)
         return None
-    
+
+
 async def get_number_of_draft_records():
     """Get number of InvenioRDM draft records."""
     try:
