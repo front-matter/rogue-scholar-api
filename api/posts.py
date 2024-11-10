@@ -556,7 +556,7 @@ async def extract_wordpress_post(post, blog):
         # check for author name in title
         author = None
         title_parts = title.split(" by ")
-        if len(title_parts) > 1:
+        if len(title_parts) > 1 and len(title_parts[1].split(" ")) < 4:
             title = title_parts[0]
             author = title_parts[1]
         if author:

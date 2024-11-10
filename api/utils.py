@@ -91,6 +91,7 @@ AUTHOR_IDS = {
     "Ross Mounce": "https://orcid.org/0000-0002-3520-2046",
     "Abhishek Tiwari": "https://orcid.org/0000-0003-2222-2395",
     "Cameron Neylon": "https://orcid.org/0000-0002-0068-716X",
+    "Reda Sadki": "https://orcid.org/0000-0003-4051-0606",
 }
 
 AUTHOR_NAMES = {
@@ -649,6 +650,13 @@ AUTHOR_AFFILIATIONS = {
             "start_date": "2015-07-21",
         }
     ],
+    "https://orcid.org/0000-0003-4051-0606": [
+        {
+            "name": "The Geneva Learning Foundation",
+            "id": "https://ror.org/04h13ss13",
+            "start_date": "2016-03-01",
+        }
+    ]
 }
 
 
