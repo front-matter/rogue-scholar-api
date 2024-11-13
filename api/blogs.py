@@ -5,6 +5,7 @@ import asyncio
 from os import environ
 from typing import Optional
 import httpx
+import ssl
 import feedparser
 import re
 from bs4 import BeautifulSoup as bs4
@@ -308,9 +309,12 @@ def update_single_blog(blog):
 def push_blog_community_id(slug):
     """Get InvenioRDM blog community id and store in blog."""
     try:
+        context = ssl.create_default_context()
+        if environ['QUART_INVENIORDM_API'] == "https://localhost":
+            context = False
         url = f"{environ['QUART_INVENIORDM_API']}/api/communities?q=slug:{slug}"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
-        response = httpx.get(url, headers=headers, timeout=10)
+        response = httpx.get(url, headers=headers, timeout=10,verify=context)
         result = response.json()
         if py_.get(result, "hits.total") != 1:
             return result
@@ -344,6 +348,9 @@ def upsert_blog_community(blog):
 def create_blog_community(blog):
     """Create an InvenioRDM blog community."""
     try:
+        context = ssl.create_default_context()
+        if environ['QUART_INVENIORDM_API'] == "https://localhost":
+            context = False
         url = f"{environ['QUART_INVENIORDM_API']}/api/communities"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         metadata = {
@@ -365,7 +372,8 @@ def create_blog_community(blog):
             "slug": blog.get("slug"),
             "metadata": metadata,
         }
-        response = httpx.post(url, headers=headers, json=data, timeout=10)
+        print("Creating blog community", environ['QUART_INVENIORDM_VERIFY_SSL'])
+        response = httpx.post(url, headers=headers, json=data, timeout=10,verify=context)
         return response
     except Exception as error:
         print(error)
@@ -375,6 +383,9 @@ def create_blog_community(blog):
 def update_blog_community(blog):
     """Update an InvenioRDM blog community."""
     try:
+        context = ssl.create_default_context()
+        if environ['QUART_INVENIORDM_API'] == "https://localhost":
+            context = False
         url = f"{environ['QUART_INVENIORDM_API']}/api/communities/{blog.get('slug')}"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         metadata = {
@@ -396,7 +407,7 @@ def update_blog_community(blog):
             "slug": blog.get("slug"),
             "metadata": metadata,
         }
-        response = httpx.put(url, headers=headers, json=data, timeout=10)
+        response = httpx.put(url, headers=headers, json=data, timeout=10,verify=context)
         return response
     except Exception as error:
         print(error)
@@ -408,6 +419,9 @@ def upload_blog_logo(blog):
     if blog.get("favicon", None) is None:
         return None
     try:
+        context = ssl.create_default_context()
+        if environ['QUART_INVENIORDM_API'] == "https://localhost":
+            context = False
         url = (
             f"{environ['QUART_INVENIORDM_API']}/api/communities/{blog.get('slug')}/logo"
         )
@@ -418,7 +432,7 @@ def upload_blog_logo(blog):
         content = httpx.get(
             blog.get("favicon"), timeout=10, follow_redirects=True
         ).content
-        response = httpx.put(url, headers=headers, content=content, timeout=10)
+        response = httpx.put(url, headers=headers, content=content, timeout=10,verify=context)
         return response
     except Exception as error:
         print(error)
@@ -454,11 +468,14 @@ def upload_blog_logo(blog):
 def feature_community(id):
     """Feature an InvenioRDM community by id."""
     try:
+        context = ssl.create_default_context()
+        if environ['QUART_INVENIORDM_API'] == "https://localhost":
+            context = False
         url = f"{environ['QUART_INVENIORDM_API']}/api/communities/{id}/featured"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         now = datetime.datetime.now().isoformat()
         data = {"start_date": now}
-        response = httpx.post(url, headers=headers, json=data, timeout=10)
+        response = httpx.post(url, headers=headers, json=data, timeout=10,verify=context)
         return response
     except Exception as error:
         print(error)
