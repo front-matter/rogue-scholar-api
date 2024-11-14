@@ -25,6 +25,7 @@ from commonmeta.date_utils import get_date_from_unix_timestamp
 from commonmeta.doi_utils import validate_prefix, get_doi_ra
 import frontmatter
 import pandoc
+
 # from pandoc.types import Str
 from sentry_sdk import capture_exception, capture_message
 
@@ -648,7 +649,7 @@ AUTHOR_AFFILIATIONS = {
             "name": "Curtin University",
             "id": "https://ror.org/02n415q13",
             "start_date": "2015-07-21",
-        }
+        },
     ],
     "https://orcid.org/0000-0003-4051-0606": [
         {
@@ -656,7 +657,7 @@ AUTHOR_AFFILIATIONS = {
             "id": "https://ror.org/04h13ss13",
             "start_date": "2016-03-01",
         }
-    ]
+    ],
 }
 
 
@@ -1077,6 +1078,7 @@ def normalize_url(url: Optional[str], secure=False, lower=False) -> Optional[str
         capture_message(f"Error normalizing url {url}", "warning")
         return None
 
+
 def get_src_url(src: str, url: str, home_page_url: str):
     """Get src url"""
 
@@ -1102,6 +1104,11 @@ def is_valid_url(url: str) -> bool:
         return f.scheme in ["http", "https", "data", "mailto"]
     except Exception:
         return False
+
+
+def is_local():
+    """Rogue Scholar API runs at localhost"""
+    return environ["QUART_INVENIORDM_API"] == "https://localhost"
 
 
 def detect_language(text: str) -> str:

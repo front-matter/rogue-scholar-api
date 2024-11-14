@@ -24,6 +24,7 @@ from api.utils import (
     wrap,
     normalize_url,
     is_valid_url,
+    is_local,
 )
 
 
@@ -310,7 +311,7 @@ def push_blog_community_id(slug):
     """Get InvenioRDM blog community id and store in blog."""
     try:
         context = ssl.create_default_context()
-        if environ['QUART_INVENIORDM_API'] == "https://localhost":
+        if is_local():
             context = False
         url = f"{environ['QUART_INVENIORDM_API']}/api/communities?q=slug:{slug}"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
@@ -349,7 +350,7 @@ def create_blog_community(blog):
     """Create an InvenioRDM blog community."""
     try:
         context = ssl.create_default_context()
-        if environ['QUART_INVENIORDM_API'] == "https://localhost":
+        if is_local():
             context = False
         url = f"{environ['QUART_INVENIORDM_API']}/api/communities"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
@@ -372,7 +373,6 @@ def create_blog_community(blog):
             "slug": blog.get("slug"),
             "metadata": metadata,
         }
-        print("Creating blog community", environ['QUART_INVENIORDM_VERIFY_SSL'])
         response = httpx.post(url, headers=headers, json=data, timeout=10,verify=context)
         return response
     except Exception as error:
@@ -384,7 +384,7 @@ def update_blog_community(blog):
     """Update an InvenioRDM blog community."""
     try:
         context = ssl.create_default_context()
-        if environ['QUART_INVENIORDM_API'] == "https://localhost":
+        if is_local():
             context = False
         url = f"{environ['QUART_INVENIORDM_API']}/api/communities/{blog.get('slug')}"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
@@ -420,7 +420,7 @@ def upload_blog_logo(blog):
         return None
     try:
         context = ssl.create_default_context()
-        if environ['QUART_INVENIORDM_API'] == "https://localhost":
+        if is_local():
             context = False
         url = (
             f"{environ['QUART_INVENIORDM_API']}/api/communities/{blog.get('slug')}/logo"
@@ -469,7 +469,7 @@ def feature_community(id):
     """Feature an InvenioRDM community by id."""
     try:
         context = ssl.create_default_context()
-        if environ['QUART_INVENIORDM_API'] == "https://localhost":
+        if is_local():
             context = False
         url = f"{environ['QUART_INVENIORDM_API']}/api/communities/{id}/featured"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}

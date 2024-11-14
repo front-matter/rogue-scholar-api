@@ -43,6 +43,7 @@ from api.utils import (
     write_html,
     validate_uuid,
     id_as_str,
+    is_local,
     EXCLUDED_TAGS,
 )
 from api.works import get_single_work
@@ -1386,7 +1387,7 @@ def create_record(record, guid: str, community_id: str):
     """Create InvenioRDM record."""
     try:
         context = ssl.create_default_context()
-        if environ['QUART_INVENIORDM_API'] == "https://localhost":
+        if is_local():
             context = False
         if community_id is None:
             return {"error": "Blog community not found"}
@@ -1453,7 +1454,7 @@ def update_record(record, rid: str, community_id: str):
     """Update InvenioRDM record."""
     try:
         context = ssl.create_default_context()
-        if environ['QUART_INVENIORDM_API'] == "https://localhost":
+        if is_local():
             context = False
         subject = Metadata(record, via="json_feed_item")
         record = JSON.loads(subject.write(to="inveniordm"))
@@ -1517,7 +1518,7 @@ def add_record_to_community(rid: str, community_id: str):
     """Add record to community."""
     try:
         context = ssl.create_default_context()
-        if environ['QUART_INVENIORDM_API'] == "https://localhost":
+        if is_local():
             context = False
         data = {
             "communities": [
@@ -1957,7 +1958,7 @@ async def delete_draft_record(rid: str):
         return None
     try:
         context = ssl.create_default_context()
-        if environ['QUART_INVENIORDM_API'] == "https://localhost":
+        if is_local():
             context = False
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/draft"
         headers = {
@@ -1992,7 +1993,7 @@ async def delete_draft_records(page: int = 1):
     """Delete InvenioRDM draft records."""
     try:
         context = ssl.create_default_context()
-        if environ['QUART_INVENIORDM_API'] == "https://localhost":
+        if is_local():
             context = False
         url = f"{environ['QUART_INVENIORDM_API']}/api/user/records?q=is_published:false&page={page}&size=50&sort=updated-desc"
         headers = {
@@ -2013,7 +2014,7 @@ async def get_number_of_draft_records():
     """Get number of InvenioRDM draft records."""
     try:
         context = ssl.create_default_context()
-        if environ['QUART_INVENIORDM_API'] == "https://localhost":
+        if is_local():
             context = False
         url = f"{environ['QUART_INVENIORDM_API']}/api/user/records?q=is_published:false"
         headers = {
