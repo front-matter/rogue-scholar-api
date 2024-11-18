@@ -1363,14 +1363,14 @@ def upsert_single_post(post):
         )
         guid = record.data.get("guid", None)
         doi = record.data.get("doi", None)
-        community_id = py_.get(record.data, "blog.community_id")
+        rid = search_by_doi(doi)
+        community_id = search_by_community_slug(post.get("blog_slug", None))
 
         # if DOI doen't exist (yet), ignore InvenioRDM
         if doi is None:
             return post_to_update.data[0]
 
         # if InvenioRDM record exists, update it, otherwise create it
-        rid = search_by_doi(doi)
         if rid:
             update_record(record.data, rid, community_id)
         else:
@@ -1389,8 +1389,6 @@ def create_record(record, guid: str, community_id: str):
         context = ssl.create_default_context()
         if is_local():
             context = False
-        if community_id is None:
-            return {"error": "Blog community not found"}
 
         subject = Metadata(record, via="json_feed_item")
         record = JSON.loads(subject.write(to="inveniordm"))
@@ -1426,7 +1424,8 @@ def create_record(record, guid: str, community_id: str):
             return response.json()
 
         # add draft record to blog community
-        add_record_to_community(rid, community_id)
+        if community_id:
+            add_record_to_community(rid, community_id)
 
         # update rogue scholar database with InvenioRDM record id (rid) if record was created
         post_to_update = (
@@ -1504,7 +1503,7 @@ def update_record(record, rid: str, community_id: str):
 
         # add draft record to blog community if not already added
         communities = py_.get(response.json(), "parent.communities.entries", [])
-        if len(communities) == 0:
+        if len(communities) == 0 and community_id:
             add_record_to_community(rid, community_id)
 
         # update rogue scholar database with InvenioRDM record id (rid)
