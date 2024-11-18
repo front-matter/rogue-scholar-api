@@ -1405,7 +1405,9 @@ def create_record(record, guid: str, community_id: str):
         # create draft record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
-        response = httpx.post(url, headers=headers, json=record, timeout=10.0, verify=context)
+        response = httpx.post(
+            url, headers=headers, json=record, timeout=10.0, verify=context
+        )
         # return error if record was not created
         if response.status_code >= 400:
             print(response.status_code, "create_draft_record", guid)
@@ -1479,7 +1481,9 @@ def update_record(record, rid: str, community_id: str):
         # update draft record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/draft"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
-        response = httpx.put(url, headers=headers, json=record, timeout=10.0, verify=context)
+        response = httpx.put(
+            url, headers=headers, json=record, timeout=10.0, verify=context
+        )
         if response.status_code != 200:
             print(response.status_code, "u update_draft_record")
             print(response.json())
@@ -1540,7 +1544,9 @@ def add_record_to_community(rid: str, community_id: str):
         }
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/communities"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
-        response = httpx.post(url, headers=headers, json=data, timeout=10.0, verify=context)
+        response = httpx.post(
+            url, headers=headers, json=data, timeout=10.0, verify=context
+        )
         if response.status_code >= 400:
             print(response.json())
         return response
@@ -1584,6 +1590,7 @@ def search_by_community_slug(slug: str) -> Optional[str]:
     except Exception as error:
         print(error)
         return None
+
 
 def sanitize_html(content_html: str):
     """Sanitize content_html."""
@@ -1658,7 +1665,7 @@ async def get_references(content_html: str):
     "References</h3>" or "References</h4>. Store them in works table."""
 
     reference_html = re.split(
-        r"(?:References|Referenzen|Bibliography)(?:\:)<\/(?:h1|h2|h3|h4|strong)>",
+        r"(?:References|Referenzen|Bibliography|References:)<\/(?:h1|h2|h3|h4|strong)>",
         content_html,
         maxsplit=2,
     )
@@ -1669,7 +1676,6 @@ async def get_references(content_html: str):
     reference_html[1] = re.split(
         r"(?:<hr \/>|<hr>|<h2|<h3|<h4)", reference_html[1], maxsplit=2
     )[0]
-
     urls = get_urls(reference_html[1])
     if not urls or len(urls) == 0:
         return []
@@ -2015,7 +2021,9 @@ async def delete_draft_record(rid: str):
             "Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}",
         }
         async with httpx.AsyncClient() as client:
-            response = await client.delete(url, headers=headers, timeout=10.0, verify=context)
+            response = await client.delete(
+                url, headers=headers, timeout=10.0, verify=context
+            )
             if response.status_code != 204:
                 print(response.json())
         return {"message": f"Draft record {rid} deleted"}
