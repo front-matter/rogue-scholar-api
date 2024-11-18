@@ -1363,7 +1363,6 @@ def upsert_single_post(post):
         )
         guid = record.data.get("guid", None)
         doi = record.data.get("doi", None)
-        rid = record.data.get("rid", None)
         community_id = py_.get(record.data, "blog.community_id")
 
         # if DOI doen't exist (yet), ignore InvenioRDM
@@ -1371,6 +1370,7 @@ def upsert_single_post(post):
             return post_to_update.data[0]
 
         # if InvenioRDM record exists, update it, otherwise create it
+        rid = search_by_doi(doi)
         if rid:
             update_record(record.data, rid, community_id)
         else:
@@ -1507,6 +1507,20 @@ def update_record(record, rid: str, community_id: str):
         if len(communities) == 0:
             add_record_to_community(rid, community_id)
 
+        # update rogue scholar database with InvenioRDM record id (rid)
+        post_to_update = (
+            supabase_admin.table("posts")
+            .update(
+                {
+                    "rid": rid,
+                }
+            )
+            .eq("guid", guid)
+            .execute()
+        )
+        if len(post_to_update.data) == 0:
+            print(f"error updating record rid {rid} for guid {guid}")
+            return response
         print(f"Updated record rid {rid} for guid {guid}")
         return response
     except Exception as error:
@@ -1535,6 +1549,42 @@ def add_record_to_community(rid: str, community_id: str):
         print(error)
         return None
 
+
+def search_by_doi(doi: str) -> Optional[str]:
+    try:
+        context = ssl.create_default_context()
+        if is_local():
+            context = False
+        doistr = validate_doi(doi).replace("/", "%2F")
+        url = f"{environ['QUART_INVENIORDM_API']}/api/records?q=doi:{doistr}"
+        headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
+        response = httpx.get(url, headers=headers, timeout=10.0, verify=context)
+        if response.status_code >= 400:
+            print(response.json())
+        if py_.get(response.json(), "hits.total", 0) == 0:
+            return None
+        return py_.get(response.json(), "hits.hits.0.id", None)
+    except Exception as error:
+        print(error)
+        return None
+
+
+def search_by_community_slug(slug: str) -> Optional[str]:
+    try:
+        context = ssl.create_default_context()
+        if is_local():
+            context = False
+        url = f"{environ['QUART_INVENIORDM_API']}/api/communities?q=slug:{slug}"
+        headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
+        response = httpx.get(url, headers=headers, timeout=10.0, verify=context)
+        if response.status_code >= 400:
+            print(response.json())
+        if py_.get(response.json(), "hits.total", 0) == 0:
+            return None
+        return py_.get(response.json(), "hits.hits.0.id", None)
+    except Exception as error:
+        print(error)
+        return None
 
 def sanitize_html(content_html: str):
     """Sanitize content_html."""
