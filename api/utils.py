@@ -93,6 +93,7 @@ AUTHOR_IDS = {
     "Abhishek Tiwari": "https://orcid.org/0000-0003-2222-2395",
     "Cameron Neylon": "https://orcid.org/0000-0002-0068-716X",
     "Reda Sadki": "https://orcid.org/0000-0003-4051-0606",
+    "Georg Fischer": "https://orcid.org/0000-0001-5620-5759",
 }
 
 AUTHOR_NAMES = {

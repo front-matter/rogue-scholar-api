@@ -1658,7 +1658,7 @@ async def get_references(content_html: str):
     "References</h3>" or "References</h4>. Store them in works table."""
 
     reference_html = re.split(
-        r"(?:References|Referenzen|Bibliography)<\/(?:h1|h2|h3|h4)>",
+        r"(?:References|Referenzen|Bibliography)(?:\:)<\/(?:h1|h2|h3|h4|strong)>",
         content_html,
         maxsplit=2,
     )
