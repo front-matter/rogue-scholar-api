@@ -1560,7 +1560,10 @@ def search_by_doi(doi: str) -> Optional[str]:
         context = ssl.create_default_context()
         if is_local():
             context = False
-        doistr = validate_doi(doi).replace("/", "%2F")
+        doistr = validate_doi(doi)
+        if not doistr:
+            return None
+        doistr = doistr.replace("/", "%2F")
         url = f"{environ['QUART_INVENIORDM_API']}/api/records?q=doi:{doistr}"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         response = httpx.get(url, headers=headers, timeout=10.0, verify=context)
