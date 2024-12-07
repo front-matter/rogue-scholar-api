@@ -44,6 +44,7 @@ from api.utils import (
     validate_uuid,
     id_as_str,
     is_local,
+    is_valid_url,
     EXCLUDED_TAGS,
 )
 from api.works import get_single_work
@@ -1121,6 +1122,9 @@ async def extract_rss_post(post, blog):
         reference = await get_references(content_html)
         relationships = get_relationships(content_html)
         raw_url = post.get("link", None)
+        # handle relative urls
+        if not is_valid_url(raw_url):
+            raw_url = blog.get("home_page_url", "") + "/" + raw_url
         url = normalize_url(raw_url, secure=blog.get("secure", True))
         guid = py_.get(post, "guid.#text", None) or post.get("guid", None) or raw_url
         archive_url = (
@@ -1133,14 +1137,17 @@ async def extract_rss_post(post, blog):
         image = py_.get(post, "media:content.@url", None) or py_.get(
             post, "media:thumbnail.@url", None
         )
-        if (
-            not image
-            and len(images) > 0
-            # and isinstance(images[0].get("width", None), int)
-            and int(images[0].get("width", 200)) >= 200
-            and furl(images[0].get("src", None)).host not in ["latex.codecogs.com"]
-        ):
-            image = images[0].get("src", None)
+        try:
+            if (
+                not image
+                and len(images) > 0
+                # and isinstance(images[0].get("width", None), int)
+                and int(images[0].get("width", 200)) >= 200
+                and furl(images[0].get("src", None)).host not in ["latex.codecogs.com"]
+            ):
+                image = images[0].get("src", None)
+        except Exception:
+            pass
         tags = [
             normalize_tag(i)
             for i in wrap(post.get("category", None))
