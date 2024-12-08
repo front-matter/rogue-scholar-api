@@ -95,7 +95,7 @@ async def extract_single_blog(slug: str):
     response = (
         supabase.table("blogs")
         .select(
-            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, registered_at, license, mastodon, generator_raw, language, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure, community_id"
+            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, registered_at, license, mastodon, generator_raw, language, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure, community_id, prefix, issn, feed_format"
         )
         .eq("slug", slug)
         .maybe_single()
@@ -176,9 +176,12 @@ async def extract_single_blog(slug: str):
         "filter": config["filter"],
         "secure": config["secure"],
         "community_id": config["community_id"],
+        "prefix": config["prefix"],
+        "issn": config["issn"],
+        "feed_format": config["feed_format"],
     }
     update_single_blog(blog)
-
+    
     # update InvenioRDM blog community if blog is active or archived
     if config["status"] in ["active", "archived"]:
         r = upsert_blog_community(blog)
@@ -363,6 +366,13 @@ def create_blog_community(blog):
             metadata["description"] = py_.truncate(
                 blog.get("description", None), 250, omission="", separator=" "
             )
+        custom_fields = {
+            "rs:feed_url": blog.get("feed_url"),
+            "rs:feed_format": blog.get("feed_format"),
+            "rs:generator": blog.get("generator"),
+            "rs:issn": blog.get("issn"),
+            "rs:prefix": blog.get("prefix"),
+        }
         data = {
             "access": {
                 "visibility": "public",
@@ -372,6 +382,7 @@ def create_blog_community(blog):
             },
             "slug": blog.get("slug"),
             "metadata": metadata,
+            "custom_fields": custom_fields,
         }
         response = httpx.post(url, headers=headers, json=data, timeout=10,verify=context)
         return response
@@ -397,6 +408,13 @@ def update_blog_community(blog):
             metadata["description"] = py_.truncate(
                 blog.get("description", None), 250, omission="", separator=" "
             )
+        custom_fields = {
+            "rs:feed_url": blog.get("feed_url"),
+            "rs:feed_format": blog.get("feed_format"),
+            "rs:generator": blog.get("generator"),
+            "rs:issn": blog.get("issn"),
+            "rs:prefix": blog.get("prefix"),
+        }
         data = {
             "access": {
                 "visibility": "public",
@@ -406,6 +424,7 @@ def update_blog_community(blog):
             },
             "slug": blog.get("slug"),
             "metadata": metadata,
+            "custom_fields": custom_fields,
         }
         response = httpx.put(url, headers=headers, json=data, timeout=10,verify=context)
         return response
