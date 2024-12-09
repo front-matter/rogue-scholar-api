@@ -371,6 +371,7 @@ def create_blog_community(blog):
             "rs:feed_url": blog.get("feed_url"),
             "rs:feed_format": blog.get("feed_format"),
             "rs:generator": blog.get("generator"),
+            "rs:license": blog.get("license"),
             "rs:issn": blog.get("issn"),
             "rs:prefix": blog.get("prefix"),
         })
@@ -413,6 +414,7 @@ def update_blog_community(blog):
             "rs:feed_url": blog.get("feed_url"),
             "rs:feed_format": blog.get("feed_format"),
             "rs:generator": blog.get("generator"),
+            "rs:license": blog.get("license"),
             "rs:issn": blog.get("issn"),
             "rs:prefix": blog.get("prefix"),
         })
