@@ -18,6 +18,7 @@ from api.supabase_client import (
     supabase_admin_client as supabase_admin,
 )
 from api.utils import (
+    compact,
     start_case,
     get_date,
     unix_timestamp,
@@ -366,13 +367,13 @@ def create_blog_community(blog):
             metadata["description"] = py_.truncate(
                 blog.get("description", None), 250, omission="", separator=" "
             )
-        custom_fields = {
+        custom_fields = compact({
             "rs:feed_url": blog.get("feed_url"),
             "rs:feed_format": blog.get("feed_format"),
             "rs:generator": blog.get("generator"),
             "rs:issn": blog.get("issn"),
             "rs:prefix": blog.get("prefix"),
-        }
+        })
         data = {
             "access": {
                 "visibility": "public",
@@ -408,13 +409,13 @@ def update_blog_community(blog):
             metadata["description"] = py_.truncate(
                 blog.get("description", None), 250, omission="", separator=" "
             )
-        custom_fields = {
+        custom_fields = compact({
             "rs:feed_url": blog.get("feed_url"),
             "rs:feed_format": blog.get("feed_format"),
             "rs:generator": blog.get("generator"),
             "rs:issn": blog.get("issn"),
             "rs:prefix": blog.get("prefix"),
-        }
+        })
         data = {
             "access": {
                 "visibility": "public",
@@ -427,6 +428,8 @@ def update_blog_community(blog):
             "custom_fields": custom_fields,
         }
         response = httpx.put(url, headers=headers, json=data, timeout=10,verify=context)
+        if response.status_code >= 400:
+            print(response.json())
         return response
     except Exception as error:
         print(error)
