@@ -379,6 +379,13 @@ def test_normalize_url_with_slash_param():
     assert result == "https://www.ch.imperial.ac.uk/rzepa/blog/?p=25304"
 
 
+def test_normalize_url_without_scheme():
+    """normalize url without scheme"""
+    url = "www.openmake.de/blog/2024/06/26/2024-06-26-mobilelab/"
+    result = normalize_url(url)
+    assert result == "https://www.openmake.de/blog/2024/06/26/2024-06-26-mobilelab"
+
+
 def test_is_valid_url():
     """is valid url"""
     assert True == is_valid_url("https://www.example.com")

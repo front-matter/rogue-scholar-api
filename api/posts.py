@@ -1123,8 +1123,8 @@ async def extract_rss_post(post, blog):
         relationships = get_relationships(content_html)
         raw_url = post.get("link", None)
         # handle relative urls
-        if not is_valid_url(raw_url):
-            raw_url = blog.get("home_page_url", "") + "/" + raw_url
+        # if not is_valid_url(raw_url):
+        #     raw_url = blog.get("home_page_url", "") + "/" + raw_url
         url = normalize_url(raw_url, secure=blog.get("secure", True))
         guid = py_.get(post, "guid.#text", None) or post.get("guid", None) or raw_url
         archive_url = (

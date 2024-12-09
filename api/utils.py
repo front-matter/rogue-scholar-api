@@ -136,6 +136,9 @@ AUTHOR_NAMES = {
     "yn235": "Yvonne Nobis",
     "eotyrannus": "Darren Naish",
     "tritonstation": "Stacy McGaugh",
+    "Maitri": "Open.Make Team",
+    "Package Build": "Open.Make Team",
+    "Open.Make team": "Open.Make Team",
 }
 
 AUTHOR_AFFILIATIONS = {
@@ -1047,6 +1050,9 @@ def normalize_url(url: Optional[str], secure=False, lower=False) -> Optional[str
     if url is None or not isinstance(url, str):
         return None
     try:
+        # add scheme if missing, workaround for adding scheme via furl
+        if not (url.startswith("http") or url.startswith("https")):
+            url = "https://" + url
         f = furl(url)
         f.path.normalize()
 
