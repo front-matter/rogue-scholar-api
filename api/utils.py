@@ -128,6 +128,7 @@ AUTHOR_IDS = {
     "Paul Vierkant": "https://orcid.org/0000-0003-4448-3844",
     "Sarala Wimalaratne": "https://orcid.org/0000-0002-5355-2576",
     "Liz Krznarich": "https://orcid.org/0000-0001-6622-4910",
+    "Robin Dasler": "https://orcid.org/0000-0002-4695-7874",
 }
 
 AUTHOR_NAMES = {
