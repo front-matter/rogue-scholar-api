@@ -36,6 +36,7 @@ from api.utils import (
     get_soup,
     detect_language,
     normalize_author,
+    extract_atom_authors,
     wrap,
     compact,
     fix_xml,
@@ -44,7 +45,6 @@ from api.utils import (
     validate_uuid,
     id_as_str,
     is_local,
-    is_valid_url,
     EXCLUDED_TAGS,
 )
 from api.works import get_single_work
@@ -1000,6 +1000,9 @@ async def extract_atom_post(post, blog):
         authors_ = wrap(post.get("author", None))
         if len(authors_) == 0 or authors_[0].get("name", None) is None:
             authors_ = wrap(blog.get("authors", None))
+        # workaround if multiple authors are present in single author attribute
+        elif len(authors_) == 1:
+            authors_ = extract_atom_authors(authors_[0])
         authors = [format_author(i, published_at) for i in authors_]
 
         # workaround, as content should be encodes as CDATA block

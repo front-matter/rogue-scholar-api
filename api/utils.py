@@ -2,6 +2,7 @@
 
 from uuid import UUID
 from os import environ
+import re
 from typing import Optional, Union
 from babel.dates import format_date
 import iso8601
@@ -94,6 +95,39 @@ AUTHOR_IDS = {
     "Cameron Neylon": "https://orcid.org/0000-0002-0068-716X",
     "Reda Sadki": "https://orcid.org/0000-0003-4051-0606",
     "Georg Fischer": "https://orcid.org/0000-0001-5620-5759",
+    "Nick Juty": "https://orcid.org/0000-0002-2036-8350",
+    "Suzanne Vogt": "https://orcid.org/0000-0001-8866-3199",
+    "Sara El-Gebali": "https://orcid.org/0000-0003-1378-5495",
+    "Kelly Stathis": "https://orcid.org/0000-0001-6133-4045",
+    "Cody Ross": "https://orcid.org/0000-0002-4684-9769",
+    "Gabriela Mejias": "https://orcid.org/0000-0002-1598-7181",
+    "Josiline Chigwada": "https://orcid.org/0000-0003-0964-3582",
+    "Bosun Obileye": "https://orcid.org/0000-0002-1200-0994",
+    "John Chodacki": "https://orcid.org/0000-0002-7378-2408",
+    "Matt Buys": "https://orcid.org/0000-0001-7234-3684",
+    "Dawid Potgieter": "https://orcid.org/0000-0001-8312-2449",
+    "Anusuriya Devaraju": "https://orcid.org/0000-0003-0870-3192",
+    "Ashwini Sukale": "https://orcid.org/0009-0001-2841-4366",
+    "Kudakwashe Siziva": "https://orcid.org/0009-0001-9295-2089",
+    "Xiaoli Chen": "https://orcid.org/0000-0003-0207-2705",
+    "Mike Bennett": "https://orcid.org/0000-0002-4795-7817",
+    "Helena Cousijn": "http://orcid.org/0000-0001-6660-6214",
+    "Wendel Chinsamy": "https://orcid.org/0009-0008-9102-7984",
+    "Britta Dreyer": "http://orcid.org/0000-0002-0687-5460",
+    "Sara El-Gebali": "https://orcid.org/0000-0003-1378-5495",
+    "Arturo Garduño-Magaña": "https://orcid.org/0000-0003-0305-9086",
+    "Maria Gould": "https://orcid.org/0000-0002-2916-3423",
+    "Richard Hallett": "https://orcid.org/0000-0002-8599-0773",
+    "Mary Hirsch": "https://orcid.org/0000-0002-6628-8225",
+    "Gabriela Mejias": "https://orcid.org/0000-0002-1598-7181",
+    "Bryceson Laing": "https://orcid.org/0000-0002-8249-1629",
+    "Mohamad Mostafa": "https://orcid.org/0000-0003-0768-6642",
+    "Iratxe Puebla": "https://orcid.org/0000-0003-1258-0746",
+    "Joseph Rhoads": "https://orcid.org/0000-0001-9871-4850",
+    "Katharina Sokoll": "https://orcid.org/0009-0007-7600-1981",
+    "Paul Vierkant": "https://orcid.org/0000-0003-4448-3844",
+    "Sarala Wimalaratne": "https://orcid.org/0000-0002-5355-2576",
+    "Liz Krznarich": "https://orcid.org/0000-0001-6622-4910",
 }
 
 AUTHOR_NAMES = {
@@ -662,6 +696,27 @@ AUTHOR_AFFILIATIONS = {
             "start_date": "2016-03-01",
         }
     ],
+    "https://orcid.org/0000-0003-1378-5495": [
+        {
+            "name": "DataCite",
+            "id": "https://ror.org/04wxnsj81",
+            "start_date": "2023-11-01",
+        }
+    ],
+    "https://orcid.org/0000-0001-6133-4045": [
+        {
+            "name": "DataCite",
+            "id": "https://ror.org/04wxnsj81",
+            "start_date": "2022-04-01",
+        }
+    ],
+    "https://orcid.org/0000-0001-7234-3684": [
+        {
+            "name": "DataCite",
+            "id": "https://ror.org/04wxnsj81",
+            "start_date": "2019-10-15",
+        }
+    ],
 }
 
 
@@ -845,6 +900,16 @@ def format_relationships(relationships):
             return {"funding": relationship.get("url", None)}
 
     return [format_relationship(x) for x in relationships]
+
+
+def extract_atom_authors(author_dict):
+    """Extract multiple authors from atom feed dict"""
+
+    name = author_dict.get("name", None)
+    if isinstance(name, str):
+        names = re.split(" and |, ", name)
+        return [{"name": x} for x in names]
+    return []
 
 
 def format_authors_with_orcid(authors):

@@ -17,6 +17,7 @@ from api.utils import (
     normalize_tag,
     detect_language,
     normalize_author,
+    extract_atom_authors,
     normalize_url,
     get_markdown,
     write_epub,
@@ -356,6 +357,28 @@ def test_normalize_author_gpt4():
         "name": "Tejas S. Sathe",
         "url": "https://orcid.org/0000-0003-0449-4469",
     }
+
+
+def test_extract_atom_authors():
+    """extract authors from atom feed"""
+    authors = {"name": "Bosun Obileye and Josiline Chigwada"}
+    result = extract_atom_authors(authors)
+    assert result == [{"name": "Bosun Obileye"}, {"name": "Josiline Chigwada"}]
+
+
+def test_extract_atom_authors_with_comma():
+    """extract authors from atom feed with comma"""
+    authors = {
+        "name": "Kelly Stathis, Cody Ross, Ashwini Sukale, Kudakwashe Siziva and Suzanne Vogt"
+    }
+    result = extract_atom_authors(authors)
+    assert result == [
+        {"name": "Kelly Stathis"},
+        {"name": "Cody Ross"},
+        {"name": "Ashwini Sukale"},
+        {"name": "Kudakwashe Siziva"},
+        {"name": "Suzanne Vogt"},
+    ]
 
 
 def test_normalize_url_with_index():
