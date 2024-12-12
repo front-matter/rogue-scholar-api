@@ -120,9 +120,8 @@ async def extract_single_blog(slug: str):
 
         feed_format = parse_feed_format(feed) or config["feed_format"]
         title = feed.get("title", None) or config["title"]
-        generator_raw = (
-            parse_generator(feed.get("generator_detail", None) or feed.get("generator"))
-            or config["generator_raw"]
+        generator_raw = config["generator_raw"] or (
+            parse_generator(feed.get("generator_detail", None) or feed.get("generator")) 
             or "Other"
         )
         generator = re.split(" ", generator_raw)[0]
