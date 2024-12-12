@@ -129,6 +129,8 @@ AUTHOR_IDS = {
     "Sarala Wimalaratne": "https://orcid.org/0000-0002-5355-2576",
     "Liz Krznarich": "https://orcid.org/0000-0001-6622-4910",
     "Robin Dasler": "https://orcid.org/0000-0002-4695-7874",
+    "Trisha Cruse": "https://orcid.org/0000-0002-9300-5278",
+    "Laura Rueda": "https://orcid.org/0000-0001-5952-7630",
 }
 
 AUTHOR_NAMES = {
