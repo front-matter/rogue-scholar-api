@@ -176,6 +176,7 @@ AUTHOR_NAMES = {
     "Maitri": "Open.Make Team",
     "Package Build": "Open.Make Team",
     "Open.Make team": "Open.Make Team",
+    "Stephen": "Stephen Curry",
 }
 
 AUTHOR_AFFILIATIONS = {
