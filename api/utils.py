@@ -131,6 +131,7 @@ AUTHOR_IDS = {
     "Robin Dasler": "https://orcid.org/0000-0002-4695-7874",
     "Trisha Cruse": "https://orcid.org/0000-0002-9300-5278",
     "Laura Rueda": "https://orcid.org/0000-0001-5952-7630",
+    "Richard L. Apodaca": "https://orcid.org/0000-0003-3855-9427",
 }
 
 AUTHOR_NAMES = {

@@ -1154,6 +1154,10 @@ async def extract_rss_post(post, blog):
                 image = images[0].get("src", None)
         except Exception:
             pass
+        # handle Hugo running on localhost
+        if image and image.startswith("http://localhost:1313"):
+            image = image.replace("http://localhost:1313", blog.get("home_page_url"))
+        
         tags = [
             normalize_tag(i)
             for i in wrap(post.get("category", None))
