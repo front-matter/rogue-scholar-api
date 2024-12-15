@@ -945,6 +945,9 @@ def validate_uuid(slug: str) -> bool:
 def start_case(content: str) -> str:
     """Capitalize first letter of each word without lowercasing the rest"""
     words = content.split(" ")
+    if len(words) == 1:
+        return content[0].upper() + content[1:]
+    print(len(words))
     content = " ".join([word[0].upper() + word[1:] for word in words])
     return content
 
