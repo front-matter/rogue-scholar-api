@@ -799,7 +799,6 @@ async def extract_substack_post(post, blog):
         ]
         if len(authors) == 0:
             authors = wrap(blog.get("authors", None))
-        print(authors)
         content_html = post.get("body_html", "")
         content_text = get_markdown(content_html)
         summary = get_summary(post.get("description", None))

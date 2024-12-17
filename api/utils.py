@@ -947,7 +947,6 @@ def start_case(content: str) -> str:
     words = content.split(" ")
     if len(words) == 1:
         return content[0].upper() + content[1:]
-    print(len(words))
     content = " ".join([word[0].upper() + word[1:] for word in words])
     return content
 
