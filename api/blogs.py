@@ -27,6 +27,7 @@ from api.utils import (
     normalize_url,
     is_valid_url,
     is_local,
+    format_datetime,
     FOS_MAPPINGS,
 )
 
@@ -375,7 +376,7 @@ def create_blog_community(blog):
             "rs:license": blog.get("license"),
             "rs:issn": blog.get("issn"),
             "rs:prefix": blog.get("prefix"),
-            "rs:joined": get_date_from_unix_timestamp(blog.get("created_at", 0)),
+            "rs:joined": format_datetime(get_date_from_unix_timestamp(blog.get("created_at", 0)), "en"),
             "rs:language": get_language(blog.get("language"), format="name"),
             "rs:category": FOS_MAPPINGS.get(blog.get("category"), None),
         })
@@ -421,7 +422,7 @@ def update_blog_community(blog):
             "rs:license": blog.get("license"),
             "rs:issn": blog.get("issn"),
             "rs:prefix": blog.get("prefix"),
-            "rs:joined": get_date_from_unix_timestamp(blog.get("created_at", 0)),
+            "rs:joined": format_datetime(get_date_from_unix_timestamp(blog.get("created_at", 0)), "en"),
             "rs:language": get_language(blog.get("language"), format="name"),
             "rs:category": FOS_MAPPINGS.get(blog.get("category"), None),
         })
