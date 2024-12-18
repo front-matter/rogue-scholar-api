@@ -136,7 +136,7 @@ async def extract_single_blog(slug: str):
         # ignore the default favicons
         if favicon in ["https://s0.wp.com/i/buttonw-com.png"]:
             favicon = None
-        language = feed.get("language", None) or config["language"]
+        language = config["language"] or feed.get("language", None) 
         if language:
             language = language.split("-")[0]
     except Exception as error:
