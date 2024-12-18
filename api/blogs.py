@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup as bs4
 from furl import furl
 import datetime
 import pydash as py_
-from commonmeta import get_date_from_unix_timestamp
+from commonmeta import get_date_from_unix_timestamp, get_language
 
 from api.supabase_client import (
     supabase_client as supabase,
@@ -27,6 +27,7 @@ from api.utils import (
     normalize_url,
     is_valid_url,
     is_local,
+    FOS_MAPPINGS,
 )
 
 
@@ -375,6 +376,8 @@ def create_blog_community(blog):
             "rs:issn": blog.get("issn"),
             "rs:prefix": blog.get("prefix"),
             "rs:joined": get_date_from_unix_timestamp(blog.get("created_at", 0)),
+            "rs:language": get_language(blog.get("language"), format="name"),
+            "rs:category": FOS_MAPPINGS.get(blog.get("category"), None),
         })
         data = {
             "access": {
@@ -419,6 +422,8 @@ def update_blog_community(blog):
             "rs:issn": blog.get("issn"),
             "rs:prefix": blog.get("prefix"),
             "rs:joined": get_date_from_unix_timestamp(blog.get("created_at", 0)),
+            "rs:language": get_language(blog.get("language"), format="name"),
+            "rs:category": FOS_MAPPINGS.get(blog.get("category"), None),
         })
         data = {
             "access": {
