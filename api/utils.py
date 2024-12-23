@@ -722,6 +722,13 @@ AUTHOR_AFFILIATIONS = {
             "start_date": "2019-10-15",
         }
     ],
+    "https://orcid.org/0000-0001-7824-7650": [
+        {
+            "name": "University of Regensburg",
+            "id": "https://ror.org/01eezs655",
+            "start_date": "2012-10-01",
+        }
+    ],
 }
 
 
@@ -824,7 +831,6 @@ def normalize_author(
         affiliation = (
             [py_.pick(affiliation[-1], ["id", "name"])] if affiliation else None
         )
-
     return compact({"name": _name, "url": _url, "affiliation": affiliation})
 
 
@@ -963,9 +969,12 @@ def extract_atom_authors(author_dict):
     """Extract multiple authors from atom feed dict"""
 
     name = author_dict.get("name", None)
+    uri = author_dict.get("uri", None)
     if isinstance(name, str):
         names = re.split(" and |, ", name)
-        return [{"name": x} for x in names]
+        if len(names) > 1:
+            return [{"name": x} for x in names]
+        return [{"name": name, "uri": uri}]
     return []
 
 
