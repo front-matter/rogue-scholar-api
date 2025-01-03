@@ -1005,11 +1005,11 @@ def validate_uuid(slug: str) -> bool:
 
 def start_case(content: str) -> str:
     """Capitalize first letter of each word without lowercasing the rest"""
+    def capitalize(word):
+        return word[:1].upper() + word[1:]
+        
     words = content.split(" ")
-    if len(words) == 1:
-        return content[0].upper() + content[1:]
-    content = " ".join([word[0].upper() + word[1:] for word in words])
-    return content
+    return " ".join([capitalize(word) for word in words])
 
 
 def normalize_tag(tag: str) -> str:

@@ -278,6 +278,18 @@ def test_start_case():
     assert start_case(content) == "WikiCite"
 
 
+def test_start_case_single_character():
+    """capitalize first letter without lowercasing the rest"""
+    content = "r"
+    assert start_case(content) == "R"
+
+
+def test_start_case_with_space():
+    """capitalize first letter without lowercasing the rest"""
+    content = "wiki cite"
+    assert start_case(content) == "Wiki Cite"
+
+
 def test_normalize_tag():
     """normalize tag"""
     tag = "#open science"
