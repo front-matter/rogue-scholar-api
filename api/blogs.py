@@ -81,7 +81,7 @@ async def extract_all_blogs():
     blogs = (
         supabase.table("blogs")
         .select("slug")
-        .in_("status", ["approved", "active", "archived"])
+        .in_("status", ["active", "expired", "archived"])
         .order("slug", desc=False)
         .execute()
     )
@@ -185,8 +185,8 @@ async def extract_single_blog(slug: str):
     }
     update_single_blog(blog)
     
-    # update InvenioRDM blog community if blog is active or archived
-    if config["status"] in ["active", "archived"]:
+    # update InvenioRDM blog community if blog is active, expired or archived
+    if config["status"] in ["active", "expired", "archived"]:
         r = upsert_blog_community(blog)
         if r:
             result = py_.pick(
