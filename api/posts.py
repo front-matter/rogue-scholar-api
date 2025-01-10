@@ -748,6 +748,9 @@ async def extract_ghost_post(post, blog):
         archive_url = (
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
         )
+        guid = post.get("canonical_url", None)
+        if not guid:
+            guid = post.get("id", None)
         images = get_images(content_html, url, blog.get("home_page_url", None))
         image = post.get("feature_image", None) or get_image(images)
         tags = [
@@ -775,7 +778,7 @@ async def extract_ghost_post(post, blog):
             "title": get_title(post.get("title", None)),
             "url": url,
             "archive_url": archive_url,
-            "guid": post.get("id", None),
+            "guid": guid,
             "status": blog.get("status", "active"),
         }
     except Exception:
