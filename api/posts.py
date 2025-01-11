@@ -4,7 +4,6 @@ from os import environ, path
 from typing import Optional
 from furl import furl
 import httpx
-import ssl
 import json as JSON
 import yaml
 import asyncio
@@ -1132,7 +1131,9 @@ async def extract_rss_post(post, blog):
         raw_url = post.get("link", None)
         # handle Hugo running on localhost
         if raw_url and raw_url.startswith("http://localhost:1313"):
-            raw_url = raw_url.replace("http://localhost:1313", blog.get("home_page_url"))
+            raw_url = raw_url.replace(
+                "http://localhost:1313", blog.get("home_page_url")
+            )
         url = normalize_url(raw_url, secure=blog.get("secure", True))
         guid = py_.get(post, "guid.#text", None) or post.get("guid", None) or raw_url
         # handle Hugo running on localhost
@@ -1162,7 +1163,7 @@ async def extract_rss_post(post, blog):
         # handle Hugo running on localhost
         if image and image.startswith("http://localhost:1313"):
             image = image.replace("http://localhost:1313", blog.get("home_page_url"))
-        
+
         tags = [
             normalize_tag(i)
             for i in wrap(post.get("category", None))
@@ -1408,9 +1409,9 @@ def upsert_single_post(post):
 def create_record(record, guid: str, community_id: str):
     """Create InvenioRDM record."""
     try:
-        context = ssl.create_default_context()
-        if is_local():
-            context = False
+        # context = ssl.create_default_context()
+        # if is_local():
+        #     context = False
 
         subject = Metadata(record, via="json_feed_item")
         record = JSON.loads(subject.write(to="inveniordm"))
@@ -1427,9 +1428,7 @@ def create_record(record, guid: str, community_id: str):
         # create draft record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
-        response = httpx.post(
-            url, headers=headers, json=record, timeout=10.0, verify=context
-        )
+        response = httpx.post(url, headers=headers, json=record, timeout=10.0)
         # return error if record was not created
         if response.status_code >= 400:
             print(response.status_code, "create_draft_record", guid)
@@ -1442,7 +1441,7 @@ def create_record(record, guid: str, community_id: str):
             f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/draft/actions/publish"
         )
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
-        response = httpx.post(url, headers=headers, timeout=10.0, verify=context)
+        response = httpx.post(url, headers=headers, timeout=10.0)
         if response.status_code >= 400:
             print(response.status_code, "publish_draft_record", guid)
             return response.json()
@@ -1476,9 +1475,6 @@ def create_record(record, guid: str, community_id: str):
 def update_record(record, rid: str, community_id: str):
     """Update InvenioRDM record."""
     try:
-        context = ssl.create_default_context()
-        if is_local():
-            context = False
         subject = Metadata(record, via="json_feed_item")
         record = JSON.loads(subject.write(to="inveniordm"))
 
@@ -1496,16 +1492,14 @@ def update_record(record, rid: str, community_id: str):
         # create draft record from published record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/draft"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
-        response = httpx.post(url, headers=headers, timeout=10.0, verify=context)
+        response = httpx.post(url, headers=headers, timeout=10.0)
         if response.status_code != 201:
             return response.json()
 
         # update draft record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/draft"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
-        response = httpx.put(
-            url, headers=headers, json=record, timeout=10.0, verify=context
-        )
+        response = httpx.put(url, headers=headers, json=record, timeout=10.0)
         if response.status_code != 200:
             print(response.status_code, "u update_draft_record")
             print(response.json())
@@ -1517,7 +1511,7 @@ def update_record(record, rid: str, community_id: str):
         )
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         try:
-            response = httpx.post(url, headers=headers, timeout=10.0, verify=context)
+            response = httpx.post(url, headers=headers, timeout=10.0)
             response.raise_for_status()
         except httpx.TimeoutException:
             print(f"Timeout error for url {url}.")
@@ -1556,9 +1550,6 @@ def update_record(record, rid: str, community_id: str):
 def add_record_to_community(rid: str, community_id: str):
     """Add record to community."""
     try:
-        context = ssl.create_default_context()
-        if is_local():
-            context = False
         data = {
             "communities": [
                 {"id": community_id},
@@ -1566,9 +1557,7 @@ def add_record_to_community(rid: str, community_id: str):
         }
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/communities"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
-        response = httpx.post(
-            url, headers=headers, json=data, timeout=10.0, verify=context
-        )
+        response = httpx.post(url, headers=headers, json=data, timeout=10.0)
         if response.status_code >= 400:
             print(response.json())
         return response
@@ -1579,16 +1568,13 @@ def add_record_to_community(rid: str, community_id: str):
 
 def search_by_doi(doi: str) -> Optional[str]:
     try:
-        context = ssl.create_default_context()
-        if is_local():
-            context = False
         doistr = validate_doi(doi)
         if not doistr:
             return None
         doistr = doistr.replace("/", "%2F")
         url = f"{environ['QUART_INVENIORDM_API']}/api/records?q=doi:{doistr}"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
-        response = httpx.get(url, headers=headers, timeout=10.0, verify=context)
+        response = httpx.get(url, headers=headers, timeout=10.0)
         if response.status_code >= 400:
             print(response.json())
         if py_.get(response.json(), "hits.total", 0) == 0:
@@ -1601,12 +1587,9 @@ def search_by_doi(doi: str) -> Optional[str]:
 
 def search_by_community_slug(slug: str) -> Optional[str]:
     try:
-        context = ssl.create_default_context()
-        if is_local():
-            context = False
         url = f"{environ['QUART_INVENIORDM_API']}/api/communities?q=slug:{slug}"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
-        response = httpx.get(url, headers=headers, timeout=10.0, verify=context)
+        response = httpx.get(url, headers=headers, timeout=10.0)
         if response.status_code >= 400:
             print(response.json())
         if py_.get(response.json(), "hits.total", 0) == 0:
@@ -2037,18 +2020,13 @@ async def delete_draft_record(rid: str):
     if rid is None:
         return None
     try:
-        context = ssl.create_default_context()
-        if is_local():
-            context = False
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/draft"
         headers = {
             "Content-Type": "application/octet-stream",
             "Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}",
         }
         async with httpx.AsyncClient() as client:
-            response = await client.delete(
-                url, headers=headers, timeout=10.0, verify=context
-            )
+            response = await client.delete(url, headers=headers, timeout=10.0)
             if response.status_code != 204:
                 print(response.json())
         return {"message": f"Draft record {rid} deleted"}
@@ -2074,15 +2052,12 @@ async def delete_all_draft_records():
 async def delete_draft_records(page: int = 1):
     """Delete InvenioRDM draft records."""
     try:
-        context = ssl.create_default_context()
-        if is_local():
-            context = False
         url = f"{environ['QUART_INVENIORDM_API']}/api/user/records?q=is_published:false&page={page}&size=50&sort=updated-desc"
         headers = {
             "Content-Type": "application/octet-stream",
             "Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}",
         }
-        response = httpx.get(url, headers=headers, timeout=10, verify=context)
+        response = httpx.get(url, headers=headers, timeout=10)
         records = py_.get(response.json(), "hits.hits", [])
         n = py_.get(response.json(), "hits.total", 0)
         await asyncio.gather(*[delete_draft_record(record["id"]) for record in records])
@@ -2095,15 +2070,12 @@ async def delete_draft_records(page: int = 1):
 async def get_number_of_draft_records():
     """Get number of InvenioRDM draft records."""
     try:
-        context = ssl.create_default_context()
-        if is_local():
-            context = False
         url = f"{environ['QUART_INVENIORDM_API']}/api/user/records?q=is_published:false"
         headers = {
             "Content-Type": "application/octet-stream",
             "Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}",
         }
-        response = httpx.get(url, headers=headers, timeout=10, verify=context)
+        response = httpx.get(url, headers=headers, timeout=10)
         n = py_.get(response.json(), "hits.total", 0)
         return n
     except Exception as error:
