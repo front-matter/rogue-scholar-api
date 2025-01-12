@@ -449,11 +449,6 @@ AUTHOR_AFFILIATIONS = {
             "id": "https://ror.org/02mb95055",
             "start_date": "2015-05-01",
         },
-        {
-            "name": "Crossref",
-            "id": "https://ror.org/02twcfp32",
-            "start_date": "2023-01-01",
-        },
     ],
     "https://orcid.org/0009-0004-4949-9284": [
         {
@@ -727,6 +722,61 @@ AUTHOR_AFFILIATIONS = {
             "name": "University of Regensburg",
             "id": "https://ror.org/01eezs655",
             "start_date": "2012-10-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-2405-7816": [
+        {
+            "name": "Scholarly Publishing and Academic Resources Coalition",
+            "id": "https://ror.org/01dktcn28",
+            "start_date": "2022-02-07",
+        }
+    ],
+    "https://orcid.org/0000-0001-9039-9219": [
+        {
+            "name": "ASAPbio",
+            "id": "https://ror.org/05k4vg494",
+            "start_date": "2023-07-13",
+        }
+    ],
+    "https://orcid.org/0000-0003-2797-1686": [
+        {
+            "name": "Ottawa Heart Institute",
+            "id": "https://ror.org/00h533452",
+            "start_date": "2021-11-08",
+        }
+    ],
+    "https://orcid.org/0000-0002-7971-1678": [
+        {
+            "name": "ASAPbio",
+            "id": "https://ror.org/05k4vg494",
+            "start_date": "2024-05-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-5965-6560": [
+        {
+            "name": "Sesame Open Science",
+            "start_date": "2022-07-01",
+        }
+    ],
+    "https://orcid.org/0000-0003-4817-8206": [
+        {
+            "name": "F1000",
+            "id": "https://ror.org/019tc7185",
+            "start_date": "2015-11-01",
+        }
+    ],
+    "https://orcid.org/0000-0003-1649-0879": [
+        {
+            "name": "Federation of Finnish Learned Societies",
+            "id": "https://ror.org/02cdzet69",
+            "start_date": "2018-01-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-4900-936X": [
+        {
+            "name": "Howard Hughes Medical Institute",
+            "id": "https://ror.org/006w34k90",
+            "start_date": "2016-09-01",
         }
     ],
 }
