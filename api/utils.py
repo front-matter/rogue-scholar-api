@@ -779,6 +779,13 @@ AUTHOR_AFFILIATIONS = {
             "start_date": "2016-09-01",
         }
     ],
+    "https://orcid.org/0000-0002-5337-4722": [
+        {
+            "name": "Universidad Carlos III de Madrid",
+            "id": "https://ror.org/03ths8210",
+            "start_date": "2008-05-08",
+        }
+    ],
 }
 
 
