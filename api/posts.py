@@ -1461,6 +1461,7 @@ def create_record(record, guid: str, community_id: str):
             .eq("guid", guid)
             .execute()
         )
+        print(1,len(post_to_update.data))
         if len(post_to_update.data) == 0:
             print(f"error creating record rid {rid} for guid {guid}")
             return response
@@ -1477,6 +1478,7 @@ def update_record(record, rid: str, community_id: str):
     try:
         subject = Metadata(record, via="json_feed_item")
         record = JSON.loads(subject.write(to="inveniordm"))
+        print(record)
 
         guid = py_.get(record, "metadata.identifiers[1].identifier")
 
@@ -1527,19 +1529,19 @@ def update_record(record, rid: str, community_id: str):
             add_record_to_community(rid, community_id)
 
         # update rogue scholar database with InvenioRDM record id (rid)
-        post_to_update = (
-            supabase_admin.table("posts")
-            .update(
-                {
-                    "rid": rid,
-                }
-            )
-            .eq("guid", guid)
-            .execute()
-        )
-        if len(post_to_update.data) == 0:
-            print(f"error updating record rid {rid} for guid {guid}")
-            return response
+        # post_to_update = (
+        #     supabase_admin.table("posts")
+        #     .update(
+        #         {
+        #             "rid": rid,
+        #         }
+        #     )
+        #     .eq("guid", guid)
+        #     .execute()
+        # )
+        # if len(post_to_update.data) == 0:
+        #     print(f"error updating record rid {rid} for guid {guid}")
+        #     return response
         print(f"Updated record rid {rid} for guid {guid}")
         return response
     except Exception as error:

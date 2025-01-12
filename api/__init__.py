@@ -443,7 +443,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
             supabase_client.table("posts")
             .select(postsWithContentSelect, count="exact")
             .not_.is_("blogs.prefix", "null")
-            .is_("doi", "null")
+            .is_("rid", "null")
             .order("published_at", desc=True)
             .limit(min(per_page, 100))
             .execute()
