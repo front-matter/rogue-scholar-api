@@ -124,7 +124,7 @@ async def extract_single_blog(slug: str):
         feed_format = parse_feed_format(feed) or config["feed_format"]
         title = feed.get("title", None) or config["title"]
         generator_raw = config["generator_raw"] or (
-            parse_generator(feed.get("generator_detail", None) or feed.get("generator")) 
+            parse_generator(feed.get("generator_detail", None) or feed.get("generator"))
             or "Other"
         )
         generator = re.split(" ", generator_raw)[0]
@@ -136,7 +136,7 @@ async def extract_single_blog(slug: str):
         # ignore the default favicons
         if favicon in ["https://s0.wp.com/i/buttonw-com.png"]:
             favicon = None
-        language = config["language"] or feed.get("language", None) 
+        language = config["language"] or feed.get("language", None)
         if language:
             language = language.split("-")[0]
     except Exception as error:
@@ -184,7 +184,7 @@ async def extract_single_blog(slug: str):
         "feed_format": config["feed_format"],
     }
     update_single_blog(blog)
-    
+
     # update InvenioRDM blog community if blog is active, expired or archived
     if config["status"] in ["active", "expired", "archived"]:
         r = upsert_blog_community(blog)
@@ -316,12 +316,9 @@ def update_single_blog(blog):
 def push_blog_community_id(slug):
     """Get InvenioRDM blog community id and store in blog."""
     try:
-        context = ssl.create_default_context()
-        if is_local():
-            context = False
         url = f"{environ['QUART_INVENIORDM_API']}/api/communities?q=slug:{slug}"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
-        response = httpx.get(url, headers=headers, timeout=10,verify=context)
+        response = httpx.get(url, headers=headers, timeout=10)
         result = response.json()
         if py_.get(result, "hits.total") != 1:
             return result
@@ -355,9 +352,6 @@ def upsert_blog_community(blog):
 def create_blog_community(blog):
     """Create an InvenioRDM blog community."""
     try:
-        context = ssl.create_default_context()
-        if is_local():
-            context = False
         url = f"{environ['QUART_INVENIORDM_API']}/api/communities"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         metadata = {
@@ -369,17 +363,21 @@ def create_blog_community(blog):
             metadata["description"] = py_.truncate(
                 blog.get("description", None), 250, omission="", separator=" "
             )
-        custom_fields = compact({
-            "rs:feed_url": blog.get("feed_url"),
-            "rs:feed_format": blog.get("feed_format"),
-            "rs:generator": blog.get("generator"),
-            "rs:license": blog.get("license"),
-            "rs:issn": blog.get("issn"),
-            "rs:prefix": blog.get("prefix"),
-            "rs:joined": format_datetime(get_date_from_unix_timestamp(blog.get("created_at", 0)), "en"),
-            "rs:language": get_language(blog.get("language"), format="name"),
-            "rs:category": FOS_MAPPINGS.get(blog.get("category"), None),
-        })
+        custom_fields = compact(
+            {
+                "rs:feed_url": blog.get("feed_url"),
+                "rs:feed_format": blog.get("feed_format"),
+                "rs:generator": blog.get("generator"),
+                "rs:license": blog.get("license"),
+                "rs:issn": blog.get("issn"),
+                "rs:prefix": blog.get("prefix"),
+                "rs:joined": format_datetime(
+                    get_date_from_unix_timestamp(blog.get("created_at", 0)), "en"
+                ),
+                "rs:language": get_language(blog.get("language"), format="name"),
+                "rs:category": FOS_MAPPINGS.get(blog.get("category"), None),
+            }
+        )
         data = {
             "access": {
                 "visibility": "public",
@@ -391,7 +389,7 @@ def create_blog_community(blog):
             "metadata": metadata,
             "custom_fields": custom_fields,
         }
-        response = httpx.post(url, headers=headers, json=data, timeout=10,verify=context)
+        response = httpx.post(url, headers=headers, json=data, timeout=10)
         return response
     except Exception as error:
         print(error)
@@ -401,9 +399,6 @@ def create_blog_community(blog):
 def update_blog_community(blog):
     """Update an InvenioRDM blog community."""
     try:
-        context = ssl.create_default_context()
-        if is_local():
-            context = False
         url = f"{environ['QUART_INVENIORDM_API']}/api/communities/{blog.get('slug')}"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         metadata = {
@@ -415,17 +410,21 @@ def update_blog_community(blog):
             metadata["description"] = py_.truncate(
                 blog.get("description", None), 250, omission="", separator=" "
             )
-        custom_fields = compact({
-            "rs:feed_url": blog.get("feed_url"),
-            "rs:feed_format": blog.get("feed_format"),
-            "rs:generator": blog.get("generator"),
-            "rs:license": blog.get("license"),
-            "rs:issn": blog.get("issn"),
-            "rs:prefix": blog.get("prefix"),
-            "rs:joined": format_datetime(get_date_from_unix_timestamp(blog.get("created_at", 0)), "en"),
-            "rs:language": get_language(blog.get("language"), format="name"),
-            "rs:category": FOS_MAPPINGS.get(blog.get("category"), None),
-        })
+        custom_fields = compact(
+            {
+                "rs:feed_url": blog.get("feed_url"),
+                "rs:feed_format": blog.get("feed_format"),
+                "rs:generator": blog.get("generator"),
+                "rs:license": blog.get("license"),
+                "rs:issn": blog.get("issn"),
+                "rs:prefix": blog.get("prefix"),
+                "rs:joined": format_datetime(
+                    get_date_from_unix_timestamp(blog.get("created_at", 0)), "en"
+                ),
+                "rs:language": get_language(blog.get("language"), format="name"),
+                "rs:category": FOS_MAPPINGS.get(blog.get("category"), None),
+            }
+        )
         data = {
             "access": {
                 "visibility": "public",
@@ -437,7 +436,7 @@ def update_blog_community(blog):
             "metadata": metadata,
             "custom_fields": custom_fields,
         }
-        response = httpx.put(url, headers=headers, json=data, timeout=10,verify=context)
+        response = httpx.put(url, headers=headers, json=data, timeout=10)
         if response.status_code >= 400:
             print(response.json())
         return response
@@ -451,9 +450,6 @@ def upload_blog_logo(blog):
     if blog.get("favicon", None) is None:
         return None
     try:
-        context = ssl.create_default_context()
-        if is_local():
-            context = False
         url = (
             f"{environ['QUART_INVENIORDM_API']}/api/communities/{blog.get('slug')}/logo"
         )
@@ -464,7 +460,7 @@ def upload_blog_logo(blog):
         content = httpx.get(
             blog.get("favicon"), timeout=10, follow_redirects=True
         ).content
-        response = httpx.put(url, headers=headers, content=content, timeout=10,verify=context)
+        response = httpx.put(url, headers=headers, content=content, timeout=10)
         return response
     except Exception as error:
         print(error)
@@ -500,14 +496,11 @@ def upload_blog_logo(blog):
 def feature_community(id):
     """Feature an InvenioRDM community by id."""
     try:
-        context = ssl.create_default_context()
-        if is_local():
-            context = False
         url = f"{environ['QUART_INVENIORDM_API']}/api/communities/{id}/featured"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         now = datetime.datetime.now().isoformat()
         data = {"start_date": now}
-        response = httpx.post(url, headers=headers, json=data, timeout=10,verify=context)
+        response = httpx.post(url, headers=headers, json=data, timeout=10)
         return response
     except Exception as error:
         print(error)

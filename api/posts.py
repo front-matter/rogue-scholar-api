@@ -936,8 +936,10 @@ async def extract_json_feed_post(post, blog):
         content_html = post.get("content_html", "")
         content_text = get_markdown(content_html)
         summary = get_summary(content_html)
-        abstract = None
-        reference = await get_references(content_html)
+        abstract = None        
+        reference = await get_jsonfeed_references(post.get("_references", []))
+        if len(reference) == 0:
+            reference = await get_references(content_html)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
         archive_url = (
@@ -1689,6 +1691,18 @@ async def get_references(content_html: str):
     if not urls or len(urls) == 0:
         return []
 
+    tasks = []
+    for index, url in enumerate(urls):
+        task = format_reference(url, index)
+        tasks.append(task)
+
+    formatted_references = py_.compact(await asyncio.gather(*tasks))
+    return formatted_references
+
+
+async def get_jsonfeed_references(references: list):
+    """Extract references from jsonfeed _references field."""
+    urls = [ref.get("url", None) for ref in references]
     tasks = []
     for index, url in enumerate(urls):
         task = format_reference(url, index)
