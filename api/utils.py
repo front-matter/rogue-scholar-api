@@ -132,6 +132,7 @@ AUTHOR_IDS = {
     "Trisha Cruse": "https://orcid.org/0000-0002-9300-5278",
     "Laura Rueda": "https://orcid.org/0000-0001-5952-7630",
     "Richard L. Apodaca": "https://orcid.org/0000-0003-3855-9427",
+    "Daniela Lowenberg": "https://orcid.org/0000-0003-2255-1869",
 }
 
 AUTHOR_NAMES = {
@@ -178,6 +179,7 @@ AUTHOR_NAMES = {
     "Package Build": "Open.Make Team",
     "Open.Make team": "Open.Make Team",
     "Stephen": "Stephen Curry",
+    "aninkov": "Anton Ninkov",
 }
 
 AUTHOR_AFFILIATIONS = {
@@ -328,6 +330,13 @@ AUTHOR_AFFILIATIONS = {
             "name": "University of California Office of the President",
             "id": "https://ror.org/00dmfq477",
             "start_date": "2015-10-01",
+        }
+    ],
+    "https://orcid.org/0000-0003-2255-1869": [
+        {
+            "name": "University of California Office of the President",
+            "id": "https://ror.org/00dmfq477",
+            "start_date": "2017-02-03",
         }
     ],
     "https://orcid.org/0000-0001-8249-1752": [
