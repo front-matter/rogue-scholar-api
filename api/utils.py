@@ -132,7 +132,7 @@ AUTHOR_IDS = {
     "Trisha Cruse": "https://orcid.org/0000-0002-9300-5278",
     "Laura Rueda": "https://orcid.org/0000-0001-5952-7630",
     "Richard L. Apodaca": "https://orcid.org/0000-0003-3855-9427",
-    "Daniela Lowenberg": "https://orcid.org/0000-0003-2255-1869",
+    "Daniella Lowenberg": "https://orcid.org/0000-0003-2255-1869",
 }
 
 AUTHOR_NAMES = {
