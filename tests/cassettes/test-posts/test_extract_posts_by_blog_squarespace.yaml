@@ -1,0 +1,145 @@
+interactions:
+- request:
+    body: '{}'
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      host:
+      - zggonsjmmfozmfxlrjmg.supabase.co
+      user-agent:
+      - python-httpx/0.27.2
+      x-client-info:
+      - supabase-py/2.11.0
+    method: GET
+    uri: https://zggonsjmmfozmfxlrjmg.supabase.co/rest/v1/blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20registered_at%2C%20generator%2C%20generator_raw%2C%20language%2C%20category%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.metadatagamechangers
+  response:
+    content: '{"id":"6ac6b508-37c9-4dca-9f49-c36bbe19458a","slug":"metadatagamechangers","feed_url":"https://metadatagamechangers.com/blog?format=json","current_feed_url":null,"home_page_url":"https://metadatagamechangers.com/blog","archive_prefix":null,"feed_format":"application/feed+json","created_at":1709154984,"updated_at":1729790772,"registered_at":1729790772,"generator":"Squarespace","generator_raw":"Squarespace
+      6.0.0","language":"en","category":"earthAndRelatedEnvironmentalSciences","favicon":null,"title":"Blog
+      - Metadata Game Changers","description":"Exploring metadata, communities, and
+      new ideas. ","category":"earthAndRelatedEnvironmentalSciences","status":"active","user_id":"dead81b3-8a8b-45c9-85fe-f01bb3948c77","authors":[{"name":
+      "Ted Habermann"}],"use_api":true,"relative_url":null,"filter":null,"secure":true}'
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 9045d5505e816a7c-DUS
+      content-location:
+      - /blogs?select=id%2C%20slug%2C%20feed_url%2C%20current_feed_url%2C%20home_page_url%2C%20archive_prefix%2C%20feed_format%2C%20created_at%2C%20updated_at%2C%20registered_at%2C%20generator%2C%20generator_raw%2C%20language%2C%20category%2C%20favicon%2C%20title%2C%20description%2C%20category%2C%20status%2C%20user_id%2C%20authors%2C%20use_api%2C%20relative_url%2C%20filter%2C%20secure&slug=eq.metadatagamechangers
+      content-profile:
+      - public
+      content-range:
+      - 0-0/*
+      content-type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      date:
+      - Sun, 19 Jan 2025 09:35:11 GMT
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - zggonsjmmfozmfxlrjmg
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-kong-proxy-latency:
+      - '0'
+      x-kong-upstream-latency:
+      - '5'
+    http_version: HTTP/2
+    status_code: 200
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      host:
+      - metadatagamechangers.com
+      user-agent:
+      - python-httpx/0.27.2
+    method: GET
+    uri: https://metadatagamechangers.com/blog?format=json&offset=0
+  response:
+    content: '{"website":{"id":"52ffa419e4b05b374032e6d9","identifier":"ted-habermann","websiteType":1,"contentModifiedOn":1736805659220,"cloneable":false,"hasBeenCloneable":false,"siteStatus":{},"language":"en-US","timeZone":"US/Mountain","machineTimeZoneOffset":-25200000,"timeZoneOffset":-25200000,"timeZoneAbbr":"MST","siteTitle":"Metadata
+      Game Changers","siteTagLine":"","siteDescription":"<p>I have worked in scientific
+      data management for many years and enjoy working with organizations and communities
+      that share data and knowledge. I am fluent in metadata standards and dialects
+      used in scientific data management and publishing.</p>","location":{"mapZoom":12.0,"mapLat":40.0564669,"mapLng":-105.2802617,"markerLat":40.0149856,"markerLng":-105.27054559999999,"addressTitle":"Metadata
+      Game Changers LLC","addressLine1":"4524 14th Street","addressLine2":"Boulder,
+      CO, 80304","addressCountry":"United States"},"logoImageId":"5e06b72713bb831c9c20c8ab","shareButtonOptions":{"1":true,"4":true},"logoImageUrl":"//images.squarespace-cdn.com/content/v1/52ffa419e4b05b374032e6d9/1577498408185-9LMHCVUJMNL2UBCIUOB9/Metadata+Game+Changers+Logo-Light.png","authenticUrl":"https://metadatagamechangers.com","internalUrl":"https://ted-habermann.squarespace.com","baseUrl":"https://metadatagamechangers.com","primaryDomain":"metadatagamechangers.com","sslSetting":3,"isHstsEnabled":true,"socialAccounts":[{"serviceId":14,"userId":"xC5r77XdUp","userName":"ted-habermann-141b6764","screenname":"Ted
+      Habermann","addedOn":1536012528393,"profileUrl":"https://www.linkedin.com/company/metadata-game-changers/","iconUrl":"https://media.licdn.com/dms/image/C5603AQGElXGrQ9f22A/profile-displayphoto-shrink_100_100/0?e=1541635200&v=beta&t=dfB-_8yqw8v8Y5koN6fORd_xLm1WGZIEAgZMjB6lJTI","iconEnabled":true,"serviceName":"linkedin"}],"typekitId":"","statsMigrated":false,"imageMetadataProcessingEnabled":false,"screenshotId":"05e4cfdcbe945e3f1248770a58b568b94940edef4623b9380e4a20b03e719a5a","captchaSettings":{"enabledForDonations":false},"showOwnerLogin":false,"siteTitle":"Metadata
+      Game Changers"},"websiteSettings":{"id":"52ffa419e4b05b374032e6da","websiteId":"52ffa419e4b05b374032e6d9","type":"Business","subjects":[{"systemSubject":"tech"}],"country":"US","state":"CO","simpleLikingEnabled":true,"cookieBannerSettings":{"ctaText":"Accept
+      all","position":"BOTTOM","theme":"DARK","acceptType":"OPT_IN","optOutCtaText":"Decline
+      all","hasOptOut":true,"hasManageCookies":true,"manageCookiesLabel":"Manage cookies","savedPreferencesText":"Cookie
+      Preferences","savedPreferencesLayout":"PILL"},"mobileInfoBarSettings":{"isContactEmailEnabled":false,"isContactPhoneNumberEnabled":false,"isLocationEnabled":false,"isBusinessHoursEnabled":false},"announcementBarSettings":{"style":1,"text":"","clickthroughUrl":{"url":"https://docs.google.com/forms/d/e/1FAIpQLScVHVCclrr4vjeaCg-fUhx5KUwMpc12UxejQvGPKLaUcYu6tw/viewform","newWindow":true}},"popupOverlaySettings":{"showOnScroll":false,"scrollPercentage":25,"showOnTimer":true,"timerDelay":30000,"showUntilSignup":true,"displayFrequency":30,"enableMobile":true,"enabledPages":[],"showOnAllPages":true,"version":1},"commentLikesAllowed":true,"commentAnonAllowed":true,"commentThreaded":true,"commentApprovalRequired":false,"commentAvatarsOn":true,"commentSortType":2,"commentFlagThreshold":0,"commentFlagsAllowed":true,"commentEnableByDefault":true,"commentDisableAfterDaysDefault":0,"disqusShortname":"","collectionTitleFormat":"%p
+      \u2014 %s","itemTitleFormat":"%i \u2014 %s","commentsEnabled":true,"uiComponentRegistrationsFlag":false,"scriptRegistrationsFlag":false,"bundleEligible":false,"bucketingSeedId":"f09b2286-c4a2-412f-83f5-8796e25c50e5","newPlanArchitectureEligible":false,"businessHours":{"monday":{"text":"","ranges":[{}]},"tuesday":{"text":"","ranges":[{}]},"wednesday":{"text":"","ranges":[{}]},"thursday":{"text":"","ranges":[{}]},"friday":{"text":"","ranges":[{}]},"saturday":{"text":"","ranges":[{}]},"sunday":{"text":"","ranges":[{}]}},"storeSettings":{"returnPolicy":null,"termsOfService":null,"privacyPolicy":null,"expressCheckout":false,"continueShoppingLinkUrl":"/","useLightCart":false,"showNoteField":false,"shippingCountryDefaultValue":"US","billToShippingDefaultValue":false,"showShippingPhoneNumber":true,"isShippingPhoneRequired":false,"showBillingPhoneNumber":true,"isBillingPhoneRequired":false,"currenciesSupported":["CHF","HKD","MXN","EUR","DKK","USD","CAD","MYR","NOK","THB","AUD","SGD","ILS","PLN","GBP","CZK","SEK","NZD","PHP","RUB"],"defaultCurrency":"USD","selectedCurrency":"USD","measurementStandard":1,"showCustomCheckoutForm":false,"checkoutPageMarketingOptInEnabled":false,"enableMailingListOptInByDefault":false,"sameAsRetailLocation":false,"merchandisingSettings":{"scarcityEnabledOnProductItems":false,"scarcityEnabledOnProductBlocks":false,"scarcityMessageType":"DEFAULT_SCARCITY_MESSAGE","scarcityThreshold":10,"multipleQuantityAllowedForServices":true,"restockNotificationsEnabled":false,"restockNotificationsSuccessText":"","restockNotificationsMailingListSignUpEnabled":false,"relatedProductsEnabled":false,"relatedProductsOrdering":"random","soldOutVariantsDropdownDisabled":false,"productComposerOptedIn":false,"productComposerABTestOptedOut":false,"productReviewsEnabled":false,"displayImportedProductReviewsEnabled":false,"hasOptedToCollectNativeReviews":false},"minimumOrderSubtotalEnabled":false,"minimumOrderSubtotal":{"currency":"USD","value":"0.00"},"isLive":true,"multipleQuantityAllowedForServices":true},"useEscapeKeyToLogin":true,"ssBadgeType":1,"ssBadgePosition":4,"ssBadgeVisibility":1,"ssBadgeDevices":1,"pinterestOverlayOptions":{"mode":"disabled"},"ampEnabled":false,"isRestrictiveCookiePolicyEnabled":true,"seoHidden":false,"userAccountsSettings":{"loginAllowed":false,"signupAllowed":false},"cookieBannerText":"<p>Select
+      \u201CAccept all\u201D to agree to our use of cookies and similar technologies
+      to enhance your browsing experience, security, analytics and customization.
+      Select \u201DManage cookies\u201D to make more choices or opt out.</p>","isCookieBannerEnabled":true,"isVisitorDataRestricted":false,"businessHours":{"monday":{"text":"","ranges":[{}]},"tuesday":{"text":"","ranges":[{}]},"wednesday":{"text":"","ranges":[{}]},"thursday":{"text":"","ranges":[{}]},"friday":{"text":"","ranges":[{}]},"saturday":{"text":"","ranges":[{}]},"sunday":{"text":"","ranges":[{}]}},"contactEmail":"erin@metadatagamechangers.com","contactPhoneNumber":"3143699954"},"collection":{"id":"52ffb111e4b015113d9dc404","websiteId":"52ffa419e4b05b374032e6d9","mainImageId":"67453250f889da1982fe41e8","mainImage":{"id":"67453250f889da1982fe41e8","recordType":2,"addedOn":1732588112200,"updatedOn":1732588120689,"workflowState":1,"publishOn":1732588112200,"authorId":"54ebd98de4b0f93fea15a269","systemDataId":"1732588019380-EVZ2DEBI9IV792SXFI2E","systemDataVariants":"1906x1429,100w,300w,500w,750w,1000w,1500w","systemDataSourceType":"JPG","filename":"dataCiteModel_V6.jpg","mediaFocalPoint":{"x":0.8660714285714286,"y":0.46726190476190477,"source":3},"colorData":{"topLeftAverage":"d4d4d4","topRightAverage":"d4d4d4","bottomLeftAverage":"d4d4d4","bottomRightAverage":"d4d4d4","centerAverage":"d0c7c7","suggestedBgColor":"c8c6c7"},"urlId":"5hnjgnp7xd8vekk457y0logzk2y582","title":"","body":null,"likeCount":0,"commentCount":0,"publicCommentCount":0,"commentState":2,"unsaved":false,"author":{"id":"54ebd98de4b0f93fea15a269","displayName":"Erin
+      Robinson","firstName":"Erin","lastName":"Robinson"},"assetUrl":"https://images.squarespace-cdn.com/content/v1/52ffa419e4b05b374032e6d9/1732588019380-EVZ2DEBI9IV792SXFI2E/dataCiteModel_V6.jpg","contentType":"image/jpeg","pushedServices":{},"pendingPushedServices":{},"originalSize":"1906x1429","recordTypeLabel":"image"},"backgroundSource":1,"enabled":true,"starred":false,"type":1,"ordering":2,"title":"Blog","navigationTitle":"Blog","urlId":"blog","itemCount":69,"updatedOn":1736805659219,"description":"<p
+      class=\"\" style=\"white-space:pre-wrap;\">Exploring metadata, communities,
+      and new ideas. </p>","pageSize":20,"folder":false,"dropdown":false,"tags":["resourceTypes","METADIG","FairIsland","keywords","FAIR","affiliations","metadata
+      evaluation","BRIDGE","metaDIG","facets","presentation","CHORUS","UCAR","RADS","repository
+      connectivity","institutionalRepositories","crossref","Dryad","funders","dataFiles","Affiliation","DOI","INFORMATE","Repository
+      Connectivity","InstitutionalRepositories","ISO","ORCID","projectMetadata","identifiers","DMP","Roles","dataPackages","PID","Openscapes","metadata
+      improvement","DataCite","ROR","re-curation","DataCite Commons","Affiliations","XML","Objects","RORs","informate","funder
+      metadata","Connectivity","dataCite","Identifiers"],"categories":["Affiliations","Crossref
+      Metadata","DataCite Metadata","Dryad Metadata","INFORMATE","Metadata Evaluation","News","The
+      Metadata Game","Understanding ISO Metadat","Using ISO Metadata"],"homepage":false,"typeName":"blog","regionName":"default","synchronizing":false,"categoryPagesSeoHidden":false,"tagPagesSeoHidden":false,"pagePermissionType":1,"fullUrl":"/blog","passwordProtected":false,"draft":false,"typeLabel":"blog","title":"Blog","navigationTitle":"Blog"},"shoppingCart":{"websiteId":"52ffa419e4b05b374032e6d9","created":1737273522547,"entries":[],"shippingLocation":{},"taxLineItems":[],"coupons":[],"promoCodes":[],"appliedGiftCards":[],"cartType":1,"validCoupons":[],"invalidCoupons":[],"subtotalCents":0,"taxCents":0,"shippingCostCents":0,"discountCents":0,"giftCardRedemptionTotalCents":0,"grandTotalCents":0,"amountDueCents":0,"totalQuantity":0,"purelyDigital":false,"hasDigital":false,"requiresShipping":false,"shippingOptions":[]},"shareButtons":{"twitter":true,"linkedin":true},"showCart":true,"localizedStrings":{},"userAccountsContext":{"showSignInLink":false},"template":{"mobileStylesEnabled":true},"uiextensions":{"product-badge":"sqs-uiextensions-product-badge","product-body":"sqs-uiextensions-product-body","product-badge-mobile":"sqs-uiextensions-product-badge-mobile","product-body-mobile":"sqs-uiextensions-product-body-mobile","product-collection-item":"sqs-uiextensions-product-collection-item","scripts-enabled":false},"empty":true,"emptyFolder":false,"calendarView":false,"pagination":{"pageSize":20},"pagePreviewContext":{"isPreviewMode":false,"memberAccessUrl":"/blog?format=json&offset=0&requestAccess=true"}}'
+    headers:
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '5789'
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '4272'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Sun, 19 Jan 2025 07:58:42 GMT
+      Etag:
+      - W/"1f4d422c4892dad2228b6a7cfcaef4a0--gzip"
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - cache
+      Server:
+      - Squarespace
+      Set-Cookie:
+      - crumb=Beqvkc+bOjKqNTVkNjI2MjJkM2IyYmQ5ODk1NWZkODllMzY3YjAy;Secure;Path=/
+      Strict-Transport-Security:
+      - max-age=15552000
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Contextid:
+      - DvXPlvyv/lgCTi9gy
+    http_version: HTTP/1.1
+    status_code: 200
+version: 1
