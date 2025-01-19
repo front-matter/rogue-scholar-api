@@ -989,4 +989,994 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Cabstract%2Ccontent_text%2Creference&filter_by=status%3A%21%3D%5Bpending%5D+%26%26+published_at%3A%3E%3D+0+%26%26+published_at%3A%3C%3D+1737296667+%26%26+tags%3A%3D%5Bopen+access%5D&sort_by=published_at%3Adesc&per_page=10&page=1
+  response:
+    body:
+      string: "{\"facet_counts\":[],\"found\":1076,\"hits\":[{\"document\":{\"authors\":[{\"name\":\"Summer
+        Rosonovski\"}],\"blog_name\":\"Europe PMC News Blog\",\"blog_slug\":\"europepmc\",\"category\":\"healthSciences\",\"content_text\":\"As
+        we enter into 2025, Europe PMC celebrates a previous year of\\ninnovation,
+        growth, and user-driven improvements. This end-of-year\\nreflection highlights
+        our key achievements in developing cutting-edge AI\\nsolutions for scientific
+        research, advances in open research software,\\nand support for transparency
+        in scholarly communication.\\n\\n### Using AI to revolutionise research discovery\_
+        {#using-ai-to-revolutionise-research-discovery .wp-block-heading}\\n\\nTo
+        unearth critical insights from biomedical literature and accelerate\\nscientific
+        discovery, Europe PMC is using innovative AI approaches.\\nDeveloped in collaboration
+        with Open Targets, the [Lit-OTAR\\nframework](https://blog.europepmc.org/2024/07/revolutionising-drug-discovery-with-deep-learning.html)\\nused
+        deep learning to identify over 48 million gene-disease-drug\\nassociations,
+        helping researchers prioritise drug targets and design\\ninnovative treatments.
+        This tool processes scientific articles daily,\\nproviding comprehensive data
+        accessible via the Open Targets Platform\\nand Europe PMC's Annotations API.\\n\\nTo
+        support protein research, Europe PMC and PDBe developed an\\n[AI](https://blog.europepmc.org/2024/10/transforming-protein-research-with-ai-and-human-expertise.html)--[human\\nhybrid\\nworkflow](https://blog.europepmc.org/2024/10/transforming-protein-research-with-ai-and-human-expertise.html)\\nto
+        link protein structure and function. By combining expert curation\\nwith machine
+        learning, the workflow identifies key amino acid residues\\n-- accelerating
+        functional insights, supporting drug target validation,\\nand scaling the
+        annotation process.\\n\\nAll the models and code for the Lit-OTAR framework
+        and AI--human hybrid\\nworkflow projects can be found respectively at\\n[ML4Lit](https://github.com/ML4LitS)
+        and\\n[PDBEurope](https://huggingface.co/PDBEurope) GitLab repositories.\\n\\n###
+        Supporting research software {#supporting-research-software .wp-block-heading}\\n\\nTwo
+        years ago Europe PMC adopted the [Principles of Open Scholarly\\nInfrastructure](https://blog.europepmc.org/2022/02/europe-pmc-adopts-the-principles-of-open-scholarly-infrastructure.html)\\n(POSI),
+        a set of guidelines to operate and sustain open scholarly\\ninfrastructure.
+        Since then we have made significant progress towards\\ngreater transparency,
+        sustainability, and openness. As part of our\\ncommitment, we develop all
+        new code as open source and gradually update\\nlegacy systems to enable reuse.
+        You can now find 27 open projects hosted\\non Europe PMC's [public GitLab\\nrepository](https://gitlab.ebi.ac.uk/literature-services/public-projects).\\nWe
+        believe that open source is more than just sharing your code -- it's\\nabout
+        building projects that thrive. We invite you to collaborate,\\ncontribute,
+        and repurpose our code to match affiliations, import\\npreprints, or extract
+        key terms from documents. Not sure where to start\\nin creating or reusing
+        open source code? [I'm ready to take the first\\nstep and learn from EMBL
+        Data Scientists for\\nfree](https://youtu.be/D-aoVZrheIU?si=qIh1YpHQencCsJwj&t=7).\\n\\nModern
+        research increasingly relies on software, yet it often lacks\\nappropriate
+        recognition and persistent identifiers, limiting its\\ndiscoverability and
+        reproducibility. To address this issue, Europe PMC\\njoined a collaborative
+        initiative dedicated to improving the visibility\\nand reuse of open research
+        software, called the [SoFAIR\\nproject](https://blog.europepmc.org/2024/05/connecting-publications-and-software.html).\\nThis
+        project will leverage machine learning and community validation to\\nmake
+        software citations available through the Europe PMC Annotations\\nplatform.
+        This initiative will not only enhance software visibility and\\nsupport the
+        reuse of research code, but also ensure that developers\\nreceive credit for
+        their work, in line with the FAIR principles for open\\nresearch outputs.
+        Our participation in SoFAIR underscores our commitment\\nto integrating open
+        research software with life sciences literature,\\ndriving innovation, and
+        creating a more connected research ecosystem.\\n\\n### User-focused design\_
+        {#user-focused-design .wp-block-heading}\\n\\nAt Europe PMC, we prioritise
+        user-driven design. In 2024, the team made\\nseveral updates based on user
+        feedback and research. One key improvement\\nwas making the sort order more
+        prominent to enable users to quickly\\nchoose between relevance, date, and
+        times cited easily. Previously\\ndisplayed as a drop-down menu, we redesigned
+        the sorting options and\\ntested the changes using A/B testing -- a method
+        of comparing two\\nversions of content by randomly splitting the audience
+        and evaluating\\nperformance based on engagement. This approach confirmed
+        that users\\npreferred the new, more accessible design to sort their results.
+        We also\\nrevamped the date filter to display a timeline view and offer a
+        more\\nvisual and intuitive way to narrow down searches.\\n\\n<figure class=\\\"wp-block-image\\\">\\n<img\\nsrc=\\\"https://blog.europepmc.org/wp-content/uploads/2025/01/image.png\\\"\\nclass=\\\"wp-image-1643\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.europepmc.org/wp-content/uploads/2025/01/image.png
+        1600w, https://blog.europepmc.org/wp-content/uploads/2025/01/image-300x203.png
+        300w, https://blog.europepmc.org/wp-content/uploads/2025/01/image-1024x694.png
+        1024w, https://blog.europepmc.org/wp-content/uploads/2025/01/image-768x520.png
+        768w, https://blog.europepmc.org/wp-content/uploads/2025/01/image-1536x1041.png
+        1536w\\\"\\nsizes=\\\"(max-width: 1600px) 100vw, 1600px\\\" width=\\\"1600\\\"
+        height=\\\"1084\\\" />\\n</figure>\\n\\nWe are looking to the future of search,
+        trying to anticipate future user\\nneeds and changes in scholarly communication.
+        We are exploring the\\nstrengths, and limitations, of the current search tools
+        and have run\\nfocus groups to understand your challenges and aspirations
+        around\\nliterature research. These insights will guide our efforts to support\\nyou
+        with newer, better tools that evolve alongside your expectations. Be\\nthe
+        first to know what's coming next -- explore the 2025 developments on\\nthe
+        [Europe PMC roadmap](https://europepmc.org/Roadmap)!\\n\\n### Expanding coverage
+        {#expanding-coverage .wp-block-heading}\\n\\nEurope PMC continues to grow
+        as a comprehensive database for key\\nscientific research. In 2024 we added
+        preprints from MetaArXiv and\\nVeriXic, now 35 preprint servers are indexed
+        by Europe PMC. As of\\nDecember 2024, Europe PMC provides access to over 880,000
+        life science\\npreprints, ensuring you stay informed about the latest developments
+        in\\nthe field.\\n\\nThis year we have also updated our collection of PhD
+        theses from UK\\nhigher education institutions. These records are provided
+        by EThOS, the\\nBritish Library's e-thesis online service. Currently, users
+        can access\\nover 176,000 biomedical theses in Europe PMC. Making theses available\\nalongside
+        publications broadens the available knowledge base, encourages\\nthe sharing
+        of ideas within the academic community, and provides\\nvaluable context for
+        ongoing advancements in the life sciences.\\n\\n### Transparency for preprints
+        and publications {#transparency-for-preprints-and-publications .wp-block-heading}\\n\\nAs
+        in life, mistakes can occur at any stage of the research process.\\nErratums
+        and retractions allow scientists to make changes to published\\nliterature.
+        This prevents the spread of outdated or incorrect\\ninformation, and thus
+        erosion of public trust in research.\\n\\nWhen citing a research work it is
+        important to know whether an article\\nwas retracted or corrected, or if a
+        preprint was withdrawn, removed,\\nupdated with a new version, or published
+        in a journal. We have included\\nthis crucial information in citation files
+        as part of Europe PMC's\\ncommitment to transparency. This means that major
+        publication updates\\nare now visible to the user when a record from Europe
+        PMC is added to a\\ncitation manager. This mitigates the risk of unknowingly
+        citing invalid\\nor outdated work and empowers researchers to make responsible
+        decisions\\nabout the sources they cite.\_\\n\\nPreprints are much more dynamic
+        compared to journal articles, but in the\\nabsence of automated updates changes
+        to preprints can be difficult to\\ntrack. We have significantly improved the
+        detection of withdrawn and\\nremoved preprints in Europe PMC by monitoring
+        title changes -- a new,\\nevolving practice by preprint servers to prefix
+        titles with standard\\ntext, such as \\\"Withdrawn\\\". This has enabled us
+        to automatically tag over\\n2000 withdrawn and removed preprints, ensuring
+        that users access\\naccurate, up-to-date information, whether by reaching
+        an article via the\\nsearch bar or utilising our [Article Status\\nMonitor](https://europepmc.org/ArticleStatusMonitor)
+        tool.\_\\n\\nSince initially indexing preprints 6 years ago, we have worked
+        hard to\\nbuild trust in preprints and have recently published a summary of
+        our\\nefforts. Our latest publication, \\\"[Enabling preprint discovery,\\nevaluation,
+        and analysis with Europe\\nPMC](https://blog.europepmc.org/2024/11/how-we-built-a-database-of-preprints.html)\\\"\\noutlines
+        our efforts to create a database of preprints and support\\ninnovation in
+        scholarly communication.\\n\\n### Final remarks {#final-remarks .wp-block-heading}\\n\\nIn
+        2024, Europe PMC focused on increasing coverage of life science\\nliterature,
+        accelerating scientific discovery with innovative AI tools,\\nand supporting
+        open source and transparency. As we move into 2025, we\\nremain committed
+        to delivering a comprehensive, evolving resource that\\nmeets the needs of
+        the life science community. To keep up to date with\\ninnovations in 2025,
+        please look at the [Europe PMC\\nRoadmap](https://europepmc.org/Roadmap).\_\\n\",\"doi\":\"https://doi.org/10.59350/9vkvr-0mf49\",\"guid\":\"https://blog.europepmc.org/?p=1641\",\"id\":\"6d2e685e-8edc-4e1e-8ab9-deea64ab8825\",\"image\":\"https://blog.europepmc.org/wp-content/uploads/2025/01/image.png\",\"language\":\"en\",\"published_at\":1736326800,\"reference\":[],\"relationships\":[],\"rid\":\"50bgb-tx041\",\"status\":\"active\",\"summary\":\"As
+        we enter into 2025, Europe PMC celebrates a previous year of innovation, growth,
+        and user-driven improvements. This end-of-year reflection highlights our key
+        achievements in developing cutting-edge AI solutions for scientific research,
+        advances in open research software, and support for transparency in scholarly
+        communication. Using AI to revolutionise research discovery\",\"tags\":[\"2024
+        Review\",\"Europe PMC\",\"Machine Learning\",\"Open Access\",\"Open Data\"],\"title\":\"Europe
+        PMC 2024: a year in review\",\"updated_at\":1736256789,\"url\":\"https://blog.europepmc.org/2025/01/europe-pmc-2024-a-year-in-review.html\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22141/20231105110201/https://blogs.fu-berlin.de/open-access-berlin/2024/12/17/quo-vadis-4-ki-und-open-access\",\"authors\":[{\"name\":\"Maxi
+        Kindling\",\"url\":\"https://orcid.org/0000-0002-0167-0466\"}],\"blog_name\":\"Open
+        Access Blog Berlin\",\"blog_slug\":\"oaberlin\",\"category\":\"otherHumanities\",\"content_text\":\"####
+        3. Veranstaltung in der Reihe \u201EQuo vadis offene Wissenschaft in Berlin
+        und Brandenburg\\\" am 18. DEZEMBER 2024 {#veranstaltung-in-der-reihe-quo-vadis-offene-wissenschaft-in-berlin-und-brandenburg-am-18.-dezember-2024}\\n\\n**Termin:**
+        18. Dezember, 15:00--16:30 Uhr  \\n**Ort:** [Online via\\nWebex](https://th-wildau.webex.com/th-wildau/j.php?MTID=m9be52b0effb436cb25e6c03944b2f94f)
+        \ \\n**Veranstaltende:** TH Wildau\\n\\nEs handelt sich bei dieser Veranstaltung
+        um die dritte in der Reihe [Quo\\nvadis offene Wissenschaft in Berlin und
+        Brandenburg\\n2024/25.](https://blogs.fu-berlin.de/open-access-berlin/2024/08/02/quo-vadis-4/)\\n\\nFrei
+        zug\xE4ngliche Forschungsdaten bis hin zu Publikationen erlauben unter\\ngewissen
+        Creative-Commens-Bedingungen (CC BY, CC BY-SA oder CC0) auch\\ndie Verarbeitung
+        der Informationen mit Technologien der K\xFCnstlichen\\nIntelligenz. Gleichfalls
+        ist Bibliotheken bei konsortial bis\\nlizenzierten Produkten zugestanden,
+        im Kontext des Text- und Dataminings\\neine entsprechende technologiegest\xFCtzte
+        Verarbeitung\\nqualit\xE4tsgesicherter Informationen durchzuf\xFChren (sog.
+        TDM-Schranke bzw.\\nseit M\xE4rz 2018 in Kraft getretene Gesetz zur Angleichung
+        des\\nUrheberrechts an die aktuellen Erfordernisse der Wissensgesellschaft\\n(UrhWissG),
+        speziell [\xA7\\n44b](https://dejure.org/gesetze/UrhG/44b.html \\\"\xA7 44b
+        UrhG: Text und Data Mining\\\")\\nund [60d\\nUrhG](https://dejure.org/gesetze/UrhG/60d.html
+        \\\"\xA7 60d UrhG: Text und Data Mining f\xFCr Zwecke der wissenschaftlichen
+        Forschung\\\")).\\nHinzu kommen M\xF6glichkeiten, urheberrechtlich gesch\xFCtzte
+        Werke f\xFCr\\nKI-Systeme so zu ver\xE4ndern, dass eine weitere wissenschaftlichee\\nWertsch\xF6pfung
+        im forschungsgeleiteten Streben und Erkenntnisinteresse\\nm\xF6glich ist --
+        wenn die TDM-Schranke nicht anwendbar ist, durch\\nabgeleitete Textformate
+        im Rahmen der freien Benutzung nach [\xA7 23 Abs. 1\\nS. 2\\nUrhG](https://dejure.org/gesetze/UrhG/23.html
+        \\\"\xA7 23 UrhG: Bearbeitungen und Umgestaltungen\\\")\\nund damit ein Werk
+        einen hinreichenden Abstand zu vorbestehendem Werk\\nwahrt. Sogenannte abgeleitete
+        Texte bieten neue M\xF6glichkeiten der\\nAnalyse.\\n\\nAus diesen drei Aspekten
+        erwachsen Bibliotheken neue Aufgaben im Kontext\\nder Digital Humanities,
+        es kommt ihnen eine besondere Rolle zu und sie\\nsind aufgerufen, sich mit
+        ihren Ressourcen und M\xF6glichkeiten darauf\\neinzustellen. Diese neue Rolle
+        samt ihrer Limitierungen soll in diesem\\nPanel diskutiert werden.\\n\\n##
+        Programm\\n\\n**15:00--15:10 Uhr: Begr\xFC\xDFung durch Frank Seeliger (TH
+        Wildau)**\\n\\n### Teilnehmende an der Diskussion\\n\\n- Judith Ludwig (TIB)\\n-
+        Fabian Rack (FIZ Karlsruhe, iRights.Law)\\n- Christof Sch\xF6ch (Universit\xE4t
+        Trier)\\n\\n**Moderiert von**: Frank Seeliger (TH Wildau)\\n\\n### Biographische
+        Informationen\\n\\n<figure id=\\\"attachment_2835\\\" class=\\\"wp-caption
+        alignnone\\\"\\naria-describedby=\\\"caption-attachment-2835\\\" style=\\\"width:
+        300px\\\">\\n<img\\nsrc=\\\"https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-300x200.jpg\\\"\\nclass=\\\"size-medium
+        wp-image-2835\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-300x200.jpg
+        300w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-1024x683.jpg
+        1024w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-768x512.jpg
+        768w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-1536x1024.jpg
+        1536w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-2048x1365.jpg
+        2048w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-1200x800.jpg
+        1200w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-250x167.jpg
+        250w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-550x367.jpg
+        550w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-800x533.jpg
+        800w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-270x180.jpg
+        270w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-450x300.jpg
+        450w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-750x500.jpg
+        750w\\\"\\nsizes=\\\"(max-width: 300px) 85vw, 300px\\\" width=\\\"300\\\"
+        height=\\\"200\\\" />\\n<figcaption>Judith Ludwig</figcaption>\\n</figure>\\n\\nAss.
+        jur. Judith Ludwig, LL.M. ([ORCiD:\\n0000-0001-5322-0478](https://orcid.org/0000-0001-5322-0478))
+        arbeitet\\nals Justiziarin und Referentin f\xFCr Lizenzen an der Technischen\\nInformationsbibliothek
+        (TIB). Sie ist u.a. Co-Vorsitzende der LIBER\\nWorking Group Copyright & Legal
+        Matters und st\xE4ndiger Gast in der\\nRechtskommission des Deutschen Bibliotheksverbands.\\n\\n<figure
+        id=\\\"attachment_2829\\\" class=\\\"wp-caption alignnone\\\"\\naria-describedby=\\\"caption-attachment-2829\\\"
+        style=\\\"width: 200px\\\">\\n<img\\nsrc=\\\"https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-200x300.jpeg\\\"\\nclass=\\\"size-medium
+        wp-image-2829\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-200x300.jpeg
+        200w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-683x1024.jpeg
+        683w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-768x1152.jpeg
+        768w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-1024x1536.jpeg
+        1024w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-1365x2048.jpeg
+        1365w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-1200x1800.jpeg
+        1200w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-250x375.jpeg
+        250w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-550x825.jpeg
+        550w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-800x1200.jpeg
+        800w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-120x180.jpeg
+        120w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-333x500.jpeg
+        333w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-scaled.jpeg
+        1707w\\\"\\nsizes=\\\"(max-width: 200px) 85vw, 200px\\\" width=\\\"200\\\"
+        height=\\\"300\\\" />\\n<figcaption>Fabian Rack (Coypright: Anja Limbrunner)</figcaption>\\n</figure>\\n\\nFabian
+        Rack ist Rechtsanwalt und wissenschaftlicher Mitarbeiter bei FIZ\\nKarlsruhe
+        -- Leibniz Institut f\xFCr Informationsinfrastruktur im Bereich\\nImmaterialg\xFCterrechte.
+        Seit M\xE4rz 2020 ist er assoziierter Partner bei\\niRights.Law.\\n\\n\_\\n\\n<figure
+        id=\\\"attachment_2830\\\" class=\\\"wp-caption alignnone\\\"\\naria-describedby=\\\"caption-attachment-2830\\\"
+        style=\\\"width: 225px\\\">\\n<img\\nsrc=\\\"https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Christoph-Schoech.jpeg\\\"\\nclass=\\\"wp-image-2830
+        size-full\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Christoph-Schoech.jpeg
+        225w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Christoph-Schoech-135x180.jpeg
+        135w\\\"\\nsizes=\\\"(max-width: 225px) 85vw, 225px\\\" width=\\\"225\\\"
+        height=\\\"300\\\" />\\n<figcaption>Christof Sch\xF6ch</figcaption>\\n</figure>\\n\\nChristof
+        Sch\xF6ch ist [Professor f\xFCr Digital\\nHumanities](https://www.uni-trier.de/index.php?id=64027){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} an der Universit\xE4t Trier und\\nwissenschaftlicher Ko-Direktor
+        des [Trier Center for Digital\\nHumanities](http://kompetenzzentrum.uni-trier.de/de/){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"}. Zweiter Vorsitzender des Verbands [Digital\\nHumanities im
+        deutschsprachigen Raum](http://dig-hum.de){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} (DHd).\\n\\n### Lekt\xFCrehinweise\\n\\n- Agi, Christian et
+        al. (2024) Regelungen zu K\xFCnstlicher Intelligenz in\\n  Lizenzvertr\xE4gen.
+        Handlungsempfehlungen der Task Force K\xFCnstliche\\n  Intelligenz der Alianz
+        der Wissenschaftsorganisationen.\\n  <https://doi.org/10.5281/zenodo.13837663>\\n-
+        Brehm, Elke (2024) [Open Access und K\xFCnstliche Intelligenz. Was ist\\n
+        \ erlaubt und was\\n  nicht](https://open-access.network/fortbilden/open-access-talk/oatalk-am-26-september-2024)?\\n
+        \ oa.talk\\n- Directorate-General for Research and Innovation (European\\n
+        \ Commission)(2024) [Improving access to and reuse of research results,\\n
+        \ publications and data for scientific\\n  purposes](https://op.europa.eu/en/publication-detail/-/publication/77395a15-133b-11ef-a251-01aa75ed71a1/language-en).\\n
+        \ Report\\n- Loose, Yulia (2024) [OER erstellen mit KI: was ist urheberrechtlich\\n
+        \ erlaubt und was\\n  nicht](https://www.vbib.net/vbib24-programm/programmdetail/vbib24-corner-3-5/)?\\n
+        \ Workshop vBIB24 // Twillo: <https://elan-ev.de/twillo/>\\n- Sch\xF6ch, Christoph
+        et al. (2020) Abgeleitete Textformate: Text und Data\\n  Mining mit urheberrechtlich
+        gesch\xFCtzten Textbest\xE4nden. In: Zeitschrift\\n  f\xFCr digitale Geisteswissenschaften.
+        Wolfenb\xFCttel 2020.\\n  <http://dx.doi.org/10.17175/2020_006>\\n- Sch\xF6ch,
+        Christof (2023) [Legal aspects and scholarly requirements\\n  regarding TDM
+        in the digital humanities: current developments in\\n  Germany](https://dhtrier.quarto.pub/tdmdh/#/title-slide)\\n\",\"doi\":\"https://doi.org/10.59350/9y488-ycm47\",\"guid\":\"https://blogs.fu-berlin.de/open-access-berlin/?p=2762\",\"id\":\"96fcf340-a922-4e04-ac78-53db8c5c8d38\",\"image\":\"https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-300x200.jpg\",\"language\":\"de\",\"published_at\":1734426730,\"reference\":[],\"relationships\":[],\"rid\":\"a7jxg-5kf28\",\"status\":\"active\",\"summary\":\"<strong>\\n
+        3. Veranstaltung in der Reihe \u201EQuo vadis offene Wissenschaft in Berlin
+        und Brandenburg\u201C am 18. DEZEMBER 2024\\n</strong>\\n<strong>\\n Termin:\\n</strong>\\n18.
+        Dezember, 15:00\u201316:30 Uhr\\n<strong>\\n Ort:\\n</strong>\\nOnline via
+        Webex\\n<strong>\\n Veranstaltende:\\n</strong>\\nTH Wildau  Es handelt sich
+        bei dieser Veranstaltung um die dritte in der Reihe Quo vadis offene Wissenschaft
+        in Berlin und Brandenburg 2024/25.     Frei zug\xE4ngliche Forschungsdaten
+        bis hin zu\",\"tags\":[\"Veranstaltungshinweise\",\"OpenBBB\",\"Open Access\",\"K\xFCnstliche
+        Intelligenz\",\"Artificial Intelligence\"],\"title\":\"18. Dezember 2024:
+        AI, Open Access and beyond: Konkrete bis strategische Ableitungen f\xFCr Bibliotheken
+        (3. Veranstaltung in der Reihe Quo vadis offene Wissenschaft in Berlin und
+        Brandenburg 2024/25)\",\"updated_at\":1736784068,\"url\":\"https://blogs.fu-berlin.de/open-access-berlin/2024/12/17/quo-vadis-4-ki-und-open-access\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22098/20231101171344/http://gigasciencejournal.com/blog/gigascience-2024-was-wild\",\"authors\":[{\"name\":\"Hans
+        Zauner\"}],\"blog_name\":\"GigaBlog\",\"blog_slug\":\"gigablog\",\"category\":\"biologicalSciences\",\"content_text\":\"**It's
+        December again, and our teams of editors and curators are busy\\nwith the
+        many submissions we receive at this time of year. Scientists\\nare eager to
+        clear their desks before a well-earned break and it's time\\nfor the annual
+        GigaBlog ritual: Looking back at the year that was at\\n*GigaScience Press*.**\\n\\n###
+        **Citizen Science\_** {#citizen-science}\\n\\nOne recurring theme of 2024
+        was \\\"Citizen Science.\\\" We've always been\\nstrong supporters of public
+        involvement in science projects, starting\\nwith our own community genome
+        project on the [Bauhinia\\nGenome.](http://bauhiniagenome.hk/2018/03/crowdfunded-genomes-and-the-plant-genome-big-bang/)\\nNowadays,
+        our journal *GigaByte* provides a perfect home for sharing\\ndata from citizen
+        science projects. Often, raw data collected by citizen\\nscientists doesn't
+        immediately translate into a full research story, but\\nas an \\\"all-sound-science\\\"-journal,
+        *GigaByte* enables the timely\\npublication of the underlying datasets, making
+        the data citable and\\ngiving the volunteer contributors credit for their
+        efforts.\\n\\nLet's look at two of them:\\n\\n**[Pomar\\nUrbano](http://gigasciencejournal.com/blog/citizen-scientists-can-see-the-wood-for-the-trees/):**\\nThis
+        project, led by Filipi Miranda Soares and colleagues, explored\\nurban fruit
+        bearing plants by engaging Brazilian city dwellers to\\ndocument their sightings
+        on the popular\\n[iNaturalist](https://www.inaturalist.org/) platform. The
+        project also\\nhas a cultural dimension, inspiring art and cooking recipes
+        based on the\\nsampled fruit species. For us this was also an opportunity
+        to again\\nshowcase *GigaByte*'s [multilingual\\narticles](http://gigasciencejournal.com/blog/how-to-publish-multilingual-articles/),\\nwhich
+        now also allows the local Brazilian citizen scientists to read the\\noriginal
+        publication in an author-provided Portuguese version.\\n\\n![](http://gigasciencejournal.com/blog/wp-content/uploads/2024/03/FeatI-231x300.jpg){.size-medium\\n.wp-image-5687
+        .aligncenter fetchpriority=\\\"high\\\" decoding=\\\"async\\\"\\nwidth=\\\"231\\\"
+        height=\\\"300\\\"\\nsrcset=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2024/03/FeatI-231x300.jpg
+        231w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/03/FeatI.jpg
+        323w\\\"\\nsizes=\\\"(max-width: 231px) 100vw, 231px\\\"}\\n\\n**Hong Kong
+        Jellyfish:** A [new dataset released in\\nGigaByte](https://doi.org/10.46471/gigabyte.125)
+        documented jellyfish\\nsightings collected by citizen scientists from 2021
+        to 2023 in Hong Kong\\nwaters. [In a GigaBlog\\npost](http://gigasciencejournal.com/blog/hong-kong-jellyfish-project-publishing-citizen-science-data/),\\nthe
+        authors explained how \\\"*people's curiosity about jellyfish drives\\nthe
+        entire project through their photographs and reports*,\\\" which has\\nled
+        to the discovery of several new jellyfish species.\\n\\n\_\\n\\n::: {#attachment_5947
+        .wp-caption .alignright style=\\\"width: 310px\\\"}\\n![](http://gigasciencejournal.com/blog/wp-content/uploads/2024/12/GBIF-series-300x190.png
+        \\\"vector of human disease\\\"){.wp-image-5947\\n.size-medium decoding=\\\"async\\\"
+        aria-describedby=\\\"caption-attachment-5947\\\"\\nwidth=\\\"300\\\" height=\\\"190\\\"\\nsrcset=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2024/12/GBIF-series-300x190.png
+        300w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/12/GBIF-series-768x486.png
+        768w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/12/GBIF-series.png
+        820w\\\"\\nsizes=\\\"(max-width: 300px) 100vw, 300px\\\"}\\n\\nCredit: Asian
+        tiger mosquito (Aedes albopictus), observed in Republic of\\nKorea. Photo
+        2021 Jake David MacLennan via iNaturalist Research-grade\\nObservations, CC
+        BY-NC 4.0.\\n:::\\n\\n### **Cooperation with GBIF**\\n\\nAlso in the field
+        of biodiversity, our curation team intensified our\\ncooperation with GBIF
+        ([Global Biodiversity Information\\nFacility](https://www.gbif.org/)), a platform
+        which now hosts close to 3\\nbillion records of occurrences. We're proud to
+        contribute to this\\neffort, particularly also through our \\\"[Vectors of
+        Human\\nDiseases](https://gigabytejournal.com/articles/series/GIGABYTE_SERIES_0002)\\\"\\nseries.
+        So far, this series has mobilized over 700,000 occurrence\\nrecords and 890,000
+        specimens from more than 70 countries. The \\\"Special\\nProgramme for Research
+        and Training in Tropical Diseases\\\" (TDR, hosted\\nat the World Health Organization),
+        *GigaScience Press*, and GBIF have\\njust announced [a third call for authors
+        to submit data release papers\\nfor this\\nseries](https://www.gbif.org/news/70AuWTs68FiGEZEyALB1TV/third-call-for-data-papers-describing-datasets-on-vectors-of-human-diseases).
+        \ \\nOn this topic, two webinars were held on [25 January\\n2022](https://www.gbif.org/event/11MBxAHpdEQvVHw2RXjH0I/webinar-data-papers-describing-datasets-on-vectors-of-human-diseases)\\nand
+        [30 March\\n2023](https://www.gbif.org/event/4EWbZ1m29uOhBBCuLw8SMQ/webinar-or-data-papers-bringing-more-data-to-light)\_\\n--
+        where you can find the recordings.\\n\\n### **Recognizing Outstanding Contributions**\\n\\nAlso
+        related to our \\\"Vectors for diseases\\\" series, [GigaByte author\\nVictoire
+        Nsabatien won the Ben Barres Spotlight Award for Publicly\\nReviewed\\nPreprints](http://gigasciencejournal.com/blog/gigabyte-author-ben-barres-award/).\\nThis
+        prize, created by *eLife*, supports underrepresented groups in\\nbiology and
+        medicine. Victoire's two preprints\_ -- publicly reviewed and\\npublished
+        by *GigaByte ([here](https://doi.org/10.46471/gigabyte.96) and\\n[here](https://doi.org/10.46471/gigabyte.104))
+        --* share data on\\n*Anopheles* mosquitoes (malaria) and arbovirus-carrying
+        *Aedes*\\nmosquitoes in Kinshasa. He remarked, \\\"*Malaria is a major public
+        health\\nburden in my country, and this grant will greatly enhance my research\\ninto
+        new mosquito control tools*.\\\"\_ You can watch Victoire celebrating\\nhis
+        award in the YouTube video below:\\n\\nCongratulations to Victoire again!\\n\\n###
+        **Advancing Spatial Omics**\\n\\nSpatial omics -- exploring molecular data
+        like transcriptomes and\\nproteomes in their positional context within cells
+        -- emerged as an\\nexciting new area over the last couple of years. To highlight
+        this\\nfield, we launched [a cross-journal series in *GigaByte* and\\n*GigaScience*](https://gigabytejournal.com/articles/series/GIGABYTE_SERIES_0005).\\nTo
+        be useful for the community, new tools in this area must be\\nopen-source,
+        user-friendly, and capable of handling massive data volumes\\n-- aligning
+        perfectly with our long-standing emphasis on open data and\\ncode availability.\_
+        Watch a preview of the series:\\n\\n### **Genomics and a new GigaScience series\_**
+        {#genomics-and-a-new-gigascience-series}\\n\\nLarge-scale genomic resources
+        remain central to our mission, and there's\\nno end in sight\_ technological
+        and bioinformatic improvements to collect\\nand analyses genomic data -- and
+        in step with this development, the\\nquality standards of *GigaScience* are
+        also going up. This year,\\n*GigaScience* emphasized (near) complete, virtually
+        gapless genomes\\n(\\\"telomere-to-telomere\\\") by launching [a new article\\nseries](https://academic.oup.com/gigascience/pages/t2t-series-closing-the-gaps-from-telomere-to-telomere)\\n\_dedicated
+        to \\\"T2T\\\" genomes.\\n\\n### **DOME-ML**\\n\\nAnother challenging, fast-developing
+        area is machine learning and AI\\nresearch in the life sciences. We are aware
+        of the difficulties to\\nensure transparency and reproducibility of machine
+        learning work, and we\\ntherefore are experimenting with [DOME-ML\\nannotations](http://gigasciencejournal.com/blog/dome-webinar-on-ml-recommendations/),\\na
+        community-wide set of guidelines and checklists for supervised machine\\nlearning
+        in biology.\_ These annotations provide details on the analysis\\nprocedures
+        and data structures, and can be referenced in published\\njournal articles.\\n\\n###
+        **Conference Highlights\_** {#conference-highlights}\\n\\nAs usual, also this
+        last year our editorial and data curation colleagues\\nattended numerous conferences
+        and seminars to stay connected with\\nauthors, reviewers, and board members.
+        A regular highlight on the\\nconference calendar is ISMB, the birthplace of
+        *GigaScience*. As our\\n[Editor-in-Chief noted in\\nGigaBlog](http://gigasciencejournal.com/blog/ismb2024-ai-and-publishing/),\\n\\\"*The
+        heart of the scientific program are the many parallel Communities\\nof Special
+        Interest (COSI) meetings, and of these BOSC -- The\\nBioinformatics Open Source
+        Conference, is a particular fave of ours and\\nwe again were silver sponsors\\\".*\\n\\nAnother
+        notable conference we attended was the [8th World Congress on\\nResearch Integrity\\n(WCRI)](http://gigasciencejournal.com/blog/riddles-of-the-sphinx-research-integrity/),\\nwhere
+        discussions also centered on double-edged sword that is the use of\\nAI in
+        Scientific Publishing and its effect on research integrity.\\nReflecting this,
+        we've also updated our author guidelines for the proper\\nuse of AI tools
+        for the preparation of articles. We now ask authors to\\ndeclare any such
+        use on submission, and to be fully transparent about\\nthe exact procedures
+        and prompts that were used.\\n\\n### **Celebrating the FAIR Principles**\\n\\nAnother
+        concept dear to our hearts and minds are the FAIR principles\\n(Findability,
+        Accessibility, Interoperability, and Reuse). Marking the\\n10th anniversary
+        of the FAIR principles, we hosted a [GigaBlog Q&A with\\nauthors from the
+        Netherlands X-omics\\nInitiative](http://gigasciencejournal.com/blog/fair-workflows/).
+        They\\ndiscussed applying FAIR principles to research software and workflows,\\nhighlighting
+        tools like\\n[RO-Crate](https://doi.org/10.1093/gigascience/giad115) and\\n[WorkflowHub.eu](https://workflowhub.eu./).\\n\\n###
+        **More highlights from *GigaScience* and *GigaByte***\\n\\nTo round things
+        up, here are just a few other research highlights from\\n2024:\\n\\n**![Cannabis
+        Genomics\\nthumbnail](http://gigasciencejournal.com/blog/wp-content/uploads/2024/10/Canseek-thumbnail-300x151.png){.size-medium\\n.wp-image-5916
+        .alignleft loading=\\\"lazy\\\" decoding=\\\"async\\\" width=\\\"300\\\"\\nheight=\\\"151\\\"\\nsrcset=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2024/10/Canseek-thumbnail-300x151.png
+        300w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/10/Canseek-thumbnail-1024x515.png
+        1024w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/10/Canseek-thumbnail-768x386.png
+        768w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/10/Canseek-thumbnail-1536x772.png
+        1536w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/10/Canseek-thumbnail-2048x1030.png
+        2048w\\\"\\nsizes=\\\"(max-width: 300px) 100vw, 300px\\\"}Cannabis Research
+        and Virtual\\nSeminars:** *Cannabis sativa* featured prominently in *GigaByte*
+        in\\n2024, with two articles\\n([here](https://gigabytejournal.com/articles/135)
+        and\\n[here](https://gigabytejournal.com/articles/137)) reporting new\\nresources
+        for research on this plant. These papers also showcased\\ninteractive features
+        like dynamic figures and protocols. Additionally,\\nin partnership with [Cassyni](https://cassyni.com/),
+        we hosted a webinar\\nwith our author Locedi Mansueto. Cassyni simplifies
+        academic seminar\\norganization and makes seminars citable by assigning DOIs.
+        \ \\nRe-watch the webinar\\n[here.](https://cassyni.com/events/6ttAf8cL1ruzkWZznh5Xed)\\n\\n**DNA
+        Day Genome Releases:** As part of a \\\"moonshot for biology\\\",\_ the\\n[Hong
+        Kong Biodiversity Genomics Consortium published genomes of\\nemblematic\\nspecies](http://gigasciencejournal.com/blog/hong-kong-biodiversity-genomics-consortium/),\\nincluding
+        the golden birdwing butterfly, edible jelly fungus, and\\nlong-spined sea
+        urchin.\\n\\n![](http://gigasciencejournal.com/blog/wp-content/uploads/2024/04/Butterfly-HKBGP-CC-BY-300x200.jpg){.size-medium\\n.wp-image-5744
+        .aligncenter loading=\\\"lazy\\\" decoding=\\\"async\\\" width=\\\"300\\\"\\nheight=\\\"200\\\"\\nsrcset=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2024/04/Butterfly-HKBGP-CC-BY-300x200.jpg
+        300w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/04/Butterfly-HKBGP-CC-BY-1024x682.jpg
+        1024w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/04/Butterfly-HKBGP-CC-BY-768x511.jpg
+        768w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/04/Butterfly-HKBGP-CC-BY-1536x1022.jpg
+        1536w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/04/Butterfly-HKBGP-CC-BY.jpg
+        1600w\\\"\\nsizes=\\\"(max-width: 300px) 100vw, 300px\\\"}\\n\\n\_\\n\\n**[Oriental
+        Stork\\nGenome](http://gigasciencejournal.com/blog/oriental_stork_genome/):**
+        A\\nhigh-quality genome of this endangered species and population genomic\\ndata
+        revealed surprisingly strong genetic health.\\n\\n![Oriental Stork CC-BY\\nKim-Hyun-tae](http://gigasciencejournal.com/blog/wp-content/uploads/2024/10/Low-Res__Ciconia_boyciana_By-Kim-Hyun-tae_CC-BY4_-e1729695296626-300x294.jpg){.alignnone\\n.size-medium
+        .wp-image-5925 .aligncenter loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nwidth=\\\"300\\\"
+        height=\\\"294\\\"\\nsrcset=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2024/10/Low-Res__Ciconia_boyciana_By-Kim-Hyun-tae_CC-BY4_-e1729695296626-300x294.jpg
+        300w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/10/Low-Res__Ciconia_boyciana_By-Kim-Hyun-tae_CC-BY4_-e1729695296626.jpg
+        560w\\\"\\nsizes=\\\"(max-width: 300px) 100vw, 300px\\\"}\\n\\n**3D Plant
+        Model:** Researchers created [a 3D model of a sugar\\nbeet](http://gigasciencejournal.com/blog/an-artificial-sugar-beet-for-the-eyes-of-artificial-intelligence/)\\nusing
+        laser scanning and 3D printing, available for download on\\n[Thingiverse](https://www.thingiverse.com/thing:6626202).
+        The model will\\nserve as a reference for advanced plant phenotyping, but
+        it may also\\nlook nice under your Christmas tree -- the models are open and
+        free to\\ndownload!\\n\\n![](http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/Xenopus_03-300x217.png){.size-medium\\n.wp-image-5859
+        .aligncenter loading=\\\"lazy\\\" decoding=\\\"async\\\" width=\\\"300\\\"\\nheight=\\\"217\\\"\\nsrcset=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/Xenopus_03-300x217.png
+        300w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/Xenopus_03-768x555.png
+        768w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/07/Xenopus_03.png
+        922w\\\"\\nsizes=\\\"(max-width: 300px) 100vw, 300px\\\"}\\n\\n**Clawed Frog
+        Atlas**: Jakub Harnos used micro-CT imaging to create [a\\ndetailed developmental
+        atlas of the important model species Xenopus\\nlaevis](http://gigasciencejournal.com/blog/3d-models-of-metamorphosis-microct-imaging-african-clawed-toad/),\\nalso
+        available as 3D printing files.\\n\\nAnd finally some necessary money-related
+        news looking forward: To\\ncontinue our mission, we will slightly adjust the
+        article processing\\ncharge (APC) for *GigaByte*, effective January 1, 2025.
+        The good news is\\nthat, being self-published by our own GigaScience Press,
+        publishing in\\n*GigaByte* remains very affordable: The new APC will be 535
+        USD\\\\$.\\n**Please note:\_ Submissions received before the end of December
+        will\\nstill benefit from the current rate!**\\n\\nAnd with that, we wrap
+        up the looking back and start looking forward to\\nanother year of the Open
+        Science journey at GigaScience Press.\\n\\n**Thank you to all our authors,
+        reviewers and editorial board members\\nfor your continued support and all
+        the best wishes for 2025!**\\n\\n\_\\n\\n![](http://gigasciencejournal.com/blog/wp-content/uploads/2024/12/ChristmasFeatured-300x269.jpg){.size-medium\\n.wp-image-5959
+        .aligncenter loading=\\\"lazy\\\" decoding=\\\"async\\\" width=\\\"300\\\"\\nheight=\\\"269\\\"\\nsrcset=\\\"http://gigasciencejournal.com/blog/wp-content/uploads/2024/12/ChristmasFeatured-300x269.jpg
+        300w, http://gigasciencejournal.com/blog/wp-content/uploads/2024/12/ChristmasFeatured.jpg
+        322w\\\"\\nsizes=\\\"(max-width: 300px) 100vw, 300px\\\"}\\n\\n\_\\n\\n###
+        References:\\n\\n\_\\n\\nFilipi Miranda Soares, Lu\xEDs Ferreira Pires, Maria
+        Carolina Garcia, Lidio\\nCoradin, Natalia Pirani Ghilardi-Lopes, Rubens Rangel
+        Silva et\\nal.:\_**Citizen science data on urban forageable plants: a case
+        study in\\nBrazil**, Gigabyte,\\n2024\_[\_https://doi.org/10.46471/gigabyte.107](https://doi.org/10.46471/gigabyte.107)\\n\\nYang
+        S; Liu Y; Zhao X; Chen J; Li H; Liang H; Fan J; Zhou M; Wang S;\\nZhang X;
+        Shi M; Han L; Yu M; Lu Y; Liu B; Xu Y; Lan T; Hou Z **Genomic\\nexploration
+        of the endangered oriental stork, Ciconia boyciana, shed\\nlights on migration
+        adaptation and future conservation**\\\" GigaScience.\\n2024\_<https://doi.org/10.1093/gigascience/giae081>\\n\\nBraich
+        S et al., **A new and improved genome sequence of Cannabis\\nsativa**, Gigabyte,
+        2020 https://doi.org/10.46471/gigabyte.10\\n\\nMansueto L et al., **CannSeek?
+        Yes we Can! An open-source single\\nnucleotide polymorphism database and analysis
+        portal for Cannabis\\nsativa**, GigaByte, 2024 https://doi.org/10.46471/gigabyte.135\\n\\nMansueto
+        L et al., **Building a community-driven bioinformatics platform\\nto facilitate
+        Cannabis sativa multi-omics research**,GigaByte,2024\\nhttps://doi.org/10.46471/gigabyte.137\\n\\nTerenzini
+        J et al. **Jellyfish in Hong Kong: a citizen science\\ndataset**.\_*GigaByte*.\\n2024.\_[https://doi.org/10.46471/gigabyte.125](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbUtLUUZRQUh5Nk1fUG1xLWF0Y3NxYU9nY1pVd3xBQ3Jtc0tsOXkwV0hTQmZxMDVjQ3pjVTNaQW9ZQzZuakg4QU9vRUNIN0d5ZXJSMWd3bS1VT3BQNUtreFJQMl8wZVdHdG54bnZhamp4R2Y4Nk5kbW12MnhrOXNEQjNfRGlOaWFFZmxKR2hzLVpLd2luUFZ4eHM5RQ&q=https%3A%2F%2Fdoi.org%2F10.46471%2Fgigabyte.125&v=-4gH5fnO7WI)\\n\\nJu\u017Eni\u010D-Zonta
+        \u017D et al. **Mosquito alert: leveraging citizen science to\\ncreate a GBIF
+        mosquito occurrence dataset**.\_*GigaByte*. 2022 May\\n30;2022:gigabyte54.\_<https://doi.org/10.46471/gigabyte.54>\\n\\nShimabukuro
+        P et al. **Bridging Biodiversity and Health: The Global\\nBiodiversity Information
+        Facility's initiative on open data on vectors\\nof human diseases**.\_*GigaByte*.
+        2024 Apr\\n11;2024:gigabyte117.\_<https://doi.org/10.46471/gigabyte.117>\\n\\nB\xF6mer
+        J; Esser F; Marks EA; Rosu RA; Behnke S; Klingbeil L; Kuhlmann H;\\nStachniss
+        C; Mahlein AK; Paulus S. **A 3D printed plant model for\\naccurate and reliable
+        3D plant phenotyping**. GigaScience\\n2024.\_\_<https://doi.org/10.1093/gigascience/giae035>\\n\\nLaznovsky
+        J; Kavkova M; Reis A; Robovska-Havelkova P; Maia LA; Krivanek\\nJ; Zikmund
+        T; Kaiser J; Buchtova M; Harnos J (2024). **Unveiling\\nVertebrate Development
+        Dynamics in Frog\_*Xenopus laevis*\_using Micro-CT\\nImaging**.\_*GigaScience*\_giae037\_<https://doi.org/10.1093/gigascience/giae037>\\n\\n\_\\n\\nThe
+        post [Urban fruits, 3D printed frog legs and gapless genomes: 2024\\nwas\\nwild](http://gigasciencejournal.com/blog/gigascience-2024-was-wild/){rel=\\\"nofollow\\\"}\\nappeared
+        first on\\n[GigaBlog](http://gigasciencejournal.com/blog){rel=\\\"nofollow\\\"}.\\n\",\"doi\":\"https://doi.org/10.59350/jfnjr-qcp48\",\"guid\":\"http://gigasciencejournal.com/blog/?p=5941\",\"id\":\"67d839e2-8681-4ad3-8f83-b20e261bc4db\",\"image\":\"http://gigasciencejournal.com/blog/wp-content/uploads/2024/03/FeatI-231x300.jpg\",\"language\":\"en\",\"published_at\":1734117171,\"reference\":[{\"id\":\"https://doi.org/10.46471/gigabyte.107\",\"key\":\"ref1\",\"publicationYear\":\"2024\",\"title\":\"Citizen
+        science data on urban forageable plants: a case study in\_Brazil\"},{\"id\":\"https://doi.org/10.1093/gigascience/giae081\",\"key\":\"ref2\",\"publicationYear\":\"2024\",\"title\":\"Genomic
+        exploration of the endangered oriental stork, <i>Ciconia boyciana</i>, sheds
+        light on migration adaptation and future conservation\"},{\"key\":\"ref3\"},{\"id\":\"https://doi.org/10.46471/gigabyte.54\",\"key\":\"ref4\",\"publicationYear\":\"2022\",\"title\":\"Mosquito
+        alert: leveraging citizen science to create a GBIF mosquito occurrence dataset\"},{\"id\":\"https://doi.org/10.46471/gigabyte.117\",\"key\":\"ref5\",\"publicationYear\":\"2024\",\"title\":\"Bridging
+        Biodiversity and Health: The Global Biodiversity Information Facility\u2019s
+        initiative on open data on vectors of human diseases\"},{\"id\":\"https://doi.org/10.1093/gigascience/giae035\",\"key\":\"ref6\",\"publicationYear\":\"2024\",\"title\":\"A
+        3D printed plant model for accurate and reliable 3D plant phenotyping\"},{\"id\":\"https://doi.org/10.1093/gigascience/giae037\",\"key\":\"ref7\",\"publicationYear\":\"2024\",\"title\":\"Unveiling
+        vertebrate development dynamics in frog <i>Xenopus laevis</i> using micro-CT
+        imaging\"},{\"key\":\"ref8\"},{\"key\":\"ref9\"}],\"relationships\":[],\"rid\":\"knkwc-px704\",\"status\":\"active\",\"summary\":\"<strong>\\n
+        It\u2019s December again, and our teams of editors and curators are busy with
+        the many submissions we receive at this time of year.\\n</strong>\",\"tags\":[\"Biology\",\"Developing
+        World\",\"Open Access\",\"Publishing\",\"Citizen Science\"],\"title\":\"Urban
+        fruits, 3D printed frog legs and gapless genomes: 2024 was wild\",\"updated_at\":1734117866,\"url\":\"http://gigasciencejournal.com/blog/gigascience-2024-was-wild\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22141/20231105110201/https://blogs.fu-berlin.de/open-access-berlin/2024/12/09/deutschlandfunk-interview\",\"authors\":[{\"name\":\"Georg
+        Fischer\",\"url\":\"https://orcid.org/0000-0001-5620-5759\"}],\"blog_name\":\"Open
+        Access Blog Berlin\",\"blog_slug\":\"oaberlin\",\"category\":\"otherHumanities\",\"content_text\":\"Wie
+        gelingt es der Wissenschaft, die Souver\xE4nit\xE4t \xFCber ihr\\nPublikationswesen
+        (zur\xFCck) zu erhalten? Zu diesem Thema wurde Maike\\nNeufend, Co-Leiterin
+        des Open-Access-B\xFCros Berlin, k\xFCrzlich f\xFCr die\\nReihe \u201ECampus
+        und Karriere\\\" im Deutschlandfunk interviewt. Die komplette\\nSendung steht
+        zum Nachh\xF6ren bereit.\\n\\nDie Sendung beleuchtete das Open-Access-Publizieren
+        in der Wissenschaft.\\nZum Themenbereich \u201EOpen Access benachteiligt Forschende
+        aus dem Globalen\\nS\xFCden\\\" wurde zun\xE4chst das Gesch\xE4ftsmodell der
+        dominanten kommerziellen\\nGro\xDFverlage kritisch kommentiert, unter anderem
+        von Prof. Dr. Ulrich\\nDirnagl von der Charit\xE9 -- Universit\xE4tsmedizin
+        Berlin. Anschlie\xDFend\\nwurden alternative Wege aufgezeigt, wie das wissenschaftliche\\nPublizieren
+        heute und in Zukunft aussehen kann.\\n\\nIn diesem Zusammenhang stellte Dr.
+        Maike Neufend, Co-Leiterin des OABB,\\ndie Ziele der Berliner Strategie f\xFCr
+        offene Wissenschaft vor, die das\\nwissenschaftliche Publizieren wieder st\xE4rker
+        in die Souver\xE4nit\xE4t der\\n\xF6ffentlichen Wissenschaft zur\xFCckbringen
+        will. Als positives Beispiel\\nf\xFChrte sie den relativ jungen Universit\xE4tsverlag
+        *Berlin Universities\\nPublishing* an. So erl\xE4uterte Neufend die verschiedenen
+        Vorteile, die\\naus einem wissenschaftsgeleitetem Ansatz f\xFCr Forschung
+        und\\n\xD6ffentlichkeit hervorgehen.\\n\\n    \u201ECampus und Karriere\u201C
+        im Deutschlandfunk vom 22.11.2024 \\n\\n    Das gut sechsmin\xFCtige Interview
+        mit Maike Neufend steht hier zur Verf\xFCgung. \\n\\n    Die komplette Sendung
+        l\xE4sst sich unter diesem Link nachh\xF6ren.\\n\",\"doi\":\"https://doi.org/10.59350/sn4w0-p9h35\",\"guid\":\"https://blogs.fu-berlin.de/open-access-berlin/?p=2907\",\"id\":\"1bcfd042-c1c2-4249-aead-7d26819ba7da\",\"language\":\"de\",\"published_at\":1733743514,\"reference\":[],\"relationships\":[],\"rid\":\"wtbs7-1r632\",\"status\":\"active\",\"summary\":\"Wie
+        gelingt es der Wissenschaft, die Souver\xE4nit\xE4t \xFCber ihr Publikationswesen
+        (zur\xFCck) zu erhalten? Zu diesem Thema wurde Maike Neufend, Co-Leiterin
+        des Open-Access-B\xFCros Berlin, k\xFCrzlich f\xFCr die Reihe \u201ECampus
+        und Karriere\u201C im Deutschlandfunk interviewt. Die komplette Sendung steht
+        zum Nachh\xF6ren bereit. Die Sendung beleuchtete das Open-Access-Publizieren
+        in der Wissenschaft.\",\"tags\":[\"Aktuelles\",\"Nicht-kommerzielles Open
+        Access\",\"Open-Research-Strategie\",\"BerlinUP\",\"Open Access\"],\"title\":\"Maike
+        Neufend vom Open-Access-B\xFCro Berlin im Deutschlandfunk-Interview\",\"updated_at\":1736784126,\"url\":\"https://blogs.fu-berlin.de/open-access-berlin/2024/12/09/deutschlandfunk-interview\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Abhishek
+        Tiwari\",\"url\":\"https://orcid.org/0000-0003-2222-2395\"}],\"blog_name\":\"Abhishek
+        Tiwari\",\"blog_slug\":\"abhishek_tiwari\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"Since
+        2009, I have published over 125 articles on this blog, creating a\\nspace
+        where my work intersects with the rigor of academic research and\\nthe applied
+        challenges of industry. This platform has grown beyond a\\npersonal archive.
+        It has become a resource for researchers, industry\\npractitioners, and students
+        alike. It currently attracts more than 18k\\nmonthly visitor from across the
+        globe. My articles have been frequently\\ncited in peer-reviewed journals,
+        conference proceedings, technical\\nstandards, patents, and academic theses.\\n\\nFor
+        example, [A Sidecar for Your Service\\nMesh](/a-sidecar-for-your-service-mesh/)
+        has garnered attention from\\nprestigious sources, including the IEEE International
+        Symposium on\\nSoftware Reliability Engineering and the NIST Special Publication.
+        The\\narticle has been cited more than 11 times by peer-reviewed academic\\npublications
+        and patents, demonstrating its importance across academic\\nresearch, government
+        standards, and industry implementations.\\n\\n::: {.flex .justify-center}\\n<figure>\\n<img
+        src=\\\"https://static.abhishek-tiwari.com/hugo/rogue-scholar-v1.png\\\"\\nclass=\\\"h-auto
+        w-full rounded-lg\\\"\\nalt=\\\"Indexing with The Rogue Scholar is free and
+        comes with Diamond Open Access.\\\" />\\n<figcaption aria-hidden=\\\"true\\\"><em></em>Indexing
+        with The Rogue Scholar\\nis free and comes with Diamond Open Access.</figcaption>\\n</figure>\\n:::\\n\\n##
+        Preserving Knowledge, Amplifying Impact\\n\\nHowever, ensuring their accessibility
+        and scholarly recognition in a\\nsustainable way has always been a challenge.
+        This is why I am thrilled\\nto announce that my blog is now archived and indexed
+        with [The Rogue\\nScholar](https://rogue-scholar.org){target=\\\"_blank\\\"},
+        a platform\\ndedicated to elevating the visibility and impact of scholarly
+        blogs.\\n\\nThe Rogue Scholar ensures that blogs like mine are preserved,\\ndiscoverable,
+        and easily citable. Front Matter, the organisation behind\\nThe Rogue Scholar,
+        founded by Martin Fenner. Martin has been a long term\\nchampion of making
+        research more transparent and accessible.\\n\\nThe Rogue Scholar offers full-text
+        search capabilities. Articles\\narchived in the platform are assigned Digital
+        Object Identifiers (DOIs)\\nand enriched with metadata, turning each blog
+        post into a scholarly\\nartifact. The Rogue Scholar is free for blog authors,
+        provided their\\ncontent is shared under the terms of the Creative Commons
+        Attribution\\n(CC-BY) license and meets scholarly or science blog requirements.\\n\\n##
+        Call to action\\n\\nIf you are a researcher or science communicator with a
+        blog, I suggest\\nyou to consider submitting your content to The Rogue Scholar.
+        Your blog\\nis more than a collection of posts; it is a reflection of your\\nintellectual
+        journey, and it deserves the recognition and\\ndiscoverability that The Rogue
+        Scholar provides.\\n\",\"doi\":\"https://doi.org/10.59350/wa5s5-axq90\",\"guid\":\"https://www.abhishek-tiwari.com/archiving-with-the-rogue-scholar/\",\"id\":\"27bcfedb-81c1-4554-a64c-9101212784a4\",\"image\":\"https://static.abhishek-tiwari.com/hugo/rogue-scholar-v1.png\",\"language\":\"en\",\"published_at\":1733011650,\"reference\":[],\"relationships\":[],\"rid\":\"j3yds-7v293\",\"status\":\"active\",\"summary\":\"Since
+        2009, I have published over 125 articles on this blog, creating a space where
+        my work intersects with the rigor of academic research and the applied challenges
+        of industry. This platform has grown beyond a personal archive. It has become
+        a resource for researchers, industry practitioners, and students alike. It
+        currently attracts more than 18k monthly visitor from across the globe.\",\"tags\":[\"News\",\"Archiving\",\"Open-access\"],\"title\":\"Archiving
+        with The Rogue Scholar\",\"updated_at\":1733096129,\"url\":\"https://www.abhishek-tiwari.com/archiving-with-the-rogue-scholar\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22152/20231101171820/https://www.samuelmoore.org/2024/11/28/cfp-special-issue-on-open-research-for-the-humanities-and-social-sciences\",\"authors\":[{\"name\":\"Samuel
+        Moore\"}],\"blog_name\":\"Samuel Moore\",\"blog_slug\":\"samuelmoore\",\"category\":\"socialScience\",\"content_text\":\"I'm
+        guest editing a special issue for the *Journal of Electronic\\nPublishing*
+        on open research for the humanities and social sciences. The\\ncall for papers
+        is below:\\n\\n**Call for papers: Special Issue on Open Research for the Humanities
+        and\\nSocial Sciences**\_\\n\\n\u200B\u200BAbstract submission deadline: **30
+        January 2025**\\n\\nIn recent years, research production and communication
+        in the biological\\nand physical sciences has been transformed by openness.
+        Through data\\nsharing, preprints, open peer review and open access publishing,
+        among\\nother practices, the ideas behind open research (often termed open\\nscience)
+        have become mainstream forces and have been adopted by\\nscientists more broadly
+        (Sever 2023). Yet while open research has\\nemerged out of scientific communities
+        themselves, it is also promoted by\\nfunders and universities looking to increase
+        transparency, trust and\\nefficacy of scientific research (Farley et al. 2024).
+        Although not\\nexplicitly framed in a way that excludes humanities and social
+        science\\n(HSS) disciplines, open research does not always neatly fit with
+        their\\nworking practices or research cultures, which has led many researchers\\nin
+        these disciplines to feel excluded or unenthused by the hegemonic\\nturn to
+        openness in the sciences.\_\\n\\nThis is not to say that open research is
+        not practised in HSS\\ndisciplines. There are myriad ways in which research
+        is communicated\\npublicly, immediately and openly with recourse to openly
+        shared and\\nannotated archival resources (e.g.,\\n<https://derridas-margins.princeton.edu/>),
+        experimental forms of peer\\nreview (e.g., <https://mcpress.media-commons.org/plannedobsolescence/>)\\nand
+        remixed research presentation (e.g.,\\n<http://www.openhumanitiespress.org/books/titles/ecological-rewriting/>).\\nThese
+        practices are not frequently conceived as 'open research' in a\\nscientific
+        sense and represent a separate, but important, approach to\\nopen academic
+        knowledge production. Such approaches display a commitment\\nto openness that
+        is less concerned with transparency, efficiency and/or\\nfreely accessible
+        resources and is more concerned with experimentation\\nand the process of
+        opening up scholarship, posing questions around how\\nthe dominant understandings
+        of open research and open science relate to\\nHSS disciplines and what they
+        can learn from one another. Do the\\nhumanities and social sciences need their
+        own conception of openness, as\\nfor example Marcel Kn\xF6chelmann (2019)
+        argues, or is the relationship\\nbetween openness and HSS research more complicated
+        or even antagonistic?\\nOr further still, does open research itself need to
+        humanise through\\nideas such as Sabina Leonelli's 'judicial connection' (Leonelli
+        2023) or\\nmore general ideas relating to knowledge commons (Chan and Costa
+        2005;\\nBell 2019)?\_\\n\\nThis special issue seeks articles on Open Research
+        for the Humanities\\nand Social Sciences. The editors hope to bring together
+        humanistic\\ncritiques of open research along with critical reflections on
+        HSS\\nresearch in practice. We are interested in what the futures of open\\nresearch
+        might be within HSS disciplines from a variety of\\ninterdisciplinary and
+        critical perspectives. Of special interest is the\\nextent to which open research
+        can blur the distinction between research\\nand publishing practices or expand
+        upon the very idea of publishing\\nthrough a range of digital practices..\_\\n\\nPotential
+        topics include:\\n\\n- What can HSS disciplines learn from the turn to open
+        research and vice\\n  versa?\\n- How might specific open practices such as
+        open data, open peer review,\\n  replication and preprints apply to HSS research\\n-
+        Analytical reflections on examples of open HSS research in practice\\n- Critical
+        analysis of how open research applies to HSS research\\n- Analysis of the
+        drivers of open research (top-down, biomedical\\n  sciences, bottom-up, governmental,
+        etc.)\\n- Arguments against or in favour of open research in HSS\\n- Proposals
+        for alternative framings or definitions of open research HSS\\n- Historical
+        examples of open research practices in HSS\\n- Specific disciplinary needs
+        for open research in HSS\\n\\nWhen submitting an abstract, please also include
+        a note that your\\nabstract is for consideration in the Open Research for
+        the humanities\\nand social sciences special issue. Abstract submissions are
+        due **30\\nJanuary 2025** and should be addressed to the special issue editor
+        Dr.\\nSamuel A. Moore via sam214@cam.ac.uk.\_\\n\\nFull papers of accepted
+        abstracts will be due by **15 May 2025**. Please\\ndirect any questions to
+        the special issue editor as well.\_\\n\\n*Note on peer review process*\\n\\nPapers
+        will undergo an experimental collective approach to peer review\\nthat authors
+        will be invited to participate in and will be presented as\\na case study
+        for the Materialising Open Research Practices in the\\nHumanities and Social
+        Sciences (MORPHSS) project. This peer review\\nprocess seeks to undermine
+        the binary between open and closed forms of\\nreview processes and instead
+        explores how HSS research can be 'opened\\nout' through well-structured, careful
+        collective forms of feedback and\\nrevision. More information will be provided
+        at the time of submission.\\n\\nMORPHSS is supported by funding from The Wellcome
+        Trust and AHRC\\n(314438/Z/24/Zr) and by the \_Research England Development
+        (RED) Fund\\n\\n*References*\\n\\nBell, Kirsten. 2019. \\\"Communitas and
+        the Commons: The Open Access\\nMovement and the Dynamics of Restructuration
+        in Scholarly Publishing.\\\"\\nAnthropology Today 35 (5): 21--23.\\nhttps://doi.org/10.1111/1467-8322.12530.\\n\\nChan,
+        Leslie, and Sely Costa. 2005. \\\"Participation in the Global\\nKnowledge
+        Commons: Challenges and Opportunities for Research\\nDissemination in Developing
+        Countries.\\\" New Library World 106 (3/4):\\n141--63. https://doi.org/10.1108/03074800510587354.\\n\\nFarley,
+        Ashley, Kazuhiro Hayashi, Eva Hnatkova, Hans De Jonge, Heather\\nJoseph, Robert
+        Kiley, Ruth King, and Rebecca Lawrence. 2024. \\\"Changing\\nthe Paradigm
+        for Primary Research Dissemination.\\\" Wellcome Open Research\\n9 (February):37.
+        https://doi.org/10.12688/wellcomeopenres.20715.1.\\n\\nKn\xF6chelmann, Marcel.
+        2019. \\\"Open Science in the Humanities, or: Open\\nHumanities?\\\" Publications
+        7 (4): 65.\\nhttps://doi.org/10.3390/publications7040065.\\n\\nLeonelli, Sabina.
+        2023. Philosophy of Open Science. Cambridge Elements.\\nElements in the Philosophy
+        of Science. Cambridge New York, NY Port\\nMelbourne New Delhi Singapore: Cambridge
+        University Press.\\nhttps://doi.org/10.1017/9781009416368.\\n\\nSever, Richard.
+        2023. \\\"Biomedical Publishing: Past Historic, Present\\nContinuous, Future
+        Conditional.\\\" PLOS Biology 21 (10): e3002234.\\nhttps://doi.org/10.1371/journal.pbio.3002234.\\n\",\"doi\":\"https://doi.org/10.59350/ze56v-39p21\",\"guid\":\"https://www.samuelmoore.org/?p=1532\",\"id\":\"1e4da9ec-b1e2-4f89-9270-cfe4c9ed664f\",\"language\":\"en\",\"published_at\":1732784319,\"reference\":[],\"relationships\":[],\"rid\":\"a8gbp-3za43\",\"status\":\"active\",\"summary\":\"I\u2019m
+        guest editing a special issue for the\\n<em>\\n Journal of Electronic Publishing\\n</em>\\non
+        open research for the humanities and social sciences. The call for papers
+        is below:\\n<strong>\\n Call for papers: Special Issue on Open Research for
+        the Humanities and Social Sciences\\n</strong>\",\"tags\":[\"Open Access\"],\"title\":\"CFP:
+        special issue of JEP on open research for the humanities and social sciences\",\"updated_at\":1732784819,\"url\":\"https://www.samuelmoore.org/2024/11/28/cfp-special-issue-on-open-research-for-the-humanities-and-social-sciences\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Ulrich
+        Herb\"}],\"blog_name\":\"pulse49\",\"blog_slug\":\"scidebug\",\"category\":\"otherSocialSciences\",\"content_text\":\":::
+        {.wp-block-image}\\n<figure class=\\\"alignleft size-full\\\">\\n<img\\nsrc=\\\"https://pulse49.com/wp-content/uploads/2024/10/Open-Access-Publishing-Navigating-the-Costly-Landscape-and-Author-Expectations.jpg\\\"\\nclass=\\\"wp-image-7605\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://pulse49.com/wp-content/uploads/2024/10/Open-Access-Publishing-Navigating-the-Costly-Landscape-and-Author-Expectations.jpg
+        200w, https://pulse49.com/wp-content/uploads/2024/10/Open-Access-Publishing-Navigating-the-Costly-Landscape-and-Author-Expectations-150x150.jpg
+        150w\\\"\\nsizes=\\\"auto, (max-width: 200px) 85vw, 200px\\\" width=\\\"200\\\"
+        height=\\\"200\\\"\\nalt=\\\"Open Access Publishing Navigating the Costly
+        Landscape and Author Expectations\\\" />\\n</figure>\\n:::\\n\\nIn 2020, [Joachim\\nSch\xF6pfel](https://fr.linkedin.com/in/schopfel){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"} and I planned to publish an anthology on\\nresearch data, topics
+        to be covered should include issues such as fake\\ndata (even then we were
+        thinking about AI-generated data) and their\\ndetection, data markets, data
+        reuse rates, blockchain, and health data.\\n\\nHowever, we had underestimated
+        what had changed since 2018. Back then\\nOpen Divide -- Critical Studies on
+        Open Access, edited by Joachim and me\\nwas published. The publisher Rory
+        Litwin sold the book in print, but not\\nonline. However, he allowed all authors
+        to publish their contributions\\nin the version of record under the Creative
+        Commons Attribution Non\\nCommercial 4.0 International License. Some authors
+        also chose the CC BY\\n4.0, without Rory Litwin being bothered by it. The
+        authors could make\\ntheir contributions available in open repositories or
+        other websites\\n(Green Open Access), without publication fees.\\n\\nNevertheless,
+        [there were\\ncomplaints](https://www.tub.tuhh.de/blog/2019/10/26/oaweek2019-open-access-books/){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"} that Open Divide was the \\\"example of a book\\nabout Open
+        Access that is unfortunately not available Open Access\\\".\\nDespite these
+        concerns, the book achieved what I consider to be a\\n[remarkable\\ndissemination](https://search.worldcat.org/de/title/1033828926){data-type=\\\"link\\\"\\ndata-id=\\\"https://search.worldcat.org/de/title/1033828926\\\"\\ntarget=\\\"_blank\\\"
+        rel=\\\"noreferrer noopener\\\"}. Whether their chapters would\\nbe published
+        as Open Access or not, was not decided by us, but solely by\\nthe authors
+        --- it was their free choice.  \\nSo the book is not available Open Access
+        in all its parts, because two\\nauthors decided not to use the Open Access
+        option; interestingly\\ncontributors from the so-called global south. A list
+        of all chapters and\\navailable Open Access versions can be found\\n[here](https://opendivide.hypotheses.org/open-divide-2018){data-type=\\\"page\\\"\\ndata-id=\\\"7216\\\"
+        target=\\\"_blank\\\" rel=\\\"noreferrer noopener\\\"}.\\n\\nUnlike in 2016
+        (when we started work on Open Divide and communicated the\\ngeneral conditions
+        to the authors), in 2020 hardly any author was\\nwilling to contribute to
+        a book that does not appear Gold Open Access or\\nis delayed Open Access ---
+        even if their chapter (as with Open Divide)\\ncould have been made available
+        under a CC BY licence in the version of\\nrecord without embargo.\\n\\nIn
+        2020 most of the potential authors we contacted required these things\\nto
+        write a contribution:\\n\\n- Gold Open Access publication of the book as a
+        whole\\n- CC BY License for the book as a whole\\n- Subject-relevant and reputable
+        publisher (preferably international)\\n\\nThe last point eliminated my university's
+        Open Access publisher from the\\nlist of possible publication venues. Looking
+        at common Book Processing\\nCharges (BPCs) quickly made me realise that financing
+        would be\\ndifficult, see e.g. data from\\n[OpenAPC](https://treemaps.openapc.net/apcdata/bpc/#/period=2020){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"} or [ubiquity\\npress](https://web.archive.org/web/20200614193759/https://www.ubiquitypress.com/site/publish/){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"} dated 2020. Therefore, we approached a\\npublisher that publishes
+        titles without charging a BPC. However, this is\\nonly possible after a thorough
+        review, which is reasonable since the\\npublisher is funded through consortia.
+        Nevertheless, we found ourselves\\nin a dilemma: we could not guarantee the
+        authors (as they demanded) that\\nthe book would be published Open Access
+        by this publisher --- on the\\nother hand, we were not willing (in the absence
+        of funding) to pay a\\nrather high fee out of our own pocket if the publisher
+        only wanted to\\npublish the book in return for BPC, to fulfill the obligation
+        demanded\\nby the authors. We also inquired with another relevant publisher
+        about\\ntheir BPC waiver program. Our question was: \\\"Since we do not have\\nfunding
+        for Open Access publication of the book, I would like to ask how\\nto apply
+        for the Waiver Scheme from \\\\*publisher name\\\\*: Do we apply for\\nthe
+        waiver with a book first and enter into a contract if the waiver is\\ngranted,
+        or do you enter into a contract with \\\\*publisher name\\\\* and\\nthen apply
+        for the waiver?\\\" The reply was: \\\"To apply for a waiver, you\\njust need
+        to note in the funding section of the proposal form that you\\nwould like
+        to apply to the waiver scheme. We will then consider your\\nbook proposal
+        with the understanding that we will need to fund the book\\nif it successfully
+        passes peer review.\\\"\\n\\nThe procedure is understandable, but it offered
+        us no alternative: since\\nwe could not guarantee an Open Access publication
+        without BPC, the\\nauthors did not want to contribute to the fees, and we
+        did not want to\\ninvest private funds, the book ultimately was never published.\\n\\nThe
+        impression left was that publishing an Open Access book is primarily\\na matter
+        of cost, suggesting that if one truly wants to publish the\\nbook, they must
+        be prepared to cover the expenses themselves, which\\nmakes publication somewhat
+        of a luxury. However, perhaps I am being too\\npessimistic. I am aware that
+        many universities in Germany today have\\nfunds for (partial) financing of
+        Open Access books; however, these are\\nnot universally available, and in
+        our case, the maximum funding amount\\nwould hardly have covered the costs.
+        Additionally, my university now has\\nsuch a fund, but I would be reluctant
+        to apply for funding since I\\nmanage it and do not want to give the impression
+        of misusing this role.\\nI also know that in Germany (and likely in other
+        non-English speaking\\ncountries), it is common to pay high printing cost
+        subsidies for books\\n(BPCs) even in Closed Access; however, Closed Access
+        (unlike Open\\nAccess) does not claim participation as its principle. That
+        said, I do\\nnot want to demonize Open Access BPCs, as publishers need to
+        find ways\\nto finance themselves, and providing service is a significant
+        value that\\ndeserves fair compensation. Nevertheless, it bothers me that
+        the\\nopportunity to publish an Open Access Book is so dependent on financial\\nresources.
+        What has disturbed me more, however, are authors who demanded\\nthat a book
+        licensed under CC BY be an unconditional requirement for a\\ncontribution
+        but categorically excluded any participation in the costs.\\n\",\"doi\":\"https://doi.org/10.59350/cgb5e-6z776\",\"guid\":\"https://scinoptica.com/?p=6076\",\"id\":\"fabea06e-f41c-4e3f-9bd9-0ea3613dd20c\",\"image\":\"https://pulse49.com/wp-content/uploads/2024/10/Open-Access-Publishing-Navigating-the-Costly-Landscape-and-Author-Expectations.jpg\",\"language\":\"en\",\"published_at\":1732639349,\"reference\":[],\"relationships\":[],\"rid\":\"wa75e-zd096\",\"status\":\"active\",\"summary\":\"In
+        2020, Joachim Sch\xF6pfel and I planned to publish an anthology on research
+        data, topics to be covered should include issues such as fake data (even then
+        we were thinking about AI-generated data) and their detection, data markets,
+        data reuse rates, blockchain, and health data. However, we had underestimated
+        what had changed since 2018. Back then Open Divide \u2013 Critical Studies
+        on Open Access, edited by Joachim and me was published.\",\"tags\":[\"Open
+        Access\",\"ScholComm\"],\"title\":\"Publishing an Open Access anthology \u2014
+        navigating costs and author expectations\",\"updated_at\":1732639390,\"url\":\"https://pulse49.com/2024/11/26/publishing-an-open-access-anthology-navigating-costs-and-author-expectations\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Ross
+        Mounce\",\"url\":\"https://orcid.org/0000-0002-3520-2046\"}],\"blog_name\":\"A
+        blog by Ross Mounce\",\"blog_slug\":\"rossmounce\",\"category\":\"naturalSciences\",\"content_text\":\"So
+        I read Jeffrey Brainard's\\n[piece](https://www.science.org/content/article/web-science-index-plans-end-elife-s-journal-impact-factor)\\nin
+        *Science* magazine on Clarivate's decision to punish *eLife* for\\ninnovating
+        -- by stripping *eLife* of a proprietary Journal Impact\\nFactor\u2122 number,
+        that Clarivate itself awards (sidenote: to be clear, I\\nsee no value in Journal
+        Impact Factors as they are [statistically\\nilliterate](https://occamstypewriter.org/scurry/2012/08/13/sick-of-impact-factors/),\\n[irreproducible](https://quantixed.org/2016/01/05/the-great-curve-ii-citation-distributions-and-reverse-engineering-the-jif/),\\nand
+        easily\\n[gameable](https://onlinelibrary.wiley.com/doi/10.1111/eci.13151),\\namongst
+        many other issues that have long been documented). With the\\ngreatest of
+        respect to Jeffrey, I don't think it quite fully covered\\nwhat's going on
+        here. I think it's Clarivate that has problems, not\\neLife.\\n\\nFrom my
+        perspective, the tension between innovation in research\\npublishing and Clarivate's
+        wish to demonstrate some kind of arbitrary\\n'selectivity' has been bubbling
+        along for over a decade now. Researchers\\n& research funders are getting
+        to grips with the affordances of\\ndigitality, trying new processes and discovering
+        that some processes &\\nworkflows result in better outcomes in terms of rigour,
+        financial cost,\\ntransparency, and/or a reduction in research waste. I'm
+        thinking\\nparticularly about transparency of process and timing of process.\\nDigitality
+        allows for the traditional pre-digital publishing process to\\nbe\\n[decoupled](https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2012.00019/full)\\nand
+        re-ordered.\\n\\nIn 2024, whilst not yet \\\"the default\\\", it is not uncommon
+        in some\\ndisciplines to find research being published before peer-review,
+        and\\n*then* sent for some kind of peer-review *after* being published online.\\nThis
+        is sometimes referred to as the \\\"Publish-\\\\>Review-\\\\>Curate\\\" model.\\n[ASAPbio](https://asapbio.org/understanding-the-publish-review-curate-prc-model-of-scholarly-communication)\\nhave
+        a nice explainer of the PRC model.\\n\\nI infer that Clarivate / Web of Science
+        doesn't seem to like the PRC\\nmodel. I don't base this on wild supposition,
+        it is based on what I can\\nobserve from the growing fleet of journals that
+        are now operating a\\nPRC-only model and are excluded from Clarivate indexing:\\n\\n-
+        *F1000Research* (est. 2012), not in Clarivate's \\\"Master Journal List\\\"\\n-
+        *Journal of Open Source Software* (est. 2016), not in the \\\"Master\\n  Journal
+        List\\\"\\n- *Wellcome Open Research* (est. 2016), not in the \\\"Master Journal
+        List\\\"\\n- *MedEdPublish* (est. 2016), not in the \\\"Master Journal List\\\"\\n-
+        *Gates Open Research* (est. 2017), not in the \\\"Master Journal List\\\"\\n-
+        *The Journal of Open Source Education* (est. 2018), not in the \\\"Master\\n
+        \ Journal List\\\"\\n- *HRB Open Research* (est. 2018), not in the \\\"Master
+        Journal List\\\"\\n- *The Open Journal of Astrophysics* (est. 2019), not in
+        the \\\"Master\\n  Journal List\\\"\\n- *Health Open Research* (est. 2019),
+        not in the \\\"Master Journal List\\\"\\n- *Open Research Europe* (est. 2021),
+        not in the \\\"Master Journal List\\\"\\n- *NIHR Open Research* (est. 2021),
+        not in the \\\"Master Journal List\\\"\\n- *Digital Twin* (est. 2021), not
+        in the \\\"Master Journal List\\\"\\n- *Open Research Africa* (est. 2022),
+        not in the \\\"Master Journal List\\\"\\n- *Routledge Open Research* (est.
+        2022), not in the \\\"Master Journal\\n  List\\\"\\n- *[Stosunki\\n  Mi\u0119dzynarodowe](https://internationalrelations-publishing.org/)*
+        (est.\\n  2022), not in the \\\"Master Journal List\\\"\\n\\nSome would say
+        that 'ah -- *Open Research Europe* never applied to\\nClarivate to join Web
+        of Science and be included in the \\\"Master Journal\\nList\\\" ' -- this
+        is correct, but I don't think it defeats my point.\\nOthers in this above
+        list definitely \\\\_have\\\\_ applied, and have actively\\nbeen rejected
+        by Clarivate more than once e.g. the *Journal of Open\\nSource Software*.\\n\\nThe
+        fleet of PRC journals isn't the only problem that Clarivate faces.\\nClarivate
+        also seems to struggle to recognise the excellence of many\\ndiamond open
+        access journals & communities such as (but certainly not\\nlimited to):\\n\\n-
+        *[The Sedimentary\\n  Record](https://thesedimentaryrecord.scholasticahq.com/)*
+        (est. 2003)\\n- [*PCI Registered Reports*](https://rr.peercommunityin.org/)
+        (est.\\n  2021)\\n- *[Seismica](https://seismica.library.mcgill.ca/)* (est.
+        2022)\\n- *[Global Africa](https://www.globalafricasciences.org/)* (est. 2022)\\n-
+        *[Bulletin of the Society of Systematic\\n  Biologists](https://ssbbulletin.org/index.php/bssb/about)*
+        (est. 2022)\\n- *[Tektonika](https://tektonika.online/index.php/home/index)*
+        (est.\\n  2023)\\n- *[Sedimentologika](https://oap.unige.ch/journals/sdk/)*
+        (est. 2023)\\n- *[Geomorphica](https://journals.psu.edu/geomorphica/)* (est.
+        2024)\\n\\nClarivate also doesn't index good journals from Latin America,
+        Asia, or\\n[Africa](https://doi.org/10.57832/18yw-xv96) as much -- a well-discussed\\nAnglophone
+        / [colonial\\nbias](https://direct.mit.edu/qss/article/3/4/912/114119/Recalibrating-the-scope-of-scholarly-publishing-A).\\n\\nIf
+        I could boil-down the thinking behind this post into a 'graphical\\nabstract'
+        it would be this (below). Clarivate no longer indexes the best\\nresearch
+        publishing venues as far as I'm concerned. The research\\ncommunity has moved
+        beyond the narrow confines of Clarivate's rigid\\ntunnel-vision for how research
+        should be published.\\n\\n:::: {.wp-block-cover .is-light}\\n[]{.wp-block-cover__background
+        .has-base-background-color\\n.has-background-dim\\naria-hidden=\\\"true\\\"}![](https://rossmounce.co.uk/wp-content/uploads/2024/11/clari.png){.wp-block-cover__image-background\\n.wp-image-2588
+        loading=\\\"lazy\\\" decoding=\\\"async\\\" width=\\\"777\\\" height=\\\"485\\\"\\nobject-fit=\\\"cover\\\"\\nsrcset=\\\"https://rossmounce.co.uk/wp-content/uploads/2024/11/clari.png
+        777w, https://rossmounce.co.uk/wp-content/uploads/2024/11/clari-300x187.png
+        300w, https://rossmounce.co.uk/wp-content/uploads/2024/11/clari-768x479.png
+        768w\\\"\\nsizes=\\\"auto, (max-width: 777px) 100vw, 777px\\\"}\\n\\n::: {.wp-block-cover__inner-container
+        .is-layout-flow .wp-block-cover-is-layout-flow}\\n:::\\n::::\\n\\n\\\\* you
+        may notice I've quoted \\\"Master Journal List\\\" throughout this\\npost.
+        That's deliberate. I don't have a PhD in post-colonial theory but\\neven I'm
+        surprised Clarivate continue to choose to use language like\\n\\\"Master\\\"
+        when selecting which journals they think are the 'best' and\\n?most superior?
+        to others. Yikes.\\n\\n**References:**\\n\\nBrainard, Jeffrey (2024) \\\"Open-access
+        journal elife will lose its\\n'impact factor' over controversial publishing
+        model\\\" *Science*. doi:\\n[10.1126/science.zycyo78](https://doi.org/10.1126/science.zycyo78)\\n\\nCurry,
+        Stephen (2012) \\\"Sick of Impact Factors\\\" Occam's Typewriter\\n<https://occamstypewriter.org/scurry/2012/08/13/sick-of-impact-factors/>\\n\\nIoannidis
+        JPA, Thombs BD. A user's guide to inflated and manipulated\\nimpact factors.
+        *Eur J Clin Invest*. 2019; 49:e13151.\\n<https://doi.org/10.1111/eci.13151>\\n\\nKhanna,
+        Saurabh;\_ Ball, J ;\_ Alperin J P;\_ Willinsky J (2022)\\nRecalibrating the
+        scope of scholarly publishing: A modest step in a vast\\ndecolonization process.\_*Quantitative
+        Science Studies* 3 (4): 912--930.\\ndoi:\_[10.1162/qss_a_00228](https://doi.org/10.1162/qss_a_00228){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"}\\n\\nMills, D., & Asubiaro, T. (2024) \\\"Does the African academy
+        need its own\\ncitation index?\\\"\_*Global Africa*, (7), pp.\\n115-125.\_[https://doi.org/10.57832/18yw-xv96](https://doi.org/10.57832/18yw-xv96){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"}\_\\n\\nPriem, Jason & Hemminger, Bradley M. (2012) \\\"Decoupling
+        the scholarly\\njournal\\\" *Front. Comput. Neurosci.* doi:\\n[10.3389/fncom.2012.00019](https://doi.org/10.3389/fncom.2012.00019)\\n\\nRoyle,
+        S. (2016). \\\"The Great Curve II: Citation distributions and\\nreverse engineering
+        the JIF\\\". In quantixed.\\n<https://doi.org/10.59350/yfcja-a4x31>\\n\",\"doi\":\"https://doi.org/10.59350/nsgwq-1mb74\",\"guid\":\"https://rossmounce.co.uk/?p=2574\",\"id\":\"7622c604-e623-4594-89de-54bd36174506\",\"image\":\"https://rossmounce.co.uk/wp-content/uploads/2024/11/image-2.png\",\"language\":\"en\",\"published_at\":1731942955,\"reference\":[{\"id\":\"https://doi.org/10.1126/science.zycyo78\",\"key\":\"ref1\",\"publicationYear\":\"2024\",\"title\":\"Open-access
+        journal &lt;cite&gt;elife&lt;/cite&gt; will lose its \u2018impact factor\u2019
+        over controversial publishing model\"},{\"key\":\"ref2\"},{\"id\":\"https://doi.org/10.1111/eci.13151\",\"key\":\"ref3\",\"publicationYear\":\"2019\",\"title\":\"A
+        user\u2019s guide to inflated and manipulated impact factors\"},{\"id\":\"https://doi.org/10.1162/qss_a_00228\",\"key\":\"ref4\",\"publicationYear\":\"2022\",\"title\":\"Recalibrating
+        the scope of scholarly publishing: A modest step in a vast decolonization
+        process\"},{\"id\":\"https://doi.org/10.57832/18yw-xv96\",\"key\":\"ref5\",\"publicationYear\":\"2024\",\"title\":\"Does
+        the African academy need its own citation index?\"},{\"id\":\"https://doi.org/10.3389/fncom.2012.00019\",\"key\":\"ref6\",\"publicationYear\":\"2012\",\"title\":\"Decoupling
+        the scholarly journal\"},{\"id\":\"https://doi.org/10.59350/yfcja-a4x31\",\"key\":\"ref7\",\"title\":\"The
+        Great Curve II: Citation distributions and reverse engineering the JIF\"}],\"relationships\":[],\"rid\":\"pgmc4-mzr56\",\"status\":\"active\",\"summary\":\"So
+        I read Jeffrey Brainard\u2019s piece in\\n<em>\\n Science\\n</em>\\nmagazine
+        on Clarivate\u2019s decision to punish\\n<em>\\n eLife\\n</em>\\nfor innovating
+        \u2013 by stripping\\n<em>\\n eLife\\n</em>\\nof a proprietary Journal Impact
+        Factor\u2122 number, that Clarivate itself awards (sidenote: to be clear,
+        I see no value in Journal Impact Factors as they are statistically illiterate,
+        irreproducible, and easily gameable, amongst many other issues that have long
+        been documented). With the\",\"tags\":[\"Diamond Open Access\",\"ELife\",\"Open
+        Access\",\"Open Science\",\"Research Assessment\"],\"title\":\"Web of Science
+        can&#8217;t handle innovation\",\"updated_at\":1731946318,\"url\":\"https://rossmounce.co.uk/2024/11/18/web-of-science-cant-handle-innovation\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Ben
+        Kaden\",\"url\":\"https://orcid.org/0000-0002-8021-1785\"}],\"blog_name\":\"Open
+        Access Brandenburg\",\"blog_slug\":\"oabrandenburg\",\"category\":\"otherSocialSciences\",\"content_text\":\"In
+        nahezu all unseren Open-Access-Vermittlungsveranstaltungen f\xFCr\\nPublizierende
+        kommt die Diskussion fr\xFCher oder sp\xE4ter auf die Frage,\\nwelche der
+        sechs Hauptvarianten der\\n[Creative-Commons](https://de.wikipedia.org/wiki/Creative_Commons){target=\\\"_blank\\\"\\nrel=\\\"noopener\\\"}-Lizenzen
+        wir eigentlich empfehlen. Wir argumentieren\\ndann f\xFCr fast alle Szenarien
+        f\xFCr eine Verwendung der\\n[CC-BY-Lizenz](https://certificates.creativecommons.org/about/certificate-resources-cc-by/){target=\\\"_blank\\\"\\nrel=\\\"noopener\\\"},
+        die unter der Bedingung der Namensnennung der\\nAutor\\\\*innen eine unbegrenzte
+        Nachnutzung erm\xF6glicht.\\n\\nOft erscheint diese Wahl den Publizierenden
+        zun\xE4chst kontraintuitiv\\nund/oder ihren Interessen zu widersprechen. Sie
+        m\xF6chten mit ihrer Wahl\\nf\xFCr Open Access gerade nicht kommerzielle Angebote
+        f\xF6rdern (CC-BY-NC).\\nSie m\xF6chten, dass ihre Arbeiten nicht ver\xE4ndert
+        werden (CC-BY-ND). Sie\\nm\xF6chten, wenn sie sich f\xFCr Open Access entscheiden,
+        dass auch alle, die\\nihre Werke nutzen, diese Praxis weiterf\xFChren (CC-BY-SA).\_\\n\\nWenn
+        man jedoch im Detail die Implikationen durchgeht, werden die damit\\nverbundenen
+        Schwierigkeiten deutlich. Entsprechend hilfreich ist es also\\nf\xFCr alle,
+        die Open Access vermitteln, klare Hinweise zur Hand zu haben,\\nwarum CC-BY
+        meistens doch die optimale Wahl ist.\\n\\nDaher kommt eine \xDCbersicht zum
+        Thema, die das DEAL-Konsortium im Oktober\\n2024 unter dem Titel *[Unlocking
+        the Full Potential of Your Research,\\nchoose CC BY!](https://deal-konsortium.de/en/why-ccby){target=\\\"_blank\\\"\\nrel=\\\"noopener\\\"}*
+        ver\xF6ffentlichte, sehr gelegen. Zusammengestellt wurde\\nsie von Till Kreutzer
+        von\\n[irights.law](https://irights.info/){target=\\\"_blank\\\" rel=\\\"noopener\\\"}.\_\\n\\nDie
+        Aufstellung konzentriert sich auf den Non-Commercial-Vorbehalt (NC)\\nund
+        benennt vier Nachteile f\xFCr dessen Verwendung:\\n\\n- **Rechtliche Unsicherheit:**
+        Die Definition von \u201Enicht-kommerziell\\\"\\n  ist nach deutschem Recht
+        unklar, was zu erheblicher Rechtsunsicherheit\\n  f\xFChrt.\\n\\n- **Einschr\xE4nkung
+        erw\xFCnschter Nutzungen:** NC-Lizenzen schlie\xDFen viele\\n  w\xFCnschenswerte
+        Nutzungen aus, wie z.B. die Verwendung in\\n  Kooperationsprojekten zwischen
+        \xF6ffentlichen und privaten\\n  Forschungseinrichtungen.\\n\\n- **Inkompatibilit\xE4t
+        mit Open-Access-Definitionen:** NC-lizenziertes\\n  Material gilt per Definition
+        nicht als \u201EOpen Access\\\", da es nicht \u201Ef\xFCr\\n  jeden verantwortungsvollen
+        Zweck\\\" (vgl. [Berliner\\n  Erkl\xE4rung](https://openaccess.mpg.de/Berliner-Erklaerung){target=\\\"_blank\\\"\\n
+        \ rel=\\\"noopener\\\"}, 2003) zur Verf\xFCgung steht.\\n\\n- **Exklusive
+        kommerzielle Rechte f\xFCr Verlage:** Eine NC-Lizenz kann\\n  eine sp\xE4tere
+        Verwertung beispielsweise eines Aufsatzes in einer\\n  wissenschaftlichen
+        Verlagspublikationen unn\xF6tig begrenzen, da die\\n  Lizenz in Konflikt mit
+        den Bedingungen des Verlags ger\xE4t. Zudem\\n  verlangen Verlage oft vor
+        der Vergabe der Lizenz die \xDCbertragung\\n  exklusiver Verwertungsrechte.
+        Prinzipiell sind diese Anspr\xFCche aber\\n  kaum in Einklang zu bringen.\\n\\n
+        \ In der Praxis ist es [teilweise\\n  so](https://forum.open-access.network/t/verlagsvertraege-mit-uebertragung-der-nutzungsrechte-bei-gleichzeitiger-vergabe-von-cc-lizenzen/1492){target=\\\"_blank\\\"\\n
+        \ rel=\\\"noopener\\\"}, dass sich ein Verlag per Vertrag die exklusiven\\n
+        \ kommerziellen Verwertungsrechte sichert und sich selbst somit de facto\\n
+        \ von der CC-Lizenz ausnimmt, Autor\\\\*innen zugleich aber die Vergabe\\n
+        \ einer ND-Lizenz vorschreibt, um jede weitere kommerzielle Verwertung\\n
+        \ auszuschlie\xDFen.\_\_\\n\\nVor diesem Hintergrund l\xE4sst sich f\xFCr
+        CC-BY also ganz allgemein als\\nVorteil ins Feld f\xFChren, dass es solche
+        komplizierte Settings komplett\\numschifft und die Nutzungsm\xF6glichkeiten
+        transparenter kommuniziert.\\n\\nTill Kreutzer differenziert diese Vorteile
+        im benannten Text noch einmal\\nweiter:\_\\n\\n- **Maximale Verbreitung und
+        Wiederverwendung**: CC-BY erlaubt es\\n  anderen, einen Inhalt -- auch kommerziell
+        -- zu verteilen, zu remixen,\\n  anzupassen und darauf aufzubauen, solange
+        die Urheber\\\\*innen genannt\\n  werden. Damit werden die potentielle Reichweite
+        und der Einfluss der\\n  Forschung erheblich erh\xF6ht.\\n- **Rechtliche Klarheit**:
+        CC-BY formuliert eindeutige und\\n  unkomplizierte Bedingungen, was rechtliche
+        Unsicherheiten reduziert\\n  und dadurch sicherstellt, dass die Arbeit reibungsfrei
+        genutzt und\\n  geteilt werden kann[.]{.whitespace-nowrap}\\n- **\xDCbereinstimmung
+        mit Open-Access-Erkl\xE4rungen**: CC-BY steht im\\n  Einklang mit wichtigen
+        Open-Access-Deklarationen wie der Berliner\\n  Erkl\xE4rung und wird von vielen
+        Forschungsf\xF6rderern weltweit\\n  empfohlen[.]{.whitespace-nowrap}\\n- **Gleichberechtigte
+        kommerzielle Nutzung**: CC-BY erlaubt explizit\\n  auch eine kommerzielle
+        Nutzung, dies jedoch f\xFCr alle gleicherma\xDFen.\\n  Dadurch wird verhindert,
+        dass einzelne Akteure die Arbeit\\n  monopolisieren.\\n\\nDas einfachste Argument
+        ist vermutlich, dass sich sowohl publizierende\\nals auch nachnutzende Person
+        bei CC-BY nur darauf achten m\xFCssen, dass\\ndie Kette des Nachweises der
+        Autor\\\\*innen erhalten bleibt. Die\\nEntscheidung f\xFCr CC-BY reduziert
+        also angenehmerweise ma\xDFgeblich die\\nKomplexit\xE4t und erlaubt eine Fokussierung
+        auf den eigentlichen\\nDaseinszweck jeder wissenschaftlichen Publikation:
+        den Inhalt.\\n\",\"doi\":\"https://doi.org/10.59350/e93e7-p7a44\",\"guid\":\"https://open-access-brandenburg.de/?p=8122\",\"id\":\"92c2673f-ef94-402c-9a3e-acb071b5795e\",\"language\":\"de\",\"published_at\":1731324080,\"reference\":[],\"relationships\":[],\"rid\":\"hz8y2-54e44\",\"status\":\"active\",\"summary\":\"In
+        nahezu all unseren Open-Access-Vermittlungsveranstaltungen f\xFCr Publizierende
+        kommt die Diskussion fr\xFCher oder sp\xE4ter auf die Frage, welche der sechs
+        Hauptvarianten der Creative-Commons-Lizenzen wir eigentlich empfehlen. Wir
+        argumentieren dann f\xFCr fast alle Szenarien f\xFCr eine Verwendung der CC-BY-Lizenz,
+        die unter der Bedingung der Namensnennung der Autor*innen eine unbegrenzte
+        Nachnutzung erm\xF6glicht.\",\"tags\":[\"OA Basics\",\"CC-BY-NC\",\"Creative
+        Commons\",\"Open Access\",\"Open Access Kommunikation\"],\"title\":\"Open
+        Access Basics: Warum CC-BY besser als eine CC-Non-Commercial-Lizenz ist.\",\"updated_at\":1731324080,\"url\":\"https://open-access-brandenburg.de/creative-commons-cc-by-cc-by-nc\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22141/20231105110201/https://blogs.fu-berlin.de/open-access-berlin/2024/10/21/quo-vadis-4-objektbezogenes-open-access-open-access-fuer-objekte-20-november-2024\",\"authors\":[{\"name\":\"Georg
+        Fischer\",\"url\":\"https://orcid.org/0000-0001-5620-5759\"}],\"blog_name\":\"Open
+        Access Blog Berlin\",\"blog_slug\":\"oaberlin\",\"category\":\"otherHumanities\",\"content_text\":\":::
+        {.entry-content}\\n#### 2. Veranstaltung in der Reihe \u201EQuo vadis offene
+        Wissenschaft in Berlin und Brandenburg\\\" am 20. NovEMBER 2024 {#veranstaltung-in-der-reihe-quo-vadis-offene-wissenschaft-in-berlin-und-brandenburg-am-20.-november-2024}\\n\\n**Termin:**
+        20. November, 14:00--16:00 Uhr  \\n**Ort:** [Online via\\nZoom](https://fh-potsdam.zoom-x.de/meeting/register/u5wtdemvqzkjEtc4ZG0MTpQufI7nJTgfdkS3)
+        \ \\n**Veranstaltende:** [Vernetzungs- und Kompetenzstelle Open Access\\nBrandenburg
+        (VuK)](https://open-access-brandenburg.de/) und\\n[Wissenslabor f\xFCr Naturwissenschaftliche
+        Sammlungen und objektzentrierte\\nDaten (WiNoDa Knowledge Lab)\_](https://winoda.de/en/english/)\\n\\nEs
+        handelt sich bei dieser Veranstaltung um die zweite in der Reihe [Quo\\nvadis
+        offene Wissenschaft in Berlin und Brandenburg\\n2024/25.](https://blogs.fu-berlin.de/open-access-berlin/2024/08/02/quo-vadis-4/)\\n:::\\n\\nIm
+        Rahmen der diesj\xE4hrigen vierten Auflage der Veranstaltungsreihe \u201EQuo\\nvadis
+        offene Wissenschaft in Berlin und Brandenburg\\\" wird in einer\\nKooperation
+        der Vernetzungs- und Kompetenzstelle Open Access Brandenburg\\nund des Projekts
+        Wissenslabor f\xFCr Naturwissenschaftliche Sammlungen und\\nobjektzentrierte
+        Daten (WiNoDa Knowledge Lab) ein Schlaglicht auf die\\nFrage geworfen, wie
+        Open Access zu nicht-textuellen Inhalten wie\\nForschungsdaten, digitalisierten
+        Sammlungsobjekten, Multimediainhalten\\noder Ergebnissen von Forschung in
+        den K\xFCnsten systematisch gestaltet\\nwerden kann.\\n\\nIn der als Werkstattdiskussion
+        ausgerichteten Veranstaltung werden wir\\nHerausforderungen und blinde Flecken
+        f\xFCr Open Access insbesondere in\\ndiesen Forschungsbereichen strukturiert
+        diskutieren.\\n\\nEs diskutieren Friederike Kramer von der Universit\xE4tsbibliothek
+        der\\nUniversit\xE4t der K\xFCnste Berlin, Ben Kaden von der Vernetzungs-
+        und\\nKompetenzstelle Open Access Brandenburg sowie Melanie Seltmann vom\\nBerlin-Brandenburgischen
+        Datenkompetenzzentrum f\xFCr Digital Humanities,\\nVerwaltungswissenschaften,
+        Informatik und Informationswissenschaft\\nQUADRIGA. Moderiert wird die Veranstaltung
+        von Sophia Kobialka (WiNoDa\\nKnowledge Lab).\\n\\n### Teilnehmende an der
+        Diskussion\\n\\n- Friederike Kramer (UB der UdK Berlin)\\n- Ben Kaden (VuK)\\n-
+        Melanie Seltmann (Datenkompetenzzentrum QUADRIGA)\\n\\n**Moderiert von**:
+        Sophia Kobialka (WiNoDa Knowledge Lab)\\n\\n### \xDCber die Diskussions-Teilnehmenden
+        {#\xFCber-die-diskussions-teilnehmenden dir=\\\"ltr\\\"}\\n\\n#### Friederike
+        Kramer {#friederike-kramer dir=\\\"ltr\\\"}\\n\\nFriederike Kramer ist stellvertretende
+        Leiterin der\\nUniversit\xE4tsbibliothek und Open-Access-Beauftragte der Universit\xE4t
+        der\\nK\xFCnste Berlin. Als Leitung der Digitalen Dienste baut sie in der\\nBibliothek
+        den Bereich Open Research auf und engagiert sich f\xFCr eine\\nUmsetzung von
+        Open Research in den K\xFCnsten und den auf die K\xFCnste\\nbezogenen Wissenschaften.\\n\\nSie
+        ist Mitbegr\xFCnderin und Mitmoderatorin der\\nopen-access.network-Fokusgruppe
+        \u201EOA-K\xFCnste\\\".\\n\\n#### Melanie Seltmann {#melanie-seltmann dir=\\\"ltr\\\"}\\n\\nMelanie
+        Seltmann arbeitet am Institut f\xFCr Bibliotheks- und\\nInformationswissenschaft
+        der Humboldt-Universit\xE4t zu Berlin im\\nDatenkompetenzzentrum QUADRIGA
+        an der Schnittstelle zwischen Projekt und\\ninformationswissenschaftlicher
+        Community. In verschiedenen\\nInfrastruktur- und Digital-Humanities-Projekten
+        (zuletzt in der NFDI)\\nkonnte sie Erfahrungen mit sehr unterschiedlichen
+        Forschungsdaten sowie\\nder Weitergabe diesbez\xFCglichen Wissens sammeln.\\n\\n####
+        Ben Kaden {#ben-kaden dir=\\\"ltr\\\"}\\n\\nBen Kaden arbeit in der Vernetzungs-
+        und Kompetenzstelle Open Access\\nBrandenburg und koordiniert im BMBF-Projekt
+        WiNoDa den Themen- und\\nEntwicklungsschwerpunkt Open Science. Er befasste
+        sich in diversen\\nProjekten aus einer bibliothekswissenschaftlichen Perspektive
+        mit\\nunterschiedlichen Facetten von Open Access, Open Science, Digital\\nHumanities,
+        wissenschaftliches Publizieren und Forschungsdaten.\\n\\n#### Sophie Kobialka\\n\\nSophie
+        Kobialka arbeitet an der Fachhochschule Potsdam im Rahmen von\\nOpen Access
+        Brandenburg im BMBF-Projekt zum Aufbau des\\nDatenkompetenzzentrums WiNoDa.
+        Dort ist sie f\xFCr die Vermittlung von\\nOpen-Science-Kompetenzen und die
+        Erhebung diesbez\xFCglicher Bedarfe von\\nWissenschaftler\\\\*innen der objektzentrierten
+        Forschung zust\xE4ndig. Zuvor\\nwar sie in in unterschiedlichen Rollen bei
+        der Vernetzungs- und\\nKompetenzstelle Open Access Brandenburg und dem Open-Access-B\xFCro
+        Berlin\\nt\xE4tig.\\n\\n    Die Veranstaltung wird online \xFCber Zoom stattfinden
+        (direkt zum Link).\\n    Siehe auch: Blogeintrag bei der Vernetzungs- und
+        Kompetenzstelle Open Access Brandenburg (VuK)\\n\",\"doi\":\"https://doi.org/10.59350/3jph7-bsn79\",\"guid\":\"https://blogs.fu-berlin.de/open-access-berlin/?p=2811\",\"id\":\"a2665ecf-24c4-4635-b2e8-2abbd50e8aa8\",\"language\":\"de\",\"published_at\":1729519927,\"reference\":[],\"relationships\":[],\"rid\":\"9jdzs-d6d60\",\"status\":\"active\",\"summary\":\"<strong>\\n
+        2. Veranstaltung in der Reihe \u201EQuo vadis offene Wissenschaft in Berlin
+        und Brandenburg\u201C am 20. NovEMBER 2024\\n</strong>\\n<strong>\\n Termin:\\n</strong>\\n20.
+        November, 14:00\u201316:00 Uhr\\n<strong>\\n Ort:\\n</strong>\\nOnline via
+        Zoom\\n<strong>\\n Veranstaltende:\\n</strong>\\nVernetzungs- und Kompetenzstelle
+        Open Access Brandenburg (VuK) und Wissenslabor f\xFCr Naturwissenschaftliche
+        Sammlungen und objektzentrierte Daten (WiNoDa Knowledge Lab)\",\"tags\":[\"Veranstaltungshinweise\",\"OpenBBB\",\"Kulturdaten\",\"Open
+        Access\",\"Nicht-textuelle Daten\"],\"title\":\"20. November 2024: Objektbezogenes
+        Open Access \u2013 Open Access f\xFCr Objekte (Quo Vadis Offene Wissenschaft
+        2024/25)\",\"updated_at\":1732722897,\"url\":\"https://blogs.fu-berlin.de/open-access-berlin/2024/10/21/quo-vadis-4-objektbezogenes-open-access-open-access-fuer-objekte-20-november-2024\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}}],\"out_of\":23847,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"\"},\"search_cutoff\":false,\"search_time_ms\":16}"
+    headers:
+      Connection:
+      - keep-alive
+      accept-ranges:
+      - none
+      access-control-allow-origin:
+      - '*'
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: OK
 version: 1

@@ -50,6 +50,8 @@ from api.utils import (
     format_license,
     format_relationships,
     translate_titles,
+    get_formatted_work,
+    SUPPORTED_ACCEPT_HEADERS,
 )
 from api.posts import (
     extract_all_posts,
@@ -61,7 +63,6 @@ from api.posts import (
     delete_all_draft_records,
 )
 from api.blogs import extract_single_blog, extract_all_blogs
-from api.works import SUPPORTED_ACCEPT_HEADERS, get_formatted_work
 from api.schema import Blog, Post, Work, PostQuery
 
 config = Config()
@@ -99,79 +100,6 @@ async def heartbeat():
     return "OK", 200
 
 
-@app.route("/works/")
-@hide
-async def works_redirect():
-    """Redirect /works/ to /works."""
-    return redirect("/works", code=301)
-
-
-@validate_response(Work)
-@app.route("/works")
-async def works():
-    """Show works."""
-    per_page = int(request.args.get("per_page") or "10")
-    page = int(request.args.get("page") or "1")
-    start_page = (page - 1) * per_page if page > 0 else 0
-    end_page = (page - 1) * per_page + (per_page - 1) if page > 0 else (per_page - 1)
-    try:
-        response = (
-            supabase_client.table("works")
-            .select(worksSelect, count="exact")
-            .limit(min(per_page, 100))
-            .order("date->published", desc=True)
-            .range(start_page, end_page)
-            .execute()
-        )
-        return jsonify({"total-results": response.count, "items": response.data})
-    except APIError as e:
-        return {"error": e.message or "An error occured."}, 400
-
-
-@validate_response(Work)
-@app.route("/works/<slug>")
-@app.route("/works/<slug>/<suffix>")
-async def work(slug: str, suffix: Optional[str] = None):
-    """Get work by slug."""
-    locale = request.args.get("locale") or "en-US"
-    style = request.args.get("style") or "apa"
-
-    try:
-        if validate_uuid(slug):
-            response = (
-                supabase_client.table("works")
-                .select(worksSelect)
-                .eq("uuid", slug)
-                .maybe_single()
-                .execute()
-            )
-            return jsonify(response.data)
-        elif validate_prefix(slug) and suffix:
-            doi = f"https://doi.org/{slug}/{suffix}"
-            response = (
-                supabase_client.table("works")
-                .select(worksSelect)
-                .eq("id", doi)
-                .maybe_single()
-                .execute()
-            )
-        else:
-            logger.warning(f"Invalid slug: {slug}")
-            return {"error": "An error occured."}, 400
-    except APIError as e:
-        if e.code == "204":
-            return {"error": "Work not found."}, 404
-        return {"error": e.message or "An error occured."}, 400
-
-    accept_header = request.accept_mimetypes.best
-
-    if accept_header not in SUPPORTED_ACCEPT_HEADERS:
-        return jsonify(response.data)
-    subject = Metadata(response.data, via="commonmeta")
-    result = get_formatted_work(subject, accept_header, style, locale)
-    return result.strip(), 200, {"Content-Type": accept_header}
-
-
 @app.route("/blogs/")
 @hide
 async def blogs_redirect():
@@ -184,14 +112,8 @@ async def blogs_redirect():
 async def blogs():
     """Search blogs by query, category, generator, language.
     Options to change page, per_page and include fields."""
-    preview = request.args.get("preview")
     query = request.args.get("query") or ""
-    category = request.args.get("category")
-    generator = request.args.get("generator")
-    language = request.args.get("language")
     page = int(request.args.get("page") or "1")
-    sort = request.args.get("sort") or "created_at"
-    order = request.args.get("order") or "desc"
 
     status = ["approved", "active", "archived"]
     start_page = page if page and page > 0 else 1

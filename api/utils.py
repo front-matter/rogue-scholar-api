@@ -6,6 +6,7 @@ import re
 from typing import Optional, Union
 from babel.dates import format_date
 import iso8601
+import httpx
 import html
 from lxml import etree
 import pydash as py_
@@ -17,8 +18,10 @@ from bs4 import BeautifulSoup
 from commonmeta import (
     Metadata,
     get_one_author,
+    validate_url,
     validate_orcid,
     normalize_orcid,
+    normalize_id,
     doi_from_url,
 )
 from commonmeta.constants import Commonmeta
@@ -28,7 +31,7 @@ import frontmatter
 import pandoc
 
 # from pandoc.types import Str
-from sentry_sdk import capture_exception, capture_message
+from sentry_sdk import capture_message
 
 
 AUTHOR_IDS = {
@@ -1071,9 +1074,10 @@ def validate_uuid(slug: str) -> bool:
 
 def start_case(content: str) -> str:
     """Capitalize first letter of each word without lowercasing the rest"""
+
     def capitalize(word):
         return word[:1].upper() + word[1:]
-        
+
     words = content.split(" ")
     return " ".join([capitalize(word) for word in words])
 
@@ -1499,3 +1503,81 @@ def id_as_str(id: str) -> Optional[str]:
     if u.host != "":
         return u.host + str(u.path)
     return None
+
+
+# supported accept headers for content negotiation
+SUPPORTED_ACCEPT_HEADERS = [
+    "application/vnd.commonmeta+json",
+    "application/x-bibtex",
+    "application/x-research-info-systems",
+    "application/vnd.citationstyles.csl+json",
+    "application/vnd.schemaorg.ld+json",
+    "application/vnd.datacite.datacite+json",
+    "application/vnd.crossref.unixref+xml",
+    "text/x-bibliography",
+]
+
+
+async def get_single_work(string: str) -> Optional[dict]:
+    """Get single work from the commonmeta API."""
+
+    url = f"{environ["QUART_POCKETBASE_URL"]}/{string}/transform/application/json"
+    try:
+        async with httpx.AsyncClient() as client:
+            response = await client.get(url, timeout=10.0)
+            return response.json()
+    except Exception as exc:
+        print(exc)
+        return None
+
+
+def get_formatted_work(
+    subject, accept_header: str, style: str = "apa", locale: str = "en-US"
+):
+    """Get formatted work."""
+    accept_headers = {
+        "application/vnd.commonmeta+json": "commonmeta",
+        "application/x-bibtex": "bibtex",
+        "application/x-research-info-systems": "ris",
+        "application/vnd.citationstyles.csl+json": "csl",
+        "application/vnd.schemaorg.ld+json": "schema_org",
+        "application/vnd.datacite.datacite+json": "datacite",
+        "application/vnd.crossref.unixref+xml": "crossref_xml",
+        "text/x-bibliography": "citation",
+    }
+    content_type = accept_headers.get(accept_header, "commonmeta")
+    if content_type == "citation":
+        # workaround for properly formatting blog posts
+        subject.type = "JournalArticle"
+        return subject.write(to="citation", style=style, locale=locale)
+    else:
+        return subject.write(to=content_type)
+
+
+async def format_reference(url, index):
+    """Format reference."""
+    if validate_url(normalize_id(url)) in ["DOI", "URL"]:
+        id_ = normalize_id(url)
+        work = await get_single_work(id_as_str(id_))
+        print(work)
+        if work is not None:
+            identifier = py_.get(work, "id", None)
+            title = py_.get(work, "titles.0.title", None)
+            publication_year = py_.get(work, "date.published", None)
+        else:
+            identifier = id_
+            title = None
+            publication_year = None
+        return compact(
+            {
+                "key": f"ref{index + 1}",
+                "id": identifier,
+                "title": title,
+                "publicationYear": publication_year[:4] if publication_year else None,
+            }
+        )
+    else:
+        return {
+            "key": f"ref{index + 1}",
+            "id": url,
+        }

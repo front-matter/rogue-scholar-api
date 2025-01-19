@@ -912,4 +912,917 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Cabstract%2Ccontent_text%2Creference&filter_by=status%3A%21%3D%5Bpending%5D+%26%26+published_at%3A%3E%3D+0+%26%26+published_at%3A%3C%3D+1737296667+%26%26+language%3A%3D%5Bes%5D&sort_by=published_at%3Adesc&per_page=10&page=1
+  response:
+    body:
+      string: "{\"facet_counts\":[],\"found\":803,\"hits\":[{\"document\":{\"authors\":[{\"name\":\"Atarraya\"}],\"blog_name\":\"BLOG
+        ATARRAYA\",\"blog_slug\":\"atarraya\",\"category\":\"humanities\",\"content_text\":\"por
+        **Alicia Salmer\xF3n**\\n\\nExplorar la historia de la circulaci\xF3n de impresos
+        --de su traducci\xF3n, a\\nveces, as\xED como de su impresi\xF3n y distribuci\xF3n--,
+        y de la manera en que\\nfueron recibidos, le\xEDdos y discutidos constituye
+        una aut\xE9ntica aventura.\\nM\xE1s a\xFAn si en ese seguimiento se exploran
+        los movimientos de quienes los\\nredactaron y leyeron, y se rastrea su lugar
+        en la colosal tarea de\\nconstruir una nueva naci\xF3n, la gran empresa del
+        M\xE9xico del siglo XIX.\\n\\nEsta ha sido la aventura emprendida por Gabriela
+        D\xEDaz Pati\xF1o, en\\n*Circulaci\xF3n y lectura de impresos evang\xE9licos
+        y protestantes en el\\nM\xE9xico del siglo XIX* (edici\xF3n CEID/Nun, 2024),
+        al seguir la pista de un\\ntipo de publicaciones muy particular: biblias,
+        revistas y peri\xF3dicos\\nevang\xE9licos y protestantes en el primer siglo
+        de vida del M\xE9xico\\nindependiente. La autora indag\xF3 c\xF3mo esta literatura
+        religiosa comenz\xF3 a\\ningresar al pa\xEDs y luego a editarse en M\xE9xico,
+        en una naci\xF3n en proceso\\nde construcci\xF3n, con un Estado que tuvo al
+        catolicismo como religi\xF3n\\noficial hasta mediados del siglo y que obligaba
+        a que toda publicaci\xF3n\\nque tocara al dogma cat\xF3lico pasara por un
+        proceso de censura previo.\\nReconstruy\xF3 igualmente las redes de distribuci\xF3n
+        de este tipo de\\nliteratura, identific\xF3 grupos sociales --intelectuales
+        y pol\xEDticos\\ncat\xF3licos liberales, luego reformistas radicales-- que
+        la recibieron con\\nentusiasmo, as\xED como resistencias feroces y debates
+        suscitados en una\\ncombativa prensa militante.\\n\\nEl libro de D\xEDaz Pati\xF1o
+        se aproxima a este tipo de publicaciones desde\\nlos \xFAltimos a\xF1os novohispanos,
+        cuando asomos reformistas en materia\\nreligiosa permitieron una cierta apertura
+        a ideas evang\xE9licas, como las\\nde la importancia del contacto directo
+        de los fieles con los textos\\nb\xEDblicos. Muestra entonces c\xF3mo comenzaron
+        a circular en el virreinato\\nlas primeras traducciones castellanas de biblias
+        evang\xE9licas. Pero el\\nestudio se centra, de manera principal, en un par
+        de momentos del M\xE9xico\\ndel XIX, momentos de impulsos reformistas que
+        acabaron por levantar un\\nEstado laico en donde hubo primero uno confesional;
+        tambi\xE9n por\\n\\\"recomponer\\\" la vida social, cultural y religiosa de
+        la naci\xF3n, al abrir\\nespacios que permitieron la aparici\xF3n de movimientos
+        evang\xE9licos,\\niglesias protestantes y alguna iglesia mexicana distante
+        de la Santa\\nSede.\\n\\nEl primero de estos movimientos --cuya identificaci\xF3n
+        constituye uno de\\nlos hallazgos de este libro-- inici\xF3 en los primeros
+        a\xF1os del M\xE9xico\\nindependiente, en el marco de la apertura de la nueva
+        naci\xF3n a los\\nintercambios comerciales y culturales con el mundo occidental
+        y al\\ninflujo del Segundo Avivamiento o resurgimiento cristiano --corriente\\nreligiosa
+        que promovi\xF3 un renovado fervor espiritual, surgido en el\\nmundo anglosaj\xF3n
+        protestante desde fines del siglo XVIII\xAD. El segundo\\nmovimiento evangelista
+        y protestante en M\xE9xico surgi\xF3 tras la Reforma y\\nla consolidaci\xF3n
+        de un r\xE9gimen pol\xEDtico liberal, ya indiscutiblemente\\nsecular, hacia
+        finales de la d\xE9cada de 1860, el cual dio nuevo impulso\\nal movimiento
+        y facilit\xF3 una mayor relaci\xF3n entre protestantes\\nnacionales y extranjeros.\\n\\nEl
+        estudio de D\xEDaz Pati\xF1o permite mirar el siglo XIX mexicano, pensarlo,\\nen
+        t\xE9rminos m\xE1s plurales, complejos y conflictivos de los que ya\\nten\xEDamos
+        noticia. M\xE1s plural en t\xE9rminos culturales, por ejemplo, por el\\nsigno
+        y alcances de los intercambios y de la producci\xF3n de los impresos\\nde
+        los que da cuenta, as\xED como por las redes de distribuci\xF3n tejidas\\npara
+        hacerlos circular en el pa\xEDs. Tambi\xE9n m\xE1s complejo, desde la\\nconsideraci\xF3n
+        de las ideas en juego, pues convivieron y, con frecuencia,\\nconvergieron,
+        evangelismos y reformismos; protestantismos y\\nliberalismos. Y ciertamente
+        como un siglo m\xE1s conflictivo, en raz\xF3n de\\nlos aguerridos debates
+        suscitados por el arribo y edici\xF3n local de\\nliteratura evang\xE9lica
+        y protestante, as\xED como los cismas religiosos\\nanimados por diferencias
+        doctrinarias y pol\xEDticas.\\n\\nEl libro de Gabriela D\xEDaz Pati\xF1o nos
+        ofrece una rica historia de\\npublicaciones evangelistas y protestantes, as\xED
+        como de las vicisitudes\\nde la expansi\xF3n de sus credos e iglesias en el
+        pa\xEDs. Y de manera muy\\nimportante, del significado que la circulaci\xF3n
+        de este tipo de impresos\\ntuvo en los procesos culturales, sociales, ideol\xF3gicos
+        y pol\xEDticos del\\nhacer naci\xF3n en el XIX mexicano.\\n\\n- [![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdib3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIj48cGF0aCBkPSJNMTIgMkM2LjUgMiAyIDYuNSAyIDEyYzAgNSAzLjcgOS4xIDguNCA5Ljl2LTdINy45VjEyaDIuNVY5LjhjMC0yLjUgMS41LTMuOSAzLjgtMy45IDEuMSAwIDIuMi4yIDIuMi4ydjIuNWgtMS4zYy0xLjIgMC0xLjYuOC0xLjYgMS42VjEyaDIuOGwtLjQgMi45aC0yLjN2N0MxOC4zIDIxLjEgMjIgMTcgMjIgMTJjMC01LjUtNC41LTEwLTEwLTEweiIgLz48L3N2Zz4=)[Facebook]{.wp-block-social-link-label\\n
+        \ .screen-reader-text}](https://www.facebook.com/AtarrayaHPySI){.wp-block-social-link-anchor}\\n-
+        [![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdib3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIj48cGF0aCBkPSJNMTIsNC42MjJjMi40MDMsMCwyLjY4OCwwLjAwOSwzLjYzNywwLjA1MmMwLjg3NywwLjA0LDEuMzU0LDAuMTg3LDEuNjcxLDAuMzFjMC40MiwwLjE2MywwLjcyLDAuMzU4LDEuMDM1LDAuNjczIGMwLjMxNSwwLjMxNSwwLjUxLDAuNjE1LDAuNjczLDEuMDM1YzAuMTIzLDAuMzE3LDAuMjcsMC43OTQsMC4zMSwxLjY3MWMwLjA0MywwLjk0OSwwLjA1MiwxLjIzNCwwLjA1MiwzLjYzNyBzLTAuMDA5LDIuNjg4LTAuMDUyLDMuNjM3Yy0wLjA0LDAuODc3LTAuMTg3LDEuMzU0LTAuMzEsMS42NzFjLTAuMTYzLDAuNDItMC4zNTgsMC43Mi0wLjY3MywxLjAzNSBjLTAuMzE1LDAuMzE1LTAuNjE1LDAuNTEtMS4wMzUsMC42NzNjLTAuMzE3LDAuMTIzLTAuNzk0LDAuMjctMS42NzEsMC4zMWMtMC45NDksMC4wNDMtMS4yMzMsMC4wNTItMy42MzcsMC4wNTIgcy0yLjY4OC0wLjAwOS0zLjYzNy0wLjA1MmMtMC44NzctMC4wNC0xLjM1NC0wLjE4Ny0xLjY3MS0wLjMxYy0wLjQyLTAuMTYzLTAuNzItMC4zNTgtMS4wMzUtMC42NzMgYy0wLjMxNS0wLjMxNS0wLjUxLTAuNjE1LTAuNjczLTEuMDM1Yy0wLjEyMy0wLjMxNy0wLjI3LTAuNzk0LTAuMzEtMS42NzFDNC42MzEsMTQuNjg4LDQuNjIyLDE0LjQwMyw0LjYyMiwxMiBzMC4wMDktMi42ODgsMC4wNTItMy42MzdjMC4wNC0wLjg3NywwLjE4Ny0xLjM1NCwwLjMxLTEuNjcxYzAuMTYzLTAuNDIsMC4zNTgtMC43MiwwLjY3My0xLjAzNSBjMC4zMTUtMC4zMTUsMC42MTUtMC41MSwxLjAzNS0wLjY3M2MwLjMxNy0wLjEyMywwLjc5NC0wLjI3LDEuNjcxLTAuMzFDOS4zMTIsNC42MzEsOS41OTcsNC42MjIsMTIsNC42MjIgTTEyLDMgQzkuNTU2LDMsOS4yNDksMy4wMSw4LjI4OSwzLjA1NEM3LjMzMSwzLjA5OCw2LjY3NywzLjI1LDYuMTA1LDMuNDcyQzUuNTEzLDMuNzAyLDUuMDExLDQuMDEsNC41MTEsNC41MTEgYy0wLjUsMC41LTAuODA4LDEuMDAyLTEuMDM4LDEuNTk0QzMuMjUsNi42NzcsMy4wOTgsNy4zMzEsMy4wNTQsOC4yODlDMy4wMSw5LjI0OSwzLDkuNTU2LDMsMTJjMCwyLjQ0NCwwLjAxLDIuNzUxLDAuMDU0LDMuNzExIGMwLjA0NCwwLjk1OCwwLjE5NiwxLjYxMiwwLjQxOCwyLjE4NWMwLjIzLDAuNTkyLDAuNTM4LDEuMDk0LDEuMDM4LDEuNTk0YzAuNSwwLjUsMS4wMDIsMC44MDgsMS41OTQsMS4wMzggYzAuNTcyLDAuMjIyLDEuMjI3LDAuMzc1LDIuMTg1LDAuNDE4QzkuMjQ5LDIwLjk5LDkuNTU2LDIxLDEyLDIxczIuNzUxLTAuMDEsMy43MTEtMC4wNTRjMC45NTgtMC4wNDQsMS42MTItMC4xOTYsMi4xODUtMC40MTggYzAuNTkyLTAuMjMsMS4wOTQtMC41MzgsMS41OTQtMS4wMzhjMC41LTAuNSwwLjgwOC0xLjAwMiwxLjAzOC0xLjU5NGMwLjIyMi0wLjU3MiwwLjM3NS0xLjIyNywwLjQxOC0yLjE4NSBDMjAuOTksMTQuNzUxLDIxLDE0LjQ0NCwyMSwxMnMtMC4wMS0yLjc1MS0wLjA1NC0zLjcxMWMtMC4wNDQtMC45NTgtMC4xOTYtMS42MTItMC40MTgtMi4xODVjLTAuMjMtMC41OTItMC41MzgtMS4wOTQtMS4wMzgtMS41OTQgYy0wLjUtMC41LTEuMDAyLTAuODA4LTEuNTk0LTEuMDM4Yy0wLjU3Mi0wLjIyMi0xLjIyNy0wLjM3NS0yLjE4NS0wLjQxOEMxNC43NTEsMy4wMSwxNC40NDQsMywxMiwzTDEyLDN6IE0xMiw3LjM3OCBjLTIuNTUyLDAtNC42MjIsMi4wNjktNC42MjIsNC42MjJTOS40NDgsMTYuNjIyLDEyLDE2LjYyMnM0LjYyMi0yLjA2OSw0LjYyMi00LjYyMlMxNC41NTIsNy4zNzgsMTIsNy4zNzh6IE0xMiwxNSBjLTEuNjU3LDAtMy0xLjM0My0zLTNzMS4zNDMtMywzLTNzMywxLjM0MywzLDNTMTMuNjU3LDE1LDEyLDE1eiBNMTYuODA0LDYuMTE2Yy0wLjU5NiwwLTEuMDgsMC40ODQtMS4wOCwxLjA4IHMwLjQ4NCwxLjA4LDEuMDgsMS4wOGMwLjU5NiwwLDEuMDgtMC40ODQsMS4wOC0xLjA4UzE3LjQwMSw2LjExNiwxNi44MDQsNi4xMTZ6IiAvPjwvc3ZnPg==)[Instagram]{.wp-block-social-link-label\\n
+        \ .screen-reader-text}](https://instagram.com/blogatarraya.nuestrashistorias/){.wp-block-social-link-anchor}\\n-
+        [![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdib3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIj48cGF0aCBkPSJNMTMuOTgyIDEwLjYyMiAyMC41NCAzaC0xLjU1NGwtNS42OTMgNi42MThMOC43NDUgM0gzLjVsNi44NzYgMTAuMDA3TDMuNSAyMWgxLjU1NGw2LjAxMi02Ljk4OUwxNS44NjggMjFoNS4yNDVsLTcuMTMxLTEwLjM3OFptLTIuMTI4IDIuNDc0LS42OTctLjk5Ny01LjU0My03LjkzSDhsNC40NzQgNi40LjY5Ny45OTYgNS44MTUgOC4zMThoLTIuMzg3bC00Ljc0NS02Ljc4N1oiIC8+PC9zdmc+)[X]{.wp-block-social-link-label\\n
+        \ .screen-reader-text}](https://x.com/atarrayahpysi?s=20){.wp-block-social-link-anchor}\\n\",\"doi\":\"https://doi.org/10.59350/qm04m-0r528\",\"guid\":\"https://blogatarraya.com/?p=5140\",\"id\":\"0a591807-2d64-4769-aa22-a348a2312fe4\",\"language\":\"es\",\"published_at\":1736788260,\"reference\":[],\"relationships\":[],\"rid\":\"gfcj5-y4317\",\"status\":\"active\",\"summary\":\"por\\n<strong>\\n
+        Alicia Salmer\xF3n\\n</strong>\\nExplorar la historia de la circulaci\xF3n
+        de impresos \u2013de su traducci\xF3n, a veces, as\xED como de su impresi\xF3n
+        y distribuci\xF3n\u2013, y de la manera en que fueron recibidos, le\xEDdos
+        y discutidos constituye una aut\xE9ntica aventura.\",\"tags\":[\"Rese\xF1a
+        Bibliogr\xE1fica\"],\"title\":\"Tras la pista de impresos evangelista y protestantes
+        en el M\xE9xico del siglo XIX\",\"updated_at\":1735871905,\"url\":\"https://blogatarraya.com/2025/01/13/tras-la-pista-de-impresos-evangelista-y-protestantes-en-el-mexico-del-siglo-xix\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/01tmp8f25\",\"name\":\"Universidad
+        Nacional Aut\xF3noma de M\xE9xico\"}],\"name\":\"Layla Mich\xE1n\",\"url\":\"https://orcid.org/0000-0002-5798-662X\"}],\"blog_name\":\"BIOgarabatos\",\"blog_slug\":\"biogarabatos\",\"category\":\"naturalSciences\",\"content_text\":\"He
+        reunido una colecci\xF3n bibliogr\xE1fica denominada BIOhistoria, contiene\\nliteratura
+        acad\xE9mica como libros, cap\xEDtulos, art\xEDculos\_ e incluso\\npreprints
+        \xFAtiles para los cursos de Filosof\xEDa e Historia de la Biolog\xEDa\\ndel
+        plan de estudios de la carrera de Biolog\xEDa de la Facultad de\\nCiencias
+        de la UNAM 1997. Tambi\xE9n resulta \xFAtil para ense\xF1ar o investigar\\nsobre
+        los contenidos de las materias Introducci\xF3n a las teor\xEDas\\nevolutivas
+        e\_ Historia de la Biolog\xEDa del plan de estudios de Biolog\xEDa\\nde la
+        F.C. UNAM del 2024. Entre los temas que abarca est\xE1n la historia\\nde varios
+        periodos, disciplinas y personajes de las ciencias de la vida:\\n\\nLos casos
+        de estudio de la biolog\xEDa\\n\\nLa Historia Natural\\n\\nLa gen\xE9tica\\n\\nLa
+        evoluci\xF3n\\n\\nLos naturalistas\\n\\nCon el tiempo ir\xE9 completando los
+        temas, entre los que incluir\xE9\\nseguramente estar\xE1n la ecolog\xEDa,
+        la gen\xF3mica y la historia de la\\nbiolog\xEDa en M\xE9xico.\\n\\nMi gestor
+        de referencias bibliogr\xE1ficas preferida es Zotero porque es\\nposible generar
+        una biblioteca compartida y generar colecciones y\\nsubcolecciones dentro
+        de tu biblioteca principal para organizar las\\nreferencias por tema, a\xF1o
+        o cualquier otro criterio \xFAtil con base en los\\nmetadatos disponibles.
+        Adem\xE1s es posible utilizar etiquetas\\npersonalizadas para asignar categor\xEDas
+        las referencias para facilitar la\\nb\xFAsqueda y generar filtros. Tambi\xE9n
+        puedo usar notas para a\xF1adir ideas y\\ncomentarios a los documentos.\\n\\nEsta
+        biblioteca est\xE1 curada para reunir textos que puedan ser utilizados\\ncomo
+        lecturas para los temas contenidos en los planes de las materias,\\nas\xED
+        como para que los alumnos tengan referencias b\xE1sicas y relevantes\\npara
+        realizar sus ensayos, presentaciones e investigaciones. Entre sus\\naplicaciones
+        est\xE1n poder usarla para generar citas y referencias, para\\nhacer listas
+        bibliogr\xE1ficas, realizar an\xE1lisis bibliogr\xE1ficos y para\\nasociar
+        la informaci\xF3n con otras plataformas como Wikidata.\\n\\nLa colecci\xF3n
+        bibliogr\xE1fica es abierta se dise\xF1o en Zotero y es curada\\nconstantemente
+        est\xE1 disponible en el enlace\\n<https://www.zotero.org/groups/2769748/biohistoria/library>.\\n\\n\_Esta
+        colecci\xF3n tambi\xE9n puede complementarse con recursos digitales que\\nhe
+        curado sobre historia de la biolog\xEDa a trav\xE9s de la\\nliga\_<https://start.me/p/z4K9Ez/biohistoria>.\\n\\n
+        \ \\n\\n::: {.separator style=\\\"clear: both; text-align: center;\\\"}\\n[![](https://upload.wikimedia.org/wikipedia/commons/7/7e/Haeckel_-_Hylocharis_Stokesii.jpg){border=\\\"0\\\"\\noriginal-height=\\\"845\\\"
+        original-width=\\\"1575\\\" height=\\\"268\\\"\\nwidth=\\\"499\\\"}](https://upload.wikimedia.org/wikipedia/commons/7/7e/Haeckel_-_Hylocharis_Stokesii.jpg){imageanchor=\\\"1\\\"\\nstyle=\\\"margin-left:
+        1em; margin-right: 1em;\\\"}\\n:::\\n\\n<div>\\n\\n  \\n\\n</div>\\n\\nFuente
+        de la\\nimagen:\_<https://upload.wikimedia.org/wikipedia/commons/7/7e/Haeckel_-_Hylocharis_Stokesii.jpg>
+        \ \\n\\n  \\n\",\"doi\":\"https://doi.org/10.59350/qerre-pvd63\",\"guid\":\"tag:blogger.com,1999:blog-3916921080498993167.post-1659522469873328156\",\"id\":\"cfcbf034-91d7-4d5a-9b0b-63c632fe17a4\",\"image\":\"https://upload.wikimedia.org/wikipedia/commons/7/7e/Haeckel_-_Hylocharis_Stokesii.jpg\",\"language\":\"es\",\"published_at\":1736462400,\"reference\":[],\"relationships\":[],\"rid\":\"fpyxq-80j02\",\"status\":\"active\",\"summary\":\"He
+        reunido una colecci\xF3n bibliogr\xE1fica denominada BIOhistoria, contiene
+        literatura acad\xE9mica como libros, cap\xEDtulos, art\xEDculos\_ e incluso
+        preprints \xFAtiles para los cursos de Filosof\xEDa e Historia de la Biolog\xEDa
+        del plan de estudios de la carrera de Biolog\xEDa de la Facultad de Ciencias
+        de la UNAM 1997. Tambi\xE9n resulta \xFAtil para ense\xF1ar o investigar sobre
+        los contenidos de las materias Introducci\xF3n a las teor\xEDas evolutivas
+        e\",\"tags\":[\"BIOhistoria\",\"Investigaci\xF3nDigital\U0001F4BF\",\"TecnologiaEducativa\"],\"title\":\"Colecci\xF3n
+        bibliogr\xE1fica BIOhistoria en Zotero\",\"updated_at\":1736462411,\"url\":\"https://biogarabatos.blogspot.com/2025/01/coleccion-bibliografica-biohistoria-en.html\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Coss\xEDo
+        Olavide, Mario\",\"url\":\"https://orcid.org/0000-0002-1447-3891\"}],\"blog_name\":\"Lucidarios\",\"blog_slug\":\"lucidarios\",\"category\":\"languagesAndLiterature\",\"content_text\":\"Esta
+        entrada inaugura una nueva serie sobre la que llevo pensando alg\xFAn\\ntiempo,
+        dedicada monogr\xE1ficamente al l\xE9xico empleado en la edici\xF3n de\\ntextos.
+        Como reconoce Duval (*Les mots* 5-6), el vocabulario de la\\ncr\xEDtica textual
+        (o ecd\xF3tica, edici\xF3n de textos, filolog\xEDa editorial o\\nfilolog\xEDa
+        a secas) es un campo plagado de ambig\xFCedades, originadas en\\nlas distintas
+        acepciones que un mismo t\xE9rmino puede tener en una escuela\\no corriente
+        de cr\xEDtica textual dada. Esto, a su vez, genera numerosas\\nconfusiones
+        en el correcto uso de los t\xE9rminos.\\n\\nCon estas nuevas entradas intento
+        ofrecer un glosario de voces\\ncorrientes en las distintas escuelas de cr\xEDtica
+        textual (y a trav\xE9s de\\nlas distintas tradiciones filol\xF3gicas modernas).
+        Como cualquier\\ndiccionario, cada entrada est\xE1 presentada bajo un lema
+        en espa\xF1ol (ya\\nsea adjetivos o sustantivos en singular, o verbos en infinitivo),\\nseguido
+        de una explicaci\xF3n de la etimolog\xEDa de la voz. A continuaci\xF3n,\\nse
+        presenta la definici\xF3n (o definiciones, cuando hay m\xE1s de una), una\\nlista
+        de sin\xF3nimos y ant\xF3nimos frecuentes, una lista de sus equivalentes\\nen
+        otras lenguas modernas y, finalmente, una serie de referencias\\nbibliogr\xE1ficas.\\n\\nDada
+        la amplitud del vocabulario cr\xEDtico disponible, las entradas\\ncomenzar\xE1n
+        alfab\xE9ticamente (con esta primera cubriendo un solo t\xE9rmino\\nque comienza
+        con *a*, pero las siguientes entradas cubrir\xE1n al menos\\ncinco t\xE9rminos).
+        Ocasionalmente, las entradas podr\xE1n a\xF1adir t\xE9rminos con\\nletras
+        ya terminadas, pero incluidos en entradas anteriores.\\n\\nCada entrada publicada
+        bajo la etiqueta \\\"Glosario de cr\xEDtica textual\\\"\\nser\xE1 reflejada,
+        a su vez, en una p\xE1gina a la que se puede acceder\\ndirectamente desde
+        la barra de men\xFA de cabecera, en la etiqueta\\n[Glosario de cr\xEDtica\\ntextual](https://lucidarios.hypotheses.org/glosario){data-type=\\\"link\\\"\\ndata-id=\\\"https://lucidarios.hypotheses.org/glosario\\\"}.\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.58.13.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.58.13-500x162.png\\\"\\nclass=\\\"wp-image-7362\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.58.13-500x162.png
+        500w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.58.13-300x97.png
+        300w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.58.13-768x249.png
+        768w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.58.13-1536x498.png
+        1536w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.58.13-2048x663.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"162\\\" /></a>\\n<figcaption>Etiqueta Glosario de cr\xEDtica textual</figcaption>\\n</figure>\\n:::\\n\\nEsta
+        p\xE1gina fija, a diferencia de las entradas, est\xE1 sujeta a revisiones\\ny
+        ampliaciones peri\xF3dicas (con la fecha de la \xFAltima revisi\xF3n indicada\\nal
+        final de la p\xE1gina) e incluir\xE1 una bibliograf\xEDa general. Tanto en
+        las\\nentradas como en la p\xE1gina est\xE1tica del glosario, la flecha horizontal\\n(\u2192)
+        se emplea para remitir al lector a otra entrada existente o futura.\\nComenzamos
+        con la primera entrada (un poco m\xE1s larga de lo habitual):\\n\\n## **abreviaci\xF3n**
+        (f.) {#abreviaci\xF3n-f. .wp-block-heading}\\n\\n\\\\[lat. tard\xEDo *abbreviatio*
+        --*\u014Dnis*, disminuci\xF3n\\\\]. Signo o dispositivo\\ngr\xE1fico de naturaleza
+        convencional que permite escribir una palabra\\neconomizando espacio al omitir,
+        al menos, una letra. La abreviaci\xF3n\\npuede ocurrir al inicio, medio o
+        final de una palabra y el signo\\nempleado puede indicar la omisi\xF3n una
+        o m\xE1s letras en tramos de letras\\ncontinuas o discontinuas. Por ejemplo,
+        la barra (o \u2192 *lineta*), el signo\\nde abreviaci\xF3n m\xE1s empleado
+        en la escritura medieval de la pen\xEDnsula\\nib\xE9rica, puede indicar la
+        omisi\xF3n de una letra:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.32.57.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.32.57-500x76.png\\\"\\nclass=\\\"wp-image-7244\\\"
+        style=\\\"width:160px;height:auto\\\" loading=\\\"lazy\\\"\\ndecoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.32.57-500x76.png
+        500w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.32.57-300x46.png
+        300w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.32.57-768x117.png
+        768w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.32.57-1536x233.png
+        1536w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.32.57-2048x311.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"76\\\" /></a>\\n</figure>\\n:::\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large is-resized\\\">\\n<a href=\\\"https://lucidarios.hypotheses.org/files/2025/01/1.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2025/01/1-500x205.png\\\"\\nclass=\\\"wp-image-7248\\\"
+        style=\\\"width:122px;height:auto\\\" loading=\\\"lazy\\\"\\ndecoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2025/01/1-500x205.png
+        500w, https://lucidarios.hypotheses.org/files/2025/01/1-300x123.png 300w,
+        https://lucidarios.hypotheses.org/files/2025/01/1.png 712w\\\"\\nsizes=\\\"(max-width:
+        500px) 100vw, 500px\\\" width=\\\"500\\\" height=\\\"205\\\" /></a>\\n<figcaption>Archivo
+        Capitular de Toledo, ms. 43-13, fol.\\n7va</figcaption>\\n</figure>\\n:::\\n\\nO
+        la omisi\xF3n de letras discontinuas:\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.37.18.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.37.18-500x123.png\\\"\\nclass=\\\"wp-image-7276\\\"
+        style=\\\"width:186px;height:auto\\\" loading=\\\"lazy\\\"\\ndecoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.37.18-500x123.png
+        500w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.37.18-300x74.png
+        300w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.37.18-768x190.png
+        768w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.37.18-1536x379.png
+        1536w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.37.18.png
+        1952w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"123\\\" /></a>\\n</figure>\\n:::\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-16.44.09.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-16.44.09-500x339.png\\\"\\nclass=\\\"wp-image-7286\\\"
+        style=\\\"width:104px;height:auto\\\" loading=\\\"lazy\\\"\\ndecoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-16.44.09-500x339.png
+        500w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-16.44.09-300x203.png
+        300w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-16.44.09.png
+        522w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"339\\\" /></a>\\n<figcaption>ACT, ms. 43-13, fol. 135va</figcaption>\\n</figure>\\n:::\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-16.28.17.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-16.28.17-500x255.png\\\"\\nclass=\\\"wp-image-7280\\\"
+        style=\\\"width:112px;height:auto\\\" loading=\\\"lazy\\\"\\ndecoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-16.28.17-500x255.png
+        500w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-16.28.17-300x153.png
+        300w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-16.28.17.png
+        534w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"255\\\" /></a>\\n<figcaption>ACT, ms. 43-13, fol. 29va</figcaption>\\n</figure>\\n:::\\n\\nC\xF3mo
+        recuerdan Froger (*La critique* 22), Blecua (*Manual* 25) y Chiesa\\n(*Elementi*
+        167), entender c\xF3mo una lengua o un copista emplea\\nabreviaciones puede
+        servir para que el investigador establezca una\\netiolog\xEDa paleogr\xE1fica
+        de las faltas en los manuscritos ap\xF3grafos (\u2192\\n*ap\xF3grafo*), dado
+        que la mayor\xEDa de los errores por sustituci\xF3n (\u2192\\n*error*) son
+        el resultado de la lectura o interpretaci\xF3n incorrecta de\\nuna abreviaci\xF3n.
+        Casi todas las ediciones contempor\xE1neas desarrollan las\\nabreviaciones,
+        ya sea indicando su desarrollo mediante un sistema\\nconvencional (como las
+        it\xE1licas, los corchetes angulares o las letras en\\nsuper\xEDndice) o las
+        desarrollan silenciosamente. Algunos tipos de\\ntranscripciones, como las
+        alogr\xE1ficas (\u2192 *transcripci\xF3n alogr\xE1fica*),\\nfacsimilares o
+        diplom\xE1ticas, que intentar reflejar fielmente los\\nmanuscritos, mantienen
+        los signos de abreviaci\xF3n empleando fuentes\\ntipogr\xE1ficas desarrolladas
+        para esta tarea, como la [Brill\\nTypeface](https://brill.com/page/419386?language=en){data-type=\\\"link\\\"\\ndata-id=\\\"https://brill.com/page/419386?language=en\\\"}
+        o la [Medieval\\nUnicode Font Initiative](https://www.mufi.info/){data-type=\\\"link\\\"\\ndata-id=\\\"https://www.mufi.info/\\\"}.\\n\\n*Sin*:
+        *abreviatura*, *signo braquigr\xE1fico* (fr. *abr\xE9viation*, ingl.\\n*scribal
+        abbreviation*, it. *abbreviazione*, *compendio*)\\n\\nBibliograf\xEDa: Cappelli
+        xi-lvi; Duval, *Les mots*, 47-48; Froger 288;\\nJohn, \\\"Latin Paleography\\\"
+        43-45; Leonardi, *Critica* 42-43; S\xE1nchez\\nPrieto 159-68; S\xE1nchez-Prieto
+        Borja, *Editar* 106-09; Strussi,\\n*Introduzione* 24-30.\\n\\n------------------------------------------------------------------------\\n\\n*Obras
+        citadas*\\n\\nBlecua, Alberto. *Manual de cr\xEDtica textual.* Castalia, 2001.\\n\\nCappelli,
+        Adriano. *Lexicon abbreviaturarum. Dizionario di abbreviature\\nlatine ed
+        italiane*. Ulrico Hoepli, 1990.\\n\\nChiesa, Paolo. *Elementi di critica testuale*.
+        P\xE0tron, 2002.\\n\\nDuval, Fr\xE9d\xE9ric. *Les mots de l'\xE9dition de
+        textes.* \xC9cole nationale des\\nchartes, 2015.\\n\\nFroger, Jacques. *La
+        critique des textes et son automatisation*. Dunod,\\n1968.\\n\\nJohn, James.
+        \\\"Latin Paleography.\\\" *Medieval Studies. An Introduction*,\\neditado
+        por James Powell, Syracuse UP, 1992, 3-81.\\n\\nLeonardi, Lino. *Filologia
+        romanza*, vol. 1: *Critica del testo*. Le\\nMonnier Universit\xE0, 2022.\\n\\nS\xE1nchez
+        Prieto, Ana Bel\xE9n. \\\"Las abreviaturas como indicadores de h\xE1bitos\\nde
+        lecto-escritura.\\\" *Norba*, vol. 15, 2001, 159-68.\\n\\nS\xE1nchez-Prieto
+        Borja, Pedro. *C\xF3mo* *editar los textos medievales.\\nCriterios para su
+        presentaci\xF3n gr\xE1fica*. Arco/Libros, 1998.\\n\\nStrussi, Alfredo. *Introduzione
+        agli studi di filologia italiana*. Il\\nMulino, 1994.\\n\\n------------------------------------------------------------------------\\n\\nImagen
+        de miniatura: Biblioth\xE8que national de France,  \\nms. Fran\xE7ais 9198,
+        Jean Mi\xE9lot,  \\n*[Vie et Miracles de Notre\\nDame](https://gallica.bnf.fr/ark:/12148/btv1b8451109t/f49.item.zoom#){data-type=\\\"link\\\"\\ndata-id=\\\"https://gallica.bnf.fr/ark:/12148/btv1b8451109t/f49.item.zoom#\\\"}*,\\nfol.
+        19r\\n\\n\_\\n\",\"doi\":\"https://doi.org/10.58079/1304f\",\"guid\":\"https://lucidarios.hypotheses.org/?p=7180\",\"id\":\"98170c39-33d9-4737-8aad-465c1eea3f5b\",\"image\":\"https://lucidarios.hypotheses.org/files/2025/01/Vie_et_miracles_de_Notre_.Mie\u0301lot_Jean_btv1b8451109t_49-scaled.jpg\",\"language\":\"es\",\"published_at\":1735837370,\"reference\":[],\"relationships\":[],\"rid\":\"z4t7a-ft831\",\"status\":\"active\",\"summary\":\"Esta
+        entrada inaugura una nueva serie sobre la que llevo pensando alg\xFAn tiempo,
+        dedicada monogr\xE1ficamente al l\xE9xico empleado en la edici\xF3n de textos.\",\"tags\":[\"Entradas\",\"Abreviaci\xF3n\",\"Abreviatura\",\"Cr\xEDtica
+        Textual\",\"Glosario De Cr\xEDtica Textual\"],\"title\":\"Glosario de cr\xEDtica
+        textual (1): <i>abreviaci\xF3n</i>\",\"updated_at\":1735900696,\"url\":\"https://lucidarios.hypotheses.org/7180\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/01tmp8f25\",\"name\":\"Universidad
+        Nacional Aut\xF3noma de M\xE9xico\"}],\"name\":\"Layla Mich\xE1n\",\"url\":\"https://orcid.org/0000-0002-5798-662X\"}],\"blog_name\":\"BIOgarabatos\",\"blog_slug\":\"biogarabatos\",\"category\":\"naturalSciences\",\"content_text\":\"Charles
+        Darwin, naturalista por excelencia un brit\xE1nico representativo\\ndel siglo
+        XIX, es reconocido principalmente por su teor\xEDa de la\\nevoluci\xF3n a
+        trav\xE9s de la selecci\xF3n natural. Su obra m\xE1s famosa, \\\\\\\"El\\norigen
+        de las especies\\\\\\\", publicada en 1859, cambi\xF3 para siempre la\\nforma
+        en que entendemos la vida en la Tierra. La informaci\xF3n sobre\\nDarwin y
+        sus contribuciones a la ciencia est\xE1 ampliamente disponible en\\ninternet,
+        lo que permite a personas de todas las edades y contextos\\naprender sobre
+        su vida, investigaciones y el impacto de su trabajo.\\n\\n[](https://davinci.ai/app#){.Results_generate-result-result__WpUhY\\nstyle=\\\"-webkit-text-stroke-width:
+        0px; background-color: rgba(255, 255, 255, 0.05); box-sizing: border-box;
+        font-family: __Poppins_d306d5, __Poppins_Fallback_d306d5; font-size: medium;
+        font-style: normal; font-variant-caps: normal; font-variant-ligatures: normal;
+        font-weight: 400; letter-spacing: normal; margin: 0px; orphans: 2; position:
+        relative; text-align: start; text-decoration: none; text-indent: 0px; text-transform:
+        none; white-space: normal; widows: 2; width: max-content; word-spacing: 0px;\\\"}\\n\\nLa
+        tecnolog\xEDa, el c\xF3mputo, la digitalizaci\xF3n, el acceso abierto y la\\ndemocratizaci\xF3n
+        de la informaci\xF3n ha permitido que la obra de Darwin\\nest\xE9 disponible,
+        sea estudiada y discutida en m\xFAltiples plataformas en\\nl\xEDnea. Desde
+        sitios web acad\xE9micos hasta blogs, videos, podcast, wikis,\\nrecursos educativos,
+        noticias, im\xE1genes y redes sociales, la informaci\xF3n\\nsobre Darwin es
+        f\xE1cil de encontrar, en especial son de mi inter\xE9s\\nprincipal tres:
+        sus publicaciones, su correspondencia y la literatura\\ncient\xEDfica que
+        lo cita.\\n\\nSin embargo, la gran cantidad de informaci\xF3n disponible en
+        internet\\npresenta un reto en cuanto a la calidad y veracidad de los datos.
+        Si\\nbien hay fuentes confiables, como art\xEDculos revisados por pares y\\npublicaciones
+        de instituciones acad\xE9micas, tambi\xE9n existen sitios que\\npueden contener
+        datos err\xF3neos o interpretaciones sesgadas. Es\\nfundamental distinguirlas
+        porque existen muchas referencias a los\\nestudios de Darwin que pueden ser
+        malinterpretadas o sacadas de\\ncontexto, lo que puede llevar a una comprensi\xF3n
+        err\xF3nea de sus idea,\\nadem\xE1s existen muchos mitos que es importante
+        derribar.\\n\\n:::::: {.Results_generate-result-result__WpUhY style=\\\"background-color:
+        rgba(255, 255, 255, 0.05); box-sizing: border-box; margin: 0px; position:
+        relative; width: max-content;\\\"}\\n::::: {.ImageItem_container__PP8XG style=\\\"--image-height:
+        var(--image-width); --image-width: var(--image-width); background: hsl(var(--color-white-hsl)/10%);
+        border-radius: var(--radius-6); box-sizing: border-box; cursor: pointer; height:
+        var(--image-height); margin: 0px; overflow: hidden; width: var(--image-width);\\\"}\\n:::
+        {style=\\\"text-align: justify;\\\"}\\n[  \\n]{style=\\\"color: white; font-family:
+        __Poppins_d306d5, __Poppins_Fallback_d306d5;\\\"}\\n:::\\n\\n[]{style=\\\"color:
+        white; font-family: __Poppins_d306d5, __Poppins_Fallback_d306d5;\\\"}[]{style=\\\"background-color:
+        rgba(0, 0, 0, 0.65); color: white; font-family: __Poppins_d306d5, __Poppins_Fallback_d306d5;
+        text-align: center;\\\"}\\n\\n::: {style=\\\"text-align: justify;\\\"}\\nPRO[La
+        figura de Darwin no solo revolucion\xF3 la biolog\xEDa, sino que\\ntambi\xE9n
+        gener\xF3 controversias, especialmente en relaci\xF3n con la religi\xF3n\\ny
+        la filosof\xEDa. La llegada de su teor\xEDa de la evoluci\xF3n desafi\xF3
+        las\\ncreencias tradicionales acerca de la creaci\xF3n del ser humano. En\\ninternet,
+        existe un amplio debate sobre el legado de Darwin. Sitios que\\napoyan la
+        teor\xEDa evolutiva se enfrentan a aquellos que defienden el\\ncreacionismo.
+        Este di\xE1logo es crucial para entender c\xF3mo la ciencia y la\\nreligi\xF3n
+        pueden chocar, pero tambi\xE9n c\xF3mo pueden coexistir en el debate\\ncultural
+        contempor\xE1neo.]{style=\\\"background-color: transparent;\\\"}\\n:::\\n:::::\\n::::::\\n\\n:::
+        {.separator style=\\\"clear: both; text-align: justify;\\\"}\\n[![](https://blogger.googleusercontent.com/img/a/AVvXsEiwxT7n_6LnSlFcpjeH9idwGCbAkyaCAhrsHtMiwF_2H8l2t26GnO5OTZ7kDa7XvJDK7i1J_UWDNcjMSvDn771zRHV3LMzla6S6iUHP10bWKSEpw519qKbfrz6DwVboh2wnRBWAmiqdGDwmDJokA25jOKAztAwXZGqmyQGd1eyS528gPgIyrwvJlrfBa_s){original-height=\\\"1024\\\"\\noriginal-width=\\\"1024\\\"
+        height=\\\"240\\\"\\nwidth=\\\"240\\\"}](https://blogger.googleusercontent.com/img/a/AVvXsEiwxT7n_6LnSlFcpjeH9idwGCbAkyaCAhrsHtMiwF_2H8l2t26GnO5OTZ7kDa7XvJDK7i1J_UWDNcjMSvDn771zRHV3LMzla6S6iUHP10bWKSEpw519qKbfrz6DwVboh2wnRBWAmiqdGDwmDJokA25jOKAztAwXZGqmyQGd1eyS528gPgIyrwvJlrfBa_s){style=\\\"margin-left:
+        1em; margin-right: 1em;\\\"}\\n:::\\n\\n::: {style=\\\"text-align: justify;\\\"}\\n
+        \ \\n:::\\n\\n::: {style=\\\"text-align: justify;\\\"}\\nLas plataformas en
+        l\xEDnea han hecho que la educaci\xF3n sobre Darwin y la\\nteor\xEDa de la
+        evoluci\xF3n sea m\xE1s accesible que nunca. Documentales,\\npodcasts y v\xEDdeos
+        educativos han ayudado a desmitificar conceptos\\ncomplejos y a presentar
+        la ciencia de manera atractiva. Esto es\\nespecialmente importante en una
+        era donde la desinformaci\xF3n puede\\npropagarse r\xE1pidamente. Proyectos
+        como el \\\\\\\"Darwin Day\\\\\\\" se celebran\\nanualmente en muchas partes
+        del mundo, y gracias a la comunicaci\xF3n\\ndigital, sus eventos y actividades
+        son compartidos y promovidos\\nglobalmente.\\n:::\\n\\nLa informaci\xF3n sobre
+        Charles Darwin en internet es vastamente accesible\\ny var\xEDa en calidad
+        y prop\xF3sito. Mientras que la mayor\xEDa de los recursos\\ndisponibles permiten
+        una amplia exploraci\xF3n de sus contribuciones a la\\nciencia, es vital que
+        los usuarios aborden esta informaci\xF3n con un\\nsentido cr\xEDtico. La manera
+        en la que interpretamos y discutimos el\\nlegado de Darwin sigue siendo relevante,
+        no solo en el campo de la\\nbiolog\xEDa, sino tambi\xE9n en la forma en que
+        debatimos temas de ciencia, fe\\ny filosof\xEDa en la sociedad moderna.\_\\n\\nLa
+        inmensa cantidad de informaci\xF3n que existe sobre Charles Darwin\\nproporciona
+        un excelente laboratorio para estudiar los datos, la\\nliteratura, la informaci\xF3n
+        y el conocimiento que puede ser utilizado\\npara hacer investigaci\xF3n acad\xE9mica
+        desde un punto de vista\\nmultidimensional, multi e interdisciplinario y para
+        responder preguntas\\nde diversa \xEDndole.\\n\\nPor eso nos hemos planteado
+        el objetivo de reunir, organizar, clasificar\\ny reusar la informaci\xF3n
+        digital producto de investigaci\xF3n producida\\nsobre Darwin para generar
+        nuevo conocimiento sobre dos \xE1mbitos que nos\\ninteresan especialmente
+        la BIOliteratura y la BIOhistoria.\\n\\n::: {.separator style=\\\"clear: both;
+        text-align: justify;\\\"}\\n[![](https://blogger.googleusercontent.com/img/a/AVvXsEhCGa5foBPWMilw3Bx7oVzzsZrJaDcqcVwhlhjfeG5FEiddYBB6czehWB4XllsGnb4OM_467xc7QncmlSR6tj6OxX_GqBAga7XOGc00DYA3E2g_CDHYrYKQ7tpfwMpZ4VgAIiied_6PReT910TTT74W3Q3VFNkFvFIiojY1MhRb1H7oPlc4D5dG3fjtZEE=w336-h296){original-height=\\\"1254\\\"\\noriginal-width=\\\"1419\\\"
+        height=\\\"296\\\"\\nwidth=\\\"336\\\"}](https://blogger.googleusercontent.com/img/a/AVvXsEhCGa5foBPWMilw3Bx7oVzzsZrJaDcqcVwhlhjfeG5FEiddYBB6czehWB4XllsGnb4OM_467xc7QncmlSR6tj6OxX_GqBAga7XOGc00DYA3E2g_CDHYrYKQ7tpfwMpZ4VgAIiied_6PReT910TTT74W3Q3VFNkFvFIiojY1MhRb1H7oPlc4D5dG3fjtZEE){style=\\\"margin-left:
+        1em; margin-right: 1em;\\\"}\\n:::\\n\\n::: {style=\\\"text-align: justify;\\\"}\\n
+        \ \\n:::\\n\\n::: {style=\\\"text-align: justify;\\\"}\\n  \\n:::\\n\\nAlgunos
+        de los productos que trabajamos en el 2024 en este proyecto se\\npueden consultar
+        en los enlaces siguientes:\\n\\n- <https://github.com/lmichan/cdarwin/tree/main>\\n-
+        <https://start.me/p/QL4njR/charles-darwin>\\n- <https://youtube.com/playlist?list=PL6A1nqVcZFyPDjPKIrAGl45qMffUOR6lW&si=ifWXdvyi_wsb3qMM>\\n-
+        <https://hypothes.is/search?q=tag%3Acdrwn>\\n- <https://mstdn.social/@cdarwin@ecoevo.social>\\n\",\"doi\":\"https://doi.org/10.59350/yqc0d-5se23\",\"guid\":\"tag:blogger.com,1999:blog-3916921080498993167.post-5181360011957100628\",\"id\":\"4dc395ac-9b66-4958-8ec9-102c8d1ecc62\",\"image\":\"https://blogger.googleusercontent.com/img/a/AVvXsEiwxT7n_6LnSlFcpjeH9idwGCbAkyaCAhrsHtMiwF_2H8l2t26GnO5OTZ7kDa7XvJDK7i1J_UWDNcjMSvDn771zRHV3LMzla6S6iUHP10bWKSEpw519qKbfrz6DwVboh2wnRBWAmiqdGDwmDJokA25jOKAztAwXZGqmyQGd1eyS528gPgIyrwvJlrfBa_s=s72-c\",\"language\":\"es\",\"published_at\":1735589940,\"reference\":[],\"relationships\":[],\"rid\":\"cdcbc-sjg14\",\"status\":\"active\",\"summary\":\"Charles
+        Darwin, naturalista por excelencia un brit\xE1nico representativo del siglo
+        XIX, es reconocido principalmente por su teor\xEDa de la evoluci\xF3n a trav\xE9s
+        de la selecci\xF3n natural. Su obra m\xE1s famosa, \\\"El origen de las especies\\\",
+        publicada en 1859, cambi\xF3 para siempre la forma en que entendemos la vida
+        en la Tierra.\",\"tags\":[\"BIOhistoria\",\"CharlesDarwin\",\"Investigaci\xF3nDigital\U0001F4BF\"],\"title\":\"Proyecto
+        CDarwin: BIOinformaci\xF3n y BIOhistoria\",\"updated_at\":1735589940,\"url\":\"https://biogarabatos.blogspot.com/2024/12/proyecto-cdarwin-bioinformacion-y.html\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/01tmp8f25\",\"name\":\"Universidad
+        Nacional Aut\xF3noma de M\xE9xico\"}],\"name\":\"Layla Mich\xE1n\",\"url\":\"https://orcid.org/0000-0002-5798-662X\"}],\"blog_name\":\"BIOgarabatos\",\"blog_slug\":\"biogarabatos\",\"category\":\"naturalSciences\",\"content_text\":\"2024
+        ha sido un a\xF1o convulso en temas tecnol\xF3gicos, la inteligencia\\nartificial
+        y las redes sociales han jugado un papel definitivo en la\\ntoma de desiciones,
+        la publicidad, la infodemia, la postverdad y la\\nmercadotecnia hoy mas que
+        nunca han demostrado su poder, la tecnolog\xEDa\\nusada, utilizada con poca
+        critica y falta de responsabilidad han\\ndefinido el presente y el futuro.\\n\\nComo
+        cada a\xF1o este fin de mes me toca revisar las herramientas digitales\\nque
+        he utilizado durante todo el a\xF1o para el 2024 para realizar\\ninvestigaci\xF3n,
+        he elegido la siguiente lista que cumple con las\\ncondiciones acorde a mi
+        filosof\xEDa de trabajo, esto es que son abiertas,\\namigables, eficientes
+        e imprescindibles para mi trabajo acad\xE9mico, de\\ntal manera que, resultan
+        \xFAtiles tanto para mi investigaci\xF3n, como para\\nla ense\xF1anza y la
+        difusi\xF3n, est\xE1n en orden de importancia:\\n\\n1.  Hypothes.is pase lo
+        que pase permanece en la lista\\n2.  Mastodon siempre me ha gustado pero en
+        los \xFAltimos meses su\\n    funcionalidad y eficiencia ha aumentado considerablemente
+        por lo que\\n    forma parte esencial de mi ecosistema digital, han aumentado
+        la\\n    cantidad de usuarios, hay nuevas cuentas acad\xE9micas y los RSS
+        y las\\n    listas constituyen una buena forma de recibir actualizaciones
+        de\\n    cultura, acad\xE9micas y de ciencia\\n3.  Zotero desde su origen
+        es un elemento importante en la investigaci\xF3n\\n    digital que realizo
+        cotidianamente\\n4.  Start.me es un aplicaci\xF3n sencilla pero muy amigable
+        y \xFAtil que\\n    sigue siendo vigente.\\n5.  Las bases de datos PubMed
+        es una de las imprescindibles siempre para\\n    localizar informaci\xF3n
+        sobre biociencias junto con el MeSH terms y\\n    EUROPE PMC la tecnolog\xEDas
+        de Scilight me encanta\\n6.  Open Alex ha sido una buena sorpresa en el 2024
+        poco a poco ha ido\\n    mejorando la plataforma\\n7.  Lens una buena base
+        de datos que ha sido crucial para mi\\n    investigaci\xF3n durante los \xFAltimos
+        a\xF1os, en especial el an\xE1lisis\\n    cienciom\xE9trico de las consultas\\n8.
+        \ RSS esta tecnolog\xEDa a\xF1eja continua siendo una de mis preferidas para\\n
+        \   la inmediatez y las novedades\\n9.  Youtube este a\xF1o m\xE1s que nunca
+        he visto videos interesantes, sigo\\n    esperando una buena traducci\xF3n
+        simult\xE1nea de este servicio\\n10. Los podcast se han convertido en una
+        excelente manera de acceder a\\n    informaci\xF3n sonora ya sea para o\xEDr
+        programas de radio o como\\n    audiolibros.\\n\\n<div>\\n\\nLas bajas, esta
+        categor\xEDa tiene una lista de las herramientas que he\\ndejado de usar.\\n\\n</div>\\n\\n<div>\\n\\n1.
+        \ Airtable, hicieron modificaciones a las cuentas que afectaron mi\\n    trabajo
+        dej\xE9 de usar esta aplicaci\xF3n.\\n2.  IA la inteligencia artificial (AI)
+        ya me tiene saturada, estoy en\\n    pausa\\\\...\\n\\n</div>\\n\\nAqu\xED
+        les agrego algunos ejemplos de los enlaces a varias de estar\\nherramientas
+        del 2024:\\n\\n**Start.me**\\n\\n- <https://start.me/p/QL4njR/charles-darwin>\\n-
+        <https://start.me/p/z4K9Ez/biohistoria>\\n- <https://start.me/p/q6x7Nn/infovestigacion>\\n\\n<div>\\n\\n**Zotero**\\n\\n</div>\\n\\n<div>\\n\\n-
+        <https://www.zotero.org/groups/5765825/cdarwin/library>\\n- <https://www.zotero.org/groups/2769748/biohistoria/library>\\n-
+        <https://www.zotero.org/groups/5400707/revisiones_biocolores/library>\\n\\n<div>\\n\\n
+        \ \\n\\n</div>\\n\\n</div>\\n\\n<div>\\n\\n**Hypothes.is**\\n\\n</div>\\n\\n<div>\\n\\n-
+        <https://hypothes.is/users/lmichan?q=>\\n- <https://hypothes.is/search?q=tag%3Acdrwn>\\n\\n<div>\\n\\n**Podcast**\\n\\n</div>\\n\\n</div>\\n\\n<div>\\n\\n-
+        <https://cadenaser.com/cadena-ser/un-libro-una-hora/>\\n- <https://canal.march.es/es/podcast/biblioteca-julio>\\n-
+        <https://canal.march.es/es/podcast/contemporanea>\\n\\n<div>\\n\\n  \\n\\n</div>\\n\\n</div>\\n\\n:::
+        {.separator style=\\\"clear: both; text-align: center;\\\"}\\n[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgChTgO_CH7lg5NhQX5gqFcO_FrUWZCUpZ42iIcB1CYcAdGMNojYdPzDmDo6atgzGZbUouifwIeX3adaSCyktQsH-iOAdx_kQ4e1YAnN3wjicmuXGQNO3xNurWoXtxgsf8ZWGHs4O86h5hm4yLGBuq8o2AsLSvD3rJyi2WRAUziHoVjkqy2bwDsZOEISPo/w353-h536/rss.png){border=\\\"0\\\"\\noriginal-height=\\\"1215\\\"
+        original-width=\\\"801\\\" height=\\\"536\\\"\\nwidth=\\\"353\\\"}](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgChTgO_CH7lg5NhQX5gqFcO_FrUWZCUpZ42iIcB1CYcAdGMNojYdPzDmDo6atgzGZbUouifwIeX3adaSCyktQsH-iOAdx_kQ4e1YAnN3wjicmuXGQNO3xNurWoXtxgsf8ZWGHs4O86h5hm4yLGBuq8o2AsLSvD3rJyi2WRAUziHoVjkqy2bwDsZOEISPo/s1215/rss.png){imageanchor=\\\"1\\\"\\nstyle=\\\"margin-left:
+        1em; margin-right: 1em;\\\"}\\n:::\\n\\n  \\n\\n<div>\\n\\n  \\n\\n</div>\\n\\n
+        \ \\n\\n  \\n\",\"doi\":\"https://doi.org/10.59350/x87tp-z2t88\",\"guid\":\"tag:blogger.com,1999:blog-3916921080498993167.post-2644796452040905454\",\"id\":\"daa1ae6b-4d4d-4874-9f59-c02657cc43e1\",\"image\":\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgChTgO_CH7lg5NhQX5gqFcO_FrUWZCUpZ42iIcB1CYcAdGMNojYdPzDmDo6atgzGZbUouifwIeX3adaSCyktQsH-iOAdx_kQ4e1YAnN3wjicmuXGQNO3xNurWoXtxgsf8ZWGHs4O86h5hm4yLGBuq8o2AsLSvD3rJyi2WRAUziHoVjkqy2bwDsZOEISPo/s72-w353-h536-c/rss.png\",\"language\":\"es\",\"published_at\":1735529700,\"reference\":[],\"relationships\":[],\"rid\":\"m1h88-jnm34\",\"status\":\"active\",\"summary\":\"2024
+        ha sido un a\xF1o convulso en temas tecnol\xF3gicos, la inteligencia artificial
+        y las redes sociales han jugado un papel definitivo en la toma de desiciones,
+        la publicidad, la infodemia, la postverdad y la mercadotecnia hoy mas que
+        nunca han demostrado su poder, la tecnolog\xEDa usada, utilizada con poca
+        critica y falta de responsabilidad han definido el presente y el futuro.\",\"tags\":[\"2024\",\"HerramientaID\U0001F6E0\uFE0F\",\"TecnologiaEducativa\"],\"title\":\"Herramientas
+        digitales top ten 2024\",\"updated_at\":1735529700,\"url\":\"https://biogarabatos.blogspot.com/2024/12/herramientas-digitales-top-ten-2024.html\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/01tmp8f25\",\"name\":\"Universidad
+        Nacional Aut\xF3noma de M\xE9xico\"}],\"name\":\"Layla Mich\xE1n\",\"url\":\"https://orcid.org/0000-0002-5798-662X\"}],\"blog_name\":\"BIOgarabatos\",\"blog_slug\":\"biogarabatos\",\"category\":\"naturalSciences\",\"content_text\":\"Hypothes.is
+        es una plataforma de anotaci\xF3n web que permite a los\\nusuarios destacar,
+        comentar y discutir contenido en l\xEDnea de manera\\ncolaborativa. Lanzada
+        en 2013, su objetivo es mejorar la experiencia de\\nlectura y fomentar la
+        participaci\xF3n activa en las discusiones sobre el\\ncontenido digital. Esta
+        plataforma tambi\xE9n fomenta el uso de est\xE1ndares\\nabiertos, permitiendo
+        integraciones con diversas herramientas y\\nservidores, lo que ayuda a fortalecer
+        la investigaci\xF3n y el acceso al\\nconocimiento compartido.\_\\n\\nEl pasado
+        20 de diciembre complete mi anotaci\xF3n social y sem\xE1ntica\\nn\xFAmero
+        diez mil en mi perfil de\\nusuario\_\_<https://hypothes.is/users/lmichan>,
+        empec\xE9 a utilizar esta\\naplicaci\xF3n\_ el 7 de septiembre del 2018, desde
+        el primer d\xEDa se\\nconvirti\xF3 en mi herramienta de investigaci\xF3n favorita,
+        durante siete\\na\xF1os consecutivos ha estado en mi top ten de herramientas
+        digitales para\\ninvestigaci\xF3n de cada a\xF1o, siempre en los primeros
+        lugares.\\n\\n  \\n\\n::: {.separator style=\\\"clear: both; text-align: center;\\\"}\\n[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEioplSLrt5kORyHzj6x3IZp5psa9I-IAgr9wioQ-hRJWYuQATV-uhE4UR4KDRijWFRK9IIEopvBDpheYn9cjzRirgp87rHtdcqyIBtEIhxLNsAkJNC_LBG-y4YDIZYb-SJnnLQWMIlPxfsSk0tq11jBpiKEx45BkhyK8Hczibdej1u4uFsoYmeLtYjhABM/w463-h194/hypothesis%2010mil%202.png){border=\\\"0\\\"\\noriginal-height=\\\"280\\\"
+        original-width=\\\"671\\\" height=\\\"194\\\"\\nwidth=\\\"463\\\"}](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEioplSLrt5kORyHzj6x3IZp5psa9I-IAgr9wioQ-hRJWYuQATV-uhE4UR4KDRijWFRK9IIEopvBDpheYn9cjzRirgp87rHtdcqyIBtEIhxLNsAkJNC_LBG-y4YDIZYb-SJnnLQWMIlPxfsSk0tq11jBpiKEx45BkhyK8Hczibdej1u4uFsoYmeLtYjhABM/s671/hypothesis%2010mil%202.png){style=\\\"margin-left:
+        1em; margin-right: 1em;\\\"}\\n:::\\n\\n  \\n\\nAlgunas anotaciones son p\xFAblicas
+        7, 107 y el resto son privadas, de tal\\nmanera que solo yo puedo verlas.
+        Para organizar las anotaciones utilizo\\netiquetas \xFAnicas asociadas a cada
+        uno de los proyectos en los que estoy\\ntrabajando, adem\xE1s las clasifico
+        con notas de texto.\_\\n\\nEsta plataforma me resulta realmente \xFAtil porque
+        me permite ordenar y\\ncategorizar todo lo que encuentro de una manera f\xE1cil,
+        pr\xE1ctica y\\namigable. Tiene la ventaja de que puedo trabajar de manera
+        compartida y\\ntodo lo que hago lo puedo procesar f\xE1cilmente gracias a
+        los datos\\nenlazados y la tecnolog\xEDa sem\xE1ntica.\_\\n\\nEntre mis anotaciones
+        est\xE1n principalmente literatura especializada,\\nherramientas digitales
+        para investigaci\xF3n cient\xEDfica como bases de\\ndatos, buscadores, marcadores
+        y redes sociales, entradas de blogs,\\nsistemas de organizaci\xF3n de conocimiento,
+        bio-ontolog\xEDas, mensajes de\\nredes e im\xE1genes.\\n\\n  \\n\\n  \\n\\n:::
+        {.separator style=\\\"clear: both; text-align: center;\\\"}\\n[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDLQ9Q4TEJA7VQzWPldtnz8egJ-3Db4n6axlhXEUa1krIx_jh8KJ6FRwDX1YJxQC-WxyeU9OzHqEgt06qEZrD-JYU5kmIVjdQGxLQiKgxuHwXNEfVYWvtZnpBvrWGlnFziYCYhwc_pK0zaotKb6qwvxB8MGiYaATrnH4rT2oYlinQakmAtJGbo93f8O7g/w576-h308/hypothes.is%2010mil.png){border=\\\"0\\\"\\noriginal-height=\\\"1332\\\"
+        original-width=\\\"2493\\\" height=\\\"308\\\"\\nwidth=\\\"576\\\"}](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDLQ9Q4TEJA7VQzWPldtnz8egJ-3Db4n6axlhXEUa1krIx_jh8KJ6FRwDX1YJxQC-WxyeU9OzHqEgt06qEZrD-JYU5kmIVjdQGxLQiKgxuHwXNEfVYWvtZnpBvrWGlnFziYCYhwc_pK0zaotKb6qwvxB8MGiYaATrnH4rT2oYlinQakmAtJGbo93f8O7g/s2493/hypothes.is%2010mil.png){style=\\\"margin-left:
+        1em; margin-right: 1em;\\\"}\\n:::\\n\\n  \\n\\nEntre los m\xE1s de siete
+        mil registros que se pueden ver de manera p\xFAblica\\nen mil perfil es posible
+        rastrear varios de los proyectos que he trabaja\\ndo con esta herramienta
+        que impulsa una forma m\xE1s interactiva de leer,\\nutilizar compartir y estudiar
+        el contenido de la web.\\n\\nHasta el momento, el problema m\xE1s importante
+        al que me enfrento es lo\\ndificil que resulta marcar informaci\xF3n en dispositivos
+        m\xF3viles como\\ntabletas y celulares, lo que a veces repercute en que guarde
+        demasiada\\ninformaci\xF3n en mis favoritos que deba agregar a Hypothes.is
+        despu\xE9s, lo\\nque retrasa mi proceso de curaci\xF3n de contenidos, en especial
+        los\\nacad\xE9micos.\\n\\nEs importante agregar que todas las anotaciones
+        abiertas tienen licencia\\nCreative Commons de tal manera que pueden ser usadas,
+        reusadas y\\nprocesadas por todos aquellos que quieran hacerlo, por lo que
+        adem\xE1s\\nconstituyen un producto de investigaci\xF3n con datos abiertos
+        porque\\nsiempre me interesa [promover y hacer ciencia\\nabierta](https://niboe.info/ciencia-abierta-se-hace/).\_\\n\\nEn
+        alg\xFAn tiempo saldr\xE1 un art\xEDculo sobre pruebas de funci\xF3n respiratoria\\nque
+        hicimos utilizando este servicio resultado del proyecto **Anotaci\xF3n\\nde
+        Pruebas sobre Funci\xF3n Respiratoria (PFR)** que se puede consultar en\_\\nGitHub
+        en la liga\_\_<https://github.com/lmichan/PFR>.\\n\\n  \\n\",\"doi\":\"https://doi.org/10.59350/69mmy-dnf59\",\"guid\":\"tag:blogger.com,1999:blog-3916921080498993167.post-7538125402772116304\",\"id\":\"e7da8fae-ff49-4177-b736-36c2fbed8f2d\",\"image\":\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEioplSLrt5kORyHzj6x3IZp5psa9I-IAgr9wioQ-hRJWYuQATV-uhE4UR4KDRijWFRK9IIEopvBDpheYn9cjzRirgp87rHtdcqyIBtEIhxLNsAkJNC_LBG-y4YDIZYb-SJnnLQWMIlPxfsSk0tq11jBpiKEx45BkhyK8Hczibdej1u4uFsoYmeLtYjhABM/s72-w463-h194-c/hypothesis%2010mil%202.png\",\"language\":\"es\",\"published_at\":1735312080,\"reference\":[],\"relationships\":[],\"rid\":\"3e88g-8nt69\",\"status\":\"active\",\"summary\":\"Hypothes.is
+        es una plataforma de anotaci\xF3n web que permite a los usuarios destacar,
+        comentar y discutir contenido en l\xEDnea de manera colaborativa. Lanzada
+        en 2013, su objetivo es mejorar la experiencia de lectura y fomentar la participaci\xF3n
+        activa en las discusiones sobre el contenido digital.\",\"tags\":[\"2024\",\"CienciaAbierta\",\"HerramientaID\U0001F6E0\uFE0F\"],\"title\":\"10,000
+        anotaciones en hypothes.is\",\"updated_at\":1735312993,\"url\":\"https://biogarabatos.blogspot.com/2024/12/10000-anotaciones-en-hypothesis.html\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/01tmp8f25\",\"name\":\"Universidad
+        Nacional Aut\xF3noma de M\xE9xico\"}],\"name\":\"Layla Mich\xE1n\",\"url\":\"https://orcid.org/0000-0002-5798-662X\"}],\"blog_name\":\"BIOgarabatos\",\"blog_slug\":\"biogarabatos\",\"category\":\"naturalSciences\",\"content_text\":\"En
+        enero iniciaremos el curso intersemestral de [Filosof\xEDa e Historia de\\nla
+        Biolog\xEDa semestre\\n2025-3](https://archive.fciencias.unam.mx/docencia/horarios/detalles/361754)\_de\\nla
+        carrera de Biolog\xEDa en la Facultad de Ciencias de la UNAM, es un\\ncurso
+        intensivo que durar\xE1 tres semanas del 6 de enero al 24 del\\nsiguiente
+        a\xF1o (2025).\\n\\n::: {.separator style=\\\"clear: both; text-align: center;\\\"}\\n[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWZyexSxlT8V4WI66zmRSuvq-R0ueq_837gNst5msd14EHMlbXyjjVwALLL4We3I3dZFOz2RxFnc_T0bReINZQCNna7d5bnVFhHXuZZaeyPVY1IkgmKyjlPErJb_qEUcxhOoDx-8Spsd7eBCA-_gZXmuo_4EoWAvrvBNh1GjwlFSekXTDA2VK6TuXRBAA/s320/Screenshot%20(28).png){border=\\\"0\\\"\\noriginal-height=\\\"378\\\"
+        original-width=\\\"930\\\" height=\\\"130\\\"\\nwidth=\\\"320\\\"}](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWZyexSxlT8V4WI66zmRSuvq-R0ueq_837gNst5msd14EHMlbXyjjVwALLL4We3I3dZFOz2RxFnc_T0bReINZQCNna7d5bnVFhHXuZZaeyPVY1IkgmKyjlPErJb_qEUcxhOoDx-8Spsd7eBCA-_gZXmuo_4EoWAvrvBNh1GjwlFSekXTDA2VK6TuXRBAA/s930/Screenshot%20(28).png){style=\\\"margin-left:
+        1em; margin-right: 1em;\\\"}\\n:::\\n\\nAl parecer ser\xE1 un grupo peque\xF1o,
+        lo que nos permitir\xE1 interactuar m\xE1s y\\nhacer un curso mas personalizado,
+        Generalmente este curso es m\xE1s abierto\\ny vers\xE1til porque la mayor\xEDa
+        de los alumnos son repetidores y ya conocen\\nde alguna manera los contenidos
+        del temario.\\n\\nEl temario est\xE1 formado por cuatro unidades FILOSOF\xCDA
+        E HISTORIA DE LA\\nCIENCIA, HISTORIA NATURAL, LA TEOR\xCDA DE LA EVOLUCI\xD3N
+        DE DARWIN y EL\\nPROBLEMA DE LA HERENCIA, que re\xFAnen 11 temas y 90 subtemas
+        que\\nconstituyen un conjunto de contenidos extenso y minucioso que hay que\\nabordar.\\n\\n[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhr6NowMmubZae3us2JBrP-6_tdiBfc_zhuFQEgI_G1fJCazw4LQUXwjBg1Mcui0GmJurA7M2q1RCGX8IekPxDJH6TzL0q-BVlELuCaTjZeAIejxB8_Au7fINRFExLjkCMaamiXfDVBPIFs8tFhDZWBMu0JV7KWCyvJFgvjJZgZWyLLrk5jh-bKvDNhlwE/w306-h563/Screenshot%20(29).png){border=\\\"0\\\"\\noriginal-height=\\\"1195\\\"
+        original-width=\\\"648\\\" height=\\\"563\\\"\\nwidth=\\\"306\\\"}](https://docs.google.com/spreadsheets/d/1wfrwmjWXRikHeOTl4aYmxiX3kLaD4L6Gw12SLfeJbJg/edit?usp=sharing){style=\\\"margin-left:
+        1em; margin-right: 1em; text-align: center;\\\"\\ntarget=\\\"_blank\\\"}\\n\\n
+        \ \\n\\nEn la primera parte y al final acostumbro hacer \xE9nfasis en qu\xE9
+        es, c\xF3mo\\nfunciona y cu\xE1l es la forma en la que se hace ciencia, las
+        diferentes\\ndimensiones de la investigaci\xF3n, cualquiera y en especial
+        la cient\xEDfica,\\ny la importancia de la literatura en las ciencias, la
+        biolog\xEDa, la\\nfilosof\xEDa y la historia de las ciencias y de la biolog\xEDa,
+        as\xED como, el\\npapel central que esta tiene en la clase. As\xED como la
+        importancia de los\\ndistintos elementos te\xF3rico, social, pol\xEDtico,
+        cultura y din\xE1mico que\\ncaracterizan a las ciencias, de tal manera que
+        conozcan lo m\xE1s relevante\\nrespecto a la cultura cient\xEDfica que todo
+        bi\xF3logo debe conocer para\\nfamiliarizarse con la pr\xE1ctica cient\xEDfica.\\n\\nAdem\xE1s,
+        haremos \xE9nfasis en las habilidades indispensables b\xE1sicas de\\ncualquier
+        profesional de la biolog\xEDa: comprensi\xF3n lectora, comunicaci\xF3n\\noral
+        fluida y escritura, para esta \xFAltima trabajaremos enf\xE1ticamente la\\ncalidad
+        de las fuentes, el uso correcto de citas y referencias y el\\nformato a trav\xE9s
+        de los reportes de las lecturas, las presentaciones,\\nlos ensayos, las presentaciones
+        y las exposiciones que conformar\xE1n al\\nmismo tiempo, los productos y los
+        instrumentos de evaluaci\xF3n del curso.\\n\\nNuestra idea es hacer un curso
+        din\xE1mico y actualizado, este curso se\\nimpartir\xE1 pocas veces m\xE1s
+        porque corresponde al viejo plan de estudios\\nde 1997, de hecho, el pr\xF3ximo
+        semestre se impartir\xE1 por primera vez la\\nmateria relacionada a este curso
+        correspondiente al nuevo plan aprobado\\nen el 2024.\\n\\nComo siempre, est\xE1n
+        disponibles para el curso varias tecnolog\xEDas\\neducativas digitales, todas
+        ellas abiertas y disponibles para\\ncualquiera, que me permitir\xE1n aprovechar
+        al m\xE1ximo las herramientas de\\nla Web existentes para Historia de la Biolog\xEDa
+        en el proceso de\\nense\xF1anza-aprendizaje, estas son algunas de ellas.\\n\\n**Tableros
+        con recursos digitales**\\n\\nEstos tableros integran una gran cantidad de
+        recursos digitales para el\\ncurso, uno contiene materiales que abarcan todos
+        los temas y el segundo\\nagrupa recursos sobre Charles Darwin.\\n\\n- <https://start.me/p/z4K9Ez/biohistoria>\\n-
+        <https://start.me/p/QL4njR/charles-darwin>\\n\\n<div>\\n\\n**Dispositivas**\\n\\n</div>\\n\\n<div>\\n\\nAlgunas
+        presentaciones para este curso se pueden consultar libremente\\n\\n</div>\\n\\n-
+        [Presentaci\xF3n del curso filosof\xEDa e Historia\\n  2025-3](presentacion%20fhb20253)\\n
+        \   \\n\\n<div>\\n\\n**Bibliograf\xEDa**\\n\\n</div>\\n\\n<div>\\n\\nLa bibliograf\xEDa
+        b\xE1sica y complementaria se puede consultar en el gestor\\nde referencias
+        de Zotero\\n\\n</div>\\n\\n- <https://www.zotero.org/groups/5765825/cdarwin/library>\\n-
+        <https://www.zotero.org/groups/2769748/biohistoria/library>\\n- <https://www.zotero.org/groups/2769748/biohistoria/tags/Intersemestral20253/library>\\n\\n<div>\\n\\n**Etiquetas**\\n\\n</div>\\n\\n<div>\\n\\nLa
+        etiqueta que usamos en redes sociales es\_HFB20253, l a usamos para\\ndistribuir
+        contenidos y abrar conversaciones sobre el curso.\\n\\n</div>\\n\\n- <https://mstdn.social/tags/HFB20253>\\n\\n<div>\\n\\n**
+        \ \\n**\\n\\n</div>\\n\\n<div>\\n\\n**Proyectos**\\n\\n</div>\\n\\n<div>\\n\\nDurante
+        el curso tambi\xE9n les platico sobre los proyectos que actualmente\\nrealizamos
+        en el laboratorio relacionados con BIOhistoria como son los\\ntres siguientes\\n\\n</div>\\n\\n1.
+        \ <https://sites.google.com/bioinformacion.org/lab/hub-biocolores>\\n2.  <https://github.com/lmichan/cdarwin>\\n3.
+        \ [Competencias para la ense\xF1anza-aprendizaje de bioliteratura: Una\\n
+        \   intervenci\xF3n\\n    estrat\xE9gica](https://docs.google.com/presentation/d/1zhE0l9InONDt1gVKK9C_d6T00lc2jEOBAefpGJrelVQ/edit?usp=sharing){target=\\\"_blank\\\"}\\n\",\"doi\":\"https://doi.org/10.59350/xj59e-h1629\",\"guid\":\"tag:blogger.com,1999:blog-3916921080498993167.post-4100484574592157992\",\"id\":\"cd4f8aa2-b76c-4aad-91d0-0b4da6740913\",\"image\":\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWZyexSxlT8V4WI66zmRSuvq-R0ueq_837gNst5msd14EHMlbXyjjVwALLL4We3I3dZFOz2RxFnc_T0bReINZQCNna7d5bnVFhHXuZZaeyPVY1IkgmKyjlPErJb_qEUcxhOoDx-8Spsd7eBCA-_gZXmuo_4EoWAvrvBNh1GjwlFSekXTDA2VK6TuXRBAA/s72-c/Screenshot%20(28).png\",\"language\":\"es\",\"published_at\":1734810420,\"reference\":[],\"relationships\":[],\"rid\":\"w68ga-s9e40\",\"status\":\"active\",\"summary\":\"En
+        enero iniciaremos el curso intersemestral de Filosof\xEDa e Historia de la
+        Biolog\xEDa semestre 2025-3\_de la carrera de Biolog\xEDa en la Facultad de
+        Ciencias de la UNAM, es un curso intensivo que durar\xE1 tres semanas del
+        6 de enero al 24 del siguiente a\xF1o (2025). Al parecer ser\xE1 un grupo
+        peque\xF1o, lo que nos permitir\xE1 interactuar m\xE1s y hacer un curso mas
+        personalizado, Generalmente este curso es m\xE1s abierto y vers\xE1til porque
+        la mayor\xEDa de los\",\"tags\":[\"BIOhistoriaDigital\",\"Cursos\"],\"title\":\"Curso
+        Filosof\xEDa e Historia de la Biolog\xEDa 2025-3\",\"updated_at\":1734810464,\"url\":\"https://biogarabatos.blogspot.com/2024/12/curso-filosofia-e-historia-de-la.html\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Coss\xEDo
+        Olavide, Mario\",\"url\":\"https://orcid.org/0000-0002-1447-3891\"}],\"blog_name\":\"Lucidarios\",\"blog_slug\":\"lucidarios\",\"category\":\"languagesAndLiterature\",\"content_text\":\"En
+        la [\xFAltima\\nentrada](https://lucidarios.hypotheses.org/6652){data-type=\\\"link\\\"\\ndata-id=\\\"https://lucidarios.hypotheses.org/6652\\\"
+        target=\\\"_blank\\\"\\nrel=\\\"noreferrer noopener\\\"} expliqu\xE9 c\xF3mo
+        crear un aparato cr\xEDtico en\\nChrysoCollate y ofrec\xED un ejemplo del
+        cap\xEDtulo 1 del *Lucidario*.\\nRecord\xE9 entonces que ChyrsoCollate, como
+        toda herramienta de comparaci\xF3n\\ntextual, es implacable. Crear\xE1 un
+        aparato cr\xEDtico total, que refleje\\ntodas y cada una de las variaciones
+        textuales, como se ve en este\\n[v\xEDdeo](https://www.youtube.com/watch?v=3XIjz7Mkh68){data-type=\\\"link\\\"\\ndata-id=\\\"https://www.youtube.com/watch?v=3XIjz7Mkh68\\\"
+        target=\\\"_blank\\\"\\nrel=\\\"noreferrer noopener\\\"}. En esta entrada
+        discutir\xE9 algunas opciones\\ndel aplicativo para reducir el n\xFAmero y
+        longitud de las entradas del\\naparato cr\xEDtico.\\n\\nUna herramienta de
+        la que habl\xE9 en una [entrada\\npasada](https://lucidarios.hypotheses.org/5983){data-type=\\\"link\\\"\\ndata-id=\\\"https://lucidarios.hypotheses.org/5983\\\"
+        target=\\\"_blank\\\"\\nrel=\\\"noreferrer noopener\\\"} es la opci\xF3n \xABScript-
+        and language-based\\nfeatures\xBB del men\xFA \xABOptions\xBB. Esta opci\xF3n
+        permite alterar lo que\\nChysoCollate considera lecturas diferentes en los
+        modos de colaci\xF3n y de\\nedici\xF3n. De particular utilidad son las opciones
+        bajo el ac\xE1pite\\n\xABSpanish\xBB, que permiten considerar iguales ciertas
+        variantes de lengua\\nhabituales al espa\xF1ol medieval, como\\n--*oa-\\\\~-ua-*,\_*ss\\\\~-s-*,\_*s\xE7\\\\~sc\\\\~\xE7\\\\~c*,\_*b\\\\~v*,\_--*ee-\\\\~-e-*\_y\_--*ue-\\\\~-oe-*.\\nAunque
+        estas no son todas las variaciones que podemos encontrar\\n---tambi\xE9n lo
+        son *l\\\\~ll*, *n\\\\~\xF1\\\\~gn\\\\~ny*, *n\\\\~m*, *ie\\\\~e*, *ue\\\\~o*,\\netc.,
+        la inclusi\xF3n de estas \xFAltimas puede crear conflictos con otras\\nreglas
+        de idioma, seg\xFAn me explic\xF3 S. Moureau---, esta opci\xF3n permite\\neliminar
+        muchas entradas del aparato durante la edici\xF3n, pues si alguna\\nde estas
+        variaciones ocurre (*goardar*\\\\~*guardar*, *seer*\\\\~*ser*),\\nChrysoCollate
+        considerar\xE1 el contenido igual y no crear\xE1 una entrada en\\nel aparato.
+        Al hacer esto en el cap\xEDtulo 1 del *Lucidario*, podemos\\npasar de este
+        aparato cr\xEDtico:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large wp-lightbox-container\\\"\\ndata-wp-context=\\\"{&quot;uploadedSrc&quot;:&quot;https:\\\\/\\\\/lucidarios.hypotheses.org\\\\/files\\\\/2024\\\\/12\\\\/Capture-de\\\\u0301cran-2024-12-18-a\\\\u0300-18.52.23.png&quot;,&quot;figureClassNames&quot;:&quot;aligncenter
+        size-large&quot;,&quot;figureStyles&quot;:null,&quot;imgClassNames&quot;:&quot;wp-image-6907&quot;,&quot;imgStyles&quot;:null,&quot;targetWidth&quot;:2926,&quot;targetHeight&quot;:1424,&quot;scaleAttr&quot;:false,&quot;ariaLabel&quot;:&quot;Ampliar
+        la imagen&quot;,&quot;alt&quot;:&quot;&quot;}\\\"\\ndata-wp-interactive=\\\"core/image\\\">\\n<img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-18.52.23-500x243.png\\\"\\nclass=\\\"wp-image-6907\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\ndata-wp-init=\\\"callbacks.setButtonStyles\\\"\\ndata-wp-on-async--click=\\\"actions.showLightbox\\\"\\ndata-wp-on-async--load=\\\"callbacks.setButtonStyles\\\"\\ndata-wp-on-async-window--resize=\\\"callbacks.setButtonStyles\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-18.52.23-500x243.png
+        500w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-18.52.23-300x146.png
+        300w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-18.52.23-768x374.png
+        768w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-18.52.23-1536x748.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-18.52.23-2048x997.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"243\\\" />\\n<img\\nsrc=\\\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgZmlsbD0ibm9uZSIgdmlld2JveD0iMCAwIDEyIDEyIj4KICAgICAgICAgICAgICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0yIDBhMiAyIDAgMCAwLTIgMnYyaDEuNVYyYS41LjUgMCAwIDEgLjUtLjVoMlYwSDJabTIgMTAuNUgyYS41LjUgMCAwIDEtLjUtLjVWOEgwdjJhMiAyIDAgMCAwIDIgMmgydi0xLjVaTTggMTJ2LTEuNWgyYS41LjUgMCAwIDAgLjUtLjVWOEgxMnYyYTIgMiAwIDAgMS0yIDJIOFptMi0xMmEyIDIgMCAwIDEgMiAydjJoLTEuNVYyYS41LjUgMCAwIDAtLjUtLjVIOFYwaDJaIiAvPgogICAgICAgICAgICA8L3N2Zz4=\\\"
+        />\\n<figcaption><em>Selectio</em>, cap\xEDtulo 1 del <em>Lucidario</em>,\\nChrysoCollate
+        1.3.1, Language-based features activo</figcaption>\\n</figure>\\n:::\\n\\nA
+        este, donde las variedades de lengua de las casillas 20, 26, 36 y 37\\nhan
+        dejado de ser consideradas diferentes:\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large wp-lightbox-container\\\"\\ndata-wp-context=\\\"{&quot;uploadedSrc&quot;:&quot;https:\\\\/\\\\/lucidarios.hypotheses.org\\\\/files\\\\/2024\\\\/12\\\\/Capture-de\\\\u0301cran-2024-12-18-a\\\\u0300-18.53.20.png&quot;,&quot;figureClassNames&quot;:&quot;aligncenter
+        size-large&quot;,&quot;figureStyles&quot;:null,&quot;imgClassNames&quot;:&quot;wp-image-6911&quot;,&quot;imgStyles&quot;:null,&quot;targetWidth&quot;:2934,&quot;targetHeight&quot;:1432,&quot;scaleAttr&quot;:false,&quot;ariaLabel&quot;:&quot;Ampliar
+        la imagen&quot;,&quot;alt&quot;:&quot;&quot;}\\\"\\ndata-wp-interactive=\\\"core/image\\\">\\n<img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-18.53.20-500x244.png\\\"\\nclass=\\\"wp-image-6911\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\ndata-wp-init=\\\"callbacks.setButtonStyles\\\"\\ndata-wp-on-async--click=\\\"actions.showLightbox\\\"\\ndata-wp-on-async--load=\\\"callbacks.setButtonStyles\\\"\\ndata-wp-on-async-window--resize=\\\"callbacks.setButtonStyles\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-18.53.20-500x244.png
+        500w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-18.53.20-300x146.png
+        300w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-18.53.20-768x375.png
+        768w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-18.53.20-1536x750.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-18.53.20-2048x1000.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"244\\\" />\\n<img\\nsrc=\\\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgZmlsbD0ibm9uZSIgdmlld2JveD0iMCAwIDEyIDEyIj4KICAgICAgICAgICAgICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0yIDBhMiAyIDAgMCAwLTIgMnYyaDEuNVYyYS41LjUgMCAwIDEgLjUtLjVoMlYwSDJabTIgMTAuNUgyYS41LjUgMCAwIDEtLjUtLjVWOEgwdjJhMiAyIDAgMCAwIDIgMmgydi0xLjVaTTggMTJ2LTEuNWgyYS41LjUgMCAwIDAgLjUtLjVWOEgxMnYyYTIgMiAwIDAgMS0yIDJIOFptMi0xMmEyIDIgMCAwIDEgMiAydjJoLTEuNVYyYS41LjUgMCAwIDAtLjUtLjVIOFYwaDJaIiAvPgogICAgICAgICAgICA8L3N2Zz4=\\\"
+        />\\n<figcaption><em>Selectio</em>, cap\xEDtulo 1 del <em>Lucidario</em>,\\nChrysoCollate
+        1.3.1, Language-based features desactivado</figcaption>\\n</figure>\\n:::\\n\\n\\\\[Recomiendo
+        desactivar estas distinciones de lengua solo en el momento\\nde la *selectio*
+        de lecturas de la *collatio*, pues hacerlo durante la\\n*examinatio* para
+        producir el *stemma codicum* puede llevar a omisiones\\nde variantes que pueden
+        ser estem\xE1ticamente significativas. Al\\ndesactivar estas opciones, todas
+        las lecturas que caigan en las\\ncategor\xEDas establecidas por las reglas
+        aparecer\xE1n en casillas del mismo\\ncolor, invisibilizando las peque\xF1as
+        diferencias.\\\\]\\n\\nTras realizar este primer paso, seguimos contando con
+        una serie de\\nentradas de aparato cr\xEDtico que no son relevantes. La primera
+        ocurre en\\nla nota de la casilla 20, que recoge la trasposici\xF3n del texto
+        de la\\ncasilla 21 (`las cosas`) en `I`, que deber\xEDa ocurrir en las casillas
+        25\\ny 26. La trasposici\xF3n, que va en contra del resto de la tradici\xF3n,
+        est\xE1\\nsuficientemente explicada y no es necesario recogerla en el aparato.
+        La\\nsiguiente es la forma verbal `asaber` de la casilla 37, creada por la\\nfusi\xF3n
+        de la preposici\xF3n `a` al infinitivo sujeto. Esta tambi\xE9n debe ser\\ndescartada,
+        pues se trata de una variante ling\xFC\xEDstica (causada por el\\nsesgo occidental
+        del testimonio, en este caso). Las adiciones de 39\\n(`cosas` en `C`) y 43
+        (`e` en `I`) tambi\xE9n pueden ser descartadas.\\n\\nLa forma de descartarlas
+        es recurriendo a la configuraci\xF3n de las\\nentradas del aparato cr\xEDtico.
+        Para llegar a ella, hay que hacer clic\\nsobre el n\xFAmero de la casilla
+        que aparece en la l\xEDnea \xABApp settings\xBB:\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large wp-lightbox-container\\\"\\ndata-wp-context=\\\"{&quot;uploadedSrc&quot;:&quot;https:\\\\/\\\\/lucidarios.hypotheses.org\\\\/files\\\\/2024\\\\/12\\\\/Capture-de\\\\u0301cran-2024-12-18-a\\\\u0300-19.09.09.png&quot;,&quot;figureClassNames&quot;:&quot;aligncenter
+        size-large&quot;,&quot;figureStyles&quot;:null,&quot;imgClassNames&quot;:&quot;wp-image-6915&quot;,&quot;imgStyles&quot;:null,&quot;targetWidth&quot;:2872,&quot;targetHeight&quot;:74,&quot;scaleAttr&quot;:false,&quot;ariaLabel&quot;:&quot;Ampliar
+        la imagen&quot;,&quot;alt&quot;:&quot;&quot;}\\\"\\ndata-wp-interactive=\\\"core/image\\\">\\n<img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-19.09.09-500x13.png\\\"\\nclass=\\\"wp-image-6915\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\ndata-wp-init=\\\"callbacks.setButtonStyles\\\"\\ndata-wp-on-async--click=\\\"actions.showLightbox\\\"\\ndata-wp-on-async--load=\\\"callbacks.setButtonStyles\\\"\\ndata-wp-on-async-window--resize=\\\"callbacks.setButtonStyles\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-19.09.09-500x13.png
+        500w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-19.09.09-300x8.png
+        300w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-19.09.09-768x20.png
+        768w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-19.09.09-1536x40.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-19.09.09-2048x53.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"13\\\" />\\n<img\\nsrc=\\\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgZmlsbD0ibm9uZSIgdmlld2JveD0iMCAwIDEyIDEyIj4KICAgICAgICAgICAgICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0yIDBhMiAyIDAgMCAwLTIgMnYyaDEuNVYyYS41LjUgMCAwIDEgLjUtLjVoMlYwSDJabTIgMTAuNUgyYS41LjUgMCAwIDEtLjUtLjVWOEgwdjJhMiAyIDAgMCAwIDIgMmgydi0xLjVaTTggMTJ2LTEuNWgyYS41LjUgMCAwIDAgLjUtLjVWOEgxMnYyYTIgMiAwIDAgMS0yIDJIOFptMi0xMmEyIDIgMCAwIDEgMiAydjJoLTEuNVYyYS41LjUgMCAwIDAtLjUtLjVIOFYwaDJaIiAvPgogICAgICAgICAgICA8L3N2Zz4=\\\"
+        />\\n<figcaption><em>App settings</em>, ChrysoCollate 1.3.1</figcaption>\\n</figure>\\n:::\\n\\nEsto
+        abrir\xE1 una ventana contextual \xABSettings of the apparatus \\\\[nombre\\ndel
+        aparato\\\\] for the variant location number \\\\[n\xFAmero de casilla\\\\]\xBB:\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large wp-lightbox-container\\\"\\ndata-wp-context=\\\"{&quot;uploadedSrc&quot;:&quot;https:\\\\/\\\\/lucidarios.hypotheses.org\\\\/files\\\\/2024\\\\/12\\\\/Capture-de\\\\u0301cran-2024-12-18-a\\\\u0300-19.10.41.png&quot;,&quot;figureClassNames&quot;:&quot;aligncenter
+        size-large&quot;,&quot;figureStyles&quot;:null,&quot;imgClassNames&quot;:&quot;wp-image-6918&quot;,&quot;imgStyles&quot;:null,&quot;targetWidth&quot;:2620,&quot;targetHeight&quot;:1268,&quot;scaleAttr&quot;:false,&quot;ariaLabel&quot;:&quot;Ampliar
+        la imagen&quot;,&quot;alt&quot;:&quot;&quot;}\\\"\\ndata-wp-interactive=\\\"core/image\\\">\\n<img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-19.10.41-500x242.png\\\"\\nclass=\\\"wp-image-6918\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\ndata-wp-init=\\\"callbacks.setButtonStyles\\\"\\ndata-wp-on-async--click=\\\"actions.showLightbox\\\"\\ndata-wp-on-async--load=\\\"callbacks.setButtonStyles\\\"\\ndata-wp-on-async-window--resize=\\\"callbacks.setButtonStyles\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-19.10.41-500x242.png
+        500w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-19.10.41-300x145.png
+        300w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-19.10.41-768x372.png
+        768w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-19.10.41-1536x743.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-19.10.41-2048x991.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"242\\\" />\\n<img\\nsrc=\\\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgZmlsbD0ibm9uZSIgdmlld2JveD0iMCAwIDEyIDEyIj4KICAgICAgICAgICAgICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0yIDBhMiAyIDAgMCAwLTIgMnYyaDEuNVYyYS41LjUgMCAwIDEgLjUtLjVoMlYwSDJabTIgMTAuNUgyYS41LjUgMCAwIDEtLjUtLjVWOEgwdjJhMiAyIDAgMCAwIDIgMmgydi0xLjVaTTggMTJ2LTEuNWgyYS41LjUgMCAwIDAgLjUtLjVWOEgxMnYyYTIgMiAwIDAgMS0yIDJIOFptMi0xMmEyIDIgMCAwIDEgMiAydjJoLTEuNVYyYS41LjUgMCAwIDAtLjUtLjVIOFYwaDJaIiAvPgogICAgICAgICAgICA8L3N2Zz4=\\\"
+        />\\n<figcaption><em>Settings of the apparatus for the variant location\\nnumber</em>,
+        ChrysoCollate 1.3.1</figcaption>\\n</figure>\\n:::\\n\\nEsta ventana permite
+        personalizar tres comportamientos del aparato\\ncr\xEDtico para cada casilla
+        del documento. Hablar\xE9 de las primeras dos en\\nesta entrada y dejar\xE9
+        la \xFAltima para la siguiente. Cada casilla tiene\\nuna ventana individual
+        que permitir\xE1 alterar su comportamiento. La\\nprimera opci\xF3n (\xABWitnesses
+        similar to other witnesses in this variant\\nlocation\xBB) permite indicarle
+        al aplicativo que el contenido de la\\ncasilla en un testimonio es igual a
+        la de otro (aunque no lo sea):\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large wp-lightbox-container\\\"\\ndata-wp-context=\\\"{&quot;uploadedSrc&quot;:&quot;https:\\\\/\\\\/lucidarios.hypotheses.org\\\\/files\\\\/2024\\\\/12\\\\/Capture-de\\\\u0301cran-2024-12-18-a\\\\u0300-20.40.59.png&quot;,&quot;figureClassNames&quot;:&quot;aligncenter
+        size-large&quot;,&quot;figureStyles&quot;:null,&quot;imgClassNames&quot;:&quot;wp-image-6922&quot;,&quot;imgStyles&quot;:null,&quot;targetWidth&quot;:2616,&quot;targetHeight&quot;:710,&quot;scaleAttr&quot;:false,&quot;ariaLabel&quot;:&quot;Ampliar
+        la imagen&quot;,&quot;alt&quot;:&quot;&quot;}\\\"\\ndata-wp-interactive=\\\"core/image\\\">\\n<img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.40.59-500x136.png\\\"\\nclass=\\\"wp-image-6922\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\ndata-wp-init=\\\"callbacks.setButtonStyles\\\"\\ndata-wp-on-async--click=\\\"actions.showLightbox\\\"\\ndata-wp-on-async--load=\\\"callbacks.setButtonStyles\\\"\\ndata-wp-on-async-window--resize=\\\"callbacks.setButtonStyles\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.40.59-500x136.png
+        500w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.40.59-300x81.png
+        300w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.40.59-768x208.png
+        768w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.40.59-1536x417.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.40.59-2048x556.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"136\\\" />\\n<img\\nsrc=\\\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgZmlsbD0ibm9uZSIgdmlld2JveD0iMCAwIDEyIDEyIj4KICAgICAgICAgICAgICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0yIDBhMiAyIDAgMCAwLTIgMnYyaDEuNVYyYS41LjUgMCAwIDEgLjUtLjVoMlYwSDJabTIgMTAuNUgyYS41LjUgMCAwIDEtLjUtLjVWOEgwdjJhMiAyIDAgMCAwIDIgMmgydi0xLjVaTTggMTJ2LTEuNWgyYS41LjUgMCAwIDAgLjUtLjVWOEgxMnYyYTIgMiAwIDAgMS0yIDJIOFptMi0xMmEyIDIgMCAwIDEgMiAydjJoLTEuNVYyYS41LjUgMCAwIDAtLjUtLjVIOFYwaDJaIiAvPgogICAgICAgICAgICA8L3N2Zz4=\\\"
+        />\\n<figcaption><em>Witnesses similar to other witnesses in this variant\\nlocation</em>,
+        ChrysoCollate 1.3.1</figcaption>\\n</figure>\\n:::\\n\\nPara eliminar la entrada
+        de la casilla 21, indicar\xE9 que el contenido de\\n`I` es igual que el de
+        `A` en la lista desplegable. Primero,\\nChrysoCollate oscurecer\xE1 su contenido
+        en la tabla de la derecha:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large wp-lightbox-container\\\"\\ndata-wp-context=\\\"{&quot;uploadedSrc&quot;:&quot;https:\\\\/\\\\/lucidarios.hypotheses.org\\\\/files\\\\/2024\\\\/12\\\\/Capture-de\\\\u0301cran-2024-12-18-a\\\\u0300-20.41.18.png&quot;,&quot;figureClassNames&quot;:&quot;aligncenter
+        size-large&quot;,&quot;figureStyles&quot;:null,&quot;imgClassNames&quot;:&quot;wp-image-6927&quot;,&quot;imgStyles&quot;:null,&quot;targetWidth&quot;:2620,&quot;targetHeight&quot;:464,&quot;scaleAttr&quot;:false,&quot;ariaLabel&quot;:&quot;Ampliar
+        la imagen&quot;,&quot;alt&quot;:&quot;&quot;}\\\"\\ndata-wp-interactive=\\\"core/image\\\">\\n<img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.41.18-500x89.png\\\"\\nclass=\\\"wp-image-6927\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\ndata-wp-init=\\\"callbacks.setButtonStyles\\\"\\ndata-wp-on-async--click=\\\"actions.showLightbox\\\"\\ndata-wp-on-async--load=\\\"callbacks.setButtonStyles\\\"\\ndata-wp-on-async-window--resize=\\\"callbacks.setButtonStyles\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.41.18-500x89.png
+        500w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.41.18-300x53.png
+        300w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.41.18-768x136.png
+        768w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.41.18-1536x272.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.41.18-2048x363.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"89\\\" />\\n<img\\nsrc=\\\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgZmlsbD0ibm9uZSIgdmlld2JveD0iMCAwIDEyIDEyIj4KICAgICAgICAgICAgICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0yIDBhMiAyIDAgMCAwLTIgMnYyaDEuNVYyYS41LjUgMCAwIDEgLjUtLjVoMlYwSDJabTIgMTAuNUgyYS41LjUgMCAwIDEtLjUtLjVWOEgwdjJhMiAyIDAgMCAwIDIgMmgydi0xLjVaTTggMTJ2LTEuNWgyYS41LjUgMCAwIDAgLjUtLjVWOEgxMnYyYTIgMiAwIDAgMS0yIDJIOFptMi0xMmEyIDIgMCAwIDEgMiAydjJoLTEuNVYyYS41LjUgMCAwIDAtLjUtLjVIOFYwaDJaIiAvPgogICAgICAgICAgICA8L3N2Zz4=\\\"
+        />\\n<figcaption><em>Witnesses similar to other witnesses in this variant\\nlocation</em>,
+        I seleccionado, ChrysoCollate 1.3.1</figcaption>\\n</figure>\\n:::\\n\\nY
+        tras hacer clic en aceptar, eliminar\xE1 la entrada del aparato cr\xEDtico\\nde
+        la casilla 21, pues considera que `A` e `I` son iguales, lo mismo que\\n`B`
+        y `C`:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter size-large
+        wp-lightbox-container\\\"\\ndata-wp-context=\\\"{&quot;uploadedSrc&quot;:&quot;https:\\\\/\\\\/lucidarios.hypotheses.org\\\\/files\\\\/2024\\\\/12\\\\/Capture-de\\\\u0301cran-2024-12-18-a\\\\u0300-20.45.34.png&quot;,&quot;figureClassNames&quot;:&quot;aligncenter
+        size-large&quot;,&quot;figureStyles&quot;:null,&quot;imgClassNames&quot;:&quot;wp-image-6933&quot;,&quot;imgStyles&quot;:null,&quot;targetWidth&quot;:2934,&quot;targetHeight&quot;:1424,&quot;scaleAttr&quot;:false,&quot;ariaLabel&quot;:&quot;Ampliar
+        la imagen&quot;,&quot;alt&quot;:&quot;&quot;}\\\"\\ndata-wp-interactive=\\\"core/image\\\">\\n<img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.45.34-500x243.png\\\"\\nclass=\\\"wp-image-6933\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\ndata-wp-init=\\\"callbacks.setButtonStyles\\\"\\ndata-wp-on-async--click=\\\"actions.showLightbox\\\"\\ndata-wp-on-async--load=\\\"callbacks.setButtonStyles\\\"\\ndata-wp-on-async-window--resize=\\\"callbacks.setButtonStyles\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.45.34-500x243.png
+        500w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.45.34-300x146.png
+        300w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.45.34-768x373.png
+        768w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.45.34-1536x745.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.45.34-2048x994.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"243\\\" />\\n<img\\nsrc=\\\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgZmlsbD0ibm9uZSIgdmlld2JveD0iMCAwIDEyIDEyIj4KICAgICAgICAgICAgICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0yIDBhMiAyIDAgMCAwLTIgMnYyaDEuNVYyYS41LjUgMCAwIDEgLjUtLjVoMlYwSDJabTIgMTAuNUgyYS41LjUgMCAwIDEtLjUtLjVWOEgwdjJhMiAyIDAgMCAwIDIgMmgydi0xLjVaTTggMTJ2LTEuNWgyYS41LjUgMCAwIDAgLjUtLjVWOEgxMnYyYTIgMiAwIDAgMS0yIDJIOFptMi0xMmEyIDIgMCAwIDEgMiAydjJoLTEuNVYyYS41LjUgMCAwIDAtLjUtLjVIOFYwaDJaIiAvPgogICAgICAgICAgICA8L3N2Zz4=\\\"
+        />\\n<figcaption><em>Selectio</em> reducida, cap\xEDtulo 1 del\\n<em>Lucidario</em>,
+        ChrysoCollate 1.3.1</figcaption>\\n</figure>\\n:::\\n\\nUna forma alternativa
+        de reducir el aparato cr\xEDtico es empleando la\\nsegunda opci\xF3n (\xABWitnesses
+        used in this apparatus note\xBB), que permite\\ndescartar el uso de un testimonio
+        en la entrada de aparato cr\xEDtico para\\nuna casilla (hay una forma de hacerlo
+        globalmente, de ello hablar\xE9\\nluego). En el ejemplo anterior, en vez de
+        considerar el texto del\\ntestimonio `I` igual que el del testimonio `A` en
+        la casilla 21,\\nChrysoCollate no utilizar\xE1 el texto de `I` para el aparato
+        cr\xEDtico.\\n\\nComo en la edici\xF3n del *Lucidario* utilizar\xE9 un aparato
+        negativo ---pues\\nlos aparatos positivos tienden a ser m\xE1s largos y no
+        todos los cap\xEDtulos\\nde la obra aparecen en todos los testimonios---,
+        desactivar la casilla\\nde un testimonio discordante en mi colaci\xF3n no
+        genera problemas. Esto es\\nlo que he hecho en la siguiente imagen, desactivando
+        las casillas 25, 26\\ny 27, que ahora no aparecen en negro, sino en gris:\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large wp-lightbox-container\\\"\\ndata-wp-context=\\\"{&quot;uploadedSrc&quot;:&quot;https:\\\\/\\\\/lucidarios.hypotheses.org\\\\/files\\\\/2024\\\\/12\\\\/Capture-de\\\\u0301cran-2024-12-18-a\\\\u0300-20.52.32.png&quot;,&quot;figureClassNames&quot;:&quot;aligncenter
+        size-large&quot;,&quot;figureStyles&quot;:null,&quot;imgClassNames&quot;:&quot;wp-image-6991&quot;,&quot;imgStyles&quot;:null,&quot;targetWidth&quot;:2932,&quot;targetHeight&quot;:1428,&quot;scaleAttr&quot;:false,&quot;ariaLabel&quot;:&quot;Ampliar
+        la imagen&quot;,&quot;alt&quot;:&quot;&quot;}\\\"\\ndata-wp-interactive=\\\"core/image\\\">\\n<img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.52.32-500x244.png\\\"\\nclass=\\\"wp-image-6991\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\ndata-wp-init=\\\"callbacks.setButtonStyles\\\"\\ndata-wp-on-async--click=\\\"actions.showLightbox\\\"\\ndata-wp-on-async--load=\\\"callbacks.setButtonStyles\\\"\\ndata-wp-on-async-window--resize=\\\"callbacks.setButtonStyles\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.52.32-500x244.png
+        500w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.52.32-300x146.png
+        300w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.52.32-768x374.png
+        768w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.52.32-1536x748.png
+        1536w, https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-20.52.32-2048x997.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"244\\\" />\\n<img\\nsrc=\\\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgZmlsbD0ibm9uZSIgdmlld2JveD0iMCAwIDEyIDEyIj4KICAgICAgICAgICAgICAgIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0yIDBhMiAyIDAgMCAwLTIgMnYyaDEuNVYyYS41LjUgMCAwIDEgLjUtLjVoMlYwSDJabTIgMTAuNUgyYS41LjUgMCAwIDEtLjUtLjVWOEgwdjJhMiAyIDAgMCAwIDIgMmgydi0xLjVaTTggMTJ2LTEuNWgyYS41LjUgMCAwIDAgLjUtLjVWOEgxMnYyYTIgMiAwIDAgMS0yIDJIOFptMi0xMmEyIDIgMCAwIDEgMiAydjJoLTEuNVYyYS41LjUgMCAwIDAtLjUtLjVIOFYwaDJaIiAvPgogICAgICAgICAgICA8L3N2Zz4=\\\"
+        />\\n<figcaption><em>Selectio</em> reducida, cap\xEDtulo 1 del\\n<em>Lucidario</em>,
+        ChrysoCollate 1.3.1</figcaption>\\n</figure>\\n:::\\n\\nEl problema surge
+        cuando tenemos un aparato positivo y m\xFAltiples\\nlecturas en una casilla
+        dada, pues al desactivar un testimonio empleando\\nla opci\xF3n \xABWitnesses
+        used in this apparatus note\xBB, el aparato resultante\\nestar\xE1 incompleto.
+        Para ello, tendremos que recurrir a la opci\xF3n\\n\xABWitnesses similar to
+        other witnesses\xBB e identificar la lectura que\\ndeseamos descartar es igual
+        a otro testimonio. Por ejemplo, si tenemos:\\n\\n<figure class=\\\"wp-block-table
+        aligncenter\\\">\\n<table>\\n<tbody>\\n<tr>\\n<td><code>A</code></td>\\n<td><code>casa</code></td>\\n</tr>\\n<tr>\\n<td><code>B</code></td>\\n<td><code>casa</code></td>\\n</tr>\\n<tr>\\n<td><code>C</code></td>\\n<td><code>cosa</code></td>\\n</tr>\\n<tr>\\n<td><code>I</code></td>\\n<td><code>cassa</code></td>\\n</tr>\\n</tbody>\\n</table>\\n</figure>\\n\\nPodremos
+        simplificar la entrada del aparato indicando en la opci\xF3n\\n\xABWitnesses
+        similar...\xBB indicando que `I` es igual a `A` o `B`, para que\\nla entrada
+        resultante lo refleje (`casa ABI : cosa C`), descartando la\\ndiferencia por
+        la duplicaci\xF3n de las sibilantes como un fen\xF3meno gr\xE1fico\\no una
+        variante de lengua.\\n\\nBueno, dejo las cosas aqu\xED y en la pr\xF3xima
+        semana continuar\xE9 con la\\nexplicaci\xF3n.\\n\\n------------------------------------------------------------------------\\n\\nImagen
+        de miniatura: detalle de ventana  \\nSettings of the apparatus, ChrysoCollate
+        1.3.1\\n\",\"doi\":\"https://doi.org/10.58079/12yod\",\"guid\":\"https://lucidarios.hypotheses.org/?p=6891\",\"id\":\"94cbe6a7-4b5c-4288-a3f7-006eed06c5bf\",\"image\":\"https://lucidarios.hypotheses.org/files/2024/12/Capture-de\u0301cran-2024-12-18-a\u0300-21.27.24.png\",\"language\":\"es\",\"published_at\":1734553817,\"reference\":[],\"relationships\":[],\"rid\":\"f7azd-acn82\",\"status\":\"active\",\"summary\":\"En
+        la \xFAltima entrada expliqu\xE9 c\xF3mo crear un aparato cr\xEDtico en ChrysoCollate
+        y ofrec\xED un ejemplo del cap\xEDtulo 1 del\\n<em>\\n Lucidario\\n</em>\\n.
+        Record\xE9 entonces que ChyrsoCollate, como toda herramienta de comparaci\xF3n
+        textual, es implacable. Crear\xE1 un aparato cr\xEDtico total, que refleje
+        todas y cada una de las variaciones textuales, como se ve en este v\xEDdeo.\",\"tags\":[\"Entradas\",\"Aparato
+        Cr\xEDtico\",\"ChrysoCollate\",\"Collatio\",\"Constitutio Textus\"],\"title\":\"Herramientas
+        de <em>collatio</em> digital: ChrysoCollate (11)\",\"updated_at\":1734654853,\"url\":\"https://lucidarios.hypotheses.org/6891\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22150/20231105110624/https://ropensci.org/es/blog/2024/12/17/guia-localizacion\",\"authors\":[{\"name\":\"Yanina
+        Bellini Saibene\",\"url\":\"https://orcid.org/0000-0002-4522-7466\"},{\"name\":\"Ma\xEBlle
+        Salmon\",\"url\":\"https://orcid.org/0000-0002-2815-0399\"},{\"name\":\"Pao
+        Corrales\",\"url\":\"https://orcid.org/0000-0003-1923-9129\"},{\"name\":\"Elio
+        Campitelli\"}],\"blog_name\":\"rOpenSci - herramientas abiertas para una ciencia
+        abierta\",\"blog_slug\":\"ropensci_es\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"Desde
+        2022, rOpenSci ha estado desarrollando herramientas y procesos\\npara localizar
+        y traducir nuestros contenidos.Como resultado de este\\nesfuerzo, hemos creado
+        un conjunto de directrices para ayudar a\\nnuestracomunidad a traducir y localizar
+        nuestros recursos.Lo que comenz\xF3\\ncomo un reto interno se ha convertido
+        en un plan de colaboraci\xF3n que\\ncreemos que puedeayudar a transformar
+        la forma en que se comparten los\\nrecursos cient\xEDficos en un contexto
+        de investigaci\xF3n multiling\xFCe.\\n\\nPor eso, nos alegra compartir la
+        \xA1primera versi\xF3n de la[Gu\xEDa de\\nlocalizaci\xF3n y traducci\xF3n
+        de\\nrOpenSci](https://translationguide.ropensci.org/)!\\n\\n<figure>\\n<img
+        src=\\\"/blog/2024/12/17/localization-guide/multilingual-chapter.png\\\"\\nalt=\\\"Los
+        primeros p\xE1rrafos de la secci\xF3n Aspectos generales de la fase 1 del
+        proceso de traducci\xF3n en ingl\xE9s (lado izquierdo) y espa\xF1ol (lado
+        derecho). Mostrando el texto y los mapas conceptuales en ambos idiomas.\\\"
+        />\\n<figcaption><p>Cap\xEDtulo sobre Aspectos generales de la fase 1 del\\nproceso
+        de traducci\xF3n al ingl\xE9s y al espa\xF1ol</p></figcaption>\\n</figure>\\n\\nEstas
+        directrices explican los fundamentos y el proceso de localizaci\xF3n\\ny traducci\xF3n
+        de nuestros recursos.Est\xE1n dise\xF1adas para apoyar a los\\nmiembros de
+        la comunidad que contribuyen ala [proyecto de publicaci\xF3n\\nmultiling\xFCe](/multilingual-publishing/).Por
+        ello, esta gu\xEDa tambi\xE9n es\\nmultiling\xFCe en s\xED misma,ya que ofrece
+        directrices generales y\\nespec\xEDficas para traduciry localizar nuestros
+        recursos en los diferentes\\n[idiomas\\nactivos](https://github.com/ropensci-review-tools/translation_guide/?tab=readme-ov-file#languages-with-active-projects).\\n\\nLa
+        gu\xEDa es m\xE1s que una referencia: es un documento vivo de la\\nexperiencia
+        colectivade nuestra comunidad y de todas las personas\\nvoluntarias que contribuyen
+        a este proyecto.\\n\\nVamos a presentarte la gu\xEDa con un recorrido por
+        sus seis secciones.\\n\\n### [Prefacio](https://translationguide.ropensci.org):
+        Una invitaci\xF3n a la colaboraci\xF3n {#prefaciohttpstranslationguideropensciorg-una-invitaci\xF3n-a-la-colaboraci\xF3n}\\n\\nUn
+        breve resumen de la finalidad del libro, el p\xFAblico al que va\\ndirigido,
+        los objetivos de las directrices einstrucciones sobre c\xF3mo\\ncontribuir.
+        Quer\xEDamos crear algo que diera la bienvenida apersonas que\\nquisieran
+        colaborar de todos los \xE1mbitos, ya sea que fueras un traductor\\nprofesional,una
+        desarrolladora o simplemente alguien a quien le apasiona\\nhacer m\xE1s accesible
+        el conocimiento cient\xEDfico.\\n\\n### [Motivaci\xF3n](https://translationguide.ropensci.org/motivation.html)
+        Hacer frente a la desigualdad ling\xFC\xEDstica {#motivaci\xF3nhttpstranslationguideropensciorgmotivationhtml-hacer-frente-a-la-desigualdad-ling\xFC\xEDstica}\\n\\nHemos
+        vivido de primera mano los retos a los que se enfrentan las\\npersonas que
+        no hablan el ingl\xE9s de forma nativaen la comunicaci\xF3n\\ncient\xEDfica.Esta
+        secci\xF3n explica la importancia de localizar y traducir\\nnuestros recursos.Analiza
+        el impacto de las barreras ling\xFC\xEDsticas, los\\nprincipios de la localizaci\xF3n
+        y traducci\xF3nrealizadas de forma\\ncolaborativa, y c\xF3mo estas actividades
+        contribuyen a la construcci\xF3n de\\nla comunidad.Este cap\xEDtulo es nuestro
+        argumento para el cambio.\\n\\n### [Visi\xF3n general](https://translationguide.ropensci.org/intro.html)
+        Nuestro marco t\xE9cnico {#visi\xF3n-generalhttpstranslationguideropensciorgintrohtml-nuestro-marco-t\xE9cnico}\\n\\nEsta
+        secci\xF3n presenta los conceptos de localizaci\xF3n y traducci\xF3n,\\nexplicando
+        c\xF3mo mejoran la accesibilidad.Presentamos las herramientas y\\nm\xE9todos
+        que hacen posible la traducci\xF3n colaborativa,esbozando la\\ninfraestructura
+        t\xE9cnica, la organizaci\xF3n del trabajo y los aspectos\\ngeneralesde nuestro
+        proceso de traducci\xF3n y localizaci\xF3n.\\n\\n### [Gu\xEDa para traducir
+        y revisar](https://translationguide.ropensci.org/howtoreview.html) Nuestras
+        ideas en la pr\xE1ctica {#gu\xEDa-para-traducir-y-revisarhttpstranslationguideropensciorghowtoreviewhtml-nuestras-ideas-en-la-pr\xE1ctica}\\n\\nEsta
+        secci\xF3n ofrece una gu\xEDa detallada sobre la traducci\xF3n y revisi\xF3n
+        de\\nnuestros recursos.Abarca c\xF3mo contribuir a un proyecto ling\xFC\xEDstico
+        nuevo\\no existente y gestionar el proceso de localizaci\xF3n y traducci\xF3n.Tambi\xE9n\\nproporciona
+        directrices t\xE9cnicas y generales de revisi\xF3n para garantizar\\nla calidadde
+        la traducci\xF3n: equilibrar la eficacia de la traducci\xF3n\\nautom\xE1tica
+        con lacomprensi\xF3n cualificada que s\xF3lo pueden proporcionar\\nlos y las
+        revisores humanos.\\n\\n### [Directrices ling\xFC\xEDsticas espec\xEDficas](https://translationguide.ropensci.org/specific_guidelines.html)
+        Abrazar la diversidad ling\xFC\xEDstica {#directrices-ling\xFC\xEDsticas-espec\xEDficashttpstranslationguideropensciorgspecific_guidelineshtml-abrazar-la-diversidad-ling\xFC\xEDstica}\\n\\nEste
+        cap\xEDtulo tiene un contenido espec\xEDfico para cada versi\xF3n\\nling\xFC\xEDstica
+        de la gu\xEDa.Esto significa que las instrucciones para ingl\xE9s,\\nespa\xF1ol
+        y portugu\xE9s pueden diferir entre s\xED,seg\xFAn los acuerdos\\nalcanzados
+        por la comunidad y plasmados en este cap\xEDtulo.Su objetivo es\\nofrecer
+        orientaciones para tratar desde los t\xE9rminos t\xE9cnicos hasta los\\nmatices
+        culturales,respetando las caracter\xEDsticas propias de cada lengua\\ny los
+        acuerdos comunitarios sobre c\xF3molocalizar y traducir los\\ncontenidos.Esta
+        secci\xF3n tambi\xE9n aborda la localizaci\xF3n de citas, c\xF3digo,\\ndiagramas
+        y datos.Este cap\xEDtulo incluye glosarios colaborativos que son\\nrecursos
+        terminol\xF3gicos completos,\xFAtiles como referencia y que ayudan a\\nlas
+        personas que trabajan en la traducci\xF3n a tomardecisiones coherentes\\ne
+        informadas.\\n\\n### [NEWS (Noticias)](https://translationguide.ropensci.org/booknews.html)
+        {#news-noticiashttpstranslationguideropensciorgbooknewshtml}\\n\\nEsta secci\xF3n
+        documenta todos los cambios realizados en las directrices\\nen cada versi\xF3n,
+        por qui\xE9n,y muestra la mejora continua de la gu\xEDa.\\n\\n## Pr\xF3ximos
+        pasos\\n\\nEsta gu\xEDa est\xE1 pensada para quienes tienen inter\xE9s en
+        localizar\\nmateriales de rOpenScio en contribuir al mantenimiento de contenidos\\nlocalizados,pero
+        esperamos que tambi\xE9n sea \xFAtil para cualquier persona\\nencargada de
+        localizar material m\xE1s all\xE1 de nuestra comunidad.Queremos\\nque nuestros
+        procesos, acuerdos y las lecciones que hemos aprendido\\nbeneficien tambi\xE9n
+        a otras comunidades.\\n\\nEsta gu\xEDa es un documento vivo que seguir\xE1
+        mejorando con los aportes de\\nlas personas de nuestra comunidad,perfeccionando
+        y ampliando nuestro\\ntrabajo.Est\xE1 disponible en ingl\xE9s y espa\xF1ol,
+        con planes para traducirla\\na otros idiomas en funci\xF3nde nuestros proyectos
+        de traducci\xF3n activos,\\ncomo el portugu\xE9s.\\n\\nLo consideramos un
+        punto de partida para la conversaci\xF3n, la\\ncolaboraci\xF3n y el cambio
+        significativoen la forma en que compartimos el\\nconocimiento cient\xEDfico
+        m\xE1s all\xE1 de las fronteras ling\xFC\xEDsticas.\\n\\nSi quieres contribuir
+        a los esfuerzos de traducci\xF3n o mejorar esta\\ngu\xEDa,consulta la [lista
+        de idiomas para los que hay proyectos de\\ntraducci\xF3n activos y su\\nestado](https://github.com/ropensci-review-tools/translation_guide#active).\\n\\nPuedes
+        ponerte en contacto con nosotros en <info@ropensci.org>o [abre un\\n*issue*
+        en el repositorio de la\\ngu\xEDa](https://github.com/ropensci-review-tools/translation_guide/issues).\\n\\nY
+        ahora, \xA1a traducir y localizar!\\n\",\"doi\":\"https://doi.org/10.59350/spdq4-ywb23\",\"guid\":\"https://ropensci.org/es/blog/2024/12/17/guia-localizacion/\",\"id\":\"85678717-709a-4790-b509-d7ed22821dd7\",\"image\":\"https://ropensci.org/blog/2024/12/17/localization-guide/multilingual-chapter.png\",\"language\":\"es\",\"published_at\":1734393600,\"reference\":[],\"relationships\":[],\"rid\":\"5ccdd-6c207\",\"status\":\"active\",\"summary\":\"Desde
+        2022, rOpenSci ha estado desarrollando herramientas y procesos para localizar
+        y traducir nuestros contenidos.Como resultado de este esfuerzo, hemos creado
+        un conjunto de directrices para ayudar a nuestracomunidad a traducir y localizar
+        nuestros recursos.Lo que comenz\xF3 como un reto interno se ha convertido
+        en un plan de colaboraci\xF3n que creemos que puedeayudar a transformar la
+        forma en que se comparten los recursos cient\xEDficos en un\",\"tags\":[\"Multilingual\",\"Community\"],\"title\":\"Presentaci\xF3n
+        de la Gu\xEDa de localizaci\xF3n y traducci\xF3n de rOpenSci\",\"updated_at\":1734447527,\"url\":\"https://ropensci.org/es/blog/2024/12/17/guia-localizacion\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Atarraya\"}],\"blog_name\":\"BLOG
+        ATARRAYA\",\"blog_slug\":\"atarraya\",\"category\":\"humanities\",\"content_text\":\"##
+        La compraventa de peri\xF3dicos pol\xEDticos en Aguascalientes en la segunda
+        mitad del siglo XIX {#la-compraventa-de-peri\xF3dicos-pol\xEDticos-en-aguascalientes-en-la-segunda-mitad-del-siglo-xix
+        .wp-block-heading}\\n\\n**por Francisco Javier Delgado Aguilar**\\n\\n\xBFC\xF3mo
+        se vend\xEDan y compraban los peri\xF3dicos pol\xEDticos en Aguascalientes\\ndurante
+        la segunda mitad del siglo XIX? Aunque la pregunta pueda parecer\\nociosa
+        o superficial, tratar de responderla permite comenzar a conocer\\nla forma
+        en que autoridades y actores pol\xEDticos se relacionaban para\\ncomunicarse
+        e influir en diversas esferas de la vida p\xFAblica,\\nprincipalmente en la
+        actividad electoral. Un caso \xFAtil que aporta\\ninformaci\xF3n sobre este
+        tema es el de la capital de Aguascalientes, que\\nal igual que muchas otras
+        ciudades de M\xE9xico, generaba y recib\xEDa una\\nbuena cantidad de peri\xF3dicos
+        que se le\xEDan, comentaban y discut\xEDan\\np\xFAblicamente.\\n\\nUno de
+        los conductos m\xE1s comunes y publicitados para la venta de\\nperi\xF3dicos
+        era el de las suscripciones. Con frecuencia los peri\xF3dicos\\ninclu\xEDan,
+        despu\xE9s del t\xEDtulo y un lema que describ\xEDa su orientaci\xF3n\\nideol\xF3gica,
+        las llamadas \\\"condiciones de suscripci\xF3n\\\": el d\xEDa en que se\\npublicaba,
+        el precio de cada ejemplar o el de la suscripci\xF3n (que sol\xEDa\\nser mensual)
+        y el costo extra que se deb\xEDa cubrir para recibir la\\npublicaci\xF3n fuera
+        de la capital. En cada cabecera municipal hab\xEDa\\nrepresentantes que recib\xEDan
+        el dinero de las suscripciones y (suponemos)\\nrepart\xEDan el peri\xF3dico
+        cuando llegaba a su destino.\\n\\nAdem\xE1s de la suscripci\xF3n, exist\xEDa
+        la posibilidad de adquirir n\xFAmero\\nsueltos, acudiendo al taller en el
+        que se imprim\xEDa el peri\xF3dico o a\\nalg\xFAn local comercial. *El Patriota*,
+        peri\xF3dico oficial de\\nAguascalientes durante la guerra de 1847, se pod\xEDa
+        adquirir en el portal\\nde Hidalgo ubicado en el Pari\xE1n, \\\"en la alacena
+        junto a la botica\\\". \_\\n\\nAs\xED, talleres de imprenta y expendios comerciales
+        se convert\xEDan en\\ncentros de reuni\xF3n donde seguramente se le\xEDan,
+        comentaban y discut\xEDan\\nlas noticias y novedades pol\xEDticas del momento
+        y en m\xE1s de alg\xFAn caso\\nfueron el inicio de clubes y asociaciones pol\xEDticas.
+        A fines de la\\nd\xE9cada de 1850, duranta la Guerra de Reforma, el taller
+        de imprenta de\\nJos\xE9 Mar\xEDa Ch\xE1vez era la sede de reuniones pol\xEDtico-literarias
+        que se\\nconvirtieron en clubes pol\xEDticos liberales.\\n\\nMuchos peri\xF3dicos
+        de la \xE9poca solo indicaban el precio de cada ejemplar.\\nAlgunos eran peri\xF3dicos
+        sat\xEDricos o electorales, que se caracterizaban\\npor su corta vida y que
+        recurr\xEDan a repartidores para su distribuci\xF3n.\\n*El Recalcitrante*,
+        (1873), s\xF3lo indicaba su valor (un octavo), mientras\\nque *El Eco del
+        Trabajo* (1878) anunciaba que saldr\xEDa a luz semanalmente\\ny valdr\xEDa
+        tres centavos. Por su parte, *Plut\xF3n*, *\xD3rgano oficial del\\nfeudalismo
+        infernal* (1888), s\xF3lo anunciaba su precio: un centavo.\\n\\nEl recurso
+        de los repartidores de peri\xF3dicos o voceadores fue bastante\\ncom\xFAn
+        y problem\xE1tico en la ciudad de Aguascalientes, por lo menos\\ndurante la
+        segunda mitad del siglo XIX. De hecho, el reglamento de\\npolic\xEDa que reg\xEDa
+        en la capital hacia 1888 prohib\xEDa a los vendedores\\npregonar en voz alta
+        el contenido de los peri\xF3dicos y s\xF3lo permit\xEDa\\nanunciar el t\xEDtulo
+        de la publicaci\xF3n y el n\xFAmero correspondiente.\\n\\nNo resulta extra\xF1o
+        entonces, que *El Fandango*, peri\xF3dico sat\xEDrico que\\ncomenz\xF3 a publicarse
+        en 1887, rehusara el \\\"canto de los pregoneros\\\" para\\nno lastimar el
+        o\xEDdo de sus lectores, a quienes aseguraba que la\\npublicaci\xF3n no se
+        anunciar\xEDa \\\"con esa voz altisonante con que se\\nanuncian otras publicaciones\\\",
+        pues buscar\xEDan establecer dep\xF3sitos de\\nventa en distintos puntos de
+        la ciudad.\\n\\nSeg\xFAn una nota aparecida en septiembre de 1894 en *El Eco
+        Social*, el\\norigen de la medida se remontaba a 1877, cuando con motivo de
+        las\\nelecciones para gobernador, la prensa pol\xEDtica local se exalt\xF3
+        a tal\\ngrado que el jefe pol\xEDtico de la capital prohibi\xF3 terminantemente
+        \\\"que\\nlos voceadores pregonaran las noticias m\xE1s calumniantes o\\nsensacionales\\\".\\n\\nAs\xED,
+        exist\xEDan diversas opciones para comprar un peri\xF3dico y mantenerse\\ninformado:
+        pagar una suscripci\xF3n, comprar el ejemplar en la imprenta o\\nen alg\xFAn
+        local comercial o salir a la calle al encuentro de los\\nvoceadores que gritaban
+        sin empacho las noticias m\xE1s escandalosas. En\\ncualquier caso, vender
+        y adquirir un ejemplar implicaba establecer o\\nreforzar v\xEDnculos y relaciones
+        sociales que enriquec\xEDan la vida pol\xEDtica\\ny la opini\xF3n p\xFAblica.\\n\\n-
+        [![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdib3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIj48cGF0aCBkPSJNMTIgMkM2LjUgMiAyIDYuNSAyIDEyYzAgNSAzLjcgOS4xIDguNCA5Ljl2LTdINy45VjEyaDIuNVY5LjhjMC0yLjUgMS41LTMuOSAzLjgtMy45IDEuMSAwIDIuMi4yIDIuMi4ydjIuNWgtMS4zYy0xLjIgMC0xLjYuOC0xLjYgMS42VjEyaDIuOGwtLjQgMi45aC0yLjN2N0MxOC4zIDIxLjEgMjIgMTcgMjIgMTJjMC01LjUtNC41LTEwLTEwLTEweiIgLz48L3N2Zz4=)[Facebook]{.wp-block-social-link-label\\n
+        \ .screen-reader-text}](https://www.facebook.com/AtarrayaHPySI){.wp-block-social-link-anchor}\\n-
+        [![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdib3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIj48cGF0aCBkPSJNMTIsNC42MjJjMi40MDMsMCwyLjY4OCwwLjAwOSwzLjYzNywwLjA1MmMwLjg3NywwLjA0LDEuMzU0LDAuMTg3LDEuNjcxLDAuMzFjMC40MiwwLjE2MywwLjcyLDAuMzU4LDEuMDM1LDAuNjczIGMwLjMxNSwwLjMxNSwwLjUxLDAuNjE1LDAuNjczLDEuMDM1YzAuMTIzLDAuMzE3LDAuMjcsMC43OTQsMC4zMSwxLjY3MWMwLjA0MywwLjk0OSwwLjA1MiwxLjIzNCwwLjA1MiwzLjYzNyBzLTAuMDA5LDIuNjg4LTAuMDUyLDMuNjM3Yy0wLjA0LDAuODc3LTAuMTg3LDEuMzU0LTAuMzEsMS42NzFjLTAuMTYzLDAuNDItMC4zNTgsMC43Mi0wLjY3MywxLjAzNSBjLTAuMzE1LDAuMzE1LTAuNjE1LDAuNTEtMS4wMzUsMC42NzNjLTAuMzE3LDAuMTIzLTAuNzk0LDAuMjctMS42NzEsMC4zMWMtMC45NDksMC4wNDMtMS4yMzMsMC4wNTItMy42MzcsMC4wNTIgcy0yLjY4OC0wLjAwOS0zLjYzNy0wLjA1MmMtMC44NzctMC4wNC0xLjM1NC0wLjE4Ny0xLjY3MS0wLjMxYy0wLjQyLTAuMTYzLTAuNzItMC4zNTgtMS4wMzUtMC42NzMgYy0wLjMxNS0wLjMxNS0wLjUxLTAuNjE1LTAuNjczLTEuMDM1Yy0wLjEyMy0wLjMxNy0wLjI3LTAuNzk0LTAuMzEtMS42NzFDNC42MzEsMTQuNjg4LDQuNjIyLDE0LjQwMyw0LjYyMiwxMiBzMC4wMDktMi42ODgsMC4wNTItMy42MzdjMC4wNC0wLjg3NywwLjE4Ny0xLjM1NCwwLjMxLTEuNjcxYzAuMTYzLTAuNDIsMC4zNTgtMC43MiwwLjY3My0xLjAzNSBjMC4zMTUtMC4zMTUsMC42MTUtMC41MSwxLjAzNS0wLjY3M2MwLjMxNy0wLjEyMywwLjc5NC0wLjI3LDEuNjcxLTAuMzFDOS4zMTIsNC42MzEsOS41OTcsNC42MjIsMTIsNC42MjIgTTEyLDMgQzkuNTU2LDMsOS4yNDksMy4wMSw4LjI4OSwzLjA1NEM3LjMzMSwzLjA5OCw2LjY3NywzLjI1LDYuMTA1LDMuNDcyQzUuNTEzLDMuNzAyLDUuMDExLDQuMDEsNC41MTEsNC41MTEgYy0wLjUsMC41LTAuODA4LDEuMDAyLTEuMDM4LDEuNTk0QzMuMjUsNi42NzcsMy4wOTgsNy4zMzEsMy4wNTQsOC4yODlDMy4wMSw5LjI0OSwzLDkuNTU2LDMsMTJjMCwyLjQ0NCwwLjAxLDIuNzUxLDAuMDU0LDMuNzExIGMwLjA0NCwwLjk1OCwwLjE5NiwxLjYxMiwwLjQxOCwyLjE4NWMwLjIzLDAuNTkyLDAuNTM4LDEuMDk0LDEuMDM4LDEuNTk0YzAuNSwwLjUsMS4wMDIsMC44MDgsMS41OTQsMS4wMzggYzAuNTcyLDAuMjIyLDEuMjI3LDAuMzc1LDIuMTg1LDAuNDE4QzkuMjQ5LDIwLjk5LDkuNTU2LDIxLDEyLDIxczIuNzUxLTAuMDEsMy43MTEtMC4wNTRjMC45NTgtMC4wNDQsMS42MTItMC4xOTYsMi4xODUtMC40MTggYzAuNTkyLTAuMjMsMS4wOTQtMC41MzgsMS41OTQtMS4wMzhjMC41LTAuNSwwLjgwOC0xLjAwMiwxLjAzOC0xLjU5NGMwLjIyMi0wLjU3MiwwLjM3NS0xLjIyNywwLjQxOC0yLjE4NSBDMjAuOTksMTQuNzUxLDIxLDE0LjQ0NCwyMSwxMnMtMC4wMS0yLjc1MS0wLjA1NC0zLjcxMWMtMC4wNDQtMC45NTgtMC4xOTYtMS42MTItMC40MTgtMi4xODVjLTAuMjMtMC41OTItMC41MzgtMS4wOTQtMS4wMzgtMS41OTQgYy0wLjUtMC41LTEuMDAyLTAuODA4LTEuNTk0LTEuMDM4Yy0wLjU3Mi0wLjIyMi0xLjIyNy0wLjM3NS0yLjE4NS0wLjQxOEMxNC43NTEsMy4wMSwxNC40NDQsMywxMiwzTDEyLDN6IE0xMiw3LjM3OCBjLTIuNTUyLDAtNC42MjIsMi4wNjktNC42MjIsNC42MjJTOS40NDgsMTYuNjIyLDEyLDE2LjYyMnM0LjYyMi0yLjA2OSw0LjYyMi00LjYyMlMxNC41NTIsNy4zNzgsMTIsNy4zNzh6IE0xMiwxNSBjLTEuNjU3LDAtMy0xLjM0My0zLTNzMS4zNDMtMywzLTNzMywxLjM0MywzLDNTMTMuNjU3LDE1LDEyLDE1eiBNMTYuODA0LDYuMTE2Yy0wLjU5NiwwLTEuMDgsMC40ODQtMS4wOCwxLjA4IHMwLjQ4NCwxLjA4LDEuMDgsMS4wOGMwLjU5NiwwLDEuMDgtMC40ODQsMS4wOC0xLjA4UzE3LjQwMSw2LjExNiwxNi44MDQsNi4xMTZ6IiAvPjwvc3ZnPg==)[Instagram]{.wp-block-social-link-label\\n
+        \ .screen-reader-text}](https://instagram.com/blogatarraya.nuestrashistorias/){.wp-block-social-link-anchor}\\n-
+        [![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdib3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIj48cGF0aCBkPSJNMTMuOTgyIDEwLjYyMiAyMC41NCAzaC0xLjU1NGwtNS42OTMgNi42MThMOC43NDUgM0gzLjVsNi44NzYgMTAuMDA3TDMuNSAyMWgxLjU1NGw2LjAxMi02Ljk4OUwxNS44NjggMjFoNS4yNDVsLTcuMTMxLTEwLjM3OFptLTIuMTI4IDIuNDc0LS42OTctLjk5Ny01LjU0My03LjkzSDhsNC40NzQgNi40LjY5Ny45OTYgNS44MTUgOC4zMThoLTIuMzg3bC00Ljc0NS02Ljc4N1oiIC8+PC9zdmc+)[X]{.wp-block-social-link-label\\n
+        \ .screen-reader-text}](https://x.com/atarrayahpysi?s=20){.wp-block-social-link-anchor}\\n\",\"doi\":\"https://doi.org/10.59350/vpbp6-jyg94\",\"guid\":\"https://blogatarraya.com/?p=5125\",\"id\":\"4dc39665-b62d-4204-be40-2a5ed5b1b75f\",\"language\":\"es\",\"published_at\":1734369060,\"reference\":[],\"relationships\":[],\"rid\":\"20d97-nfb45\",\"status\":\"active\",\"summary\":\"La
+        compraventa de peri\xF3dicos pol\xEDticos en Aguascalientes en la segunda
+        mitad del siglo XIX\\n<strong>\\n por Francisco Javier Delgado Aguilar\\n</strong>\\n\xBFC\xF3mo
+        se vend\xEDan y compraban los peri\xF3dicos pol\xEDticos en Aguascalientes
+        durante la segunda mitad del siglo XIX?\",\"tags\":[\"Historia Pol\xEDtica\"],\"title\":\"\u201CEn
+        la alacena junto a la botica\u201D\",\"updated_at\":1735304884,\"url\":\"https://blogatarraya.com/2024/12/16/en-la-alacena-junto-a-la-botica\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}}],\"out_of\":23847,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"\"},\"search_cutoff\":false,\"search_time_ms\":17}"
+    headers:
+      Connection:
+      - keep-alive
+      accept-ranges:
+      - none
+      access-control-allow-origin:
+      - '*'
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: OK
 version: 1

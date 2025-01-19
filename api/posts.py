@@ -18,8 +18,6 @@ from urllib.parse import unquote
 from commonmeta import (
     Metadata,
     validate_doi,
-    normalize_id,
-    validate_url,
     validate_prefix,
 )
 from math import ceil
@@ -43,9 +41,10 @@ from api.utils import (
     write_html,
     validate_uuid,
     id_as_str,
+    get_single_work,
+    format_reference,
     EXCLUDED_TAGS,
 )
-from api.works import get_single_work
 from api.supabase_client import (
     supabase_admin_client as supabase_admin,
     supabase_client as supabase,
@@ -937,8 +936,9 @@ async def extract_json_feed_post(post, blog):
         content_html = post.get("content_html", "")
         content_text = get_markdown(content_html)
         summary = get_summary(content_html)
-        abstract = None        
+        abstract = None
         reference = await get_jsonfeed_references(post.get("_references", []))
+        print(reference)
         if len(reference) == 0:
             reference = await get_references(content_html)
         relationships = get_relationships(content_html)
@@ -1238,7 +1238,9 @@ async def update_rogue_scholar_post(post, blog):
         summary = get_summary(content_html)
         abstract = post.get("abstract", None)
         abstract = get_abstract(summary, abstract)
-        reference = await get_references(content_html)
+        reference = post.get("reference", [])
+        if len(reference) == 0:
+            reference = await get_references(content_html)
         relationships = get_relationships(content_html)
         title = get_title(post.get("title"))
         url = normalize_url(post.get("url"), secure=blog.get("secure", True))
@@ -1480,10 +1482,14 @@ def update_record(record, rid: str, community_id: str):
     try:
         subject = Metadata(record, via="json_feed_item")
         record = JSON.loads(subject.write(to="inveniordm"))
-        guid_dict = next(identifier for identifier in py_.get(record, "metadata.identifiers") if identifier["scheme"] == "guid")
+        guid_dict = next(
+            identifier
+            for identifier in py_.get(record, "metadata.identifiers")
+            if identifier["scheme"] == "guid"
+        )
         if guid_dict:
             guid = guid_dict["identifier"]
-    
+
         # remove publisher field, currently not used with InvenioRDM
         record = py_.omit(record, "metadata.publisher")
 
@@ -1711,34 +1717,6 @@ async def get_jsonfeed_references(references: list):
 
     formatted_references = py_.compact(await asyncio.gather(*tasks))
     return formatted_references
-
-
-async def format_reference(url, index):
-    """Format reference."""
-    if validate_url(normalize_id(url)) in ["DOI", "URL"]:
-        id_ = normalize_id(url)
-        work = await get_single_work(id_as_str(id_))
-        if work is not None:
-            identifier = py_.get(work, "id", None)
-            title = py_.get(work, "titles.0.title", None)
-            publication_year = py_.get(work, "date.published", None)
-        else:
-            identifier = id_
-            title = None
-            publication_year = None
-        return compact(
-            {
-                "key": f"ref{index + 1}",
-                "id": identifier,
-                "title": title,
-                "publicationYear": publication_year[:4] if publication_year else None,
-            }
-        )
-    else:
-        return {
-            "key": f"ref{index + 1}",
-            "id": url,
-        }
 
 
 def get_title(content_html: str):

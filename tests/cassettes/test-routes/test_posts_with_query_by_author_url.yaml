@@ -791,4 +791,796 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=0000-0003-1419-2405&query_by=authors.url&filter_by=status%3A%21%3D%5Bpending%5D+%26%26+published_at%3A%3E%3D+0+%26%26+published_at%3A%3C%3D+1737296666&sort_by=_text_match%3Adesc&per_page=10&page=1
+  response:
+    body:
+      string: "{\"facet_counts\":[],\"found\":692,\"hits\":[{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/persistent-identifiers-random-strings-and-checksums-2\",\"authors\":[{\"affiliation\":[{\"name\":\"Front
+        Matter\"}],\"name\":\"Martin Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"Continuing
+        the work on streamlining the DOI assignment for new blog\\nposts in the [Rogue
+        Scholar science blog\\narchive](https://rogue-scholar.org){rel=\\\"noreferrer\\\"},
+        I discovered and\\nfixed a major bug. Rogue Scholar DOIs strings are generated
+        from a\\nrandom number and include a checksum. It turns out that this checksum\\nwas
+        wrong, affecting all Rogue Scholar posts generated with the\\n[commonmeta
+        Go\\nlibrary](https://github.com/front-matter/commonmeta){rel=\\\"noreferrer\\\"}\\nbetween
+        May 2024 and today.\\n\\nWhen working as Technical Director at the DOI registration
+        agency\\n[DataCite](https://datacite.org){rel=\\\"noreferrer\\\"}, I was always
+        jealous\\nof persistent identifier systems that put more thought into the\\nstructure
+        of the identifier. DOIs are made up of a prefix that starts\\nwith 10.x (where
+        x can be four or five digits), followed by a suffix\\nthat can basically be
+        anything. For example this:\\n\\n    https://doi.org/10.1002/(SICI)1099-1409(199908/10)3:6/7<672::AID-JPP192>3.0.CO;2-8\\n\\nThis
+        DOI suffix is actually a\\n[SICI](https://en.wikipedia.org/wiki/Serial_Item_and_Contribution_Identifier){rel=\\\"noreferrer\\\"}\\n(Serial
+        Item and Contribution Identifier), adopted as a NISO standard in\\n1996 and
+        used for some early DOIs (and [withdrawn in\\n2012](https://www.niso.org/sites/default/files/stories/2017-09/SS_State_of_the_Standards_Jan_2013_isqv25no1.pdf){rel=\\\"noreferrer\\\"}).\\nThere
+        are three big problems with this DOI:\\n\\n- some characters don\\\\'t work
+        well in URLs, in particular `<` or `>`,\\n  and need to be escaped,\\n- the
+        identifier includes meaning (e.g. ISSN, publication date, and page\\n  numbers)
+        that might change over time and is better stored in DOI\\n  metadata,\\n-
+        the identifier is long and complicated, increasing the risk of\\n  transmission
+        errors.\\n\\nDOIs have been around for more than 20 years, so it is very\\nhard/impossible
+        to change how a DOI suffix should look like. But any\\norganization registering
+        DOIs can follow best practices, and in 2016 I\\nwrote about some of them in
+        a post I called [Cool\\nDOIs](https://doi.org/10.53731/r79x921-97aq74v-ag5a2){rel=\\\"noreferrer\\\"}:\\n\\n<figure
+        class=\\\"kg-card kg-bookmark-card\\\">\\n<a href=\\\"https://doi.org/10.53731/r79x921-97aq74v-ag5a2\\\"\\nclass=\\\"kg-bookmark-container\\\"></a>\\n<div
+        class=\\\"kg-bookmark-content\\\">\\n<div class=\\\"kg-bookmark-title\\\">\\nCool
+        DOIs\\n</div>\\n<div class=\\\"kg-bookmark-description\\\">\\nIn 1998 Tim
+        Berners-Lee coined the term cool URIs (1998), that is URIs\\nthat don\u2019t
+        change. We know that URLs referenced in the scholarly\\nliterature are often
+        not cool, leading to link rot (Klein et al., 2014)\\nand making it hard or
+        impossible to find the referenced resource. Cool\\n</div>\\n<div class=\\\"kg-bookmark-metadata\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/icon/front-matter-1.png\\\"\\nclass=\\\"kg-bookmark-icon\\\"
+        /><span class=\\\"kg-bookmark-author\\\">Front\\nMatter</span><span class=\\\"kg-bookmark-publisher\\\">Martin
+        Fenner</span>\\n</div>\\n</div>\\n<div class=\\\"kg-bookmark-thumbnail\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/thumbnail/cool-dois-1.svg\\\"\\nonerror=\\\"this.style.display
+        = &#39;none&#39;\\\" />\\n</div>\\n</figure>\\n\\nSome of the issues have
+        since been addressed, e.g. the use of **HTTPS**\\ninstead of **HTTP** and
+        **doi.org** instead of **dx.doi.org**. Not\\nincluding semantic info in the
+        DOI string is a constant struggle,\\ninstead of SICIs we now see attempts
+        to include the journal name,\\npublication date, or version number in the
+        identifier.\\n\\nUsing base32-encoding for DOI suffix generation starting
+        with a large\\nrandom number is something I came up with at the time. DOIs
+        are\\ncase-insensitive so that base64-encoding, e.g. used in [YouTube\\nidentifiers](https://www.youtube.com/watch?v=DnWocYKqvhw){rel=\\\"noreferrer\\\"},\\nwouldn\\\\'t
+        work.\\n[Base32](https://en.wikipedia.org/wiki/Base32){rel=\\\"noreferrer\\\"}
+        uses an\\nalphabet of 32 digits, which makes the identifier more compact than
+        a\\nnumerical identifier (10 digits if using the decimal system) such as an\\nORCID
+        ID. UUIDs such as **816c08de-750e-4d6d-a96f-f995dc1a366a** are an\\nalternative,
+        but at the time I found them too long (32 digits) to be\\npractical and because
+        DOIs use a prefix, a unique identifier based on a\\nrandom string only needs
+        to be unique within the DOIs of that\\norganization, making the task easier.\\n\\nThere
+        are several flavors of base32-encoding around, a popular one was\\ndeveloped
+        by [Douglas\\nCrockford](https://www.crockford.com/base32.html){rel=\\\"noreferrer\\\"}.
+        He\\nuses the alphabet (minus the letters A, I, O and U) and digits for the\\n32
+        keys and allows optional hyphens and checksums. One frequently used\\nchecksum
+        is **mod 97-10** or [ISO\\n7064](https://en.wikipedia.org/wiki/ISO/IEC_7064){rel=\\\"noreferrer\\\"}.
+        I\\nwrote the\\n[base32-url](https://rubygems.org/gems/base32-url){rel=\\\"noreferrer\\\"}\\nRuby
+        gem to implement this in the Ruby programming language, and it is\\nused in
+        DataCite service infrastructure whenever a random DOI string is\\nneeded.
+        The InvenioRDM project wrote a [Python\\nimplementation](https://pypi.org/project/base32-lib/){rel=\\\"noreferrer\\\"},\\nused
+        to generate DOI suffixes for the repository software.\\n\\nWhen the Rogue
+        Scholar science blog archive started registering DOIs for\\nblog posts, it
+        used the same Python library and in the same\\nconfiguration (10 digits with
+        a hyphen after five digits, and a\\ntwo-digit mod 97-10 checksum at the end).
+        In [May 2024 I switched to\\nusing the commonmeta\\nGo](https://doi.org/10.53731/43qt9-x6p52){rel=\\\"noreferrer\\\"}
+        library I\\nwrote for Rogue Scholar DOI registration. For this, I implemented\\nCrockford
+        base32 encoding in Go. Unfortunately I made one mistake and\\nonly fully realized
+        it this week: the checksum was not generated\\nproperly. This means that checksum
+        checks for those DOIs are broken, but\\nof course they work as expected in
+        any other way. Today I [released a\\nfix for this\\nbug](https://doi.org/10.5281/zenodo.14671594){rel=\\\"noreferrer\\\"},
+        and all\\nRogue Scholar DOIs registered starting today have properly working\\nchecksums.\\n\\nAs
+        a bonus I implemented a new **decode** command in the commonmeta\\nlibrary
+        that can be used from the command line:\\n\\n    commonmeta decode https://doi.org/10.59350/kqy47-4zz67\\n\\nThis
+        command returns `678542152703`, the random number used to generate\\nthat
+        DOI suffix. The checksum is `67`, and if the checksum is wrong an\\nerror
+        message is returned, as is the case for DOIs registered with older\\nversions
+        of the commonmeta Go library:\\n\\n``` `\\ncommonmeta decode https://doi.org/10.54900/d3ck1-skq19\\n```\\n\\nThis
+        returns an error:\\n\\n``` `\\nwrong checksum 19 for identifier d3ck1-skq19\\n```\\n\\nCommonmeta
+        also understands DOIs from other organizations using\\nbase32-encoding, e.g.
+        repositories running the InvenioRDM software:\\n\\n    commonmeta decode https://doi.org/10.22002/fcw7t-a3s32\\n\\nThe
+        DataCite and Make Data Count blogs:\\n\\n    commonmeta decode https://doi.org/10.60804/1nhk-qd72\\n\\nThe
+        ROR organizational identifier also uses Crockford base32-encoding\\nand mod
+        97-10 checksums (I came up with the identifier format in late\\n2018 when
+        helping launch the initial ROR service):\\n\\n    commonmeta decode https://ror.org/00pd74e08\\n\\nThis
+        command returns `23501966`. ROR uses no hyphens and seven digits\\n(where
+        the first digit is always 0).\\n\\nORCID doesn\\\\'t use base32-encoding and
+        uses mod 11-2 checksums, and it\\nuses the [same identifier format as\\nISNI](https://support.orcid.org/hc/en-us/articles/360006897674-Structure-of-the-ORCID-Identifier){rel=\\\"noreferrer\\\"}\\n(International
+        Standard Name Identifier). The **decode** command checks\\nthe checksum and
+        also looks at the number range reserved for ORCID.\\n\\n``` `\\ncommonmeta
+        decode https://orcid.org/0000-0003-1419-240X\\n```\\n\\nThis made-up ORCID
+        ID (my ORCID ID with a different checksum) results in\\nthis:\\n\\n    wrong
+        checksum X for identifier 0000-0003-1419-240X\\n\\n## Conclusions\\n\\nBest
+        practices for the structure of persistent identifiers have evolved\\nover
+        the years, and in this blog post I have just scratched the surface\\nand looked
+        at some PIDs relevant to Rogue Scholar, namely DOI, ROR, and\\nORCID. They
+        all use (or can use) random strings and checksums and I\\nadded a command
+        to the commonmeta library and command-line tool to\\ndecode these random strings
+        and use checksums to verify identifiers. I\\nfixed a bug affecting checksums
+        in the commonmeta Go library and the\\nlibrary now works interchangeably with
+        the Python and Ruby\\nimplementations of the Crockford base32-encoding.\\n\\nGoing
+        forward this will allow Rogue Scholar to be more flexible with DOI\\nregistration.
+        Participating blogs can provide DOI strings in the\\nmetadata ([ideally using
+        the id/guid in the RSS/Atom/JSON\\nFeed](https://doi.org/10.53731/m9d5v-xmr74){rel=\\\"noreferrer\\\"})
+        and Rogue\\nScholar can check these strings for uniqueness, checksums, and
+        the\\ncorrect DOI prefix. The first blogs participating in Rogue Scholar have\\nstarted
+        to implement this approach, including of course this blog.\\nPlease [reach
+        out](mailto:info@front-matter.io){rel=\\\"noreferrer\\\"} if you\\nneed help
+        with this or have general questions or feedback regarding\\npersistent identifiers
+        and checksums.\\n\\n## References\\n\\nFenner, M. (2016, December 15). Cool
+        DOIs. *Front Matter*.\\n<https://doi.org/10.53731/r79x921-97aq74v-ag5a2>\\n\\nFenner,
+        M. (2024, May 13). Going for DOI registration. *Front Matter*.\\n<https://doi.org/10.53731/43qt9-x6p52>\\n\\nMartin
+        Fenner. (2025). *front-matter/commonmeta: V0.6.32* (Version\\nv0.6.32) \\\\[Computer
+        software\\\\]. Zenodo.\\n[https://doi.org/10.5281/zenodo.14671594](https://doi.org/10.5281/zenodo.14671594){rel=\\\"noreferrer\\\"}\\n\\nFenner,
+        M. (2025, January 13). Including DOIs in RSS Feeds:\\nImplementation. *Front
+        Matter*. <https://doi.org/10.53731/m9d5v-xmr74>\\n\",\"doi\":\"https://doi.org/10.53731/6kfyy-nq280\",\"guid\":\"https://doi.org/10.53731/6kfyy-nq280\",\"id\":\"f7d68f42-1e4b-4b78-bda5-19925421586e\",\"image\":\"https://blog.front-matter.io/content/images/2025/01/numbers.jpeg\",\"language\":\"en\",\"published_at\":1737067311,\"reference\":[{\"id\":\"https://doi.org/10.53731/r79x921-97aq74v-ag5a2\",\"key\":\"ref1\",\"publicationYear\":\"2016\",\"title\":\"Cool
+        DOIs\"},{\"id\":\"https://doi.org/10.53731/43qt9-x6p52\",\"key\":\"ref2\",\"publicationYear\":\"2024\",\"title\":\"Going
+        for DOI registration\"},{\"id\":\"https://doi.org/10.5281/zenodo.14671594\",\"key\":\"ref3\",\"publicationYear\":\"2025\",\"title\":\"front-matter/commonmeta:
+        v0.6.32\"},{\"id\":\"https://doi.org/10.53731/m9d5v-xmr74\",\"key\":\"ref4\",\"publicationYear\":\"2025\",\"title\":\"Including
+        DOIs in RSS Feeds: Implementation\"}],\"relationships\":[],\"rid\":\"qk9tc-pm031\",\"status\":\"active\",\"summary\":\"Continuing
+        the work on streamlining the DOI assignment for new blog posts in the Rogue
+        Scholar science blog archive, I discovered and fixed a major bug. Rogue Scholar
+        DOIs strings are generated from a random number and include a checksum. It
+        turns out that this checksum was wrong, affecting all Rogue Scholar posts
+        generated with the commonmeta Go library between May 2024 and today.\",\"tags\":[\"Rogue
+        Scholar\"],\"title\":\"Persistent identifiers, random strings, and checksums\",\"updated_at\":1737120154,\"url\":\"https://blog.front-matter.io/posts/persistent-identifiers-random-strings-and-checksums-2\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/including-dois-in-rss-feeds-implementation-2\",\"authors\":[{\"affiliation\":[{\"name\":\"Front
+        Matter\"}],\"name\":\"Martin Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"Last
+        week I wrote about the options we have for [including DOIs in RSS\\nfeeds](https://doi.org/10.53731/6cf2w-r3a86){rel=\\\"noreferrer\\\"}.
+        This\\nweek is implementation time. Starting today, the [Atom feed of this\\nblog](https://blog.front-matter.io/atom/){rel=\\\"noreferrer\\\"}
+        includes the\\nDOI in the Atom`<id>` metadata field. This information is stored
+        as\\n`guid` identifier in the Rogue Scholar science blog archive:\\n\\n<figure
+        class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2025/01/Bildschirmfoto-2025-01-13-um-17.25.51.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2025/01/Bildschirmfoto-2025-01-13-um-17.25.51.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2025/01/Bildschirmfoto-2025-01-13-um-17.25.51.png
+        1000w, https://blog.front-matter.io/content/images/2025/01/Bildschirmfoto-2025-01-13-um-17.25.51.png
+        1145w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"1145\\\" height=\\\"701\\\"
+        />\\n</figure>\\n\\nRSS feeds have a corresponding field called `<guid>` and
+        JSON Feed also\\nuses `<id>`. Two other blogs participating in Rogue Scholar
+        also use the\\n`id`/`guid` and I have updated Rogue Scholar accordingly:\\n[Upstream](https://rogue-scholar.org/communities/upstream){rel=\\\"noreferrer\\\"}\\nand\\n[chem-bla-ics](https://rogue-scholar.org/communities/chem_bla_ics){rel=\\\"noreferrer\\\"}.\\n\\nThe
+        `id`/`guid` is used by feed readers, and also the Rogue Scholar API,\\nto
+        determine whether blog content is new or only has moved to a\\ndifferent location
+        -- to a different host or using a different schema to\\ngenerate the URL.
+        A good example of the latter is permalinks in\\nWordPress: <https://blog.dini.de/EPub_FIS/?p=3605>
+        and\\n<https://blog.dini.de/EPub_FIS/2025/01/06/barcelona-declaration> point\\nto
+        the same page. Deciding that a blog post is new based on the URL is\\ntherefore
+        tricky, and Rogue Scholar had switched to using the\\n`id`/`guid`provided
+        by all RSS feeds in [November\\n2023](https://doi.org/10.53731/fy5gh-g0w69){rel=\\\"noreferrer\\\"}.\\n\\nOne
+        challenge with the `id`/`guid` provided by static site generators\\nsuch as
+        Hugo, Jekyll or Quarto is that it is often the same as the URL\\nand therefore
+        may change over time. It is better to use a stable unique\\nstring such as
+        an `UUID` or use a DOI, and then store that string in the\\nblog post front
+        matter.\\n\\nWhen using the DOI as `id`/`guid` another potential issue may
+        come up\\nwith new posts: either the `id`/`guid` may point to a DOI string
+        that is\\nnot yet registered with the DOI system, or the `id`/`guid` changes
+        when\\nthe DOI is registered after publication, potentially confusing the
+        feed\\nreader. One solution would be to use [pending publication\\nDOIs](https://www.crossref.org/documentation/research-nexus/pending-publications/){rel=\\\"noreferrer\\\"},\\nbut
+        the extra effort involved is probably not worth it as Rogue Scholar\\nregisters
+        DOIs within minutes after blog post publication. As the\\n`id`/`guid` is used
+        as a globally unique identifier in RSS feeds and not\\nused to resolve links,
+        it should be fine to have a public`id`/`guid`\\nthat for a few minutes is
+        not yet registered as DOI. This simplifies the\\nworkflow of blogs using DOIs
+        as it no longer requires a second step of\\nblog updates after DOI registration.\\n\\nThere
+        are still details to sort out, but if you have a blog\\nparticipating in Rogue
+        Scholar, you can install the commonmeta\\n[Go](https://pkg.go.dev/github.com/front-matter/commonmeta){rel=\\\"noreferrer\\\"}\\nor
+        [Python](https://pypi.org/project/commonmeta-py/){rel=\\\"noreferrer\\\"}\\nlibrary
+        and generate a DOI string with the DOI prefix assigned to your\\nblog:\\n\\n
+        \   commonmeta encode 10.5555\\n\\nThis will return a string similar to\\n[`https://doi.org/10.5555/5raav-08t93`](https://doi.org/10.5555/5raav-08t93)\\nand
+        you can include this string in the RSS feed of your blog. When the\\nblog
+        post is published, Rogue Scholar will register the DOI with the\\nmetadata
+        for the post included in the feed.\\n\\nOne remainingabout is storing the
+        DOI in the blog backend, including the\\nDOI in the RSS feed, and showing
+        the DOI in the blog frontend. Watch\\nthis blog for updates on this in the
+        coming weeks and months, and/or\\n[reach out](mailto:info@rogue-scholar.org){rel=\\\"noreferrer\\\"}
+        about how\\nto implement this for your blog.\\n\\n### A Refresh of the Front
+        Matter Blog\\n\\nAs part of the work on the Atom feed for this blog, I updated
+        the look\\nand feel of the blog. This includes a few new tags/topics/subjects,\\nwhich
+        are also used in Rogue Scholar:\\n\\n<figure class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2025/01/Bildschirmfoto-2025-01-13-um-18.25.12.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2025/01/Bildschirmfoto-2025-01-13-um-18.25.12.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2025/01/Bildschirmfoto-2025-01-13-um-18.25.12.png
+        1000w, https://blog.front-matter.io/content/images/2025/01/Bildschirmfoto-2025-01-13-um-18.25.12.png
+        1255w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"1255\\\" height=\\\"575\\\"
+        />\\n</figure>\\n\\nSharing blog posts via clipboard or email using the DOI
+        has become\\neasier:\\n\\n<figure class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2025/01/Bildschirmfoto-2025-01-13-um-18.26.16.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2025/01/Bildschirmfoto-2025-01-13-um-18.26.16.png
+        600w, https://blog.front-matter.io/content/images/2025/01/Bildschirmfoto-2025-01-13-um-18.26.16.png
+        862w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"862\\\" height=\\\"382\\\"
+        />\\n</figure>\\n\\nThe left sidebar now includes an **Article Information**
+        box and a table\\nof contents:\\n\\n<figure class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2025/01/Bildschirmfoto-2025-01-13-um-18.27.06.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\" width=\\\"410\\\" height=\\\"335\\\" />\\n</figure>\\n\\nFinally,
+        there are now several options for how to display the feature\\nimage, including
+        this wide display:\\n\\n<figure class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2025/01/Bildschirmfoto-2025-01-13-um-18.30.23.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.front-matter.io/content/images/size/w600/2025/01/Bildschirmfoto-2025-01-13-um-18.30.23.png
+        600w, https://blog.front-matter.io/content/images/size/w1000/2025/01/Bildschirmfoto-2025-01-13-um-18.30.23.png
+        1000w, https://blog.front-matter.io/content/images/2025/01/Bildschirmfoto-2025-01-13-um-18.30.23.png
+        1288w\\\"\\nsizes=\\\"(min-width: 720px) 720px\\\" width=\\\"1288\\\" height=\\\"826\\\"
+        />\\n</figure>\\n\\nAs always, you can sign up to receive blog posts via newsletter
+        (free,\\nabout once per week), and/or to post comments. The link is in the\\nfooter:\\n\\n<figure
+        class=\\\"kg-card kg-image-card\\\">\\n<img\\nsrc=\\\"https://blog.front-matter.io/content/images/2025/01/Bildschirmfoto-2025-01-13-um-18.34.27.png\\\"\\nclass=\\\"kg-image\\\"
+        loading=\\\"lazy\\\" width=\\\"475\\\" height=\\\"273\\\" />\\n</figure>\\n\\n##
+        References\\n\\nFenner, M. (2025, January 6). How to include DOIs in RSS feeds.
+        *Front\\nMatter*. <https://doi.org/10.53731/6cf2w-r3a86>\\n\\nFenner, M. (2023,
+        November 22). Rogue Scholar updates: GUIDs and fields\\nof science. *Front
+        Matter*. <https://doi.org/10.53731/fy5gh-g0w69>\\n\",\"doi\":\"https://doi.org/10.53731/m9d5v-xmr74\",\"guid\":\"https://doi.org/10.53731/m9d5v-xmr74\",\"id\":\"7bb72a86-f6c5-463f-a89d-820c1cf2fb1a\",\"image\":\"https://blog.front-matter.io/content/images/2025/01/mfenner_bird_feeder_with_lots_of_snow_--ar_43_--profile_23c8l_c4fffaaf-623d-4a4e-8f18-b982124f6049_0-1.png\",\"language\":\"en\",\"published_at\":1736790070,\"reference\":[{\"id\":\"https://doi.org/10.53731/6cf2w-r3a86\",\"key\":\"ref1\",\"publicationYear\":\"2025\",\"title\":\"How
+        to include DOIs in RSS feeds\"},{\"id\":\"https://doi.org/10.53731/fy5gh-g0w69\",\"key\":\"ref2\",\"publicationYear\":\"2023\",\"title\":\"Rogue
+        Scholar updates: GUIDs and fields of science\"}],\"relationships\":[],\"rid\":\"km08e-m7x14\",\"status\":\"active\",\"summary\":\"Last
+        week I wrote about the options we have for including DOIs in RSS feeds. This
+        week is implementation time. Starting today, the Atom feed of this blog includes
+        the DOI in the Atom&lt;id&gt; metadata field.\",\"tags\":[\"Rogue Scholar\"],\"title\":\"Including
+        DOIs in RSS Feeds: Implementation\",\"updated_at\":1736790576,\"url\":\"https://blog.front-matter.io/posts/including-dois-in-rss-feeds-implementation-2\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/how-to-include-dois-in-rss-feeds\",\"authors\":[{\"affiliation\":[{\"name\":\"Front
+        Matter\"}],\"name\":\"Martin Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"The
+        [Rogue Scholar science blog\\narchive](https://rogue-scholar.org){rel=\\\"noreferrer\\\"}
+        depends on RSS\\nfeeds to automatically collect metadata and content.\\n[Atom](https://en.wikipedia.org/wiki/Atom_(web_standard)){rel=\\\"noreferrer\\\"},\\n[JSON
+        Feed](https://www.jsonfeed.org/){rel=\\\"noreferrer\\\"}, and JSON APIs\\n(e.g.
+        for the WordPress, Ghost, or Substack platforms) are closely\\nrelated to
+        RSS. The Rogue Scholar API understands these different\\nformats and regularly
+        (currently every 10 min) checks participating\\nblogs for new or updated content
+        and associated metadata.\\n\\nRogue Scholar registers DOIs for posts of participating
+        blogs using\\nthese metadata, unless the blog is doing its own DOI registration.
+        The\\nlatter makes sense if the blog is run by an organization that is a\\nCrossref
+        or DataCite member and this is currently the case for six blogs\\nparticipating
+        in Rogue Scholar. Unfortunately, the DOIs registered by\\nthese six blogs
+        are not included in their respective RSS/Atom feeds,\\nrequiring manual work
+        (copying/pasting the DOI into the Rogue Scholar\\ndatabase) for every new
+        blog post.\\n\\nThis is an issue when a blog publishes frequently or a new
+        blog with\\nhundreds of posts is added to Rogue Scholar. Also, the metadata
+        that\\nRogue Scholar shows come from the RSS feed and sometimes are slightly\\ndifferent
+        from the DOI metadata, depending on how the blog registers\\nthose DOI metadata.\\n\\nAnother
+        issue is that blogs participating in Rogue Scholar sometimes\\nwant to know
+        the DOI at publication time, e.g. when the blog posts are\\nanticipated to
+        be widely shared. My main goals regarding DOI\\nregistration when starting
+        Rogue Scholar in 2023 were twofold:\\n\\n- provide DOI registration for bloggers
+        who can\\\\'t afford Crossref or\\n  DataCite membership (at least \\\\$275
+        or \u20AC3000 a year respectively, plus\\n  a fee for each DOI),\\n- make
+        DOI registration quick and easy while still providing relevant\\n  metadata.
+        This goal was addressed by automating as much as possible,\\n  and building
+        workflows that reduced DOI registration to less than 30\\n  min after publication
+        of the blog post.\\n\\nWhile these goals have been achieved, the issues mentioned
+        above need to\\nbe addressed, and one crucial step is to include the DOI in
+        the RSS\\nfeed.\\n\\nRSS feeds have two metadata elements for each *item*
+        that are relevant\\nhere:\\n\\n### guid\\n\\nguid stands for globally unique
+        identifier. It\\\\'s a string that uniquely\\nidentifies the item. When present,
+        an aggregator may choose to use this\\nstring to determine if an item is new.
+        Called **id** in Atom and JSON\\nFeed.\\n\\n### link\\n\\nThe URL of the item.
+        Called **url** in JSON Feed.\\n\\nFor DOI registration a DOI and url are needed,
+        so that the DOI resolver\\nat https://doi.org can redirect DOI requests to
+        the registered url. DOIs\\nare globally unique identifiers so they can work
+        as **guid**/**id** in\\nyour blog feed. This is straightforward if you have
+        full control of how\\nyour feed is generated.\\n\\nUnfortunately, this is
+        often not the case and your blog may be hosted\\nelsewhere with only limited
+        options for customizing the feed of your\\ncontent. With blogs powered by
+        databases (e.g. WordPress or Ghost) that\\nincludes a place in the database
+        where you can store the DOI. A good\\noption is a field for a custom **canonical
+        url** which for example the\\nGhost platform provides. WordPress -- by far
+        the most popular blogging\\nplatform -- unfortunately has no built-in support
+        for storing DOIs or\\ncanonical DOIs and requires a plugin.\\n\\nThe Atom
+        feed format has several important advantages over RSS,\\nincluding the support
+        for author metadata (e.g. the ORCID ID) and\\nmultiple authors, but also support
+        for a post modification date. In the\\ncontext of DOI support, another feature
+        is important: support of\\nmultiple **links** via the **rel** attribute, e.g.
+        **rel**=\\\\\\\"alternate\\\\\\\"\\nfor the post url and\\n**rel**=\\\\\\\"[cite-as](https://webconcepts.info/specs/IETF/RFC/8574){rel=\\\"noreferrer\\\"}\\\\\\\"\\nfor
+        the post DOI. The JSON Feed spec has **url** and **external_url**,\\nand **external_url**
+        can be used to include the DOI (not equivalent to\\n**cite-as** but close
+        enough for practical purposes).\\n\\nIn the coming months, Rogue Scholar will
+        add support for these various\\nways to include DOIs in blog feeds. Please
+        [reach\\nout](mailto:info@rogue-scholar.org){rel=\\\"noreferrer\\\"} if you
+        are\\ninterested in (or have already added) this functionality. I will start\\nwork
+        on plugins for two popular blogging platforms that add this\\nfunctionality
+        (and more): WordPress and\\n[Hugo](https://gohugo.io/){rel=\\\"noreferrer\\\"}.
+        With these plugins, I also\\nwant to help bloggers who are not Crossref or
+        DataCite members by\\nenabling DOI registration (as [pending\\npublication](https://www.crossref.org/documentation/research-nexus/pending-publications/){rel=\\\"noreferrer\\\"})\\nfor
+        draft blog posts.\\n\",\"doi\":\"https://doi.org/10.53731/6cf2w-r3a86\",\"guid\":\"https://doi.org/10.53731/6cf2w-r3a86\",\"id\":\"1172271e-10f1-4ea5-b8b3-2933f8c5f501\",\"image\":\"https://images.unsplash.com/photo-1590238750866-f99d3febe496?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDE2fHxiaXJkJTIwZmVlZGVyfGVufDB8fHx8MTczNjE2MDk2N3ww&ixlib=rb-4.0.3&q=80&w=2000\",\"language\":\"en\",\"published_at\":1736169131,\"reference\":[],\"relationships\":[],\"rid\":\"sv0xb-9q379\",\"status\":\"active\",\"summary\":\"The
+        Rogue Scholar science blog archive depends on RSS feeds to automatically collect
+        metadata and content. Atom, JSON Feed, and JSON APIs (e.g. for the WordPress,
+        Ghost, or Substack platforms) are closely related to RSS. The Rogue Scholar
+        API understands these different formats and regularly (currently every 10
+        min) checks participating blogs for new or updated content and associated
+        metadata.\",\"tags\":[\"Feature\",\"Rogue Scholar\"],\"title\":\"How to include
+        DOIs in RSS feeds\",\"updated_at\":1736169577,\"url\":\"https://blog.front-matter.io/posts/how-to-include-dois-in-rss-feeds\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/joining-rogue-scholar-december-2024\",\"authors\":[{\"affiliation\":[{\"name\":\"Front
+        Matter\"}],\"name\":\"Martin Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"December
+        has seen good growth in the number of blogs participating in\\nthe Rogue Scholar
+        science blog archive, with 10 blogs joining in the\\nlast three weeks.\\n[Here](https://rogue-scholar.org/communities/search?q=&f=type%3Ablog&l=list&p=1&s=10&sort=newest){rel=\\\"noreferrer\\\"}\\nyou
+        can find all Rogue Scholar blogs, sorted by join date, and the\\nDecember
+        2024 additions are listed below.\\n\\nThe newly participating blogs cover
+        various subject areas, blogging\\nplatforms, and -- to some extent -- languages
+        (one blog is written in\\nFrench). And they reflect my personal history. Some
+        blogs I have been\\nreading for many years whereas others are fairly new,
+        or new to me. I\\nhave contributed to the\\n[DataCite](https://datacite.org/blog){rel=\\\"noreferrer\\\"}
+        and [Make Data\\nCount](https://makedatacount.org/read-our-blog/){rel=\\\"noreferrer\\\"}
+        blogs\\nmyself while working at DataCite. Blog posts like [Sick of Impact\\nFactors](https://doi.org/10.59350/xqrv5-7bv94)
+        by Stephen Curry from\\n2012 had a huge *impact* at the time and can now be
+        formally cited with\\na DOI.\\n\\nSome blogs fall into the category of blogs
+        at risk of disappearing in\\nwhat I described in the [Rogue Scholar 111 Pledge\\nDrive](https://doi.org/10.53731/31k6z-6a925){rel=\\\"noreferrer\\\"}
+        in\\nNovember: personal blogs that have existed for more than 10 years with\\nmore
+        than 100 posts. The\\n[Depth-First](https://depth-first.com){rel=\\\"noreferrer\\\"}
+        blog is a\\nspecial case as the author in 2024 sadly died from brain cancer.
+        I\\nworked with [Egon\\nWillighagen](https://chem-bla-ics.linkedchemistry.info/){rel=\\\"noreferrer\\\"}\\nto
+        archive the content of his blog, and you can learn more on [Egon\\\\'s\\nblog](https://doi.org/10.59350/myaw4-dtg76){rel=\\\"noreferrer\\\"}
+        or by\\nreading the [most recent Depth-First blog\\nposts](https://rogue-scholar.org/communities/rapodaca/records?q=&l=list&p=1&s=10&sort=newest){rel=\\\"noreferrer\\\"}.\\n\\nFor
+        the most part adding blogs to Rogue Scholar is a straightforward\\nsemi-automated
+        business that takes less than one hour. The main issue is\\nbroken RSS feeds
+        or feeds that don\\\\'t include the full-text content, as\\nI [wrote about
+        last\\nweek](https://doi.org/10.53731/pzvna-jcs28){rel=\\\"noreferrer\\\"}.
+        One issue\\nI encountered more than once in the December group is blogs that\\nregister
+        their own DOIs but don\\\\'t make them available in the RSS feed,\\nrequiring
+        lots of copy/pasting if the blog has been around for many\\nyears. Rogue Scholar
+        includes blogs that do their own DOI registration\\nas well as blogs where
+        Rogue Scholar does the DOI registration (the\\nmajority). More work is needed
+        in 2025 to standardize the automated\\nexchange of DOIs, which is also a major
+        issue for blogs retrieving the\\nDOIs registered by Rogue Scholar. Alex Holcombe
+        wrote a blog post [about\\nsome issues he had joining Rogue\\nScholar](https://doi.org/10.59350/xkwjs-dwx58){rel=\\\"noreferrer\\\"},
+        and\\nthere is work for me to address this going forward.\\n\\nBut for now,
+        enjoy the holidays. And maybe take the opportunity to read\\nsome of the newly
+        added content, lots of interesting posts that I hope\\nRogue Scholar makes
+        more visible and easier to find.\\n\\n## Blogs joining Rogue Scholar in December
+        2024\\n\\n### [The Connected Ideas Project](https://rogue-scholar.org/communities/connectedideas)\\n\\nExploring
+        the intersection of transformative technologies, humanity, and\\nthe future
+        of our world - and having some fun while we\\\\'re at it.  \\n*Other engineering
+        and technologies, English.*\\n<https://www.connectedideasproject.com/>\\n\\n###
+        [AVUER](https://rogue-scholar.org/communities/avuer){rel=\\\"noreferrer\\\"}\\n\\nAcademic
+        blog of Paquito Bernard (PhD).  \\n*Health sciences, French*  \\n<https://avuer.hypotheses.org/>\\n\\n###
+        [Make Data Count](https://rogue-scholar.org/communities/mdc)\\n\\n*Computer
+        and information sciences, English*  \\n<https://makedatacount.org/read-our-blog/>\\n\\n###
+        [r-dcm blog](https://rogue-scholar.org/communities/r_dcm)\\n\\n*Social science,
+        English*  \\n<https://r-dcm.org>\\n\\n### [Paired Ends](https://rogue-scholar.org/communities/stephenturner)\\n\\nBioinformatics,
+        computational biology, and data science updates from the\\nfield. Occasional
+        posts on programming.  \\n*Biological sciences, English*  \\n<https://blog.stephenturner.us/>\\n\\n###
+        [Depth-First](https://rogue-scholar.org/communities/rapodaca)\\n\\nRecent
+        content on Depth-First.  \\n*Chemical sciences, English.*  \\n<https://depth-first.com>\\n\\n###
+        [Reciprocal Space](https://rogue-scholar.org/communities/scurry)\\n\\nPart
+        of the Occam\\\\'s Typewriter network.  \\n*Natural sciences, English.*  \\n<https://occamstypewriter.org/scurry/>\\n\\n###
+        [DataCite Blog - DataCite](https://rogue-scholar.org/communities/datacite)
+        {#datacite-blogdatacite}\\n\\nConnecting Research, Advancing Knowledge.  \\n*Computer
+        and information sciences, English*  \\n<https://datacite.org/blog>\\n\\n###
+        [Alex Holcombe\\\\'s blog](https://rogue-scholar.org/communities/alexholcombe)\\n\\nOpen
+        science, open access, meta-science, perception, neuroscience,\\n\\\\...  \\n*Psychology,
+        English*  \\n<https://alexholcombe.wordpress.com/>\\n\\n### [Towards open
+        and FAIR hardware](https://rogue-scholar.org/communities/openmake)\\n\\nRecent
+        content on Towards open and FAIR hardware.  \\n*Engineering and technology,
+        English.*  \\n<https://www.openmake.de>\\n\\n## References\\n\\nCurry, S.
+        (2012, August 13). Sick of Impact Factors. *Reciprocal Space*.\\n<https://doi.org/10.59350/xqrv5-7bv94>\\n\\nFenner,
+        M. (2024, November 11). Announcing the Rogue Scholar 111 Pledge\\nDrive. *Front
+        Matter*. <https://doi.org/10.53731/31k6z-6a925>\\n\\nWillighagen, E. (2024,
+        December 8). Richard L. Apodaca. *Chem-Bla-Ics*.\\n<https://doi.org/10.59350/myaw4-dtg76>\\n\\nFenner,
+        M. (2024, December 9). Minimal requirements for a science blog.\\n*Front Matter*.
+        <https://doi.org/10.53731/pzvna-jcs28>\\n\\nHolcombe, A. O. (2024, December
+        17). Let your blog run free! *Alex\\nHolcombe's Blog*. <https://doi.org/10.59350/xkwjs-dwx58>\\n\",\"doi\":\"https://doi.org/10.53731/3c6pm-xbp04\",\"guid\":\"https://doi.org/10.53731/3c6pm-xbp04\",\"id\":\"b1a92a3e-136b-4281-8f0a-8bfdad656bf0\",\"image\":\"https://images.unsplash.com/photo-1701943523477-7b0b0342d9a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDYzfHxkZWNlbWJlcnxlbnwwfHx8fDE3MzQ1OTcxMDB8MA&ixlib=rb-4.0.3&q=80&w=2000\",\"language\":\"en\",\"published_at\":1734602750,\"reference\":[{\"id\":\"https://doi.org/10.59350/xqrv5-7bv94\",\"key\":\"ref1\"},{\"id\":\"https://doi.org/10.53731/31k6z-6a925\",\"key\":\"ref2\"},{\"id\":\"https://doi.org/10.59350/myaw4-dtg76\",\"key\":\"ref3\"},{\"id\":\"https://doi.org/10.53731/pzvna-jcs28\",\"key\":\"ref4\"},{\"id\":\"https://doi.org/10.59350/xkwjs-dwx58\",\"key\":\"ref5\"}],\"relationships\":[],\"rid\":\"ahx41-pxg71\",\"status\":\"active\",\"summary\":\"December
+        has seen good growth in the number of blogs participating in the Rogue Scholar
+        science blog archive, with 10 blogs joining in the last three weeks. Here
+        you can find all Rogue Scholar blogs, sorted by join date, and the December
+        2024 additions are listed below.\",\"tags\":[\"Rogue Scholar\"],\"title\":\"Blogs
+        joining Rogue Scholar in December 2024\",\"updated_at\":1736291166,\"url\":\"https://blog.front-matter.io/posts/joining-rogue-scholar-december-2024\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22096/20231101172748/https://blog.front-matter.io/posts/report-rogue-scholar-advisory-board-meeting-october-16-2024\",\"authors\":[{\"affiliation\":[{\"name\":\"Front
+        Matter\"}],\"name\":\"Martin Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"Front
+        Matter\",\"blog_slug\":\"front_matter\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"On
+        October 16, 2024, the Rogue Scholar Advisory Board met for the second\\ntime
+        since it [[started in January\\n202]{.underline}](https://doi.org/10.53731/9yf86-p8541)4.
+        Since January\\nRogue Scholar has achieved several major milestones.\\n\\nIn
+        May, DOI registration was [[switched to using a new commonmeta Go\\nlibrary]{.underline}](https://doi.org/10.53731/43qt9-x6p52).
+        This switch\\nallows faster and more flexible DOI registrations and updates\\n(supporting
+        both Crossref and DataCite), which now routinely happen\\nwithin minutes of
+        blog post publication.\\n\\nIn July Rogue Scholar [[dropped all registration
+        fees for\\nauthors]{.underline}](https://doi.org/10.53731/xkfsa-xkk56) (before
+        up\\nto 50 posts per year and personal blogs were free) and became a Diamond\\nOpen
+        Access platform. Running costs were kept low (about 3000 EUR per\\nyear) by
+        continuing to use open-source software, automation as much as\\npossible (e.g.
+        metadata and content extraction and DOI registration),\\nand community participation
+        \xAD\xAD\xAD. All participating blogs are run by\\ncommunity members, and
+        they write, edit, and publish all posts. Going\\nforward Rogue Scholar will
+        depend on donations and grant funding,\\nsimilar to other Diamond Open Access
+        infrastructures.\\n\\nRogue Scholar continued platform growth with 117 participating
+        blogs and\\n17,478 blog posts on October 9, 2024. Worth mentioning is an increase
+        in\\nblogs using the Quarto blogging platform and Spanish-language blogs in\\nrecent
+        months.\\n\\nRogue Scholar migrated to the InvenioRDM open-source repository
+        platform\\nstarting in June 2024 and completed the migration of\\n[[https://rogue-scholar.org]{.underline}](https://rogue-scholar.org)
+        in\\nNovember 2024. Rogue Scholar migrated many existing functionalities to\\nInvenioRDM,
+        including full-text search which is not part of the\\nInvenioRDM platform.
+        InvenioRDM also allowed Rogue Scholar to add new\\nfunctionalities, in particular
+        aggregation of blog posts around the same\\ntopic in\\n[[communities]{.underline}](https://doi.org/10.53731/dv8z6-a6s33).\\n\\nThe
+        Rogue Scholar Advisory Board discussed the opportunities and\\nchallenges
+        of running Diamond Open Access scholarly infrastructure. It\\nsees the Rogue
+        Scholar platform as mature enough in terms of features\\nand adoption by the
+        scholarly community to seek grant funding going\\nforward.\\n\\nOne area that
+        needs further work is the better two-way integration with\\nparticipating
+        blogs, in particular integration of the DOIs issued by\\nRogue Scholar into
+        the blog frontend and backend, but also help with\\nreference management.
+        As 2024 comes to a close, Rogue Scholar looks\\nforward to an exciting 2025.\\n\\n##
+        References\\n\\nFenner, M. (2024, February 8). Introducing the Rogue Scholar
+        Advisory\\nBoard. *Front Matter*.\\n[[https://doi.org/10.53731/9yf86-p8541]{.underline}](https://doi.org/10.53731/9yf86-p8541)\\n\\nFenner,
+        M. (2024, May 13). Going for DOI registration. *Front Matter*.\\n[[https://doi.org/10.53731/43qt9-x6p52]{.underline}](https://doi.org/10.53731/43qt9-x6p52)\\n\\nFenner,
+        M. (2024, July 15). Rogue Scholar reaches another milestone and\\ndrops all
+        registration fees. *Front Matter*.\\n[[https://doi.org/10.53731/xkfsa-xkk56]{.underline}](https://doi.org/10.53731/xkfsa-xkk56)\\n\\nFenner,
+        M. (2024, November 4). Rogue Scholar gets a facelift. *Front\\nMatter*.\\n[[https://doi.org/10.53731/jg09j-8ng60]{.underline}](https://doi.org/10.53731/jg09j-8ng60)\\n\\nFenner,
+        M. (2024, October 7). Rogue Scholar learns about communities.\\n*Front Matter*.\\n[[https://doi.org/10.53731/dv8z6-a6s33]{.underline}](https://doi.org/10.53731/dv8z6-a6s33)\\n\",\"doi\":\"https://doi.org/10.53731/mshsw-mjc18\",\"guid\":\"https://doi.org/10.53731/mshsw-mjc18\",\"id\":\"c72e83ec-0dba-4520-a458-65a3ef7d193c\",\"image\":\"https://images.unsplash.com/photo-1517279950682-22741c223a71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDQ0fHxwYXRoJTIwd2ludGVyfGVufDB8fHx8MTczNDM2NDI0MXww&ixlib=rb-4.0.3&q=80&w=2000\",\"language\":\"en\",\"published_at\":1734364672,\"reference\":[{\"id\":\"https://doi.org/10.53731/9yf86-p8541\",\"key\":\"ref1\",\"publicationYear\":\"2024\",\"title\":\"Introducing
+        the Rogue Scholar Advisory Board\"},{\"id\":\"https://doi.org/10.53731/43qt9-x6p52\",\"key\":\"ref2\",\"publicationYear\":\"2024\",\"title\":\"Going
+        for DOI registration\"},{\"id\":\"https://doi.org/10.53731/xkfsa-xkk56\",\"key\":\"ref3\",\"publicationYear\":\"2024\",\"title\":\"Rogue
+        Scholar reaches another milestone and drops all registration fees\"},{\"id\":\"https://doi.org/10.53731/jg09j-8ng60\",\"key\":\"ref4\",\"publicationYear\":\"2024\",\"title\":\"Rogue
+        Scholar gets a facelift\"},{\"id\":\"https://doi.org/10.53731/dv8z6-a6s33\",\"key\":\"ref5\",\"publicationYear\":\"2024\",\"title\":\"Rogue
+        Scholar learns about communities\"}],\"relationships\":[],\"rid\":\"1pd5s-0pw05\",\"status\":\"active\",\"summary\":\"On
+        October 16, 2024, the Rogue Scholar Advisory Board met for the second time
+        since it started in January 2024. Since January Rogue Scholar has achieved
+        several major milestones. In May, DOI registration was switched to using a
+        new commonmeta Go library. This switch allows faster and more flexible  DOI
+        registrations and updates (supporting both Crossref and DataCite), which now
+        routinely happen within minutes of blog post publication.\",\"tags\":[\"Rogue
+        Scholar\"],\"title\":\"Report Rogue Scholar Advisory Board Meeting October
+        16, 2024\",\"updated_at\":1736791515,\"url\":\"https://blog.front-matter.io/posts/report-rogue-scholar-advisory-board-meeting-october-16-2024\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/04wxnsj81\",\"name\":\"DataCite\"}],\"name\":\"Martin
+        Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"DataCite
+        Blog - DataCite\",\"blog_slug\":\"datacite\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"[Geoff
+        Bilder](https://twitter.com/gbilder){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} from CrossRef likes to show the following\\nslide at scholarly
+        conferences, and then asks the audience what they\\nsee: ![Paper\\n1](http://datacite.org/wp-content/uploads/2021/11/article-1.png){decoding=\\\"async\\\"}\\n\\nMost
+        of us probably immediately recognize this document as a scholarly\\narticle.
+        This immediate recognition includes essential parts of an\\narticle such as
+        the title -- or the reference list:\\n\\n<figure>\\n<img src=\\\"http://datacite.org/wp-content/uploads/2021/11/article2-1.png\\\"\\ndecoding=\\\"async\\\"
+        alt=\\\"Paper 2\\\" />\\n<figcaption aria-hidden=\\\"true\\\">Paper 2</figcaption>\\n</figure>\\n\\nThis
+        immediate recognition is a powerful concept, it makes it easy for\\nthe reader
+        to navigate a scholarly document, e.g.\_to quickly jump to the\\nabstract
+        or references.\\n\\nWe don't have the same immediate recognition for datasets.
+        Given that a\\nlarge number of datasets in DataCite are in CSV (comma separated
+        values)\\nformat, the closest we come to a immediately recognized document
+        is\\nprobably the spreadsheet:\\n\\n<figure>\\n<img\\nsrc=\\\"http://datacite.org/wp-content/uploads/2021/11/Spreadsheet_animation.gif\\\"\\ndecoding=\\\"async\\\"
+        alt=\\\"Container\\\" />\\n<figcaption aria-hidden=\\\"true\\\">Container</figcaption>\\n</figure>\\n\\n*From:
+        [Wikimedia\\nCommons](https://commons.wikimedia.org/wiki/File:Spreadsheet_animation.gif){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"}, licensed under [CC BY-SA\\n3.0](http://creativecommons.org/licenses/by-sa/3.0){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"}.*\\n\\nA canonical format for datasets goes beyond immediate
+        recognition of the\\nessential parts by the user, it would also greatly facilitate
+        reuse of\\ndata. As [Nick\\nStenning](https://twitter.com/nickstenning){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} from the Open Knowledge Foundation (OKFN)\\npointed out at
+        CSV.conf last year, the cost of shipping of goods is in\\nlarge part determined
+        by the cost of loading and unloading, and the\\ncontainer has dramatically
+        changed that equation. He argued that common\\nformats such as the OKFN [data\\npackage](https://frictionlessdata.io/specs/data-package/){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} could do the same for data reuse.\\n\\n<figure>\\n<img\\nsrc=\\\"http://datacite.org/wp-content/uploads/2021/11/break-bulk-sacks.png\\\"\\ndecoding=\\\"async\\\"
+        alt=\\\"Bulk parcels\\\" />\\n<figcaption aria-hidden=\\\"true\\\">Bulk parcels</figcaption>\\n</figure>\\n\\n*From:
+        [Wikimedia\\nCommons](https://commons.wikimedia.org/wiki/File:Hafenarbeiter_bei_der_Verladung_von_Sackgut_-_MS_Rothenstein_NDL,_Port_Sudan_1960.png){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"}, licensed under [CC BY-SA\\n3.0](http://creativecommons.org/licenses/by-sa/3.0){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"}.*\\n\\nUnfortunately there are at least three problems with
+        using spreadsheets\\nas canonical format for datasets:\\n\\n- not every dataset
+        can be represented as a CSV file, there are many\\n  specialized formats (including
+        of course Excel `.xlsx`)\\n- we can't include descriptive metadata (not even
+        authors or document\\n  title) in a CSV file\\n- many datasets actually include
+        a collecting of files: not only in CSV\\n  format, but also other data formats
+        and support files such as a\\n  README.\\n\\nThe approach taken by the OKFN
+        data package format -- and related\\nformats such as the [Research Object\\nBundle](https://researchobject.github.io/specifications/bundle/){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} -- is to put all data files (in CSV or other\\nformats) into
+        a folder, together with a standardized machine-readable\\nfile that includes
+        the metadata (e.g.\_title, authors, publication date\\nand license). This
+        folder can then compressed with `zip`, again yielding\\na single file (a very
+        common approach used for example for `epub` and\\n`docx`).\\n\\nThe concept
+        described here (a collection of documents in a larger\\ncontainer, and a listing
+        of all included documents) is of course at\\nleast as old as the scholarly
+        article: the **book** as a canonical\\nformat for collections (of texts),
+        and the **table of contents** to\\ndescribe what is in the book.\\n\\n<figure>\\n<img\\nsrc=\\\"http://datacite.org/wp-content/uploads/2021/11/Table_of_Contents_PANARCHIE_published_in_1860.jpg\\\"\\ndecoding=\\\"async\\\"
+        alt=\\\"Table of contents\\\" />\\n<figcaption aria-hidden=\\\"true\\\">Table
+        of contents</figcaption>\\n</figure>\\n\\n*From: [Wikimedia\\nCommons](https://commons.wikimedia.org/wiki/File:Table_of_Contents_PANARCHIE_published_in_1860.JPG){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"}, licensed under [CC BY-SA\\n3.0](http://creativecommons.org/licenses/by-sa/3.0){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"}.*\\n\\nThe approach described here would not only help package
+        datasets into a\\nmore reusable standard format, but the scholarly article
+        would also\\ngreatly benefit from migrating to a container format. We all
+        know that\\nthe concept of the scholarly article described at the beginning
+        of this\\nposts is falling apart -- an article is simply no longer a single
+        text\\ndocument. We have not only associated figures and tables, but also\\nassociated
+        files that can't be easily included into the article PDF, in\\nparticular
+        files that contain the data underlying the findings of the\\narticle, but
+        also other supplementary information.\\n\\nThere are currently three common
+        approaches referencing the underlying\\ndata in a scholarly article:\\n\\n-
+        inclusion in supporting information files without any specific linking\\n-
+        informal citation in the article text, most commonly in the materials\\n  and
+        methods section\\n- formal citation with inclusion in the reference list\\n\\nUntil
+        not too long ago I was a big proponent of including all data\\nassociated
+        with an article in the reference list, mainly to make it\\neasier to find
+        the data. But the reference list isn't the appropriate\\nplace for something
+        that is really part of the article -- or as\\ncolleague [Todd\\nVision](http://bio.unc.edu/people/faculty/vision/){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} puts it: the data generated for an article\\nare another **output**
+        rather than an **input**. Reference lists\\nsummarize all the inputs to an
+        article, whereas outputs belong into a\\n**table of contents**. A table of
+        contents isn't a standard feature of\\nscholarly articles yet, but to me is
+        a logical next step for the journal\\narticle format, together with using
+        the underlying concept of a\\ncontainer format described earlier in this post.
+        Extracting references\\nto datasets from a table of contents should be as
+        easy as extracting\\nthem from a reference list, in particular if we make
+        sure that this\\ntable of contents is openly available.\\n\\nJournal Article
+        Tag Suite\\n([JATS](http://jats.nlm.nih.gov/){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"}) is the standard machine-readable format for\\njournal articles
+        in the life sciences (and increasingly other sciences).\\nAt [JATS-CON](http://jats.nlm.nih.gov/jats-con/){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} in April this year I proposed (starting at\\nminute 210) to
+        extend JATS by providing it also as a container format:\\n\\n  \\nbrowser
+        does not support iframe  \\n\\nThe post [Reference Lists and Tables of\\nContent](https://datacite.org/blog/reference-lists-and-tables-of-content/)\\nappeared
+        first on [DataCite](https://datacite.org).\\n\",\"doi\":\"https://doi.org/10.5438/5aeg-weev\",\"guid\":\"http://datacite.org/reference-lists-and-tables-of-content/\",\"id\":\"858c8ae8-1ed2-4e3b-bf21-a4e141056c0c\",\"image\":\"http://datacite.org/wp-content/uploads/2021/11/article-1.png\",\"language\":\"en\",\"published_at\":1439596800,\"reference\":[],\"relationships\":[],\"rid\":\"3rfjm-7n270\",\"status\":\"active\",\"summary\":\"Geoff
+        Bilder from CrossRef likes to show the following slide at scholarly conferences,
+        and then asks the audience what they see:   Most of us probably immediately
+        recognize this document as a scholarly article.\",\"tags\":[\"Metadata\"],\"title\":\"Reference
+        Lists and Tables of Content\",\"updated_at\":1692629065,\"url\":\"https://datacite.org/blog/reference-lists-and-tables-of-content\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/04wxnsj81\",\"name\":\"DataCite\"}],\"name\":\"Martin
+        Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"DataCite
+        Blog - DataCite\",\"blog_slug\":\"datacite\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"In
+        the first post of this new blog a few weeks ago I talked about\\n[Data-Driven\\nDevelopment](https://doi.org/10.5438/dhsm-8219){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"}, and that service monitoring is an important\\naspect of this.
+        The main service DataCite is providing is registration\\nof digital object
+        identifiers (DOIs) for scholarly content, in\\nparticular research data.\\n\\nMonitoring
+        this service should include the following:\\n\\n1.  number of DOIs registered\\n2.
+        \ metadata associated with these DOIs\\n3.  are the DOIs working as expected,
+        e.g.\_are they resolving to the\\n    appropriate landing page\\n4.  are these
+        DOIs actually used, based on number of downloads,\\n    citations, etc. of
+        the resources they are describing\\n\\nWe can use the DataCite Search API
+        to address \\\\#1 and \\\\#2. The [DataCite\\nStatistics Portal](http://stats.datacite.org/)
+        uses the API and is an\\nexcellent starting point for \\\\#1, showing the
+        number of DOIs registered\\nbroken down by allocator and data center.\\n\\nTo
+        get more detailed information about \\\\#1, and to look into \\\\#2, we can\\nuse
+        the statistical programming language\\n[R](https://www.r-project.org/){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} and the\\n[rdatacite](https://github.com/ropensci/rdatacite){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} package by Scott Chamberlain from the\\n[rOpenSci](https://ropensci.org/){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} to talk to the DataCite API. I have started\\nto work on this
+        and have created the public repository\\n[metadata-reports](https://github.com/datacite/metadata-reports){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} on Github for this purpose. The first two\\nreports are\\n\\n-
+        [overview](https://github.com/datacite/metadata-reports/blob/master/overview/index.md){target=\\\"_blank\\\"\\n
+        \ rel=\\\"noopener noreferrer\\\"}: number of registered DOI names\\n- [orcid](https://github.com/datacite/metadata-reports/blob/master/orcid/index.md){target=\\\"_blank\\\"\\n
+        \ rel=\\\"noopener noreferrer\\\"}: DOI names with ORCIDs in the metadata\\n\\nIn
+        the overview report I look at the number of DOI names registered over\\ntime,
+        with some examples where these numbers are broken down by data\\ncenter and
+        resource type. Below are two examples for data packages from\\n**Dryad** and
+        software from **Zenodo**:\\n\\n<figure class=\\\"wp-block-image\\\">\\n<img\\nsrc=\\\"http://datacite.org/wp-content/uploads/2021/11/unnamed-chunk-10-1.png\\\"\\ndecoding=\\\"async\\\"
+        alt=\\\"Dryad data packages by month\\\" />\\n<figcaption aria-hidden=\\\"true\\\">Dryad
+        data packages by month</figcaption>\\n</figure>\\n\\n<figure class=\\\"wp-block-image\\\">\\n<img\\nsrc=\\\"http://datacite.org/wp-content/uploads/2021/11/unnamed-chunk-12-1.png\\\"\\ndecoding=\\\"async\\\"\\nalt=\\\"Zenodo
+        resources of type software created by month\\\" />\\n<figcaption aria-hidden=\\\"true\\\">Zenodo
+        resources of type software created\\nby month</figcaption>\\n</figure>\\n\\nIn
+        the orcid report I look at the number of DOI names that have at least\\none
+        Open Researcher and Contributor ID (ORCID) in the metadata.\\n\\n<figure class=\\\"wp-block-image\\\">\\n<img\\nsrc=\\\"http://datacite.org/wp-content/uploads/2021/11/unnamed-chunk-3-1.png\\\"\\ndecoding=\\\"async\\\"
+        alt=\\\"DataCite DOI names with ORCID IDs by month\\\" />\\n<figcaption aria-hidden=\\\"true\\\">DataCite
+        DOI names with ORCID IDs by\\nmonth</figcaption>\\n</figure>\\n\\nThe report
+        goes in more detail explaining the two peaks, basically two\\nsmall group
+        of researchers producing a large number of data sets (at\\nPangaea and Imperial
+        College, respectively), and including their ORCID\\nidentifiers will all of
+        them.\\n\\nRemoving these two groups of researchers shows a more organic pattern,\\nwith
+        about 500 DOIs with associated ORCIDs created every month.\\n\\n<figure class=\\\"wp-block-image\\\">\\n<img\\nsrc=\\\"http://datacite.org/wp-content/uploads/2021/11/unnamed-chunk-11-1.png\\\"\\ndecoding=\\\"async\\\"
+        alt=\\\"DOI names with ORCID IDs filtered\\\" />\\n<figcaption aria-hidden=\\\"true\\\">DOI
+        names with ORCID IDs\\nfiltered</figcaption>\\n</figure>\\n\\nR is a nice
+        reporting tool for these kinds of data, and the\\n[rdatacite](https://github.com/ropensci/rdatacite){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"},\\n[rmarkdown](http://rmarkdown.rstudio.com/){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} and\\n[knitr](http://yihui.name/knitr/){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} packages make the analysis and visualization\\na straightforward
+        process. Feel free to adapt the code in the Github\\nrepository to your specific
+        questions, or let me know what other reports\\nyou would like to see.\\n\\nThe
+        post [Digging into Metadata using\\nR](https://datacite.org/blog/digging-into-data-using-r/)
+        appeared first\\non [DataCite](https://datacite.org).\\n\",\"doi\":\"https://doi.org/10.5438/1hv8-2gc2\",\"guid\":\"http://datacite.org/digging-into-data-using-r/\",\"id\":\"3174a96e-baf0-40e8-af8f-9441a47eca51\",\"image\":\"http://datacite.org/wp-content/uploads/2021/11/unnamed-chunk-10-1.png\",\"language\":\"en\",\"published_at\":1440028800,\"reference\":[],\"relationships\":[],\"rid\":\"kxwbj-bcb97\",\"status\":\"active\",\"summary\":\"In
+        the first post of this new blog a few weeks ago I talked about Data-Driven
+        Development, and that service monitoring is an important aspect of this. The
+        main service DataCite is providing is registration of digital object identifiers
+        (DOIs) for scholarly content, in particular research data.\",\"tags\":[\"Metadata\",\"ORCID\"],\"title\":\"Digging
+        into Metadata using R\",\"updated_at\":1693833350,\"url\":\"https://datacite.org/blog/digging-into-data-using-r\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/04wxnsj81\",\"name\":\"DataCite\"}],\"name\":\"Martin
+        Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"DataCite
+        Blog - DataCite\",\"blog_slug\":\"datacite\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"[CSV](https://en.wikipedia.org/wiki/Comma-separated_values){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} (comma-separated values) is a popular file\\nformat for data.
+        It is popular because it is very simple: CSV is\\ntext-based and any application
+        that can open text files can read or\\nwrite CSV. This makes it a good fit
+        for [digital\\npreservation](http://www.digitalpreservation.gov/formats/fdd/fdd000323.shtml){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"}. We don't know how many of the datasets in\\nDataCite use
+        CSV because the `format` metadata attribute is not used\\nmuch ([this query](https://search.datacite.org/works?query=format%3Acsv)\\ngives
+        you some examples), but we know that the number is big.\\n\\nThe CSV format
+        has two important shortcomings: a) it is not clearly\\ndefined, and b) because
+        of its simplicity it is almost impossible to add\\nmetadata describing the
+        data in the CSV file. The closest thing we have\\nto a CSV standard definition
+        is [RFC\\n4180](https://tools.ietf.org/html/rfc4180){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"}, but that RFC clearly states that *It does\\nnot specify an
+        Internet standard of any kind*.\\n\\nIf for some reason you think that the
+        above sounds very similar to the\\nsituation with *markdown*, a simple format
+        for text documents that\\n[until recently](http://spec.commonmark.org/0.22/){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} was not clearly defined and that provides no\\neasy way to
+        add metadata (such as author, title or date), then you are\\nsmarter than
+        me, since I didn't see the connection until [Javier\\nRovegno](https://github.com/jrovegno){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} [commented on my personal blog last\\nweek](http://blog.martinfenner.org/2013/06/29/metadata-in-scholarly-markdown/#comment-2220461075){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"}. He\\n[proposes](http://jrovegno.github.io/csvy/){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} to use the *YAML frontmatter* spec for CSV\\nfiles, and I
+        think it is a brilliant idea.\\n\\n[YAML\\nfrontmatter](http://jekyllrb.com/docs/frontmatter/){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} is a popular way to add metadata to markdown\\nfiles. [YAML](http://yaml.org/){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} is a data serialization format that is very\\nhuman-readable
+        (in contrast to XML and to a lesser degree JSON).\\nFrontmatter simply means
+        to have the YAML section at the beginning of\\nthe document, e.g.\_the following,
+        taken from the [Pandoc\\ndocumentation](http://pandoc.org/README.html){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"}:\\n\\n``` wp-block-code\\n---\\ntitle:  'This is the title:
+        it contains a colon'\\nauthor:\\n- name: Author One\\n  affiliation: University
+        of Somewhere\\n- name: Author Two\\n  affiliation: University of Nowhere\\ntags:
+        [nothing, nothingness]\\nabstract: |\\n  This is the abstract.\\n\\n  It consists
+        of two paragraphs.\\n---\\n```\\n\\nBy adding a similar section to CSV files
+        we can add arbitrary metadata,\\nincluding longer text such as a file description.
+        In other words, all\\nthe metadata required to submit a CSV to a data repository
+        and obtain a\\nDOI. This makes data submission even simpler than using a zip
+        bundle [as\\ndiscussed in an earlier\\npost](https://doi.org/10.5438/5aeg-weev){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\" data-type=\\\"link\\\"\\ndata-id=\\\"https://doi.org/10.5438/5aeg-weev\\\"},
+        or using the [DataUp\\ntool](https://doi.org/10.12688/f1000research.3-6.v2){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"}, a Microsoft Excel add-in that is\\nunfortunately no longer
+        available.\\n\\nJavier has picked `.csvy` as file extension for this modified
+        file\\nformat (I like `.ycsv` a little bit better). I don't think we need
+        to\\ndefine what metadata can go into the YAML frontmatter, because there
+        a\\nnumber of different use cases. The only exception would be a\\nstandardized
+        way to describe the columns in the CSV file, e.g.:\\n\\n``` wp-block-code\\n---\\ncolumns:\\n
+        \ - title: Purchase Date\\n    type: date\\n  - title: Item\\n    type: string\\n
+        \ - title: Amount (\u20AC)\\n    type: float\\n---\\n```\\n\\nThe best alternative
+        to using CSV in combination with YAML is JSON, but\\nthat format is probably
+        less popular than CSV for the typical data\\nscientist (I like JSON for nested
+        data, which would be very painful in\\nCSV). Most people generate a separate
+        file for CSV metadata now, risking\\nthat the data and metadata are separated.\\n\\nMany
+        tools for reading CSV files -- including Microsoft Excel and the\\n`read.csv`
+        function in R -- can ignore an arbitrary number of lines at\\nthe beginning
+        of a CSV file, making the proposed format at least to some\\nextend backwards-compatible.
+        But I hope to soon see tools reading and\\nwriting YAML frontmatter in CSV
+        files, taking full advantage of the\\nformat. In my own work I produce a lot
+        of CSV files using R, and adding\\nmetadata to them will greatly enhance their
+        usability. Even better if we\\nstart to see YAML frontmatter support for CSV
+        in multiple languages,\\nincluding Python, Javascript, Ruby and Julia.\\n\\nThe
+        post [Using YAML Frontmatter with\\nCSV](https://datacite.org/blog/using-yaml-frontmatter-with-csv/)\\nappeared
+        first on [DataCite](https://datacite.org).\\n\",\"doi\":\"https://doi.org/10.5438/5hzj-5kds\",\"guid\":\"http://datacite.org/using-yaml-frontmatter-with-csv/\",\"id\":\"7c40d273-b58a-4f36-b598-6a9c21034aab\",\"language\":\"en\",\"published_at\":1441238400,\"reference\":[],\"relationships\":[],\"rid\":\"n1a41-twa12\",\"status\":\"active\",\"summary\":\"CSV
+        (comma-separated values) is a popular file format for data. It is popular
+        because it is very simple: CSV is text-based and any application that can
+        open text files can read or write CSV. This makes it a good fit for digital
+        preservation. We don\u2019t know how many of the datasets in DataCite use
+        CSV because the format metadata attribute is not used much (this query gives
+        you some examples), but we know that the number is big.\",\"tags\":[\"CSV\"],\"title\":\"Using
+        YAML Frontmatter with CSV\",\"updated_at\":1693831120,\"url\":\"https://datacite.org/blog/using-yaml-frontmatter-with-csv\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/04wxnsj81\",\"name\":\"DataCite\"}],\"name\":\"Martin
+        Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"DataCite
+        Blog - DataCite\",\"blog_slug\":\"datacite\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"This
+        week I start as the new DataCite Technical Director. While I get up\\nto speed
+        with existing DataCite services and infrastructure, and we\\nstart to launch
+        new services (e.g.\_this blog), this is also a good time\\nto communicate
+        the overall approach I am taking. I like to call it\\n**Data-Driven Development**,
+        or **DDD** as we all love acronyms.\\n\\n<figure class=\\\"wp-block-image\\\">\\n<img\\nsrc=\\\"http://datacite.org/wp-content/uploads/2021/11/Fel_048248-RE-2.jpg\\\"\\ndecoding=\\\"async\\\"\\nalt=\\\"Blick
+        auf Hannover [@https://doi.org/10.3932/ETHZ-A-000159123]\\\" />\\n<figcaption
+        aria-hidden=\\\"true\\\">Blick auf Hannover <span class=\\\"citation\\\"\\ndata-cites=\\\"https://doi.org/10.3932/ETHZ-A-000159123\\\">[@https://doi.org/10.3932/ETHZ-A-000159123]</span></figcaption>\\n</figure>\\n\\n##
+        Definition {#definition .wp-block-heading}\\n\\nData-Driven Development and
+        related terms are in use in several\\ncontexts, in particular\\n[economics](http://reports.weforum.org/data-driven-development/){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"}, and\\n[programming](https://en.wikipedia.org/wiki/Data-driven_programming){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"}. The term sounds similar to [test-driven\\ndevelopment](https://en.wikipedia.org/wiki/Test-driven_development){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} and [behavior-driven\\ndevelopment](https://en.wikipedia.org/wiki/Behavior-driven_development){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"}, two related software development processes.\\n[Business\\nintelligence](https://en.wikipedia.org/wiki/Business_intelligence){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} and [data\\nscience](https://en.wikipedia.org/wiki/Data_science){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} are of course closely related. My definition\\nis as follows:\\n\\n>
+        We develop and maintain our services based on data.\\n\\nThis shouldn't come
+        as a surprise as DataCite's mission is **Helping you\\nto find, access and
+        reuse data**. And my last job at the Open Access\\npublisher [PLOS](http://plos.org){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} was all about [collecting and presenting\\ndata](https://doi.org/10.1371/journal.pbio.1001687){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} about the reuse of scholarly articles\\n(citations, downloads,
+        social media mentions, etc.). But here I mean\\n**data** in a much broader
+        sense.\\n\\n## Product Development {#product-development .wp-block-heading}\\n\\nWhile
+        the overall strategic direction is determined by the Board\\ntogether with
+        the DataCite working groups and members, we can collect\\ndata that help with
+        decisions in product development, for example\\n\\n- service monitoring (see
+        below): how are our services used over time,\\n  are there any components
+        that are particularly popular, etc.\\n- [user feedback](https://www.uservoice.com/){target=\\\"_blank\\\"\\n
+        \ rel=\\\"noopener noreferrer\\\"}: ideas, feedback, [A/B\\n  testing](https://www.optimizely.com/ab-testing/){target=\\\"_blank\\\"\\n
+        \ rel=\\\"noopener noreferrer\\\"}\\n- [bug\\n  reports](https://github.com/blog/1866-the-new-github-issues){target=\\\"_blank\\\"\\n
+        \ rel=\\\"noopener noreferrer\\\"}\\n- [discussion boards](http://www.discourse.org/){target=\\\"_blank\\\"\\n
+        \ rel=\\\"noopener noreferrer\\\"} and [direct group\\n  messages](https://slack.com/is){target=\\\"_blank\\\"\\n
+        \ rel=\\\"noopener noreferrer\\\"}: related to the last two points, but more\\n
+        \ allowing a more open discussion\\n- community events\\n\\nCompared with
+        the next two sections, tools for data-driven product\\ndevelopment are less
+        commonplace (unless I missed them, in which case\\nplease provide feedback).\\n\\n##
+        Software Development {#software-development .wp-block-heading}\\n\\nThe data
+        generated during software development are increasingly made\\navailable through
+        automated tools. We can\\n\\n- get detailed information out of the [version
+        control\\n  system](https://github.com/datacite){target=\\\"_blank\\\"\\n
+        \ rel=\\\"noopener noreferrer\\\"}\\n- check for passing and failing tests
+        in [continuous integration\\n  servers](https://travis-ci.org/){target=\\\"_blank\\\"\\n
+        \ rel=\\\"noopener noreferrer\\\"}\\n- check [test coverage and overall code\\n
+        \ quality](https://codeclimate.com/){target=\\\"_blank\\\"\\n  rel=\\\"noopener
+        noreferrer\\\"}\\n- [check for consistent coding\\n  style](https://houndci.com/){target=\\\"_blank\\\"\\n
+        \ rel=\\\"noopener noreferrer\\\"}\\n\\n## Service Monitoring {#service-monitoring
+        .wp-block-heading}\\n\\nAny web-based service can and should be monitored
+        for\\n\\n- [crashes and other serious\\n  errors](https://bugsnag.com){target=\\\"_blank\\\"\\n
+        \ rel=\\\"noopener noreferrer\\\"}\\n- [server load](http://newrelic.com/){target=\\\"_blank\\\"\\n
+        \ rel=\\\"noopener noreferrer\\\"}, [server\\n  outages](https://www.pingdom.com/){target=\\\"_blank\\\"\\n
+        \ rel=\\\"noopener noreferrer\\\"} and [internal server\\n  problems](https://www.nagios.org/){target=\\\"_blank\\\"\\n
+        \ rel=\\\"noopener noreferrer\\\"}\\n- [server traffic](http://www.google.com/analytics/){target=\\\"_blank\\\"\\n
+        \ rel=\\\"noopener noreferrer\\\"}, including traffic to particular pages,\\n
+        \ percentage of mobile and non-English users, etc.\\n- specific monitoring
+        for the services you are offering, e.g.\_in the\\n  case of DataCite [number
+        of DOIs\\n  registered](http://stats.datacite.org/) (broken down by data center),\\n
+        \ number of DOIs with specific metadata (e.g.\_ORCID identifiers for\\n  creators
+        and funding information), and number of DOI resolutions\\n  (tricky because
+        there is no easy way to filter out bots)\\n- user-generated feedback (see
+        section product development)\\n\\n## Communication {#communication .wp-block-heading}\\n\\nWe
+        don't want to stop at collecting all these data, we also need a\\nstrategy
+        for providing them to the DataCite Board, DataCite working\\ngroups, DataCite
+        members and data centers, DataCite staff, and everyone\\nelse who cares about
+        these data. The default should be open, exceptions\\nare mostly data that
+        would raise privacy or security concerns, e.g.\_IP\\naddresses in usage stats.
+        Most of the services mentioned in this post\\nare open for everyone to look
+        at.\\n\\n## Synthesis {#synthesis .wp-block-heading}\\n\\nGood data-driven
+        development should not only collect lots of data and\\nmake them available,
+        but we also need to aggregate the information in\\nmeaningful ways. Service
+        monitoring is a good example where staff needs\\nto understand exactly what
+        is going on, but the typical DataCite user\\nonly cares about whether all
+        services are running as expected. A [status\\ndashboard](https://status.github.com/){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} would be a good solution here.\\n\\nThe data we are generating
+        also need to be put into the broader context.\\nWe need\\n\\n- the DataCite
+        Board to use them for strategic planning\\n- to provide these data to the
+        DataCite working groups to feed into\\n  their work (e.g.\_stats on what metadata
+        are submitted by data centers\\n  for the [Metadata Working\\n  Group](https://www.datacite.org/tags/metadata-working-group)\\n-
+        the DataCite staff to integrate them in their work (e.g.\_the\\n  Communications
+        Director utilizing the website usage stats)\\n- these data to adapt the software
+        development roadmap and service\\n  infrastructure\\n\\n## Implementation
+        {#implementation .wp-block-heading}\\n\\nOf course I am aware that this is
+        an ambitious agenda, in particular\\nsince DataCite is a small non-profit
+        that has limited staff and\\nfinancial resources. But I don't think that data-drive
+        development\\nshould be left to for-profit organizations and/or to organizations
+        of a\\ncertain size. There are several things DataCite can do:\\n\\n- implement
+        DDD practices over time, starting with one service and one\\n  aspect\\n-
+        use service providers wherever it makes sense ([there is a future\\n  where
+        you yourself are running less\\n  servers](http://thenewstack.io/new-stack-mitchell-hashimoto-containers-no-containers-one-question-2015/){target=\\\"_blank\\\"\\n
+        \ rel=\\\"noopener noreferrer\\\"}). This means anything that is not core
+        to\\n  the DataCite mission and where the service provider is better and/or\\n
+        \ cheaper than what you could do internally. This evaluation can of\\n  course
+        change over time\\n- collaborate with other scholarly non-profits on infrastructure,\\n
+        \ including DataCite members and data centers, and other persistent\\n  identifier
+        providers such as CrossRef and ORCID\\n\\n## References {#references .wp-block-heading}\\n\\nThe
+        post [Data-Driven\\nDevelopment](https://datacite.org/blog/data-driven-development/)\\nappeared
+        first on [DataCite](https://datacite.org).\\n\",\"doi\":\"https://doi.org/10.5438/dhsm-8219\",\"guid\":\"http://datacite.org/data-driven-development/\",\"id\":\"29b3ac14-4991-4cf1-a018-9f8ece314749\",\"image\":\"http://datacite.org/wp-content/uploads/2021/11/Fel_048248-RE-2.jpg\",\"language\":\"en\",\"published_at\":1438560000,\"reference\":[{\"key\":\"ref1\"},{\"key\":\"ref2\"}],\"relationships\":[],\"rid\":\"fd339-sfe44\",\"status\":\"active\",\"summary\":\"This
+        week I start as the new DataCite Technical Director. While I get up to speed
+        with existing DataCite services and infrastructure, and we start to launch
+        new services (e.g.\_this blog), this is also a good time to communicate the
+        overall approach I am taking. I like to call it\\n<strong>\\n Data-Driven
+        Development\\n</strong>\\n, or\\n<strong>\\n DDD\\n</strong>\\nas we all love
+        acronyms.\",\"tags\":[\"Infrastructure\"],\"title\":\"Data-Driven Development\",\"updated_at\":1693833256,\"url\":\"https://datacite.org/blog/data-driven-development\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}},{\"document\":{\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/04wxnsj81\",\"name\":\"DataCite\"}],\"name\":\"Martin
+        Fenner\",\"url\":\"https://orcid.org/0000-0003-1419-2405\"}],\"blog_name\":\"DataCite
+        Blog - DataCite\",\"blog_slug\":\"datacite\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"Three
+        years ago today Open Researcher & Contributor ID\\n([ORCID](http://orcid.org){target=\\\"_blank\\\"
+        rel=\\\"noopener noreferrer\\\"})\\nlaunched its service at the Outreach Meeting
+        in Berlin. One of many\\ntweets from the launch day:\\n\\n> Congrats to [[@orcid_org]{.citation\\n>
+        cites=\\\"orcid_org\\\"}](https://twitter.com/ORCID_Org){target=\\\"_blank\\\"\\n>
+        rel=\\\"noopener noreferrer\\\"} the ORCID registry is live\\n> ([http://t.co/2lxn0nLa](http://t.co/2lxn0nLa){target=\\\"_blank\\\"\\n>
+        rel=\\\"noopener noreferrer\\\"}) NPG is a proud launch partner (PR):\\n>
+        [http://t.co/9eiqe44x](http://t.co/9eiqe44x){target=\\\"_blank\\\"\\n> rel=\\\"noopener
+        noreferrer\\\"}\\n>\\n> --- Nature Publishing Gp ([@npgnews]{.citation cites=\\\"npgnews\\\"})\\n>
+        [October 16,\\n> 2012](https://twitter.com/npgnews/status/258256101676564480){target=\\\"_blank\\\"\\n>
+        rel=\\\"noopener noreferrer\\\"}\\n\\n  \\nExecutive Director Laure Haak was
+        written a nice [blog\\npost](http://orcid.org/blog/2015/10/15/celebrating-our-third-anniversary){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} summarizing the achievements in the past few\\nyears, going
+        from 0 to 1.7 million registered users, 400 members and a\\nstaff of 20. Congratulations!\\n\\nOn
+        October 17, a day after the ORCID launch, DataCite started to work\\nwith
+        ORCID in the European Commission-funded ORCID and DataCite\\nInteroperability
+        Network [ODIN](http://odin-project.eu/){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"}, a project that has laid the groundwork for\\nthe integration
+        of both the two services, and associated datasets.\\nDataCite is continuing
+        work with ORCID in the follow-up project\\n[THOR](http://project-thor.eu/){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} that started in June, and there will soon be\\nan exciting
+        announcement about a new integration of the two services.\\n\\nThis birthday
+        has a special meaning for me, as I was a member of the\\nORCID Board at the
+        time, and had helped organize the launch event in\\nBerlin, as well as the
+        kickoff meeting of the ODIN project, and a\\nwell-attended German-language
+        event on author identification in the same\\nvenue two days before the launch,
+        co-organized by\\n[DINI](https://dini.de/){target=\\\"_blank\\\" rel=\\\"noopener
+        noreferrer\\\"} and\\nthe Helmholtz Association. It is really amazing how
+        far we have come\\nsince then.\\n\\nThank you ORCID for all your great contributions!\\n\\nThe
+        post [Happy Birthday\\nORCID](https://datacite.org/blog/happy-birthday-orcid/)
+        appeared first\\non [DataCite](https://datacite.org).\\n\",\"doi\":\"https://doi.org/10.5438/c61q-z2k7\",\"guid\":\"http://datacite.org/happy-birthday-orcid/\",\"id\":\"65eedeb6-a39f-407c-b808-21f89777e235\",\"language\":\"en\",\"published_at\":1444953600,\"reference\":[],\"relationships\":[],\"rid\":\"n0ccq-0fx71\",\"status\":\"active\",\"summary\":\"Three
+        years ago today Open Researcher &amp; Contributor ID (ORCID) launched its
+        service at the Outreach Meeting in Berlin. One of many tweets from the launch
+        day:   Executive Director Laure Haak was written a nice blog post summarizing
+        the achievements in the past few years, going from 0 to 1.7 million registered
+        users, 400 members and a staff of 20. Congratulations!\",\"tags\":[\"ORCID\",\"THOR\"],\"title\":\"Happy
+        Birthday ORCID\",\"updated_at\":1694249939,\"url\":\"https://datacite.org/blog/happy-birthday-orcid\"},\"highlight\":{\"authors\":[{\"url\":{\"matched_tokens\":[\"0000\",\"0003\",\"1419\",\"2405\"],\"snippet\":\"https://orcid.org/<mark>0000</mark>-<mark>0003</mark>-<mark>1419</mark>-<mark>2405</mark>\"}}]},\"highlights\":[],\"text_match\":2314894167592927353,\"text_match_info\":{\"best_field_score\":\"4419510927360\",\"best_field_weight\":15,\"fields_matched\":1,\"score\":\"2314894167592927353\",\"tokens_matched\":4}}],\"out_of\":23847,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"0000-0003-1419-2405\"},\"search_cutoff\":false,\"search_time_ms\":18}"
+    headers:
+      Connection:
+      - keep-alive
+      accept-ranges:
+      - none
+      access-control-allow-origin:
+      - '*'
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: OK
 version: 1
