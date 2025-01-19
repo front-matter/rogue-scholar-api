@@ -938,7 +938,6 @@ async def extract_json_feed_post(post, blog):
         summary = get_summary(content_html)
         abstract = None
         reference = await get_jsonfeed_references(post.get("_references", []))
-        print(reference)
         if len(reference) == 0:
             reference = await get_references(content_html)
         relationships = get_relationships(content_html)
