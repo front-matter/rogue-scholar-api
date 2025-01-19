@@ -1,9 +1,10 @@
 interactions:
 - request:
     body: '{"access": {"visibility": "public", "member_policy": "open", "record_policy":
-      "open"}, "slug": "metadatagamechangers", "metadata": {"title": "Blog - Metadata
-      Game Changers", "description": "Exploring metadata, communities, and new idea.",
-      "type": {"id": "blog"}, "website": "https://metadatagamechangers.com/blog"}}'
+      "open", "review_policy": "open"}, "slug": "metadatagamechangers", "metadata":
+      {"title": "Blog - Metadata Game Changers", "type": {"id": "blog"}, "website":
+      "https://metadatagamechangers.com/blog", "description": "Exploring metadata,
+      communities, and new idea."}, "custom_fields": {"rs:joined": "January 1, 1970"}}'
     headers:
       accept:
       - '*/*'
@@ -12,50 +13,52 @@ interactions:
       connection:
       - keep-alive
       content-length:
-      - '315'
+      - '391'
       content-type:
       - application/json
       host:
-      - beta.rogue-scholar.org
+      - rogue-scholar.org
       user-agent:
       - python-httpx/0.27.2
     method: PUT
-    uri: https://beta.rogue-scholar.org/api/communities/metadatagamechangers
+    uri: https://rogue-scholar.org/api/communities/metadatagamechangers
   response:
     content: '{"id": "e51c5dbe-74d6-43a1-968b-13809300b314", "created": "2024-10-10T17:20:36.354632+00:00",
-      "updated": "2024-10-10T17:39:45.216965+00:00", "links": {"featured": "https://beta.rogue-scholar.org/api/communities/e51c5dbe-74d6-43a1-968b-13809300b314/featured",
-      "self": "https://beta.rogue-scholar.org/api/communities/e51c5dbe-74d6-43a1-968b-13809300b314",
-      "self_html": "https://beta.rogue-scholar.org/communities/metadatagamechangers",
-      "settings_html": "https://beta.rogue-scholar.org/communities/metadatagamechangers/settings",
-      "logo": "https://beta.rogue-scholar.org/api/communities/e51c5dbe-74d6-43a1-968b-13809300b314/logo",
-      "rename": "https://beta.rogue-scholar.org/api/communities/e51c5dbe-74d6-43a1-968b-13809300b314/rename",
-      "members": "https://beta.rogue-scholar.org/api/communities/e51c5dbe-74d6-43a1-968b-13809300b314/members",
-      "public_members": "https://beta.rogue-scholar.org/api/communities/e51c5dbe-74d6-43a1-968b-13809300b314/members/public",
-      "invitations": "https://beta.rogue-scholar.org/api/communities/e51c5dbe-74d6-43a1-968b-13809300b314/invitations",
-      "requests": "https://beta.rogue-scholar.org/api/communities/e51c5dbe-74d6-43a1-968b-13809300b314/requests",
-      "records": "https://beta.rogue-scholar.org/api/communities/e51c5dbe-74d6-43a1-968b-13809300b314/records"},
-      "revision_id": 3, "slug": "metadatagamechangers", "metadata": {"title": "Blog
+      "updated": "2025-01-19T09:13:50.208784+00:00", "links": {"featured": "https://rogue-scholar.org/api/communities/e51c5dbe-74d6-43a1-968b-13809300b314/featured",
+      "self": "https://rogue-scholar.org/api/communities/e51c5dbe-74d6-43a1-968b-13809300b314",
+      "self_html": "https://rogue-scholar.org/communities/metadatagamechangers", "settings_html":
+      "https://rogue-scholar.org/communities/metadatagamechangers/settings", "logo":
+      "https://rogue-scholar.org/api/communities/e51c5dbe-74d6-43a1-968b-13809300b314/logo",
+      "rename": "https://rogue-scholar.org/api/communities/e51c5dbe-74d6-43a1-968b-13809300b314/rename",
+      "members": "https://rogue-scholar.org/api/communities/e51c5dbe-74d6-43a1-968b-13809300b314/members",
+      "public_members": "https://rogue-scholar.org/api/communities/e51c5dbe-74d6-43a1-968b-13809300b314/members/public",
+      "invitations": "https://rogue-scholar.org/api/communities/e51c5dbe-74d6-43a1-968b-13809300b314/invitations",
+      "requests": "https://rogue-scholar.org/api/communities/e51c5dbe-74d6-43a1-968b-13809300b314/requests",
+      "records": "https://rogue-scholar.org/api/communities/e51c5dbe-74d6-43a1-968b-13809300b314/records"},
+      "revision_id": 122, "slug": "metadatagamechangers", "metadata": {"title": "Blog
       - Metadata Game Changers", "description": "Exploring metadata, communities,
       and new idea.", "type": {"id": "blog", "title": {"de": "Blog", "en": "Blog",
       "sv": "Blogg"}}, "website": "https://metadatagamechangers.com/blog"}, "access":
       {"visibility": "public", "members_visibility": "public", "member_policy": "open",
-      "record_policy": "open", "review_policy": "closed"}, "custom_fields": {}, "deletion_status":
-      {"is_deleted": false, "status": "P"}, "children": {"allow": false}}'
+      "record_policy": "open", "review_policy": "open"}, "custom_fields": {"rs:joined":
+      "January 1, 1970"}, "is_verified": false, "deletion_status": {"is_deleted":
+      false, "status": "P"}, "children": {"allow": false}}'
     headers:
       connection:
       - close
       content-encoding:
       - br
       content-security-policy:
-      - 'default-src ''self'' data: ''unsafe-inline'' blob: fly.storage.tigris.dev'
+      - 'default-src ''self'' data: ''unsafe-inline'' blob: fly.storage.tigris.dev;
+        img-src *'
       content-type:
       - application/json
       date:
-      - Thu, 10 Oct 2024 17:39:45 GMT
+      - Sun, 19 Jan 2025 09:13:50 GMT
       etag:
-      - '"3"'
+      - '"122"'
       fly-request-id:
-      - 01J9VR7RAG14Y46CPB0W7SM8A9-arn
+      - 01JHYXDZWBFVNFYDRXDSG0KXVN-arn
       permissions-policy:
       - interest-cohort=()
       referrer-policy:
@@ -63,10 +66,10 @@ interactions:
       retry-after:
       - '59'
       server:
-      - Fly/a71b98465 (2024-10-09)
+      - Fly/a3e18ae92 (2025-01-16)
       set-cookie:
-      - csrftoken=eyJhbGciOiJIUzUxMiIsImlhdCI6MTcyODU4MTk4NSwiZXhwIjoxNzI4NjY4Mzg1fQ.IkZvaEE0c3RaT0RZekRkenVuNWNDZDc3MWRQVjlzbzQxIg.XpqE02V1kAo_WfwmxvPaB_zwpu6sWzLNPxFCDXB8SAgDydGrIWBq8m0F0VHpBVyiTf4ucmPz-L4kRs9722U0xA;
-        Expires=Thu, 17 Oct 2024 17:39:45 GMT; Max-Age=604800; Secure; Path=/; SameSite=Lax
+      - csrftoken=eyJhbGciOiJIUzUxMiIsImlhdCI6MTczNzI3ODAzMCwiZXhwIjoxNzM3MzY0NDMwfQ.InVTUkhqOXd3WDd4bHpxc0l3ZTg4R2lMYktkWmF1bTRMIg.3c5WD4IaKdMDzwaU34VWNKc7KabLqsfDD_1Uz-wrIqF_JiU5vzeYSPxyOB6wm_gLHGdA8XbHg5b_1UCmsKv_Qg;
+        Expires=Sun, 26 Jan 2025 09:13:50 GMT; Max-Age=604800; Secure; Path=/; SameSite=Lax
       strict-transport-security:
       - max-age=31556926; includeSubDomains
       transfer-encoding:
@@ -80,9 +83,9 @@ interactions:
       x-ratelimit-limit:
       - '900'
       x-ratelimit-remaining:
-      - '899'
+      - '897'
       x-ratelimit-reset:
-      - '1728582045'
+      - '1737278090'
       x-user-id:
       - '4'
       x-xss-protection:

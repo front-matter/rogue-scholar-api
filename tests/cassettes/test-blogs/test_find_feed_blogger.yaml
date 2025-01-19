@@ -149,9 +149,9 @@ interactions:
       \ (function() {\n    var ga = document.createElement('script'); ga.type = 'text/javascript';
       ga.async = true;\n    ga.src = ('https:' == document.location.protocol ? 'https://ssl'
       : 'http://www') + '.google-analytics.com/ga.js';\n    var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(ga, s);\n  })();\n\n</script>\n<link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=16081779&amp;zx=4ee8bb45-0688-4c86-b98c-902533b43c44'
+      s.parentNode.insertBefore(ga, s);\n  })();\n\n</script>\n<link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=16081779&amp;zx=0eca86cd-60d0-4cd7-b3e3-57d4efc14523'
       media='none' onload='if(media!=&#39;all&#39;)media=&#39;all&#39;' rel='stylesheet'/><noscript><link
-      href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=16081779&amp;zx=4ee8bb45-0688-4c86-b98c-902533b43c44'
+      href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=16081779&amp;zx=0eca86cd-60d0-4cd7-b3e3-57d4efc14523'
       rel='stylesheet'/></noscript>\n<meta name='google-adsense-platform-account'
       content='ca-host-pub-1556223355139109'/>\n<meta name='google-adsense-platform-domain'
       content='blogspot.com'/>\n\n<!-- data-ad-client=ca-pub-7354682617866492 -->\n\n<script
@@ -168,9 +168,11 @@ interactions:
       type=\"text/javascript\" src=\"https://apis.google.com/js/platform.js\"></script>\n<script
       type=\"text/javascript\">\n      gapi.load(\"gapi.iframes:gapi.iframes.style.bubble\",
       function() {\n        if (gapi.iframes && gapi.iframes.getContext) {\n          gapi.iframes.getContext().openChild({\n
-      \             url: 'https://www.blogger.com/navbar.g?targetBlogID\\x3d16081779\\x26blogName\\x3diPhylo\\x26publishMode\\x3dPUBLISH_MODE_BLOGSPOT\\x26navbarType\\x3dLIGHT\\x26layoutType\\x3dLAYOUTS\\x26searchRoot\\x3dhttps://iphylo.blogspot.com/search\\x26blogLocale\\x3den_GB\\x26v\\x3d2\\x26homepageUrl\\x3dhttps://iphylo.blogspot.com/\\x26vt\\x3d-2389450510782154216',\n
+      \             url: 'https://www.blogger.com/navbar/16081779?origin\\x3dhttps://iphylo.blogspot.com',\n
       \             where: document.getElementById(\"navbar-iframe-container\"),\n
-      \             id: \"navbar-iframe\"\n          });\n        }\n      });\n    </script><script
+      \             id: \"navbar-iframe\",\n              messageHandlersFilter: gapi.iframes.CROSS_ORIGIN_IFRAMES_FILTER,\n
+      \             messageHandlers: {\n                'blogger-ping': function()
+      {}\n              }\n          });\n        }\n      });\n    </script><script
       type=\"text/javascript\">\n(function() {\nvar script = document.createElement('script');\nscript.type
       = 'text/javascript';\nscript.src = '//pagead2.googlesyndication.com/pagead/js/google_top_exp.js';\nvar
       head = document.getElementsByTagName('head')[0];\nif (head) {\nhead.appendChild(script);\n}})();\n</script>\n</div></div>\n<div
@@ -224,11 +226,548 @@ interactions:
       class='column-center-inner'>\n<div class='main section' id='main'><div class='widget
       Blog' data-version='1' id='Blog1'>\n<div class='blog-posts hfeed'>\n\n          <div
       class=\"date-outer\">\n        \n<h2 class='date-header'><span>Tuesday, October
-      08, 2024</span></h2>\n\n          <div class=\"date-posts\">\n        \n<div
+      29, 2024</span></h2>\n\n          <div class=\"date-posts\">\n        \n<div
+      class='post-outer'>\n<div class='post hentry'>\n<a name='6611271714880105357'></a>\n<h3
+      class='post-title entry-title'>\n<a href='https://iphylo.blogspot.com/2024/10/internet-archive-as-single-point-of.html'>Internet
+      Archive as a single point of failure</a>\n</h3>\n<div class='post-header'>\n<div
+      class='post-header-line-1'></div>\n</div>\n<div class='post-body entry-content'
+      id='post-body-6611271714880105357'>\n<div style=\"padding:1em;border:1px solid
+      #DDD;border-radius:0.2em;\">How to cite: <strong>Page, R. (2024). Internet Archive
+      as a single point of failure <a href=\"https://doi.org/10.59350/1r3m1-c5e22\">https://doi.org/10.59350/1r3m1-c5e22</a></strong></div>\n<p>Just
+      a placeholder to mark the ongoing impact of the Internet Archive being attacked
+      (see <a href=\"https://blog.archive.org/2024/10/18/internet-archive-services-update-2024-10-17/\">here</a>,
+      <a href=\"https://blog.archive.org/2024/10/21/internet-archive-services-update-2024-10-21/\">here</a>
+      and <a href=\"https://blog.archive.org/2024/10/28/internet-archive-services-update/\">here</a>
+      for details).</p>\n<p>The impact of this on the <a href=\"https://www.biodiversitylibrary.org\">Biodiversity
+      Heritage Library (BHL)</a> has been huge, and reveals the extent to which BHL
+      depends on the Archive. The Archive is:</p>\n<ul>\n<li>BHL&#8217;s long-term
+      archival storage of book scans</li>\n<li>BHL&#8217;s processing pipeline for
+      converting images to text</li>\n<li>BHL&#8217;s store for additional metadata
+      (e.g., page numbers)</li>\n<li>BHL&#8217;s image server (i.e., all the images
+      of scanned books on the BHL website are served from the Archive)</li>\n</ul>\n<p>The
+      attack on the Archive has crippled BHL (parts are slowly coming back). I think
+      this is time for a fundamental rethink in how BHL manages its data, its processing
+      pipeline, and how it serves images.</p>\n<blockquote>\n<p>Written with <a href=\"https://stackedit.io/\">StackEdit</a>.</p>\n</blockquote>\n\n<div
+      style='clear: both;'></div>\n</div>\n<div class='post-footer'>\n<div class='post-footer-line
+      post-footer-line-1'><span class='post-author vcard'>\nPosted by\n<span class='fn'>\n<a
+      href='https://www.blogger.com/profile/00269598293846172649' rel='author' title='author
+      profile'>\nRoderic Page\n</a>\n</span>\n</span>\n<span class='post-timestamp'>\nat\n<a
+      class='timestamp-link' href='https://iphylo.blogspot.com/2024/10/internet-archive-as-single-point-of.html'
+      rel='bookmark' title='permanent link'><abbr class='published' title='2024-10-29T10:54:00Z'>10:54
+      am</abbr></a>\n</span>\n<span class='post-comment-link'>\n</span>\n<span class='post-icons'>\n<span
+      class='item-control blog-admin pid-386758820'>\n<a href='https://www.blogger.com/post-edit.g?blogID=16081779&postID=6611271714880105357&from=pencil'
+      title='Edit Post'>\n<img alt='' class='icon-action' height='18' src='https://resources.blogblog.com/img/icon18_edit_allbkg.gif'
+      width='18'/>\n</a>\n</span>\n</span>\n<div class='post-share-buttons goog-inline-block'>\n<a
+      class='goog-inline-block share-button sb-email' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=6611271714880105357&target=email'
+      target='_blank' title='Email This'><span class='share-button-link-text'>Email
+      This</span></a><a class='goog-inline-block share-button sb-blog' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=6611271714880105357&target=blog'
+      onclick='window.open(this.href, \"_blank\", \"height=270,width=475\"); return
+      false;' target='_blank' title='BlogThis!'><span class='share-button-link-text'>BlogThis!</span></a><a
+      class='goog-inline-block share-button sb-twitter' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=6611271714880105357&target=twitter'
+      target='_blank' title='Share to X'><span class='share-button-link-text'>Share
+      to X</span></a><a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=6611271714880105357&target=facebook'
+      onclick='window.open(this.href, \"_blank\", \"height=430,width=640\"); return
+      false;' target='_blank' title='Share to Facebook'><span class='share-button-link-text'>Share
+      to Facebook</span></a><a class='goog-inline-block share-button sb-pinterest'
+      href='https://www.blogger.com/share-post.g?blogID=16081779&postID=6611271714880105357&target=pinterest'
+      target='_blank' title='Share to Pinterest'><span class='share-button-link-text'>Share
+      to Pinterest</span></a>\n</div>\n</div>\n<div class='post-footer-line post-footer-line-2'><span
+      class='post-labels'>\n</span>\n</div>\n<div class='post-footer-line post-footer-line-3'><span
+      class='post-location'>\n</span>\n</div>\n</div>\n</div>\n</div>\n\n          </div></div>\n
+      \       \n\n          <div class=\"date-outer\">\n        \n<h2 class='date-header'><span>Friday,
+      October 18, 2024</span></h2>\n\n          <div class=\"date-posts\">\n        \n<div
+      class='post-outer'>\n<div class='post hentry'>\n<a name='2571875043654597956'></a>\n<h3
+      class='post-title entry-title'>\n<a href='https://iphylo.blogspot.com/2024/10/exploring-bolds-dna-barcode-data.html'>Exploring
+      BOLD's DNA barcode data releases: there's a fraction too much friction</a>\n</h3>\n<div
+      class='post-header'>\n<div class='post-header-line-1'></div>\n</div>\n<div class='post-body
+      entry-content' id='post-body-2571875043654597956'>\n<div style=\"padding:1em;border:1px
+      solid #DDD;border-radius:0.2em;\">How to cite: <strong>Page, R. (2024). Exploring
+      BOLD's DNA barcode data releases: there's a fraction too much friction <a href=\"https://doi.org/10.59350/6qepn-ge510\">https://doi.org/10.59350/6qepn-ge510</a></strong></div>\n<p>Recently
+      I&#8217;ve been exploring data downloaded from <a href=\"https://www.boldsystems.org/\">BOLD</a>.
+      Part of this was motivated by work done with David Schindel for a recent book:</p>\n<blockquote>\n<p>Schindel,
+      D.E., Page, R.M.P. (2024). Creating Virtuous Cycles for DNA Barcoding: A Case
+      Study in Science Innovation, Entrepreneurship, and Diplomacy. In: DeSalle, R.
+      (eds) DNA Barcoding. Methods in Molecular Biology, vol 2744. Humana, New York,
+      NY. <a href=\"https://doi.org/10.1007/978-1-0716-3581-0_1\">doi:10.1007/978-1-0716-3581-0_1</a></p>\n</blockquote>\n<p>In
+      this blog post I record some struggles I&#8217;ve had with the supposedly &#8220;<a
+      href=\"https://frictionlessdata.io\">Frictionless</a>&#8221; data provided by
+      BOLD. I list a serious of issues, and make some recommendations as to how these
+      can be fixed.</p>\n<h2 id=\"previous-versions-disappear-from-site\">Previous
+      versions disappear from site</h2>\n<p>The web page <a href=\"https://www.boldsystems.org/index.php/datapackages\">Data
+      Packages</a> lists datasets that can be downloaded.</p>\n<p>The two most recent
+      have the DOIs:</p>\n<ul>\n<li><a href=\"http://doi.org/10.5883/DP-Latest\">doi:10.5883/DP-Latest</a></li>\n<li><a
+      href=\"http://doi.org/10.5883/DP-Latest\">doi:10.5883/DP-SecondLatest</a></li>\n</ul>\n<p>While
+      this makes it easy to link to the latest version of the data, it inhibits reproducibility
+      because the data doi:10.5883/DP-Latest points to can change, and there is (currently)
+      no unique DOI for that particular dataset. Once a version becomes the third
+      oldest, then it seems to get a version-specific DOI.</p>\n<p>The list of &#8220;Historical
+      Data&#8221; releases is not exhaustive. Currently (2024-10-17) there are four
+      older versions listed:</p>\n<ul>\n<li><a href=\"http://doi.org/10.5883/DP-BOLD_Public.27-Sep-2024\">http://doi.org/10.5883/DP-BOLD_Public.27-Sep-2024</a></li>\n<li><a
+      href=\"http://doi.org/10.5883/DP-BOLD_Public.19-Jul-2024\">http://doi.org/10.5883/DP-BOLD_Public.19-Jul-2024</a></li>\n<li><a
+      href=\"http://doi.org/10.5883/DP-BOLD_Public.29-Mar-2024\">http://doi.org/10.5883/DP-BOLD_Public.29-Mar-2024</a></li>\n<li><a
+      href=\"http://doi.org/10.5883/DP-BOLD_Public.29-Dec-2023\">http://doi.org/10.5883/DP-BOLD_Public.29-Dec-2023</a></li>\n</ul>\n<p>However
+      I have downloaded older versions that are no longer listed on the Data Packages
+      web page. This makes it hard for anyone wanting to trace the history of changes
+      in BOLD data.</p>\n<h3 id=\"recommendation\">Recommendation</h3>\n<p>Have distinct
+      DOIs for latest version (i.e., in addition to &#8220;10.5883/DP-Latest&#8221;),
+      and keep list of all releases on the web site.</p>\n<p>Even better, switch to
+      using <a href=\"https://zenodo.org\">Zenodo</a> to store data, they provide
+      a nicer model of versioning, and can also provide download metrics.</p>\n<h2
+      id=\"where-are-the-images\">Where are the images?</h2>\n<p>A major surprise
+      is the lack of URLs for specimen images. The imagery in BOLD is very useful,
+      yet not included in the data export! The only way to get a list of image URLs
+      is to get the data from GBIF(!).</p>\n<h3 id=\"recommendation-1\">Recommendation</h3>\n<p>Include
+      images URLs in the data releases.</p>\n<h2 id=\"column-names-change-over-time-and-aren&#8217;t-standardised\">Column
+      names change over time and aren&#8217;t standardised</h2>\n<p>One major source
+      of frustration is that the labels used for the columns of data can change. This
+      is, pun intended, a major source of friction in supposedly &#8220;frictionless&#8221;
+      data. Code that successfully parses one dataset may fail with the new release.
+      One could argue that the code should rely solely on the information in the data
+      package, but there are some columns (e.g., geographic coordinates, the raw sequences)
+      that require special treatment, and the natural language descriptions of each
+      column are not machine-readable.</p>\n<p>Below is a table of column names from
+      a range of data packages from 2022-09-28 to 2024-09-06. Most column names are
+      stable, but sometimes new ones appear, and sometimes they vanish. Core data
+      elements, such as nucleotide sequences can change, e.g. <code>nuc</code> versus
+      <code>nucraw</code>.</p>\n\n<table>\n<tr><th> column name </th><th> 2022-09-28
+      </th><th> 2023-09-29 </th><th> 2023-10-27 </th><th> 2024-07-26 </th><th> 2024-08-02
+      </th><th> 2024-08-09 </th><th> 2024-09-06</th></tr>\n<tr><td> associated_specimen
+      </td><td>  </td><td> </td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td> </td><td> </td><td> </td></tr>\n<tr><td> associated_specimens </td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      associated_taxa </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      bin_created_date </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td> </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> bin_uri </td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> biome </td><td>
+      \ </td><td> </td><td> </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> bold_recordset_code_arr
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      class </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> collection_code
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      collection_date </td><td>  </td><td> </td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td> </td><td> </td><td> </td></tr>\n<tr><td> collection_date_accuracy
+      </td><td>  </td><td> </td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td> </td><td> </td><td> </td></tr>\n<tr><td> collection_date_end </td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      collection_date_start </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td> </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> collection_event_id
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      collection_note </td><td>  </td><td> </td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td> </td><td> </td><td> </td></tr>\n<tr><td> collection_notes </td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      collection_time </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      collectors </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> coord </td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> coord_accuracy
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> coord_source
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> country </td><td>
+      \ </td><td> </td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td> </td><td> </td><td> </td></tr>\n<tr><td> country/ocean </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td> </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> country_iso
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> depth </td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> depth_accuracy
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> ecoregion
+      </td><td>  </td><td> </td><td> </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> elev </td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> elev_accuracy
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> extrainfo
+      </td><td>  </td><td> </td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td> </td><td> </td><td> </td></tr>\n<tr><td> family </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      fieldid </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> funding_src
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> gb_acs </td><td>
+      \ </td><td> </td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td> </td><td> </td><td> </td></tr>\n<tr><td> genus </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      geoid </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      habitat </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> identification
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> identification_method
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> identification_rank
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> identified_by
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> identifier_email
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      insdc_acs </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      inst </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> kingdom </td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> life_stage
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> marker_code
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> museumid </td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> notes </td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> nuc </td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      nuc_basecount </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td> </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> nucraw </td><td>
+      \ </td><td> </td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td> </td><td> </td><td> </td></tr>\n<tr><td> order </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      phylum </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> primers_forward
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      primers_reverse </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td> </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> processid
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> processid_minted_date
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> province </td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> realm </td><td>
+      \ </td><td> </td><td> </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> record_id
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      recordset_code_arr </td><td>  </td><td> </td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td> </td><td> </td><td> </td></tr>\n<tr><td> region </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      reproduction </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      sampleid </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> sampling_protocol
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      sector </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> sequence_run_site
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> sequence_upload_date
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> sex </td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> short_note
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      site </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> site_code
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      sovereign_inst </td><td>  </td><td> </td><td> </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> species </td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> species_reference
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> specimen_linkout
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      specimenid </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> subfamily
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> subspecies
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td> taxid </td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      taxon_name </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td> </td><td> </td><td> </td><td> </td></tr>\n<tr><td> taxon_rank </td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td> </td><td> </td><td> </td><td> </td></tr>\n<tr><td> taxonomy_notes
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      tissue_type </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      tribe </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td>
+      </td><td style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n<tr><td>
+      voucher_type </td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td><td
+      style=\"background-color:rgb(192,192,192);\"></td><td style=\"background-color:rgb(192,192,192);\"></td></tr>\n</table>\n\n<h3
+      id=\"recomendation\">Recomendation</h3>\n<p>Avoid changing the names of data
+      columns between releases. Adopt standardised terms, such as <a href=\"https://dwc.tdwg.org\">Darwin
+      Core</a>, wherever possible. Tell us that these are Darwin Core by using the
+      <code>dwc:</code> prefix.</p>\n<h2 id=\"use-identifiers-for-people\">Use identifiers
+      for people</h2>\n<p>People appear in several places in the data, notably as
+      identifiers and collectors. The BOLD data uses simple text strings (i.e., names)
+      of people, rather than external identifiers such as ORCIDs. This means we miss
+      out on valuable information. For example, for a 2 million sequence subset of
+      the latest release I was curious as to who identified the most specimens. For
+      each of these names I then wanted to find out who they were. For example, are
+      they taxonomists? If so, what is their expertise? What taxonomic papers have
+      they published? Where are they based? If BOLD included ORCID ids it would be
+      easier to answer these questions. Instead, I resorted to Google and produced
+      the following table:</p>\n<p>Top 10 identifiers of BOLD specimens:</p>\n\n<table>\n<thead>\n<tr>\n<th>Name</th>\n<th>Affiliation</th>\n<th>ORCID</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Kate
+      Perez</td>\n<td>U of Guelph</td>\n<td><a href=\"https://orcid.org/0000-0001-5233-1539\">0000-0001-5233-1539</a></td>\n</tr>\n<tr>\n<td>Angela
+      Telfer</td>\n<td>U of Guelph</td>\n<td><a href=\"https://orcid.org/0000-0003-1846-6362\">0000-0003-1846-6362</a></td>\n</tr>\n<tr>\n<td>Daniel
+      H. Janzen</td>\n<td>U of Pennsylvania</td>\n<td><a href=\"https://orcid.org/0000-0002-7335-5107\">0000-0002-7335-5107</a></td>\n</tr>\n<tr>\n<td>Valerie
+      Levesque-Beaudin</td>\n<td>U of Guelph</td>\n<td><a href=\"https://orcid.org/0000-0002-6053-0949\">0000-0002-6053-0949</a></td>\n</tr>\n<tr>\n<td>Gergin
+      A. Blagoev</td>\n<td>U of Guelph</td>\n<td><a href=\"https://orcid.org/0000-0003-1844-0779\">0000-0003-1844-0779</a></td>\n</tr>\n<tr>\n<td>Renee
+      Miskie</td>\n<td>U of Guelph</td>\n<td>-</td>\n</tr>\n<tr>\n<td>BOLD ID Engine</td>\n<td>-</td>\n<td>-</td>\n</tr>\n<tr>\n<td>Brandon
+      MONG Guo jie</td>\n<td>Academia Sinica, Taipei</td>\n<td><a href=\"https://orcid.org/0000-0002-1673-8021\">0000-0002-1673-8021</a></td>\n</tr>\n<tr>\n<td>Paul
+      D.N. Hebert</td>\n<td>U of Guelph</td>\n<td><a href=\"https://orcid.org/0000-0002-3081-6700\">0000-0002-3081-6700</a></td>\n</tr>\n<tr>\n<td>Brian
+      Fisher</td>\n<td>California Academy of Sciences</td>\n<td><a href=\"https://orcid.org/0000-0002-4653-3270\">0000-0002-4653-3270</a></td>\n</tr>\n</tbody>\n</table><p>Note
+      that most of the top ten identifiers work at the University of Guelph, the home
+      of BOLD. This tells us something about the degree to which BOLD is dependent
+      on its own staff to identify specimens, versus the extent to which it has engaged
+      the wider community.</p>\n<p>The flip side of this is that these people are
+      curating an important database. Are they getting credit? Is this curation making
+      its way into <a href=\"https://bionomia.net\">Bionomia</a>, which has mechanisms
+      to give credit to this work.</p>\n<p>I have also briefly looked at collector
+      names, and it is - as one might expect - something of a mess. The same person&#8217;s
+      name is written different ways, text strings representing multiple people are
+      incorrectly split into individual names, etc. The description in the data package
+      is more wishful thinking than reality:</p>\n<blockquote>\n<p>Comma separated
+      list of full or abbreviated names of the individuals or teams responsible for
+      collecting the sample in the field.</p>\n</blockquote>\n<h3 id=\"recommendation-2\">Recommendation</h3>\n<p>Add
+      ORCID identifiers for people who have identified specimens.</p>\n<h2 id=\"method-of-identification-not-standardised\">Method
+      of identification not standardised</h2>\n<p>The value of BOLD as a tool for
+      identifying new sequences depends on the reliability of existing DNA barcodes.
+      How are these identified? The field <code>identification_method</code> is full
+      of a mix of terms. There are all the obvious traps people fall into when not
+      being careful with data. The same term may be spelt differently and/or is capitalised
+      differently. People add qualifiers to a term, such as the date of identification,
+      making it much harder to ask simple questions such as how many sequences have
+      been identified based on their morphology, versus  based on their sequences.</p>\n<p>So
+      far I&#8217;ve found 1889 different terms for identification method, here are
+      the top 20:</p>\n<ul>\n<li>BIN Taxonomy Match</li>\n<li>BOLD ID Engine Manual</li>\n<li>BOLD
+      Sequence Classifier</li>\n<li>Morphology</li>\n<li>morphology</li>\n<li>morphological</li>\n<li>BOLD
+      ID Engine (March 2015)</li>\n<li>Tree based Identification(April 2016)</li>\n<li>Morphological</li>\n<li>BIN
+      Taxonomy Match (Mar 2023)</li>\n<li>BIN Taxonomy Match (May 2019)</li>\n<li>Tree
+      based Identification (Feb 2017)</li>\n<li>BIN Taxonomy Match (May 2017)</li>\n<li>BIN
+      Taxonomy Match (Oct 2022)</li>\n<li>BIN Taxonomy Match (Aug 2023)</li>\n<li>BIN
+      Taxonomy Match (Mar 2017)</li>\n<li>BOLD ID Engine</li>\n<li>BIN Taxonomy Match
+      (Apr 2017)</li>\n<li>BIN Taxonomy Match (Jun 2019)</li>\n<li>Tree Based Identification
+      (April 2016)</li>\n</ul>\n<p>Note that we have &#8220;Morphology&#8221;, &#8220;morphology&#8221;,
+      &#8220;morphological&#8221;, and &#8220;Morphological&#8221;. How is &#8220;BOLD
+      ID Engine Manual&#8221; different from &#8220;BOLD ID Engine&#8221;? Note the
+      use of dates as qualifiers.</p>\n<h3 id=\"recommendation-3\">Recommendation</h3>\n<p>Enforce
+      a standardised vocabulary, add additional fields for date and notes on identification.</p>\n<h2
+      id=\"voucher-type-not-standardised\">Voucher type not standardised</h2>\n<p>The
+      description of the <code>voucher_type</code> reads:</p>\n<blockquote>\n<p>&#8220;Status
+      of the specimen in an accessioning process.This field uses a controlled vocabulary:
+      &#8216;Museum Vouchered:Type&#8217;, &#8216;Museum Vouchered:Type Series&#8217;,
+      &#8216;Vouchered:Registered Collection&#8217;, &#8216;To Be Vouchered:Holdup/Private&#8217;,
+      &#8216;E-Vouchered:DNA/Tissue+Photo&#8217;, &#8216;Dna/Tissue Vouchered Only&#8217;,
+      &#8216;No Specimen&#8217;.&#8221;</p>\n</blockquote>\n<p>This is patently false.
+      Instead of seven terms are at least 508 for this field. Here are the top 20
+      terms (* indicates a term from the controlled vocabulary):</p>\n<ul>\n<li>Vouchered:Registered
+      Collection*</li>\n<li>DNA/Tissue Vouchered Only*</li>\n<li>To Be Vouchered:Holdup/Private*</li>\n<li>museum
+      voucher</li>\n<li>E-Vouchered:DNA/Tissue+Photo*</li>\n<li>Voucher Type: Morphological</li>\n<li>No
+      Specimen*</li>\n<li>Museum voucher, whole specimen in ethanol</li>\n<li>Vouchered:Private
+      Collection</li>\n<li>Museum Vouchered:Type*</li>\n<li>Museum Vouchered:Type
+      Series*</li>\n<li>Museum voucher, Whole specimen in ethanol</li>\n<li>Museum
+      voucher, whole specimen</li>\n<li>Museum Vouchered</li>\n<li>Museum voucher,
+      e-voucher</li>\n<li>Museum voucher, Whole specimen</li>\n<li>Museum voucher,
+      E-vouchered with additional representatives stored in ethanol in parent lot</li>\n<li>vouchered:
+      not registered collection</li>\n<li>Museum voucher, E-vouchered with additional
+      representatives stored in ethanol</li>\n<li>in alcohol (ethanol, 96%)</li>\n</ul>\n<h3
+      id=\"recommendation-4\">Recommendation</h3>\n<p>Enforce the existing controlled
+      vocabulary.</p>\n<h2 id=\"institutions-lack-identifiers\">Institutions lack
+      identifiers</h2>\n<p>Institutions are listed by name. As with any string, there
+      is the potential for different spellings and formatting. Anyone interested in
+      getting metrics for institutional engagement with BOLD, and comparing that to,
+      say, sources of funding, would much rather have identifiers than strings.</p>\n<p>Here
+      are the top 20 institutions:</p>\n<ul>\n<li>Centre for Biodiversity Genomics</li>\n<li>University
+      of Pennsylvania</li>\n<li>Area de Conservacion Guanacaste</li>\n<li>Mined from
+      GenBank, NCBI</li>\n<li>Canadian National Collection of Insects, Arachnids and
+      Nematodes</li>\n<li>SNSB, Zoologische Staatssammlung Muenchen</li>\n<li>Australian
+      National Insect Collection</li>\n<li>University of Malaya, Museum of Zoology</li>\n<li>Instituto
+      Nacional de Biodiversidad, Costa Rica</li>\n<li>Royal Ontario Museum</li>\n<li>California
+      Academy of Sciences</li>\n<li>NEON Biorepository at Arizona State University</li>\n<li>Research
+      Collection of M. Alex Smith</li>\n<li>Smithsonian Tropical Research Institute</li>\n<li>University
+      of New Brunswick, Fredericton</li>\n<li>York University, Packer Collection</li>\n<li>Wellcome
+      Sanger Institute</li>\n<li>Smithsonian Institution, National Museum of Natural
+      History</li>\n<li>Natural History Museum, London</li>\n<li>University of Oulu,
+      Zoological Museum</li>\n</ul>\n<h3 id=\"recommendation-5\">Recommendation</h3>\n<p>Add
+      external identifiers for institutions such as <a href=\"https://ror.org\">RORs</a>.</p>\n<h2
+      id=\"summary\">Summary</h2>\n<p>Some of these issues raised here are easy to
+      fix, other will require a lot of curation. I suspect that part of the problem
+      is that there&#8217;s no evidence that BOLD itself makes use of these data dumps.
+      If you view data exports as somethign you are &#8220;supposed to&#8221; do,
+      rather than something that you yourself use, then there&#8217;s no incentive
+      to make sure the data is fit for purpose. <a href=\"https://en.wikipedia.org/wiki/Eating_your_own_dog_food\">Eating
+      your own dog food</a> is a great way to avoid these problems.</p>\n<blockquote>\n<p>Written
+      with <a href=\"https://stackedit.io/\">StackEdit</a>.</p>\n</blockquote>\n\n<div
+      style='clear: both;'></div>\n</div>\n<div class='post-footer'>\n<div class='post-footer-line
+      post-footer-line-1'><span class='post-author vcard'>\nPosted by\n<span class='fn'>\n<a
+      href='https://www.blogger.com/profile/00269598293846172649' rel='author' title='author
+      profile'>\nRoderic Page\n</a>\n</span>\n</span>\n<span class='post-timestamp'>\nat\n<a
+      class='timestamp-link' href='https://iphylo.blogspot.com/2024/10/exploring-bolds-dna-barcode-data.html'
+      rel='bookmark' title='permanent link'><abbr class='published' title='2024-10-18T12:51:00+01:00'>12:51
+      pm</abbr></a>\n</span>\n<span class='post-comment-link'>\n</span>\n<span class='post-icons'>\n<span
+      class='item-control blog-admin pid-386758820'>\n<a href='https://www.blogger.com/post-edit.g?blogID=16081779&postID=2571875043654597956&from=pencil'
+      title='Edit Post'>\n<img alt='' class='icon-action' height='18' src='https://resources.blogblog.com/img/icon18_edit_allbkg.gif'
+      width='18'/>\n</a>\n</span>\n</span>\n<div class='post-share-buttons goog-inline-block'>\n<a
+      class='goog-inline-block share-button sb-email' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=2571875043654597956&target=email'
+      target='_blank' title='Email This'><span class='share-button-link-text'>Email
+      This</span></a><a class='goog-inline-block share-button sb-blog' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=2571875043654597956&target=blog'
+      onclick='window.open(this.href, \"_blank\", \"height=270,width=475\"); return
+      false;' target='_blank' title='BlogThis!'><span class='share-button-link-text'>BlogThis!</span></a><a
+      class='goog-inline-block share-button sb-twitter' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=2571875043654597956&target=twitter'
+      target='_blank' title='Share to X'><span class='share-button-link-text'>Share
+      to X</span></a><a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=2571875043654597956&target=facebook'
+      onclick='window.open(this.href, \"_blank\", \"height=430,width=640\"); return
+      false;' target='_blank' title='Share to Facebook'><span class='share-button-link-text'>Share
+      to Facebook</span></a><a class='goog-inline-block share-button sb-pinterest'
+      href='https://www.blogger.com/share-post.g?blogID=16081779&postID=2571875043654597956&target=pinterest'
+      target='_blank' title='Share to Pinterest'><span class='share-button-link-text'>Share
+      to Pinterest</span></a>\n</div>\n</div>\n<div class='post-footer-line post-footer-line-2'><span
+      class='post-labels'>\n</span>\n</div>\n<div class='post-footer-line post-footer-line-3'><span
+      class='post-location'>\n</span>\n</div>\n</div>\n</div>\n</div>\n\n          </div></div>\n
+      \       \n\n          <div class=\"date-outer\">\n        \n<h2 class='date-header'><span>Tuesday,
+      October 08, 2024</span></h2>\n\n          <div class=\"date-posts\">\n        \n<div
       class='post-outer'>\n<div class='post hentry'>\n<a name='7542793921221421602'></a>\n<h3
       class='post-title entry-title'>\n<a href='https://iphylo.blogspot.com/2024/10/the-data-citation-corpus-revisited.html'>The
       Data Citation Corpus revisited</a>\n</h3>\n<div class='post-header'>\n<div class='post-header-line-1'></div>\n</div>\n<div
-      class='post-body entry-content' id='post-body-7542793921221421602'>\n<p>TL;DR</p>\n<blockquote>\n<p>The
+      class='post-body entry-content' id='post-body-7542793921221421602'>\n<div style=\"padding:1em;border:1px
+      solid #DDD;border-radius:0.2em;\">How to cite: <strong>Page, R. (2024). The
+      Data Citation Corpus revisited <a href=\"https://doi.org/10.59350/wvwva-v7125\">https://doi.org/10.59350/wvwva-v7125</a></strong></div>\n<p>TL;DR</p>\n<blockquote>\n<p>The
       Data Citation Corpus is still riddled with errors, and it is unclear to what
       extent it measures citation (resuse of data) versus publication (are most citations
       between the data and the original publication)?</p>\n</blockquote>\n<p>These
@@ -312,8 +851,8 @@ interactions:
       onclick='window.open(this.href, \"_blank\", \"height=270,width=475\"); return
       false;' target='_blank' title='BlogThis!'><span class='share-button-link-text'>BlogThis!</span></a><a
       class='goog-inline-block share-button sb-twitter' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=7542793921221421602&target=twitter'
-      target='_blank' title='Share to Twitter'><span class='share-button-link-text'>Share
-      to Twitter</span></a><a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=7542793921221421602&target=facebook'
+      target='_blank' title='Share to X'><span class='share-button-link-text'>Share
+      to X</span></a><a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=7542793921221421602&target=facebook'
       onclick='window.open(this.href, \"_blank\", \"height=430,width=640\"); return
       false;' target='_blank' title='Share to Facebook'><span class='share-button-link-text'>Share
       to Facebook</span></a><a class='goog-inline-block share-button sb-pinterest'
@@ -328,8 +867,10 @@ interactions:
       class='post-title entry-title'>\n<a href='https://iphylo.blogspot.com/2024/08/why-do-museuym-and-gallery-displays.html'>Why
       do museum and gallery displays ignore the web?</a>\n</h3>\n<div class='post-header'>\n<div
       class='post-header-line-1'></div>\n</div>\n<div class='post-body entry-content'
-      id='post-body-3473989744329234796'>\n<div class=\"separator\" style=\"clear:
-      both;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcQEc1wJ_Gq2zUJDN5sJ17yZ7jVUFxnY0_zhYefYobQbJyuWgcE3x8z92HSRARz8POClM6hJ7rYPzMoBQ5EeSdDmVBSfWVy8g_C9kDhZ1LeUlImIw8Jz0A89cHuFRk5CCxAtyR1CJYHEU-5f4lBlPi_XYhnitrd_ojGGn0cJ6GMFclVFXEwz4L/s500/ngv.png\"
+      id='post-body-3473989744329234796'>\n<div style=\"padding:1em;border:1px solid
+      #DDD;border-radius:0.2em;\">How to cite: <strong>Page, R. (2024). Why do museum
+      and gallery displays ignore the web? <a href=\"https://doi.org/10.59350/a83tn-c6t14\">https://doi.org/10.59350/a83tn-c6t14</a></strong></div>\n<div
+      class=\"separator\" style=\"clear: both;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcQEc1wJ_Gq2zUJDN5sJ17yZ7jVUFxnY0_zhYefYobQbJyuWgcE3x8z92HSRARz8POClM6hJ7rYPzMoBQ5EeSdDmVBSfWVy8g_C9kDhZ1LeUlImIw8Jz0A89cHuFRk5CCxAtyR1CJYHEU-5f4lBlPi_XYhnitrd_ojGGn0cJ6GMFclVFXEwz4L/s500/ngv.png\"
       style=\"display: block; padding: 1em 0; text-align: center; clear: right; float:
       right;\"><img alt=\"\" border=\"0\" data-original-height=\"337\" data-original-width=\"500\"
       src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcQEc1wJ_Gq2zUJDN5sJ17yZ7jVUFxnY0_zhYefYobQbJyuWgcE3x8z92HSRARz8POClM6hJ7rYPzMoBQ5EeSdDmVBSfWVy8g_C9kDhZ1LeUlImIw8Jz0A89cHuFRk5CCxAtyR1CJYHEU-5f4lBlPi_XYhnitrd_ojGGn0cJ6GMFclVFXEwz4L/s200/ngv.png\"
@@ -401,8 +942,8 @@ interactions:
       onclick='window.open(this.href, \"_blank\", \"height=270,width=475\"); return
       false;' target='_blank' title='BlogThis!'><span class='share-button-link-text'>BlogThis!</span></a><a
       class='goog-inline-block share-button sb-twitter' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=3473989744329234796&target=twitter'
-      target='_blank' title='Share to Twitter'><span class='share-button-link-text'>Share
-      to Twitter</span></a><a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=3473989744329234796&target=facebook'
+      target='_blank' title='Share to X'><span class='share-button-link-text'>Share
+      to X</span></a><a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=3473989744329234796&target=facebook'
       onclick='window.open(this.href, \"_blank\", \"height=430,width=640\"); return
       false;' target='_blank' title='Share to Facebook'><span class='share-button-link-text'>Share
       to Facebook</span></a><a class='goog-inline-block share-button sb-pinterest'
@@ -417,7 +958,10 @@ interactions:
       class='post-title entry-title'>\n<a href='https://iphylo.blogspot.com/2024/07/a-future-for-biodiversity-heritage.html'>A
       future for the Biodiversity Heritage Library</a>\n</h3>\n<div class='post-header'>\n<div
       class='post-header-line-1'></div>\n</div>\n<div class='post-body entry-content'
-      id='post-body-3247607667651377254'>\n<p>Following the <a href=\"https://blog.biodiversitylibrary.org/2024/06/2024-bhl-annual-meeting-securing-our-future-while-celebrating-our-past.html\">2024
+      id='post-body-3247607667651377254'>\n<div style=\"padding:1em;border:1px solid
+      #DDD;border-radius:0.2em;\">How to cite: <strong>Page, R. (2024). A future for
+      the Biodiversity Heritage Library <a href=\"https://doi.org/10.59350/n3dkt-6xd05\">https://doi.org/10.59350/n3dkt-6xd05</a></strong></div>\n<p>Following
+      the <a href=\"https://blog.biodiversitylibrary.org/2024/06/2024-bhl-annual-meeting-securing-our-future-while-celebrating-our-past.html\">2024
       BHL meeting</a>, and the <a href=\"https://blog.biodiversitylibrary.org/2024/06/farewell-from-bhl-program-director-martin-r-kalfatovic.html\">departure
       of Martin Kalfatovic</a> and the uncertainty the departure of such a pivitol
       person brings, perhaps it&#8217;s time to think about the future of BHL. Below
@@ -517,8 +1061,8 @@ interactions:
       onclick='window.open(this.href, \"_blank\", \"height=270,width=475\"); return
       false;' target='_blank' title='BlogThis!'><span class='share-button-link-text'>BlogThis!</span></a><a
       class='goog-inline-block share-button sb-twitter' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=3247607667651377254&target=twitter'
-      target='_blank' title='Share to Twitter'><span class='share-button-link-text'>Share
-      to Twitter</span></a><a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=3247607667651377254&target=facebook'
+      target='_blank' title='Share to X'><span class='share-button-link-text'>Share
+      to X</span></a><a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=3247607667651377254&target=facebook'
       onclick='window.open(this.href, \"_blank\", \"height=430,width=640\"); return
       false;' target='_blank' title='Share to Facebook'><span class='share-button-link-text'>Share
       to Facebook</span></a><a class='goog-inline-block share-button sb-pinterest'
@@ -533,8 +1077,10 @@ interactions:
       class='post-title entry-title'>\n<a href='https://iphylo.blogspot.com/2024/06/visualising-big-trees-talk-at.html'>Visualising
       big trees: a talk at the Systematics Association 2024</a>\n</h3>\n<div class='post-header'>\n<div
       class='post-header-line-1'></div>\n</div>\n<div class='post-body entry-content'
-      id='post-body-6924627449352415649'>\n<div class=\"separator\" style=\"clear:
-      both;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFCWQ3VQTgHkksEesFaQAXUz8C7cotaO9xTo2gl0-F-WcbxV9hd2C-qOWlA1jfCdNXo4mplw9vQ-ikKIvu655oZrmmfFOzCaPWToi1rurRw0VM80HwjWKRmrt1Y4fx1oWoDNrM74cv420EaplsGxVKGwBJrC5A5YxI4QUTbEkmfSel-LwcKWJ7/s1384/Screenshot%202024-06-19%20at%2011.22.38.png\"
+      id='post-body-6924627449352415649'>\n<div style=\"padding:1em;border:1px solid
+      #DDD;border-radius:0.2em;\">How to cite: <strong>Page, R. (2024). Visualising
+      big trees: a talk at the Systematics Association 2024 <a href=\"https://doi.org/10.59350/cf6n4-ch767\">https://doi.org/10.59350/cf6n4-ch767</a></strong></div>\n<div
+      class=\"separator\" style=\"clear: both;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFCWQ3VQTgHkksEesFaQAXUz8C7cotaO9xTo2gl0-F-WcbxV9hd2C-qOWlA1jfCdNXo4mplw9vQ-ikKIvu655oZrmmfFOzCaPWToi1rurRw0VM80HwjWKRmrt1Y4fx1oWoDNrM74cv420EaplsGxVKGwBJrC5A5YxI4QUTbEkmfSel-LwcKWJ7/s1384/Screenshot%202024-06-19%20at%2011.22.38.png\"
       style=\"display: block; padding: 1em 0; text-align: center; clear: right; float:
       right;\"><img alt=\"\" border=\"0\" data-original-height=\"1298\" data-original-width=\"1384\"
       src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFCWQ3VQTgHkksEesFaQAXUz8C7cotaO9xTo2gl0-F-WcbxV9hd2C-qOWlA1jfCdNXo4mplw9vQ-ikKIvu655oZrmmfFOzCaPWToi1rurRw0VM80HwjWKRmrt1Y4fx1oWoDNrM74cv420EaplsGxVKGwBJrC5A5YxI4QUTbEkmfSel-LwcKWJ7/s320/Screenshot%202024-06-19%20at%2011.22.38.png\"
@@ -551,17 +1097,17 @@ interactions:
       Uniprot</a></li>\n<li><a href=\"https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Tree&amp;id=92557&amp;lvl=3\">NCBI
       taxonomy</a></li>\n</ul>\n<h2 id=\"demos\">Demos</h2>\n<h3>Kew phylogeny</h3><div
       class=\"separator\" style=\"clear: both; text-align: center;\"><iframe allowfullscreen=\"allowfullscreen\"
-      class=\"b-hbp-video b-uploaded\" frameborder=\"0\" height=\"322\" id=\"BLOGGER-video-90ee1edb1f81080f-19738\"
-      mozallowfullscreen=\"mozallowfullscreen\" src=\"https://www.blogger.com/video.g?token=AD6v5dzpQLtgSQBfiJMrh6_XkYsxlOobf8SYJzq4Hc09btTPUIA68C0IgDI7ukeNQuB3STZSKoVbQlhaaIMQBtNUpa-eKutsaydD_otGc550ulPSkUn7mRy1nsrrqf6c8EOPKA\"
+      class=\"b-hbp-video b-uploaded\" frameborder=\"0\" height=\"322\" id=\"BLOGGER-video-90ee1edb1f81080f-19619\"
+      mozallowfullscreen=\"mozallowfullscreen\" src=\"https://www.blogger.com/video.g?token=AD6v5dw_dEI-qH5tYGNWCsVulsQH4AVgqIJhUS5gFeKQmyV8QmcnBPxCCAEc9KkGkwM02ThVdoQeQZ7I3QbFnjm0B925EkcjrYWR69SGqSl5ZL1LET-wy2oYcVghKjdHR0lNhg\"
       webkitallowfullscreen=\"webkitallowfullscreen\" width=\"400\"></iframe></div>\n<h3>NCBI</h3><div
       class=\"separator\" style=\"clear: both; text-align: center;\"><iframe allowfullscreen=\"allowfullscreen\"
-      class=\"b-hbp-video b-uploaded\" frameborder=\"0\" height=\"322\" id=\"BLOGGER-video-f6075212304d24aa-16208\"
-      mozallowfullscreen=\"mozallowfullscreen\" src=\"https://www.blogger.com/video.g?token=AD6v5dzKULAgnWPLaq4nEYwscYVLE5kq05ZabdNSZQFRLtCXaLsA80ckxnJPOUdTblTA0i_HgpB1P9NaEH4PIxbh6gs3bYyUCzi9xpTNppPyi6QdKPk8tqE4vJribQpU0w3Ufg\"
+      class=\"b-hbp-video b-uploaded\" frameborder=\"0\" height=\"322\" id=\"BLOGGER-video-f6075212304d24aa-10590\"
+      mozallowfullscreen=\"mozallowfullscreen\" src=\"https://www.blogger.com/video.g?token=AD6v5dzizhvEcGBsO0FoHK0WXdzKELEiDyyQTq9QMn9--5OIEYhsPXG4exMUnHanyR4Lspqw19ivKLVO18tsxOarbGhEoEAgyU_LHH3Gb6811Je8xPSR5hV0XgdvBZqhKwRCvg\"
       webkitallowfullscreen=\"webkitallowfullscreen\" width=\"400\"></iframe></div>\n<h3>Catalogue
       of Life</h3><div class=\"separator\" style=\"clear: both; text-align: center;\"><iframe
       allowfullscreen=\"allowfullscreen\" class=\"b-hbp-video b-uploaded\" frameborder=\"0\"
-      height=\"322\" id=\"BLOGGER-video-8530eded8bfa514b-111\" mozallowfullscreen=\"mozallowfullscreen\"
-      src=\"https://www.blogger.com/video.g?token=AD6v5dxpSSxndY9jUR9xAONXpty37E30vufx2VNR1qrFkvIrdEf-UL66zk3uhHQiBbbGYC8ACJ-gosi94M8p0CUaUDwystjxzy5UT1TB8A5uz096tJmQNqBhOe-QcIXyQ3s\"
+      height=\"322\" id=\"BLOGGER-video-8530eded8bfa514b-3167\" mozallowfullscreen=\"mozallowfullscreen\"
+      src=\"https://www.blogger.com/video.g?token=AD6v5dwGoMCnItQ7HOzbFxbfl9qhqWASlGCOEnFJqDsGLywpB1uDNrCCmu0f3fRf4rwP2k4Xj61rwBTf-zEuxZNGjtt6Sh4AmSqSG-JQv11zk7ngaHyJ9u6mCc5O2lz7sERe\"
       webkitallowfullscreen=\"webkitallowfullscreen\" width=\"400\"></iframe></div>\n<h2
       id=\"background-reading\">Background reading</h2>\n<ul>\n<li>Page, R. (2012)
       Space, time, form: viewing the Tree of Life <a href=\"https://doi.org/10.1016/j.tree.2011.12.002\">https://doi.org/10.1016/j.tree.2011.12.002</a></li>\n<li>Page,
@@ -590,8 +1136,8 @@ interactions:
       onclick='window.open(this.href, \"_blank\", \"height=270,width=475\"); return
       false;' target='_blank' title='BlogThis!'><span class='share-button-link-text'>BlogThis!</span></a><a
       class='goog-inline-block share-button sb-twitter' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=6924627449352415649&target=twitter'
-      target='_blank' title='Share to Twitter'><span class='share-button-link-text'>Share
-      to Twitter</span></a><a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=6924627449352415649&target=facebook'
+      target='_blank' title='Share to X'><span class='share-button-link-text'>Share
+      to X</span></a><a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=6924627449352415649&target=facebook'
       onclick='window.open(this.href, \"_blank\", \"height=430,width=640\"); return
       false;' target='_blank' title='Share to Facebook'><span class='share-button-link-text'>Share
       to Facebook</span></a><a class='goog-inline-block share-button sb-pinterest'
@@ -606,16 +1152,18 @@ interactions:
       class='post-title entry-title'>\n<a href='https://iphylo.blogspot.com/2024/06/nanopubs-way-to-create-even-more-silos.html'>Nanopubs,
       a way to create even more silos</a>\n</h3>\n<div class='post-header'>\n<div
       class='post-header-line-1'></div>\n</div>\n<div class='post-body entry-content'
-      id='post-body-7343967609515363669'>\n<p>Pensoft have recently introduced &#8220;nanopubs&#8221;,
-      small structured publications that can be thought of as containing the minimum
-      possible statement that could be published.</p>\n<blockquote>\n<p>Nanopublications
-      are the smallest units of publishable information: a scientifically meaningful
-      assertion about anything that can be uniquely identified and attributed to its
-      author and serve to communicate a single statement, its original source (provenance)
-      and citation record (publication info). Nanopublications are fully expressed
-      in a way that is both human-readable and machine-interpretable. For more, see
-      <a href=\"https://nanopub.net\">https://nanopub.net</a>, Pensoft blog, this
-      video and on our website. <a href=\"https://bdj.pensoft.net/nanopublications\">Nanopublications</a></p>\n</blockquote>\n<p>Nanopubs
+      id='post-body-7343967609515363669'>\n<div style=\"padding:1em;border:1px solid
+      #DDD;border-radius:0.2em;\">How to cite: <strong>Page, R. (2024). Nanopubs,
+      a way to create even more silos <a href=\"https://doi.org/10.59350/6nj85-7te92\">https://doi.org/10.59350/6nj85-7te92</a></strong></div>\n\n<p>Pensoft
+      have recently introduced &#8220;nanopubs&#8221;, small structured publications
+      that can be thought of as containing the minimum possible statement that could
+      be published.</p>\n<blockquote>\n<p>Nanopublications are the smallest units
+      of publishable information: a scientifically meaningful assertion about anything
+      that can be uniquely identified and attributed to its author and serve to communicate
+      a single statement, its original source (provenance) and citation record (publication
+      info). Nanopublications are fully expressed in a way that is both human-readable
+      and machine-interpretable. For more, see <a href=\"https://nanopub.net\">https://nanopub.net</a>,
+      Pensoft blog, this video and on our website. <a href=\"https://bdj.pensoft.net/nanopublications\">Nanopublications</a></p>\n</blockquote>\n<p>Nanopubs
       are promoted as <a href=\"https://en.wikipedia.org/wiki/FAIR_data\">FAIR</a>,
       that is findable, accessible, interoperabile, and reusable. I like the idea
       of nanopubs, but the examples I have seen so far are problematic. As an aside,
@@ -838,8 +1386,8 @@ interactions:
       onclick='window.open(this.href, \"_blank\", \"height=270,width=475\"); return
       false;' target='_blank' title='BlogThis!'><span class='share-button-link-text'>BlogThis!</span></a><a
       class='goog-inline-block share-button sb-twitter' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=7343967609515363669&target=twitter'
-      target='_blank' title='Share to Twitter'><span class='share-button-link-text'>Share
-      to Twitter</span></a><a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=7343967609515363669&target=facebook'
+      target='_blank' title='Share to X'><span class='share-button-link-text'>Share
+      to X</span></a><a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=7343967609515363669&target=facebook'
       onclick='window.open(this.href, \"_blank\", \"height=430,width=640\"); return
       false;' target='_blank' title='Share to Facebook'><span class='share-button-link-text'>Share
       to Facebook</span></a><a class='goog-inline-block share-button sb-pinterest'
@@ -853,265 +1401,9 @@ interactions:
       rel='tag'>Pensoft</a>,\n<a href='https://iphylo.blogspot.com/search/label/RDF'
       rel='tag'>RDF</a>,\n<a href='https://iphylo.blogspot.com/search/label/synonyms'
       rel='tag'>synonyms</a>\n</span>\n</div>\n<div class='post-footer-line post-footer-line-3'><span
-      class='post-location'>\n</span>\n</div>\n</div>\n</div>\n</div>\n\n          </div></div>\n
-      \       \n\n          <div class=\"date-outer\">\n        \n<h2 class='date-header'><span>Friday,
-      April 19, 2024</span></h2>\n\n          <div class=\"date-posts\">\n        \n<div
-      class='post-outer'>\n<div class='post hentry'>\n<a name='473359528456433637'></a>\n<h3
-      class='post-title entry-title'>\n<a href='https://iphylo.blogspot.com/2024/04/notes-on-transforming-bhl-images.html'>Notes
-      on transforming BHL images</a>\n</h3>\n<div class='post-header'>\n<div class='post-header-line-1'></div>\n</div>\n<div
-      class='post-body entry-content' id='post-body-473359528456433637'>\n<div style=\"padding:1em;border:1px
-      solid #DDD;border-radius:0.2em;\">How to cite: <strong>Page, R. (2024). Notes
-      on transforming BHL images <a href=\"https://doi.org/10.59350/2gpbb-98a53 \">https://doi.org/10.59350/2gpbb-98a53</a></strong></div>\n\n<p>I&#8217;ve
-      been down this road before, e.g. <a href=\"https://iphylo.blogspot.com/2011/04/bhl-djvu-and-reading-fcking-manual.html\">BHL,
-      DjVu, and reading the f*cking manual</a> and <a href=\"https://iphylo.blogspot.com/2015/08/demo-of-full-text-indexing-of-bhl-using.html\">Demo
-      of full-text indexing of BHL using CouchDB hosted by Cloudant</a>, but I&#8217;m
-      revisiting converting BHL page scans to black and white images, partly to clean
-      them up, to make them closer to what a modern reader might expect, and partly
-      to reduce the size of the image. The latter means faster loading times and smaller
-      PDFs for articles.</p>\n<p>The links above explored using foreground image layers
-      from DjVu (less useful now that DjVu is almost dead as a format), and using
-      CSS in web browsers to convert a colour image to gray scale. I&#8217;ve also
-      experimented with the approach taken by Google Books (see <a href=\"https://github.com/rdmpage/google-book-images\">https://github.com/rdmpage/google-book-images</a>),
-      which uses <a href=\"https://github.com/agl/jbig2enc\">jbig2enc</a> to compress
-      images and reduce the number of colours.</p>\n<p>In my latest experiments, I
-      use jbig2enc to transform BHL page images into black and white images where
-      each pixel is either black or white (i.e., image depth = 1), then use ImageMagick
-      to resize the image to the Google Books width of 685 pixels and a depth of 2.
-      Typically this gives an image around 25Kb - 30Kb in size. It looks clean and
-      readable.</p>\n\n<div class=\"separator\" style=\"clear: both;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqnVGiNhzdranxPXYrymHC3TPL4mtnk7kUJwnZ7Q7JSPmjSwJ3IhdmqdEWonEIcyrluZWZhESRx1mAEujqagP0miCTGkjyeckWZwOFxPGSzHrb6l6biGpSWVpEuP2UNASRKve7UyhHemXT0U2kQDVvAnR3KyeocBKpsH-3Xokg7iK6lbItzLIf/s1112/62994245.jpg\"
-      style=\"display: block; padding: 1em 0; text-align: center; \"><img alt=\"\"
-      border=\"0\" data-original-height=\"1112\" data-original-width=\"685\" height=\"320\"
-      src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqnVGiNhzdranxPXYrymHC3TPL4mtnk7kUJwnZ7Q7JSPmjSwJ3IhdmqdEWonEIcyrluZWZhESRx1mAEujqagP0miCTGkjyeckWZwOFxPGSzHrb6l6biGpSWVpEuP2UNASRKve7UyhHemXT0U2kQDVvAnR3KyeocBKpsH-3Xokg7iK6lbItzLIf/s320/62994245.jpg\"/></a></div><div
-      class=\"separator\" style=\"clear: both;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOh6WkijCeij3JFY__k6iya6cBvRxDs7K5yC8Vm_J6Otlrff9RERZjOEPH6yBWxPhgBKJuDHIkq00Qlqhe6CyxReBPRB-VlVjxH0Hem0nJD2biffRxNGMnk8utlabnEV4jDgKTPXn1ZEFAsQmh8IWqgIxHoMiqC3uwtQCDN-Cr8kxtFmDU2Tub/s1112/62994245.png\"
-      style=\"display: block; padding: 1em 0; text-align: center; \"><img alt=\"\"
-      border=\"0\" data-original-height=\"1112\" data-original-width=\"685\" height=\"320\"
-      src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOh6WkijCeij3JFY__k6iya6cBvRxDs7K5yC8Vm_J6Otlrff9RERZjOEPH6yBWxPhgBKJuDHIkq00Qlqhe6CyxReBPRB-VlVjxH0Hem0nJD2biffRxNGMnk8utlabnEV4jDgKTPXn1ZEFAsQmh8IWqgIxHoMiqC3uwtQCDN-Cr8kxtFmDU2Tub/s320/62994245.png\"/></a></div>\n\n<p>This
-      approach breaks down for photographs and especially colour plates. For example,
-      this image looks horrible:</p>\n\n<div class=\"separator\" style=\"clear: both;\"><a
-      href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRz_o747fvRqtJy0TEenXJYvrNbxtIyoqMgIWrEM-P_n8QL8WjstAZz4uLwIvEOC_yvw_MFZatTau_NkBEz6_HgSmx-NDA9Ls-sIpZr4jxwHhsdE7uiM1k_FfhuuPE4qtn49ttDV0BNbdQBqxOR0KAmFEpWCWDBmRZUtCIrPp7DxCLntgK99u2/s1184/16281585.jpg\"
-      style=\"display: block; padding: 1em 0; text-align: center; \"><img alt=\"\"
-      border=\"0\" data-original-height=\"1184\" data-original-width=\"685\" height=\"320\"
-      src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRz_o747fvRqtJy0TEenXJYvrNbxtIyoqMgIWrEM-P_n8QL8WjstAZz4uLwIvEOC_yvw_MFZatTau_NkBEz6_HgSmx-NDA9Ls-sIpZr4jxwHhsdE7uiM1k_FfhuuPE4qtn49ttDV0BNbdQBqxOR0KAmFEpWCWDBmRZUtCIrPp7DxCLntgK99u2/s320/16281585.jpg\"/></a></div>\n<div
-      class=\"separator\" style=\"clear: both;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgre2fYuy1NNqmpVxYdVdjayoOV9V0SgdaWZg7k2V0UPiAdy7F-JL_nCqo_7m2h-vVHqxrlyld89aE2xZbOo_lY9X5nZOMNyvW75z-8QMHmaxD4f-gcjq93B-3D1wgus6uZ9ki3GKRGEs9HIuXM4hHTFEi8qhKe053jxIWF09f29FmiAhf6UMNh/s1184/16281585-bw.png\"
-      style=\"display: block; padding: 1em 0; text-align: center; \"><img alt=\"\"
-      border=\"0\" data-original-height=\"1184\" data-original-width=\"685\" height=\"320\"
-      src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgre2fYuy1NNqmpVxYdVdjayoOV9V0SgdaWZg7k2V0UPiAdy7F-JL_nCqo_7m2h-vVHqxrlyld89aE2xZbOo_lY9X5nZOMNyvW75z-8QMHmaxD4f-gcjq93B-3D1wgus6uZ9ki3GKRGEs9HIuXM4hHTFEi8qhKe053jxIWF09f29FmiAhf6UMNh/s320/16281585-bw.png\"/></a></div>\n\n<p>When
-      compressing images that have photos or illustrations jbig2enc can extract the
-      part of the image that includes the illustration, for example:</p>\n\n<div class=\"separator\"
-      style=\"clear: both;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxBT0I2vddsFPCopzL-4VsTIfh7gN30lcA9qI5i_h7yU8SJNmy5QxpKcVA4ntD4FyL5IRL2gR0flH3zwt0gDXG21l5ZghNRHf8FkblxrM-q_a20RZIapyi9zFhAk60Fq8TZ3N3gYsuuZv99W4YrZp9Z8uhDDIm8xKz1x3xA3meH-Aw4ZJvIxAI/s3184/output.0000.png\"
-      style=\"display: block; padding: 1em 0; text-align: center; \"><img alt=\"\"
-      border=\"0\" data-original-height=\"3184\" data-original-width=\"1840\" height=\"320\"
-      src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxBT0I2vddsFPCopzL-4VsTIfh7gN30lcA9qI5i_h7yU8SJNmy5QxpKcVA4ntD4FyL5IRL2gR0flH3zwt0gDXG21l5ZghNRHf8FkblxrM-q_a20RZIapyi9zFhAk60Fq8TZ3N3gYsuuZv99W4YrZp9Z8uhDDIm8xKz1x3xA3meH-Aw4ZJvIxAI/s320/output.0000.png\"/></a></div>\n\n<p>This
-      isn&#8217;t perfect, but it raises the possibility that we can convert text
-      and line drawings to black and white, and then add back photographs and plates
-      (whether black or white, or colour). After some experimentation using tools
-      such as <a href=\"https://imagemagick.org/script/composite.php\">ImageMagick
-      composite</a> I have a simple workflow:</p>\n<ul>\n<li>compress page image using
-      jbig2enc</li>\n<li>take the extracted illustration and set all white pixels
-      to be transparent</li>\n<li>convert the black and white image output by jbig2enc
-      to colour (required for the next step)</li>\n<li>create a composite image by
-      overlaying the extracted illustration (now on a transparent background) on top
-      of the black-and-white page image</li>\n</ul>\n<p>The result looks passable:</p>\n\n<div
-      class=\"separator\" style=\"clear: both;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhciZA-JXbBBB2xuusLFx2ndMhFxb2BrQ_1LmG7kfqboWoknsNw_AEy_vvD_Gklbfu9wLpfvwd18370wIKV24C6rYVTFEXklm1xPGi5MZWE2G5V5sR43_BBpo2YgL-rOA717fuCklvfXZuAO3-tiDC5yi153qOjr8AF-e3bqiZzeEWaaf1H7HUv/s1184/16281585-c.png\"
-      style=\"display: block; padding: 1em 0; text-align: center; \"><img alt=\"\"
-      border=\"0\" data-original-height=\"1184\" data-original-width=\"685\" height=\"320\"
-      src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhciZA-JXbBBB2xuusLFx2ndMhFxb2BrQ_1LmG7kfqboWoknsNw_AEy_vvD_Gklbfu9wLpfvwd18370wIKV24C6rYVTFEXklm1xPGi5MZWE2G5V5sR43_BBpo2YgL-rOA717fuCklvfXZuAO3-tiDC5yi153qOjr8AF-e3bqiZzeEWaaf1H7HUv/s320/16281585-c.png\"/></a></div>\n\n<p>In
-      this case, we still have a lot of the sepia-toned background, the illustration
-      hasn&#8217;t been cleanly separated, but we do at least get some colour.</p>\n<p>Still
-      work to do, but it looks promising and suggests a way to make dramatically smaller
-      PDFs of BHL content. There are crude code and example files in <a href=\"https://github.com/rdmpage/bhl-image-transforming\">GitHub</a>.</p>\n\n<h2>Update</h2>\n\n<p>Some
-      Googling turned up <a href=\"https://www.imagemagick.org/discourse-server/viewtopic.php?t=14081\">Removing
-      orange tint-mask from color-negatives</a>, which gives us the following command:</p>\n\n<p><code>\nconvert
-      16281585.jpg -negate -channel all -normalize -negate -channel all 16281585-rgb.jpg\n</code>\n</p>\n\n<p>Applying
-      this to our image results in:</p>\n\n<div class=\"separator\" style=\"clear:
-      both;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRz_o747fvRqtJy0TEenXJYvrNbxtIyoqMgIWrEM-P_n8QL8WjstAZz4uLwIvEOC_yvw_MFZatTau_NkBEz6_HgSmx-NDA9Ls-sIpZr4jxwHhsdE7uiM1k_FfhuuPE4qtn49ttDV0BNbdQBqxOR0KAmFEpWCWDBmRZUtCIrPp7DxCLntgK99u2/s1184/16281585.jpg\"
-      style=\"display: block; padding: 1em 0; text-align: center; \"><img alt=\"\"
-      border=\"0\" data-original-height=\"1184\" data-original-width=\"685\" height=\"320\"
-      src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRz_o747fvRqtJy0TEenXJYvrNbxtIyoqMgIWrEM-P_n8QL8WjstAZz4uLwIvEOC_yvw_MFZatTau_NkBEz6_HgSmx-NDA9Ls-sIpZr4jxwHhsdE7uiM1k_FfhuuPE4qtn49ttDV0BNbdQBqxOR0KAmFEpWCWDBmRZUtCIrPp7DxCLntgK99u2/s320/16281585.jpg\"/></a></div>\n\n<div
-      class=\"separator\" style=\"clear: both;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjE_JKD-JFqZfQg2Da9V2186VuhY8pQx6owid6t6d3mhxHUAlniwm0aKOQsCFDdHNoS38fzIq_h9xosw-0xfAbiZVxXZZMfvZWwjM1nZerekHEX4bagPYWVoeB9FwX-y_qANi7MpO_eMPB64Wn_lqH943t5S_YoOajwD0BamGeTUUREi1cHmBG/s1184/16281585-rgb.jpg\"
-      style=\"display: block; padding: 1em 0; text-align: center; \"><img alt=\"\"
-      border=\"0\" data-original-height=\"1184\" data-original-width=\"685\" height=\"320\"
-      src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjE_JKD-JFqZfQg2Da9V2186VuhY8pQx6owid6t6d3mhxHUAlniwm0aKOQsCFDdHNoS38fzIq_h9xosw-0xfAbiZVxXZZMfvZWwjM1nZerekHEX4bagPYWVoeB9FwX-y_qANi7MpO_eMPB64Wn_lqH943t5S_YoOajwD0BamGeTUUREi1cHmBG/s320/16281585-rgb.jpg\"/></a></div>\n\n<p>This
-      looks a lot better. Results will vary depending on the eveness of the page scan
-      (i.e., is there a shadow on the image), but I think this gives us a way to display
-      the plates with a higher degree of contrast.</p>\n\n<h2 id=\"reading\">Reading</h2>\n<p>Adam
-      Langley, Dan S. Bloomberg, &#8220;Google Books: making the public domain universally
-      accessible&#8221;, Proc. SPIE 6500, Document Recognition and Retrieval XIV,
-      65000H (2007/01/29); <a href=\"http://dx.doi.org/10.1117/12.710609\">doi:10.1117/12.710609</a></p>\n<blockquote>\n<p>Written
-      with <a href=\"https://stackedit.io/\">StackEdit</a>.</p>\n</blockquote>\n\n<div
-      style='clear: both;'></div>\n</div>\n<div class='post-footer'>\n<div class='post-footer-line
-      post-footer-line-1'><span class='post-author vcard'>\nPosted by\n<span class='fn'>\n<a
-      href='https://www.blogger.com/profile/00269598293846172649' rel='author' title='author
-      profile'>\nRoderic Page\n</a>\n</span>\n</span>\n<span class='post-timestamp'>\nat\n<a
-      class='timestamp-link' href='https://iphylo.blogspot.com/2024/04/notes-on-transforming-bhl-images.html'
-      rel='bookmark' title='permanent link'><abbr class='published' title='2024-04-19T14:09:00+01:00'>2:09
-      pm</abbr></a>\n</span>\n<span class='post-comment-link'>\n</span>\n<span class='post-icons'>\n<span
-      class='item-control blog-admin pid-386758820'>\n<a href='https://www.blogger.com/post-edit.g?blogID=16081779&postID=473359528456433637&from=pencil'
-      title='Edit Post'>\n<img alt='' class='icon-action' height='18' src='https://resources.blogblog.com/img/icon18_edit_allbkg.gif'
-      width='18'/>\n</a>\n</span>\n</span>\n<div class='post-share-buttons goog-inline-block'>\n<a
-      class='goog-inline-block share-button sb-email' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=473359528456433637&target=email'
-      target='_blank' title='Email This'><span class='share-button-link-text'>Email
-      This</span></a><a class='goog-inline-block share-button sb-blog' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=473359528456433637&target=blog'
-      onclick='window.open(this.href, \"_blank\", \"height=270,width=475\"); return
-      false;' target='_blank' title='BlogThis!'><span class='share-button-link-text'>BlogThis!</span></a><a
-      class='goog-inline-block share-button sb-twitter' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=473359528456433637&target=twitter'
-      target='_blank' title='Share to Twitter'><span class='share-button-link-text'>Share
-      to Twitter</span></a><a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=473359528456433637&target=facebook'
-      onclick='window.open(this.href, \"_blank\", \"height=430,width=640\"); return
-      false;' target='_blank' title='Share to Facebook'><span class='share-button-link-text'>Share
-      to Facebook</span></a><a class='goog-inline-block share-button sb-pinterest'
-      href='https://www.blogger.com/share-post.g?blogID=16081779&postID=473359528456433637&target=pinterest'
-      target='_blank' title='Share to Pinterest'><span class='share-button-link-text'>Share
-      to Pinterest</span></a>\n</div>\n</div>\n<div class='post-footer-line post-footer-line-2'><span
-      class='post-labels'>\n</span>\n</div>\n<div class='post-footer-line post-footer-line-3'><span
-      class='post-location'>\n</span>\n</div>\n</div>\n</div>\n</div>\n\n          </div></div>\n
-      \       \n\n          <div class=\"date-outer\">\n        \n<h2 class='date-header'><span>Wednesday,
-      March 27, 2024</span></h2>\n\n          <div class=\"date-posts\">\n        \n<div
-      class='post-outer'>\n<div class='post hentry'>\n<a name='7837499708434790131'></a>\n<h3
-      class='post-title entry-title'>\n<a href='https://iphylo.blogspot.com/2024/03/hugging-face-autotrain.html'>Hugging
-      Face Autotrain</a>\n</h3>\n<div class='post-header'>\n<div class='post-header-line-1'></div>\n</div>\n<div
-      class='post-body entry-content' id='post-body-7837499708434790131'>\n<div style=\"padding:1em;border:1px
-      solid #DDD;border-radius:0.2em;\">How to cite: <strong>Page, R. (2024). Hugging
-      Face Autotrain <a href=\"https://doi.org/10.59350/7p1n4-wdv84\">https://doi.org/10.59350/7p1n4-wdv84</a></strong></div>\n\n<div
-      class=\"separator\" style=\"clear: both;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjTIwCiqC0jxCWDl-4YVDXIjsuIBmJ0RGVpdlTY7UY3uu5gNGHD2jTecrimuZMbrHTuIz2zTLfWCjqq6Oi-GeXUg5h9Yc2EWN3ZdeqpFf51AAgHMdaeKgNmI2owslQFWqI7GPD9I9-l_tmv7_HIr75-yWwlhEN9Ybx-mv9Tcz0syjztUTen_Iw9/s1024/hf-logo.png\"
-      style=\"display: block; padding: 1em 0; text-align: center; clear: right; float:
-      right;\"><img alt=\"\" border=\"0\" data-original-height=\"1024\" data-original-width=\"1024\"
-      src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjTIwCiqC0jxCWDl-4YVDXIjsuIBmJ0RGVpdlTY7UY3uu5gNGHD2jTecrimuZMbrHTuIz2zTLfWCjqq6Oi-GeXUg5h9Yc2EWN3ZdeqpFf51AAgHMdaeKgNmI2owslQFWqI7GPD9I9-l_tmv7_HIr75-yWwlhEN9Ybx-mv9Tcz0syjztUTen_Iw9/s200/hf-logo.png\"
-      width=\"128\"/></a></div>\n<p>These are notes to myself on using <a href=\"https://huggingface.co/docs/autotrain/en/index\">Hugging
-      Face AutoTrain</a>. The first version of this had a very nice interface where
-      you could simply upload a folder of images and train a model. It was limited
-      in the range of tasks and models, but made up for that in ease of use. Now AutoTrain
-      has been replaced by <a href=\"https://huggingface.co/new-space?template=autotrain-projects/autotrain-advanced\">AutoTrain
-      Advanced</a>, which <a href=\"https://discuss.huggingface.co/t/easy-autotrain/70027\">not
-      everyone is happy about</a>.</p>\n<h2 id=\"training-a-model\">Training a model</h2>\n<p>After
-      a bit of fussing about (and paying attention to the log messages) I&#8217;ve
-      managed to train a model to classify images in much the same way as before.
-      The steps are as follows:</p>\n<p>Go to <a href=\"https://huggingface.co/new-space?template=autotrain-projects/autotrain-advanced\">AutoTrain
-      Advanced</a>. You should see a screen like this:</p>\n<div class=\"separator\"
-      style=\"clear: both;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYnQo_BGjsOoXav1rr4vvoQYFvqr4xuEshhGcSH4UQRAePILU4FenuqLCO3KFZdqnwSD8-3S2aIDEaqA8_ALT72EWpDEJ9B2HFTqyV81b6mRgYMV9kKdFbdeRT6y-0FSciqyiYOYuZeZPiruduiGvo8ncsP6_tHAUPvwvPUcoWp3x4BcAGmrOZ/s1162/Screenshot%202024-03-27%20at%2011.57.26.png\"
-      style=\"display: block; padding: 1em 0; text-align: center; \"><img alt=\"\"
-      border=\"0\" data-original-height=\"1162\" data-original-width=\"685\" height=\"600\"
-      src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYnQo_BGjsOoXav1rr4vvoQYFvqr4xuEshhGcSH4UQRAePILU4FenuqLCO3KFZdqnwSD8-3S2aIDEaqA8_ALT72EWpDEJ9B2HFTqyV81b6mRgYMV9kKdFbdeRT6y-0FSciqyiYOYuZeZPiruduiGvo8ncsP6_tHAUPvwvPUcoWp3x4BcAGmrOZ/s600/Screenshot%202024-03-27%20at%2011.57.26.png\"/></a></div>\n<p>By
-      default <code>Docker</code> and <code>AutoTrain</code> are selected. It will
-      also show the free hardware spec (<code>CPU basic &#8226; 2 vCPU &#8226; 16GB</code>).
-      I found that for image classification this hardware choice would cause AutoTrain
-      to fail, so I selected <code>Nvidia T4 small &#8226; 4 vCPU &#8226; 15GB</code>.</p>\n<p>Give
-      your space a name and click on <code>Create Space</code> to create the space.
-      \ You will now see something like this:</p>\n\n<div class=\"separator\" style=\"clear:
-      both;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUW8W2HR0Ximz4lW9h4Qz3fUaUs8d-6Ass9WjYy6U04lw3cVgGTY7miQ6j6NFrsjdFHNWuNas4Ucx5uIHRc42IyqI7xx8aUQAiJ_V02JfAtju51sG1732AZvrcg00IHPjY_8Gr7VXrvBtqL4zTdbCsH71Ho-MJsWb3zENu6S3vWvqtaM2ZvztL/s1131/Screenshot%202024-03-27%20at%2012.02.56.png\"
-      style=\"display: block; padding: 1em 0; text-align: center; \"><img alt=\"\"
-      border=\"0\" data-original-height=\"499\" data-original-width=\"1131\" src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUW8W2HR0Ximz4lW9h4Qz3fUaUs8d-6Ass9WjYy6U04lw3cVgGTY7miQ6j6NFrsjdFHNWuNas4Ucx5uIHRc42IyqI7xx8aUQAiJ_V02JfAtju51sG1732AZvrcg00IHPjY_8Gr7VXrvBtqL4zTdbCsH71Ho-MJsWb3zENu6S3vWvqtaM2ZvztL/s400/Screenshot%202024-03-27%20at%2012.02.56.png\"
-      width=\"400\"/></a></div>\n\n<p>It took 3-4 minutes to build the space. Once
-      the space is built you will then be asked to log in to Hugging Face (seems odd,
-      but that&#8217;s what it asks you to do). You are then asked to give your space
-      permissions to connect to your account.</p>\n\n<div class=\"separator\" style=\"clear:
-      both;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqUbo_WFw2TUPMNGUocm9Z-QpYcKLeFxcD_K3G7O-hiDKlPp56IXrxVctd-b2y8TRrho6bsTeucI9UczZ62eAGHtjRV028_STHKss5NQ7OmWonxBAFszh-dusRcvwmTzH1lnMYexZIBQ2AIvcRsB6NnAsQDu2nU16WBg7opLaTmTMdN7yoERoe/s919/Screenshot%202024-03-27%20at%2012.07.38.png\"
-      style=\"display: block; padding: 1em 0; text-align: center; \"><img alt=\"\"
-      border=\"0\" data-original-height=\"919\" data-original-width=\"652\" height=\"400\"
-      src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqUbo_WFw2TUPMNGUocm9Z-QpYcKLeFxcD_K3G7O-hiDKlPp56IXrxVctd-b2y8TRrho6bsTeucI9UczZ62eAGHtjRV028_STHKss5NQ7OmWonxBAFszh-dusRcvwmTzH1lnMYexZIBQ2AIvcRsB6NnAsQDu2nU16WBg7opLaTmTMdN7yoERoe/s400/Screenshot%202024-03-27%20at%2012.07.38.png\"/></a></div>\n\n<p>Now
-      you will see a slightly scary looking interface (this is one reason why people
-      miss the old &#8220;easy&#8221; AutoTrain). </p> \n  \n<div class=\"separator\"
-      style=\"clear: both;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYBJqJUYpVWZqr6_ehNc9wFSiuHDziC2AmO0_FA9GUvb8ekMw2mFdczyx2XInQKZd8JgUcyf2zQxkwaMx6rAb88_22sbb3n8Pp0hJvoBEyJXpDXu3KiZtmXrKRbjw79TUR1TjifQZRHSy0xnTe8s6HLkl9jRjUZ8wW-xyX-oSn0qccx5aaYcYf/s1074/Screenshot%202024-03-27%20at%2012.08.24.png\"
-      style=\"display: block; padding: 1em 0; text-align: center; \"><img alt=\"\"
-      border=\"0\" data-original-height=\"851\" data-original-width=\"1074\" src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYBJqJUYpVWZqr6_ehNc9wFSiuHDziC2AmO0_FA9GUvb8ekMw2mFdczyx2XInQKZd8JgUcyf2zQxkwaMx6rAb88_22sbb3n8Pp0hJvoBEyJXpDXu3KiZtmXrKRbjw79TUR1TjifQZRHSy0xnTe8s6HLkl9jRjUZ8wW-xyX-oSn0qccx5aaYcYf/s600/Screenshot%202024-03-27%20at%2012.08.24.png\"
-      width=\"500\"/></a></div>\n  \n<p>For <code>Task</code> I selected <code>Image
-      Classification</code> and the default base model (<code>google/vit-base-patch16-224</code>).
-      I ignored every other setting, and simply uploaded the training data. This was
-      a zip file containing separate folders for each category of image, so that images,
-      say of cats, would be in a folder called <code>cats</code>, pictures of dogs
-      would be in <code>dogs</code>, etc.</p>\n<p>I then clicked <code>Start</code>
-      and after a warning that this would cost money (I subscribe to Hugging Face)saw
-      this:</p>\n\n<div class=\"separator\" style=\"clear: both;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvMPG6Vm8oS3V8Z1XGXhUroa5JWjdwV_BVoCzKbUegSYsi-_C_K-ukZj5rBf59TzL52p0VXDMRAwt9BzDbv7GMGIe-ddvUbS-SVU97-ahLZQAv8DQswrWDKHYnYLLHXWAdO-wX24GdyA9PKKC9ek9iW3zIwMKYDcNB_U5yhsRCau97qyXVvDDV/s469/Screenshot%202024-03-27%20at%2012.13.03.png\"
-      style=\"display: block; padding: 1em 0; text-align: center; \"><img alt=\"\"
-      border=\"0\" data-original-height=\"155\" data-original-width=\"469\" src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvMPG6Vm8oS3V8Z1XGXhUroa5JWjdwV_BVoCzKbUegSYsi-_C_K-ukZj5rBf59TzL52p0VXDMRAwt9BzDbv7GMGIe-ddvUbS-SVU97-ahLZQAv8DQswrWDKHYnYLLHXWAdO-wX24GdyA9PKKC9ek9iW3zIwMKYDcNB_U5yhsRCau97qyXVvDDV/s400/Screenshot%202024-03-27%20at%2012.13.03.png\"
-      width=\"400\"/></a></div>\n\n<p>You can track progress in the logs, which you
-      can see using the middle of the buttons below.</p>\n\n\n<div class=\"separator\"
-      style=\"clear: both;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgebBjavFH_GNUI_6X5P3UhrOsnCZU-BDY97emnT9eaVbqC4T_tGaPkfn_mhNxqqP4nrI4ExwTPUWuFkB8TGsxjE9WOaUxDYh5BMAwtKUCKBsnZ6BBQDiUH-kHhfCUq7xC3YggcXL-0xxkkMxqRRSgSxDuvazHrq4kcwz5Cq5XoUYunS6UE0I0w/s177/Screenshot%202024-03-27%20at%2012.13.48.png\"
-      style=\"display: block; padding: 1em 0; text-align: center; \"><img alt=\"\"
-      border=\"0\" data-original-height=\"42\" data-original-width=\"177\" src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgebBjavFH_GNUI_6X5P3UhrOsnCZU-BDY97emnT9eaVbqC4T_tGaPkfn_mhNxqqP4nrI4ExwTPUWuFkB8TGsxjE9WOaUxDYh5BMAwtKUCKBsnZ6BBQDiUH-kHhfCUq7xC3YggcXL-0xxkkMxqRRSgSxDuvazHrq4kcwz5Cq5XoUYunS6UE0I0w/s400/Screenshot%202024-03-27%20at%2012.13.48.png\"
-      width=\"400\"/></a></div>\n\n<p>Once completed, the space pauses, which is a
-      little alarming but simply means that it has finished training. Yay, you now
-      have a trained model!</p>\n<p>When I first tried this, I got errors because
-      I didn&#8217;t upload the data in the proper format (my zip file had a folder
-      that contained the training data folders, it needs the folders to be in the
-      root of the zip archive). It also failed to train on the base (free) hardware,
-      I only discovered this by looking at the logs and see error messages regarding
-      the lack of a GPU.</p>\n<h2 id=\"what-now\">What now?</h2>\n<p>The other thing
-      about the original AutoTrain was that it gave you an app to explore how you
-      model worked on other data. The new AutoTrain simply pauses after training and
-      you are left with &#8220;um, what do I do now?&#8221;</p>\n<p>After some fussing
-      I discovered that in my profile I now had a brand new <code>Model</code> appearing
-      in my list of models.</p>\n\n<div class=\"separator\" style=\"clear: both;\"><a
-      href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_QJrYR1bLBqrtIN5XEGUBZKwMLJRBNqhgDC-GhcNl87KCpeegtGeulmOOz1NbpMZy3hZLqNmYco49MaNtM15Ww2zlcQnS95vr0B4UqDXNHsm3kHh7q7jIzDtwNRhjvpuu9s_4tTXA_5qDCNLlnp6AP_jZH2Fr2cWs1_KiJ3Xvg5v-jIa7dcbF/s679/Screenshot%202024-03-27%20at%2012.19.23.png\"
-      style=\"display: block; padding: 1em 0; text-align: center; \"><img alt=\"\"
-      border=\"0\" data-original-height=\"85\" data-original-width=\"679\" src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_QJrYR1bLBqrtIN5XEGUBZKwMLJRBNqhgDC-GhcNl87KCpeegtGeulmOOz1NbpMZy3hZLqNmYco49MaNtM15Ww2zlcQnS95vr0B4UqDXNHsm3kHh7q7jIzDtwNRhjvpuu9s_4tTXA_5qDCNLlnp6AP_jZH2Fr2cWs1_KiJ3Xvg5v-jIa7dcbF/s320/Screenshot%202024-03-27%20at%2012.19.23.png\"
-      width=\"320\"/></a></div>\n\n<p>If I click on the model I go to the model page,
-      where there is a <code>Deploy</code> button, this is how you get an app. First
-      though, make sure your model is publicly visible (by default it is private).
-      Click on <code>Settings</code> and go to the <code>Change model visibility</code>
-      to make it public. If you now click on the <code>Deploy</code> button you will
-      see a list of options:</p>\n\n<div class=\"separator\" style=\"clear: both;\"><a
-      href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvjXgwVYloK4pCrnqR7NI5LUxQTWwXflMNzkZhh8GVYoR0UqLQcd158Md0z1W6qDD05j2mzDIbGBSVRGjVYWZtWoOHsNWDbKI3nMGNWgDajjqE17A_vTm5ASuYPRNTeH4up73gULK0BWAcflQWVXamQ2SvdoaSREzzbKg3OIb0_l0JkGsG3Ykb/s357/Screenshot%202024-03-27%20at%2012.20.14.png\"
-      style=\"display: block; padding: 1em 0; text-align: center; \"><img alt=\"\"
-      border=\"0\" data-original-height=\"357\" data-original-width=\"322\" height=\"400\"
-      src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvjXgwVYloK4pCrnqR7NI5LUxQTWwXflMNzkZhh8GVYoR0UqLQcd158Md0z1W6qDD05j2mzDIbGBSVRGjVYWZtWoOHsNWDbKI3nMGNWgDajjqE17A_vTm5ASuYPRNTeH4up73gULK0BWAcflQWVXamQ2SvdoaSREzzbKg3OIb0_l0JkGsG3Ykb/s400/Screenshot%202024-03-27%20at%2012.20.14.png\"/></a></div>\n\n<p>I
-      picked <code>Spaces</code>. This enables you to create a simple online app.
-      I accepted all the defaults (including the base, free hardware with no GPU)
-      and in a couple of minutes you get a app that looks like this:</p>\n\n<div class=\"separator\"
-      style=\"clear: both;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi7DLf8HIjipRh_oIh015LbNWcmx5BnpOay5SP9IMvBeJ9hY4mHEyO4skivLD3pke0KYsohR77sGb4uuzZHsKSVGc7oSO4BuaWncwLOc9r5gw9jwZBh-XDOqmynf4TDAXzx9mVttHT4I-LKfxQGmX3Amy-aoi2VEViisjrs0GXStSiGeBAS_cca/s1012/Screenshot%202024-03-27%20at%2012.27.15.png\"
-      style=\"display: block; padding: 1em 0; text-align: center; \"><img alt=\"\"
-      border=\"0\" data-original-height=\"567\" data-original-width=\"1012\" src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi7DLf8HIjipRh_oIh015LbNWcmx5BnpOay5SP9IMvBeJ9hY4mHEyO4skivLD3pke0KYsohR77sGb4uuzZHsKSVGc7oSO4BuaWncwLOc9r5gw9jwZBh-XDOqmynf4TDAXzx9mVttHT4I-LKfxQGmX3Amy-aoi2VEViisjrs0GXStSiGeBAS_cca/s400/Screenshot%202024-03-27%20at%2012.27.15.png\"
-      width=\"400\"/></a></div>\n\n<p>Upload an image, press <code>Submit</code> and
-      you will get a classification of that image:</p>\n\n<div class=\"separator\"
-      style=\"clear: both;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEixyPAnizQ39QYwbNRg8TmbmjF7BjXAXVXMaQmDCkbZdzurTLE7Sqyv4pRESC68cQUGmHbnBPYClJ7eU8eTC-EdthUxGRhpvqyKjAOFLKcjiY1tflKH9cGCO76SlFgsSkGbPu3f0qgFOGyuEaSWmppCxUz_GHkNrAtN3zlxEQ7m7zjzmxp7TaI3/s1005/Screenshot%202024-03-27%20at%2012.27.40.png\"
-      style=\"display: block; padding: 1em 0; text-align: center; \"><img alt=\"\"
-      border=\"0\" data-original-height=\"751\" data-original-width=\"1005\" src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEixyPAnizQ39QYwbNRg8TmbmjF7BjXAXVXMaQmDCkbZdzurTLE7Sqyv4pRESC68cQUGmHbnBPYClJ7eU8eTC-EdthUxGRhpvqyKjAOFLKcjiY1tflKH9cGCO76SlFgsSkGbPu3f0qgFOGyuEaSWmppCxUz_GHkNrAtN3zlxEQ7m7zjzmxp7TaI3/s400/Screenshot%202024-03-27%20at%2012.27.40.png\"
-      width=\"400\"/></a></div>\n\n<p>Apps tend to sleep, so it may be that you come
-      back to an app, load and image, and get an error message that the model is still
-      loading. Wait a moment, try again, and it should work.</p>\n<h2 id=\"api\">API</h2>\n<p>Using
-      the app is fun, but if you wasn&#8217;t to use the model to classify lots of
-      images then you want to use the API. The <code>Deploy</code> button lists `Inferences
-      API (serverless) as an option. Clicking on that gives you the URL you can to
-      POST images to, it will return the results in JSON. As with the app, if the
-      model is sleeping then your first call may through an error, typically wait
-      a moment and try again, and then you can classify images in bulk.</p>\n\n<h2>Summary</h2>\n<p>Hugging
-      Face is quite an extraordinary tool, and it is a way to try and make sense of
-      the xplosiuon of AI techniques available. But it is clearly written by developers
-      for developers, and that can make it intimidating, even for someone like me
-      who writes code, uses GitHub, etc. The original AutoTrain was a joy to use in
-      comparison, and this feels like a missed opportunity where Hugging Face could
-      have keep both the old \"easy\" version alongside the new, more powerful, but
-      rather clunkier \"advanced\" version. Still, this is easier than dealing directly
-      with the <a href=\"https://xkcd.com/1987/\">hellscape that is Python.</a></p>\n<blockquote>\n<p>Written
-      with <a href=\"https://stackedit.io/\">StackEdit</a>.</p>\n</blockquote>\n\n<div
-      style='clear: both;'></div>\n</div>\n<div class='post-footer'>\n<div class='post-footer-line
-      post-footer-line-1'><span class='post-author vcard'>\nPosted by\n<span class='fn'>\n<a
-      href='https://www.blogger.com/profile/00269598293846172649' rel='author' title='author
-      profile'>\nRoderic Page\n</a>\n</span>\n</span>\n<span class='post-timestamp'>\nat\n<a
-      class='timestamp-link' href='https://iphylo.blogspot.com/2024/03/hugging-face-autotrain.html'
-      rel='bookmark' title='permanent link'><abbr class='published' title='2024-03-27T12:35:00Z'>12:35
-      pm</abbr></a>\n</span>\n<span class='post-comment-link'>\n</span>\n<span class='post-icons'>\n<span
-      class='item-control blog-admin pid-386758820'>\n<a href='https://www.blogger.com/post-edit.g?blogID=16081779&postID=7837499708434790131&from=pencil'
-      title='Edit Post'>\n<img alt='' class='icon-action' height='18' src='https://resources.blogblog.com/img/icon18_edit_allbkg.gif'
-      width='18'/>\n</a>\n</span>\n</span>\n<div class='post-share-buttons goog-inline-block'>\n<a
-      class='goog-inline-block share-button sb-email' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=7837499708434790131&target=email'
-      target='_blank' title='Email This'><span class='share-button-link-text'>Email
-      This</span></a><a class='goog-inline-block share-button sb-blog' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=7837499708434790131&target=blog'
-      onclick='window.open(this.href, \"_blank\", \"height=270,width=475\"); return
-      false;' target='_blank' title='BlogThis!'><span class='share-button-link-text'>BlogThis!</span></a><a
-      class='goog-inline-block share-button sb-twitter' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=7837499708434790131&target=twitter'
-      target='_blank' title='Share to Twitter'><span class='share-button-link-text'>Share
-      to Twitter</span></a><a class='goog-inline-block share-button sb-facebook' href='https://www.blogger.com/share-post.g?blogID=16081779&postID=7837499708434790131&target=facebook'
-      onclick='window.open(this.href, \"_blank\", \"height=430,width=640\"); return
-      false;' target='_blank' title='Share to Facebook'><span class='share-button-link-text'>Share
-      to Facebook</span></a><a class='goog-inline-block share-button sb-pinterest'
-      href='https://www.blogger.com/share-post.g?blogID=16081779&postID=7837499708434790131&target=pinterest'
-      target='_blank' title='Share to Pinterest'><span class='share-button-link-text'>Share
-      to Pinterest</span></a>\n</div>\n</div>\n<div class='post-footer-line post-footer-line-2'><span
-      class='post-labels'>\n</span>\n</div>\n<div class='post-footer-line post-footer-line-3'><span
       class='post-location'>\n</span>\n</div>\n</div>\n</div>\n</div>\n\n        </div></div>\n
       \     \n</div>\n<div class='blog-pager' id='blog-pager'>\n<span id='blog-pager-older-link'>\n<a
-      class='blog-pager-older-link' href='https://iphylo.blogspot.com/search?updated-max=2024-03-27T12:35:00Z'
+      class='blog-pager-older-link' href='https://iphylo.blogspot.com/search?updated-max=2024-06-18T18:49:00%2B01:00'
       id='Blog1_blog-pager-older-link' title='Older Posts'>Older Posts</a>\n</span>\n<a
       class='home-link' href='https://iphylo.blogspot.com/'>Home</a>\n</div>\n<div
       class='clear'></div>\n<div class='blog-feeds'>\n<div class='feed-links'>\nSubscribe
@@ -1148,79 +1440,78 @@ interactions:
       class='clear'></div>\n</div>\n</div>\n</div><div class='widget PopularPosts'
       data-version='1' id='PopularPosts1'>\n<h2>Popular Posts</h2>\n<div class='widget-content
       popular-posts'>\n<ul>\n<li>\n<div class='item-content'>\n<div class='item-thumbnail'>\n<a
+      href='https://iphylo.blogspot.com/2010/12/how-do-i-know-if-article-is-open-access.html'
+      target='_blank'>\n<img alt='' border='0' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDvW7IPmIn1-5Ngc1Z984u_Ujulrdmz-0lgtqkyAX-_ERLOpYa7XgVPntNwTI-5qjD1bAmix55Y0p3WplCnupycGmn_YtAEv4tRlTAkUbRhze2w0ttmGW_3eWc1-xJbcBpCO_P/w72-h72-p-k-no-nu/?imgmax=800'/>\n</a>\n</div>\n<div
+      class='item-title'><a href='https://iphylo.blogspot.com/2010/12/how-do-i-know-if-article-is-open-access.html'>How
+      do I know if an article is Open Access?</a></div>\n<div class='item-snippet'>One
+      of my pet projects is to build a &quot;Universal Article Reader&quot;  for the
+      iPad (or similar mobile device), so that a reader can see...</div>\n</div>\n<div
+      style='clear: both;'></div>\n</li>\n<li>\n<div class='item-content'>\n<div class='item-thumbnail'>\n<a
       href='https://iphylo.blogspot.com/2014/08/guest-post-response-to-discussion-on.html'
-      target='_blank'>\n<img alt='' border='0' src='//lh5.ggpht.com/-IaI0Pb9t3yU/U_MU3KtZ7rI/AAAAAAAADgY/OCwLyZNK22M/w72-h72-p-k-no-nu/AHjarding.JPG?imgmax=800'/>\n</a>\n</div>\n<div
+      target='_blank'>\n<img alt='' border='0' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3dsA6T1V9nnYMNqtU0PWoSnseb1QdC317TCLcimwunX300ZCd-5Anr-kDLnX-DEBO2yjOFo2c8ICQfET5XBKp73YqE7lfcZuOFtD-_bmpNsNPwgP16fuK8elJYwrUM4yajgN-/w72-h72-p-k-no-nu/?imgmax=800'/>\n</a>\n</div>\n<div
       class='item-title'><a href='https://iphylo.blogspot.com/2014/08/guest-post-response-to-discussion-on.html'>Guest
       post: Response to the discussion on Red List assessments of East African chameleons</a></div>\n<div
       class='item-snippet'>This is guest post by Angelique Hjarding in response to
       discussion on this blog  about the paper below. Hjarding, A., Tolley, K. A.,
       &amp; B...</div>\n</div>\n<div style='clear: both;'></div>\n</li>\n<li>\n<div
       class='item-content'>\n<div class='item-thumbnail'>\n<a href='https://iphylo.blogspot.com/2014/08/seven-percent-of-gbif-data-is-usable.html'
-      target='_blank'>\n<img alt='' border='0' src='https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_v_pfOeomOJojpcHi-ksmWdXjG_Tn1XQ5HJWUbaUPUwUsn3GOL_TDzRdHoUKaZqxH7Fv_p2yxU1rvXHXLDKj7Y_G8iXNrfzz6bkih7Ni9BKo3_MIT3hdfy_ae6IV0sS0cW2HeZ0pA=w72-h72-p-k-no-nu'/>\n</a>\n</div>\n<div
+      target='_blank'>\n<img alt='' border='0' src='https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tupVipDriVWswyXob5t1aqdveKedjozUQhWQ9rVAHPsc_6crgsAB_CcZKJ5_6cOmO2sKFRBQAszXXA_QBGisI5MHeLVHIQchuP96PDgS29Ipcnfa4W1m7FEPiCdh3CBOkC-qfa6g=w72-h72-p-k-no-nu'/>\n</a>\n</div>\n<div
       class='item-title'><a href='https://iphylo.blogspot.com/2014/08/seven-percent-of-gbif-data-is-usable.html'>Seven
       percent of GBIF data is usable  - quick thoughts on Hjarding et al. 2014</a></div>\n<div
       class='item-snippet'>Update: Angelique Hjarding and her co-authors have responded
       in a guest post on iPhylo. The quality and fitness for use of GBIF-mobilised
       da...</div>\n</div>\n<div style='clear: both;'></div>\n</li>\n<li>\n<div class='item-content'>\n<div
-      class='item-thumbnail'>\n<a href='https://iphylo.blogspot.com/2011/11/recently-ive-been-thinking-about-best.html'
-      target='_blank'>\n<img alt='' border='0' src='//lh3.ggpht.com/-QmCQYqFQdS4/TsZq07Fh2GI/AAAAAAAABDM/LoclO4DZQ2g/w72-h72-p-k-no-nu/gallica.png?imgmax=800'/>\n</a>\n</div>\n<div
-      class='item-title'><a href='https://iphylo.blogspot.com/2011/11/recently-ive-been-thinking-about-best.html'>Adding
-      article-level metadata to BHL</a></div>\n<div class='item-snippet'>Recently
-      I&#39;ve been thinking about the best ways to make article-level metadata from
-      BioStor  more widely available. For example, for som...</div>\n</div>\n<div
+      class='item-thumbnail'>\n<a href='https://iphylo.blogspot.com/2010/12/plant-list-nice-data-shame-it-not-open.html'
+      target='_blank'>\n<img alt='' border='0' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6ir2zu1tRq-3jv9wpJ7RKXwST1Uo5bFx2yzDMt7j9nMzELQuferVnX6CwxOilmctkPp9KuFEO1rXeeMwfbNP3GG3ZJqG9S89I_wBrOvuCysus6xgwgzWpLCFL3nwqnnjEKf7k/w72-h72-p-k-no-nu/?imgmax=800'/>\n</a>\n</div>\n<div
+      class='item-title'><a href='https://iphylo.blogspot.com/2010/12/plant-list-nice-data-shame-it-not-open.html'>The
+      Plant List: nice data, shame it&#39;s not open</a></div>\n<div class='item-snippet'>The
+      Plant List ( http://www.theplantlist.org/ ) has been released today, complete
+      with glowing press releases . The list includes some 1,040...</div>\n</div>\n<div
+      style='clear: both;'></div>\n</li>\n<li>\n<div class='item-content'>\n<div class='item-title'><a
+      href='https://iphylo.blogspot.com/2011/01/why-won-plant-list-won-let-me-do-this.html'>Why
+      won&#39;t The Plant List won&#39;t let me do this?</a></div>\n<div class='item-snippet'>In
+      my last post  I discussed why I thought the decision of The Plant List  to use
+      a restrictive license (CC-BY-NC-ND) was such a poor choice...</div>\n</div>\n<div
       style='clear: both;'></div>\n</li>\n<li>\n<div class='item-content'>\n<div class='item-thumbnail'>\n<a
-      href='https://iphylo.blogspot.com/2024/10/the-data-citation-corpus-revisited.html'
-      target='_blank'>\n<img alt='' border='0' src='https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_s2knDEJ0NLV8R5ucyW939uzpYwpLavzbs7qrp0gC_dlBsUMHpKtVab9BlHkAYpKD6KGPAkci1u8I_w0prFMvXcNsHp4eUEAc8Biv8NZ6znNKAoP-4YXsUwU2nLUPbOQgEAfxHgLC3Okvf9XypYkA_SHxpiP0LOJ-pr5VBUIjj_SVAFbPfkdKlw=w72-h72-p-k-no-nu'/>\n</a>\n</div>\n<div
-      class='item-title'><a href='https://iphylo.blogspot.com/2024/10/the-data-citation-corpus-revisited.html'>The
-      Data Citation Corpus revisited</a></div>\n<div class='item-snippet'>TL;DR   The
-      Data Citation Corpus is still riddled with errors, and it is unclear to what
-      extent it measures citation (resuse of data) versus...</div>\n</div>\n<div style='clear:
+      href='https://iphylo.blogspot.com/2008/03/crossref-adds-more-information-to.html'
+      target='_blank'>\n<img alt='' border='0' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZaL2jrmibwIh4R4kDthiC6XPr9JZ4XbW4QYhIwSlpo9cBWr-hr-Vez1ScT1A_VqBG0wZ3tGTrpaY8TvVKYCqB1I_ZQSDZ43LtwzdXGJ4LjvWLI14MXiUBbBkvafl9SDDpsqyN/w72-h72-p-k-no-nu/TestXSLT.png'/>\n</a>\n</div>\n<div
+      class='item-title'><a href='https://iphylo.blogspot.com/2008/03/crossref-adds-more-information-to.html'>CrossRef
+      adds more information to OpenURL resolver</a></div>\n<div class='item-snippet'>Tom
+      Pasley recently drew my attention to CrossRef&#39;s addition of a XML format
+      parameter  to their OpenURL resolver. Adding &amp;format=xm...</div>\n</div>\n<div
+      style='clear: both;'></div>\n</li>\n<li>\n<div class='item-content'>\n<div class='item-thumbnail'>\n<a
+      href='https://iphylo.blogspot.com/2010/05/ncbi-taxonomy-ids-and-wikipedia.html'
+      target='_blank'>\n<img alt='' border='0' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDufqplAXN99y13VQeAgI88RsWlukGCQy8Fb785HnrsHy7Sr4_qhHPcZZd8JPJVCZ1nkZcYRHAPmUKGygRLLSOB0sbfdS1udMsqCmcskiZnLZqfheM5RuHOhftANzLZBYat7yb/w72-h72-p-k-no-nu/?imgmax=800'/>\n</a>\n</div>\n<div
+      class='item-title'><a href='https://iphylo.blogspot.com/2010/05/ncbi-taxonomy-ids-and-wikipedia.html'>NCBI
+      Taxonomy IDs and Wikipedia</a></div>\n<div class='item-snippet'>I&#39;ve written
+      a note on the Wikipedia Taxobox page making the case for adding NCBI taxonomy
+      IDs to the standard Taxobox  used to summaris...</div>\n</div>\n<div style='clear:
       both;'></div>\n</li>\n<li>\n<div class='item-content'>\n<div class='item-thumbnail'>\n<a
-      href='https://iphylo.blogspot.com/2018/06/liberating-links-between-datasets-using.html'
-      target='_blank'>\n<img alt='' border='0' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbNLv3sCt51ZErRVlGEG_lfswi_071ddl1zxQn2bURR1r2Rucl8aJl3sJ0lfZ7nua-P00qjFshFDzoli77b_bQe8Yyc9WC83ykZF_p0nRFr4v_p2Tpi5A77k9hB4HAeTA1SZg3/w72-h72-p-k-no-nu/ipni_logo.png'/>\n</a>\n</div>\n<div
-      class='item-title'><a href='https://iphylo.blogspot.com/2018/06/liberating-links-between-datasets-using.html'>Liberating
-      links between datasets using lightweight data publishing: an example using IPNI
-      and the taxonomic literature</a></div>\n<div class='item-snippet'> I&#39;ve
-      written a short paper entitled &quot;Liberating links between datasets using
-      lightweight data publishing: an example using plant n...</div>\n</div>\n<div
+      href='https://iphylo.blogspot.com/2013/04/reconciling-author-names-using-open.html'
+      target='_blank'>\n<img alt='' border='0' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRYgh-A10eMJ49xhpOr15naPEW-3nSu0xa0il3YOmHCmOwerSxcPKXCPyA615bgy97XwYdd5VsZqk-NSBuG2kRG4QYZs_ToJfK7ZZwx5U7EpTwS7_9GSwyW9HxdeGC78z-culD/w72-h72-p-k-no-nu/?imgmax=800'/>\n</a>\n</div>\n<div
+      class='item-title'><a href='https://iphylo.blogspot.com/2013/04/reconciling-author-names-using-open.html'>Reconciling
+      author names using Open Refine and VIAF</a></div>\n<div class='item-snippet'>In
+      an earlier post  I discussed using Open Refine  (formerly Google Refine ) to
+      clean and reconcile taxon names. I&#39;ve added an additiona...</div>\n</div>\n<div
       style='clear: both;'></div>\n</li>\n<li>\n<div class='item-content'>\n<div class='item-thumbnail'>\n<a
-      href='https://iphylo.blogspot.com/2024/03/hugging-face-autotrain.html' target='_blank'>\n<img
-      alt='' border='0' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjTIwCiqC0jxCWDl-4YVDXIjsuIBmJ0RGVpdlTY7UY3uu5gNGHD2jTecrimuZMbrHTuIz2zTLfWCjqq6Oi-GeXUg5h9Yc2EWN3ZdeqpFf51AAgHMdaeKgNmI2owslQFWqI7GPD9I9-l_tmv7_HIr75-yWwlhEN9Ybx-mv9Tcz0syjztUTen_Iw9/w72-h72-p-k-no-nu/hf-logo.png'/>\n</a>\n</div>\n<div
-      class='item-title'><a href='https://iphylo.blogspot.com/2024/03/hugging-face-autotrain.html'>Hugging
-      Face Autotrain</a></div>\n<div class='item-snippet'>How to cite: Page, R. (2024).
-      Hugging Face Autotrain https://doi.org/10.59350/7p1n4-wdv84    These are notes
-      to myself on using Hugging Face...</div>\n</div>\n<div style='clear: both;'></div>\n</li>\n<li>\n<div
-      class='item-content'>\n<div class='item-thumbnail'>\n<a href='https://iphylo.blogspot.com/2007/05/openurl-and-spiders.html'
-      target='_blank'>\n<img alt='' border='0' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1MGxvjoFKY-C234u1MOjNMNqRcbAheK5wdnWCtwCh1KrVcsoIjIUaFi4B-3nsibWSeh9lfVBJARyTwYjjUZZid2RubtS24xdzcr9NmI-Eglpj9uhOgeskvHCLo6p_EsWmYMZW/w72-h72-p-k-no-nu/screen.jpg'/>\n</a>\n</div>\n<div
-      class='item-title'><a href='https://iphylo.blogspot.com/2007/05/openurl-and-spiders.html'>OpenURL
-      and spiders</a></div>\n<div class='item-snippet'>I&#39;m not sure who said it
-      first, but there&#39;s a librarianly spin on the old Perl paradigm I think I
-      heard at code4libcon or Access in ...</div>\n</div>\n<div style='clear: both;'></div>\n</li>\n<li>\n<div
-      class='item-content'>\n<div class='item-thumbnail'>\n<a href='https://iphylo.blogspot.com/2010/12/how-do-i-know-if-article-is-open-access.html'
-      target='_blank'>\n<img alt='' border='0' src='//lh3.ggpht.com/_Gct8lVAxKqQ/TQYTcG6g5KI/AAAAAAAAAzs/X5LcDbnmaIY/w72-h72-p-k-no-nu/open-access-logo.jpg.png?imgmax=800'/>\n</a>\n</div>\n<div
-      class='item-title'><a href='https://iphylo.blogspot.com/2010/12/how-do-i-know-if-article-is-open-access.html'>How
-      do I know if an article is Open Access?</a></div>\n<div class='item-snippet'>One
-      of my pet projects is to build a &quot;Universal Article Reader&quot;  for the
-      iPad (or similar mobile device), so that a reader can see...</div>\n</div>\n<div
+      href='https://iphylo.blogspot.com/2020/01/orcid-serves-schemaorg-linked-data-via.html'
+      target='_blank'>\n<img alt='' border='0' src='https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_u319qsnCtC_i0hKlr2xTzoT0aafNHUUNjtn3mJbbvoR_j1QcDaRtWRUnzVlChiw95DZCXfkM1ALqlEHSpYr2Zs4EKE3wGsX2TwzTjQ23s=w72-h72-p-k-no-nu'/>\n</a>\n</div>\n<div
+      class='item-title'><a href='https://iphylo.blogspot.com/2020/01/orcid-serves-schemaorg-linked-data-via.html'>ORCID
+      serves schema.org linked data via content negotiation - who knew?</a></div>\n<div
+      class='item-snippet'>Just a note that ORCID  serves data using terms from schema.org
+      , and has done for a while (since April 2018 ), but somehow I missed this.  ...</div>\n</div>\n<div
       style='clear: both;'></div>\n</li>\n<li>\n<div class='item-content'>\n<div class='item-thumbnail'>\n<a
-      href='https://iphylo.blogspot.com/2017/05/wikidata-wikicite-and-of-life.html'
-      target='_blank'>\n<img alt='' border='0' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5DiKsrPtggAab-1Y1rnEwF8-OL-11mcXqEGwBmRnwcIWYgTx10prrRm2c4wi5fH12gGDpQBHhlmgtAqhXpWMOfWcJ6-CS_owPKONLyzdrhRlKNJ0WCjh9XgkvHKgQ18bP-AtJ/w72-h72-p-k-no-nu/?imgmax=1600'/>\n</a>\n</div>\n<div
-      class='item-title'><a href='https://iphylo.blogspot.com/2017/05/wikidata-wikicite-and-of-life.html'>Wikidata,
-      WikiCite,  and the &quot;bibliography of life&quot;</a></div>\n<div class='item-snippet'>Last
-      week I was at WikiCite 2017 , a fascinating three day event in Vienna. Wikicite
-      \ is &quot;a proposal to build a bibliographic database ...</div>\n</div>\n<div
-      style='clear: both;'></div>\n</li>\n<li>\n<div class='item-content'>\n<div class='item-thumbnail'>\n<a
-      href='https://iphylo.blogspot.com/2011/04/dark-taxa-genbank-in-post-taxonomic.html'
-      target='_blank'>\n<img alt='' border='0' src='https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_shQr_AKnwnAerl9sJxXuniMi7tIbBGOJG3stqzuL9cnN-SxgzcmcDojCb6llEI_-_JyUg4zNM7QevA4_Lmdwmqhdv5IyESLf72TN2_B-vOAmWw2ex9Ezt9dmzVqKWzxiwNSbfwyvWuLAVXcfWpfgleK-HF_e9eFcE_oxK0tKBHspQfA2xQZsxTHUGDVYphPw=w72-h72-p-k-no-nu'/>\n</a>\n</div>\n<div
-      class='item-title'><a href='https://iphylo.blogspot.com/2011/04/dark-taxa-genbank-in-post-taxonomic.html'>Dark
-      taxa: GenBank in a post-taxonomic world</a></div>\n<div class='item-snippet'>In
-      an earlier post ( Are names really the key to the big new biology? , I questioned
-      Patterson et al.&#39;s assertion in a recent TREE artic...</div>\n</div>\n<div
-      style='clear: both;'></div>\n</li>\n</ul>\n<div class='clear'></div>\n</div>\n</div><div
-      class='widget LinkList' data-version='1' id='LinkList1'>\n<h2>My projects</h2>\n<div
-      class='widget-content'>\n<ul>\n<li><a href='https://alec-demo.herokuapp.com'>ALEC</a></li>\n<li><a
-      href='https://bionames.org/'>BioNames</a></li>\n<li><a href='https://biostor.org/'>BioStor</a></li>\n<li><a
-      href='http://ispecies.org/'>iSpecies</a></li>\n<li><a href='https://ozymandias-demo.herokuapp.com'>Ozymandias</a></li>\n</ul>\n<div
+      href='https://iphylo.blogspot.com/2009/03/photosynth-for-trees-supertrees.html'
+      target='_blank'>\n<img alt='' border='0' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxWLOJPdq1LhnlXbHjzyEPnEw5OZmemgREQoLN_mSb2Ly70pZRTAFTH_YeC9b-aBItaFqFIpB8ZQ0Jph1HfZUoep88I5ExnccodaWz2h_odui7QchiFxNp5JR1Zpw4U3DS2LnG/w72-h72-p-k-no-nu/photosynth.jpg'/>\n</a>\n</div>\n<div
+      class='item-title'><a href='https://iphylo.blogspot.com/2009/03/photosynth-for-trees-supertrees.html'>Photosynth
+      for trees - supertrees revisited</a></div>\n<div class='item-snippet'>It&#39;s
+      Friday, so time for some random, half-baked ideas. Imagine that we have a database
+      of evolutionary trees, and these overlap for a s...</div>\n</div>\n<div style='clear:
+      both;'></div>\n</li>\n</ul>\n<div class='clear'></div>\n</div>\n</div><div class='widget
+      LinkList' data-version='1' id='LinkList1'>\n<h2>My projects</h2>\n<div class='widget-content'>\n<ul>\n<li><a
+      href='https://alec-demo.herokuapp.com'>ALEC</a></li>\n<li><a href='https://bionames.org/'>BioNames</a></li>\n<li><a
+      href='https://biostor.org/'>BioStor</a></li>\n<li><a href='http://ispecies.org/'>iSpecies</a></li>\n<li><a
+      href='https://ozymandias-demo.herokuapp.com'>Ozymandias</a></li>\n</ul>\n<div
       class='clear'></div>\n</div>\n</div><div class='widget HTML' data-version='1'
       id='HTML5'>\n<h2 class='title'>Twitter</h2>\n<div class='widget-content'>\n<a
       class=\"twitter-timeline\" href=\"https://twitter.com/rdmpage\" data-widget-id=\"467240218869768193\">Tweets
@@ -1231,11 +1522,13 @@ interactions:
       class='archivedate expanded'>\n<a class='toggle' href='javascript:void(0)'>\n<span
       class='zippy toggle-open'>\n\n        &#9660;&#160;\n      \n</span>\n</a>\n<a
       class='post-count-link' href='https://iphylo.blogspot.com/2024/'>\n2024\n</a>\n<span
-      class='post-count' dir='ltr'>(8)</span>\n<ul class='hierarchy'>\n<li class='archivedate
+      class='post-count' dir='ltr'>(10)</span>\n<ul class='hierarchy'>\n<li class='archivedate
       expanded'>\n<a class='toggle' href='javascript:void(0)'>\n<span class='zippy
       toggle-open'>\n\n        &#9660;&#160;\n      \n</span>\n</a>\n<a class='post-count-link'
       href='https://iphylo.blogspot.com/2024/10/'>\nOctober\n</a>\n<span class='post-count'
-      dir='ltr'>(1)</span>\n<ul class='posts'>\n<li><a href='https://iphylo.blogspot.com/2024/10/the-data-citation-corpus-revisited.html'>The
+      dir='ltr'>(3)</span>\n<ul class='posts'>\n<li><a href='https://iphylo.blogspot.com/2024/10/internet-archive-as-single-point-of.html'>Internet
+      Archive as a single point of failure</a></li>\n<li><a href='https://iphylo.blogspot.com/2024/10/exploring-bolds-dna-barcode-data.html'>Exploring
+      BOLD&#39;s DNA barcode data releases: there&#39;...</a></li>\n<li><a href='https://iphylo.blogspot.com/2024/10/the-data-citation-corpus-revisited.html'>The
       Data Citation Corpus revisited</a></li>\n</ul>\n</li>\n</ul>\n<ul class='hierarchy'>\n<li
       class='archivedate collapsed'>\n<a class='toggle' href='javascript:void(0)'>\n<span
       class='zippy'>\n\n        &#9658;&#160;\n      \n</span>\n</a>\n<a class='post-count-link'
@@ -3896,8 +4189,8 @@ interactions:
       werden.',\n          (window.cookieOptions && cookieOptions.close) || 'Ok',\n
       \         (window.cookieOptions && cookieOptions.learn) || 'Weitere Informationen',\n
       \         (window.cookieOptions && cookieOptions.link) || 'https://www.blogger.com/go/blogspot-cookies');\n
-      \   });\n  </script>\n\n<script type=\"text/javascript\" src=\"https://www.blogger.com/static/v1/widgets/3650705295-widgets.js\"></script>\n<script
-      type='text/javascript'>\nwindow['__wavt'] = 'AOuZoY7Wyh5owN__0McW_0TC5KIaMEaZVg:1728548824887';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\\x3d16081779','//iphylo.blogspot.com/','16081779');\n_WidgetManager._SetDataContext([{'name':
+      \   });\n  </script>\n\n<script type=\"text/javascript\" src=\"https://www.blogger.com/static/v1/widgets/91768132-widgets.js\"></script>\n<script
+      type='text/javascript'>\nwindow['__wavt'] = 'AOuZoY42bYJBWA26joGmHuouup7d_ubYgw:1737278027775';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\\x3d16081779','//iphylo.blogspot.com/','16081779');\n_WidgetManager._SetDataContext([{'name':
       'blog', 'data': {'blogId': '16081779', 'title': 'iPhylo', 'url': 'https://iphylo.blogspot.com/',
       'canonicalUrl': 'https://iphylo.blogspot.com/', 'homepageUrl': 'https://iphylo.blogspot.com/',
       'searchUrl': 'https://iphylo.blogspot.com/search', 'canonicalHomepageUrl': 'https://iphylo.blogspot.com/',
@@ -3917,16 +4210,16 @@ interactions:
       /\\x3e\\n', 'adsenseClientId': 'ca-pub-7354682617866492', 'adsenseHostId': 'ca-host-pub-1556223355139109',
       'adsenseHasAds': false, 'adsenseAutoAds': false, 'boqCommentIframeForm': true,
       'loginRedirectParam': '', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js',
-      'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/2cf6cc78b9cca474',
+      'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/d2c988fc3a56b1b1',
       'plusOneApiSrc': 'https://apis.google.com/js/platform.js', 'disableGComments':
       true, 'interstitialAccepted': false, 'sharing': {'platforms': [{'name': 'Get
       link', 'key': 'link', 'shareMessage': 'Get link', 'target': ''}, {'name': 'Facebook',
       'key': 'facebook', 'shareMessage': 'Share to Facebook', 'target': 'facebook'},
       {'name': 'BlogThis!', 'key': 'blogThis', 'shareMessage': 'BlogThis!', 'target':
-      'blog'}, {'name': 'Twitter', 'key': 'twitter', 'shareMessage': 'Share to Twitter',
-      'target': 'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage':
-      'Share to Pinterest', 'target': 'pinterest'}, {'name': 'Email', 'key': 'email',
-      'shareMessage': 'Email', 'target': 'email'}], 'disableGooglePlus': true, 'googlePlusShareButtonWidth':
+      'blog'}, {'name': 'X', 'key': 'twitter', 'shareMessage': 'Share to X', 'target':
+      'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage': 'Share
+      to Pinterest', 'target': 'pinterest'}, {'name': 'Email', 'key': 'email', 'shareMessage':
+      'Email', 'target': 'email'}], 'disableGooglePlus': true, 'googlePlusShareButtonWidth':
       0, 'googlePlusBootstrap': '\\x3cscript type\\x3d\\x22text/javascript\\x22\\x3ewindow.___gcfg
       \\x3d {\\x27lang\\x27: \\x27en_GB\\x27};\\x3c/script\\x3e'}, 'hasCustomJumpLinkMessage':
       false, 'jumpLinkMessage': 'Read more', 'pageType': 'index', 'pageName': '',
@@ -3952,15 +4245,15 @@ interactions:
       new _WidgetInfo('Header1', 'header', document.getElementById('Header1'), {},
       'displayModeFull'));\n_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1',
       'main', document.getElementById('Blog1'), {'cmtInteractionsEnabled': false,
-      'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/4137527130-lbx__en_gb.js',
-      'lightboxCssUrl': 'https://www.blogger.com/static/v1/v-css/13464135-lightbox_bundle.css'},
+      'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/3812250239-lbx__en_gb.js',
+      'lightboxCssUrl': 'https://www.blogger.com/static/v1/v-css/1964470060-lightbox_bundle.css'},
       'displayModeFull'));\n_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML1',
       'sidebar-right-1', document.getElementById('HTML1'), {}, 'displayModeFull'));\n_WidgetManager._RegisterWidget('_ProfileView',
       new _WidgetInfo('Profile1', 'sidebar-right-1', document.getElementById('Profile1'),
       {}, 'displayModeFull'));\n_WidgetManager._RegisterWidget('_StatsView', new _WidgetInfo('Stats1',
       'sidebar-right-1', document.getElementById('Stats1'), {'title': 'Pageviews from
       the past week', 'showGraphicalCounter': false, 'showAnimatedCounter': false,
-      'showSparkline': true, 'statsUrl': '//iphylo.blogspot.com/b/stats?style\\x3dBLACK_TRANSPARENT\\x26timeRange\\x3dLAST_WEEK\\x26token\\x3dAPq4FmBNOF4jJlVBytMtr4ZtxTQ6wJ_k9me5IAACSbSPCF7898ZxYKaLp5jNo_X5fGIs8cNhw3jNrMJ0JXwO7klfaozBTzsQ0w'},
+      'showSparkline': true, 'statsUrl': '//iphylo.blogspot.com/b/stats?style\\x3dBLACK_TRANSPARENT\\x26timeRange\\x3dLAST_WEEK\\x26token\\x3dAPq4FmBMPfOOD9AiR_T66fj9pYQoZsioAfsuckBaBYkfDMf7xDv-GkKQmVv7svqLGp95yBBYmh-YwYxsvoQs2ZX-jGOOVUXukw'},
       'displayModeFull'));\n_WidgetManager._RegisterWidget('_PopularPostsView', new
       _WidgetInfo('PopularPosts1', 'sidebar-right-1', document.getElementById('PopularPosts1'),
       {}, 'displayModeFull'));\n_WidgetManager._RegisterWidget('_LinkListView', new
@@ -3983,13 +4276,13 @@ interactions:
       Content-Type:
       - text/html; charset=UTF-8
       Date:
-      - Thu, 10 Oct 2024 08:27:05 GMT
+      - Sun, 19 Jan 2025 09:13:48 GMT
       ETag:
-      - W/"a0c4f88414071dcec2abf7f23b7d591e10ff6cf773b05159c997f8d34d645759"
+      - W/"9b3debbbbbf7644a43b20c7788b31e4d0c01865c25f2aa3aa3573b69b72ca9ad"
       Expires:
-      - Thu, 10 Oct 2024 08:27:05 GMT
+      - Sun, 19 Jan 2025 09:13:48 GMT
       Last-Modified:
-      - Tue, 08 Oct 2024 15:36:44 GMT
+      - Sun, 15 Dec 2024 23:09:03 GMT
       Server:
       - GSE
       Transfer-Encoding:

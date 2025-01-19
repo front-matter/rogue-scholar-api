@@ -26,7 +26,6 @@ from api.utils import (
     wrap,
     normalize_url,
     is_valid_url,
-    is_local,
     format_datetime,
     FOS_MAPPINGS,
 )
@@ -105,8 +104,8 @@ async def extract_single_blog(slug: str):
         .maybe_single()
         .execute()
     )
-    if not response.data:
-        return None
+    if not response:
+        return []
     config = response.data
     feed_url = config.get("feed_url", None)
     print(f"Extracting {slug} from {feed_url}")

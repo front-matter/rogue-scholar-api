@@ -43,7 +43,6 @@ from api.utils import (
     write_html,
     validate_uuid,
     id_as_str,
-    is_local,
     EXCLUDED_TAGS,
 )
 from api.works import get_single_work
@@ -122,6 +121,8 @@ async def extract_all_posts_by_blog(
             .maybe_single()
             .execute()
         )
+        if not response:
+            return []
         blog = response.data
         if not blog:
             return {}
