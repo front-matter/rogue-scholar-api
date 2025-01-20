@@ -50,8 +50,6 @@ from api.utils import (
     format_license,
     format_relationships,
     translate_titles,
-    get_formatted_work,
-    SUPPORTED_ACCEPT_HEADERS,
 )
 from api.posts import (
     extract_all_posts,
@@ -63,7 +61,7 @@ from api.posts import (
     delete_all_draft_records,
 )
 from api.blogs import extract_single_blog, extract_all_blogs
-from api.schema import Blog, Post, Work, PostQuery
+from api.schema import Blog, Post, PostQuery
 
 config = Config()
 config.from_toml("hypercorn.toml")
@@ -192,6 +190,7 @@ async def post_blog_posts(slug: str, suffix: Optional[str] = None):
     if offset is not None:
         offset = int(offset)
     update = request.args.get("update")
+    extract = request.args.get("extract")
 
     if (
         request.headers.get("Authorization", None) is None
@@ -205,7 +204,11 @@ async def post_blog_posts(slug: str, suffix: Optional[str] = None):
                 result = await update_all_posts_by_blog(slug, page=page)
             else:
                 result = await extract_all_posts_by_blog(
-                    slug, page=page, offset=offset, update_all=(update == "all")
+                    slug,
+                    page=page,
+                    offset=offset,
+                    update_all=(update == "all"),
+                    extract_references=(extract == "references"),
                 )
             if isinstance(result, dict) and result.get("error", None):
                 return result, 400
@@ -294,6 +297,7 @@ async def post_posts():
 
     page = int(request.args.get("page") or "1")
     update = request.args.get("update")
+    extract = request.args.get("extract")
 
     if (
         request.headers.get("Authorization", None) is None
@@ -308,7 +312,9 @@ async def post_posts():
                 return jsonify(updated_posts)
             else:
                 extracted_posts = await extract_all_posts(
-                    page=page, update_all=(update == "all")
+                    page=page,
+                    update_all=(update == "all"),
+                    extract_references=(extract == "references"),
                 )
                 return jsonify(extracted_posts)
         except Exception as e:

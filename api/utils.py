@@ -1552,10 +1552,10 @@ def get_formatted_work(
         return subject.write(to=content_type)
 
 
-async def format_reference(url, index):
+async def format_reference(url, index, extract_references: bool = False):
     """Format reference."""
-    if validate_url(normalize_id(url)) in ["DOI", "URL"]:
-        id_ = normalize_id(url)
+    if validate_url(normalize_id(url)) in ["DOI", "URL"] and extract_references:
+        id_ = normalize_id(url)            
         work = await get_single_work(id_as_str(id_))
         if work is not None:
             identifier = py_.get(work, "id", None)
