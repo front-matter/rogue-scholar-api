@@ -40,8 +40,6 @@ from api.utils import (
     get_markdown,
     write_html,
     validate_uuid,
-    id_as_str,
-    get_single_work,
     format_reference,
     EXCLUDED_TAGS,
 )
@@ -1265,11 +1263,6 @@ async def update_rogue_scholar_post(post, blog):
                 if i not in EXCLUDED_TAGS
             ]
         tags = py_.uniq(tags)[:5]
-
-        # upsert post with commonmeta if it has a DOI
-        if post.get("doi", None):
-            id_ = id_as_str(post.get("doi"))
-            await get_single_work(id_)
 
         return {
             "authors": authors,

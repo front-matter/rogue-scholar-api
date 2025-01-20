@@ -6,7 +6,7 @@ import re
 from typing import Optional, Union
 from babel.dates import format_date
 import iso8601
-import httpx
+import json as JSON
 import html
 from lxml import etree
 import pydash as py_
@@ -1519,13 +1519,11 @@ SUPPORTED_ACCEPT_HEADERS = [
 
 
 async def get_single_work(string: str) -> Optional[dict]:
-    """Get single work from the commonmeta API."""
-
-    url = f"{environ["QUART_POCKETBASE_URL"]}/{string}/transform/application/json"
+    """Get single work from in commonmeta format."""
+    
     try:
-        async with httpx.AsyncClient() as client:
-            response = await client.get(url, timeout=10.0)
-            return response.json()
+        subject = Metadata(string)
+        return JSON.loads(subject.write(to="commonmeta"))
     except Exception as exc:
         print(exc)
         return None
