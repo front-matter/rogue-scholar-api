@@ -1404,10 +1404,6 @@ def upsert_single_post(post):
 def create_record(record, guid: str, community_id: str):
     """Create InvenioRDM record."""
     try:
-        # context = ssl.create_default_context()
-        # if is_local():
-        #     context = False
-
         subject = Metadata(record, via="json_feed_item")
         record = JSON.loads(subject.write(to="inveniordm"))
 

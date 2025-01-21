@@ -1552,15 +1552,22 @@ def get_formatted_work(
         return subject.write(to=content_type)
 
 
-async def format_reference(url, index, extract_references: bool = False):
+async def format_reference(url, index=0, extract_references: bool = False):
     """Format reference."""
-    if validate_url(normalize_id(url)) in ["DOI", "URL"] and extract_references:
-        id_ = normalize_id(url)            
-        work = await get_single_work(id_as_str(id_))
-        if work is not None:
-            identifier = py_.get(work, "id", None)
-            title = py_.get(work, "titles.0.title", None)
-            publication_year = py_.get(work, "date.published", None)
+    if validate_url(normalize_id(url)) == "DOI" and extract_references:
+        id_ = normalize_id(url)
+        subject = Metadata(id_)        
+        if subject is not {}:
+            # remove publisher field for articles, workaround for unstructured citation
+            if subject.type == "Article":
+                subject.publisher = None
+
+            identifier = subject.id
+            title = py_.get(subject, "titles[0].title")
+            publication_year = py_.get(subject, "date.published")
+            if publication_year is not None:
+                publication_year = publication_year[:4]
+            unstructured = subject.write(to="citation", style="apa", locale="en-US")
         else:
             identifier = id_
             title = None
@@ -1571,6 +1578,7 @@ async def format_reference(url, index, extract_references: bool = False):
                 "id": identifier,
                 "title": title,
                 "publicationYear": publication_year[:4] if publication_year else None,
+                "unstructured": unstructured,
             }
         )
     else:

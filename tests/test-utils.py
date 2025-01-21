@@ -27,6 +27,7 @@ from api.utils import (
     is_valid_url,
     id_as_str,
     get_single_work,
+    format_reference,
 )
 
 
@@ -520,6 +521,7 @@ def test_id_as_str():
 #     sanitized_suffix = sanitize_suffix(suffix)
 #     assert sanitized_suffix == "0002-8231(199412)45:10<737:TIODIM>2.3.TX;2-M"
 
+
 @pytest.mark.asyncio
 async def test_get_single_work_blog_post():
     """get single work not found"""
@@ -562,3 +564,45 @@ async def test_get_single_work_dataset():
     assert work["id"] == "https://doi.org/10.5281/zenodo.7834392"
     assert work["type"] == "Dataset"
     assert work["url"] == "https://zenodo.org/record/7834392"
+
+
+@pytest.mark.asyncio
+async def test_format_reference_blog_post():
+    """format reference blog post"""
+    url = "https://doi.org/10.53731/ybhah-9jy85"
+    work = await format_reference(url,0, True)
+    assert work["id"] == "https://doi.org/10.53731/ybhah-9jy85"
+    assert work["title"] == "The rise of the (science) newsletter"
+    assert work["publicationYear"] == "2023"
+    assert (
+        work["unstructured"]
+        == "Fenner, M. (2023). <i>The rise of the (science) newsletter</i>. https://doi.org/10.53731/ybhah-9jy85"
+    )
+
+
+@pytest.mark.asyncio
+async def test_format_reference_journal_article():
+    """format reference journal article"""
+    url = "https://doi.org/10.1038/d41586-023-02554-0"
+    work = await format_reference(url, 0, True)
+    assert work["id"] == "https://doi.org/10.1038/d41586-023-02554-0"
+    assert work["title"] == "Thousands of scientists are cutting back on Twitter, seeding angst and uncertainty"
+    assert work["publicationYear"] == "2023"
+    assert (
+        work["unstructured"]
+        == "Vidal Valero, M. (2023). Thousands of scientists are cutting back on Twitter, seeding angst and uncertainty. <i>Nature</i>, <i>620</i>(7974), 482–484. https://doi.org/10.1038/d41586-023-02554-0"
+    )
+
+
+@pytest.mark.asyncio
+async def test_format_reference_software():
+    """format reference software"""
+    url = "https://doi.org/10.5281/zenodo.8340374"
+    work = await format_reference(url, 0, True)
+    assert work["id"] == "https://doi.org/10.5281/zenodo.8340374"
+    assert work["title"] == "commonmeta-py"
+    assert work["publicationYear"] == "2024"
+    assert (
+        work["unstructured"]
+        == "Fenner, M. (2024). <i>commonmeta-py</i> (013.2) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.8340374"
+    )
