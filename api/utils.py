@@ -137,6 +137,10 @@ AUTHOR_IDS = {
     "Laura Rueda": "https://orcid.org/0000-0001-5952-7630",
     "Richard L. Apodaca": "https://orcid.org/0000-0003-3855-9427",
     "Daniella Lowenberg": "https://orcid.org/0000-0003-2255-1869",
+    "Catharina Ochsner": "https://orcid.org/0009-0005-3885-3951",
+    "Jonas Höfting": "https://orcid.org/0009-0003-4466-1775",
+    "Mareike König": "https://orcid.org/0000-0002-8189-8574",
+    "Ulrike Stockhausen": "https://orcid.org/0000-0002-8016-6902",
 }
 
 AUTHOR_NAMES = {
@@ -234,6 +238,20 @@ AUTHOR_AFFILIATIONS = {
             "name": "Humboldt-Universität zu Berlin",
             "id": "https://ror.org/01hcx6992",
             "start_date": "2012-12-01",
+        }
+    ],
+    "https://orcid.org/0009-0005-3885-3951": [
+        {
+            "name": "Humboldt-Universität zu Berlin",
+            "id": "https://ror.org/01hcx6992",
+            "start_date": "2023-01-01",
+        }
+    ],
+    "https://orcid.org/0009-0003-4466-1775": [
+        {
+            "name": "Humboldt-Universität zu Berlin",
+            "id": "https://ror.org/01hcx6992",
+            "start_date": "2023-01-01",
         }
     ],
     "https://orcid.org/0000-0002-2343-7905": [
@@ -1521,7 +1539,7 @@ SUPPORTED_ACCEPT_HEADERS = [
 
 async def get_single_work(string: str) -> Optional[dict]:
     """Get single work from in commonmeta format."""
-    
+
     try:
         subject = Metadata(string)
         return JSON.loads(subject.write(to="commonmeta"))
@@ -1557,7 +1575,7 @@ async def format_reference(url, index=0, extract_references: bool = False):
     """Format reference."""
     if validate_url(normalize_id(url)) == "DOI" and extract_references:
         id_ = normalize_id(url)
-        subject = Metadata(id_)        
+        subject = Metadata(id_)
         if subject is not {}:
             # remove publisher field for articles, workaround for unstructured citation
             if subject.type == "Article":
@@ -1569,7 +1587,7 @@ async def format_reference(url, index=0, extract_references: bool = False):
             if publication_year is not None:
                 publication_year = publication_year[:4]
             unstructured = subject.write(to="citation", style="apa", locale="en-US")
-            
+
             # remove HTML tags such as <i> and <sup> from unstructured citation
             tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
             unstructured = nh3.clean(unstructured, tags=tags)
