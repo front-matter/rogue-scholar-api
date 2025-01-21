@@ -576,7 +576,7 @@ async def test_format_reference_blog_post():
     assert work["publicationYear"] == "2023"
     assert (
         work["unstructured"]
-        == "Fenner, M. (2023). <i>The rise of the (science) newsletter</i>. https://doi.org/10.53731/ybhah-9jy85"
+        == "Fenner, M. (2023). The rise of the (science) newsletter. https://doi.org/10.53731/ybhah-9jy85"
     )
 
 
@@ -590,7 +590,7 @@ async def test_format_reference_journal_article():
     assert work["publicationYear"] == "2023"
     assert (
         work["unstructured"]
-        == "Vidal Valero, M. (2023). Thousands of scientists are cutting back on Twitter, seeding angst and uncertainty. <i>Nature</i>, <i>620</i>(7974), 482–484. https://doi.org/10.1038/d41586-023-02554-0"
+        == "Vidal Valero, M. (2023). Thousands of scientists are cutting back on Twitter, seeding angst and uncertainty. Nature, 620(7974), 482–484. https://doi.org/10.1038/d41586-023-02554-0"
     )
 
 
@@ -604,5 +604,5 @@ async def test_format_reference_software():
     assert work["publicationYear"] == "2024"
     assert (
         work["unstructured"]
-        == "Fenner, M. (2024). <i>commonmeta-py</i> (013.2) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.8340374"
+        == "Fenner, M. (2024). commonmeta-py (013.2) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.8340374"
     )

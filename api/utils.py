@@ -15,6 +15,7 @@ from datetime import datetime, timezone
 from furl import furl
 from langdetect import detect
 from bs4 import BeautifulSoup
+import nh3
 from commonmeta import (
     Metadata,
     get_one_author,
@@ -1568,6 +1569,10 @@ async def format_reference(url, index=0, extract_references: bool = False):
             if publication_year is not None:
                 publication_year = publication_year[:4]
             unstructured = subject.write(to="citation", style="apa", locale="en-US")
+            
+            # remove HTML tags such as <i> and <sup> from unstructured citation
+            tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
+            unstructured = nh3.clean(unstructured, tags=tags)
         else:
             identifier = id_
             title = None
