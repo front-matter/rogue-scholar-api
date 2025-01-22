@@ -296,7 +296,7 @@ async def post_posts():
 
     page = int(request.args.get("page") or "1")
     update = request.args.get("update")
-    extract = request.args.get("extract") or "references"
+    extract = request.args.get("extract")
 
     if (
         request.headers.get("Authorization", None) is None
