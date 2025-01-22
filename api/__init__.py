@@ -326,6 +326,8 @@ async def post_posts():
 @app.route("/posts/<slug>/<suffix>", methods=["POST"])
 async def post_post(slug: str, suffix: Optional[str] = None):
     """Update post by either uuid or doi, using information from the blog's feed."""
+    
+    extract = request.args.get("extract")
     if (
         request.headers.get("Authorization", None) is None
         or request.headers.get("Authorization").split(" ")[1]
@@ -334,7 +336,7 @@ async def post_post(slug: str, suffix: Optional[str] = None):
         return {"error": "Unauthorized."}, 401
 
     try:
-        result = await update_single_post(slug, suffix=suffix)
+        result = await update_single_post(slug, suffix=suffix, extract_references=(extract == "references"))
         return jsonify(result)
     except Exception as e:
         logger.warning(e.args[0])

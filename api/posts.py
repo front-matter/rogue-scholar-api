@@ -501,7 +501,7 @@ async def get_single_post(slug: str, suffix: Optional[str] = None):
         return {}
 
 
-async def update_single_post(slug: str, suffix: Optional[str] = None):
+async def update_single_post(slug: str, suffix: Optional[str] = None, extract_references: bool = False):
     """Update single post"""
     try:
         if validate_uuid(slug):
@@ -527,7 +527,7 @@ async def update_single_post(slug: str, suffix: Optional[str] = None):
         if not blog:
             return {"error": "Blog not found."}, 404
         post = py_.omit(response.data, "blog")
-        updated_post = await update_rogue_scholar_post(post, blog)
+        updated_post = await update_rogue_scholar_post(post, blog, extract_references)
         response = upsert_single_post(updated_post)
         return response
     except Exception:
@@ -1234,8 +1234,9 @@ async def update_rogue_scholar_post(post, blog, extract_references: bool = False
         abstract = post.get("abstract", None)
         abstract = get_abstract(summary, abstract)
         reference = post.get("reference", [])
-        if len(reference) == 0:
+        if extract_references:
             reference = await get_references(content_html, extract_references)
+        print(reference)
         relationships = get_relationships(content_html)
         title = get_title(post.get("title"))
         url = normalize_url(post.get("url"), secure=blog.get("secure", True))

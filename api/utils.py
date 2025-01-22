@@ -1574,7 +1574,7 @@ def get_formatted_work(
 
 async def format_reference(url, index=0, extract_references: bool = False):
     """Format reference."""
-    if validate_url(normalize_id(url)) == "DOI" and extract_references:
+    if validate_url(normalize_id(url)) in ["DOI", "URL"] and extract_references:
         id_ = normalize_id(url)
         subject = Metadata(id_)
         if subject is not {}:
