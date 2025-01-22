@@ -141,6 +141,7 @@ AUTHOR_IDS = {
     "Jonas Höfting": "https://orcid.org/0009-0003-4466-1775",
     "Mareike König": "https://orcid.org/0000-0002-8189-8574",
     "Ulrike Stockhausen": "https://orcid.org/0000-0002-8016-6902",
+    "Jeremy Monat": "https://orcid.org/0009-0004-1360-0918",
 }
 
 AUTHOR_NAMES = {

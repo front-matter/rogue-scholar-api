@@ -29,7 +29,6 @@ from api.supabase_client import (
     blogsSelect,
     blogWithPostsSelect,
     postsWithContentSelect,
-    worksSelect,
 )
 from api.typesense_client import typesense_client as typesense
 from api.utils import (
@@ -297,7 +296,7 @@ async def post_posts():
 
     page = int(request.args.get("page") or "1")
     update = request.args.get("update")
-    extract = request.args.get("extract")
+    extract = request.args.get("extract") or "references"
 
     if (
         request.headers.get("Authorization", None) is None
