@@ -1236,7 +1236,6 @@ async def update_rogue_scholar_post(post, blog, extract_references: bool = False
         reference = post.get("reference", [])
         if extract_references:
             reference = await get_references(content_html, extract_references)
-        print(reference)
         relationships = get_relationships(content_html)
         title = get_title(post.get("title"))
         url = normalize_url(post.get("url"), secure=blog.get("secure", True))
@@ -1667,20 +1666,21 @@ def get_contributors(content_html: str):
 async def get_references(content_html: str, extract_references: bool = False):
     """Extract references from content_html,
     defined as the text after the tag "References</h2>",
-    "References</h3>" or "References</h4>. Store them in works table."""
+    "References</h3>" or "References</h4>. Store them as references."""
 
     reference_html = re.split(
-        r"(?:References|Referenzen|Bibliography|References:)<\/(?:h1|h2|h3|h4|strong)>",
+        r"(?:References|Referenzen|Bibliography|References:)<\/(?:h1|h2|h3|h4)>",
         content_html,
         maxsplit=2,
     )
     if len(reference_html) == 1:
         return []
 
-    # strip optional text after references, using <hr>, <hr />, <h2, <h3, <h4 as tag
+    # strip optional text after references, using <hr>, <hr />, <h2, <h3, <h4, <blockquote as tag
     reference_html[1] = re.split(
-        r"(?:<hr \/>|<hr>|<h2|<h3|<h4)", reference_html[1], maxsplit=2
+        r"(?:<hr \/>|<hr>|<h2|<h3|<h4|<blockquote)", reference_html[1], maxsplit=2
     )[0]
+
     urls = get_urls(reference_html[1])
     if not urls or len(urls) == 0:
         return []
