@@ -1584,9 +1584,11 @@ async def format_list_reference(reference, index=0, extract_references: bool = F
     unstructured = reference.text
     if id_ is not None:
         # if id_ is a DOI and extract_references is True, get DOI metadata
-        if validate_doi(id_) and extract_references:
+        if extract_references:
             subject = Metadata(id_)
-            if subject is not {}:
+            
+            # if meaningful metadata are found
+            if len(subject.titles) > 0 and len(subject.contributors) > 0:
                 # remove publisher field for articles, workaround for unstructured citation
                 if subject.type == "Article":
                     subject.publisher = None
