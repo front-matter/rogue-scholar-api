@@ -16,7 +16,7 @@ ADD https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${P
 
 # install uv to manage Python dependencie
 # Explicitly set the virtual environment used by uv
-COPY --from=ghcr.io/astral-sh/uv:0.4.15 /uv /bin/uv
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 RUN dpkg -i /tmp/pandoc-${PANDOC_VERSION}-1-amd64.deb && \
     uv venv ${VIRTUAL_ENV}
