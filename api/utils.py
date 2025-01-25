@@ -1588,7 +1588,7 @@ async def format_list_reference(reference, index=0, extract_references: bool = F
             subject = Metadata(id_)
             
             # if meaningful metadata are found
-            if len(subject.titles) > 0 and len(subject.contributors) > 0:
+            if subject.titles and subject.contributors:
                 # remove publisher field for articles, workaround for unstructured citation
                 if subject.type == "Article":
                     subject.publisher = None

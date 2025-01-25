@@ -1719,7 +1719,7 @@ async def get_references(content_html: str, extract_references: bool = False):
     "References</h3>" or "References</h4>. Store them as references."""
 
     reference_html = re.split(
-        r"(?:References|Referenzen|Bibliography|References:)<\/(?:h1|h2|h3|h4)>",
+        r"(?:References|Reference|Referenzen|Bibliography|References:)<\/(?:h1|h2|h3|h4)>",
         content_html,
         maxsplit=2,
     )
