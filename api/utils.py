@@ -20,10 +20,13 @@ from commonmeta import (
     Metadata,
     get_one_author,
     validate_url,
+    validate_doi,
     validate_orcid,
     normalize_orcid,
     normalize_id,
     doi_from_url,
+    extract_url,
+    extract_curie,
 )
 from commonmeta.constants import Commonmeta
 from commonmeta.date_utils import get_date_from_unix_timestamp
@@ -1571,6 +1574,36 @@ def get_formatted_work(
     else:
         return subject.write(to=content_type)
 
+async def format_list_reference(reference, index=0, extract_references: bool = False):
+    """Format reference from html list element."""
+    id_ = reference.find("a")
+    if id_ is None:
+        id_ = extract_url(reference.text) or extract_curie(reference.text)
+    else:
+        id_ = normalize_url(id_.get("href"))
+    unstructured = reference.text
+    if id_ is not None:
+        # if id_ is a DOI and extract_references is True, get DOI metadata
+        if validate_doi(id_) and extract_references:
+            subject = Metadata(id_)
+            if subject is not {}:
+                # remove publisher field for articles, workaround for unstructured citation
+                if subject.type == "Article":
+                    subject.publisher = None
+
+                id_ = subject.id
+                unstructured = subject.write(to="citation", style="apa", locale="en-US")
+
+                # remove HTML tags such as <i> and <sup> from unstructured citation
+                tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
+                unstructured = nh3.clean(unstructured, tags=tags)
+    return compact(
+        {
+            "key": f"ref{index + 1}",
+            "id": id_,
+            "unstructured": unstructured,
+        }
+    )
 
 async def format_reference(url, index=0, extract_references: bool = False):
     """Format reference."""

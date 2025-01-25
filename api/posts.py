@@ -41,6 +41,7 @@ from api.utils import (
     write_html,
     validate_uuid,
     format_reference,
+    format_list_reference,
     EXCLUDED_TAGS,
 )
 from api.supabase_client import (
@@ -965,7 +966,8 @@ async def extract_json_feed_post(post, blog, extract_references: bool = False):
         content_html = post.get("content_html", "")
         content_text = get_markdown(content_html)
         summary = get_summary(content_html)
-        abstract = None
+        abstract = post.get("summary", None)
+        abstract = get_abstract(summary, abstract)
         reference = await get_jsonfeed_references(
             post.get("_references", []), extract_references
         )
@@ -1585,7 +1587,7 @@ def update_record(record, rid: str, community_id: str):
             print(f"error updating record rid {rid} for guid {guid}")
             return response
         # print(f"Updated record rid {rid} for guid {guid}")
-        # return response
+        return response
     except Exception as error:
         print(error)
         return None
@@ -1723,7 +1725,22 @@ async def get_references(content_html: str, extract_references: bool = False):
     )
     if len(reference_html) == 1:
         return []
+    
+    # if references use an (ordered or unordered) list, use that
+    soup = get_soup(reference_html[1])
+    list = soup.ol or soup.ul
+    references = []
+    if list:
+        references = list.find_all("li")
+    if len(references) > 0:
+        tasks = []
+        for index, reference in enumerate(references):
+            task = format_list_reference(reference, index, extract_references)
+            tasks.append(task)
+        formatted_references = py_.compact(await asyncio.gather(*tasks))
+        return formatted_references
 
+    # fallback if references are not in a list
     # strip optional text after references, using <hr>, <hr />, <h2, <h3, <h4, <blockquote as tag
     reference_html[1] = re.split(
         r"(?:<hr \/>|<hr>|<h2|<h3|<h4|<blockquote)", reference_html[1], maxsplit=2
