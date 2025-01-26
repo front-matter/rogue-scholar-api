@@ -970,9 +970,8 @@ async def extract_json_feed_post(post, blog, extract_references: bool = False):
         abstract = post.get("summary", None)
         abstract = get_abstract(summary, abstract)
         reference = post.get("_references", []),
-        if len(reference) > 0 and extract_references:
-            reference = await get_jsonfeed_references(reference, extract_references)
-        else:
+        reference = await get_jsonfeed_references(post.get("_references", []), extract_references)
+        if len(reference) == 0:
             reference = await get_references(content_html, extract_references)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
@@ -1735,8 +1734,8 @@ async def get_references(content_html: str, extract_references: bool = False):
         references = list.find_all("li")
     if len(references) > 0:
         tasks = []
-        for index, reference in enumerate(references):
-            task = format_list_reference(reference, index, extract_references)
+        for reference in references:
+            task = format_list_reference(reference, extract_references)
             tasks.append(task)
         formatted_references = py_.compact(await asyncio.gather(*tasks))
         return formatted_references
@@ -1752,8 +1751,8 @@ async def get_references(content_html: str, extract_references: bool = False):
         return []
 
     tasks = []
-    for index, url in enumerate(urls):
-        task = format_reference(url, index, extract_references)
+    for url in urls:
+        task = format_reference(url, extract_references)
         tasks.append(task)
 
     formatted_references = py_.compact(await asyncio.gather(*tasks))
@@ -1763,8 +1762,8 @@ async def get_references(content_html: str, extract_references: bool = False):
 async def get_jsonfeed_references(references: list, extract_references: bool = False):
     """Extract references from jsonfeed _references field."""
     tasks = []
-    for index, reference in enumerate(references):
-        task = format_json_reference(reference, index, extract_references)
+    for reference in references:
+        task = format_json_reference(reference, extract_references)
         tasks.append(task)
 
     formatted_references = py_.compact(await asyncio.gather(*tasks))

@@ -19,8 +19,6 @@ import nh3
 from commonmeta import (
     Metadata,
     get_one_author,
-    validate_url,
-    validate_doi,
     validate_orcid,
     normalize_orcid,
     normalize_id,
@@ -1575,7 +1573,7 @@ def get_formatted_work(
     else:
         return subject.write(to=content_type)
 
-async def format_list_reference(reference, index=0, extract_references: bool = False):
+async def format_list_reference(reference, extract_references: bool = False):
     """Format reference from html list element."""
     id_ = reference.find("a")
     if id_ is None:
@@ -1602,13 +1600,12 @@ async def format_list_reference(reference, index=0, extract_references: bool = F
                 unstructured = nh3.clean(unstructured, tags=tags)
     return compact(
         {
-            "key": f"ref{index + 1}",
             "id": id_,
             "unstructured": unstructured,
         }
     )
 
-async def format_reference(url, index=0, extract_references: bool = False):
+async def format_reference(url, extract_references: bool = False):
     """Format reference."""
     id_ = normalize_id(url)
     unstructured = None
@@ -1632,18 +1629,15 @@ async def format_reference(url, index=0, extract_references: bool = False):
         
     return compact(
         {
-            "key": f"ref{index + 1}",
             "id": id_,
             "unstructured": unstructured,
         }
     )
 
-async def format_json_reference(reference, index=0, extract_references: bool = False):
+async def format_json_reference(reference:dict, extract_references: bool = False):
     """Format json reference."""
     id_ = reference.get("url", None) or reference.get("id", None)
     unstructured = reference.get("reference", None)
-    key = reference.get("key", None) or f"ref{index + 1}"
-    
     if id_ is not None:
         id_ = normalize_url(id_)
         # if id_ is a DOI and extract_references is True, get DOI metadata
@@ -1664,7 +1658,6 @@ async def format_json_reference(reference, index=0, extract_references: bool = F
                 unstructured = nh3.clean(unstructured, tags=tags)
     return compact(
         {
-            "key": key,
             "id": id_,
             "unstructured": unstructured,
         }
