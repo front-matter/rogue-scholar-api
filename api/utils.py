@@ -1610,39 +1610,62 @@ async def format_list_reference(reference, index=0, extract_references: bool = F
 
 async def format_reference(url, index=0, extract_references: bool = False):
     """Format reference."""
-    if validate_url(normalize_id(url)) in ["DOI", "URL"] and extract_references:
-        id_ = normalize_id(url)
-        subject = Metadata(id_)
-        if subject is not {}:
-            # remove publisher field for articles, workaround for unstructured citation
-            if subject.type == "Article":
-                subject.publisher = None
+    id_ = normalize_id(url)
+    unstructured = None
+    if id_ is not None:
+        # if id_ is a DOI and extract_references is True, get DOI metadata
+        if extract_references:
+            subject = Metadata(id_)
 
-            identifier = subject.id
-            title = py_.get(subject, "titles[0].title")
-            publication_year = py_.get(subject, "date.published")
-            if publication_year is not None:
-                publication_year = publication_year[:4]
-            unstructured = subject.write(to="citation", style="apa", locale="en-US")
+            # if meaningful metadata are found
+            if subject.titles and subject.contributors:
+                # remove publisher field for articles, workaround for unstructured citation
+                if subject.type == "Article":
+                    subject.publisher = None
 
-            # remove HTML tags such as <i> and <sup> from unstructured citation
-            tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
-            unstructured = nh3.clean(unstructured, tags=tags)
-        else:
-            identifier = id_
-            title = None
-            publication_year = None
-        return compact(
-            {
-                "key": f"ref{index + 1}",
-                "id": identifier,
-                "title": title,
-                "publicationYear": publication_year[:4] if publication_year else None,
-                "unstructured": unstructured,
-            }
-        )
-    else:
-        return {
+                id_ = subject.id
+                unstructured = subject.write(to="citation", style="apa", locale="en-US")
+
+                # remove HTML tags such as <i> and <sup> from unstructured citation
+                tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
+                unstructured = nh3.clean(unstructured, tags=tags)
+        
+    return compact(
+        {
             "key": f"ref{index + 1}",
-            "id": url,
+            "id": id_,
+            "unstructured": unstructured,
         }
+    )
+
+async def format_json_reference(reference, index=0, extract_references: bool = False):
+    """Format json reference."""
+    id_ = reference.get("url", None) or reference.get("id", None)
+    unstructured = reference.get("reference", None)
+    key = reference.get("key", None) or f"ref{index + 1}"
+    
+    if id_ is not None:
+        id_ = normalize_url(id_)
+        # if id_ is a DOI and extract_references is True, get DOI metadata
+        if extract_references:
+            subject = Metadata(id_)
+            
+            # if meaningful metadata are found
+            if subject.titles and subject.contributors:
+                # remove publisher field for articles, workaround for unstructured citation
+                if subject.type == "Article":
+                    subject.publisher = None
+
+                id_ = subject.id
+                unstructured = subject.write(to="citation", style="apa", locale="en-US")
+
+                # remove HTML tags such as <i> and <sup> from unstructured citation
+                tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
+                unstructured = nh3.clean(unstructured, tags=tags)
+    return compact(
+        {
+            "key": key,
+            "id": id_,
+            "unstructured": unstructured,
+        }
+    )

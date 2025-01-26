@@ -41,6 +41,7 @@ from api.utils import (
     write_html,
     validate_uuid,
     format_reference,
+    format_json_reference,
     format_list_reference,
     EXCLUDED_TAGS,
 )
@@ -968,10 +969,10 @@ async def extract_json_feed_post(post, blog, extract_references: bool = False):
         summary = get_summary(content_html)
         abstract = post.get("summary", None)
         abstract = get_abstract(summary, abstract)
-        reference = await get_jsonfeed_references(
-            post.get("_references", []), extract_references
-        )
-        if len(reference) == 0:
+        reference = post.get("_references", []),
+        if len(reference) > 0 and extract_references:
+            reference = await get_jsonfeed_references(reference, extract_references)
+        else:
             reference = await get_references(content_html, extract_references)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
@@ -1271,8 +1272,8 @@ async def update_rogue_scholar_post(post, blog, extract_references: bool = False
         abstract = post.get("abstract", None)
         abstract = get_abstract(summary, abstract)
         reference = post.get("reference", [])
-        if extract_references:
-            reference = await get_references(content_html, extract_references)
+        if len(reference) > 0 and extract_references:
+            reference = await get_jsonfeed_references(reference, extract_references)
         relationships = get_relationships(content_html)
         title = get_title(post.get("title"))
         url = normalize_url(post.get("url"), secure=blog.get("secure", True))
@@ -1761,10 +1762,9 @@ async def get_references(content_html: str, extract_references: bool = False):
 
 async def get_jsonfeed_references(references: list, extract_references: bool = False):
     """Extract references from jsonfeed _references field."""
-    urls = [ref.get("url", None) for ref in references]
     tasks = []
-    for index, url in enumerate(urls):
-        task = format_reference(url, index, extract_references)
+    for index, reference in enumerate(references):
+        task = format_json_reference(reference, index, extract_references)
         tasks.append(task)
 
     formatted_references = py_.compact(await asyncio.gather(*tasks))
