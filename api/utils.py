@@ -145,7 +145,7 @@ AUTHOR_IDS = {
     "Mareike König": "https://orcid.org/0000-0002-8189-8574",
     "Ulrike Stockhausen": "https://orcid.org/0000-0002-8016-6902",
     "Jeremy Monat": "https://orcid.org/0009-0004-1360-0918",
-    "Ksenija Rivo": "https://orcid.org/0000-0002-4094-5645",
+    "Ksenija Rivo": "https://orcid.org/0000-0002-4094-5645",
 }
 
 AUTHOR_NAMES = {
