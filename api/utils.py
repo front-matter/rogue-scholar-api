@@ -1573,6 +1573,7 @@ def get_formatted_work(
     else:
         return subject.write(to=content_type)
 
+
 async def format_list_reference(reference, extract_references: bool = False):
     """Format reference from html list element."""
     try:
@@ -1586,7 +1587,7 @@ async def format_list_reference(reference, extract_references: bool = False):
             # if id_ is a DOI and extract_references is True, get DOI metadata
             if extract_references:
                 subject = Metadata(id_)
-                
+
                 # if meaningful metadata are found
                 if subject.titles and subject.contributors:
                     # remove publisher field for articles, workaround for unstructured citation
@@ -1594,7 +1595,9 @@ async def format_list_reference(reference, extract_references: bool = False):
                         subject.publisher = None
 
                     id_ = subject.id
-                    unstructured = subject.write(to="citation", style="apa", locale="en-US")
+                    unstructured = subject.write(
+                        to="citation", style="apa", locale="en-US"
+                    )
 
                     # remove HTML tags such as <i> and <sup> from unstructured citation
                     tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
@@ -1607,7 +1610,8 @@ async def format_list_reference(reference, extract_references: bool = False):
         )
     except Exception as e:
         print(e)
-        return None    
+        return None
+
 
 async def format_reference(url, extract_references: bool = False):
     """Format reference."""
@@ -1626,7 +1630,9 @@ async def format_reference(url, extract_references: bool = False):
                         subject.publisher = None
 
                     id_ = subject.id
-                    unstructured = subject.write(to="citation", style="apa", locale="en-US")
+                    unstructured = subject.write(
+                        to="citation", style="apa", locale="en-US"
+                    )
 
                     # remove HTML tags such as <i> and <sup> from unstructured citation
                     tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
@@ -1639,10 +1645,10 @@ async def format_reference(url, extract_references: bool = False):
         )
     except Exception as e:
         print(e)
-        return None   
+        return None
 
 
-async def format_json_reference(reference:dict, extract_references: bool = False):
+async def format_json_reference(reference: dict, extract_references: bool = False):
     """Format json reference."""
     try:
         id_ = reference.get("url", None) or reference.get("id", None)
@@ -1652,7 +1658,7 @@ async def format_json_reference(reference:dict, extract_references: bool = False
             # if id_ is a DOI and extract_references is True, get DOI metadata
             if extract_references:
                 subject = Metadata(id_)
-                
+
                 # if meaningful metadata are found
                 if subject.titles and subject.contributors:
                     # remove publisher field for articles, workaround for unstructured citation
@@ -1660,7 +1666,48 @@ async def format_json_reference(reference:dict, extract_references: bool = False
                         subject.publisher = None
 
                     id_ = subject.id
-                    unstructured = subject.write(to="citation", style="apa", locale="en-US")
+                    unstructured = subject.write(
+                        to="citation", style="apa", locale="en-US"
+                    )
+
+                    # remove HTML tags such as <i> and <sup> from unstructured citation
+                    tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
+                    unstructured = nh3.clean(unstructured, tags=tags)
+        return compact(
+            {
+                "id": id_,
+                "unstructured": unstructured,
+            }
+        )
+    except Exception as e:
+        print(e)
+        return None
+
+
+async def format_citeproc_reference(reference, extract_references: bool = False):
+    """Format reference from citeproc html div element."""
+    try:
+        id_ = reference.find("a")
+        if id_ is None:
+            id_ = extract_url(reference.text) or extract_curie(reference.text)
+        else:
+            id_ = normalize_url(id_.get("href"))
+        unstructured = reference.text
+        if id_ is not None:
+            # if id_ is a DOI and extract_references is True, get DOI metadata
+            if extract_references:
+                subject = Metadata(id_)
+
+                # if meaningful metadata are found
+                if subject.titles and subject.contributors:
+                    # remove publisher field for articles, workaround for unstructured citation
+                    if subject.type == "Article":
+                        subject.publisher = None
+
+                    id_ = subject.id
+                    unstructured = subject.write(
+                        to="citation", style="apa", locale="en-US"
+                    )
 
                     # remove HTML tags such as <i> and <sup> from unstructured citation
                     tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}

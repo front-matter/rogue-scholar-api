@@ -43,6 +43,7 @@ from api.utils import (
     format_reference,
     format_json_reference,
     format_list_reference,
+    format_citeproc_reference,
     EXCLUDED_TAGS,
 )
 from api.supabase_client import (
@@ -969,10 +970,9 @@ async def extract_json_feed_post(post, blog, extract_references: bool = False):
         summary = get_summary(content_html)
         abstract = post.get("summary", None)
         abstract = get_abstract(summary, abstract)
-        reference = post.get("_references", []),
-        reference = await get_jsonfeed_references(post.get("_references", []), extract_references)
-        if len(reference) == 0:
-            reference = await get_references(content_html, extract_references)
+        # reference = await get_jsonfeed_references(post.get("_references", []), extract_references)
+        # if len(reference) == 0:
+        reference = await get_references(content_html, extract_references)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
         archive_url = (
@@ -1270,9 +1270,9 @@ async def update_rogue_scholar_post(post, blog, extract_references: bool = False
         summary = get_summary(content_html)
         abstract = post.get("abstract", None)
         abstract = get_abstract(summary, abstract)
-        reference = post.get("reference", [])
-        if len(reference) > 0 and extract_references:
-            reference = await get_jsonfeed_references(reference, extract_references)
+        # reference = await get_jsonfeed_references(post.get("_references", []), extract_references)
+        # if len(reference) == 0:
+        reference = await get_references(content_html, extract_references)
         relationships = get_relationships(content_html)
         title = get_title(post.get("title"))
         url = normalize_url(post.get("url"), secure=blog.get("secure", True))
@@ -1718,6 +1718,20 @@ async def get_references(content_html: str, extract_references: bool = False):
     defined as the text after the tag "References</h2>",
     "References</h3>" or "References</h4>. Store them as references."""
 
+    soup = get_soup(content_html)
+
+    # if references are formatted by citeproc
+    list = soup.find("div", {"class": "csl-bib-body"})
+    if list:
+        tasks = []
+        references = list.find_all("div", class_="csl-entry")
+        print(references)           
+        for reference in references:
+            task = format_citeproc_reference(reference, extract_references)
+            tasks.append(task)
+        formatted_references = py_.compact(await asyncio.gather(*tasks))
+        return formatted_references
+
     reference_html = re.split(
         r"(?:References|Reference|Referenzen|Bibliography|References:)<\/(?:h1|h2|h3|h4)>",
         content_html,
@@ -1726,7 +1740,7 @@ async def get_references(content_html: str, extract_references: bool = False):
     if len(reference_html) == 1:
         return []
     
-    # if references use an (ordered or unordered) list, use that
+    # if references use an (ordered or unordered) list
     soup = get_soup(reference_html[1])
     list = soup.ol or soup.ul
     references = []
@@ -1740,7 +1754,7 @@ async def get_references(content_html: str, extract_references: bool = False):
         formatted_references = py_.compact(await asyncio.gather(*tasks))
         return formatted_references
 
-    # fallback if references are not in a list
+    # fallback if references are not in yet found
     # strip optional text after references, using <hr>, <hr />, <h2, <h3, <h4, <blockquote as tag
     reference_html[1] = re.split(
         r"(?:<hr \/>|<hr>|<h2|<h3|<h4|<blockquote)", reference_html[1], maxsplit=2
