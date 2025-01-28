@@ -54,7 +54,7 @@ from api.supabase_client import (
 
 
 async def extract_all_posts(
-    page: int = 1, update_all: bool = False, extract_references: bool = False
+    page: int = 1, update_all: bool = False, validate_all: bool = False
 ):
     """Extract all posts."""
 
@@ -68,7 +68,7 @@ async def extract_all_posts(
     tasks = []
     for blog in blogs.data:
         task = extract_all_posts_by_blog(
-            blog["slug"], page, update_all, extract_references
+            blog["slug"], page, update_all, validate_all
         )
         tasks.append(task)
 
@@ -115,7 +115,7 @@ async def extract_all_posts_by_blog(
     page: int = 1,
     offset: Optional[int] = None,
     update_all: bool = False,
-    extract_references: bool = False,
+    validate_all: bool = False,
 ):
     """Extract all posts by blog."""
 
@@ -257,7 +257,7 @@ async def extract_all_posts_by_blog(
                     capture_exception(e)
                     posts = []
                 extract_posts = [
-                    extract_substack_post(x, blog, extract_references) for x in posts
+                    extract_substack_post(x, blog, validate_all) for x in posts
                 ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "WordPress" and blog["use_api"]:
@@ -283,7 +283,7 @@ async def extract_all_posts_by_blog(
                     capture_exception(e)
                     posts = []
                 extract_posts = [
-                    extract_wordpress_post(x, blog, extract_references) for x in posts
+                    extract_wordpress_post(x, blog, validate_all) for x in posts
                 ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "WordPress.com" and blog["use_api"]:
@@ -307,7 +307,7 @@ async def extract_all_posts_by_blog(
                     capture_exception(e)
                     posts = []
                 extract_posts = [
-                    extract_wordpresscom_post(x, blog, extract_references)
+                    extract_wordpresscom_post(x, blog, validate_all)
                     for x in posts
                 ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
@@ -331,7 +331,7 @@ async def extract_all_posts_by_blog(
                     capture_exception(e)
                     posts = []
                 extract_posts = [
-                    extract_ghost_post(x, blog, extract_references) for x in posts
+                    extract_ghost_post(x, blog, validate_all) for x in posts
                 ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "Squarespace":
@@ -356,7 +356,7 @@ async def extract_all_posts_by_blog(
                     capture_exception(e)
                     posts = []
                 extract_posts = [
-                    extract_squarespace_post(x, blog, extract_references) for x in posts
+                    extract_squarespace_post(x, blog, validate_all) for x in posts
                 ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/feed+json":
@@ -385,7 +385,7 @@ async def extract_all_posts_by_blog(
                     capture_exception(e)
                     posts = []
                 extract_posts = [
-                    extract_json_feed_post(x, blog, extract_references) for x in posts
+                    extract_json_feed_post(x, blog, validate_all) for x in posts
                 ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/atom+xml":
@@ -416,7 +416,7 @@ async def extract_all_posts_by_blog(
                     capture_exception(e)
                     posts = []
             extract_posts = [
-                extract_atom_post(x, blog, extract_references) for x in posts
+                extract_atom_post(x, blog, validate_all) for x in posts
             ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/rss+xml":
@@ -447,7 +447,7 @@ async def extract_all_posts_by_blog(
                     capture_exception(e)
                     posts = []
             extract_posts = [
-                extract_rss_post(x, blog, extract_references) for x in posts
+                extract_rss_post(x, blog, validate_all) for x in posts
             ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         else:
@@ -534,7 +534,7 @@ async def get_single_post(slug: str, suffix: Optional[str] = None):
 
 
 async def update_single_post(
-    slug: str, suffix: Optional[str] = None, extract_references: bool = False
+    slug: str, suffix: Optional[str] = None, validate_all: bool = False
 ):
     """Update single post"""
     try:
@@ -561,7 +561,7 @@ async def update_single_post(
         if not blog:
             return {"error": "Blog not found."}, 404
         post = py_.omit(response.data, "blog")
-        updated_post = await update_rogue_scholar_post(post, blog, extract_references)
+        updated_post = await update_rogue_scholar_post(post, blog, validate_all)
         response = upsert_single_post(updated_post)
         return response
     except Exception:
@@ -569,7 +569,7 @@ async def update_single_post(
         return {}
 
 
-async def extract_wordpress_post(post, blog, extract_references: bool = False):
+async def extract_wordpress_post(post, blog, validate_all: bool = False):
     """Extract WordPress post from REST API."""
 
     try:
@@ -609,7 +609,7 @@ async def extract_wordpress_post(post, blog, extract_references: bool = False):
         summary = get_summary(content_html)
         abstract = get_summary(py_.get(post, "excerpt.rendered", ""))
         abstract = get_abstract(summary, abstract)
-        reference = await get_references(content_html, extract_references)
+        reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("link", None), secure=blog.get("secure", True))
         archive_url = (
@@ -688,7 +688,7 @@ async def extract_wordpress_post(post, blog, extract_references: bool = False):
         return {}
 
 
-async def extract_wordpresscom_post(post, blog, extract_references: bool = False):
+async def extract_wordpresscom_post(post, blog, validate_all: bool = False):
     """Extract WordPress.com post from REST API."""
     try:
 
@@ -710,7 +710,7 @@ async def extract_wordpresscom_post(post, blog, extract_references: bool = False
         summary = get_summary(post.get("content", ""))
         abstract = get_summary(post.get("excerpt", None))
         abstract = get_abstract(summary, abstract)
-        reference = await get_references(content_html, extract_references)
+        reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("URL", None), secure=blog.get("secure", True))
         archive_url = (
@@ -751,7 +751,7 @@ async def extract_wordpresscom_post(post, blog, extract_references: bool = False
         return {}
 
 
-async def extract_ghost_post(post, blog, extract_references: bool = False):
+async def extract_ghost_post(post, blog, validate_all: bool = False):
     """Extract Ghost post from REST API."""
 
     try:
@@ -773,7 +773,7 @@ async def extract_ghost_post(post, blog, extract_references: bool = False):
         summary = get_summary(content_html)
         abstract = get_summary(post.get("excerpt", ""))
         abstract = get_abstract(summary, abstract)
-        reference = await get_references(content_html, extract_references)
+        reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
         archive_url = (
@@ -817,7 +817,7 @@ async def extract_ghost_post(post, blog, extract_references: bool = False):
         return {}
 
 
-async def extract_substack_post(post, blog, extract_references: bool = False):
+async def extract_substack_post(post, blog, validate_all: bool = False):
     """Extract Substack post from REST API."""
 
     try:
@@ -838,7 +838,7 @@ async def extract_substack_post(post, blog, extract_references: bool = False):
         summary = get_summary(post.get("description", None))
         abstract = get_summary(content_html)
         abstract = get_abstract(summary, abstract)
-        reference = await get_references(content_html, extract_references)
+        reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
         url = normalize_url(
             post.get("canonical_url", None), secure=blog.get("secure", True)
@@ -881,7 +881,7 @@ async def extract_substack_post(post, blog, extract_references: bool = False):
         return {}
 
 
-async def extract_squarespace_post(post, blog, extract_references: bool = False):
+async def extract_squarespace_post(post, blog, validate_all: bool = False):
     """Extract Squarespace post from REST API."""
 
     try:
@@ -903,7 +903,7 @@ async def extract_squarespace_post(post, blog, extract_references: bool = False)
         if abstract is not None:
             abstract = get_abstract(summary, abstract)
 
-        reference = await get_references(content_html, extract_references)
+        reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
         url = normalize_url(
             f'{blog.get("home_page_url", "")}/{post.get("urlId","")}',
@@ -947,7 +947,7 @@ async def extract_squarespace_post(post, blog, extract_references: bool = False)
         return {}
 
 
-async def extract_json_feed_post(post, blog, extract_references: bool = False):
+async def extract_json_feed_post(post, blog, validate_all: bool = False):
     """Extract JSON Feed post."""
 
     try:
@@ -970,9 +970,9 @@ async def extract_json_feed_post(post, blog, extract_references: bool = False):
         summary = get_summary(content_html)
         abstract = post.get("summary", None)
         abstract = get_abstract(summary, abstract)
-        # reference = await get_jsonfeed_references(post.get("_references", []), extract_references)
+        # reference = await get_jsonfeed_references(post.get("_references", []), validate_all)
         # if len(reference) == 0:
-        reference = await get_references(content_html, extract_references)
+        reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
         archive_url = (
@@ -1016,7 +1016,7 @@ async def extract_json_feed_post(post, blog, extract_references: bool = False):
         return {}
 
 
-async def extract_atom_post(post, blog, extract_references: bool = False):
+async def extract_atom_post(post, blog, validate_all: bool = False):
     """Extract Atom post."""
 
     try:
@@ -1055,7 +1055,7 @@ async def extract_atom_post(post, blog, extract_references: bool = False):
         summary = get_summary(content_html)
         abstract = py_.get(post, "summary.#text", None)
         abstract = get_abstract(summary, abstract)
-        reference = await get_references(content_html, extract_references)
+        reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
 
         def get_url(links):
@@ -1123,7 +1123,7 @@ async def extract_atom_post(post, blog, extract_references: bool = False):
         return {}
 
 
-async def extract_rss_post(post, blog, extract_references: bool = False):
+async def extract_rss_post(post, blog, validate_all: bool = False):
     """Extract RSS post."""
 
     try:
@@ -1161,7 +1161,7 @@ async def extract_rss_post(post, blog, extract_references: bool = False):
 
         summary = get_summary(content_html) or ""
         abstract = None
-        reference = await get_references(content_html, extract_references)
+        reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
         raw_url = post.get("link", None)
         # handle Hugo running on localhost
@@ -1232,7 +1232,7 @@ async def extract_rss_post(post, blog, extract_references: bool = False):
         return {}
 
 
-async def update_rogue_scholar_post(post, blog, extract_references: bool = False):
+async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
     """Update Rogue Scholar post."""
     try:
 
@@ -1270,9 +1270,9 @@ async def update_rogue_scholar_post(post, blog, extract_references: bool = False
         summary = get_summary(content_html)
         abstract = post.get("abstract", None)
         abstract = get_abstract(summary, abstract)
-        # reference = await get_jsonfeed_references(post.get("_references", []), extract_references)
+        # reference = await get_jsonfeed_references(post.get("_references", []), validate_all)
         # if len(reference) == 0:
-        reference = await get_references(content_html, extract_references)
+        reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
         title = get_title(post.get("title"))
         url = normalize_url(post.get("url"), secure=blog.get("secure", True))
@@ -1713,7 +1713,7 @@ def get_contributors(content_html: str):
     return [get_contributor(contributor) for contributor in contributors if contributor]
 
 
-async def get_references(content_html: str, extract_references: bool = False):
+async def get_references(content_html: str, validate_all: bool = False):
     """Extract references from content_html,
     defined as the text after the tag "References</h2>",
     "References</h3>" or "References</h4>. Store them as references."""
@@ -1724,10 +1724,9 @@ async def get_references(content_html: str, extract_references: bool = False):
     list = soup.find("div", {"class": "csl-bib-body"})
     if list:
         tasks = []
-        references = list.find_all("div", class_="csl-entry")
-        print(references)           
+        references = list.find_all("div", class_="csl-entry")         
         for reference in references:
-            task = format_citeproc_reference(reference, extract_references)
+            task = format_citeproc_reference(reference, validate_all)
             tasks.append(task)
         formatted_references = py_.compact(await asyncio.gather(*tasks))
         return formatted_references
@@ -1749,7 +1748,7 @@ async def get_references(content_html: str, extract_references: bool = False):
     if len(references) > 0:
         tasks = []
         for reference in references:
-            task = format_list_reference(reference, extract_references)
+            task = format_list_reference(reference, validate_all)
             tasks.append(task)
         formatted_references = py_.compact(await asyncio.gather(*tasks))
         return formatted_references
@@ -1766,18 +1765,18 @@ async def get_references(content_html: str, extract_references: bool = False):
 
     tasks = []
     for url in urls:
-        task = format_reference(url, extract_references)
+        task = format_reference(url, validate_all)
         tasks.append(task)
 
     formatted_references = py_.compact(await asyncio.gather(*tasks))
     return formatted_references
 
 
-async def get_jsonfeed_references(references: list, extract_references: bool = False):
+async def get_jsonfeed_references(references: list, validate_all: bool = False):
     """Extract references from jsonfeed _references field."""
     tasks = []
     for reference in references:
-        task = format_json_reference(reference, extract_references)
+        task = format_json_reference(reference, validate_all)
         tasks.append(task)
 
     formatted_references = py_.compact(await asyncio.gather(*tasks))

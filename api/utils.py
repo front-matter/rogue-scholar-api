@@ -1574,7 +1574,7 @@ def get_formatted_work(
         return subject.write(to=content_type)
 
 
-async def format_list_reference(reference, extract_references: bool = False):
+async def format_list_reference(reference, validate_all: bool = False):
     """Format reference from html list element."""
     try:
         id_ = reference.find("a")
@@ -1584,8 +1584,8 @@ async def format_list_reference(reference, extract_references: bool = False):
             id_ = normalize_url(id_.get("href"))
         unstructured = reference.text
         if id_ is not None:
-            # if id_ is a DOI and extract_references is True, get DOI metadata
-            if extract_references:
+            # if id_ is a DOI and validate_all is True, get DOI metadata
+            if validate_all:
                 subject = Metadata(id_)
 
                 # if meaningful metadata are found
@@ -1613,14 +1613,14 @@ async def format_list_reference(reference, extract_references: bool = False):
         return None
 
 
-async def format_reference(url, extract_references: bool = False):
+async def format_reference(url, validate_all: bool = False):
     """Format reference."""
     try:
         id_ = normalize_url(url)
         unstructured = None
         if id_ is not None:
-            # if id_ is a DOI and extract_references is True, get DOI metadata
-            if extract_references:
+            # if id_ is a DOI and validate_all is True, get DOI metadata
+            if validate_all:
                 subject = Metadata(id_)
 
                 # if meaningful metadata are found
@@ -1648,15 +1648,15 @@ async def format_reference(url, extract_references: bool = False):
         return None
 
 
-async def format_json_reference(reference: dict, extract_references: bool = False):
+async def format_json_reference(reference: dict, validate_all: bool = False):
     """Format json reference."""
     try:
         id_ = reference.get("url", None) or reference.get("id", None)
         unstructured = reference.get("reference", None)
         if id_ is not None:
             id_ = normalize_url(id_)
-            # if id_ is a DOI and extract_references is True, get DOI metadata
-            if extract_references:
+            # if id_ is a DOI and validate_all is True, get DOI metadata
+            if validate_all:
                 subject = Metadata(id_)
 
                 # if meaningful metadata are found
@@ -1684,7 +1684,7 @@ async def format_json_reference(reference: dict, extract_references: bool = Fals
         return None
 
 
-async def format_citeproc_reference(reference, extract_references: bool = False):
+async def format_citeproc_reference(reference, validate_all: bool = False):
     """Format reference from citeproc html div element."""
     try:
         id_ = reference.find("a")
@@ -1694,8 +1694,8 @@ async def format_citeproc_reference(reference, extract_references: bool = False)
             id_ = normalize_url(id_.get("href"))
         unstructured = reference.text
         if id_ is not None:
-            # if id_ is a DOI and extract_references is True, get DOI metadata
-            if extract_references:
+            # if id_ is a DOI and validate_all is True, get DOI metadata
+            if validate_all:
                 subject = Metadata(id_)
 
                 # if meaningful metadata are found

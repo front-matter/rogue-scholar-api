@@ -189,7 +189,7 @@ async def post_blog_posts(slug: str, suffix: Optional[str] = None):
     if offset is not None:
         offset = int(offset)
     update = request.args.get("update")
-    extract = request.args.get("extract")
+    validate = request.args.get("validate")
 
     if (
         request.headers.get("Authorization", None) is None
@@ -207,7 +207,7 @@ async def post_blog_posts(slug: str, suffix: Optional[str] = None):
                     page=page,
                     offset=offset,
                     update_all=(update == "all"),
-                    extract_references=(extract == "references"),
+                    validate_all=(validate == "all"),
                 )
             if isinstance(result, dict) and result.get("error", None):
                 return result, 400
@@ -296,7 +296,7 @@ async def post_posts():
 
     page = int(request.args.get("page") or "1")
     update = request.args.get("update")
-    extract = request.args.get("extract")
+    validate = request.args.get("validate")
 
     if (
         request.headers.get("Authorization", None) is None
@@ -313,7 +313,7 @@ async def post_posts():
                 extracted_posts = await extract_all_posts(
                     page=page,
                     update_all=(update == "all"),
-                    extract_references=(extract == "references"),
+                    validate_all=(validate == "all"),
                 )
                 return jsonify(extracted_posts)
         except Exception as e:
@@ -327,7 +327,7 @@ async def post_posts():
 async def post_post(slug: str, suffix: Optional[str] = None):
     """Update post by either uuid or doi, using information from the blog's feed."""
     
-    extract = request.args.get("extract")
+    validate = request.args.get("validate")
     if (
         request.headers.get("Authorization", None) is None
         or request.headers.get("Authorization").split(" ")[1]
@@ -336,7 +336,7 @@ async def post_post(slug: str, suffix: Optional[str] = None):
         return {"error": "Unauthorized."}, 401
 
     try:
-        result = await update_single_post(slug, suffix=suffix, extract_references=(extract == "references"))
+        result = await update_single_post(slug, suffix=suffix, validate_all=(validate == "all"))
         return jsonify(result)
     except Exception as e:
         logger.warning(e.args[0])
