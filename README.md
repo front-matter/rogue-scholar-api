@@ -37,7 +37,7 @@ The API will then be available at `http://localhost:5000`.
 We use pytest for testing:
 
 ```
-poetry run pytest
+uv run pytest
 ```
 
 Follow along via [Github Issues](https://github.com/front-matter/rogue-scholar-api/issues). Please open an issue if you encounter a bug or have a feature request.
