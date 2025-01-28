@@ -21,7 +21,6 @@ from commonmeta import (
     get_one_author,
     validate_orcid,
     normalize_orcid,
-    normalize_id,
     doi_from_url,
     extract_url,
     extract_curie,
@@ -1580,28 +1579,13 @@ async def format_list_reference(reference, validate_all: bool = False):
         id_ = reference.find("a")
         if id_ is None:
             id_ = extract_url(reference.text) or extract_curie(reference.text)
-        else:
+        if id_ is not None:
             id_ = normalize_url(id_.get("href"))
         unstructured = reference.text
-        if id_ is not None:
-            # if id_ is a DOI and validate_all is True, get DOI metadata
-            if validate_all:
-                subject = Metadata(id_)
 
-                # if meaningful metadata are found
-                if subject.titles and subject.contributors:
-                    # remove publisher field for articles, workaround for unstructured citation
-                    if subject.type == "Article":
-                        subject.publisher = None
-
-                    id_ = subject.id
-                    unstructured = subject.write(
-                        to="citation", style="apa", locale="en-US"
-                    )
-
-                    # remove HTML tags such as <i> and <sup> from unstructured citation
-                    tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
-                    unstructured = nh3.clean(unstructured, tags=tags)
+        # if id_ is present and validate_all is True, lookup metadata
+        if id_ is not None and validate_all:
+            unstructured = await validate_reference(id_)
         return compact(
             {
                 "id": id_,
@@ -1618,25 +1602,10 @@ async def format_reference(url, validate_all: bool = False):
     try:
         id_ = normalize_url(url)
         unstructured = None
-        if id_ is not None:
-            # if id_ is a DOI and validate_all is True, get DOI metadata
-            if validate_all:
-                subject = Metadata(id_)
 
-                # if meaningful metadata are found
-                if subject.titles and subject.contributors:
-                    # remove publisher field for articles, workaround for unstructured citation
-                    if subject.type == "Article":
-                        subject.publisher = None
-
-                    id_ = subject.id
-                    unstructured = subject.write(
-                        to="citation", style="apa", locale="en-US"
-                    )
-
-                    # remove HTML tags such as <i> and <sup> from unstructured citation
-                    tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
-                    unstructured = nh3.clean(unstructured, tags=tags)
+        # if id_ is present and validate_all is True, lookup metadata
+        if id_ is not None and validate_all:
+            unstructured = await validate_reference(id_)
         return compact(
             {
                 "id": id_,
@@ -1652,27 +1621,13 @@ async def format_json_reference(reference: dict, validate_all: bool = False):
     """Format json reference."""
     try:
         id_ = reference.get("url", None) or reference.get("id", None)
-        unstructured = reference.get("reference", None)
         if id_ is not None:
             id_ = normalize_url(id_)
-            # if id_ is a DOI and validate_all is True, get DOI metadata
-            if validate_all:
-                subject = Metadata(id_)
+        unstructured = reference.get("reference", None)
 
-                # if meaningful metadata are found
-                if subject.titles and subject.contributors:
-                    # remove publisher field for articles, workaround for unstructured citation
-                    if subject.type == "Article":
-                        subject.publisher = None
-
-                    id_ = subject.id
-                    unstructured = subject.write(
-                        to="citation", style="apa", locale="en-US"
-                    )
-
-                    # remove HTML tags such as <i> and <sup> from unstructured citation
-                    tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
-                    unstructured = nh3.clean(unstructured, tags=tags)
+        # if id_ is present and validate_all is True, lookup metadata
+        if id_ is not None and validate_all:
+            unstructured = await validate_reference(id_)
         return compact(
             {
                 "id": id_,
@@ -1690,34 +1645,46 @@ async def format_citeproc_reference(reference, validate_all: bool = False):
         id_ = reference.find("a")
         if id_ is None:
             id_ = extract_url(reference.text) or extract_curie(reference.text)
-        else:
+        if id_ is not None:
             id_ = normalize_url(id_.get("href"))
         unstructured = reference.text
-        if id_ is not None:
-            # if id_ is a DOI and validate_all is True, get DOI metadata
-            if validate_all:
-                subject = Metadata(id_)
 
-                # if meaningful metadata are found
-                if subject.titles and subject.contributors:
-                    # remove publisher field for articles, workaround for unstructured citation
-                    if subject.type == "Article":
-                        subject.publisher = None
-
-                    id_ = subject.id
-                    unstructured = subject.write(
-                        to="citation", style="apa", locale="en-US"
-                    )
-
-                    # remove HTML tags such as <i> and <sup> from unstructured citation
-                    tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
-                    unstructured = nh3.clean(unstructured, tags=tags)
+        # if id_ is present and validate_all is True, lookup metadata
+        if id_ is not None and validate_all:
+            unstructured = await validate_reference(id_)
         return compact(
             {
                 "id": id_,
                 "unstructured": unstructured,
             }
         )
+    except Exception as e:
+        print(e)
+        return None
+
+async def validate_reference(id_: str) -> Optional[str]:
+    """Validate reference."""
+    try:
+        unstructured = None
+
+        # lookup metadata via API call
+        subject = Metadata(id_)
+
+        # if meaningful metadata are found
+        if subject.titles and subject.contributors:
+            # remove publisher field for articles, workaround for unstructured citation
+            if subject.type == "Article":
+                subject.publisher = None
+
+            id_ = subject.id
+            unstructured = subject.write(
+                to="citation", style="apa", locale="en-US"
+            )
+
+            # remove HTML tags such as <i> and <sup> from unstructured citation
+            tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
+            unstructured = nh3.clean(unstructured, tags=tags)
+        return unstructured
     except Exception as e:
         print(e)
         return None
