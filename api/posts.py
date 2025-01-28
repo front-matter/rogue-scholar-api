@@ -1754,9 +1754,9 @@ async def get_references(content_html: str, validate_all: bool = False):
         return formatted_references
 
     # fallback if references are not in yet found
-    # strip optional text after references, using <hr>, <hr />, <h2, <h3, <h4, <blockquote as tag
+    # strip optional text after references, using <hr>, <hr />, <h1, <h2, <h3, <h4, <blockquote as tag
     reference_html[1] = re.split(
-        r"(?:<hr \/>|<hr>|<h2|<h3|<h4|<blockquote)", reference_html[1], maxsplit=2
+        r"(?:<hr \/>|<hr>|<h1|<h2|<h3|<h4|<blockquote)", reference_html[1], maxsplit=2
     )[0]
 
     urls = get_urls(reference_html[1])
