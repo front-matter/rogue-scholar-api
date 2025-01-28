@@ -1575,26 +1575,26 @@ def get_formatted_work(
 
 async def format_list_reference(reference, validate_all: bool = False):
     """Format reference from html list element."""
-    try:
-        id_ = reference.find("a")
-        if id_ is None:
-            id_ = extract_url(reference.text) or extract_curie(reference.text)
-        if id_ is not None:
-            id_ = normalize_url(id_.get("href"))
-        unstructured = reference.text
+    # try:
+    id_ = reference.find("a")
+    if id_ is not None:
+        id_ = normalize_url(id_.get("href"))
+    if id_ is None:
+        id_ = extract_reference_id(reference.text)
+    unstructured = reference.text
 
-        # if id_ is present and validate_all is True, lookup metadata
-        if id_ is not None and validate_all:
-            unstructured = await validate_reference(id_)
-        return compact(
-            {
-                "id": id_,
-                "unstructured": unstructured,
-            }
-        )
-    except Exception as e:
-        print(e)
-        return None
+    # if id_ is present and validate_all is True, lookup metadata
+    if id_ is not None and validate_all:
+        unstructured = await validate_reference(id_, unstructured)
+    return compact(
+        {
+            "id": id_,
+            "unstructured": unstructured,
+        }
+    )
+    # except Exception as e:
+    #     print(e)
+    #     return None
 
 
 async def format_reference(url, validate_all: bool = False):
@@ -1605,7 +1605,7 @@ async def format_reference(url, validate_all: bool = False):
 
         # if id_ is present and validate_all is True, lookup metadata
         if id_ is not None and validate_all:
-            unstructured = await validate_reference(id_)
+            unstructured = await validate_reference(id_, unstructured)
         return compact(
             {
                 "id": id_,
@@ -1627,7 +1627,7 @@ async def format_json_reference(reference: dict, validate_all: bool = False):
 
         # if id_ is present and validate_all is True, lookup metadata
         if id_ is not None and validate_all:
-            unstructured = await validate_reference(id_)
+            unstructured = await validate_reference(id_, unstructured)
         return compact(
             {
                 "id": id_,
@@ -1643,15 +1643,15 @@ async def format_citeproc_reference(reference, validate_all: bool = False):
     """Format reference from citeproc html div element."""
     try:
         id_ = reference.find("a")
-        if id_ is None:
-            id_ = extract_url(reference.text) or extract_curie(reference.text)
         if id_ is not None:
             id_ = normalize_url(id_.get("href"))
+        if id_ is None:
+            id_ = extract_reference_id(reference.text)
         unstructured = reference.text
 
         # if id_ is present and validate_all is True, lookup metadata
         if id_ is not None and validate_all:
-            unstructured = await validate_reference(id_)
+            unstructured = await validate_reference(id_, unstructured)
         return compact(
             {
                 "id": id_,
@@ -1662,11 +1662,19 @@ async def format_citeproc_reference(reference, validate_all: bool = False):
         print(e)
         return None
 
-async def validate_reference(id_: str) -> Optional[str]:
+
+def extract_reference_id(reference: str) -> Optional[str]:
+    """Extract reference id from string."""
+    try:
+        return extract_url(reference) or extract_curie(reference)
+    except Exception as e:
+        print(e)
+        return None
+
+
+async def validate_reference(id_: str, unstructured: str) -> Optional[str]:
     """Validate reference."""
     try:
-        unstructured = None
-
         # lookup metadata via API call
         subject = Metadata(id_)
 
@@ -1677,9 +1685,7 @@ async def validate_reference(id_: str) -> Optional[str]:
                 subject.publisher = None
 
             id_ = subject.id
-            unstructured = subject.write(
-                to="citation", style="apa", locale="en-US"
-            )
+            unstructured = subject.write(to="citation", style="apa", locale="en-US")
 
             # remove HTML tags such as <i> and <sup> from unstructured citation
             tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
