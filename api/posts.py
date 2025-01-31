@@ -67,9 +67,7 @@ async def extract_all_posts(
     )
     tasks = []
     for blog in blogs.data:
-        task = extract_all_posts_by_blog(
-            blog["slug"], page, update_all, validate_all
-        )
+        task = extract_all_posts_by_blog(blog["slug"], page, update_all, validate_all)
         tasks.append(task)
 
     raw_results = await asyncio.gather(*tasks)
@@ -307,8 +305,7 @@ async def extract_all_posts_by_blog(
                     capture_exception(e)
                     posts = []
                 extract_posts = [
-                    extract_wordpresscom_post(x, blog, validate_all)
-                    for x in posts
+                    extract_wordpresscom_post(x, blog, validate_all) for x in posts
                 ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "Ghost" and blog["use_api"]:
@@ -392,7 +389,7 @@ async def extract_all_posts_by_blog(
             async with httpx.AsyncClient() as client:
                 try:
                     response = await client.get(
-                        feed_url, timeout=10.0, follow_redirects=True
+                        feed_url, timeout=30.0, follow_redirects=True
                     )
                     response.raise_for_status()
                     # fix malformed xml
@@ -415,9 +412,7 @@ async def extract_all_posts_by_blog(
                 except httpx.HTTPError as e:
                     capture_exception(e)
                     posts = []
-            extract_posts = [
-                extract_atom_post(x, blog, validate_all) for x in posts
-            ]
+            extract_posts = [extract_atom_post(x, blog, validate_all) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/rss+xml":
             async with httpx.AsyncClient() as client:
@@ -446,9 +441,7 @@ async def extract_all_posts_by_blog(
                 except httpx.HTTPError as e:
                     capture_exception(e)
                     posts = []
-            extract_posts = [
-                extract_rss_post(x, blog, validate_all) for x in posts
-            ]
+            extract_posts = [extract_rss_post(x, blog, validate_all) for x in posts]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         else:
             blog_with_posts["entries"] = []
@@ -906,7 +899,7 @@ async def extract_squarespace_post(post, blog, validate_all: bool = False):
         reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
         url = normalize_url(
-            f'{blog.get("home_page_url", "")}/{post.get("urlId","")}',
+            f"{blog.get('home_page_url', '')}/{post.get('urlId', '')}",
             secure=blog.get("secure", True),
         )
         archive_url = (
@@ -1274,6 +1267,7 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
         # if len(reference) == 0:
         reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
+        citations = await get_citations(post.get("doi", None))
         title = get_title(post.get("title"))
         url = normalize_url(post.get("url"), secure=blog.get("secure", True))
         archive_url = (
@@ -1314,6 +1308,7 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
             "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
+            "citations": citations,
             "tags": tags,
             "title": title,
             "url": url,
@@ -1392,6 +1387,7 @@ def upsert_single_post(post):
                     "category": post.get("category", None),
                     "reference": post.get("reference", None),
                     "relationships": post.get("relationships", None),
+                    "citations": post.get("citations", []),
                     "summary": post.get("summary", ""),
                     "abstract": post.get("abstract", None),
                     "tags": post.get("tags", None),
@@ -1724,7 +1720,7 @@ async def get_references(content_html: str, validate_all: bool = False):
     list = soup.find("div", {"class": "csl-bib-body"})
     if list:
         tasks = []
-        references = list.find_all("div", class_="csl-entry")         
+        references = list.find_all("div", class_="csl-entry")
         for reference in references:
             task = format_citeproc_reference(reference, validate_all)
             tasks.append(task)
@@ -1738,7 +1734,7 @@ async def get_references(content_html: str, validate_all: bool = False):
     )
     if len(reference_html) == 1:
         return []
-    
+
     # if references use an (ordered or unordered) list
     soup = get_soup(reference_html[1])
     list = soup.ol or soup.ul
@@ -2136,6 +2132,30 @@ async def get_number_of_draft_records():
         response = httpx.get(url, headers=headers, timeout=10)
         n = py_.get(response.json(), "hits.total", 0)
         return n
+    except Exception as error:
+        print(error)
+        return None
+
+
+async def get_citations(doi: Optional[str]) -> list:
+    """Get citations for a DOI."""
+    try:
+        if doi is None:
+            return []
+        response = (
+            supabase.table("citations")
+            .select("citation")
+            .eq("doi", doi)
+            .order("updated_at", desc=False)
+            .execute()
+        )
+        if not response:
+            return []
+        tasks = []
+        for citation in response.data:
+            task = format_reference(citation.get("citation", None), True)
+            tasks.append(task)
+        return py_.compact(await asyncio.gather(*tasks))
     except Exception as error:
         print(error)
         return None
