@@ -1512,6 +1512,7 @@ def create_record(record, guid: str, community_id: str):
 def update_record(record, rid: str, community_id: str):
     """Update InvenioRDM record."""
     try:
+        citations = record.get("citations", [])
         subject = Metadata(record, via="json_feed_item")
         record = JSON.loads(subject.write(to="inveniordm"))
         guid_dict = next(
@@ -1530,6 +1531,10 @@ def update_record(record, rid: str, community_id: str):
             record["metadata"]["funding"] = validate_funding(
                 py_.get(record, "metadata.funding")
             )
+
+        # add citations to InvenioRDM record
+        if len(citations) > 0:
+            record["custom_fields"]["rs:citations"] = format_citations(citations)
 
         # create draft record from published record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/draft"
@@ -2159,3 +2164,19 @@ async def get_citations(doi: Optional[str]) -> list:
     except Exception as error:
         print(error)
         return None
+
+
+def format_citations(citations: list) -> list:
+    """Format citations."""
+
+    def format_citation(citation):
+        """Format citation in inveniordm reference format."""
+        return compact(
+            {
+                "identifier": citation.get("id", None),
+                "scheme": "doi",
+                "reference": citation.get("unstructured", None),
+            }
+        )
+
+    return [format_citation(citation) for citation in citations]
