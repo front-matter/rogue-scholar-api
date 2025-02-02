@@ -572,7 +572,7 @@ async def update_single_post(
         if validate_uuid(slug):
             response = (
                 supabase.table("posts")
-                .select(postsWithContentSelect)
+                .select(postsWithCitationsSelect)
                 .eq("id", slug)
                 .maybe_single()
                 .execute()
@@ -581,7 +581,7 @@ async def update_single_post(
             doi = f"https://doi.org/{slug}/{suffix}"
             response = (
                 supabase.table("posts")
-                .select(postsWithContentSelect)
+                .select(postsWithCitationsSelect)
                 .eq("doi", doi)
                 .maybe_single()
                 .execute()
@@ -1305,7 +1305,7 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
         # if len(reference) == 0:
         reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
-        citations = await get_citations(post.get("doi", None))
+        citations = post.get("citations", [])
         title = get_title(post.get("title"))
         url = normalize_url(post.get("url"), secure=blog.get("secure", True))
         archive_url = (

@@ -567,7 +567,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
             print(doi)
             response = (
                 supabase_client.table("posts")
-                .select(postsWithContentSelect)
+                .select(postsWithCitationsSelect)
                 .eq("doi", doi)
                 .maybe_single()
                 .execute()
