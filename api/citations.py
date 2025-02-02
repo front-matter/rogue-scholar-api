@@ -4,9 +4,6 @@ from os import environ
 from typing import Optional
 import httpx
 import xmltodict
-import re
-from furl import furl
-import datetime
 import pydash as py_
 from commonmeta import validate_doi, normalize_doi, Metadata
 
@@ -16,14 +13,6 @@ from api.supabase_client import (
 )
 from api.utils import (
     compact,
-    start_case,
-    get_date,
-    unix_timestamp,
-    wrap,
-    normalize_url,
-    is_valid_url,
-    format_datetime,
-    FOS_MAPPINGS,
 )
 
 
