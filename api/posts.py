@@ -1457,7 +1457,7 @@ def upsert_single_post(post):
         # upsert InvenioRDM record
         record = (
             supabase.table("posts")
-            .select(postsWithContentSelect)
+            .select(postsWithCitationsSelect)
             .eq("guid", post.get("guid", None))
             .maybe_single()
             .execute()
@@ -2212,16 +2212,20 @@ def format_citations(citations: list) -> list:
 
         unstructured = citation.get("unstructured", None)
 
-        if citation.get("id", None):
+        if citation.get("citation", None):
             # remove duplicate ID from unstructured reference
-            unstructured = unstructured.replace(citation.get("id"), "")
+            unstructured = unstructured.replace(citation.get("citation"), "")
 
         # remove optional trailing whitespace
         unstructured = unstructured.rstrip()
 
+        # remove HTML tags such as <i> and <sup> from unstructured citation
+        tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
+        unstructured = nh3.clean(unstructured, tags=tags)
+
         return compact(
             {
-                "identifier": citation.get("id", None),
+                "identifier": citation.get("citation", None),
                 "scheme": "doi",
                 "reference": unstructured,
             }
