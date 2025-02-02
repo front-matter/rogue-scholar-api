@@ -29,7 +29,7 @@ from api.supabase_client import (
     blogsSelect,
     blogWithPostsSelect,
     citationsSelect,
-    citationsWithoutDoiSelect,
+    citationsWithDoiSelect,
     postsWithContentSelect,
 )
 from api.typesense_client import typesense_client as typesense
@@ -63,6 +63,7 @@ from api.posts import (
     delete_all_draft_records,
 )
 from api.blogs import extract_single_blog, extract_all_blogs
+from api.citations import extract_all_citations_by_prefix
 from api.schema import Blog, Citation, Post, PostQuery
 
 config = Config()
@@ -243,7 +244,7 @@ async def citations():
     try:
         response = (
             supabase_client.table("citations")
-            .select(citationsSelect, count="exact")
+            .select(citationsWithDoiSelect, count="exact")
             .order("updated_at", desc=True)
             .range(start_page, end_page)
             .execute()
@@ -261,7 +262,7 @@ async def citation(slug: str, suffix: str):
         doi = f"https://doi.org/{slug}/{suffix}"
         response = (
             supabase_client.table("citations")
-            .select(citationsWithoutDoiSelect)
+            .select(citationsSelect)
             .eq("doi", doi)
             .order("published_at", desc=False)
             .order("updated_at", desc=True)
@@ -269,6 +270,37 @@ async def citation(slug: str, suffix: str):
         )
         return jsonify(response.data)
     else:
+        return {"error": "An error occured."}, 400
+
+
+@validate_response(Citation)
+@app.route("/citations/<slug>", methods=["POST"])
+async def post_citations(slug: str):
+    """Upsert citations."""
+    prefixes = [
+        "10.53731",
+        "10.54900",
+        "10.59347",
+        "10.59348",
+        "10.59349",
+        "10.59350",
+    ]
+    if slug not in prefixes:
+        logger.warning(f"Invalid prefix: {slug}")
+        return {"error": "An error occured."}, 400
+
+    if (
+        request.headers.get("Authorization", None) is None
+        or request.headers.get("Authorization").split(" ")[1]
+        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
+    ):
+        return {"error": "Unauthorized."}, 401
+
+    try:
+        result = await extract_all_citations_by_prefix(slug)
+        return jsonify(result)
+    except Exception as e:
+        logger.warning(e.args[0])
         return {"error": "An error occured."}, 400
 
 
@@ -419,6 +451,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
         "10.54900",
         "10.57689",  # not managed by Front Matter
         "10.58079",  # not managed by Front Matter
+        "10.59347",
         "10.59348",
         "10.59349",
         "10.59350",
