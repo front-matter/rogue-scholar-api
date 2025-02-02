@@ -5,6 +5,7 @@ import logging
 from typing import Optional
 from datetime import timedelta
 import time
+from math import ceil
 from os import environ
 import pydash as py_
 from dotenv import load_dotenv
@@ -31,6 +32,7 @@ from api.supabase_client import (
     citationsSelect,
     citationsWithDoiSelect,
     postsWithContentSelect,
+    postsWithCitationsSelect,
 )
 from api.typesense_client import typesense_client as typesense
 from api.utils import (
@@ -463,6 +465,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
     format_ = request.args.get("format") or "json"
     locale = request.args.get("locale") or "en-US"
     style = request.args.get("style") or "apa"
+    page = int(request.args.get("page") or "1")
     per_page = int(request.args.get("per_page") or "50")
     if slug == "unregistered":
         response = (
@@ -490,12 +493,24 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
     elif slug == "cited":
         response = (
             supabase_client.table("posts")
-            .select(postsWithContentSelect, count="exact")
+            .select("*, citation: citations!inner(citation)", count="exact", head=True)
+            .not_.is_("doi", "null")
+            .execute()
+        )
+        total = response.count
+        total_pages = ceil(total / 50)
+        page = min(page, total_pages)
+        start_page = (page - 1) * 50 if page > 0 else 0
+        end_page = (page - 1) * 50 + 50 if page > 0 else 50
+
+        response = (
+            supabase_client.table("posts")
+            .select(postsWithCitationsSelect, count="exact")
             .not_.is_("blogs.prefix", "null")
             .not_.is_("doi", "null")
-            .neq("citations", "[]")
             .order("updated_at", desc=True)
             .limit(min(per_page, 100))
+            .range(start_page, end_page)
             .execute()
         )
         return jsonify({"total-results": response.count, "items": response.data})

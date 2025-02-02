@@ -113,9 +113,8 @@ async def update_all_cited_posts(page: int = 1):
 
     response = (
         supabase.table("posts")
-        .select("*", count="exact", head=True)
+        .select("*, citation: citations!inner(*)", count="exact", head=True)
         .not_.is_("doi", "null")
-        .neq("citations", "[]")
         .execute()
     )
     total = response.count
