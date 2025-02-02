@@ -108,6 +108,45 @@ async def update_all_posts(page: int = 1):
     return results
 
 
+async def update_all_cited_posts(page: int = 1):
+    """Update all cited posts."""
+
+    response = (
+        supabase.table("posts")
+        .select("*", count="exact", head=True)
+        .not_.is_("doi", "null")
+        .neq("citations", "[]")
+        .execute()
+    )
+    total = response.count
+    total_pages = ceil(total / 50)
+    page = min(page, total_pages)
+    start_page = (page - 1) * 50 if page > 0 else 0
+    end_page = (page - 1) * 50 + 50 if page > 0 else 50
+    validate_all = True
+
+    response = (
+        supabase.table("posts")
+            .select(postsWithContentSelect, count="exact")
+            .not_.is_("blogs.prefix", "null")
+            .not_.is_("doi", "null")
+            .neq("citations", "[]")
+            .limit(50)
+            .order("updated_at", desc=True)
+            .range(start_page, end_page)
+            .execute()
+    )   
+    tasks = []
+    for post in response.data:
+        blog = post.get("blog", None)
+        print(f"Updating cited post {post['title']} from {blog['slug']}.")
+        task = update_rogue_scholar_post(post, blog, validate_all)
+        tasks.append(task)
+
+    cited_posts = await asyncio.gather(*tasks)
+    return [upsert_single_post(i) for i in cited_posts]
+
+
 async def extract_all_posts_by_blog(
     slug: str,
     page: int = 1,
@@ -2151,6 +2190,7 @@ async def get_citations(doi: Optional[str]) -> list:
             supabase.table("citations")
             .select("citation")
             .eq("doi", doi)
+            .order("published_at", desc=False)
             .order("updated_at", desc=False)
             .execute()
         )
@@ -2177,10 +2217,10 @@ def format_citations(citations: list) -> list:
         if citation.get("id", None):
             # remove duplicate ID from unstructured reference
             unstructured = unstructured.replace(citation.get("id"), "")
-        
+
         # remove optional trailing whitespace
         unstructured = unstructured.rstrip()
-        
+
         return compact(
             {
                 "identifier": citation.get("id", None),

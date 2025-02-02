@@ -22,7 +22,7 @@ from quart_schema import (
 from quart_rate_limiter import RateLimiter, RateLimit
 from quart_cors import cors
 from postgrest import APIError
-from commonmeta import Metadata, doi_from_url, validate_prefix
+from commonmeta import doi_from_url
 
 from api.supabase_client import (
     supabase_client,
@@ -54,6 +54,7 @@ from api.posts import (
     extract_all_posts,
     extract_all_posts_by_blog,
     update_all_posts,
+    update_all_cited_posts,
     update_all_posts_by_blog,
     update_single_post,
     delete_draft_record,
@@ -290,9 +291,15 @@ async def posts():
         return {"error": "An error occured."}, 400
 
 
+@app.route("/posts/<slug>", methods=["POST"])
 @app.route("/posts", methods=["POST"])
-async def post_posts():
+async def post_posts(slug: Optional[str] = None):
     """Update posts."""
+
+    permitted_slugs = ["cited"]
+    if slug and slug not in permitted_slugs:
+        logger.warning(f"Invalid slug: {slug}")
+        return {"error": "An error occured."}, 400
 
     page = int(request.args.get("page") or "1")
     update = request.args.get("update")
@@ -306,7 +313,10 @@ async def post_posts():
         return {"error": "Unauthorized."}, 401
     else:
         try:
-            if update == "self":
+            if slug == "cited":
+                updated_posts = await update_all_cited_posts(page=page)
+                return jsonify(updated_posts)
+            elif update == "self":
                 updated_posts = await update_all_posts(page=page)
                 return jsonify(updated_posts)
             else:
@@ -326,7 +336,7 @@ async def post_posts():
 @app.route("/posts/<slug>/<suffix>", methods=["POST"])
 async def post_post(slug: str, suffix: Optional[str] = None):
     """Update post by either uuid or doi, using information from the blog's feed."""
-    
+
     validate = request.args.get("validate")
     if (
         request.headers.get("Authorization", None) is None
@@ -336,7 +346,9 @@ async def post_post(slug: str, suffix: Optional[str] = None):
         return {"error": "Unauthorized."}, 401
 
     try:
-        result = await update_single_post(slug, suffix=suffix, validate_all=(validate == "all"))
+        result = await update_single_post(
+            slug, suffix=suffix, validate_all=(validate == "all")
+        )
         return jsonify(result)
     except Exception as e:
         logger.warning(e.args[0])
@@ -359,7 +371,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
         "10.59349",
         "10.59350",
     ]
-    permitted_slugs = ["unregistered", "updated"] + prefixes
+    permitted_slugs = ["unregistered", "updated", "cited"] + prefixes
     if slug not in permitted_slugs and not validate_uuid(slug):
         logger.warning(f"Invalid slug: {slug}")
         return {"error": "An error occured."}, 400
@@ -385,6 +397,18 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
             .not_.is_("blogs.prefix", "null")
             .is_("updated", True)
             .not_.is_("doi", "null")
+            .order("updated_at", desc=True)
+            .limit(min(per_page, 100))
+            .execute()
+        )
+        return jsonify({"total-results": response.count, "items": response.data})
+    elif slug == "cited":
+        response = (
+            supabase_client.table("posts")
+            .select(postsWithContentSelect, count="exact")
+            .not_.is_("blogs.prefix", "null")
+            .not_.is_("doi", "null")
+            .neq("citations", "[]")
             .order("updated_at", desc=True)
             .limit(min(per_page, 100))
             .execute()
