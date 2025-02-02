@@ -23,4 +23,5 @@ postsWithConfigSelect = "id, guid, doi, url, archive_url, title, summary, abstra
 postsWithBlogSelect = "id, guid, doi, url, archive_url, title, summary, abstract, published_at, updated_at, registered_at, indexed_at, indexed, authors, image, tags, language, reference, relationships, citations, blog_name, blog_slug, rid,  blog: blogs!inner(*)"
 postsWithContentSelect = "id, guid, doi, url, archive_url, title, summary, abstract, content_text, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, citations, blog_name, blog_slug, rid, blog: blogs!inner(*)"
 postsForUpsertSelect = "id, guid, doi, url, archive_url, title, summary, abstract, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, citations, blog_name, blog_slug, rid, blog: blogs!inner(*)"
-worksSelect = "*"
+citationsSelect = "id, doi, citation, validated, updated_at, published_at"
+citationsWithoutDoiSelect = "id, citation, validated, updated_at, published_at"

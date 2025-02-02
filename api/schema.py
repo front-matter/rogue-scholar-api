@@ -39,6 +39,18 @@ class Blog:
 
 
 @dataclass
+class Citation:
+    """Citation schema."""
+
+    id: str
+    doi: str
+    citation: str
+    validated: bool
+    updated_at: datetime
+    published_at: str
+
+
+@dataclass
 class Post:
     """Post schema."""
 

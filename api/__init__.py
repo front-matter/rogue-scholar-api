@@ -28,6 +28,8 @@ from api.supabase_client import (
     supabase_client,
     blogsSelect,
     blogWithPostsSelect,
+    citationsSelect,
+    citationsWithoutDoiSelect,
     postsWithContentSelect,
 )
 from api.typesense_client import typesense_client as typesense
@@ -61,7 +63,7 @@ from api.posts import (
     delete_all_draft_records,
 )
 from api.blogs import extract_single_blog, extract_all_blogs
-from api.schema import Blog, Post, PostQuery
+from api.schema import Blog, Citation, Post, PostQuery
 
 config = Config()
 config.from_toml("hypercorn.toml")
@@ -216,6 +218,56 @@ async def post_blog_posts(slug: str, suffix: Optional[str] = None):
         except Exception as e:
             logger.warning(e.args[0])
             return {"error": "An error occured."}, 400
+    else:
+        return {"error": "An error occured."}, 400
+
+
+@app.route("/citations/")
+@hide
+async def citations_redirect():
+    """Redirect /citations/ to /citations."""
+    return redirect("/citations", code=301)
+
+
+@validate_response(Citation)
+@app.route("/citations")
+async def citations():
+    """Show citations.
+    Options to change page."""
+    page = int(request.args.get("page") or "1")
+
+    start_page = page if page and page > 0 else 1
+    start_page = (start_page - 1) * 10
+    end_page = start_page + 10
+
+    try:
+        response = (
+            supabase_client.table("citations")
+            .select(citationsSelect, count="exact")
+            .order("updated_at", desc=True)
+            .range(start_page, end_page)
+            .execute()
+        )
+        return jsonify({"total-results": response.count, "items": response.data})
+    except APIError as e:
+        return {"error": e.message or "An error occured."}, 400
+
+
+@validate_response(Citation)
+@app.route("/citations/<slug>/<suffix>")
+async def citation(slug: str, suffix: str):
+    """Get citation by doi."""
+    if slug and suffix:
+        doi = f"https://doi.org/{slug}/{suffix}"
+        response = (
+            supabase_client.table("citations")
+            .select(citationsWithoutDoiSelect)
+            .eq("doi", doi)
+            .order("published_at", desc=False)
+            .order("updated_at", desc=True)
+            .execute()
+        )
+        return jsonify(response.data)
     else:
         return {"error": "An error occured."}, 400
 
