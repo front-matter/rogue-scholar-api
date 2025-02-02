@@ -1425,7 +1425,6 @@ def upsert_single_post(post):
                     "category": post.get("category", None),
                     "reference": post.get("reference", None),
                     "relationships": post.get("relationships", None),
-                    "citations": post.get("citations", []),
                     "summary": post.get("summary", ""),
                     "abstract": post.get("abstract", None),
                     "tags": post.get("tags", None),
