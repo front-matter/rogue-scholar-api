@@ -50,6 +50,7 @@ from api.supabase_client import (
     supabase_admin_client as supabase_admin,
     supabase_client as supabase,
     postsWithContentSelect,
+    postsWithCitationsSelect,
 )
 
 
@@ -126,10 +127,9 @@ async def update_all_cited_posts(page: int = 1):
 
     response = (
         supabase.table("posts")
-            .select(postsWithContentSelect, count="exact")
+            .select(postsWithCitationsSelect, count="exact")
             .not_.is_("blogs.prefix", "null")
             .not_.is_("doi", "null")
-            .neq("citations", "[]")
             .limit(50)
             .order("updated_at", desc=True)
             .range(start_page, end_page)
