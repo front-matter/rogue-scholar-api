@@ -5,7 +5,6 @@ import asyncio
 from os import environ
 from typing import Optional
 import httpx
-import ssl
 import feedparser
 import re
 from bs4 import BeautifulSoup as bs4
