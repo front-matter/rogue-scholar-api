@@ -2171,11 +2171,21 @@ def format_citations(citations: list) -> list:
 
     def format_citation(citation):
         """Format citation in inveniordm reference format."""
+
+        unstructured = citation.get("unstructured", None)
+
+        if citation.get("id", None):
+            # remove duplicate ID from unstructured reference
+            unstructured = unstructured.replace(citation.get("id"), "")
+        
+        # remove optional trailing whitespace
+        unstructured = unstructured.rstrip()
+        
         return compact(
             {
                 "identifier": citation.get("id", None),
                 "scheme": "doi",
-                "reference": citation.get("unstructured", None),
+                "reference": unstructured,
             }
         )
 
