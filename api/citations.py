@@ -127,6 +127,7 @@ async def upsert_single_citation(citation):
             .execute()
         )
         data = response.data[0]
+        print(f"Upserted citation {citation.get('citation')} for doi {citation.get('doi')}")
         return data
     except Exception as e:
         print(e)
