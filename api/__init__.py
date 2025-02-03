@@ -65,7 +65,7 @@ from api.posts import (
     delete_all_draft_records,
 )
 from api.blogs import extract_single_blog, extract_all_blogs
-from api.citations import extract_all_citations_by_prefix
+from api.citations import extract_all_citations
 from api.schema import Blog, Citation, Post, PostQuery
 
 config = Config()
@@ -276,8 +276,8 @@ async def citation(slug: str, suffix: str):
 
 
 @validate_response(Citation)
-@app.route("/citations/<slug>", methods=["POST"])
-async def post_citations(slug: str):
+@app.route("/citations/<slug>/<suffix>", methods=["POST"])
+async def post_citations(slug: str, suffix: Optional[str] = None):
     """Upsert citations."""
     prefixes = [
         "10.53731",
@@ -297,9 +297,11 @@ async def post_citations(slug: str):
         != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
     ):
         return {"error": "Unauthorized."}, 401
-
+    
     try:
-        result = await extract_all_citations_by_prefix(slug)
+        if suffix:
+            slug = f"{slug}/{suffix}"
+        result = await extract_all_citations(slug)
         return jsonify(result)
     except Exception as e:
         logger.warning(e.args[0])

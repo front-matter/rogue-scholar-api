@@ -5,7 +5,7 @@ from typing import Optional
 import httpx
 import xmltodict
 import pydash as py_
-from commonmeta import validate_doi, normalize_doi, Metadata
+from commonmeta import validate_doi, normalize_doi, wrap, Metadata
 
 from api.supabase_client import (
     supabase_client as supabase,
@@ -16,22 +16,21 @@ from api.utils import (
 )
 
 
-async def extract_all_citations_by_prefix(prefix: Optional[str]) -> list:
-    """Extract all citations from Crossref cited-by service by prefix. Needs username and password for account
+async def extract_all_citations(slug: Optional[str]) -> list:
+    """Extract all citations from Crossref cited-by service by slug (prefix or doi). Needs username and password for account
     managing the prefix."""
     username = environ.get("QUART_CROSSREF_USERNAME_WITH_ROLE", None)
     password = environ.get("QUART_CROSSREF_PASSWORD", None)
-    if not username or not password or not prefix:
+    if not username or not password or not slug:
         return []
-
-    url = f"https://doi.crossref.org/servlet/getForwardLinks?usr={username}&pwd={password}&doi={prefix}&startDate=2021-01-01&include_postedcontent=true"
+    url = f"https://doi.crossref.org/servlet/getForwardLinks?usr={username}&pwd={password}&doi={slug}&startDate=2000-01-01&include_postedcontent=true"
     response = httpx.get(url, headers={"Accept": "text/xml;charset=utf-8"}, timeout=10)
     response.raise_for_status()
     crossref_result = xmltodict.parse(response.text)
     citations = py_.get(
         crossref_result, "crossref_result.query_result.body.forward_link", []
     )
-    return await upsert_citations(citations)
+    return await upsert_citations(wrap(citations))
 
 
 def parse_crossref_xml(xml: Optional[str], **kwargs) -> list:
@@ -57,6 +56,7 @@ async def format_crossref_citation(citation: dict) -> dict:
     """Format Crossref citation from Crossref cited-by service.
     Citing doi is embedded in different metadata, depending on the content type, e.g. journal_cite, book_cite, etc."""
 
+    print(citation)
     cited_doi = validate_doi(citation.get("@doi", None))
     citing_doi = validate_doi(
         py_.get(citation, "journal_cite.doi.#text")
@@ -75,6 +75,10 @@ async def format_crossref_citation(citation: dict) -> dict:
 
     # lookup metadata via API call, as we need the publication date to order the citations
     subject = Metadata(citing_doi)
+
+    # remove publisher field for articles, workaround for unstructured citation
+    if subject.type == "Article":
+        subject.publisher = None
 
     unstructured = subject.write(to="citation", style="apa", locale="en-US")
     published_at = py_.get(subject, "date.published")
