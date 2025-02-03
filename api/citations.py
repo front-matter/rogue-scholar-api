@@ -1,7 +1,8 @@
 """Citations module."""
 
-from os import environ
+from os import environ, path
 from typing import Optional
+import yaml
 import httpx
 import xmltodict
 import pydash as py_
@@ -53,11 +54,14 @@ def parse_crossref_xml(xml: Optional[str], **kwargs) -> list:
     return xmltodict.parse(xml, **kwargs)
 
 
-async def format_crossref_citation(citation: dict) -> dict:
+async def format_crossref_citation(citation: dict, redirects: dict) -> dict:
     """Format Crossref citation from Crossref cited-by service.
-    Citing doi is embedded in different metadata, depending on the content type, e.g. journal_cite, book_cite, etc."""
+    Citing doi is embedded in different metadata, depending on the content type, e.g. journal_cite, book_cite, etc.
+    Some Rogue Scholar DOIs are redirected to new DOIs, which are stored in the redirects.yaml file."""
 
     cited_doi = validate_doi(citation.get("@doi", None))
+    cited_doi = redirects.get(cited_doi, cited_doi)
+
     citing_doi = validate_doi(
         py_.get(citation, "journal_cite.doi.#text")
         or py_.get(citation, "book_cite.doi.#text")
@@ -82,6 +86,7 @@ async def format_crossref_citation(citation: dict) -> dict:
 
     unstructured = subject.write(to="citation", style="apa", locale="en-US")
     published_at = py_.get(subject, "date.published")
+    print(f"Formatting citation {citing_doi} for {cited_doi}")
 
     return compact(
         {
@@ -96,8 +101,11 @@ async def format_crossref_citation(citation: dict) -> dict:
 
 async def upsert_citations(citations: list) -> list:
     """Upsert multiple citations."""
+
+    # load redirected dois
+    redirects = load_redirects()
  
-    data = [await format_crossref_citation(citation) for citation in citations]
+    data = [await format_crossref_citation(citation, redirects) for citation in citations]
     return [await upsert_single_citation(citation) for citation in data]
 
 
@@ -132,3 +140,13 @@ async def upsert_single_citation(citation):
     except Exception as e:
         print(e)
         return None
+
+def load_redirects():
+    """Load redirected dois from yaml."""
+
+    file_path = path.join(path.dirname(__file__), "../pandoc/redirects.yaml")
+    with open(file_path, encoding="utf-8") as file:
+        string = file.read()
+        f = yaml.safe_load(string)
+        redirects = f[301]
+    return redirects
