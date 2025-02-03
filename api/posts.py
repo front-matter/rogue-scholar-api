@@ -138,7 +138,6 @@ async def update_all_cited_posts(page: int = 1):
     tasks = []
     for post in response.data:
         blog = post.get("blog", None)
-        print(f"Updating cited post {post['title']} from {blog['slug']}.")
         task = update_rogue_scholar_post(post, blog, validate_all)
         tasks.append(task)
 
@@ -1595,7 +1594,7 @@ def update_record(record, rid: str, community_id: str):
             record["metadata"]["funding"] = validate_funding(
                 py_.get(record, "metadata.funding")
             )
-        print(py_.get(record, "metadata.identifiers"))
+
         # add citations to InvenioRDM record
         if len(citations) > 0:
             record["custom_fields"]["rs:citations"] = format_citations(citations)
