@@ -462,6 +462,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
         "10.59350",
     ]
     permitted_slugs = ["unregistered", "updated", "cited"] + prefixes
+    status = ["active", "archived"]
     if slug not in permitted_slugs and not validate_uuid(slug):
         logger.warning(f"Invalid slug: {slug}")
         return {"error": "An error occured."}, 400
@@ -476,6 +477,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
             .select(postsWithContentSelect, count="exact")
             .not_.is_("blogs.prefix", "null")
             .is_("rid", "null")
+            .in_("status", status)
             .order("published_at", desc=True)
             .limit(min(per_page, 100))
             .execute()
@@ -488,6 +490,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
             .not_.is_("blogs.prefix", "null")
             .is_("updated", True)
             .not_.is_("doi", "null")
+            .in_("status", status)
             .order("updated_at", desc=True)
             .limit(min(per_page, 100))
             .execute()
