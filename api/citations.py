@@ -30,6 +30,7 @@ async def extract_all_citations(slug: Optional[str]) -> list:
     citations = py_.get(
         crossref_result, "crossref_result.query_result.body.forward_link", []
     )
+    print(f"Upserting {len(wrap(citations))} citations for {slug}")
     return await upsert_citations(wrap(citations))
 
 
@@ -56,7 +57,6 @@ async def format_crossref_citation(citation: dict) -> dict:
     """Format Crossref citation from Crossref cited-by service.
     Citing doi is embedded in different metadata, depending on the content type, e.g. journal_cite, book_cite, etc."""
 
-    print(citation)
     cited_doi = validate_doi(citation.get("@doi", None))
     citing_doi = validate_doi(
         py_.get(citation, "journal_cite.doi.#text")
@@ -96,7 +96,7 @@ async def format_crossref_citation(citation: dict) -> dict:
 
 async def upsert_citations(citations: list) -> list:
     """Upsert multiple citations."""
-    print(f"Upserting {len(citations)} citations")
+ 
     data = [await format_crossref_citation(citation) for citation in citations]
     return [await upsert_single_citation(citation) for citation in data]
 
