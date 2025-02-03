@@ -276,6 +276,7 @@ async def citation(slug: str, suffix: str):
 
 
 @validate_response(Citation)
+@app.route("/citations/<slug>", methods=["POST"])
 @app.route("/citations/<slug>/<suffix>", methods=["POST"])
 async def post_citations(slug: str, suffix: Optional[str] = None):
     """Upsert citations."""
