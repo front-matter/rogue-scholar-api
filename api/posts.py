@@ -568,6 +568,7 @@ async def update_single_post(
     slug: str, suffix: Optional[str] = None, validate_all: bool = False
 ):
     """Update single post"""
+
     try:
         if validate_uuid(slug):
             response = (
@@ -577,6 +578,14 @@ async def update_single_post(
                 .maybe_single()
                 .execute()
             )
+            if not response:
+                response = (
+                    supabase.table("posts")
+                    .select(postsWithContentSelect)
+                    .eq("id", slug)
+                    .maybe_single()
+                    .execute()
+                )
         elif validate_prefix(slug) and suffix:
             doi = f"https://doi.org/{slug}/{suffix}"
             response = (
@@ -586,9 +595,19 @@ async def update_single_post(
                 .maybe_single()
                 .execute()
             )
+            if not response:
+                response = (
+                    supabase.table("posts")
+                    .select(postsWithContentSelect)
+                    .eq("doi", doi)
+                    .maybe_single()
+                    .execute()
+                )
         else:
             return {"error": "An error occured."}, 400
-        blog = response.data.get("blog", None)
+        if not response or not response.data:
+            return {"error": "An error occured."}, 400
+        blog = py_.get(response.data, "blog")
         if not blog:
             return {"error": "Blog not found."}, 404
         post = py_.omit(response.data, "blog")
@@ -1462,6 +1481,14 @@ def upsert_single_post(post):
             .maybe_single()
             .execute()
         )
+        if record is None:
+            record = (
+                supabase.table("posts")
+                .select(postsWithContentSelect)
+                .eq("guid", post.get("guid", None))
+                .maybe_single()
+                .execute()
+            )
         guid = record.data.get("guid", None)
         doi = record.data.get("doi", None)
         rid = search_by_doi(doi)
@@ -1568,7 +1595,7 @@ def update_record(record, rid: str, community_id: str):
             record["metadata"]["funding"] = validate_funding(
                 py_.get(record, "metadata.funding")
             )
-
+        print(py_.get(record, "metadata.identifiers"))
         # add citations to InvenioRDM record
         if len(citations) > 0:
             record["custom_fields"]["rs:citations"] = format_citations(citations)
@@ -2231,4 +2258,4 @@ def format_citations(citations: list) -> list:
             }
         )
 
-    return [format_citation(citation) for citation in citations]
+    return [format_citation(citation) for citation in citations if citation.get("validated", False)]
