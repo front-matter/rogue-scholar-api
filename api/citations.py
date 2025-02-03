@@ -96,6 +96,7 @@ async def format_crossref_citation(citation: dict) -> dict:
 
 async def upsert_citations(citations: list) -> list:
     """Upsert multiple citations."""
+    print(f"Upserting {len(citations)} citations")
     data = [await format_crossref_citation(citation) for citation in citations]
     return [await upsert_single_citation(citation) for citation in data]
 
