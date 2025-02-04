@@ -71,6 +71,8 @@ async def format_crossref_citation(citation: dict, redirects: dict) -> dict:
 
     if cited_doi is None or citing_doi is None:
         return {}
+    cited_doi = cited_doi.lower()
+    citing_doi = citing_doi.lower()
 
     # generate unique identifier using cited_doi and citing_doi
     # TODO: align with OpenCitations OCI identifier
