@@ -25,5 +25,5 @@ postsWithContentSelect = "id, guid, doi, url, archive_url, title, summary, abstr
 postsForUpsertSelect = "id, guid, doi, url, archive_url, title, summary, abstract, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, blog_name, blog_slug, rid, blog: blogs!inner(*)"
 postsWithCitationsSelect = "id, guid, doi, url, archive_url, title, summary, abstract, content_text, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, blog_name, blog_slug, rid, blog: blogs!inner(*), citations: citations!inner(citation, unstructured, validated, updated_at, published_at)"
 citationsSelect = "citation, unstructured, validated, updated_at, published_at"
-citationsWithDoiSelect = "doi, citation, unstructured, validated, updated_at, published_at"
-citationsWithCidSelect = "cid, doi, citation, unstructured, validated, updated_at, published_at"
+citationsWithDoiSelect = "doi, citation, unstructured, validated, updated_at, published_at, type"
+citationsWithCidSelect = "cid, doi, citation, unstructured, validated, updated_at, published_at, type"

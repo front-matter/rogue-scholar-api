@@ -88,6 +88,7 @@ async def format_crossref_citation(citation: dict, redirects: dict) -> dict:
 
     unstructured = subject.write(to="citation", style="apa", locale="en-US")
     published_at = py_.get(subject, "date.published")
+    type_ = py_.get(subject, "type")
     print(f"Formatting citation {citing_doi} for {cited_doi}")
 
     return compact(
@@ -97,6 +98,7 @@ async def format_crossref_citation(citation: dict, redirects: dict) -> dict:
             "citation": normalize_doi(citing_doi),
             "unstructured": unstructured,
             "published_at": published_at,
+            "type": type_,
         }
     )
 
@@ -129,6 +131,7 @@ async def upsert_single_citation(citation):
                     "citation": citation.get("citation"),
                     "unstructured": citation.get("unstructured", None),
                     "published_at": citation.get("published_at", None),
+                    "type": citation.get("type", None),
                 },
                 returning="representation",
                 ignore_duplicates=False,
