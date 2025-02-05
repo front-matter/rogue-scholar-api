@@ -2246,8 +2246,8 @@ def format_citations(citations: list) -> list:
         unstructured = unstructured.rstrip()
 
         # remove HTML tags such as <i> and <sup> from unstructured citation
-        tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
-        unstructured = nh3.clean(unstructured, tags=tags)
+        # tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
+        # unstructured = nh3.clean(unstructured, tags=tags)
 
         return compact(
             {

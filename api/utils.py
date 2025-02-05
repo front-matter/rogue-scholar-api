@@ -1688,8 +1688,8 @@ async def validate_reference(id_: str, unstructured: str) -> Optional[str]:
             unstructured = subject.write(to="citation", style="apa", locale="en-US")
 
             # remove HTML tags such as <i> and <sup> from unstructured citation
-            tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
-            unstructured = nh3.clean(unstructured, tags=tags)
+            # tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
+            # unstructured = nh3.clean(unstructured, tags=tags)
         return unstructured
     except Exception as e:
         print(e)
