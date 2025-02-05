@@ -1681,8 +1681,8 @@ async def validate_reference(id_: str, unstructured: str) -> Optional[str]:
         # if meaningful metadata are found
         if subject.titles and subject.contributors:
             # remove publisher field for articles, workaround for unstructured citation
-            if subject.type == "Article":
-                subject.publisher = None
+            # if subject.type == "Article":
+            #     subject.publisher = None
 
             id_ = subject.id
             unstructured = subject.write(to="citation", style="apa", locale="en-US")

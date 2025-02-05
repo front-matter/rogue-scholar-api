@@ -83,8 +83,8 @@ async def format_crossref_citation(citation: dict, redirects: dict) -> dict:
     subject = Metadata(citing_doi)
 
     # remove publisher field for articles, workaround for unstructured citation
-    if subject.type == "Article":
-        subject.publisher = None
+    # if subject.type == "Article":
+    #     subject.publisher = None
 
     unstructured = subject.write(to="citation", style="apa", locale="en-US")
     published_at = py_.get(subject, "date.published")

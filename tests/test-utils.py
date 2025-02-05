@@ -47,7 +47,7 @@ def test_convert_to_commonmeta_default():
     result = convert_to_commonmeta(data)
     assert result["id"] == "https://doi.org/10.59350/ps8tw-rpk77"
     assert result["schema_version"] == "https://commonmeta.org/commonmeta_v0.12"
-    assert result["type"] == "Article"
+    assert result["type"] == "BlogPost"
     assert result["url"] == "http://gigasciencejournal.com/blog/fair-workflows"
     assert py_.get(result, "titles.0") == {
         "title": "A Decade of FAIR – what happens next? Q&amp;A on FAIR workflows with the Netherlands X-omics Initiative"
@@ -528,7 +528,7 @@ async def test_get_single_work_blog_post():
     string = "10.53731/ybhah-9jy85"
     work = await get_single_work(string)
     assert work["id"] == "https://doi.org/10.53731/ybhah-9jy85"
-    assert work["type"] == "Article"
+    assert work["type"] == "BlogPost"
     assert (
         work["url"]
         == "https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter"
