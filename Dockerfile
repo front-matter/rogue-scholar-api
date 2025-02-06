@@ -24,9 +24,10 @@ RUN dpkg -i /tmp/pandoc-${PANDOC_VERSION}-1-amd64.deb && \
 
 WORKDIR /app
 
-COPY pyproject.toml requirements.txt ./
+COPY pyproject.toml ./
 RUN touch README.md
 RUN --mount=type=cache,target=/root/.cache/uv \
+    uv pip compile pyproject.toml -o requirements.txt && \
     uv pip install -r requirements.txt
 
 FROM --platform=$BUILDPLATFORM python:3.12-slim-bookworm AS runtime
