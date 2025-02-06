@@ -15,15 +15,15 @@ from datetime import datetime, timezone
 from furl import furl
 from langdetect import detect
 from bs4 import BeautifulSoup
-import nh3
 from commonmeta import (
     Metadata,
     get_one_author,
     validate_orcid,
     normalize_orcid,
+    normalize_doi,
     doi_from_url,
     extract_url,
-    extract_curie,
+    replace_curie,
 )
 from commonmeta.constants import Commonmeta
 from commonmeta.date_utils import get_date_from_unix_timestamp
@@ -1156,7 +1156,7 @@ def convert_to_commonmeta(meta: dict) -> Commonmeta:
     return {
         "id": meta.get("doi", None) or meta.get("id", None),
         "url": meta.get("url", None),
-        "type": "Article",
+        "type": "BlogPost",
         "contributors": format_authors_commonmeta(meta.get("authors", None)),
         "titles": [{"title": meta.get("title", None)}],
         "descriptions": [
@@ -1579,13 +1579,14 @@ async def format_list_reference(reference, validate_all: bool = False):
     id_ = reference.find("a")
     if id_ is not None:
         id_ = normalize_url(id_.get("href"))
+    unstructured = replace_curie(reference.text) or reference.text
     if id_ is None:
-        id_ = extract_reference_id(reference.text)
-    unstructured = reference.text
+        id_ = extract_reference_id(unstructured)
 
     # if id_ is present and validate_all is True, lookup metadata
     if id_ is not None and validate_all:
-        unstructured = await validate_reference(id_, unstructured)
+        id_, unstructured = await validate_reference(id_, unstructured)
+    
     return compact(
         {
             "id": id_,
@@ -1605,7 +1606,8 @@ async def format_reference(url, validate_all: bool = False):
 
         # if id_ is present and validate_all is True, lookup metadata
         if id_ is not None and validate_all:
-            unstructured = await validate_reference(id_, unstructured)
+            id_, unstructured = await validate_reference(id_, unstructured)
+        
         return compact(
             {
                 "id": id_,
@@ -1627,7 +1629,8 @@ async def format_json_reference(reference: dict, validate_all: bool = False):
 
         # if id_ is present and validate_all is True, lookup metadata
         if id_ is not None and validate_all:
-            unstructured = await validate_reference(id_, unstructured)
+            id_, unstructured = await validate_reference(id_, unstructured)
+        
         return compact(
             {
                 "id": id_,
@@ -1641,32 +1644,35 @@ async def format_json_reference(reference: dict, validate_all: bool = False):
 
 async def format_citeproc_reference(reference, validate_all: bool = False):
     """Format reference from citeproc html div element."""
-    try:
-        id_ = reference.find("a")
-        if id_ is not None:
-            id_ = normalize_url(id_.get("href"))
-        if id_ is None:
-            id_ = extract_reference_id(reference.text)
+    # try:
+    id_ = reference.find("a")
+    if id_ is not None:
+        id_ = normalize_url(id_.get("href"))
         unstructured = reference.text
+    if id_ is None:
+        unstructured = replace_curie(reference.text) or reference.text
+        id_ = extract_reference_id(unstructured)
 
-        # if id_ is present and validate_all is True, lookup metadata
-        if id_ is not None and validate_all:
-            unstructured = await validate_reference(id_, unstructured)
-        return compact(
-            {
-                "id": id_,
-                "unstructured": unstructured,
-            }
-        )
-    except Exception as e:
-        print(e)
-        return None
+    # if id_ is present and validate_all is True, lookup metadata
+    if id_ is not None and validate_all:
+        id_, unstructured = await validate_reference(id_, unstructured)
+    
+    return compact(
+        {
+            "id": id_,
+            "unstructured": unstructured,
+        }
+    )
+    # except Exception as e:
+    #     print(e)
+    #     return None
 
 
 def extract_reference_id(reference: str) -> Optional[str]:
-    """Extract reference id from string."""
+    """Extract reference id from string. Prefer a DOI if available."""
     try:
-        return extract_url(reference) or extract_curie(reference)
+        url = extract_url(reference)
+        return normalize_doi(url) or url
     except Exception as e:
         print(e)
         return None
@@ -1680,17 +1686,9 @@ async def validate_reference(id_: str, unstructured: str) -> Optional[str]:
 
         # if meaningful metadata are found
         if subject.titles and subject.contributors:
-            # remove publisher field for articles, workaround for unstructured citation
-            # if subject.type == "Article":
-            #     subject.publisher = None
-
             id_ = subject.id
             unstructured = subject.write(to="citation", style="apa", locale="en-US")
-
-            # remove HTML tags such as <i> and <sup> from unstructured citation
-            # tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
-            # unstructured = nh3.clean(unstructured, tags=tags)
-        return unstructured
+        return [id_, unstructured]
     except Exception as e:
         print(e)
         return None

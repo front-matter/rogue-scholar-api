@@ -28,6 +28,9 @@ from api.utils import (
     id_as_str,
     get_single_work,
     format_reference,
+    format_list_reference,
+    extract_reference_id,
+    get_soup,
 )
 
 
@@ -570,13 +573,11 @@ async def test_get_single_work_dataset():
 async def test_format_reference_blog_post():
     """format reference blog post"""
     url = "https://doi.org/10.53731/ybhah-9jy85"
-    work = await format_reference(url,0, True)
+    work = await format_reference(url, True)
     assert work["id"] == "https://doi.org/10.53731/ybhah-9jy85"
-    assert work["title"] == "The rise of the (science) newsletter"
-    assert work["publicationYear"] == "2023"
     assert (
         work["unstructured"]
-        == "Fenner, M. (2023). The rise of the (science) newsletter. https://doi.org/10.53731/ybhah-9jy85"
+        == "Fenner, M. (2023, October 4). The rise of the (science) newsletter. <i>Front Matter</i>. https://doi.org/10.53731/ybhah-9jy85"
     )
 
 
@@ -584,13 +585,11 @@ async def test_format_reference_blog_post():
 async def test_format_reference_journal_article():
     """format reference journal article"""
     url = "https://doi.org/10.1038/d41586-023-02554-0"
-    work = await format_reference(url, 0, True)
+    work = await format_reference(url, True)
     assert work["id"] == "https://doi.org/10.1038/d41586-023-02554-0"
-    assert work["title"] == "Thousands of scientists are cutting back on Twitter, seeding angst and uncertainty"
-    assert work["publicationYear"] == "2023"
     assert (
         work["unstructured"]
-        == "Vidal Valero, M. (2023). Thousands of scientists are cutting back on Twitter, seeding angst and uncertainty. Nature, 620(7974), 482–484. https://doi.org/10.1038/d41586-023-02554-0"
+        == "Vidal Valero, M. (2023). Thousands of scientists are cutting back on Twitter, seeding angst and uncertainty. <i>Nature</i>, <i>620</i>(7974), 482–484. https://doi.org/10.1038/d41586-023-02554-0"
     )
 
 
@@ -598,11 +597,53 @@ async def test_format_reference_journal_article():
 async def test_format_reference_software():
     """format reference software"""
     url = "https://doi.org/10.5281/zenodo.8340374"
-    work = await format_reference(url, 0, True)
+    work = await format_reference(url, True)
     assert work["id"] == "https://doi.org/10.5281/zenodo.8340374"
-    assert work["title"] == "commonmeta-py"
-    assert work["publicationYear"] == "2024"
     assert (
         work["unstructured"]
-        == "Fenner, M. (2024). commonmeta-py (013.2) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.8340374"
+        == "Fenner, M. (2024). <i>commonmeta-py</i> (013.2) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.8340374"
     )
+
+
+def test_extract_extract_reference_id_doi():
+    """extract reference_id doi"""
+    reference = """Boisvert, C., Bivens, G., Curtice, B., Wilhite, R., & Wedel, M. (2025). 
+    Census of currently known specimens of the Late Jurassic sauropod Haplocanthosaurus 
+    from the Morrison Formation, USA. Geology of the Intermountain West, 12, 1–23. 
+    https://doi.org/10.31711/giw.v12.pp1-23"""
+    result = extract_reference_id(reference)
+    assert result == "https://doi.org/10.31711/giw.v12.pp1-23"
+
+
+def test_extract_extract_reference_id_url():
+    """extract reference_id url"""
+    reference = """Boisvert, C., Bivens, G., Curtice, B., Wilhite, R., & Wedel, M. (2025). 
+    Census of currently known specimens of the Late Jurassic sauropod Haplocanthosaurus 
+    from the Morrison Formation, USA. Geology of the Intermountain West, 12, 1–23. 
+    https://giw.utahgeology.org/giw/index.php/GIW/article/view/150"""
+    result = extract_reference_id(reference)
+    assert result == "https://giw.utahgeology.org/giw/index.php/GIW/article/view/150"
+
+
+@pytest.mark.asyncio
+async def test_format_list_reference():
+    """format reference from list"""
+    reference = """<a href="http://doi.org/10.1002/ar.25520">Boisvert, Colin, Curtice, Brian, Wedel, Mathew, &amp; Wilhite, Ray. 2024. Description of a new specimen of&nbsp;<em>Haplocanthosaurus</em>&nbsp;from the Dry Mesa Dinosaur Quarry. The Anatomical Record, 1–19. http://doi.org/10.1002/ar.25520</a>"""
+    soup = get_soup(reference)
+    result = await format_list_reference(soup)
+    assert result == {
+        "id": "http://doi.org/10.1002/ar.25520",
+        "unstructured": "Boisvert, Colin, Curtice, Brian, Wedel, Mathew, & Wilhite, Ray. 2024. Description of a new specimen of\xa0Haplocanthosaurus\xa0from the Dry Mesa Dinosaur Quarry. The Anatomical Record, 1–19. http://doi.org/10.1002/ar.25520",
+    }
+
+
+@pytest.mark.asyncio
+async def test_format_list_reference_curie():
+    """format reference from list curie"""
+    reference = """Melstrom, Keegan M., Michael D. D’Emic, Daniel Chure and Jeffrey A. Wilson. 2016. A juvenile sauropod dinosaur from the Late Jurassic of Utah, USA, presents further evidence of an avian style air-sac system. Journal of Vertebrate Paleontology 36(4):e1111898. doi:10.1080/02724634.2016.1111898"""
+    soup = get_soup(reference)
+    result = await format_list_reference(soup)
+    assert result == {
+        "id": "https://doi.org/10.1080/02724634.2016.1111898",
+        "unstructured": "Melstrom, Keegan M., Michael D. D’Emic, Daniel Chure and Jeffrey A. Wilson. 2016. A juvenile sauropod dinosaur from the Late Jurassic of Utah, USA, presents further evidence of an avian style air-sac system. Journal of Vertebrate Paleontology 36(4):e1111898. https://doi.org/10.1080/02724634.2016.1111898",
+    }
