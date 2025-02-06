@@ -24,11 +24,10 @@ RUN dpkg -i /tmp/pandoc-${PANDOC_VERSION}-1-amd64.deb && \
 
 WORKDIR /app
 
-COPY pyproject.toml ./
+COPY pyproject.toml uv.lock ./
 RUN touch README.md
 RUN --mount=type=cache,target=/root/.cache/uv \
-    uv pip compile pyproject.toml -o requirements.txt && \
-    uv pip install -r requirements.txt
+    uv sync --frozen --no-install-project --no-dev
 
 FROM --platform=$BUILDPLATFORM python:3.12-slim-bookworm AS runtime
 
@@ -39,7 +38,6 @@ RUN --mount=type=cache,target=/var/cache/apt apt-get update -y && \
 
 WORKDIR /app
 ENV VIRTUAL_ENV=/opt/venv \
-    UV_PROJECT_ENVIRONMENT=/opt/venv \
     PATH="/opt/venv/bin:$PATH"
 
 COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
