@@ -10,6 +10,7 @@ FROM --platform=$BUILDPLATFORM python:3.12-bookworm AS builder
 # Install OS package dependency: pandoc
 ENV PANDOC_VERSION=3.4 \
     VIRTUAL_ENV=/opt/venv \
+    UV_PROJECT_ENVIRONMENT=/opt/venv \
     PATH="/opt/venv/bin:$PATH"
 
 ADD https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb /tmp/pandoc-${PANDOC_VERSION}-1-amd64.deb
@@ -37,6 +38,7 @@ RUN --mount=type=cache,target=/var/cache/apt apt-get update -y && \
 
 WORKDIR /app
 ENV VIRTUAL_ENV=/opt/venv \
+    UV_PROJECT_ENVIRONMENT=/opt/venv \
     PATH="/opt/venv/bin:$PATH"
 
 COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
