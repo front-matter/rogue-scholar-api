@@ -1631,6 +1631,13 @@ async def format_json_reference(reference: dict, validate_all: bool = False):
         if id_ is not None and validate_all:
             id_, unstructured = await validate_reference(id_, unstructured)
         
+        # optionally include CITO information
+        if reference.get("cito", None):
+            c = []
+            for cito in reference["cito"]:
+                c.append("cito:" + cito)
+                unstructured += " <b>[" + ", ".join(c) + "]</b>"
+
         return compact(
             {
                 "id": id_,

@@ -1019,9 +1019,9 @@ async def extract_json_feed_post(post, blog, validate_all: bool = False):
         summary = get_summary(content_html)
         abstract = post.get("summary", None)
         abstract = get_abstract(summary, abstract)
-        # reference = await get_jsonfeed_references(post.get("_references", []), validate_all)
-        # if len(reference) == 0:
-        reference = await get_references(content_html, validate_all)
+        reference = await get_jsonfeed_references(post.get("_references", []), validate_all)
+        if len(reference) == 0:
+            reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
         archive_url = (
@@ -2245,10 +2245,6 @@ def format_citations(citations: list) -> list:
 
         # remove optional trailing whitespace
         unstructured = unstructured.rstrip()
-
-        # remove HTML tags such as <i> and <sup> from unstructured citation
-        # tags = nh3.ALLOWED_TAGS - {"b", "i", "sup", "sub"}
-        # unstructured = nh3.clean(unstructured, tags=tags)
 
         return compact(
             {
