@@ -62,7 +62,7 @@ async def extract_all_posts(
     blogs = (
         supabase.table("blogs")
         .select("slug")
-        .in_("status", ["active"])
+        .in_("status", ["active", "expired"])
         .order("slug", desc=False)
         .execute()
     )
@@ -88,7 +88,7 @@ async def update_all_posts(page: int = 1):
     blogs = (
         supabase.table("blogs")
         .select("slug")
-        .in_("status", ["active", "archived", "pending"])
+        .in_("status", ["active", "expired", "archived", "pending"])
         .not_.is_("prefix", "null")
         .order("title", desc=False)
         .execute()
@@ -482,7 +482,7 @@ async def extract_all_posts_by_blog(
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         else:
             blog_with_posts["entries"] = []
-        if blog.get("status", None) not in ["pending", "active"]:
+        if blog.get("status", None) not in ["pending", "active", "expired"]:
             return blog_with_posts["entries"]
         n = len(blog_with_posts["entries"])
         if n > 0:
