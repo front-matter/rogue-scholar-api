@@ -2214,6 +2214,7 @@ async def get_citations(doi: Optional[str]) -> list:
             supabase.table("citations")
             .select("citation")
             .eq("doi", doi)
+            .eq("validated", True)
             .order("published_at", desc=False)
             .order("updated_at", desc=False)
             .execute()
