@@ -1979,4 +1979,951 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Cabstract%2Ccontent_text%2Creference&filter_by=status%3A%21%3D%5Bpending%5D+%26%26+published_at%3A%3E%3D+0+%26%26+published_at%3A%3C%3D+1739127022+%26%26+tags%3A%3D%5Bopen+access%5D&sort_by=published_at%3Adesc&per_page=10&page=1
+  response:
+    body:
+      string: "{\"facet_counts\":[],\"found\":1079,\"hits\":[{\"document\":{\"authors\":[{\"name\":\"Team
+        OA Brandenburg\"}],\"blog_name\":\"Open Access Brandenburg\",\"blog_slug\":\"oabrandenburg\",\"category\":\"otherSocialSciences\",\"content_text\":\"[Unser
+        Kollege Philipp Kandler, der sich im mit der Vernetzungs- und\\nKompetenzstelle
+        assoziierten BMBF-Projekt zum Aufbau des\\n]{style=\\\"font-weight: 400;\\\"}[[Datenkompetenzzentrums\\nWiNoDa]{style=\\\"font-weight:
+        400;\\\"}](https://winoda.de/){target=\\\"_blank\\\"\\nrel=\\\"noopener\\\"}[
+        mit der Vermittlung von Open-Science-Kompetenzen f\xFCr\\ndie objektzentrierte
+        Forschung in naturwissenschaftlichen Sammlungen\\nbefasst, legte unl\xE4ngst
+        seine Masterarbeit mit einem \xDCberblick zu \u201E[Open\\nAccess in Lateinamerika](https://doi.org/10.18452/31175){target=\\\"_blank\\\"\\nrel=\\\"noopener\\\"}\\\"
+        vor. Verschiedene Stellen\\n]{style=\\\"font-weight: 400;\\\"}[[wiesen bereits
+        auf sie\\nhin]{style=\\\"font-weight: 400;\\\"}](https://bsky.app/profile/fidromanistik.bsky.social/post/3lhb3sbztgq2i){target=\\\"_blank\\\"\\nrel=\\\"noopener\\\"}[.\_]{style=\\\"font-weight:
+        400;\\\"}\\n\\n[Auch wir k\xF6nnen die Arbeit nur empfehlen, unterstreicht
+        sie doch die\\nessentielle Bedeutung von Open Access in dieser Weltregion.
+        Die\\nDarstellung konkretisiert dies in einer vertiefenden Analyse weitgehend\\nan
+        den Beispielen der Open-Access-Politik in Argentinien, Chile,\\nKolumbien,
+        Mexiko und Peru und vergleicht die dortigen Entwicklungen mit\\ndenen in Europa.\_\_]{style=\\\"font-weight:
+        400;\\\"}\\n\\nEine zentrale Erkenntnis ist, dass sich die Ans\xE4tze zur
+        Transformation\\ndes wissenschaftlichen Publikationssystems deutlich unterscheiden.
+        In\\nEuropa liegt der Fokus stark auf Ma\xDFnahmen wie Transformationsvertr\xE4gen\\nund
+        der F\xF6rderung von Gold Open Access. In Lateinamerika hingegen steht\\nder
+        Gedanke im Vordergrund, wissenschaftliche Ver\xF6ffentlichungen als\\n\xF6ffentliches
+        Gut zu betrachten und entsprechend zu behandeln. [Mit der\\nErwartung der
+        Unterst\xFCtzung eines gesamtgesellschaftlichen Fortschritts\\ndurch wissenschaftliche
+        Forschung wird die F\xF6rderung von Open Access als\\nnationale Aufgabe verstanden.
+        Die Staaten k\xF6nnen dabei als mit Abstand\\nwichtigste Mittelgeber f\xFCr
+        Wissenschaft und Forschung erheblichen\\nEinfluss nehmen und nehmen diese
+        Rolle auch so an. Damit\\nkorrespondierend sind in Lateinamerika vorwiegend
+        die Hochschulen die\\nInstitutionen, die Open-Access-Zeitschriften publizieren.
+        Eine\\nGewinnorientierung r\xFCckt so von Beginn an in den\\nHintergrund:]{style=\\\"font-weight:
+        400;\\\"}[  \\n]{style=\\\"font-weight: 400;\\\"}\\n\\n> [\u201EDie Ausgangsbedingungen
+        f\xFCr ein OA-Modell, das weder f\xFCr Autor:innen\\n> noch f\xFCr Leser:innen
+        unmittelbare Kosten nach sich zieht (Diamond OA),\\n> waren daher in Lateinamerika
+        g\xFCnstiger als in anderen Regionen\\\", so\\n> der Autor. (Kandler, 2024,
+        S. 69)]{style=\\\"font-weight: 400;\\\"}\\n\\n[Als interessante Takeaways
+        aus der Arbeit lassen sich folglich eine\\nReihe von Aspekten ableiten, die
+        hier kurz gelistet werden\\nsollen:\_]{style=\\\"font-weight: 400;\\\"}\\n\\n-
+        [Die untersuchten L\xE4nder orientieren sich bei der\\n  ]{style=\\\"font-weight:
+        400;\\\"}*[Definition von Open\\n  Access]{style=\\\"font-weight: 400;\\\"}*[
+        an der Budapester und Berliner\\n  Erkl\xE4rung.]{style=\\\"font-weight: 400;\\\"}\\n-
+        Im Mittelpunkt der jeweiligen nationalen Politik steht der\\n  *gesellschaftliche
+        Nutzen* als Hauptmotiv f\xFCr die F\xF6rderung von Open\\n  Access. In Mexiko
+        ist Open Access sogar verfassungsrechtlich\\n  verankert.\\n- Wissenschaftliches
+        Wissen wird als *\xF6ffentliches Gut* betrachtet, der\\n  Zugang dazu wird
+        als staatliche Verpflichtung, APCs dagegen als\\n  kritisch angesehen.\\n-
+        Die Rolle von Open Access als Ma\xDFnahme zur F\xF6rderung der\\n  wissenschaftlichen
+        Fortschritts an sich scheint dagegen weniger\\n  forciert und damit auch in
+        geringerem Umfang strukturiert angesprochen\\n  zu werden. *Wissenschaftspolitik
+        und Gesellschaftspolitik* scheinen\\n  hier teilweise sogar unterschiedliche
+        Ziele, zumindest divergierende\\n  Gewichtungen, zu verfolgen.\\n- Auf nationaler
+        Ebene liegt der Fokus der OA-Ma\xDFnahmen entsprechend auf\\n  *Gr\xFCnem
+        Open Access* (also vor allem Repositorien).\\n- Fast alle der untersuchten
+        L\xE4nder verf\xFCgen \xFCber *nationale\\n  Repositorieninfrastrukturen*.
+        Chile bildet die Ausnahme. Hier scheint\\n  das Repositorium der nationalen
+        Forschungsf\xF6rderung, also der *Agencia\\n  Nacional de Investigaci\xF3n
+        y Desarrollo* (ANID), die Rolle als\\n  nationales Zentralrepositorium zu
+        \xFCbernehmen.\\n- In Argentinien und Peru wurde eine *verpflichtende\\n  Zweitver\xF6ffentlichung*
+        f\xFCr mit \xF6ffentlichen Mitteln gef\xF6rderte\\n  Forschungsergebnisse
+        eingef\xFChrt. In Chile gibt es eine\\n  Zweitver\xF6ffentlichungspflicht
+        f\xFCr Projekte, die von der ANID gef\xF6rdert\\n  wurden.\\n- In Mexiko und
+        Kolumbien wird eine obligatorische Einr\xE4umung von\\n  *Nutzungsrechte*n
+        an den Staat bzw. die F\xF6rderinstitutionen\\n  vorgesehen.\\n- Gr\xFCnes
+        Open Access wird st\xE4rker als Goldenes OA gef\xF6rdert.\\n- Die *l\xE4nder\xFCbergreifenden
+        Open-Access-Infrastrukturen*\\n  ([SciELO](https://scielo.org/){target=\\\"_blank\\\"
+        rel=\\\"noopener\\\"},\\n  [Redalyc](https://www.redalyc.org/){target=\\\"_blank\\\"
+        rel=\\\"noopener\\\"},\\n  [Latindex](https://www.latindex.org/latindex/){target=\\\"_blank\\\"\\n
+        \ rel=\\\"noopener\\\"}) sind dagegen nur punktuell Bestandteil der nationalen\\n
+        \ Open-Access-Politik, bilden aber ein wichtiges R\xFCckgrat f\xFCr die\\n
+        \ dauerhafte Absicherung von Open Access.\\n\\nWer mehr zum Thema erfahren
+        m\xF6chte, hat am 14. Februar 2025 von 11:30\\nbis 12:30 die M\xF6glichkeit.
+        Dann stellt Philipp Kandler seine Arbeit in\\nder [Fokusgruppe Kommunikation
+        von\\nopen-access.network](https://open-access.network/vernetzen/digitale-fokusgruppen/fokusgruppe-kommunikation){target=\\\"_blank\\\"\\nrel=\\\"noopener\\\"}
+        vor.\_\\n\\n[Philipp Kandler: *Open Access in Lateinamerika: Eine Analyse
+        von\\nnationalen Politiken in* ]{style=\\\"font-weight: 400;\\\"}[*Argentinien,\\nChile,
+        Kolumbien, Mexiko und Peru*. Berlin Institut f\xFCr Bibliotheks- und\\nInformationswissenschaft
+        der\\nHumboldt-]{style=\\\"font-weight: 400;\\\"}[Universit\xE4t zu Berlin,
+        2024.\\n(Berliner ]{style=\\\"font-weight: 400;\\\"}[Handreichungen zur Bibliotheks-\\nund
+        Informationswissenschaft; 541) ]{style=\\\"font-weight: 400;\\\"}[ISSN 14\\n38-76
+        62 (DOI:\\n]{style=\\\"font-weight: 400;\\\"}[[https://doi.org/10.18452/31175]{style=\\\"font-weight:
+        400;\\\"}](https://doi.org/10.18452/31175){target=\\\"_blank\\\"\\nrel=\\\"noopener\\\"}[
+        )]{style=\\\"font-weight: 400;\\\"}\\n\\n\_\\n\",\"doi\":\"https://doi.org/10.59350/a4td3-jnm71\",\"guid\":\"https://open-access-brandenburg.de/?p=8219\",\"id\":\"2246503d-3a0e-4a7b-96f3-5ded17359271\",\"language\":\"de\",\"published_at\":1738672447,\"reference\":[],\"relationships\":[],\"rid\":\"arvna-d1a24\",\"status\":\"active\",\"summary\":\"Unser
+        Kollege Philipp Kandler, der sich im mit der Vernetzungs- und Kompetenzstelle
+        assoziierten BMBF-Projekt zum Aufbau des Datenkompetenzzentrums WiNoDa mit
+        der Vermittlung von Open-Science-Kompetenzen f\xFCr die objektzentrierte Forschung
+        in naturwissenschaftlichen Sammlungen befasst, legte unl\xE4ngst seine Masterarbeit
+        mit einem \xDCberblick zu \u201EOpen Access in Lateinamerika\u201C vor. Verschiedene
+        Stellen wiesen bereits auf sie hin.\",\"tags\":[\"OA Takeaways\",\"Gold Open
+        Access\",\"Green Open Access\",\"Lateinamerika\",\"Open Access\"],\"title\":\"Open
+        Access in Lateinamerika. Takeaways aus einer Masterarbeit\",\"updated_at\":1738672447,\"url\":\"https://open-access-brandenburg.de/open-access-in-lateinamerika-takeaways-philipp-kandler\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22141/20231105110201/https://blogs.fu-berlin.de/open-access-berlin/2025/02/03/praxisleitfaden-mit-freien-lizenzen-kultur-wissenschaft-und-bildung-oeffnen\",\"authors\":[{\"name\":\"Georg
+        Fischer\",\"url\":\"https://orcid.org/0000-0001-5620-5759\"}],\"blog_name\":\"Open
+        Access Blog Berlin\",\"blog_slug\":\"oaberlin\",\"category\":\"otherHumanities\",\"content_text\":\"![](https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Header-250x153.jpg){.alignleft\\n.wp-image-2991
+        .size-wcsmall loading=\\\"lazy\\\" width=\\\"250\\\" height=\\\"153\\\"\\nsrcset=\\\"https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Header-250x153.jpg
+        250w, https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Header-300x183.jpg
+        300w, https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Header-1024x626.jpg
+        1024w, https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Header-768x470.jpg
+        768w, https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Header-1536x939.jpg
+        1536w, https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Header-2048x1253.jpg
+        2048w, https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Header-1200x734.jpg
+        1200w, https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Header-550x336.jpg
+        550w, https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Header-800x489.jpg
+        800w, https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Header-294x180.jpg
+        294w, https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Header-490x300.jpg
+        490w, https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Header-817x500.jpg
+        817w\\\"\\nsizes=\\\"(max-width: 250px) 85vw, 250px\\\"}\\n\\nDer Zugang zu
+        Wissen, Information und Kultur ist ein elementares Gut\\nmoderner Wissensgesellschaften.
+        Ein neuer Leitfaden von Till Kreutzer\\nunterst\xFCtzt dabei, die richtige
+        Creative-Commons-Lizenz zu w\xE4hlen und\\nInhalte auf diese Weise rechtssicher
+        zu teilen. Der Leitfaden entstand\\nin Kooperation mit Wikimedia Deutschland
+        und der Deutschen\\nUNESCO-Kommission.\\n\\n[Der Leitfaden [\u201EOpen Content.
+        Navigating Creative Commons\\nLicenses\\\"](https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content_final_web.pdf)\\nbietet
+        Menschen in Wissenschaft, Bildung, Kultur oder in \xF6ffentlichen\\nInstitutionen
+        Informationen dazu, was freie Lizenzen sind und wie man\\nsie nutzen kann,
+        um Inhalte frei zug\xE4nglich zu machen. Die Publikation\\nvon Dr. Till Kreutzer,
+        herausgegeben von Wikimedia Deutschland und der\\nDeutschen UNESCO-Kommission,
+        ist jetzt in englischer Sprache verf\xFCgbar.\\n]{style=\\\"font-weight: 400\\\"}\\n\\n[\xDCber
+        10 Jahre ist es her, dass die erste Ausgabe des Praxisleitfadens\\n\u201EOpen
+        Content\\\" erschienen ist. Mitglieder der Open-Content-Community\\nhaben
+        ihn im Laufe der Zeit in verschiedene Sprachen \xFCbersetzt, unter\\nanderem
+        ins Indonesische und Finnische. Seither hat Open Content immens\\nan Bedeutung
+        gewonnen, etwa in Bildung, Wissenschaft, Kultur und Medien.\\nIn Anbetracht
+        zunehmender technologischer Herausforderungen, die unsere\\ndigitale Welt
+        durchdringen und komplexer machen, sind\\nOpen-Content-Lizenzen wichtiger
+        denn je: Sie erm\xF6glichen Zugang zu\\nWissen, Informationen und Kultur und
+        schaffen gleichzeitig Optionen zum\\nrechtssicheren Teilen von Inhalten.]{style=\\\"font-weight:
+        400\\\"}\\n\\n[![](https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Titel-550x778.png){.alignnone\\n.wp-image-2990
+        .size-wcstandard loading=\\\"lazy\\\" width=\\\"550\\\" height=\\\"778\\\"\\nsrcset=\\\"https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Titel-550x778.png
+        550w, https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Titel-212x300.png
+        212w, https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Titel-724x1024.png
+        724w, https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Titel-768x1086.png
+        768w, https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Titel-1086x1536.png
+        1086w, https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Titel-1448x2048.png
+        1448w, https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Titel-1200x1697.png
+        1200w, https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Titel-250x354.png
+        250w, https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Titel-800x1132.png
+        800w, https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Titel-127x180.png
+        127w, https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Titel-353x500.png
+        353w\\\"\\nsizes=\\\"(max-width: 550px) 85vw, 550px\\\"}Download der PDF-Datei
+        (ca. 34\\nMB)](https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content_final_web.pdf)\\n\\n###
+        Open Content rechtssicher erstellen, teilen und nutzen\\n\\n[In der erweiterten
+        und \xFCberarbeiteten Fassung verfolgt der Leitfaden\\ndas Ziel, Creative-Commons-Lizenzen
+        zu erkl\xE4ren und verst\xE4ndlich zu\\nmachen, wie sie (rechtlich und praktisch)
+        funktionieren. Nutzende\\nerfahren, auf welchen juristischen Grundlagen sie
+        basieren und wie man\\ndie richtige Lizenz f\xFCr seine individuellen Bedarfe
+        ausw\xE4hlt.\\n]{style=\\\"font-weight: 400\\\"}\\n\\n[Der Leitfaden ist daf\xFCr
+        in verschiedene Kapitel aufgeteilt: Zun\xE4chst\\nerkl\xE4rt Till Kreutzer
+        die allgemeinen Prinzipien und Ziele der offenen\\nLizenzierung. Danach gibt
+        er einen \xDCberblick \xFCber die verschiedenen\\nLizenzmodule von Creative
+        Commons (zum Beispiel CC BY oder CC BY-SA);\\nauch die Themen Gemeinfreiheit
+        und CC0-Lizenz werden hier n\xE4her\\nausgef\xFChrt. Kreutzer gibt auch knappe
+        \xDCberblicke \xFCber weitere Formen des\\nImmaterialg\xFCterrechts wie Patente
+        und Marken. Der Fokus der Publikation\\nliegt auf der praktischen Nutzung
+        freier Lizenzen. Der Autor gibt\\nEmpfehlungen und Hinweise zum Einsatz von
+        offenen Lizenzen und Open\\nContent. Dar\xFCber hinaus bietet der Leitfaden
+        Tipps, wie man freie\\nInhalte online findet. Ein Glossar, das die wichtigsten
+        Begriffe zum\\nNachschlagen auflistet und kurz erkl\xE4rt, rundet die Brosch\xFCre\\nab.]{style=\\\"font-weight:
+        400\\\"}\\n\\n    Der Leitfaden ist digital und als Printfassung verf\xFCgbar\\n
+        \   Der Praxisleitfaden \u201EOpen Content. Navigating Creative Commons Licenses\u201C
+        von Till Kreutzer steht als offen lizenziertes und kostenloses PDF zur Verf\xFCgung.
+        Es ist auch m\xF6glich, eine Printausgabe \xFCber education@wikimedia.de zu
+        bestellen. R\xFCckfragen zu den Inhalten des Praxisleitfadens k\xF6nnen Sie
+        ebenfalls an die genannte E-Mailadresse richten.\\n\\n*[**Zum Autor des Leitfadens:**
+        Dr. Till Kreutzer ist Rechtsanwalt,\\nRechtswissenschaftler und Publizist.
+        Er ist Mitgr\xFCnder und\\ngesch\xE4ftsf\xFChrender Partner der Rechtsanwaltskanzlei
+        iRights.Law sowie\\nMitgr\xFCnder von iRights.info, dem Internetportal f\xFCr
+        Verbraucher und\\nKreative zum Urheberrecht in der digitalen\\nWelt.]{style=\\\"font-weight:
+        400\\\"}*\\n\\n\_\\n\\n***Redaktioneller Hinweis:\_**[Dieser Text stammt von
+        Sarah Behrens\\n(]{style=\\\"font-weight: 400\\\"}[[wikimedia.de]{style=\\\"font-weight:
+        400\\\"}](http://wikimedia.de)[)\\nund Georg Fischer ([Open-Access-B\xFCro\\nBerlin](https://www.open-access-berlin.de/)\\n/\_[iRights.info](https://irights.info/)).
+        Er erscheint unter der Lizenz\\n[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.de)
+        sowie\\nals Crosspost bei\\n[wikimedia.de](https://blog.wikimedia.de/2025/01/30/praxisleitfaden-mit-freien-lizenzen-kultur-wissenschaft-und-bildung-oeffnen/)\\nund\\n[iRights.info](https://irights.info/artikel/open-content-navigating-creative-commons-licenses/32441).\_]{style=\\\"font-weight:
+        400\\\"}*\\n\",\"doi\":\"https://doi.org/10.59350/qd89e-pej03\",\"guid\":\"https://blogs.fu-berlin.de/open-access-berlin/?p=2988\",\"id\":\"8504750e-49cc-4418-8905-13fe287efbec\",\"image\":\"https://blogs.fu-berlin.de/open-access-berlin/files/2025/01/Open-Content-Header-250x153.jpg\",\"language\":\"de\",\"published_at\":1738570987,\"reference\":[],\"relationships\":[],\"rid\":\"rwk8p-bem67\",\"status\":\"active\",\"summary\":\"Der
+        Zugang zu Wissen, Information und Kultur ist ein elementares Gut moderner
+        Wissensgesellschaften. Ein neuer Leitfaden von Till Kreutzer unterst\xFCtzt
+        dabei, die richtige Creative-Commons-Lizenz zu w\xE4hlen und Inhalte auf diese
+        Weise rechtssicher zu teilen. Der Leitfaden entstand in Kooperation mit Wikimedia
+        Deutschland und der Deutschen UNESCO-Kommission. Der Leitfaden \u201EOpen
+        Content.\",\"tags\":[\"Aktuelles\",\"Allgemein\",\"Open Research\",\"Open
+        Access\",\"Creative Commons\"],\"title\":\"Praxisleitfaden: Mit freien Lizenzen
+        Kultur, Wissenschaft und Bildung \xF6ffnen\",\"updated_at\":1738755486,\"url\":\"https://blogs.fu-berlin.de/open-access-berlin/2025/02/03/praxisleitfaden-mit-freien-lizenzen-kultur-wissenschaft-und-bildung-oeffnen\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22125/20231105110316/https://opencitations.hypotheses.org/3774\",\"authors\":[{\"name\":\"Chiara
+        Di Giambattista\"}],\"blog_name\":\"OpenCitations blog\",\"blog_slug\":\"opencitations\",\"category\":\"socialScience\",\"content_text\":\"[January
+        is a strange month. After the festive whirl of December's\\ngatherings, it
+        quickly shifts into the hustle and bustle of the new\\nyear's commitments
+        and the work that follows the holidays. For us at\\nOpenCitations, however,
+        it has become a tradition to take a moment at\\nthe end of this month to pause
+        after the first hectic weeks of the year.\\nThis time allows us to reflect
+        on the achievements of the past year and\\nplan for the future with a clearer
+        mind.\\n]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"134233117\\\\\\\":false,\\\\\\\"134233118\\\\\\\":false,\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335551550\\\\\\\":0,\\\\\\\"335551620\\\\\\\":0,\\\\\\\"335559738\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":257}\\\"}\\n\\n[2024
+        has been a transitional year, one where we've worked \\\"in the\\nshadows\\\",
+        focusing on a series of behind-the-scenes improvements that\\nwill transform
+        the OpenCitations experience for our users and services.\\nOver the past few
+        years, we have gathered valuable feedback from our\\ncommunity and have taken
+        it to heart, using it to inform the\\nenhancements to our infrastructure.
+        These changes will be rolled out in\\nthe coming months of 2025, and we are
+        excited to share a glimpse of\\nwhat's to come.]{contrast=\\\"auto\\\"}\\n\\n**[1.
+        Strengthening the Foundations of the Technical\\nInfrastructure]{contrast=\\\"auto\\\"}**\\n\\n[We
+        closed out 2023 by announcing ]{contrast=\\\"auto\\\"}[[the redesign of\\nour
+        technical\\ninfrastructure,]{contrast=\\\"none\\\"}](https://opencitations.hypotheses.org/3499)\\n[a
+        crucial step for better managing OpenCitations' data sources. This\\nshift
+        was necessary to enhance the efficiency of our processes and\\nensure scalability
+        for the future. In particular, in recent months, our\\ndevelopment team has
+        been focused on addressing issues within\\nOpenCitations Meta, to enable to
+        set up again the usual bimonthly\\nupdates from one of our main data sources
+        (i.e. Crossref). This work is\\nessential to guarantee the timely release
+        of the OpenCitations\\nIndex.]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"134233117\\\\\\\":false,\\\\\\\"134233118\\\\\\\":false,\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335551550\\\\\\\":0,\\\\\\\"335551620\\\\\\\":0,\\\\\\\"335559738\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":257}\\\"}\\n\\n[We
+        were happy to announce the July 2024 release of the Index,\\ncontaining more
+        than 2 billion citations, but we are now working to\\nensure that the release
+        frequency is consistent throughout 2025. Our\\nfocus will be on maintaining
+        a steady pace, ensuring regular updates,\\nand improving the overall reliability
+        of our data.]{contrast=\\\"auto\\\"}\\n\\n**[2.A Tool for Data Curation: HERITRACE]{contrast=\\\"auto\\\"}**\\n\\n[In
+        addition to infrastructure improvements, we have been developing a\\nnew tool
+        designed to streamline data curation:\\n[**HERITRACE**](https://arxiv.org/abs/2402.00477)]{contrast=\\\"auto\\\"}[.\\nThis
+        semantic data management system is tailored specifically for the\\nGLAM (Galleries,
+        Libraries, Archives, and Museums) sector. HERITRACE\\nserves as an editor
+        for curating bibliographic data, allowing users to\\ntrack provenance and
+        monitor changes over\\ntime.]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"134233117\\\\\\\":false,\\\\\\\"134233118\\\\\\\":false,\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335551550\\\\\\\":0,\\\\\\\"335551620\\\\\\\":0,\\\\\\\"335559738\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":257}\\\"}\\n\\n[It
+        has been tested in a small-scale project with a specific dataset,\\nand early
+        results have been promising. HERITRACE is designed to be\\nuser-friendly,
+        offering non-technical users a seamless experience while\\nproviding an efficient
+        administrative interface for technical staff. In\\ncomparison to other established
+        platforms such as OmekaS, Semantic\\nMediaWiki, Research Space, and CLEF,
+        it stands out for its ease of use,\\nprovenance management, change tracking,
+        and customization\\noptions.]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"134233117\\\\\\\":false,\\\\\\\"134233118\\\\\\\":false,\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335551550\\\\\\\":0,\\\\\\\"335551620\\\\\\\":0,\\\\\\\"335559738\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":257}\\\"}\\n\\n[HERITRACE
+        is built upon SHACL for data modeling and integrates the\\nOpenCitations Data
+        Model (OCDM) for tracking provenance and changes.\\nLooking ahead, we plan
+        to expand its capabilities with the integration\\nof a robust authentication
+        system and broader data compatibility through\\nthe RDF Mapping Language (RML),
+        making it an even more powerful tool for\\ndigital heritage\\nmanagement.]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"134233117\\\\\\\":false,\\\\\\\"134233118\\\\\\\":false,\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335551550\\\\\\\":0,\\\\\\\"335551620\\\\\\\":0,\\\\\\\"335559738\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":257}\\\"}\\n\\n[In
+        the context of OpenCitations, the goal is to use HERITRACE to enable\\ncurating
+        bibliographic metadata and citation data by expert users (e.g.\\nlibrarians),
+        aiming at increasing the quality of the data OpenCitations\\nprovides.]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"134233117\\\\\\\":false,\\\\\\\"134233118\\\\\\\":false,\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335551550\\\\\\\":0,\\\\\\\"335551620\\\\\\\":0,\\\\\\\"335559738\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":257}\\\"}\\n\\nIn
+        the video below, our developer Arcangelo Massari provides a quick\\noverview
+        and tutorial of HERITRACE:\\n\\n\_\\n\\n**[3.New and Ongoing Collaborations]{contrast=\\\"auto\\\"}**\\n\\n[During
+        2024, we have honoured the aspects of our mission statement\\ndescribing community
+        engagement as a core point in OpenCitations'\\nactivities. These partnerships
+        are vital to advancing OpenCitations'\\npurposes and goals, and we look forward
+        to continuing the collective\\nwork into 2025. In particular, we expanded
+        the network of partnerships\\nand released some outcomes of previous collaborations:\\n]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"134233117\\\\\\\":false,\\\\\\\"134233118\\\\\\\":false,\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335551550\\\\\\\":0,\\\\\\\"335551620\\\\\\\":0,\\\\\\\"335559738\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":257}\\\"}\\n\\n-
+        [Our project within the]{contrast=\\\"auto\\\"}**[ European Research\\n  Council]{contrast=\\\"auto\\\"}**
+        **[(2023-2024)]{contrast=\\\"auto\\\"}**[\\n  dedicated to the mapping of
+        metadata collections between OpenCitations\\n  Meta and OpenAlex, has concluded.
+        The full analysis is presented in\\n  the following article involving OpenCitations
+        Developer Elia Rizzetto:\\n  ]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"134233117\\\\\\\":false,\\\\\\\"134233118\\\\\\\":false,\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335551550\\\\\\\":0,\\\\\\\"335551620\\\\\\\":0,\\\\\\\"335559738\\\\\\\":0,\\\\\\\"335559739\\\\\\\":0,\\\\\\\"335559740\\\\\\\":257}\\\"}\\n\\n[Rizzetto,
+        E.; Peroni, S., ]{contrast=\\\"auto\\\"}[*[Mapping bibliographic\\nmetadata
+        collections: the case of OpenCitations Meta and\\nOpenAlex]{contrast=\\\"none\\\"}*](https://cris.unibo.it/handle/11585/1000080)[,\\nin:
+        CEUR Workshop Proceedings, CEUR-WS, \xABCEUR WORKSHOP PROCEEDINGS\xBB,\\n2024,
+        3643, pp. 155 -- 168 (Proceedings of the 20th Conference on\\nInformation
+        and Research Science Connecting to Digital and Library\\nScience, IRCDL 2024,
+        Bressanone -- Brixen, Italia, 2024)\\n]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"134233117\\\\\\\":false,\\\\\\\"134233118\\\\\\\":false,\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335551550\\\\\\\":0,\\\\\\\"335551620\\\\\\\":0,\\\\\\\"335559685\\\\\\\":720,\\\\\\\"335559737\\\\\\\":0,\\\\\\\"335559738\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":257}\\\"}\\n\\n-
+        [January 2025 has formally marked the beginning of two new exciting\\n  projects
+        in collaboration with\\n  ]{contrast=\\\"auto\\\"}[**[OPERAS]{contrast=\\\"none\\\"}**](https://operas/)[\\n
+        \ and other institutional and industrial partners]{contrast=\\\"auto\\\"}[,\\n
+        \ building upon our previous work together within the\\n  ]{contrast=\\\"auto\\\"}[**[GraspOS]{contrast=\\\"none\\\"}**\\n
+        \ **[Project]{contrast=\\\"none\\\"}**](https://opencitations.hypotheses.org/3536)[.\\n
+        \ During 2024, it's been inspiring being involved in the work packages\\n
+        \ of the project, where we have kept collaborating with our colleagues\\n
+        \ from OpenAIRE. Also, GraspOS is doing a terrific job in the promotion\\n
+        \ of the news and initiatives of its community, through its\\n  ]{contrast=\\\"auto\\\"}[[newsletter]{contrast=\\\"none\\\"}](https://graspos.eu/newsletters)[,\\n
+        \ and its blog (where you can also find an exclusive interview with our\\n
+        \ ]{contrast=\\\"auto\\\"}[[Director]{contrast=\\\"none\\\"}](https://graspos.eu/graspos-chats-6-get-to-know-silvio-peroni)[\\n
+        \ and one with our ]{contrast=\\\"auto\\\"}[[Head of\\n  Comms]{contrast=\\\"none\\\"}](https://graspos.eu/graspos-chats-9-get-to-know-chiara-di-giambattista)[\\n
+        \ -- hi, it's me!), so we suggest you subscribe and follow if interested\\n
+        \ in the theme of Open Science and Responsible Research\\n  Assessment.]{contrast=\\\"auto\\\"}\\n\\n<!--
+        -->\\n\\n- [In April, we were included in\\n  ]{contrast=\\\"auto\\\"}[**[Infra]{contrast=\\\"none\\\"}**\\n
+        \ **[Finder]{contrast=\\\"none\\\"}**](https://infrafinder.investinopen.org/solutions/opencitations)[,\\n
+        \ a tool developed by Invest in Open Infrastructure to foster discovery,\\n
+        \ adoption, and investment in open infrastructure services. The\\n  intuitive
+        interface and usability make Infra Finder a helpful tool\\n  that could make
+        OpenCitations and other infrastructure services more\\n  visible to a wider
+        and diverse\\n  community.]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"134233117\\\\\\\":false,\\\\\\\"134233118\\\\\\\":false,\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335551550\\\\\\\":0,\\\\\\\"335551620\\\\\\\":0,\\\\\\\"335559738\\\\\\\":0,\\\\\\\"335559739\\\\\\\":0,\\\\\\\"335559740\\\\\\\":257}\\\"}\\n\\n<!--
+        -->\\n\\n- [We continued our participation in the ]{contrast=\\\"auto\\\"}**[SCOSS\\n
+        \ Family](https://scoss.org/what-is-scoss/scossfamily/)**[, the\\n  community
+        of practice gathering the Infrastructures from SCOSS six\\n  pledging rounds,
+        and we are now part of the internal working groups\\n  aimed at exploring
+        ways of collaboration, sharing resources, creating\\n  impact and contributing
+        to creating a stronger open ecosystem.\\n  ]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"134233117\\\\\\\":false,\\\\\\\"134233118\\\\\\\":false,\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335551550\\\\\\\":0,\\\\\\\"335551620\\\\\\\":0,\\\\\\\"335559738\\\\\\\":0,\\\\\\\"335559739\\\\\\\":0,\\\\\\\"335559740\\\\\\\":257}\\\"}\\n\\n<!--
+        -->\\n\\n- [Lastly, OpenCitations is proud to be one of the supporters of
+        the\\n  ]{contrast=\\\"auto\\\"}[**[Barcelona\\n  Declaration]{contrast=\\\"none\\\"}**](https://barcelona-declaration.org/)[,\\n
+        \ a key initiative launched in April 2024 aimed at fostering open access\\n
+        \ to scholarly information and advancing the principles of open science.\\n
+        \ This aligns perfectly with OpenCitations' mission to promote\\n  transparency,
+        accessibility, and collaboration in scholarly\\n  communication. By supporting
+        the Barcelona Declaration, we reaffirm\\n  our commitment to the shared values
+        of openness, inclusivity, and the\\n  democratization of knowledge, all of
+        which are integral to creating a\\n  more equitable and accessible academic
+        landscape for researchers,\\n  institutions, and the global community.\\n
+        \ ]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"134233117\\\\\\\":false,\\\\\\\"134233118\\\\\\\":false,\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335551550\\\\\\\":0,\\\\\\\"335551620\\\\\\\":0,\\\\\\\"335559738\\\\\\\":0,\\\\\\\"335559739\\\\\\\":0,\\\\\\\"335559740\\\\\\\":257}\\\"}\\n\\n[**4.Welcome
+        and Farewell**]{contrast=\\\"auto\\\"}\\n\\n[Alongside the growth of our network,
+        the OpenCitations team has also\\nexpanded, now counting 11 collaborators,
+        including Research Fellows and\\nPhD students, with the addition of Ivan Heibi
+        as Chief Technology\\nOfficer (CTO) and Mario Petrella as Systems\\nAdministrator.]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"134233117\\\\\\\":false,\\\\\\\"134233118\\\\\\\":false,\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335551550\\\\\\\":0,\\\\\\\"335551620\\\\\\\":0,\\\\\\\"335559738\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":257}\\\"}\\n\\n[Besides
+        the enrichment brought in by our new colleagues, 2024 also\\nbrought a great
+        loss. The founder and director of OpenCitations, David\\nShotton, passed away
+        in May, leaving not only an institutional but, most\\nof all, a human void,
+        as a mentor and guide. We wanted to remember him\\nin ]{contrast=\\\"auto\\\"}[[this
+        blog\\npost]{contrast=\\\"none\\\"}](https://opencitations.hypotheses.org/3618)[,\\nwhich
+        aims to serve as a virtual wall of tribute, constantly evolving,\\nwhere anyone
+        wishing to share a thought for David can do so by sending\\nan email to\\n]{contrast=\\\"auto\\\"}[[comms@opencitations.net]{contrast=\\\"none\\\"}](mailto:comms@opencitations.net)[.\\n]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"134233117\\\\\\\":false,\\\\\\\"134233118\\\\\\\":false,\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335551550\\\\\\\":0,\\\\\\\"335551620\\\\\\\":0,\\\\\\\"335559738\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":257}\\\"}\\n\\n**[5.Renewal
+        of the International Advisory Board for\\nOpenCitations]{contrast=\\\"auto\\\"}**\\n\\n[After
+        four years of prolific collaboration, the end of 2024 also marked\\n]{contrast=\\\"auto\\\"}[[the
+        conclusion of our International Advisory Board's\\nfirst\\nterm]{contrast=\\\"none\\\"}](https://opencitations.hypotheses.org/3747)[.\\nWe'd
+        like to extend our deepest gratitude to the former members for\\ntheir invaluable
+        insights and guidance throughout their tenure. Looking\\nahead, we are thrilled
+        of the new members who have decided to put their\\nexpertise at OpenCitations'
+        service, and we can't wait to begin working\\nclosely with them in 2025.]{contrast=\\\"auto\\\"}\\n\\n**[6.Some
+        Spoilers for 2025]{contrast=\\\"auto\\\"}**\\n\\n[As we close out this year's
+        reflections, we're also looking ahead to\\n2025. In this upcoming year, we
+        will begin to see the fruits of our work\\nfrom 2024. We are committed to
+        continuously improving our offerings and\\nservices for our users and the
+        community that supports us. We exist\\nbecause of them, and we are here to
+        serve their\\nneeds.]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"134233117\\\\\\\":false,\\\\\\\"134233118\\\\\\\":false,\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335551550\\\\\\\":0,\\\\\\\"335551620\\\\\\\":0,\\\\\\\"335559738\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":257}\\\"}\\n\\n[In
+        the coming weeks, you will also notice some exciting changes:\\n]{contrast=\\\"auto\\\"}**[OpenCitations
+        will be undergoing a\\nrebranding]{contrast=\\\"auto\\\"}**[, along with updates
+        designed to make our\\nvirtual presence more engaging and user-friendly. We've
+        heard feedback\\nabout how challenging it can sometimes be to navigate our
+        information,\\nand we're eager to make improvements that will help our users
+        find what\\nthey need more\\neasily.]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"134233117\\\\\\\":false,\\\\\\\"134233118\\\\\\\":false,\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335551550\\\\\\\":0,\\\\\\\"335551620\\\\\\\":0,\\\\\\\"335559738\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":257}\\\"}\\n\\n[Finally,
+        we invite all our readers to participate in the\\n]{contrast=\\\"auto\\\"}**[5th
+        Workshop on Open Citations and Open Scholarly\\nMetadata]{contrast=\\\"auto\\\"}**\\n**[(WOOC]{contrast=\\\"auto\\\"}**[),]{contrast=\\\"auto\\\"}
+        [which will be held in\\nBologna on May 28-29, 2025.]{contrast=\\\"auto\\\"}
+        [WOOC aims to gather\\nanyone interested in the widespread adoption of practices
+        for creation,\\nsharing, reuse and improvement of open scholarly metadata.
+        This year's\\nedition of the workshop will be a special one, gravitating around
+        the\\nfollowing theme: ]{contrast=\\\"auto\\\"}*[\\\"Open Access of Research\\nInformation\\\".]{contrast=\\\"auto\\\"}*[\_]{ccp-props=\\\"{\\\\\\\"134233117\\\\\\\":false,\\\\\\\"134233118\\\\\\\":false,\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335551550\\\\\\\":0,\\\\\\\"335551620\\\\\\\":0,\\\\\\\"335559738\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":257}\\\"}\\n\\n[In
+        particular,\_the first day\_will be dedicated to the\_Bologna Meeting\\non
+        Open Research Information, to encourage discussion between the\\nsignatories
+        and supporters of the\_Barcelona Declaration\_and other\\ninterested bodies
+        and collaboratively orient the common roadmap, thus\\nallowing the articulation
+        of the outcomes that have recently been\\ndiscussed during the\_]{contrast=\\\"auto\\\"}[[Paris
+        Conference on Open\\nResearch\\nInformation]{contrast=\\\"none\\\"}](https://barcelona-declaration.org/conference/)[.]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"134233117\\\\\\\":false,\\\\\\\"134233118\\\\\\\":false,\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335551550\\\\\\\":0,\\\\\\\"335551620\\\\\\\":0,\\\\\\\"335559738\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":257}\\\"}\\n\\n[The
+        second day will be dedicated to invited contributions,\\npresentations and
+        a poster session selected among the participants for\\nthe call for contributions
+        on the workshop\\ntheme]{contrast=\\\"auto\\\"}**[.]{contrast=\\\"auto\\\"}**[\_]{ccp-props=\\\"{\\\\\\\"134233117\\\\\\\":false,\\\\\\\"134233118\\\\\\\":false,\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335551550\\\\\\\":0,\\\\\\\"335551620\\\\\\\":0,\\\\\\\"335559738\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":257}\\\"}\\n\\n[While
+        the submission period for contributions is closing tomorrow,\\nJanuary 31
+        (h.23:59 AoE), there will still be opportunities to register\\nas participants
+        after the deadline, at the following link:\\n]{contrast=\\\"auto\\\"}[[https://forms.gle/Z7J36XSdPa9tkSop7]{contrast=\\\"none\\\"}](https://forms.gle/Z7J36XSdPa9tkSop7)[.\\nPlease
+        visit\\n]{contrast=\\\"auto\\\"}[[https://workshop-oc.github.io/]{contrast=\\\"none\\\"}](https://workshop-oc.github.io/)[\\nfor
+        all the information. We look forward to meeting you in\\nBologna!]{contrast=\\\"auto\\\"}[\_]{ccp-props=\\\"{\\\\\\\"134233117\\\\\\\":false,\\\\\\\"134233118\\\\\\\":false,\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335551550\\\\\\\":0,\\\\\\\"335551620\\\\\\\":0,\\\\\\\"335559738\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":257}\\\"}\\n\\n[\_]{ccp-props=\\\"{\\\\\\\"134233117\\\\\\\":false,\\\\\\\"134233118\\\\\\\":false,\\\\\\\"201341983\\\\\\\":0,\\\\\\\"335551550\\\\\\\":0,\\\\\\\"335551620\\\\\\\":0,\\\\\\\"335559738\\\\\\\":0,\\\\\\\"335559739\\\\\\\":160,\\\\\\\"335559740\\\\\\\":257}\\\"}\\n\\n[\_]{ccp-props=\\\"{}\\\"}\\n\",\"doi\":\"https://doi.org/10.59350/a7ac4-ag907\",\"guid\":\"https://opencitations.hypotheses.org/?p=3774\",\"id\":\"80b3955b-39cf-45aa-b4bf-4fbeef88f20b\",\"image\":\"https://opencitations.hypotheses.org/files/2025/01/Wheels-are-in-motion.png\",\"language\":\"en\",\"published_at\":1738249270,\"reference\":[],\"relationships\":[],\"rid\":\"f21s5-za059\",\"status\":\"active\",\"summary\":\"January
+        is a strange month. After the festive whirl of December\u2019s gatherings,
+        it quickly shifts into the hustle and bustle of the new year\u2019s commitments
+        and the work that follows the holidays. For us at OpenCitations, however,
+        it has become a tradition to take a moment at the end of this month to pause
+        after the first hectic weeks of the year.\",\"tags\":[\"Non Class\xE9\",\"Open
+        Abstracts\",\"Open Academic Analytics\",\"Open Access\",\"Open Citations\"],\"title\":\"Wheels
+        Are in Motion: OpenCitations\u2019 progress in 2024\",\"updated_at\":1738249270,\"url\":\"https://opencitations.hypotheses.org/3774\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/01hcx6992\",\"name\":\"Humboldt-Universit\xE4t
+        zu Berlin\"}],\"name\":\"Heinz Pampel\",\"url\":\"https://orcid.org/0000-0003-3334-2771\"}],\"blog_name\":\"wisspub.net\",\"blog_slug\":\"wisspub\",\"category\":\"socialScience\",\"content_text\":\"Dieser
+        Blogpost dokumentiert zentrale Aussagen zu Open-Science-Themen in\\nden Parteiprogrammen
+        zur Bundestagswahl 2025 am 23. Februar 2025 von\\nAFD, BSW, CDU/CSU, SPD,
+        FDP, Gr\xFCnen und Linke.\\n\\n**AFD**\\n\\nIm Wahlprogramm der AFD\\n([PDF](https://www.afd.de/wp-content/uploads/2024/11/Leitantrag-Bundestagswahlprogramm-2025.pdf))\\nwird
+        Open Science nicht spezifisch adressiert. Es wird eine allgemeine\\nForderung
+        nach einer \\\"Bundestrategie f\xFCr digitale Souver\xE4nit\xE4t\\\" erhoben,\\nmit
+        der \\\"Open-Source-Techniken und dezentrale\\\\[...\\\\] Systeme\\\" gef\xF6rdert\\nwerden
+        sollen, damit die \\\"Autonomie der B\xFCrger\\\", so die Partei,\\ngesichert
+        wird.\\n\\n**BSW**\\n\\nIm Wahlprogramm\\n([PDF](https://bsw-vg.de/wp-content/themes/bsw/assets/downloads/BSW%20Wahlprogramm%202025.pdf))\\ndes
+        B\xFCndnis Sahra Wagenknecht werden die Themen Open Access und Open\\nSource
+        angesprochen. Auszug: \\\"Im Sinne der Gemeinfreiheit \xF6ffentlich\\nfinanzierter
+        G\xFCter wollen wir Infrastrukturen f\xFCr\\nOpen-Access-Publikationen sowie
+        f\xFCr die langfristige\\nZurverf\xFCgungstellung von Forschungsdaten verstetigen.\\\"\\n\\n**CDU/CSU**\\n\\nIm
+        Wahlprogramm\\n([PDF](https://www.politikwechsel.cdu.de/sites/www.politikwechsel.cdu.de/files/downloads/km_btw_2025_wahlprogramm_langfassung_ansicht.pdf))\\nfordert
+        die Union im Bereich der Digitalpolitik, \\\"\\\\[d\\\\]ie Chancen von\\nOpen
+        Data f\xFCr Innovationen und Wachstum\\\" zu nutzen. Mit Blick auf Open\\nScience
+        wird unter dem Titel \\\"Forschungsergebnisse zug\xE4nglich machen\\\"\\nfestgehalten:
+        \\\"Wir setzen ein modernes Forschungsdatengesetz in Kraft,\\num durch die
+        Verf\xFCgbarkeit und Nutzbarmachung von Daten ein deutliches\\nMehr an Forschung
+        in gesellschaftlich relevanten Bereichen zu\\nerm\xF6glichen. F\xFCr eine
+        noch h\xF6here Qualit\xE4tssicherung und Effizienz in\\nWissenschaft und Forschung
+        schaffen wir einen geeigneten Rahmen.\\\"\\n\\n**SPD**\\n\\nIn ihrem Wahlprogramm\\n([PDF](https://www.spd.de/fileadmin/Dokumente/Beschluesse/Programm/2025_SPD_Regierungsprogramm.pdf))\\nbetont
+        die Partei im Bereich der Innovationspolitik die Bedeutung der\\n\\\"Weiterentwicklung
+        der KI-Strategie\\\". Zu Open Science und Aspekten der\\noffenen Wissenschaft
+        werden keine Aussagen gemacht.\_\\n\\n**FDP**\\n\\nDie FDP widmet sich in
+        ihrem Wahlprogramm\\n([PDF](https://www.fdp.de/sites/default/files/2024-12/fdp-wahlprogramm_2025.pdf))\\ndem
+        Forschungsdatengesetz und stellt fest: \\\"Einen vereinfachten Zugang\\nzu
+        Forschungsdaten wollen wir \xFCber ein Forschungsdatengesetz\\nrechtssicher
+        erm\xF6glichen.\\\"\\n\\n**Gr\xFCne**\_\\n\\nBetont werden \\\"passende Rahmenbedingungen
+        f\xFCr interoperable Standards\\nund f\xFCr einen sicheren und effizienten
+        Datenaustausch\\\" im Wahlprogramm\\n([PDF](https://cms.gruene.de/uploads/assets/20241216_BTW25_Programmentwurf_DINA4_digital.pdf))\\nvon
+        B\xFCndnis 90/Die Gr\xFCnen. Diese Forderung nach Interoperabilit\xE4t von\\nIT-Systemen
+        wird auch mit Blick auf Forschungseinrichtungen erhoben. In\\ndiesem Zusammenhang
+        wird auch der offene Zugang zu Standards, \\\"ohne\\nLizenzgeb\xFChren\\\"
+        gefordert.\_\\n\\nDie Wissenschaftskommunikation soll, so die Partei, gest\xE4rkt
+        werden. F\xFCr\\nden Bereich der Informationsinfrastruktur wird eine\\n\u201EInnovationsinitiative
+        Zukunfts-Campus\\\" in Aussicht gestellt, die auch\\nBibliotheken beim digitalen
+        Wandel unterst\xFCtzen will. Spezifischer wird\\nder Open-Science-Bereich
+        jedoch nicht adressiert.\_\\n\\n**Linke**\\n\\nIm Entwurf des Wahlprogramms\\n([PDF](https://www.die-linke.de/fileadmin/1_Partei/parteitage/Au%C3%9Ferordentlicher_Parteitag_25/Wahlprogramm_Entwurf.pdf))\\nder
+        Linke wird die Forderung \\\"Was mit Steuergeldern bezahlt wurde, muss\\nallen
+        zu Gute kommen.\\\" erhoben. Dieser Grundsatz soll auch f\xFCr die\\nForschung
+        gelten. Hierzu wird ausgef\xFChrt: \\\"Auch die Ergebnisse\\n\xF6ffentlich
+        gef\xF6rderter Forschung m\xFCssen kostenfrei \xF6ffentlich zug\xE4nglich\\nsein
+        (Open Access).\\\"\_\\n\\nWeiter wird ein \\\"Recht auf Open Data\\\" gefordert.
+        Open Source wird an\\nverschiedenen Stellen aufgegriffen. Im Bildungsbereich
+        wird das\\nPotenzial von Open Educational Resources (OER) herausgestellt.
+        Auch wird\\nder \\\"Aus- und Aufbau digitaler Infrastrukturen an den Hochschulen\\\"\\ngefordert.
+        Im Bereich der Pharmaforschung sollen, so die Partei,\\n\\\"Medikamente und
+        Impfstoffe, die \xFCber mit Steuergeldern finanzierte\\nForschung entwickelt
+        werden, \\\\[...\\\\] lizenzfrei zur Nachproduktion zur\\nVerf\xFCgung gestellt
+        werden.\\\"\_\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://wisspub.wordpress.com/wp-content/uploads/2025/01/wisspub_bundestagswahl_2025.png\\\"><img\\nsrc=\\\"https://wisspub.wordpress.com/wp-content/uploads/2025/01/wisspub_bundestagswahl_2025.png?w=731\\\"\\nclass=\\\"wp-image-20628\\\"
+        data-attachment-id=\\\"20628\\\"\\ndata-permalink=\\\"http://wisspub.net/2025/01/20/open-science-in-den-wahlprogrammen-zur-bundestagswahl-2025/wisspub_bundestagswahl_2025/\\\"\\ndata-orig-file=\\\"https://wisspub.wordpress.com/wp-content/uploads/2025/01/wisspub_bundestagswahl_2025.png\\\"\\ndata-orig-size=\\\"1202,1684\\\"
+        data-comments-opened=\\\"1\\\"\\ndata-image-meta=\\\"{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}\\\"\\ndata-image-title=\\\"wisspub_bundestagswahl_2025\\\"
+        data-image-description=\\\"\\\"\\ndata-image-caption=\\\"\\\"\\ndata-medium-file=\\\"https://wisspub.wordpress.com/wp-content/uploads/2025/01/wisspub_bundestagswahl_2025.png?w=214\\\"\\ndata-large-file=\\\"https://wisspub.wordpress.com/wp-content/uploads/2025/01/wisspub_bundestagswahl_2025.png?w=731\\\"\\nloading=\\\"lazy\\\"
+        width=\\\"731\\\" height=\\\"1024\\\" /></a>\\n<figcaption>Quelle: <a\\nhref=\\\"http://www.landesarchiv-bw.de/plink/?f=1-976711-1\\\">Landesarchiv\\nBaden-W\xFCrttemberg</a>,
+        Lizenz: <a\\nhref=\\\"https://creativecommons.org/licenses/by/3.0/de/\\\"
+        target=\\\"_blank\\\"\\nrel=\\\"noreferrer noopener\\\">Namensnennung 3.0
+        Deutschland</a></figcaption>\\n</figure>\\n:::\\n\\n**Fazit**\\n\\nDer Begriff
+        Open Science wird in keinem der Wahlprogramme verwendet.\\nEinzelne Aspekte
+        offener Wissenschaftspraktiken werden jedoch\\nadressiert. Dabei variiert
+        die Tiefe der Befassung. Die Argumentation\\nf\xFCr die F\xF6rderung von Open-Science-Handlungsfeldern
+        oder weitergehenden\\nRahmenbedingungen variiert je nach politischer Position
+        und wird somit\\nunterschiedlich begr\xFCndet.\_\\n\\n**Hinweis**\\n\\nIch
+        habe die Programme nicht vollst\xE4ndig gelesen, sondern die\\nPDF-Versionen
+        nach zentralen Begriffen durchsucht.\\n\",\"doi\":\"https://doi.org/10.59350/fafy6-n0634\",\"guid\":\"https://wisspub.net/?p=20625\",\"id\":\"268a232c-b5f4-4fe8-aca0-8d1e6fa8bb90\",\"image\":\"https://wisspub.wordpress.com/wp-content/uploads/2025/01/wisspub_bundestagswahl_2025.png?w=731\",\"language\":\"de\",\"published_at\":1737365543,\"reference\":[],\"relationships\":[],\"rid\":\"c4wes-b5b39\",\"status\":\"active\",\"summary\":\"Dieser
+        Blogpost dokumentiert zentrale Aussagen zu Open-Science-Themen in den Parteiprogrammen
+        zur Bundestagswahl 2025 am 23. Februar 2025 von AFD, BSW, CDU/CSU, SPD, FDP,
+        Gr\xFCnen und Linke.\\n<strong>\\n AFD\\n</strong>\\nIm Wahlprogramm der AFD
+        (PDF) wird Open Science nicht spezifisch adressiert.\",\"tags\":[\"Open Access\",\"Open
+        Science\",\"Urheberrecht\",\"Wissenschaftskommunikation\"],\"title\":\"Open
+        Science in den Wahlprogrammen zur Bundestagswahl 2025\",\"updated_at\":1737365543,\"url\":\"https://wisspub.net/2025/01/20/open-science-in-den-wahlprogrammen-zur-bundestagswahl-2025\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Summer
+        Rosonovski\"}],\"blog_name\":\"Europe PMC News Blog\",\"blog_slug\":\"europepmc\",\"category\":\"healthSciences\",\"content_text\":\"As
+        we enter into 2025, Europe PMC celebrates a previous year of\\ninnovation,
+        growth, and user-driven improvements. This end-of-year\\nreflection highlights
+        our key achievements in developing cutting-edge AI\\nsolutions for scientific
+        research, advances in open research software,\\nand support for transparency
+        in scholarly communication.\\n\\n### Using AI to revolutionise research discovery\_
+        {#using-ai-to-revolutionise-research-discovery .wp-block-heading}\\n\\nTo
+        unearth critical insights from biomedical literature and accelerate\\nscientific
+        discovery, Europe PMC is using innovative AI approaches.\\nDeveloped in collaboration
+        with Open Targets, the [Lit-OTAR\\nframework](https://blog.europepmc.org/2024/07/revolutionising-drug-discovery-with-deep-learning.html)\\nused
+        deep learning to identify over 48 million gene-disease-drug\\nassociations,
+        helping researchers prioritise drug targets and design\\ninnovative treatments.
+        This tool processes scientific articles daily,\\nproviding comprehensive data
+        accessible via the Open Targets Platform\\nand Europe PMC's Annotations API.\\n\\nTo
+        support protein research, Europe PMC and PDBe developed an\\n[AI](https://blog.europepmc.org/2024/10/transforming-protein-research-with-ai-and-human-expertise.html)--[human\\nhybrid\\nworkflow](https://blog.europepmc.org/2024/10/transforming-protein-research-with-ai-and-human-expertise.html)\\nto
+        link protein structure and function. By combining expert curation\\nwith machine
+        learning, the workflow identifies key amino acid residues\\n-- accelerating
+        functional insights, supporting drug target validation,\\nand scaling the
+        annotation process.\\n\\nAll the models and code for the Lit-OTAR framework
+        and AI--human hybrid\\nworkflow projects can be found respectively at\\n[ML4Lit](https://github.com/ML4LitS)
+        and\\n[PDBEurope](https://huggingface.co/PDBEurope) GitLab repositories.\\n\\n###
+        Supporting research software {#supporting-research-software .wp-block-heading}\\n\\nTwo
+        years ago Europe PMC adopted the [Principles of Open Scholarly\\nInfrastructure](https://blog.europepmc.org/2022/02/europe-pmc-adopts-the-principles-of-open-scholarly-infrastructure.html)\\n(POSI),
+        a set of guidelines to operate and sustain open scholarly\\ninfrastructure.
+        Since then we have made significant progress towards\\ngreater transparency,
+        sustainability, and openness. As part of our\\ncommitment, we develop all
+        new code as open source and gradually update\\nlegacy systems to enable reuse.
+        You can now find 27 open projects hosted\\non Europe PMC's [public GitLab\\nrepository](https://gitlab.ebi.ac.uk/literature-services/public-projects).\\nWe
+        believe that open source is more than just sharing your code -- it's\\nabout
+        building projects that thrive. We invite you to collaborate,\\ncontribute,
+        and repurpose our code to match affiliations, import\\npreprints, or extract
+        key terms from documents. Not sure where to start\\nin creating or reusing
+        open source code? [I'm ready to take the first\\nstep and learn from EMBL
+        Data Scientists for\\nfree](https://youtu.be/D-aoVZrheIU?si=qIh1YpHQencCsJwj&t=7).\\n\\nModern
+        research increasingly relies on software, yet it often lacks\\nappropriate
+        recognition and persistent identifiers, limiting its\\ndiscoverability and
+        reproducibility. To address this issue, Europe PMC\\njoined a collaborative
+        initiative dedicated to improving the visibility\\nand reuse of open research
+        software, called the [SoFAIR\\nproject](https://blog.europepmc.org/2024/05/connecting-publications-and-software.html).\\nThis
+        project will leverage machine learning and community validation to\\nmake
+        software citations available through the Europe PMC Annotations\\nplatform.
+        This initiative will not only enhance software visibility and\\nsupport the
+        reuse of research code, but also ensure that developers\\nreceive credit for
+        their work, in line with the FAIR principles for open\\nresearch outputs.
+        Our participation in SoFAIR underscores our commitment\\nto integrating open
+        research software with life sciences literature,\\ndriving innovation, and
+        creating a more connected research ecosystem.\\n\\n### User-focused design\_
+        {#user-focused-design .wp-block-heading}\\n\\nAt Europe PMC, we prioritise
+        user-driven design. In 2024, the team made\\nseveral updates based on user
+        feedback and research. One key improvement\\nwas making the sort order more
+        prominent to enable users to quickly\\nchoose between relevance, date, and
+        times cited easily. Previously\\ndisplayed as a drop-down menu, we redesigned
+        the sorting options and\\ntested the changes using A/B testing -- a method
+        of comparing two\\nversions of content by randomly splitting the audience
+        and evaluating\\nperformance based on engagement. This approach confirmed
+        that users\\npreferred the new, more accessible design to sort their results.
+        We also\\nrevamped the date filter to display a timeline view and offer a
+        more\\nvisual and intuitive way to narrow down searches.\\n\\n<figure class=\\\"wp-block-image\\\">\\n<img\\nsrc=\\\"https://blog.europepmc.org/wp-content/uploads/2025/01/image.png\\\"\\nclass=\\\"wp-image-1643\\\"
+        decoding=\\\"async\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://blog.europepmc.org/wp-content/uploads/2025/01/image.png
+        1600w, https://blog.europepmc.org/wp-content/uploads/2025/01/image-300x203.png
+        300w, https://blog.europepmc.org/wp-content/uploads/2025/01/image-1024x694.png
+        1024w, https://blog.europepmc.org/wp-content/uploads/2025/01/image-768x520.png
+        768w, https://blog.europepmc.org/wp-content/uploads/2025/01/image-1536x1041.png
+        1536w\\\"\\nsizes=\\\"(max-width: 1600px) 100vw, 1600px\\\" width=\\\"1600\\\"
+        height=\\\"1084\\\" />\\n</figure>\\n\\nWe are looking to the future of search,
+        trying to anticipate future user\\nneeds and changes in scholarly communication.
+        We are exploring the\\nstrengths, and limitations, of the current search tools
+        and have run\\nfocus groups to understand your challenges and aspirations
+        around\\nliterature research. These insights will guide our efforts to support\\nyou
+        with newer, better tools that evolve alongside your expectations. Be\\nthe
+        first to know what's coming next -- explore the 2025 developments on\\nthe
+        [Europe PMC roadmap](https://europepmc.org/Roadmap)!\\n\\n### Expanding coverage
+        {#expanding-coverage .wp-block-heading}\\n\\nEurope PMC continues to grow
+        as a comprehensive database for key\\nscientific research. In 2024 we added
+        preprints from MetaArXiv and\\nVeriXic, now 35 preprint servers are indexed
+        by Europe PMC. As of\\nDecember 2024, Europe PMC provides access to over 880,000
+        life science\\npreprints, ensuring you stay informed about the latest developments
+        in\\nthe field.\\n\\nThis year we have also updated our collection of PhD
+        theses from UK\\nhigher education institutions. These records are provided
+        by EThOS, the\\nBritish Library's e-thesis online service. Currently, users
+        can access\\nover 176,000 biomedical theses in Europe PMC. Making theses available\\nalongside
+        publications broadens the available knowledge base, encourages\\nthe sharing
+        of ideas within the academic community, and provides\\nvaluable context for
+        ongoing advancements in the life sciences.\\n\\n### Transparency for preprints
+        and publications {#transparency-for-preprints-and-publications .wp-block-heading}\\n\\nAs
+        in life, mistakes can occur at any stage of the research process.\\nErratums
+        and retractions allow scientists to make changes to published\\nliterature.
+        This prevents the spread of outdated or incorrect\\ninformation, and thus
+        erosion of public trust in research.\\n\\nWhen citing a research work it is
+        important to know whether an article\\nwas retracted or corrected, or if a
+        preprint was withdrawn, removed,\\nupdated with a new version, or published
+        in a journal. We have included\\nthis crucial information in citation files
+        as part of Europe PMC's\\ncommitment to transparency. This means that major
+        publication updates\\nare now visible to the user when a record from Europe
+        PMC is added to a\\ncitation manager. This mitigates the risk of unknowingly
+        citing invalid\\nor outdated work and empowers researchers to make responsible
+        decisions\\nabout the sources they cite.\_\\n\\nPreprints are much more dynamic
+        compared to journal articles, but in the\\nabsence of automated updates changes
+        to preprints can be difficult to\\ntrack. We have significantly improved the
+        detection of withdrawn and\\nremoved preprints in Europe PMC by monitoring
+        title changes -- a new,\\nevolving practice by preprint servers to prefix
+        titles with standard\\ntext, such as \\\"Withdrawn\\\". This has enabled us
+        to automatically tag over\\n2000 withdrawn and removed preprints, ensuring
+        that users access\\naccurate, up-to-date information, whether by reaching
+        an article via the\\nsearch bar or utilising our [Article Status\\nMonitor](https://europepmc.org/ArticleStatusMonitor)
+        tool.\_\\n\\nSince initially indexing preprints 6 years ago, we have worked
+        hard to\\nbuild trust in preprints and have recently published a summary of
+        our\\nefforts. Our latest publication, \\\"[Enabling preprint discovery,\\nevaluation,
+        and analysis with Europe\\nPMC](https://blog.europepmc.org/2024/11/how-we-built-a-database-of-preprints.html)\\\"\\noutlines
+        our efforts to create a database of preprints and support\\ninnovation in
+        scholarly communication.\\n\\n### Final remarks {#final-remarks .wp-block-heading}\\n\\nIn
+        2024, Europe PMC focused on increasing coverage of life science\\nliterature,
+        accelerating scientific discovery with innovative AI tools,\\nand supporting
+        open source and transparency. As we move into 2025, we\\nremain committed
+        to delivering a comprehensive, evolving resource that\\nmeets the needs of
+        the life science community. To keep up to date with\\ninnovations in 2025,
+        please look at the [Europe PMC\\nRoadmap](https://europepmc.org/Roadmap).\_\\n\",\"doi\":\"https://doi.org/10.59350/9vkvr-0mf49\",\"guid\":\"https://blog.europepmc.org/?p=1641\",\"id\":\"6d2e685e-8edc-4e1e-8ab9-deea64ab8825\",\"image\":\"https://blog.europepmc.org/wp-content/uploads/2025/01/image.png\",\"language\":\"en\",\"published_at\":1736326800,\"reference\":[],\"relationships\":[],\"rid\":\"50bgb-tx041\",\"status\":\"active\",\"summary\":\"As
+        we enter into 2025, Europe PMC celebrates a previous year of innovation, growth,
+        and user-driven improvements. This end-of-year reflection highlights our key
+        achievements in developing cutting-edge AI solutions for scientific research,
+        advances in open research software, and support for transparency in scholarly
+        communication. Using AI to revolutionise research discovery\",\"tags\":[\"2024
+        Review\",\"Europe PMC\",\"Machine Learning\",\"Open Access\",\"Open Data\"],\"title\":\"Europe
+        PMC 2024: a year in review\",\"updated_at\":1736256789,\"url\":\"https://blog.europepmc.org/2025/01/europe-pmc-2024-a-year-in-review.html\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22141/20231105110201/https://blogs.fu-berlin.de/open-access-berlin/2024/12/17/quo-vadis-4-ki-und-open-access\",\"authors\":[{\"name\":\"Maxi
+        Kindling\",\"url\":\"https://orcid.org/0000-0002-0167-0466\"}],\"blog_name\":\"Open
+        Access Blog Berlin\",\"blog_slug\":\"oaberlin\",\"category\":\"otherHumanities\",\"content_text\":\"####
+        3. Veranstaltung in der Reihe \u201EQuo vadis offene Wissenschaft in Berlin
+        und Brandenburg\\\" am 18. DEZEMBER 2024 {#veranstaltung-in-der-reihe-quo-vadis-offene-wissenschaft-in-berlin-und-brandenburg-am-18.-dezember-2024}\\n\\n**Termin:**
+        18. Dezember, 15:00--16:30 Uhr  \\n**Ort:** [Online via\\nWebex](https://th-wildau.webex.com/th-wildau/j.php?MTID=m9be52b0effb436cb25e6c03944b2f94f)
+        \ \\n**Veranstaltende:** TH Wildau\\n\\nEs handelt sich bei dieser Veranstaltung
+        um die dritte in der Reihe [Quo\\nvadis offene Wissenschaft in Berlin und
+        Brandenburg\\n2024/25.](https://blogs.fu-berlin.de/open-access-berlin/2024/08/02/quo-vadis-4/)\\n\\nFrei
+        zug\xE4ngliche Forschungsdaten bis hin zu Publikationen erlauben unter\\ngewissen
+        Creative-Commens-Bedingungen (CC BY, CC BY-SA oder CC0) auch\\ndie Verarbeitung
+        der Informationen mit Technologien der K\xFCnstlichen\\nIntelligenz. Gleichfalls
+        ist Bibliotheken bei konsortial bis\\nlizenzierten Produkten zugestanden,
+        im Kontext des Text- und Dataminings\\neine entsprechende technologiegest\xFCtzte
+        Verarbeitung\\nqualit\xE4tsgesicherter Informationen durchzuf\xFChren (sog.
+        TDM-Schranke bzw.\\nseit M\xE4rz 2018 in Kraft getretene Gesetz zur Angleichung
+        des\\nUrheberrechts an die aktuellen Erfordernisse der Wissensgesellschaft\\n(UrhWissG),
+        speziell [\xA7\\n44b](https://dejure.org/gesetze/UrhG/44b.html \\\"\xA7 44b
+        UrhG: Text und Data Mining\\\")\\nund [60d\\nUrhG](https://dejure.org/gesetze/UrhG/60d.html
+        \\\"\xA7 60d UrhG: Text und Data Mining f\xFCr Zwecke der wissenschaftlichen
+        Forschung\\\")).\\nHinzu kommen M\xF6glichkeiten, urheberrechtlich gesch\xFCtzte
+        Werke f\xFCr\\nKI-Systeme so zu ver\xE4ndern, dass eine weitere wissenschaftlichee\\nWertsch\xF6pfung
+        im forschungsgeleiteten Streben und Erkenntnisinteresse\\nm\xF6glich ist --
+        wenn die TDM-Schranke nicht anwendbar ist, durch\\nabgeleitete Textformate
+        im Rahmen der freien Benutzung nach [\xA7 23 Abs. 1\\nS. 2\\nUrhG](https://dejure.org/gesetze/UrhG/23.html
+        \\\"\xA7 23 UrhG: Bearbeitungen und Umgestaltungen\\\")\\nund damit ein Werk
+        einen hinreichenden Abstand zu vorbestehendem Werk\\nwahrt. Sogenannte abgeleitete
+        Texte bieten neue M\xF6glichkeiten der\\nAnalyse.\\n\\nAus diesen drei Aspekten
+        erwachsen Bibliotheken neue Aufgaben im Kontext\\nder Digital Humanities,
+        es kommt ihnen eine besondere Rolle zu und sie\\nsind aufgerufen, sich mit
+        ihren Ressourcen und M\xF6glichkeiten darauf\\neinzustellen. Diese neue Rolle
+        samt ihrer Limitierungen soll in diesem\\nPanel diskutiert werden.\\n\\n##
+        Programm\\n\\n**15:00--15:10 Uhr: Begr\xFC\xDFung durch Frank Seeliger (TH
+        Wildau)**\\n\\n### Teilnehmende an der Diskussion\\n\\n- Judith Ludwig (TIB)\\n-
+        Fabian Rack (FIZ Karlsruhe, iRights.Law)\\n- Christof Sch\xF6ch (Universit\xE4t
+        Trier)\\n\\n**Moderiert von**: Frank Seeliger (TH Wildau)\\n\\n### Biographische
+        Informationen\\n\\n<figure id=\\\"attachment_2835\\\" class=\\\"wp-caption
+        alignnone\\\"\\naria-describedby=\\\"caption-attachment-2835\\\" style=\\\"width:
+        300px\\\">\\n<img\\nsrc=\\\"https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-300x200.jpg\\\"\\nclass=\\\"size-medium
+        wp-image-2835\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-300x200.jpg
+        300w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-1024x683.jpg
+        1024w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-768x512.jpg
+        768w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-1536x1024.jpg
+        1536w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-2048x1365.jpg
+        2048w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-1200x800.jpg
+        1200w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-250x167.jpg
+        250w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-550x367.jpg
+        550w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-800x533.jpg
+        800w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-270x180.jpg
+        270w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-450x300.jpg
+        450w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-750x500.jpg
+        750w\\\"\\nsizes=\\\"(max-width: 300px) 85vw, 300px\\\" width=\\\"300\\\"
+        height=\\\"200\\\" />\\n<figcaption>Judith Ludwig</figcaption>\\n</figure>\\n\\nAss.
+        jur. Judith Ludwig, LL.M. ([ORCiD:\\n0000-0001-5322-0478](https://orcid.org/0000-0001-5322-0478))
+        arbeitet\\nals Justiziarin und Referentin f\xFCr Lizenzen an der Technischen\\nInformationsbibliothek
+        (TIB). Sie ist u.a. Co-Vorsitzende der LIBER\\nWorking Group Copyright & Legal
+        Matters und st\xE4ndiger Gast in der\\nRechtskommission des Deutschen Bibliotheksverbands.\\n\\n<figure
+        id=\\\"attachment_2829\\\" class=\\\"wp-caption alignnone\\\"\\naria-describedby=\\\"caption-attachment-2829\\\"
+        style=\\\"width: 200px\\\">\\n<img\\nsrc=\\\"https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-200x300.jpeg\\\"\\nclass=\\\"size-medium
+        wp-image-2829\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-200x300.jpeg
+        200w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-683x1024.jpeg
+        683w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-768x1152.jpeg
+        768w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-1024x1536.jpeg
+        1024w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-1365x2048.jpeg
+        1365w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-1200x1800.jpeg
+        1200w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-250x375.jpeg
+        250w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-550x825.jpeg
+        550w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-800x1200.jpeg
+        800w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-120x180.jpeg
+        120w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-333x500.jpeg
+        333w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Fabian-Rack-scaled.jpeg
+        1707w\\\"\\nsizes=\\\"(max-width: 200px) 85vw, 200px\\\" width=\\\"200\\\"
+        height=\\\"300\\\" />\\n<figcaption>Fabian Rack (Coypright: Anja Limbrunner)</figcaption>\\n</figure>\\n\\nFabian
+        Rack ist Rechtsanwalt und wissenschaftlicher Mitarbeiter bei FIZ\\nKarlsruhe
+        -- Leibniz Institut f\xFCr Informationsinfrastruktur im Bereich\\nImmaterialg\xFCterrechte.
+        Seit M\xE4rz 2020 ist er assoziierter Partner bei\\niRights.Law.\\n\\n\_\\n\\n<figure
+        id=\\\"attachment_2830\\\" class=\\\"wp-caption alignnone\\\"\\naria-describedby=\\\"caption-attachment-2830\\\"
+        style=\\\"width: 225px\\\">\\n<img\\nsrc=\\\"https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Christoph-Schoech.jpeg\\\"\\nclass=\\\"wp-image-2830
+        size-full\\\" loading=\\\"lazy\\\"\\nsrcset=\\\"https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Christoph-Schoech.jpeg
+        225w, https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Christoph-Schoech-135x180.jpeg
+        135w\\\"\\nsizes=\\\"(max-width: 225px) 85vw, 225px\\\" width=\\\"225\\\"
+        height=\\\"300\\\" />\\n<figcaption>Christof Sch\xF6ch</figcaption>\\n</figure>\\n\\nChristof
+        Sch\xF6ch ist [Professor f\xFCr Digital\\nHumanities](https://www.uni-trier.de/index.php?id=64027){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} an der Universit\xE4t Trier und\\nwissenschaftlicher Ko-Direktor
+        des [Trier Center for Digital\\nHumanities](http://kompetenzzentrum.uni-trier.de/de/){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"}. Zweiter Vorsitzender des Verbands [Digital\\nHumanities im
+        deutschsprachigen Raum](http://dig-hum.de){target=\\\"_blank\\\"\\nrel=\\\"noopener
+        noreferrer\\\"} (DHd).\\n\\n### Lekt\xFCrehinweise\\n\\n- Agi, Christian et
+        al. (2024) Regelungen zu K\xFCnstlicher Intelligenz in\\n  Lizenzvertr\xE4gen.
+        Handlungsempfehlungen der Task Force K\xFCnstliche\\n  Intelligenz der Alianz
+        der Wissenschaftsorganisationen.\\n  <https://doi.org/10.5281/zenodo.13837663>\\n-
+        Brehm, Elke (2024) [Open Access und K\xFCnstliche Intelligenz. Was ist\\n
+        \ erlaubt und was\\n  nicht](https://open-access.network/fortbilden/open-access-talk/oatalk-am-26-september-2024)?\\n
+        \ oa.talk\\n- Directorate-General for Research and Innovation (European\\n
+        \ Commission)(2024) [Improving access to and reuse of research results,\\n
+        \ publications and data for scientific\\n  purposes](https://op.europa.eu/en/publication-detail/-/publication/77395a15-133b-11ef-a251-01aa75ed71a1/language-en).\\n
+        \ Report\\n- Loose, Yulia (2024) [OER erstellen mit KI: was ist urheberrechtlich\\n
+        \ erlaubt und was\\n  nicht](https://www.vbib.net/vbib24-programm/programmdetail/vbib24-corner-3-5/)?\\n
+        \ Workshop vBIB24 // Twillo: <https://elan-ev.de/twillo/>\\n- Sch\xF6ch, Christoph
+        et al. (2020) Abgeleitete Textformate: Text und Data\\n  Mining mit urheberrechtlich
+        gesch\xFCtzten Textbest\xE4nden. In: Zeitschrift\\n  f\xFCr digitale Geisteswissenschaften.
+        Wolfenb\xFCttel 2020.\\n  <http://dx.doi.org/10.17175/2020_006>\\n- Sch\xF6ch,
+        Christof (2023) [Legal aspects and scholarly requirements\\n  regarding TDM
+        in the digital humanities: current developments in\\n  Germany](https://dhtrier.quarto.pub/tdmdh/#/title-slide)\\n\",\"doi\":\"https://doi.org/10.59350/9y488-ycm47\",\"guid\":\"https://blogs.fu-berlin.de/open-access-berlin/?p=2762\",\"id\":\"96fcf340-a922-4e04-ac78-53db8c5c8d38\",\"image\":\"https://blogs.fu-berlin.de/open-access-berlin/files/2024/10/Judith-Ludwig-300x200.jpg\",\"language\":\"de\",\"published_at\":1734426730,\"reference\":[],\"relationships\":[],\"rid\":\"a7jxg-5kf28\",\"status\":\"active\",\"summary\":\"<strong>\\n
+        3. Veranstaltung in der Reihe \u201EQuo vadis offene Wissenschaft in Berlin
+        und Brandenburg\u201C am 18. DEZEMBER 2024\\n</strong>\\n<strong>\\n Termin:\\n</strong>\\n18.
+        Dezember, 15:00\u201316:30 Uhr\\n<strong>\\n Ort:\\n</strong>\\nOnline via
+        Webex\\n<strong>\\n Veranstaltende:\\n</strong>\\nTH Wildau  Es handelt sich
+        bei dieser Veranstaltung um die dritte in der Reihe Quo vadis offene Wissenschaft
+        in Berlin und Brandenburg 2024/25.     Frei zug\xE4ngliche Forschungsdaten
+        bis hin zu\",\"tags\":[\"Veranstaltungshinweise\",\"OpenBBB\",\"Open Access\",\"K\xFCnstliche
+        Intelligenz\",\"Artificial Intelligence\"],\"title\":\"18. Dezember 2024:
+        AI, Open Access and beyond: Konkrete bis strategische Ableitungen f\xFCr Bibliotheken
+        (3. Veranstaltung in der Reihe Quo vadis offene Wissenschaft in Berlin und
+        Brandenburg 2024/25)\",\"updated_at\":1736784068,\"url\":\"https://blogs.fu-berlin.de/open-access-berlin/2024/12/17/quo-vadis-4-ki-und-open-access\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22141/20231105110201/https://blogs.fu-berlin.de/open-access-berlin/2024/12/09/deutschlandfunk-interview\",\"authors\":[{\"name\":\"Georg
+        Fischer\",\"url\":\"https://orcid.org/0000-0001-5620-5759\"}],\"blog_name\":\"Open
+        Access Blog Berlin\",\"blog_slug\":\"oaberlin\",\"category\":\"otherHumanities\",\"content_text\":\"Wie
+        gelingt es der Wissenschaft, die Souver\xE4nit\xE4t \xFCber ihr\\nPublikationswesen
+        (zur\xFCck) zu erhalten? Zu diesem Thema wurde Maike\\nNeufend, Co-Leiterin
+        des Open-Access-B\xFCros Berlin, k\xFCrzlich f\xFCr die\\nReihe \u201ECampus
+        und Karriere\\\" im Deutschlandfunk interviewt. Die komplette\\nSendung steht
+        zum Nachh\xF6ren bereit.\\n\\nDie Sendung beleuchtete das Open-Access-Publizieren
+        in der Wissenschaft.\\nZum Themenbereich \u201EOpen Access benachteiligt Forschende
+        aus dem Globalen\\nS\xFCden\\\" wurde zun\xE4chst das Gesch\xE4ftsmodell der
+        dominanten kommerziellen\\nGro\xDFverlage kritisch kommentiert, unter anderem
+        von Prof. Dr. Ulrich\\nDirnagl von der Charit\xE9 -- Universit\xE4tsmedizin
+        Berlin. Anschlie\xDFend\\nwurden alternative Wege aufgezeigt, wie das wissenschaftliche\\nPublizieren
+        heute und in Zukunft aussehen kann.\\n\\nIn diesem Zusammenhang stellte Dr.
+        Maike Neufend, Co-Leiterin des OABB,\\ndie Ziele der Berliner Strategie f\xFCr
+        offene Wissenschaft vor, die das\\nwissenschaftliche Publizieren wieder st\xE4rker
+        in die Souver\xE4nit\xE4t der\\n\xF6ffentlichen Wissenschaft zur\xFCckbringen
+        will. Als positives Beispiel\\nf\xFChrte sie den relativ jungen Universit\xE4tsverlag
+        *Berlin Universities\\nPublishing* an. So erl\xE4uterte Neufend die verschiedenen
+        Vorteile, die\\naus einem wissenschaftsgeleitetem Ansatz f\xFCr Forschung
+        und\\n\xD6ffentlichkeit hervorgehen.\\n\\n    \u201ECampus und Karriere\u201C
+        im Deutschlandfunk vom 22.11.2024 \\n\\n    Das gut sechsmin\xFCtige Interview
+        mit Maike Neufend steht hier zur Verf\xFCgung. \\n\\n    Die komplette Sendung
+        l\xE4sst sich unter diesem Link nachh\xF6ren.\\n\",\"doi\":\"https://doi.org/10.59350/sn4w0-p9h35\",\"guid\":\"https://blogs.fu-berlin.de/open-access-berlin/?p=2907\",\"id\":\"1bcfd042-c1c2-4249-aead-7d26819ba7da\",\"language\":\"de\",\"published_at\":1733743514,\"reference\":[],\"relationships\":[],\"rid\":\"wtbs7-1r632\",\"status\":\"active\",\"summary\":\"Wie
+        gelingt es der Wissenschaft, die Souver\xE4nit\xE4t \xFCber ihr Publikationswesen
+        (zur\xFCck) zu erhalten? Zu diesem Thema wurde Maike Neufend, Co-Leiterin
+        des Open-Access-B\xFCros Berlin, k\xFCrzlich f\xFCr die Reihe \u201ECampus
+        und Karriere\u201C im Deutschlandfunk interviewt. Die komplette Sendung steht
+        zum Nachh\xF6ren bereit. Die Sendung beleuchtete das Open-Access-Publizieren
+        in der Wissenschaft.\",\"tags\":[\"Aktuelles\",\"Nicht-kommerzielles Open
+        Access\",\"Open-Research-Strategie\",\"BerlinUP\",\"Open Access\"],\"title\":\"Maike
+        Neufend vom Open-Access-B\xFCro Berlin im Deutschlandfunk-Interview\",\"updated_at\":1736784126,\"url\":\"https://blogs.fu-berlin.de/open-access-berlin/2024/12/09/deutschlandfunk-interview\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Abhishek
+        Tiwari\",\"url\":\"https://orcid.org/0000-0003-2222-2395\"}],\"blog_name\":\"Abhishek
+        Tiwari\",\"blog_slug\":\"abhishek_tiwari\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"Since
+        2009, I have published over 125 articles on this blog, creating a\\nspace
+        where my work intersects with the rigor of academic research and\\nthe applied
+        challenges of industry. This platform has grown beyond a\\npersonal archive.
+        It has become a resource for researchers, industry\\npractitioners, and students
+        alike. It currently attracts more than 18k\\nmonthly visitor from across the
+        globe. My articles have been frequently\\ncited in peer-reviewed journals,
+        conference proceedings, technical\\nstandards, patents, and academic theses.\\n\\nFor
+        example, *A Sidecar for Your Service Mesh*(see\\n[here](#CiteTiwari2017))
+        has garnered attention from prestigious\\nsources, including the IEEE International
+        Symposium on Software\\nReliability Engineering and the NIST Special Publication.
+        The article\\nhas been cited more than 11 times by peer-reviewed academic
+        publications\\nand patents, demonstrating its importance across academic research,\\ngovernment
+        standards, and industry implementations.\\n\\n::: {.flex .justify-center}\\n<figure>\\n<img
+        src=\\\"https://static.abhishek-tiwari.com/hugo/rogue-scholar-v1.png\\\"\\nclass=\\\"h-auto
+        w-full rounded-lg\\\"\\nalt=\\\"Indexing with The Rogue Scholar is free and
+        comes with Diamond Open Access.\\\" />\\n<figcaption aria-hidden=\\\"true\\\"><em></em>Indexing
+        with The Rogue Scholar\\nis free and comes with Diamond Open Access.</figcaption>\\n</figure>\\n:::\\n\\n##
+        Preserving Knowledge, Amplifying Impact\\n\\nHowever, ensuring their accessibility
+        and scholarly recognition in a\\nsustainable way has always been a challenge.
+        This is why I am thrilled\\nto announce that my blog is now archived and indexed
+        with [The Rogue\\nScholar](https://rogue-scholar.org){target=\\\"_blank\\\"},
+        a platform\\ndedicated to elevating the visibility and impact of scholarly
+        blogs.\\n\\nThe Rogue Scholar ensures that blogs like mine are preserved,\\ndiscoverable,
+        and easily citable. Front Matter, the organisation behind\\nThe Rogue Scholar,
+        founded by Martin Fenner. Martin has been a long term\\nchampion of making
+        research more transparent and accessible.\\n\\nThe Rogue Scholar offers full-text
+        search capabilities. Articles\\narchived in the platform are assigned Digital
+        Object Identifiers (DOIs)\\nand enriched with metadata, turning each blog
+        post into a scholarly\\nartifact. The Rogue Scholar is free for blog authors,
+        provided their\\ncontent is shared under the terms of the Creative Commons
+        Attribution\\n(CC-BY) license and meets scholarly or science blog requirements.\\n\\n##
+        Call to action\\n\\nIf you are a researcher or science communicator with a
+        blog, I suggest\\nyou to consider submitting your content to The Rogue Scholar.
+        Your blog\\nis more than a collection of posts; it is a reflection of your\\nintellectual
+        journey, and it deserves the recognition and\\ndiscoverability that The Rogue
+        Scholar provides.\\n\\n## References\\n\\n::: {.references}\\n1.  [A. Tiwari
+        , \\\\\\\"A Sidecar for Your Service Mesh,\\\\\\\" *Abhishek Tiwari*,\\n    2017,
+        [doi:\\n    10.59350/89sdh-7xh23.](https://doi.org/10.59350/89sdh-7xh23){rel=\\\"nofollow
+        noopener\\\"\\n    target=\\\"_blank\\\"}]{#CiteTiwari2017}\\n:::\\n\",\"doi\":\"https://doi.org/10.59350/wa5s5-axq90\",\"guid\":\"https://www.abhishek-tiwari.com/archiving-with-the-rogue-scholar/\",\"id\":\"27bcfedb-81c1-4554-a64c-9101212784a4\",\"image\":\"https://static.abhishek-tiwari.com/hugo/rogue-scholar-v1.png\",\"language\":\"en\",\"published_at\":1733011650,\"reference\":[{\"id\":\"https://doi.org/10.59350/89sdh-7xh23\",\"key\":\"ref1\",\"unstructured\":\"Tiwari,
+        A. (2017). A sidecar for your service mesh. In Abhishek Tiwari. https://doi.org/10.59350/89sdh-7xh23\"}],\"relationships\":[],\"rid\":\"j3yds-7v293\",\"status\":\"active\",\"summary\":\"Since
+        2009, I have published over 125 articles on this blog, creating a space where
+        my work intersects with the rigor of academic research and the applied challenges
+        of industry. This platform has grown beyond a personal archive. It has become
+        a resource for researchers, industry practitioners, and students alike. It
+        currently attracts more than 18k monthly visitor from across the globe.\",\"tags\":[\"News\",\"Archiving\",\"Open-access\"],\"title\":\"Archiving
+        with The Rogue Scholar\",\"updated_at\":1734767396,\"url\":\"https://www.abhishek-tiwari.com/archiving-with-the-rogue-scholar\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22152/20231101171820/https://www.samuelmoore.org/2024/11/28/cfp-special-issue-on-open-research-for-the-humanities-and-social-sciences\",\"authors\":[{\"name\":\"Samuel
+        Moore\"}],\"blog_name\":\"Samuel Moore\",\"blog_slug\":\"samuelmoore\",\"category\":\"socialScience\",\"content_text\":\"I'm
+        guest editing a special issue for the *Journal of Electronic\\nPublishing*
+        on open research for the humanities and social sciences. The\\ncall for papers
+        is below:\\n\\n**Call for papers: Special Issue on Open Research for the Humanities
+        and\\nSocial Sciences**\_\\n\\n\u200B\u200BAbstract submission deadline: **30
+        January 2025**\\n\\nIn recent years, research production and communication
+        in the biological\\nand physical sciences has been transformed by openness.
+        Through data\\nsharing, preprints, open peer review and open access publishing,
+        among\\nother practices, the ideas behind open research (often termed open\\nscience)
+        have become mainstream forces and have been adopted by\\nscientists more broadly
+        (Sever 2023). Yet while open research has\\nemerged out of scientific communities
+        themselves, it is also promoted by\\nfunders and universities looking to increase
+        transparency, trust and\\nefficacy of scientific research (Farley et al. 2024).
+        Although not\\nexplicitly framed in a way that excludes humanities and social
+        science\\n(HSS) disciplines, open research does not always neatly fit with
+        their\\nworking practices or research cultures, which has led many researchers\\nin
+        these disciplines to feel excluded or unenthused by the hegemonic\\nturn to
+        openness in the sciences.\_\\n\\nThis is not to say that open research is
+        not practised in HSS\\ndisciplines. There are myriad ways in which research
+        is communicated\\npublicly, immediately and openly with recourse to openly
+        shared and\\nannotated archival resources (e.g.,\\n<https://derridas-margins.princeton.edu/>),
+        experimental forms of peer\\nreview (e.g., <https://mcpress.media-commons.org/plannedobsolescence/>)\\nand
+        remixed research presentation (e.g.,\\n<http://www.openhumanitiespress.org/books/titles/ecological-rewriting/>).\\nThese
+        practices are not frequently conceived as 'open research' in a\\nscientific
+        sense and represent a separate, but important, approach to\\nopen academic
+        knowledge production. Such approaches display a commitment\\nto openness that
+        is less concerned with transparency, efficiency and/or\\nfreely accessible
+        resources and is more concerned with experimentation\\nand the process of
+        opening up scholarship, posing questions around how\\nthe dominant understandings
+        of open research and open science relate to\\nHSS disciplines and what they
+        can learn from one another. Do the\\nhumanities and social sciences need their
+        own conception of openness, as\\nfor example Marcel Kn\xF6chelmann (2019)
+        argues, or is the relationship\\nbetween openness and HSS research more complicated
+        or even antagonistic?\\nOr further still, does open research itself need to
+        humanise through\\nideas such as Sabina Leonelli's 'judicial connection' (Leonelli
+        2023) or\\nmore general ideas relating to knowledge commons (Chan and Costa
+        2005;\\nBell 2019)?\_\\n\\nThis special issue seeks articles on Open Research
+        for the Humanities\\nand Social Sciences. The editors hope to bring together
+        humanistic\\ncritiques of open research along with critical reflections on
+        HSS\\nresearch in practice. We are interested in what the futures of open\\nresearch
+        might be within HSS disciplines from a variety of\\ninterdisciplinary and
+        critical perspectives. Of special interest is the\\nextent to which open research
+        can blur the distinction between research\\nand publishing practices or expand
+        upon the very idea of publishing\\nthrough a range of digital practices..\_\\n\\nPotential
+        topics include:\\n\\n- What can HSS disciplines learn from the turn to open
+        research and vice\\n  versa?\\n- How might specific open practices such as
+        open data, open peer review,\\n  replication and preprints apply to HSS research\\n-
+        Analytical reflections on examples of open HSS research in practice\\n- Critical
+        analysis of how open research applies to HSS research\\n- Analysis of the
+        drivers of open research (top-down, biomedical\\n  sciences, bottom-up, governmental,
+        etc.)\\n- Arguments against or in favour of open research in HSS\\n- Proposals
+        for alternative framings or definitions of open research HSS\\n- Historical
+        examples of open research practices in HSS\\n- Specific disciplinary needs
+        for open research in HSS\\n\\nWhen submitting an abstract, please also include
+        a note that your\\nabstract is for consideration in the Open Research for
+        the humanities\\nand social sciences special issue. Abstract submissions are
+        due **30\\nJanuary 2025** and should be addressed to the special issue editor
+        Dr.\\nSamuel A. Moore via sam214@cam.ac.uk.\_\\n\\nFull papers of accepted
+        abstracts will be due by **15 May 2025**. Please\\ndirect any questions to
+        the special issue editor as well.\_\\n\\n*Note on peer review process*\\n\\nPapers
+        will undergo an experimental collective approach to peer review\\nthat authors
+        will be invited to participate in and will be presented as\\na case study
+        for the Materialising Open Research Practices in the\\nHumanities and Social
+        Sciences (MORPHSS) project. This peer review\\nprocess seeks to undermine
+        the binary between open and closed forms of\\nreview processes and instead
+        explores how HSS research can be 'opened\\nout' through well-structured, careful
+        collective forms of feedback and\\nrevision. More information will be provided
+        at the time of submission.\\n\\nMORPHSS is supported by funding from The Wellcome
+        Trust and AHRC\\n(314438/Z/24/Zr) and by the \_Research England Development
+        (RED) Fund\\n\\n*References*\\n\\nBell, Kirsten. 2019. \\\"Communitas and
+        the Commons: The Open Access\\nMovement and the Dynamics of Restructuration
+        in Scholarly Publishing.\\\"\\nAnthropology Today 35 (5): 21--23.\\nhttps://doi.org/10.1111/1467-8322.12530.\\n\\nChan,
+        Leslie, and Sely Costa. 2005. \\\"Participation in the Global\\nKnowledge
+        Commons: Challenges and Opportunities for Research\\nDissemination in Developing
+        Countries.\\\" New Library World 106 (3/4):\\n141--63. https://doi.org/10.1108/03074800510587354.\\n\\nFarley,
+        Ashley, Kazuhiro Hayashi, Eva Hnatkova, Hans De Jonge, Heather\\nJoseph, Robert
+        Kiley, Ruth King, and Rebecca Lawrence. 2024. \\\"Changing\\nthe Paradigm
+        for Primary Research Dissemination.\\\" Wellcome Open Research\\n9 (February):37.
+        https://doi.org/10.12688/wellcomeopenres.20715.1.\\n\\nKn\xF6chelmann, Marcel.
+        2019. \\\"Open Science in the Humanities, or: Open\\nHumanities?\\\" Publications
+        7 (4): 65.\\nhttps://doi.org/10.3390/publications7040065.\\n\\nLeonelli, Sabina.
+        2023. Philosophy of Open Science. Cambridge Elements.\\nElements in the Philosophy
+        of Science. Cambridge New York, NY Port\\nMelbourne New Delhi Singapore: Cambridge
+        University Press.\\nhttps://doi.org/10.1017/9781009416368.\\n\\nSever, Richard.
+        2023. \\\"Biomedical Publishing: Past Historic, Present\\nContinuous, Future
+        Conditional.\\\" PLOS Biology 21 (10): e3002234.\\nhttps://doi.org/10.1371/journal.pbio.3002234.\\n\",\"doi\":\"https://doi.org/10.59350/ze56v-39p21\",\"guid\":\"https://www.samuelmoore.org/?p=1532\",\"id\":\"1e4da9ec-b1e2-4f89-9270-cfe4c9ed664f\",\"language\":\"en\",\"published_at\":1732784319,\"reference\":[],\"relationships\":[],\"rid\":\"a8gbp-3za43\",\"status\":\"active\",\"summary\":\"I\u2019m
+        guest editing a special issue for the\\n<em>\\n Journal of Electronic Publishing\\n</em>\\non
+        open research for the humanities and social sciences. The call for papers
+        is below:\\n<strong>\\n Call for papers: Special Issue on Open Research for
+        the Humanities and Social Sciences\\n</strong>\",\"tags\":[\"Open Access\"],\"title\":\"CFP:
+        special issue of JEP on open research for the humanities and social sciences\",\"updated_at\":1732784819,\"url\":\"https://www.samuelmoore.org/2024/11/28/cfp-special-issue-on-open-research-for-the-humanities-and-social-sciences\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Ulrich
+        Herb\"}],\"blog_name\":\"pulse49\",\"blog_slug\":\"scidebug\",\"category\":\"otherSocialSciences\",\"content_text\":\":::
+        {.wp-block-image}\\n<figure class=\\\"alignleft size-full\\\">\\n<img\\nsrc=\\\"https://pulse49.com/wp-content/uploads/2024/10/Open-Access-Publishing-Navigating-the-Costly-Landscape-and-Author-Expectations.jpg\\\"\\nclass=\\\"wp-image-7605\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://pulse49.com/wp-content/uploads/2024/10/Open-Access-Publishing-Navigating-the-Costly-Landscape-and-Author-Expectations.jpg
+        200w, https://pulse49.com/wp-content/uploads/2024/10/Open-Access-Publishing-Navigating-the-Costly-Landscape-and-Author-Expectations-150x150.jpg
+        150w\\\"\\nsizes=\\\"auto, (max-width: 200px) 85vw, 200px\\\" width=\\\"200\\\"
+        height=\\\"200\\\"\\nalt=\\\"Open Access Publishing Navigating the Costly
+        Landscape and Author Expectations\\\" />\\n</figure>\\n:::\\n\\nIn 2020, [Joachim\\nSch\xF6pfel](https://fr.linkedin.com/in/schopfel){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"} and I planned to publish an anthology on\\nresearch data, topics
+        to be covered should include issues such as fake\\ndata (even then we were
+        thinking about AI-generated data) and their\\ndetection, data markets, data
+        reuse rates, blockchain, and health data.\\n\\nHowever, we had underestimated
+        what had changed since 2018. Back then\\nOpen Divide -- Critical Studies on
+        Open Access, edited by Joachim and me\\nwas published. The publisher Rory
+        Litwin sold the book in print, but not\\nonline. However, he allowed all authors
+        to publish their contributions\\nin the version of record under the Creative
+        Commons Attribution Non\\nCommercial 4.0 International License. Some authors
+        also chose the CC BY\\n4.0, without Rory Litwin being bothered by it. The
+        authors could make\\ntheir contributions available in open repositories or
+        other websites\\n(Green Open Access), without publication fees.\\n\\nNevertheless,
+        [there were\\ncomplaints](https://www.tub.tuhh.de/blog/2019/10/26/oaweek2019-open-access-books/){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"} that Open Divide was the \\\"example of a book\\nabout Open
+        Access that is unfortunately not available Open Access\\\".\\nDespite these
+        concerns, the book achieved what I consider to be a\\n[remarkable\\ndissemination](https://search.worldcat.org/de/title/1033828926){data-type=\\\"link\\\"\\ndata-id=\\\"https://search.worldcat.org/de/title/1033828926\\\"\\ntarget=\\\"_blank\\\"
+        rel=\\\"noreferrer noopener\\\"}. Whether their chapters would\\nbe published
+        as Open Access or not, was not decided by us, but solely by\\nthe authors
+        --- it was their free choice.  \\nSo the book is not available Open Access
+        in all its parts, because two\\nauthors decided not to use the Open Access
+        option; interestingly\\ncontributors from the so-called global south. A list
+        of all chapters and\\navailable Open Access versions can be found\\n[here](https://opendivide.hypotheses.org/open-divide-2018){data-type=\\\"page\\\"\\ndata-id=\\\"7216\\\"
+        target=\\\"_blank\\\" rel=\\\"noreferrer noopener\\\"}.\\n\\nUnlike in 2016
+        (when we started work on Open Divide and communicated the\\ngeneral conditions
+        to the authors), in 2020 hardly any author was\\nwilling to contribute to
+        a book that does not appear Gold Open Access or\\nis delayed Open Access ---
+        even if their chapter (as with Open Divide)\\ncould have been made available
+        under a CC BY licence in the version of\\nrecord without embargo.\\n\\nIn
+        2020 most of the potential authors we contacted required these things\\nto
+        write a contribution:\\n\\n- Gold Open Access publication of the book as a
+        whole\\n- CC BY License for the book as a whole\\n- Subject-relevant and reputable
+        publisher (preferably international)\\n\\nThe last point eliminated my university's
+        Open Access publisher from the\\nlist of possible publication venues. Looking
+        at common Book Processing\\nCharges (BPCs) quickly made me realise that financing
+        would be\\ndifficult, see e.g. data from\\n[OpenAPC](https://treemaps.openapc.net/apcdata/bpc/#/period=2020){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"} or [ubiquity\\npress](https://web.archive.org/web/20200614193759/https://www.ubiquitypress.com/site/publish/){target=\\\"_blank\\\"\\nrel=\\\"noreferrer
+        noopener\\\"} dated 2020. Therefore, we approached a\\npublisher that publishes
+        titles without charging a BPC. However, this is\\nonly possible after a thorough
+        review, which is reasonable since the\\npublisher is funded through consortia.
+        Nevertheless, we found ourselves\\nin a dilemma: we could not guarantee the
+        authors (as they demanded) that\\nthe book would be published Open Access
+        by this publisher --- on the\\nother hand, we were not willing (in the absence
+        of funding) to pay a\\nrather high fee out of our own pocket if the publisher
+        only wanted to\\npublish the book in return for BPC, to fulfill the obligation
+        demanded\\nby the authors. We also inquired with another relevant publisher
+        about\\ntheir BPC waiver program. Our question was: \\\"Since we do not have\\nfunding
+        for Open Access publication of the book, I would like to ask how\\nto apply
+        for the Waiver Scheme from \\\\*publisher name\\\\*: Do we apply for\\nthe
+        waiver with a book first and enter into a contract if the waiver is\\ngranted,
+        or do you enter into a contract with \\\\*publisher name\\\\* and\\nthen apply
+        for the waiver?\\\" The reply was: \\\"To apply for a waiver, you\\njust need
+        to note in the funding section of the proposal form that you\\nwould like
+        to apply to the waiver scheme. We will then consider your\\nbook proposal
+        with the understanding that we will need to fund the book\\nif it successfully
+        passes peer review.\\\"\\n\\nThe procedure is understandable, but it offered
+        us no alternative: since\\nwe could not guarantee an Open Access publication
+        without BPC, the\\nauthors did not want to contribute to the fees, and we
+        did not want to\\ninvest private funds, the book ultimately was never published.\\n\\nThe
+        impression left was that publishing an Open Access book is primarily\\na matter
+        of cost, suggesting that if one truly wants to publish the\\nbook, they must
+        be prepared to cover the expenses themselves, which\\nmakes publication somewhat
+        of a luxury. However, perhaps I am being too\\npessimistic. I am aware that
+        many universities in Germany today have\\nfunds for (partial) financing of
+        Open Access books; however, these are\\nnot universally available, and in
+        our case, the maximum funding amount\\nwould hardly have covered the costs.
+        Additionally, my university now has\\nsuch a fund, but I would be reluctant
+        to apply for funding since I\\nmanage it and do not want to give the impression
+        of misusing this role.\\nI also know that in Germany (and likely in other
+        non-English speaking\\ncountries), it is common to pay high printing cost
+        subsidies for books\\n(BPCs) even in Closed Access; however, Closed Access
+        (unlike Open\\nAccess) does not claim participation as its principle. That
+        said, I do\\nnot want to demonize Open Access BPCs, as publishers need to
+        find ways\\nto finance themselves, and providing service is a significant
+        value that\\ndeserves fair compensation. Nevertheless, it bothers me that
+        the\\nopportunity to publish an Open Access Book is so dependent on financial\\nresources.
+        What has disturbed me more, however, are authors who demanded\\nthat a book
+        licensed under CC BY be an unconditional requirement for a\\ncontribution
+        but categorically excluded any participation in the costs.\\n\",\"doi\":\"https://doi.org/10.59350/cgb5e-6z776\",\"guid\":\"https://scinoptica.com/?p=6076\",\"id\":\"fabea06e-f41c-4e3f-9bd9-0ea3613dd20c\",\"image\":\"https://pulse49.com/wp-content/uploads/2024/10/Open-Access-Publishing-Navigating-the-Costly-Landscape-and-Author-Expectations.jpg\",\"language\":\"en\",\"published_at\":1732639349,\"reference\":[],\"relationships\":[],\"rid\":\"wa75e-zd096\",\"status\":\"active\",\"summary\":\"In
+        2020, Joachim Sch\xF6pfel and I planned to publish an anthology on research
+        data, topics to be covered should include issues such as fake data (even then
+        we were thinking about AI-generated data) and their detection, data markets,
+        data reuse rates, blockchain, and health data. However, we had underestimated
+        what had changed since 2018. Back then Open Divide \u2013 Critical Studies
+        on Open Access, edited by Joachim and me was published.\",\"tags\":[\"Open
+        Access\",\"ScholComm\"],\"title\":\"Publishing an Open Access anthology \u2014
+        navigating costs and author expectations\",\"updated_at\":1732639390,\"url\":\"https://pulse49.com/2024/11/26/publishing-an-open-access-anthology-navigating-costs-and-author-expectations\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}}],\"out_of\":24815,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"\"},\"search_cutoff\":false,\"search_time_ms\":18}"
+    headers:
+      Connection:
+      - keep-alive
+      accept-ranges:
+      - none
+      access-control-allow-origin:
+      - '*'
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: OK
 version: 1

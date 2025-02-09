@@ -5320,4 +5320,66 @@ interactions:
       - '3'
     http_version: HTTP/2
     status_code: 409
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-profile:
+      - public
+      host:
+      - zggonsjmmfozmfxlrjmg.supabase.co
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.12.0
+    method: GET
+    uri: https://zggonsjmmfozmfxlrjmg.supabase.co/rest/v1/blogs?select=id%2Cslug%2Cfeed_url%2Ccurrent_feed_url%2Chome_page_url%2Carchive_prefix%2Cfeed_format%2Ccreated_at%2Cupdated_at%2Cregistered_at%2Cgenerator%2Cgenerator_raw%2Clanguage%2Ccategory%2Cfavicon%2Ctitle%2Cdescription%2Ccategory%2Cstatus%2Cuser_id%2Cauthors%2Cuse_api%2Crelative_url%2Cfilter%2Csecure%2Cdoi_as_guid&slug=eq.tarleb
+  response:
+    content: '{"id":"c6e3ab7a-a0d9-4ee8-9b16-efa5b5c541b8","slug":"tarleb","feed_url":"https://tarleb.com/index.xml","current_feed_url":null,"home_page_url":"https://tarleb.com/index.html","archive_prefix":"https://wayback.archive-it.org/22161/20231101171515/","feed_format":"application/rss+xml","created_at":1681948800,"updated_at":1679616000,"registered_at":1700486796,"generator":"Quarto","generator_raw":"Quarto
+      1.4.554","language":"en","category":"computerAndInformationSciences","favicon":null,"title":"tarleb","description":"tarleb''s
+      blog","category":"computerAndInformationSciences","status":"active","user_id":"dead81b3-8a8b-45c9-85fe-f01bb3948c77","authors":null,"use_api":null,"relative_url":null,"filter":null,"secure":true,"doi_as_guid":false}'
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 90f60a6cf800cb2f-DUS
+      content-location:
+      - /blogs?select=id%2Cslug%2Cfeed_url%2Ccurrent_feed_url%2Chome_page_url%2Carchive_prefix%2Cfeed_format%2Ccreated_at%2Cupdated_at%2Cregistered_at%2Cgenerator%2Cgenerator_raw%2Clanguage%2Ccategory%2Cfavicon%2Ctitle%2Cdescription%2Ccategory%2Cstatus%2Cuser_id%2Cauthors%2Cuse_api%2Crelative_url%2Cfilter%2Csecure%2Cdoi_as_guid&slug=eq.tarleb
+      content-profile:
+      - public
+      content-range:
+      - 0-0/*
+      content-type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      date:
+      - Sun, 09 Feb 2025 18:49:40 GMT
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - zggonsjmmfozmfxlrjmg
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-kong-proxy-latency:
+      - '0'
+      x-kong-upstream-latency:
+      - '5'
+    http_version: HTTP/2
+    status_code: 200
 version: 1

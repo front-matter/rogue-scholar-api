@@ -2793,4 +2793,377 @@ interactions:
       - '3'
     http_version: HTTP/2
     status_code: 200
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-profile:
+      - public
+      host:
+      - zggonsjmmfozmfxlrjmg.supabase.co
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.12.0
+    method: GET
+    uri: https://zggonsjmmfozmfxlrjmg.supabase.co/rest/v1/posts?select=id%2Cguid%2Cdoi%2Curl%2Carchive_url%2Ctitle%2Csummary%2Cabstract%2Ccontent_text%2Cpublished_at%2Cupdated_at%2Cregistered_at%2Cindexed_at%2Cauthors%2Cimage%2Ctags%2Clanguage%2Creference%2Crelationships%2Cblog_name%2Cblog_slug%2Crid%2Cblog%3Ablogs%21inner%28%2A%29%2Ccitations%3Acitations%21inner%28citation%2Cunstructured%2Cvalidated%2Cupdated_at%2Cpublished_at%29&guid=eq.https%3A%2F%2Fropensci.org%2Fblog%2F2023%2F09%2F26%2Fhow-to-translate-a-hugo-blog-post-with-babeldown%2F
+  response:
+    content: '{"code":"PGRST116","details":"The result contains 0 rows","hint":null,"message":"JSON
+      object requested, multiple (or no) rows returned"}'
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 90f60a824b79cb2f-DUS
+      content-type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      date:
+      - Sun, 09 Feb 2025 18:49:44 GMT
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - zggonsjmmfozmfxlrjmg
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-kong-proxy-latency:
+      - '0'
+      x-kong-upstream-latency:
+      - '6'
+    http_version: HTTP/2
+    status_code: 406
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-profile:
+      - public
+      host:
+      - zggonsjmmfozmfxlrjmg.supabase.co
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.12.0
+    method: GET
+    uri: https://zggonsjmmfozmfxlrjmg.supabase.co/rest/v1/posts?select=id%2Cguid%2Cdoi%2Curl%2Carchive_url%2Ctitle%2Csummary%2Cabstract%2Ccontent_text%2Cpublished_at%2Cupdated_at%2Cregistered_at%2Cindexed_at%2Cauthors%2Cimage%2Ctags%2Clanguage%2Creference%2Crelationships%2Cblog_name%2Cblog_slug%2Crid%2Cblog%3Ablogs%21inner%28%2A%29&guid=eq.https%3A%2F%2Fropensci.org%2Fblog%2F2023%2F09%2F26%2Fhow-to-translate-a-hugo-blog-post-with-babeldown%2F
+  response:
+    content: "{\"id\":\"78af77d1-72ba-4d9d-92aa-9dc258bbf00a\",\"guid\":\"https://ropensci.org/blog/2023/09/26/how-to-translate-a-hugo-blog-post-with-babeldown/\",\"doi\":\"https://doi.org/10.59350/evaf9-2qf48\",\"url\":\"https://ropensci.org/blog/2023/09/26/how-to-translate-a-hugo-blog-post-with-babeldown\",\"archive_url\":null,\"title\":\"How
+      to Translate a Hugo Blog Post with Babeldown\",\"summary\":\"<p>As part of our
+      <a href=\\\"/multilingual-publishing/\\\">multilingual publishing project</a>,
+      and with <a href=\\\"https://www.r-consortium.org/all-projects/awarded-projects/2022-group-2\\\">funding
+      from the R Consortium</a>, we&rsquo;ve worked on the R package <a href=\\\"https://docs.ropensci.org/babeldown/\\\">babeldown</a>
+      for translating Markdown-based content using the DeepL API.In this tech note,
+      we&rsquo;ll show how you can use babeldown to translate a Hugo blog post!\",\"abstract\":null,\"content_text\":\"As
+      part of our [multilingual publishing\\nproject](/multilingual-publishing/),
+      and with [funding from the R\\nConsortium](https://www.r-consortium.org/all-projects/awarded-projects/2022-group-2),\\nwe've
+      worked on the R package\\n[babeldown](https://docs.ropensci.org/babeldown/)
+      for translating\\nMarkdown-based content using the DeepL API.In this tech note,
+      we'll show\\nhow you can use babeldown to translate a Hugo blog post!\\n\\n##
+      Motivation\\n\\nTranslating a Markdown blog post from your R console is not
+      only more\\ncomfortable (when you've already written said blog post in R), but
+      also\\nless frustrating.With babeldown, compared to copy-pasting the content
+      of\\na blog post into some translation service, the Markdown syntax won't be\\nbroken^[1](#fn:1){.footnote-ref
+      role=\\\"doc-noteref\\\"}^, and code chunks\\nwon't be translated.This works,
+      because under the hood, babeldown uses\\n[tinkr](https://docs.ropensci.org/tinkr)
+      to produce XML which it then\\nsends to the DeepL API, flagging some tags as
+      not to be translated. It\\nthen converts the XML translated by DeepL back into
+      Markdown again.\\n\\nNow, as you might expect this machine-translated content
+      isn't perfect\\nyet!You will still need a human or two to review and amend the\\ntranslation.Why
+      not have the humans translate the post from scratch\\nthen?We have observed
+      that editing an automatic translation is faster\\nthan translating the whole
+      post, and that it frees up mental space for\\nfocusing on implementing translation
+      rules such as gender-neutral\\nphrasing.\\n\\n## Setup\\n\\n### Pre-requisites
+      on the Hugo website\\n\\n[`babeldown::deepl_translate_hugo()`](https://docs.ropensci.org/babeldown/reference/deepl_translate_hugo.html)\\nassumes
+      the Hugo website uses\\n\\n- leaf bundles (each post in a folder,\\n  `content/path-to-leaf-bundle/index.md`);\\n-
+      multilingualism so that a post in (for example) Spanish lives in\\n  `content/path-to-leaf-bundle/index.es.md`.\\n\\nbabeldown
+      could be extended work with other Hugo multilingual setups. If\\nyou'd be interested
+      in using babeldown with a different setup, please\\nopen an issue in the [babeldown\\nrepository](https://github.com/ropensci-review-tools/babeldown/)!\\n\\nNote
+      that babeldown won't be able to determine the default language of\\nyour website^[2](#fn:2){.footnote-ref
+      role=\\\"doc-noteref\\\"}^ so even if\\nyour website's default language is English,
+      babeldown will place an\\nEnglish translation in a file called \\\".en.md\\\"
+      not \\\".md\\\".Hugo will\\nrecognize the new file all the same (at least in
+      our setup).\\n\\n### DeepL pre-requisites\\n\\nFirst check that your desired
+      source and target languages are supported\\nby the DeepL API!Look up the [docs
+      of the `source_lang` and\\n`target_lang` API\\nparameters](https://www.deepl.com/docs-api/translate-text)
+      for a full\\nlist.\\n\\nOnce you know you'll be able to take advantage of the
+      DeepL API, you'll\\nneed to create an account for [DeepL's translation service\\nAPI](https://www.deepl.com/en/docs-api/).Note
+      that even getting a free\\naccount requires registering a payment method with
+      them.\\n\\n### R pre-requisites\\n\\nYou'll need to install babeldown from rOpenSci
+      R-universe:\\n\\n::: {.highlight}\\n``` {.chroma tabindex=\\\"0\\\"}\\ninstall.packages('babeldown',
+      repos = c('https://ropensci.r-universe.dev', 'https://cloud.r-project.org'))\\n```\\n:::\\n\\nThen,
+      in each R session, set your DeepL API key via the environment\\nvariable DEEPL_API_KEY.
+      You could store it once and for all with the\\n[keyring](https://r-lib.github.io/keyring/index.html)
+      package and\\nretrieve it in your scripts like so:\\n\\n::: {.highlight}\\n```
+      {.chroma tabindex=\\\"0\\\"}\\nSys.setenv(DEEPL_API_KEY = keyring::key_get(\\\"deepl\\\"))\\n```\\n:::\\n\\nLastly,
+      the DeepL API URL depends on your API plan.babeldown uses the\\nDeepL free API
+      URL by default.If you use a Pro plan, set the API URL in\\neach R session/script
+      via\\n\\n::: {.highlight}\\n``` {.chroma tabindex=\\\"0\\\"}\\nSys.setenv(\\\"DEEPL_API_URL\\\"
+      = \\\"https://api.deepl.com\\\")\\n```\\n:::\\n\\n## Translation!\\n\\nYou could
+      run the code below\\n\\n::: {.highlight}\\n``` {.chroma tabindex=\\\"0\\\"}\\nbabeldown::deepl_translate_hugo(
+      \ post_path = <path-to-post>,   source_lang = \\\"EN\\\",  target_lang = \\\"ES\\\",
+      \ formality = \\\"less\\\" # that's how we roll here!)\\n```\\n:::\\n\\nbut
+      we'd recommend a tad more work for your own good.\\n\\n## Translation using
+      a Git/GitHub workflow\\n\\nIf you use version control, having the translation
+      as a diff is very\\nhandy!\\n\\n### First: In words and pictures\\n\\n- In the
+      branch of your post (let's call it \\\"new-post\\\") create a\\n  placeholder:
+      save your original blog post (`index.es.md`) under the\\n  target blog post
+      name (`index.en.md`) and commit it, then push.\\n\\n<figure>\\n<img src=\\\"placeholder.png\\\"\\nalt=\\\"Diagram
+      with on the left the leaf folder in the new-post branch with the post in Spanish
+      with the text &#39;Hola&#39; and an image; on the right the leaf folder in the
+      new-post branch with the post in Spanish with the text &#39;hola&#39;, the post
+      with the English target filename with the text &#39;hola&#39;, and the image.\\\"
+      />\\n</figure>\\n\\n- Create a new branch, \\\"auto-translate\\\" for instance.\\n-
+      Run `babeldown::deepl_translate_hugo()` with `force = TRUE`.\\n\\n<figure>\\n<img
+      src=\\\"translate.png\\\"\\nalt=\\\"Diagram with on the left the leaf folder
+      in the auto-translate branch with the post in Spanish with the text &#39;hola&#39;,
+      the post with the English target filename with the text &#39;hola&#39;, and
+      the image; on the right the only thing that changed is that the content of the
+      post with the English target filename is now &#39;hello&#39;.\\\" />\\n</figure>\\n\\n-
+      Commit and push the result.\\n- Open a PR from the **\\\"translation-tech-note\\\"**
+      branch to the\\n  **\\\"new-post\\\"** branch.The only difference between the
+      two branches is\\n  the automatic translation of your post. The diff for the
+      target blog\\n  post will be the diff between the source and target languages!
+      If you\\n  have the good habit to start a new line after each sentence / sentence\\n
+      \ part, it's even better.\\n\\n<figure>\\n<img src=\\\"pr.png\\\"\\nalt=\\\"Drawing
+      of the pull request from the auto-translate to the new-post branch where the
+      difference is that the content of the post with the English target filename
+      has now been translated to English.\\\" />\\n</figure>\\n\\n- The human translators
+      can then a open a second PR to the translation\\n  branch with their edits!
+      Or they can add their edits as [PR\\n  suggestions](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request#adding-comments-to-a-pull-request).\\n\\n###
+      Again: In code\\n\\nNow let's go over this again, but with a coding workflow.
+      Here, we'll\\nuse fs and gert (but you do you!), and we'll assume your current\\ndirectory
+      is the root of the website folder, and also the root of the\\ngit repository.\\n\\n-
+      In the post branch, (again, let's call it \\\"new-post\\\"), save your\\n  original
+      blog post (`index.es.md`) under the target blog post name\\n  (`index.en.md`)
+      and commit it, then push.\\n\\n::: {.highlight}\\n``` {.chroma tabindex=\\\"0\\\"}\\nfs::file_copy(
+      \ file.path(\\\"content\\\", \\\"blog\\\", \\\"2023-10-01-r-universe-interviews\\\",
+      \\\"index.es.md\\\"),  file.path(\\\"content\\\", \\\"blog\\\", \\\"2023-10-01-r-universe-interviews\\\",
+      \\\"index.en.md\\\"))gert::git_add(file.path(\\\"content\\\", \\\"blog\\\",
+      \\\"2023-10-01-r-universe-interviews\\\", \\\"index.en.md\\\"))gert::git_commit(\\\"Add
+      translation placeholder\\\")gert::git_push()\\n```\\n:::\\n\\n- Create a new
+      branch, \\\"auto-translate\\\" for instance.\\n\\n::: {.highlight}\\n``` {.chroma
+      tabindex=\\\"0\\\"}\\ngert::git_branch_create(\\\"translation-tech-note\\\")\\n```\\n:::\\n\\n-
+      Run `babeldown::deepl_translate_hugo()` with `force = TRUE`.\\n\\n::: {.highlight}\\n```
+      {.chroma tabindex=\\\"0\\\"}\\nbabeldown::deepl_translate_hugo(  post_path =
+      file.path(\\\"content\\\", \\\"blog\\\", \\\"2023-10-01-r-universe-interviews\\\",
+      \\\"index.es.md\\\"),  force = TRUE,  yaml_fields = c(\\\"title\\\", \\\"description\\\",
+      \\\"tags\\\"),  source_lang = \\\"ES\\\",  target_lang = \\\"EN-US\\\")\\n```\\n:::\\n\\nYou
+      can also omit the `post_path` argument if you're running the code\\nfrom RStudio
+      IDE and if the open and focused file (the one you see above\\nyour console)
+      is the post to be translated.\\n\\n::: {.highlight}\\n``` {.chroma tabindex=\\\"0\\\"}\\nbabeldown::deepl_translate_hugo(
+      \ force = TRUE,  yaml_fields = c(\\\"title\\\", \\\"description\\\", \\\"tags\\\"),
+      \ source_lang = \\\"ES\\\",  target_lang = \\\"EN-US\\\")\\n```\\n:::\\n\\n-
+      Commit the result with the code below.\\n\\n::: {.highlight}\\n``` {.chroma
+      tabindex=\\\"0\\\"}\\ngert::git_add(file.path(\\\"content\\\", \\\"blog\\\",
+      \\\"2023-10-01-r-universe-interviews\\\", \\\"index.en.md\\\"))gert::git_commit(\\\"Add
+      translation\\\")gert::git_push()\\n```\\n:::\\n\\n- Open a PR from the **\\\"translation-tech-note\\\"**
+      branch to the\\n  **\\\"new-post\\\"** branch.The only difference between the
+      two branches is\\n  the automatic translation of\\n  `\\\"content/blog/2023-10-01-r-universe-interviews/index.en.md\\\"`.\\n\\n-
+      The human translators can then a open a *second* PR to the translation\\n  branch
+      with their edits! Or they can add their edits as [PR\\n  suggestions](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request#adding-comments-to-a-pull-request).\\n\\n###
+      Summary of branches and PRs\\n\\nIn the end there should be two to three branches:\\n\\n-
+      branch A with blog post in Spanish and placeholder blog post for\\n  English
+      (with Spanish content) -- PR to main;\\n- branch B with blog post automatically
+      translated to English -- PR to\\n  branch A;\\n- Optionally branch C with blog
+      post's English automatic translation\\n  edited by a human -- PR to branch B.
+      If branch C does not exist, edits\\n  by a human are made as PR review suggestions
+      in the PR from B to A.\\n\\nThe PR are merged in this order:\\n\\n- PR to branch
+      B;\\n- PR to branch A;\\n- PR to main.\\n\\n### Real example\\n\\n- [PR adding
+      a post to the rOpenSci\\n  blog](https://github.com/ropensci/roweb3/pull/629),
+      notice it's a PR\\n  from the **\\\"r-universe-interviews\\\"** branch to the
+      **\\\"main\\\"\\n  (default)** branch;\\n- [PR adding the automatic\\n  translation](https://github.com/ropensci/roweb3/pull/639),
+      notice it's\\n  a PR to the **\\\"r-universe-interviews\\\"** branch.\\n\\n<figure>\\n<img
+      src=\\\"pr-diff.png\\\"\\nalt=\\\"Screenshot of the files tab of the pull request
+      adding the automatic translation, where we observe Spanish text in the YAML
+      metadata and Markdown content has been translated to English.\\\" />\\n</figure>\\n\\nYanina
+      tweaked the automatic translation by suggesting changes on the\\nPR, then accepting
+      them.\\n\\n<figure>\\n<img src=\\\"pr-comments.png\\\"\\nalt=\\\"Screenshot
+      of the main tab of the pull request adding the automatic translation, where
+      we observe a comment by Yanina replacing the word &#39;article&#39; with &#39;blog
+      post&#39; and fixing the name of &#39;R-universe&#39;.\\\" />\\n</figure>\\n\\n###
+      YAML fields\\n\\nBy default babeldown translates the YAML fields \\\"title\\\"
+      and\\n\\\"description\\\".If you have text in more of them, use the `yaml_fields`\\nargument
+      of `babeldown::deepl_translate_hugo()`.\\n\\nNote that if babeldown translates
+      the title, it updates the slug.\\n\\n### Glossary\\n\\nImagine you have a few
+      preferences for some words -- something you'll\\nbuild up over time.\\n\\n:::
+      {.highlight}\\n``` {.chroma tabindex=\\\"0\\\"}\\nreadr::read_csv(  system.file(\\\"example-es-en.csv\\\",
+      package = \\\"babeldown\\\"),   show_col_types = FALSE)\\n```\\n:::\\n\\n```
+      {tabindex=\\\"0\\\"}\\n## # A tibble: 2 \xD7 2##   Spanish     English   ##
+      \  <chr>       <chr>     ## 1 paquete     package   ## 2 repositorio repository\\n```\\n\\nYou
+      can record these preferred translations in a glossary in your DeepL\\naccount\\n\\n:::
+      {.highlight}\\n``` {.chroma tabindex=\\\"0\\\"}\\ndeepl_upsert_glossary(  <path-to-csv-file>,
+      \ glossary_name = \\\"rstats-glosario\\\",  target_lang = \\\"Spanish\\\",  source_lang
+      = \\\"English\\\")\\n```\\n:::\\n\\nYou'd use the exact same code to *update*
+      the glossary hence the name\\n\\\"upsert\\\" for the function.You need one glossary
+      per source language /\\ntarget language pair: the English-Spanish glossary can't
+      be used for\\nSpanish to English for instance.\\n\\nIn your `babeldown::deepl_translate_hugo()`
+      call you then use the\\nglossary name (here \\\"rstats-glosario\\\") for the
+      `glossary` argument.\\n\\n### Formality\\n\\n`deepl_translate_hugo()` has a
+      `formality` argument.Now, the DeepL API\\nonly supports this for some languages
+      as explained in the [documentation\\nof the `formality` API\\nparameter](https://www.deepl.com/docs-api/translate-text):\\n\\n>
+      Sets whether the translated text should lean towards formal or\\n> informal
+      language. This feature currently only works for target\\n> languages DE (German),
+      FR (French), IT (Italian), ES (Spanish), NL\\n> (Dutch), PL (Polish), PT-BR
+      and PT-PT (Portuguese), JA (Japanese), and\\n> RU (Russian). (...) Setting this
+      parameter with a target language that\\n> does not support formality will fail,
+      unless one of the prefer\\\\_...\\n> options are used.\\n\\nTherefore to be
+      sure a translation will work, instead of writing\\n`formality = \\\"less\\\"`
+      you can write `formality = \\\"prefer_less\\\"` which\\nwill only use formality
+      if available.\\n\\n## Conclusion\\n\\nIn this post we explained how to translate
+      a Hugo blog post using\\nbabeldown.Although the gist is to use one call to\\n`babeldown::deepl_translate_hugo()`,\\n\\n-
+      one needs to indicate the API URL and key,\\n- one can improve results by using
+      the function's different arguments,\\n- we recommend pairing the translation
+      with a Git + GitHub (or GitLab,\\n  gitea...) workflow.\\n\\nbabeldown has\\n[functions](https://docs.ropensci.org/babeldown/reference/index.html)\\nfor
+      translating Quarto book chapters, any Markdown file, and any\\nMarkdown string,
+      with similar arguments and recommended usage, so\\nexplore its reference!\\n\\nWe'd
+      be happy to hear about your [use cases](/usecases/).\\n\\n::: {.footnotes role=\\\"doc-endnotes\\\"}\\n\\n------------------------------------------------------------------------\\n\\n1.
+      \ ::: {#fn:1}\\n    But you should refer to [tinkr\\n    docs](https://docs.ropensci.org/tinkr/#loss-of-markdown-style)
+      to\\n    see what might change in the Markdown syntax\\n    style.\_[\u21A9\uFE0E](#fnref:1){.footnote-backref
+      role=\\\"doc-backlink\\\"}\\n    :::\\n\\n2.  ::: {#fn:2}\\n    adding code
+      to handle Hugo's [\\\"bewildering array of possible config\\n    locations\\\"](https://github.com/r-lib/hugodown/issues/14#issuecomment-632850506)\\n
+      \   and two possible formats (YAML and TOML) is out of scope for\\n    babeldown
+      at this point.\_[\u21A9\uFE0E](#fnref:2){.footnote-backref\\n    role=\\\"doc-backlink\\\"}\\n
+      \   :::\\n:::\\n\",\"published_at\":1695686400,\"updated_at\":1695713432,\"registered_at\":0,\"indexed_at\":1731078596,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-2815-0399\", \"name\": \"Ma\xEBlle Salmon\"},
+      {\"url\": \"https://orcid.org/0000-0002-4522-7466\", \"name\": \"Yanina Bellini
+      Saibene\"}],\"image\":\"placeholder.png\",\"tags\":[\"Tech Notes\",\"Multilingual\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"blog_name\":\"rOpenSci
+      - open tools for open science\",\"blog_slug\":\"ropensci\",\"rid\":\"hc1tq-gq010\",\"blog\":{\"id\":
+      \"ba402233-14af-48e4-b8b1-6fd22ac75a0c\", \"ror\": null, \"issn\": null, \"slug\":
+      \"ropensci\", \"title\": \"rOpenSci - open tools for open science\", \"filter\":
+      null, \"prefix\": \"10.59350\", \"secure\": true, \"status\": \"active\", \"authors\":
+      [{\"name\": \"The rOpenSci Team\"}], \"favicon\": \"https://ropensci.org/apple-touch-icon.png\",
+      \"funding\": null, \"indexed\": false, \"license\": \"https://creativecommons.org/licenses/by/4.0/legalcode\",
+      \"use_api\": null, \"user_id\": \"3ea9676b-41b6-4e57-aeda-44a7d7fe1dba\", \"category\":
+      \"computerAndInformationSciences\", \"feed_url\": \"https://ropensci.org/blog/index.json\",
+      \"language\": \"en\", \"mastodon\": null, \"generator\": \"Hugo\", \"created_at\":
+      1693440000, \"updated_at\": 1738768684, \"description\": \"Open Tools and R
+      Packages for Open Science\", \"doi_as_guid\": false, \"feed_format\": \"application/feed+json\",
+      \"community_id\": \"1e70f18f-d85d-4b86-af0c-0dc375b091bc\", \"relative_url\":
+      null, \"use_mastodon\": false, \"canonical_url\": null, \"generator_raw\": \"Hugo
+      -- gohugo.io\", \"home_page_url\": \"https://ropensci.org/blog\", \"registered_at\":
+      1729793201, \"archive_prefix\": \"https://wayback.archive-it.org/22126/20231105110646/\",
+      \"current_feed_url\": null}}"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 90f60a82ec46cb2f-DUS
+      content-location:
+      - /posts?guid=eq.https%3A%2F%2Fropensci.org%2Fblog%2F2023%2F09%2F26%2Fhow-to-translate-a-hugo-blog-post-with-babeldown%2F&select=id%2Cguid%2Cdoi%2Curl%2Carchive_url%2Ctitle%2Csummary%2Cabstract%2Ccontent_text%2Cpublished_at%2Cupdated_at%2Cregistered_at%2Cindexed_at%2Cauthors%2Cimage%2Ctags%2Clanguage%2Creference%2Crelationships%2Cblog_name%2Cblog_slug%2Crid%2Cblog%3Ablogs%21inner%28%2A%29
+      content-profile:
+      - public
+      content-range:
+      - 0-0/*
+      content-type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      date:
+      - Sun, 09 Feb 2025 18:49:44 GMT
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - zggonsjmmfozmfxlrjmg
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-kong-proxy-latency:
+      - '0'
+      x-kong-upstream-latency:
+      - '5'
+    http_version: HTTP/2
+    status_code: 200
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate, br
+      connection:
+      - keep-alive
+      host:
+      - rogue-scholar.org
+      user-agent:
+      - python-httpx/0.28.1
+    method: GET
+    uri: 'https://rogue-scholar.org/api/communities?q=slug:'
+  response:
+    content: '{"hits": {"hits": [], "total": 0}, "aggregations": {"type": {"buckets":
+      [], "label": "Type"}, "visibility": {"buckets": [], "label": "Visibility"}},
+      "sortBy": "bestmatch", "links": {"self": "https://rogue-scholar.org/api/communities?page=1&q=slug%3A&size=25&sort=bestmatch"}}'
+    headers:
+      connection:
+      - close
+      content-encoding:
+      - br
+      content-security-policy:
+      - 'default-src ''self'' data: ''unsafe-inline'' blob: fly.storage.tigris.dev;
+        img-src *'
+      content-type:
+      - application/json
+      date:
+      - Sun, 09 Feb 2025 18:49:53 GMT
+      fly-request-id:
+      - 01JKP0QVZFME71WJRDSH90HK9Z-arn
+      permissions-policy:
+      - interest-cohort=()
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      retry-after:
+      - '59'
+      server:
+      - Fly/1ab217aa (2025-02-07)
+      strict-transport-security:
+      - max-age=31556926; includeSubDomains
+      transfer-encoding:
+      - chunked
+      via:
+      - 1.1 fly.io
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - sameorigin
+      x-ratelimit-limit:
+      - '900'
+      x-ratelimit-remaining:
+      - '899'
+      x-ratelimit-reset:
+      - '1739127053'
+      x-user-id:
+      - '4'
+      x-xss-protection:
+      - 1; mode=block
+    http_version: HTTP/1.1
+    status_code: 200
 version: 1

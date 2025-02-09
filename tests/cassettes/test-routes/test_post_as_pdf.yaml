@@ -171,4 +171,59 @@ interactions:
       - '5'
     http_version: HTTP/2
     status_code: 200
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-profile:
+      - public
+      host:
+      - zggonsjmmfozmfxlrjmg.supabase.co
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.12.0
+    method: GET
+    uri: https://zggonsjmmfozmfxlrjmg.supabase.co/rest/v1/posts?select=id%2Cguid%2Cdoi%2Curl%2Carchive_url%2Ctitle%2Csummary%2Cabstract%2Ccontent_text%2Cpublished_at%2Cupdated_at%2Cregistered_at%2Cindexed_at%2Cauthors%2Cimage%2Ctags%2Clanguage%2Creference%2Crelationships%2Cblog_name%2Cblog_slug%2Crid%2Cblog%3Ablogs%21inner%28%2A%29%2Ccitations%3Acitations%21inner%28citation%2Cunstructured%2Cvalidated%2Cupdated_at%2Cpublished_at%29&doi=eq.https%3A%2F%2Fdoi.org%2F10.53731%2Fybhah-9jy85
+  response:
+    content: '{"code":"PGRST116","details":"The result contains 0 rows","hint":null,"message":"JSON
+      object requested, multiple (or no) rows returned"}'
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 90f60cffcc397a4f-DUS
+      content-type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      date:
+      - Sun, 09 Feb 2025 18:51:26 GMT
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - zggonsjmmfozmfxlrjmg
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-kong-proxy-latency:
+      - '0'
+      x-kong-upstream-latency:
+      - '6'
+    http_version: HTTP/2
+    status_code: 406
 version: 1

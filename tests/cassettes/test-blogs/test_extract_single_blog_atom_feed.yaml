@@ -133,4 +133,67 @@ interactions:
       - '5'
     http_version: HTTP/2
     status_code: 200
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-profile:
+      - public
+      host:
+      - zggonsjmmfozmfxlrjmg.supabase.co
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.12.0
+    method: GET
+    uri: https://zggonsjmmfozmfxlrjmg.supabase.co/rest/v1/blogs?select=id%2Cslug%2Cfeed_url%2Ccurrent_feed_url%2Chome_page_url%2Carchive_prefix%2Cfeed_format%2Ccreated_at%2Cupdated_at%2Cregistered_at%2Clicense%2Cmastodon%2Cgenerator%2Cgenerator_raw%2Clanguage%2Cfavicon%2Ctitle%2Cdescription%2Ccategory%2Cstatus%2Cuser_id%2Cauthors%2Cuse_api%2Crelative_url%2Cfilter%2Csecure%2Ccommunity_id%2Cprefix%2Cissn%2Cfeed_format&slug=eq.epub_fis
+  response:
+    content: '{"id":"2e00349e-defb-4459-9653-f284f516ac20","slug":"epub_fis","feed_url":"https://blog.dini.de/EPub_FIS/feed/atom/","current_feed_url":null,"home_page_url":"https://blog.dini.de/EPub_FIS","archive_prefix":"https://wayback.archive-it.org/22121/20231105105752/","feed_format":"application/atom+xml","created_at":1689897600,"updated_at":1738570104,"registered_at":0,"license":"https://creativecommons.org/licenses/by/4.0/legalcode","mastodon":null,"generator":"WordPress","generator_raw":"WordPress
+      6.7.1","language":"de","favicon":"https://blog.dini.de/EPub_FIS/wp-content/uploads/2018/03/cropped-DINI-AG-FIS-3-1-150x150.png","title":"Gemeinsamer
+      Blog der DINI AGs","description":"Forschungsinformationen & Systeme | Elektronisches
+      Publizieren | Kompetenzzentrum Interoperable Metadaten","category":"socialScience","status":"active","user_id":"a9e3541e-1e00-4bf3-8a4d-fc9b1c505651","authors":null,"use_api":true,"relative_url":null,"filter":null,"secure":null,"community_id":"b57b2853-9ea4-48b5-ad88-d0ddb6f11a9d","prefix":null,"issn":"2940-1798","feed_format":"application/atom+xml"}'
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 90f5fc714e7bc808-DUS
+      content-location:
+      - /blogs?select=id%2Cslug%2Cfeed_url%2Ccurrent_feed_url%2Chome_page_url%2Carchive_prefix%2Cfeed_format%2Ccreated_at%2Cupdated_at%2Cregistered_at%2Clicense%2Cmastodon%2Cgenerator%2Cgenerator_raw%2Clanguage%2Cfavicon%2Ctitle%2Cdescription%2Ccategory%2Cstatus%2Cuser_id%2Cauthors%2Cuse_api%2Crelative_url%2Cfilter%2Csecure%2Ccommunity_id%2Cprefix%2Cissn%2Cfeed_format&slug=eq.epub_fis
+      content-profile:
+      - public
+      content-range:
+      - 0-0/*
+      content-type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      date:
+      - Sun, 09 Feb 2025 18:40:07 GMT
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - zggonsjmmfozmfxlrjmg
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-kong-proxy-latency:
+      - '0'
+      x-kong-upstream-latency:
+      - '5'
+    http_version: HTTP/2
+    status_code: 200
 version: 1

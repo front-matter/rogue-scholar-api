@@ -135,4 +135,68 @@ interactions:
       - '7'
     http_version: HTTP/2
     status_code: 200
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-profile:
+      - public
+      host:
+      - zggonsjmmfozmfxlrjmg.supabase.co
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.12.0
+    method: GET
+    uri: https://zggonsjmmfozmfxlrjmg.supabase.co/rest/v1/blogs?select=id%2Cslug%2Cfeed_url%2Ccurrent_feed_url%2Chome_page_url%2Carchive_prefix%2Cfeed_format%2Ccreated_at%2Cupdated_at%2Cregistered_at%2Clicense%2Cmastodon%2Cgenerator%2Cgenerator_raw%2Clanguage%2Cfavicon%2Ctitle%2Cdescription%2Ccategory%2Cstatus%2Cuser_id%2Cauthors%2Cuse_api%2Crelative_url%2Cfilter%2Csecure%2Ccommunity_id%2Cprefix%2Cissn%2Cfeed_format&slug=eq.ropensci
+  response:
+    content: '{"id":"ba402233-14af-48e4-b8b1-6fd22ac75a0c","slug":"ropensci","feed_url":"https://ropensci.org/blog/index.json","current_feed_url":null,"home_page_url":"https://ropensci.org/blog","archive_prefix":"https://wayback.archive-it.org/22126/20231105110646/","feed_format":"application/feed+json","created_at":1693440000,"updated_at":1738768684,"registered_at":1729793201,"license":"https://creativecommons.org/licenses/by/4.0/legalcode","mastodon":null,"generator":"Hugo","generator_raw":"Hugo
+      -- gohugo.io","language":"en","favicon":"https://ropensci.org/apple-touch-icon.png","title":"rOpenSci
+      - open tools for open science","description":"Open Tools and R Packages for
+      Open Science","category":"computerAndInformationSciences","status":"active","user_id":"3ea9676b-41b6-4e57-aeda-44a7d7fe1dba","authors":[{"name":
+      "The rOpenSci Team"}],"use_api":null,"relative_url":null,"filter":null,"secure":true,"community_id":"1e70f18f-d85d-4b86-af0c-0dc375b091bc","prefix":"10.59350","issn":null,"feed_format":"application/feed+json"}'
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 90f5fc71ff51c808-DUS
+      content-location:
+      - /blogs?select=id%2Cslug%2Cfeed_url%2Ccurrent_feed_url%2Chome_page_url%2Carchive_prefix%2Cfeed_format%2Ccreated_at%2Cupdated_at%2Cregistered_at%2Clicense%2Cmastodon%2Cgenerator%2Cgenerator_raw%2Clanguage%2Cfavicon%2Ctitle%2Cdescription%2Ccategory%2Cstatus%2Cuser_id%2Cauthors%2Cuse_api%2Crelative_url%2Cfilter%2Csecure%2Ccommunity_id%2Cprefix%2Cissn%2Cfeed_format&slug=eq.ropensci
+      content-profile:
+      - public
+      content-range:
+      - 0-0/*
+      content-type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      date:
+      - Sun, 09 Feb 2025 18:40:08 GMT
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - zggonsjmmfozmfxlrjmg
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-kong-proxy-latency:
+      - '1'
+      x-kong-upstream-latency:
+      - '17'
+    http_version: HTTP/2
+    status_code: 200
 version: 1

@@ -1825,4 +1825,727 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://fmxr36stzdcbiw7hp-1.a1.typesense.net/collections/posts/documents/search?q=&query_by=tags%2Ctitle%2Cdoi%2Cauthors.name%2Cauthors.url%2Csummary%2Cabstract%2Ccontent_text%2Creference&filter_by=status%3A%21%3D%5Bpending%5D+%26%26+published_at%3A%3E%3D+0+%26%26+published_at%3A%3C%3D+1739127022+%26%26+language%3A%3D%5Bes%5D&sort_by=published_at%3Adesc&per_page=10&page=1
+  response:
+    body:
+      string: "{\"facet_counts\":[],\"found\":800,\"hits\":[{\"document\":{\"archive_url\":\"https://wayback.archive-it.org/22150/20231105110624/https://ropensci.org/es/blog/2025/02/05/no-ciencia-sin-deia\",\"authors\":[{\"name\":\"The
+        rOpenSci Team\"}],\"blog_name\":\"rOpenSci - herramientas abiertas para una
+        ciencia abierta\",\"blog_slug\":\"ropensci_es\",\"category\":\"computerAndInformationSciences\",\"content_text\":\"En
+        rOpenSci, nuestra misi\xF3n es\\n\\n> fomentar una cultura que valore la investigaci\xF3n
+        abierta y\\n> reproducible utilizando datos compartidos y software reutilizable\\n\\ny
+        lo conseguimos mediante\\n\\n> la creaci\xF3n de infraestructura social a
+        trav\xE9s de una comunidad\\n> acogedora y diversa\\n\\nCreemos que ha llegado
+        el momento de reiterar y aclarar por qu\xE9 y qu\xE9\\nsignifica esto.\\n\\nLo
+        abierto en el c\xF3digo abierto y la ciencia abierta significa algo m\xE1s\\nque
+        c\xF3mo compartimos el c\xF3digo o los datos.Significa derribar las\\nbarreras
+        a la participaci\xF3n para que sea abierta y accesible a todas las\\npersonas,para
+        que puedan unirse a los beneficios y alegr\xEDas de la\\nciencia y quit\xE1ndonos
+        las anteojeras ante la humanidad de quienes antes\\npas\xE1bamos por alto.\\n\\nAl
+        ampliar el c\xEDrculo de nuestros colaboradores, ampliamos el\\nconocimiento
+        y las perspectivas.Esto, a su vez, nos ayuda a resolver los\\nproblemas con
+        mayor rapidez y eficacia, y a anticiparnos y adaptarnos a\\nm\xE1s situaciones.Un
+        c\xEDrculo diverso de colaboradoras permite obtener\\nresultados m\xE1s robustos,
+        un software mejor y una ciencia m\xE1s\\ns\xF3lida.Todas las personas juntas
+        podemos avanzar hacia esos objetivos\\nm\xE1s r\xE1pido, m\xE1s lejos y mejor.\\n\\nSin
+        embargo, esta perspectiva utilitaria es s\xF3lo una de las razones para\\nacoger
+        a todos en nuestra comunidad.Hacer nuestra ciencia mejor y\\nreconocer la
+        humanidad de cada persona sirven al mismo\\nobjetivo.Practicamos y predicamos
+        el c\xF3digo abierto y la ciencia abierta\\npara que la ciencia mejore, para
+        que pueda producir innovaci\xF3n y bienes\\np\xFAblicos que eleven a todas
+        las personas.Si no apoyamos los derechos\\nhumanos de los dem\xE1s, fracasamos
+        en la raz\xF3n por la que hacemos ciencia\\nen primer lugar.\\n\\nPara ser
+        absolutamente claros, cuando decimos todas las personas,\\nincluimos:\\n\\nLas
+        personas LGBTQ+.\\n\\nPersonas trans.\\n\\nTodos los g\xE9neros.\\n\\nInd\xEDgenas.\\n\\nPersonas
+        de color.\\n\\nInmigrantes y refugiados de cualquier naci\xF3n.\\n\\nPersonas
+        neurodivergentes.\\n\\nPersonas con discapacidad.\\n\\nEstamos orgullosos
+        de [Programa Campeon(a\\\\|e)s](/champions/) en el que\\nhemos reunidos a
+        mentores y participantes de grupos hist\xF3ricamente\\nexcluidos de la inform\xE1tica
+        cient\xEDfica para que contribuyan al c\xF3digo\\nabierto y promuevan la ciencia
+        abierta en sus comunidades\\nlocales.Tambi\xE9n estamos orgullosos de nuestro
+        [programa\\nmultiling\xFCe](/multilingual-publishing/) para hacer que los
+        recursos de\\ndesarrollo de R y la revisi\xF3n por pares est\xE9n disponibles
+        en espa\xF1ol, y\\nahora en portugu\xE9s, a trav\xE9s de la traducci\xF3n
+        colaborativa realizada por\\nla comunidad y los flujos de trabajo utilizando
+        LLMs, centrados en las\\npersonas.Nuestro [C\xF3digo de Conducta](/code-of-conduct/)
+        es una\\nherramienta esencial para la inclusi\xF3n y la seguridad.Nos lo tomamos
+        en\\nserio.Estamos orgullosos del trabajo que hacemos con socios como\\n[R-Ladies](https://rladies.org/)
+        y [LatinR](https://latinr.org/).\\n\\nDiversidad, Equidad, Inclusi\xF3n y
+        Accesibilidad (DEIA) es una frase o\\nmarco utilizado para describir el trabajo
+        de hacer que todas las\\npersonas sean bienvenidas en una comunidad.Los avances
+        que han logrado\\nestos programas se ven amenazados por gobiernos e instituciones
+        de todo\\nel mundo que intentan suprimir los programas DEIA y excluir y borrar
+        a\\nlas personas que estos programas pretenden reconocer.Condenamos estos\\nataques.rOpenSci
+        es una comunidad global, con participantes en todos los\\ncontinentes, y ante
+        estas amenazas nuestra misi\xF3n no cambiar\xE1.No\\nrescindiremos nuestros
+        valores ni la bienvenida que damos a todas las\\npersonas, y seguiremos apoyando
+        a nuestra comunidad y a nuestros\\ncompa\xF1eros y compa\xF1eras para que
+        hagan lo mismo.\\n\\nEsto es un viaje, y no estamos ni cerca de terminar.Podemos
+        hacer m\xE1s y\\nser mejores.Nos esforzamos por cultivar una comunidad en
+        la que todas\\nlas personas sean bienvenidas, respetadas, apoyadas y valoradas.Incluir\\na
+        toda la humanidad est\xE1 y estar\xE1 siempre en el coraz\xF3n de la ciencia\\nabierta.\\n\",\"doi\":\"https://doi.org/10.59350/h78kf-xcy71\",\"guid\":\"https://ropensci.org/es/blog/2025/02/05/no-ciencia-sin-deia/\",\"id\":\"97c51fdd-0f0a-49b1-b477-33d86e45503b\",\"language\":\"es\",\"published_at\":1738713600,\"reference\":[],\"relationships\":[],\"rid\":\"28c4y-yr327\",\"status\":\"active\",\"summary\":\"En
+        rOpenSci, nuestra misi\xF3n es y lo conseguimos mediante Creemos que ha llegado
+        el momento de reiterar y aclarar por qu\xE9 y qu\xE9 significa esto.\",\"tags\":[\"Comunidad\"],\"title\":\"Ciencia
+        Abierta y C\xF3digo Abierto s\xF3lo con Diversidad, Equidad, Inclusi\xF3n
+        y Accesibilidad\",\"updated_at\":1738768684,\"url\":\"https://ropensci.org/es/blog/2025/02/05/no-ciencia-sin-deia\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/01tmp8f25\",\"name\":\"Universidad
+        Nacional Aut\xF3noma de M\xE9xico\"}],\"name\":\"Layla Mich\xE1n\",\"url\":\"https://orcid.org/0000-0002-5798-662X\"}],\"blog_name\":\"BIOgarabatos\",\"blog_slug\":\"biogarabatos\",\"category\":\"naturalSciences\",\"content_text\":\"Vale
+        la pena recordar que s\xED queremos que los estudiantes generen\\ntrabajos
+        con informaci\xF3n de calidad, con citas y referencias adecuadas\\nusando
+        un estilo bibliogr\xE1fico es indispensable hacerlo nosotros en\\ntodas las
+        oportunidades posibles, mediante el h\xE1bito de verla, ir\xE1n\\nasimilando
+        la importancia de la publicaci\xF3n acad\xE9mica y cient\xEDfica, as\xED\\ncomo
+        el papel de las herramientas para utilizarla pertinentemente. Esta\\nes una
+        propuesta de una breve gu\xEDa para que los profesores de las\\ncarreras cient\xEDficas,
+        y en especial la de Biolog\xEDa, usen y ense\xF1en las\\ncompetencias b\xE1sicas
+        para el uso de literatura cient\xEDfica.\\n\\n- Usar un lenguaje preciso y
+        fluido sobre el t\xF3pico como los siguientes:\\n  - Metadatos\\n  - DOI,
+        ORCID\\n  - Estilo bibliogr\xE1fico\\n  - Cita y referencia\\n  - Publicaci\xF3n
+        acad\xE9mica\\n- Dise\xF1ar una buena lista bibliogr\xE1fica para el curso\\n-
+        Abordar los distintos tipos de fuentes \xFAtiles para la clase y mostrar\\n
+        \ ejemplos\\n- Definir claramente cu\xE1l es la literatura b\xE1sica y diferenciarla
+        de la\\n  complementaria\\n- Compartir la literatura en una colecci\xF3n digital
+        completa, curada y\\n  actualizada\\n- Presentar la bibliograf\xEDa del cursos
+        y usarla activamente\\n- Explicar los distintos prop\xF3sitos de la bibliograf\xEDa\\n
+        \ - Como base del curso\\n  - Para complementar y ampliar la informaci\xF3n\\n
+        \ - Para ser utilizada en los trabajos del curso\\n- Utilizar presentaciones
+        citando las fuentes correctamente y usando\\n  licencias adecuadas\\n- Que
+        todos los materiales del curso tengan citas bien hechas, y sean\\n  accesibles
+        y preferiblemente abiertos para que asocien siempre los\\n  materiales a la
+        literatura\_\\n- Revisar la bibliograf\xEDa de los trabajos que entregan los
+        estudiantes\\n- Utilizar \xE1gilmente las tecnolog\xEDas para una buena gesti\xF3n
+        de\\n  informaci\xF3n para que los estudiantes las adopten\\n- Incentivar
+        que cada estudiante mantenga una biblioteca personal\\n- Invitar a los estudiantes
+        a compartir bibliograf\xEDa interesante\\n- Interactuar activamente con la
+        literatura aprovechando la tecnolog\xEDa\\n  digital\\n  - Subrayar y anotar
+        colaborativamente\\n  - Acceder a los enlaces disponibles en los documentos
+        como las\\n    referencias, las citas, los datos, los comentarios en redes,
+        etc\\\\...\\n\\nUna de las grandes modificaciones de la literatura acad\xE9mica
+        en la era\\ndigital es la gran cantidad de interacciones que se pueden realizar\\nentre
+        los documentos a trav\xE9s de los distintos enlaces disponibles\\nresultado
+        de los metadatos ligados y de las iniciativas abiertas de de\\ncitas, referencias
+        y datos por ejemplo. En la medida que los profesores\\nse familiaricen con
+        ellas, las usen con fluidez y las ense\xF1en\\nconsistentemente ser\xE1n adoptadas
+        y aprovechadas mejor por los\\nestudiantes.\\n\\n<div>\\n\\n  \\n\\n</div>\\n\\n<div>\\n\\n
+        \ \\n\\n</div>\\n\\n::: {.separator style=\\\"clear: both; text-align: center;\\\"}\\n[![](https://upload.wikimedia.org/wikipedia/commons/b/b1/Haeckel_Lophornis.jpg){border=\\\"0\\\"\\noriginal-height=\\\"1335\\\"
+        original-width=\\\"1085\\\" height=\\\"374\\\"\\nwidth=\\\"304\\\"}](https://upload.wikimedia.org/wikipedia/commons/b/b1/Haeckel_Lophornis.jpg){imageanchor=\\\"1\\\"\\nstyle=\\\"margin-left:
+        1em; margin-right: 1em;\\\"}\\n:::\\n\\n  \\n\\n<div>\\n\\nFuente de la\\nfigura:\_https://upload.wikimedia.org/wikipedia/commons/b/b1/Haeckel_Lophornis.jpg\\n\\n</div>\\n\\n<div>\\n\\n
+        \ \\n\\n</div>\\n\\n<div>\\n\\nAgradecemos el financiamiento de este proyecto
+        a la UNAM- DGPA a trav\xE9s\\ndel proyecto PAPIME PE203625\\n\\n</div>\\n\\n<div>\\n\\n</div>\\n\",\"doi\":\"https://doi.org/10.59350/etzge-0ne74\",\"guid\":\"tag:blogger.com,1999:blog-3916921080498993167.post-6698239930662743305\",\"id\":\"7e4af479-53ea-426a-a4cf-b5b0eec231dd\",\"image\":\"https://upload.wikimedia.org/wikipedia/commons/b/b1/Haeckel_Lophornis.jpg\",\"language\":\"es\",\"published_at\":1738257300,\"reference\":[],\"relationships\":[],\"rid\":\"5px93-7qv74\",\"status\":\"active\",\"summary\":\"Vale
+        la pena recordar que s\xED queremos que los estudiantes generen trabajos con
+        informaci\xF3n de calidad, con citas y referencias adecuadas usando un estilo
+        bibliogr\xE1fico es indispensable hacerlo nosotros en todas las oportunidades
+        posibles, mediante el h\xE1bito de verla, ir\xE1n asimilando la importancia
+        de la publicaci\xF3n acad\xE9mica y cient\xEDfica, as\xED como el papel de
+        las herramientas para utilizarla pertinentemente.\",\"tags\":[\"BIOliteratura\U0001F4D8\",\"PAPIME/UNAM/PE203625\"],\"title\":\"Ense\xF1ar
+        con el ejemplo: guia para usar la literatura cient\xEDfica en clase\",\"updated_at\":1738262484,\"url\":\"https://biogarabatos.blogspot.com/2025/01/ensenar-con-el-ejemplo-guia-para-usar.html\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Coss\xEDo
+        Olavide, Mario\",\"url\":\"https://orcid.org/0000-0002-1447-3891\"}],\"blog_name\":\"Lucidarios\",\"blog_slug\":\"lucidarios\",\"category\":\"languagesAndLiterature\",\"content_text\":\"##
+        **acuerdo** {#acuerdo .wp-block-heading}\\n\\n(m.) Coincidencia de una o m\xE1s
+        lecciones en m\xE1s de un testimonio, que\\npuede ser usada para establecer
+        una relaci\xF3n de filiaci\xF3n.\\n\\nSin: *coincidencia*, \u2192 *concordancia*
+        \xA71\\n\\n(fr. *accord*, ingl. *agreement*, it. *accordo*, port. *acordo*)\\n\\nAnt:
+        \u2192 *desacuerdo*\\n\\nBibliograf\xEDa: Bieler, *Grammarian* 16-17; Maas,
+        *Textkritik* 6-9;\\nPasquali, *Storia* 181-183; P\xE9rez Priego, *Introducci\xF3n*
+        34.\\n\\n## **anast\xE1tico** {#anast\xE1tico .wp-block-heading}\\n\\n(adj.
+        m.) \\\\[gr. *an\xE1stasis*, recuperaci\xF3n, resurrecci\xF3n\\\\]. Dicho
+        de la\\nt\xE9cnica de impresi\xF3n que emplea procesos qu\xEDmicos o fotogr\xE1ficos
+        para\\nreproducir fielmente la composici\xF3n de un original, comunmente un\\nimpreso.
+        \\\\|\\\\| El m\xE9todo patentado por Carl Friedrich Baldamus en 1841\\nrequer\xEDa
+        que el original fuera sumergido en una soluci\xF3n de \xE1cido\\nn\xEDtrico,
+        escurrido y presionado contra una matriz de zinc. Debido a los\\nefectos destructores
+        del proceso sobre el original, la t\xE9cnica fue\\neventualmente abandonada,
+        aunque la voz a\xFAn se emplea ---especialmente\\nen Francia e Italia--- para
+        describir las t\xE9cnicas de reproducci\xF3n\\nfotogr\xE1fica que pueden reproducir
+        impresos y manuscritos fielmente. \\\\|\\\\|\\nV\xE9anse \u2192 *edici\xF3n
+        anast\xE1tica* y \u2192 *edici\xF3n facsimilar*.\\n\\n(fr. *anastatique*,
+        ingl. *anastatic*, it. *anastatico*, port.\\n*anastatico*)\\n\\n## **anomal\xEDa**
+        {#anomal\xEDa .wp-block-heading}\\n\\n(f.) 1. Irregularidad o desviaci\xF3n
+        del \u2192 *usus scribendi* que lleva a\\nsospechar de corrupci\xF3n en una
+        o varias lecciones en uno o varios\\ntestimonios. \\\\| 2. Irregularidad o
+        desviaci\xF3n en las reglas de un\\nsistema (textual, manuscrito) que lleva
+        a sospechar un error o\\nalteraci\xF3n. \\\\|\\\\| La anomal\xEDa es un concepto
+        amplio, que puede referirse\\na (\xA71) una posible afectaci\xF3n del texto,
+        su estructura o su\\nrepresentaci\xF3n gr\xE1fica, pero tambi\xE9n (\xA72)
+        una alteraci\xF3n de otros\\nelementos paratextuales relacionados con la \u2192
+        *dispositio* y \u2192 *mise en\\npage*, como las r\xFAbricas, las ilustraciones
+        o las glosas, o incluso\\nsobre aspectos materiales de un manuscrito o impreso,
+        como la estructura\\nde los folios o cuadernos.\\n\\nFroger lo usa como sin\xF3nimo
+        de \u2192 *error*, y lo emplea para establecer\\nlas relaciones de filiaci\xF3n
+        entre testimonios (*Critique* 17-18; Poirel,\\n*Stemma* 74), uso compartido
+        por la cr\xEDtica espa\xF1ola e italiana (Blecua,\\n*Manual* 101; Avalle,
+        *Principi* 26). Pero Maas advierte que no toda\\nanomal\xEDa es un error:
+        una lectura o un elemento paratextual presente en\\nun solo testimonio puede
+        ser original, habiendo sido corrompido o\\nperdido en el resto de la tradici\xF3n
+        (*Textkritik* 10, 33). Esto se\\nconfirma por la presencia de elementos an\xF3malos
+        (o sistemas an\xF3malos)\\ntransmitidos por manuscritos \xFAnicos (\u2192
+        *unicum*), como el anisosilabismo\\nen el *Poema de Mio Cid* (Leonardi, *Critica*
+        69) . En este caso, se\\ntrata de una \u2192 *singularidad*.\\n\\nSin: \u2192
+        *error*\\n\\n(al. *anomalie*, fr. *anomalie*, ingl. *anomaly*, it. *anomalia*,
+        port.\\n*anomalia*)\\n\\nAnt.: \u2192 *singularidad*\\n\\nBibliograf\xEDa:
+        Duval, *Mots* 53; Froger, *Critique* 103-21; Maas,\\n*Textkritik* 10-11.\\n\\n##
+        **edici\xF3n anast\xE1tica** {#edici\xF3n-anast\xE1tica .wp-block-heading}\\n\\n(f.)
+        Tipo de edici\xF3n que reproduce fielmente la composici\xF3n (pero no las\\ncaracter\xEDsticas
+        materiales) de un original antiguo o moderno mediante\\nprocesos qu\xEDmicos
+        o fotogr\xE1ficos (\u2192 *anast\xE1tico*). Este tipo de edici\xF3n\\nes habitual
+        para libros incunables y antiguos que han adquirido cierta\\nrelevancia cultural
+        o filol\xF3gica. \\\\|\\\\| V\xE9anse *\u2192 edici\xF3n facsimilar* y \u2192\\n*facs\xEDmil*.\\n\\nSin:
+        reproducci\xF3n anast\xE1tica\\n\\n(fr. *edition anastatique*, ingl. *anastatic
+        edition*, it. *edizione\\nanastatica*, port. *edi\xE7\xE3o anast\xE1tica*)\\n\\n##
+        **variante adi\xE1fora** {#variante-adi\xE1fora .wp-block-heading}\\n\\n(f.)
+        \\\\[gr. *adi\xE1phoros*, indiferenciado, indiferente\\\\]. Variante sobre\\nla
+        cual no existen argumentos suficientes (ya sea internos, sostenidos\\npor
+        el \u2192 *usus scribendi*, o externos, sostenidos por el \u2192 *stemma*)\\npara
+        afirmar su fidelidad o desviaci\xF3n de la \u2192 *lecci\xF3n original*, y
+        por\\nlo tanto, para preferirla sobre otra variante. \\\\|\\\\| Aunque las
+        variantes\\nadi\xE1foras pueden ser consideradas in\xFAtiles para establecer
+        el *stemma*,\\npues su identificaci\xF3n solo es posible despu\xE9s de la
+        construcci\xF3n de un\\n*stemma* preliminar, su presencia y distribuci\xF3n
+        en los testimonios\\npuede ser empleada para confirmar relaciones de filiaci\xF3n
+        (Trovato,\\n*Everything* 116). Debido a que las variantes adi\xE1foras suelen
+        ocurrir\\nen gran n\xFAmero, Varvaro afirma que puede otorg\xE1rseles el mismo
+        peso que\\na pocos \u2192 *errores conjuntivos* (\\\"Considerazioni\\\" 194).
+        Durante la\\n*constitutio textus*, se realiza la elecci\xF3n (\u2192 *selectio*)
+        de las\\nvariantes adi\xE1foras, apoyada en el *stemma* y otras evidencias\\ntextuales.\\n\\nSin:
+        variante equivalente, variante neutra\\n\\n(fr. *variante adiaphore*, ingl.
+        *undecidable* o *equally acceptable\\nvariant*, it. *variante adi\xE0fora*,
+        port. *variante adi\xE1fora*)\\n\\nBibliograf\xEDa: Buzzoni, \\\"Analysis\\\"
+        392-393; Divizia, \\\"Fenomenologia\\\";\\nFern\xE1ndez, \\\"Lectiones\\\";
+        Varvaro, \\\"Considerazioni\\\".\\n\\n------------------------------------------------------------------------\\n\\n*Obras
+        citadas* \\\\[v\xE9ase en el\\n[Glosario](https://lucidarios.hypotheses.org/glosario#obrascitadas)\\\\]\\n\\n------------------------------------------------------------------------\\n\\nImagen
+        de miniatura: Biblioth\xE8que national de France,  \\nms. Fran\xE7ais 9198,
+        Jean Mi\xE9lot,  \\n*[Vie et Miracles de Notre\\nDame](https://gallica.bnf.fr/ark:/12148/btv1b8451109t/f49.item.zoom#){data-type=\\\"link\\\"\\ndata-id=\\\"https://gallica.bnf.fr/ark:/12148/btv1b8451109t/f49.item.zoom#\\\"}*,\\nfol.
+        19r\\n\",\"guid\":\"https://lucidarios.hypotheses.org/?p=7507\",\"id\":\"81717209-c8af-4f4b-b9d4-2a3e9ee45685\",\"image\":\"https://lucidarios.hypotheses.org/files/2025/01/Vie_et_miracles_de_Notre_.Mie\u0301lot_Jean_btv1b8451109t_49-scaled.jpg\",\"language\":\"es\",\"published_at\":1738189630,\"reference\":[],\"relationships\":[],\"status\":\"active\",\"summary\":\"<strong>\\n
+        acuerdo\\n</strong>\\n(m.) Coincidencia de una o m\xE1s lecciones en m\xE1s
+        de un testimonio, que puede ser usada para establecer una relaci\xF3n de filiaci\xF3n.
+        \ Sin:\\n<em>\\n coincidencia\\n</em>\\n, \u2192\\n<em>\\n concordancia\\n</em>\\n\xA71
+        \ (fr.\\n<em>\\n accord\\n</em>\\n, ingl.\\n<em>\\n agreement\\n</em>\\n,
+        it.\\n<em>\\n accordo\\n</em>\\n, port.\\n<em>\\n acordo\\n</em>\\n)  Ant:
+        \u2192\\n<em>\\n desacuerdo\\n</em>\\nBibliograf\xEDa: Bieler,\\n<em>\\n Grammarian\\n</em>\\n16-17;
+        Maas,\\n<em>\\n Textkritik\\n</em>\\n6-9; Pasquali,\\n<em>\\n Storia\\n</em>\\n181-183;\",\"tags\":[\"Entradas\",\"Acuerdo\",\"Anast\xE1tico\",\"Anomal\xEDa\",\"Cr\xEDtica
+        Textual\"],\"title\":\"Glosario de cr\xEDtica textual (3): <em>a</em>\",\"updated_at\":1738191021,\"url\":\"https://lucidarios.hypotheses.org/7507\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Atarraya\"}],\"blog_name\":\"BLOG
+        ATARRAYA\",\"blog_slug\":\"atarraya\",\"category\":\"humanities\",\"content_text\":\"por
+        **Teresita Garabana**\\n\\nLa introducci\xF3n de la moda en la prensa sudamericana
+        del siglo XIX es un\\nfen\xF3meno que, aunque se ha estudiado de forma separada
+        en distintos\\npa\xEDses, rara vez se aborda desde una perspectiva transnacional.\\nEntonces,
+        \xBFqu\xE9 nos permite conocer el an\xE1lisis comparativo de la prensa\\nde
+        modas en Buenos Aires y R\xEDo de Janeiro?\\n\\nLejos de copiar literalmente
+        los contenidos europeos, en las ciudades\\nsudamericanas hubo una recepci\xF3n
+        creativa de estos materiales, adaptados\\na las circunstancias locales y con
+        reflexiones sobre el lugar de la moda\\nen cada contexto. Por ejemplo, en
+        *A Esta\xE7\xE3o*, un figur\xEDn franc\xE9s\\nmostraba una mujer con abrigo
+        invernal y el ep\xEDgrafe \\\"capa para el mal\\ntiempo\\\"; pero el texto
+        suger\xEDa confeccionarlo en un g\xE9nero liviano e\\nimpermeable, como un
+        piloto para la lluvia. En Buenos Aires, un n\xFAmero\\nde *La Ondina del Plata*
+        inclu\xEDa un vestido negro \\\"a la \xFAltima moda de\\nPar\xEDs\\\", pero
+        recomendaba usar un vestido de luto existente y adornarlo\\ncon volados, en
+        vez de elaborar uno nuevo. Este consejo, en plena crisis\\necon\xF3mica de
+        1873, terminaba sugiriendo eliminar la cola del vestido,\\n\\\"algo exagerada\\\"
+        e inadecuada para las veredas porte\xF1as llenas de barro.\\nAs\xED, las im\xE1genes
+        francesas serv\xEDan como modelo, pero los textos las\\nubicaban en el \xE1mbito
+        local para que las lectoras pudieran tomarlas como\\nreferencia a la hora
+        de vestir.\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<img\\nsrc=\\\"https://blogatarraya.wordpress.com/wp-content/uploads/2025/01/lodp1.jpg?w=704\\\"\\nclass=\\\"wp-image-5175\\\"
+        data-attachment-id=\\\"5175\\\"\\ndata-permalink=\\\"http://blogatarraya.com/2025/01/27/noticias-del-vestir-el-desarrollo-de-la-prensa-sobre-modas-en-sudamerica-1850-1890/lodp1/\\\"\\ndata-orig-file=\\\"https://blogatarraya.wordpress.com/wp-content/uploads/2025/01/lodp1.jpg\\\"\\ndata-orig-size=\\\"704,969\\\"
+        data-comments-opened=\\\"1\\\"\\ndata-image-meta=\\\"{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}\\\"\\ndata-image-title=\\\"LODP1\\\"
+        data-image-description=\\\"\\\" data-image-caption=\\\"\\\"\\ndata-medium-file=\\\"https://blogatarraya.wordpress.com/wp-content/uploads/2025/01/lodp1.jpg?w=218\\\"\\ndata-large-file=\\\"https://blogatarraya.wordpress.com/wp-content/uploads/2025/01/lodp1.jpg?w=704\\\"\\nloading=\\\"lazy\\\"
+        width=\\\"704\\\" height=\\\"969\\\" />\\n</figure>\\n:::\\n\\nHubo tambi\xE9n
+        diferencias en la valoraci\xF3n de la moda. En R\xEDo, capital de\\nun imperio
+        hasta 1889, predominaba el elogio a las novedades parisinas,\\nque se describ\xEDan
+        con detalle. El *Jornal das Senhoras*, dirigido por\\nJuana Manso entre 1852
+        y 1855, distribu\xEDa figurines de Par\xEDs e indicaba\\nd\xF3nde conseguir
+        en la calle Ouvidor los objetos de lujo que mostraban\\nestas im\xE1genes.
+        Esta calle era un centro neur\xE1lgico del comercio y la\\nsociabilidad, exclusivo
+        pero din\xE1mico.\\n\\nEn Buenos Aires, en cambio, la prensa de modas a mediados
+        de siglo era\\nmenos desarrollada, algo que podr\xEDa atribuirse a la inestabilidad\\npol\xEDtica
+        y a menores recursos. Sin embargo, ya entonces revistas\\nfemeninas como *El
+        \xC1lbum de Se\xF1oritas* alud\xEDan a pr\xE1cticas de consumo\\ncon referencias
+        a casas de modistas y descripciones de vidrieras y\\nprobadores. En la prensa
+        porte\xF1a tambi\xE9n hab\xEDa m\xE1s tensiones entre lo\\nque promov\xEDan
+        las im\xE1genes extranjeras y los textos, que hasta la d\xE9cada\\nde 1880
+        desaconsejaban el consumo excesivo.\\n\\nLa relaci\xF3n entre moda y g\xE9nero
+        tambi\xE9n vari\xF3. En Brasil, hab\xEDa\\ncronistas varones que escrib\xEDan
+        sobre moda, mostrando un estilo de vida\\ndandi marcado por el ocio y el adorno.
+        En Buenos Aires, aunque tambi\xE9n\\nhubo hombres que escribieron sobre moda,
+        tend\xEDan a censurarla como un\\nasunto femenino e intrascendente.\\n\\nCon
+        todo, el an\xE1lisis de la prensa sobre modas en Argentina y Brasil\\npermite
+        iluminar no solo las particularidades de cada contexto, sino\\ntambi\xE9n
+        las conexiones transnacionales que moldearon los discursos sobre\\nmoda en
+        Sudam\xE9rica durante el siglo XIX. Estos peri\xF3dicos funcionaron\\ncomo
+        espacios de negociaci\xF3n cultural, donde se entrecruzaban ideales\\neuropeos
+        y realidades locales, ofreciendo a sus lectores y lectoras\\nherramientas
+        tanto para imaginar como para adaptar las modas a su vida\\ncotidiana. As\xED,
+        la prensa de modas no fue \xFAnicamente un reflejo de la\\nsociedad, sino
+        tambi\xE9n un actor clave en la construcci\xF3n de identidades\\ny pr\xE1cticas
+        de consumo en la regi\xF3n.\\n\\nSi alguien desea saber m\xE1s sobre los v\xEDnculos
+        entre prensa y moda puede\\nconsultar en l\xEDnea la tesis \\\"Noticias del
+        vestir: la moda en la prensa\\nde Buenos Aires y R\xEDo de Janeiro, 1850-1890\\\"
+        Disponible en:\\n<https://ri.unsam.edu.ar/handle/123456789/2567>\\n\\n- [![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdib3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIj48cGF0aCBkPSJNMTIgMkM2LjUgMiAyIDYuNSAyIDEyYzAgNSAzLjcgOS4xIDguNCA5Ljl2LTdINy45VjEyaDIuNVY5LjhjMC0yLjUgMS41LTMuOSAzLjgtMy45IDEuMSAwIDIuMi4yIDIuMi4ydjIuNWgtMS4zYy0xLjIgMC0xLjYuOC0xLjYgMS42VjEyaDIuOGwtLjQgMi45aC0yLjN2N0MxOC4zIDIxLjEgMjIgMTcgMjIgMTJjMC01LjUtNC41LTEwLTEwLTEweiIgLz48L3N2Zz4=)[Facebook]{.wp-block-social-link-label\\n
+        \ .screen-reader-text}](https://www.facebook.com/AtarrayaHPySI){.wp-block-social-link-anchor}\\n-
+        [![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdib3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIj48cGF0aCBkPSJNMTIsNC42MjJjMi40MDMsMCwyLjY4OCwwLjAwOSwzLjYzNywwLjA1MmMwLjg3NywwLjA0LDEuMzU0LDAuMTg3LDEuNjcxLDAuMzFjMC40MiwwLjE2MywwLjcyLDAuMzU4LDEuMDM1LDAuNjczIGMwLjMxNSwwLjMxNSwwLjUxLDAuNjE1LDAuNjczLDEuMDM1YzAuMTIzLDAuMzE3LDAuMjcsMC43OTQsMC4zMSwxLjY3MWMwLjA0MywwLjk0OSwwLjA1MiwxLjIzNCwwLjA1MiwzLjYzNyBzLTAuMDA5LDIuNjg4LTAuMDUyLDMuNjM3Yy0wLjA0LDAuODc3LTAuMTg3LDEuMzU0LTAuMzEsMS42NzFjLTAuMTYzLDAuNDItMC4zNTgsMC43Mi0wLjY3MywxLjAzNSBjLTAuMzE1LDAuMzE1LTAuNjE1LDAuNTEtMS4wMzUsMC42NzNjLTAuMzE3LDAuMTIzLTAuNzk0LDAuMjctMS42NzEsMC4zMWMtMC45NDksMC4wNDMtMS4yMzMsMC4wNTItMy42MzcsMC4wNTIgcy0yLjY4OC0wLjAwOS0zLjYzNy0wLjA1MmMtMC44NzctMC4wNC0xLjM1NC0wLjE4Ny0xLjY3MS0wLjMxYy0wLjQyLTAuMTYzLTAuNzItMC4zNTgtMS4wMzUtMC42NzMgYy0wLjMxNS0wLjMxNS0wLjUxLTAuNjE1LTAuNjczLTEuMDM1Yy0wLjEyMy0wLjMxNy0wLjI3LTAuNzk0LTAuMzEtMS42NzFDNC42MzEsMTQuNjg4LDQuNjIyLDE0LjQwMyw0LjYyMiwxMiBzMC4wMDktMi42ODgsMC4wNTItMy42MzdjMC4wNC0wLjg3NywwLjE4Ny0xLjM1NCwwLjMxLTEuNjcxYzAuMTYzLTAuNDIsMC4zNTgtMC43MiwwLjY3My0xLjAzNSBjMC4zMTUtMC4zMTUsMC42MTUtMC41MSwxLjAzNS0wLjY3M2MwLjMxNy0wLjEyMywwLjc5NC0wLjI3LDEuNjcxLTAuMzFDOS4zMTIsNC42MzEsOS41OTcsNC42MjIsMTIsNC42MjIgTTEyLDMgQzkuNTU2LDMsOS4yNDksMy4wMSw4LjI4OSwzLjA1NEM3LjMzMSwzLjA5OCw2LjY3NywzLjI1LDYuMTA1LDMuNDcyQzUuNTEzLDMuNzAyLDUuMDExLDQuMDEsNC41MTEsNC41MTEgYy0wLjUsMC41LTAuODA4LDEuMDAyLTEuMDM4LDEuNTk0QzMuMjUsNi42NzcsMy4wOTgsNy4zMzEsMy4wNTQsOC4yODlDMy4wMSw5LjI0OSwzLDkuNTU2LDMsMTJjMCwyLjQ0NCwwLjAxLDIuNzUxLDAuMDU0LDMuNzExIGMwLjA0NCwwLjk1OCwwLjE5NiwxLjYxMiwwLjQxOCwyLjE4NWMwLjIzLDAuNTkyLDAuNTM4LDEuMDk0LDEuMDM4LDEuNTk0YzAuNSwwLjUsMS4wMDIsMC44MDgsMS41OTQsMS4wMzggYzAuNTcyLDAuMjIyLDEuMjI3LDAuMzc1LDIuMTg1LDAuNDE4QzkuMjQ5LDIwLjk5LDkuNTU2LDIxLDEyLDIxczIuNzUxLTAuMDEsMy43MTEtMC4wNTRjMC45NTgtMC4wNDQsMS42MTItMC4xOTYsMi4xODUtMC40MTggYzAuNTkyLTAuMjMsMS4wOTQtMC41MzgsMS41OTQtMS4wMzhjMC41LTAuNSwwLjgwOC0xLjAwMiwxLjAzOC0xLjU5NGMwLjIyMi0wLjU3MiwwLjM3NS0xLjIyNywwLjQxOC0yLjE4NSBDMjAuOTksMTQuNzUxLDIxLDE0LjQ0NCwyMSwxMnMtMC4wMS0yLjc1MS0wLjA1NC0zLjcxMWMtMC4wNDQtMC45NTgtMC4xOTYtMS42MTItMC40MTgtMi4xODVjLTAuMjMtMC41OTItMC41MzgtMS4wOTQtMS4wMzgtMS41OTQgYy0wLjUtMC41LTEuMDAyLTAuODA4LTEuNTk0LTEuMDM4Yy0wLjU3Mi0wLjIyMi0xLjIyNy0wLjM3NS0yLjE4NS0wLjQxOEMxNC43NTEsMy4wMSwxNC40NDQsMywxMiwzTDEyLDN6IE0xMiw3LjM3OCBjLTIuNTUyLDAtNC42MjIsMi4wNjktNC42MjIsNC42MjJTOS40NDgsMTYuNjIyLDEyLDE2LjYyMnM0LjYyMi0yLjA2OSw0LjYyMi00LjYyMlMxNC41NTIsNy4zNzgsMTIsNy4zNzh6IE0xMiwxNSBjLTEuNjU3LDAtMy0xLjM0My0zLTNzMS4zNDMtMywzLTNzMywxLjM0MywzLDNTMTMuNjU3LDE1LDEyLDE1eiBNMTYuODA0LDYuMTE2Yy0wLjU5NiwwLTEuMDgsMC40ODQtMS4wOCwxLjA4IHMwLjQ4NCwxLjA4LDEuMDgsMS4wOGMwLjU5NiwwLDEuMDgtMC40ODQsMS4wOC0xLjA4UzE3LjQwMSw2LjExNiwxNi44MDQsNi4xMTZ6IiAvPjwvc3ZnPg==)[Instagram]{.wp-block-social-link-label\\n
+        \ .screen-reader-text}](https://instagram.com/blogatarraya.nuestrashistorias/){.wp-block-social-link-anchor}\\n-
+        [![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdib3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIj48cGF0aCBkPSJNMTMuOTgyIDEwLjYyMiAyMC41NCAzaC0xLjU1NGwtNS42OTMgNi42MThMOC43NDUgM0gzLjVsNi44NzYgMTAuMDA3TDMuNSAyMWgxLjU1NGw2LjAxMi02Ljk4OUwxNS44NjggMjFoNS4yNDVsLTcuMTMxLTEwLjM3OFptLTIuMTI4IDIuNDc0LS42OTctLjk5Ny01LjU0My03LjkzSDhsNC40NzQgNi40LjY5Ny45OTYgNS44MTUgOC4zMThoLTIuMzg3bC00Ljc0NS02Ljc4N1oiIC8+PC9zdmc+)[X]{.wp-block-social-link-label\\n
+        \ .screen-reader-text}](https://x.com/atarrayahpysi?s=20){.wp-block-social-link-anchor}\\n\",\"doi\":\"https://doi.org/10.59350/1dvdx-94p79\",\"guid\":\"https://blogatarraya.com/?p=5172\",\"id\":\"c1a767a2-04e9-4d75-9425-74e68352a91a\",\"image\":\"https://blogatarraya.wordpress.com/wp-content/uploads/2025/01/lodp1.jpg?w=704\",\"language\":\"es\",\"published_at\":1737997860,\"reference\":[],\"relationships\":[],\"rid\":\"3pwn2-p2b45\",\"status\":\"active\",\"summary\":\"por\\n<strong>\\n
+        Teresita Garabana\\n</strong>\\nLa introducci\xF3n de la moda en la prensa
+        sudamericana del siglo XIX es un fen\xF3meno que, aunque se ha estudiado de
+        forma separada en distintos pa\xEDses, rara vez se aborda desde una perspectiva
+        transnacional. Entonces, \xBFqu\xE9 nos permite conocer el an\xE1lisis comparativo
+        de la prensa de modas en Buenos Aires y R\xEDo de Janeiro?\",\"tags\":[\"Historia
+        Cultural\"],\"title\":\"Noticias del vestir: el desarrollo de la prensa sobre
+        modas en Sudam\xE9rica (1850-1890)\",\"updated_at\":1737353282,\"url\":\"https://blogatarraya.com/2025/01/27/noticias-del-vestir-el-desarrollo-de-la-prensa-sobre-modas-en-sudamerica-1850-1890\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/01tmp8f25\",\"name\":\"Universidad
+        Nacional Aut\xF3noma de M\xE9xico\"}],\"name\":\"Layla Mich\xE1n\",\"url\":\"https://orcid.org/0000-0002-5798-662X\"}],\"blog_name\":\"BIOgarabatos\",\"blog_slug\":\"biogarabatos\",\"category\":\"naturalSciences\",\"content_text\":\"Durante
+        los \xFAltimos a\xF1os he reunido cientos de recursos digitales para\\nel
+        proyecto BIOcolores, en este proyecto nos centramos en catalogar\\ninformaci\xF3n,
+        literatura y datos sobre [Biolog\xEDa del\\ncolor](https://es.wikipedia.org/wiki/Color_en_los_seres_vivos).\\n\\nUno
+        de los grandes problemas a los que nos enfrentamos en la actualidad\\nes la
+        infodemia, las noticias falsas y la sobrecarga de informaci\xF3n, la\\nmejor
+        manera de enfrentarla es utilizando \xFAnicamente fuentes de calidad\\ny actualizadas
+        mediante una curaci\xF3n de contenidos constante, pertinente\\ny minuciosa.
+        Adem\xE1s es importante reunir informaci\xF3n de distintos tipos\\ny caracter\xEDsticas
+        que faciliten explotar las tecnolog\xEDas digitales\\ndisponibles al m\xE1ximo.\\n\\nLa
+        implementaci\xF3n de la tecnolog\xEDa computacional en las ciencias\\nactualmente
+        es ilimitada\_ y la mejor manera de conocerla es a trav\xE9s de\\nla pr\xE1ctica
+        y la colaboraci\xF3n, adem\xE1s ense\xF1arlas y usarlas con los\\nalumnos
+        facilita su adopci\xF3n. Tambi\xE9n es posible usar la informaci\xF3n\\npara
+        implementar m\xE9todos de vanguardia como la miner\xEDa, los an\xE1lisis de\\nredes,
+        la inteligencia articifial y el an\xE1lisis sem\xE1ntico.\\n\\nEn esta ocasi\xF3n
+        les comparto este conjunto de recursos que hemos\\nrecopilado durante tres
+        a\xF1os de distintas fuentes y que cumplen con las\\nsiguientes caracter\xEDsticas:\\n\\n-
+        Prop\xF3sito, son productos acad\xE9micos \xFAtiles para investigaci\xF3n
+        y\\n  ense\xF1anza\\n- Tratan sobre coloraci\xF3n y visi\xF3n del color\\n-
+        Es informaci\xF3n en diversos formatos como im\xE1genes, literatura, datos,\\n
+        \ gr\xE1ficos, infograf\xEDa, videos, recursos educativos, audios, software,\\n
+        \ etc\\\\...\\n- Son abiertos\\n- Est\xE1n reunidos en distintas colecciones
+        especializadas\\n  - <https://start.me/p/ELdOmB/biocolores>\_con enlaces\\n
+        \ - <https://www.zotero.org/groups/5400707/revisiones_biocolores/library>\_referencias\\n
+        \   sobre revisiones de literatura\\n  - <https://hypothes.is/users/lmichan?q=tag%3A%27Hub+Biocolores%F0%9F%8C%88%27>\_bibliograf\xEDa\\n
+        \   acad\xE9mica\\n  - <https://github.com/lmichan/BiocoloresWikidata>\_informaci\xF3n\\n
+        \   sem\xE1ntica en Wikidata\\n\\n<div>\\n\\nLos invito a consultar estos
+        recursos y a colaborar en este proyecto en\\nel caso de que est\xE9n interesados.\\n\\n</div>\\n\\n<div>\\n\\n
+        \ \\n\\n</div>\\n\\n<div>\\n\\n  \\n\\n</div>\\n\\n<div>\\n\\n**Bibliograf\xEDa**\\n\\n</div>\\n\\n<div>\\n\\n<div>\\n\\n-
+        CIbCA. \xABCiencia abierta, Biolog\xEDa del color y Wikidata\xBB, 4 de\\n
+        \ noviembre de 2022.\\n  <https://comunidad.cienciaabierta.info/t/ciencia-abierta-biologia-del-color-y-wikidata/177.>\\n-
+        Mar\xEDn, Delia Gonz\xE1lez, y Layla Mich\xE1n. \xABWikidata para ense\xF1anza
+        de la\\n  biolog\xEDa: la coloraci\xF3n en los felinos\xBB. Revista de Educaci\xF3n
+        en\\n  Biolog\xEDa 27, n.\xBA 1 (2 de enero de 2024).\\n  <https://doi.org/10.59524/2344-9225.v27.n1.42375.>\\n-
+        Michan, Layla, y Abilene Bautista. \xABPaletas de colores bioinspiradas\xBB,\\n
+        \ 23 de octubre de 2024. <https://zenodo.org/records/13976549.>\\n\\n</div>\\n\\n</div>\\n\\n<div>\\n\\n
+        \ \\n\\n</div>\\n\\n<div>\\n\\n  \\n\\n</div>\\n\\n::: {.separator style=\\\"clear:
+        both; text-align: center;\\\"}\\n[![](https://upload.wikimedia.org/wikipedia/commons/2/26/Colored_flowers_e.jpg){border=\\\"0\\\"\\noriginal-height=\\\"2048\\\"
+        original-width=\\\"1544\\\" height=\\\"348\\\"\\nwidth=\\\"263\\\"}](https://upload.wikimedia.org/wikipedia/commons/2/26/Colored_flowers_e.jpg){imageanchor=\\\"1\\\"\\nstyle=\\\"margin-left:
+        1em; margin-right: 1em;\\\"}\\n:::\\n\\n  \\n\\n<div>\\n\\n  \\n\\n</div>\\n\\n<div>\\n\\nFuente
+        de la\\nimagen:\_<https://upload.wikimedia.org/wikipedia/commons/2/26/Colored_flowers_e.jpg>\\n\\n</div>\\n\\n<div>\\n\\n
+        \ \\n\\n</div>\\n\\n  \\n\",\"doi\":\"https://doi.org/10.59350/xbyzx-y7s09\",\"guid\":\"tag:blogger.com,1999:blog-3916921080498993167.post-8123718302504762644\",\"id\":\"853ce17f-f860-4389-9c54-1828428e1b98\",\"image\":\"https://upload.wikimedia.org/wikipedia/commons/2/26/Colored_flowers_e.jpg\",\"language\":\"es\",\"published_at\":1737736200,\"reference\":[],\"relationships\":[],\"rid\":\"3yekq-dyt34\",\"status\":\"active\",\"summary\":\"Durante
+        los \xFAltimos a\xF1os he reunido cientos de recursos digitales para el proyecto
+        BIOcolores, en este proyecto nos centramos en catalogar informaci\xF3n, literatura
+        y datos sobre Biolog\xEDa del color.\",\"tags\":[\"BIOcolores\U0001F308\"],\"title\":\"Recursos
+        digitales para biolog\xEDa del color\",\"updated_at\":1737736255,\"url\":\"https://biogarabatos.blogspot.com/2025/01/recursos-digitales-para-biologia-del.html\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/01tmp8f25\",\"name\":\"Universidad
+        Nacional Aut\xF3noma de M\xE9xico\"}],\"name\":\"Layla Mich\xE1n\",\"url\":\"https://orcid.org/0000-0002-5798-662X\"}],\"blog_name\":\"BIOgarabatos\",\"blog_slug\":\"biogarabatos\",\"category\":\"naturalSciences\",\"content_text\":\"<div>\\n\\nHe
+        iniciado una colecci\xF3n de la bibliograf\xEDa para el curso de\\n**Introducci\xF3n
+        de la biolog\xEDa comparada de** la licenciatura de\\n[Biolog\xEDa del nuevo
+        plan de\\nestudios](https://sites.google.com/ciencias.unam.mx/plan-biologia)
+        de la\\nFacultad de Ciencias, UNAM aprobado en el 2024. Esta colecci\xF3n
+        tiene\\nc\xF3mo prop\xF3sito gestionar la literatura en una colecci\xF3n digital,\\nabierta,
+        interoperable que permita integrar todas las fuentes, generar\\nbibliograf\xEDas
+        y producir citas y referencias.\_\\n\\n</div>\\n\\n<div>\\n\\n  \\n\\n</div>\\n\\n<div>\\n\\nUtilizar
+        la bibliograf\xEDa a traves de una colecci\xF3n digital, estructurada\\ncon
+        metadatos y bien curada representa una estrategaa con varias\\nventajas que
+        facilitar\xE1 el uso de informaci\xF3n automatizada, actualizada\\ne inmediata
+        y facilita asegurar que los estudiantes utilicen fuentes de\\ncalidad y que
+        se familiaricen con los distintos tipos de fuentes.\\n\\n</div>\\n\\n<div>\\n\\n
+        \ \\n\\n</div>\\n\\n<div>\\n\\nToda la bibliograf\xEDa la he reunido en una
+        colecci\xF3n de Zotero disponible\\nen el siguiente\\nenlace\_<https://www.zotero.org/groups/5835551/biologiacomparada/library>\\n\\n</div>\\n\\n<div>\\n\\n
+        \ \\n\\n</div>\\n\\n<div>\\n\\nPara generar la bibliograf\xEDa privilegie
+        el uso de identificadores como\\nISBN para libros y DOI para revistas con
+        la finalidad de que los\\nmetadatos se obtuvieran de manera autom\xE1tica
+        y estuvieran actualizados.\\n\\n</div>\\n\\n<div>\\n\\n  \\n\\n</div>\\n\\n<div>\\n\\nLa
+        colecci\xF3n est\xE1 clasificada utilizando diferentes categor\xEDas \xFAtiles\\npara
+        el curso:\\n\\n</div>\\n\\n<div>\\n\\n- Tipo de fuente\\n  - [Mesograf\xEDa](https://www.zotero.org/groups/5835551/biologiacomparada/tags/Mesograf%C3%ADa/item-list)\\n-
+        Tipo de bibliograf\xEDa\\n  - [B\xE1sica](https://www.zotero.org/groups/5835551/biologiacomparada/tags/B%C3%A1sica/library)\\n
+        \ - [Complementaria](https://www.zotero.org/groups/5835551/biologiacomparada/tags/Complementaria/library)\\n-
+        Temas\\n  - [1](https://www.zotero.org/groups/5835551/biologiacomparada/tags/BCtema1/item-list)\\n
+        \ - [2](https://www.zotero.org/groups/5835551/biologiacomparada/tags/BCtema1,BCtema2/item-list)\\n
+        \ - [3](https://www.zotero.org/groups/5835551/biologiacomparada/tags/BCtema3/item-list)\\n
+        \ - [4](https://www.zotero.org/groups/5835551/biologiacomparada/tags/BCtema4/item-list)\\n
+        \ - [5](https://www.zotero.org/groups/5835551/biologiacomparada/tags/BCtema5/item-list)\\n
+        \ - [6](https://www.zotero.org/groups/5835551/biologiacomparada/tags/BCtema6/item-list)\\n
+        \ - [7](https://www.zotero.org/groups/5835551/biologiacomparada/tags/BCtema7/item-list)\\n\\n</div>\\n\\n<div>\\n\\n
+        \ \\n\\n</div>\\n\\n<div>\\n\\n**Tema 1. Introducci\xF3n a la biolog\xEDa
+        comparada**\\n\\n</div>\\n\\n<div>\\n\\n1.1. Biolog\xEDa comparada y biolog\xEDa
+        evolutiva: patrones y procesos\\n\\n</div>\\n\\n<div>\\n\\n1.2. Breve marco
+        hist\xF3rico de la biolog\xEDa comparada, con \xE9nfasis en la\\nsistem\xE1tica
+        filogen\xE9tica\\n\\n</div>\\n\\n<div>\\n\\n  \\n\\n</div>\\n\\n<div>\\n\\n**Tema
+        2. Estudio sistem\xE1tico de la diversidad**\\n\\n</div>\\n\\n<div>\\n\\n2.1.
+        Sistem\xE1tica: taxonom\xEDa, identificaci\xF3n, nomenclatura, genealog\xEDa
+        de\\nlas especies y clasificaci\xF3n\\n\\n</div>\\n\\n<div>\\n\\n2.2. La perspectiva
+        filogen\xE9tica: el \xE1rbol de la vida, su significado e\\nimplicaciones\\n\\n</div>\\n\\n<div>\\n\\n2.3.
+        Conceptos de especie y l\xEDmites de especies\\n\\n</div>\\n\\n<div>\\n\\n2.4.
+        Aplicaciones de la sistem\xE1tica\\n\\n</div>\\n\\n<div>\\n\\n  \\n\\n</div>\\n\\n<div>\\n\\n**Tema
+        3. Sistem\xE1tica filogen\xE9tica**\\n\\n</div>\\n\\n<div>\\n\\n3.1. Conceptos
+        de car\xE1cter y homolog\xEDa\\n\\n</div>\\n\\n<div>\\n\\n3.2. Criterios para
+        reconocer hip\xF3tesis de homolog\xEDa en un contexto\\nfilogen\xE9tico\\n\\n</div>\\n\\n<div>\\n\\n3.3.
+        Homolog\xEDa t\xE1xica molecular\\n\\n</div>\\n\\n<div>\\n\\n3.4. \xC1rboles
+        filogen\xE9ticos, cladogramas y cronogramas\\n\\n</div>\\n\\n<div>\\n\\n  \\n\\n</div>\\n\\n<div>\\n\\n**Tema
+        4. M\xE9todos de la sistem\xE1tica filogen\xE9tica**\\n\\n</div>\\n\\n<div>\\n\\n4.1.
+        Parsimonia como criterio de optimalidad\\n\\n</div>\\n\\n<div>\\n\\n4.2. M\xE9todos
+        param\xE9tricos: m\xE1xima verosimilitud e inferencia bayesiana\\n\\n</div>\\n\\n<div>\\n\\n4.3.
+        Estrategias para la exploraci\xF3n y evaluaci\xF3n del universo de\\n\xE1rboles\\n\\n</div>\\n\\n<div>\\n\\n4.4.
+        Contraste entre m\xE9todos param\xE9tricos y no param\xE9tricos\\n\\n</div>\\n\\n<div>\\n\\n4.5.
+        Introducci\xF3n a la filogen\xF3mica\\n\\n</div>\\n\\n<div>\\n\\n  \\n\\n</div>\\n\\n<div>\\n\\n**Tema
+        5. An\xE1lisis de patrones espaciales**\\n\\n</div>\\n\\n<div>\\n\\n5.1. \xC1reas
+        de distribuci\xF3n\\n\\n</div>\\n\\n<div>\\n\\n5.2. Patrones y procesos biogeogr\xE1ficos\\n\\n</div>\\n\\n<div>\\n\\n5.3.
+        Endemismos y \xE1reas de endemismo\\n\\n</div>\\n\\n<div>\\n\\n5.4. Biogeograf\xEDa
+        clad\xEDstica\\n\\n</div>\\n\\n<div>\\n\\n5.5. Biogeograf\xEDa param\xE9trica\\n\\n</div>\\n\\n<div>\\n\\n5.6.
+        Filogeograf\xEDa intraespec\xEDfica y filogeograf\xEDa comparada\\n\\n</div>\\n\\n<div>\\n\\n
+        \ \\n\\n</div>\\n\\n<div>\\n\\n**Tema 6. An\xE1lisis de patrones temporales\_**\\n\\n</div>\\n\\n<div>\\n\\n6.1.
+        Estimaci\xF3n de tiempos de divergencia\\n\\n</div>\\n\\n<div>\\n\\n6.2. Las
+        filogenias como herramienta para estudiar la evoluci\xF3n del\\ndesarrollo\\n\\n</div>\\n\\n<div>\\n\\n
+        \ \\n\\n</div>\\n\\n<div>\\n\\n**7. An\xE1lisis de patrones macroevolutivos**\\n\\n</div>\\n\\n<div>\\n\\n7.1.
+        Especiaci\xF3n\\n\\n</div>\\n\\n<div>\\n\\n7.2. Adaptaci\xF3n\\n\\n</div>\\n\\n<div>\\n\\n7.3.
+        Coevoluci\xF3n\\n\\n</div>\\n\\n<div>\\n\\n7.4. Extinci\xF3n\\n\\n</div>\\n\\n<div>\\n\\n
+        \ \\n\\n</div>\\n\\n::: {.separator style=\\\"clear: both; text-align: center;\\\"}\\n[![](https://upload.wikimedia.org/wikipedia/commons/5/5c/Hexapoda_phylogenetic_tree.png){border=\\\"0\\\"\\noriginal-height=\\\"1909\\\"
+        original-width=\\\"2048\\\" height=\\\"421\\\"\\nwidth=\\\"452\\\"}](https://upload.wikimedia.org/wikipedia/commons/5/5c/Hexapoda_phylogenetic_tree.png){imageanchor=\\\"1\\\"\\nstyle=\\\"margin-left:
+        1em; margin-right: 1em;\\\"}\\n:::\\n\\n  \\n\\n<div>\\n\\n  \\n\\n</div>\\n\\n<div>\\n\\nFuente
+        de la\\nimagen:[\_https://upload.wikimedia.org/wikipedia/commons/5/5c/Hexapoda_phylogenetic_tree.png](https://upload.wikimedia.org/wikipedia/commons/5/5c/Hexapoda_phylogenetic_tree.png)\\n\\n</div>\\n\",\"doi\":\"https://doi.org/10.59350/7kk2z-ezr25\",\"guid\":\"tag:blogger.com,1999:blog-3916921080498993167.post-2652096145611976711\",\"id\":\"c19167d9-3731-4e32-b982-98d98789345f\",\"image\":\"https://upload.wikimedia.org/wikipedia/commons/5/5c/Hexapoda_phylogenetic_tree.png\",\"language\":\"es\",\"published_at\":1737563820,\"reference\":[],\"relationships\":[],\"rid\":\"1ahjd-cxn68\",\"status\":\"active\",\"summary\":\"He
+        iniciado una colecci\xF3n de la\\n<b>\\n</b>\\nbibliograf\xEDa para el curso
+        de\\n<b>\\n Introducci\xF3n de la biolog\xEDa comparada de\\n</b>\\nla licenciatura
+        de Biolog\xEDa del nuevo plan de estudios de la Facultad de Ciencias, UNAM
+        aprobado en el 2024.\",\"tags\":[\"BIOliteratura\U0001F4D8\"],\"title\":\"Bibliograf\xEDa
+        para biolog\xEDa comparada\",\"updated_at\":1737563879,\"url\":\"https://biogarabatos.blogspot.com/2025/01/bibliografia-para-biologia-comparada.html\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"abstract\":\"por
+        Daniel Guzm\xE1n V\xE1zquez En 2017 apareci\xF3 una nueva edici\xF3n en espa\xF1ol
+        de Combates por la historia (Akal). Tengo la impresi\xF3n de que incluso antes,
+        en su formato de bolsillo era ya un libro com\xFAn en bibliotecas personales
+        y librer\xEDas de viejo.\",\"authors\":[{\"name\":\"Atarraya\"}],\"blog_name\":\"BLOG
+        ATARRAYA\",\"blog_slug\":\"atarraya\",\"category\":\"humanities\",\"content_text\":\"por
+        **Daniel Guzm\xE1n V\xE1zquez**\\n\\nEn 2017 apareci\xF3 una nueva edici\xF3n
+        en espa\xF1ol de *Combates por la\\nhistoria* (Akal). Tengo la impresi\xF3n
+        de que incluso antes, en su formato\\nde bolsillo era ya un libro com\xFAn
+        en bibliotecas personales y librer\xEDas\\n*de viejo*. Un \\\"aut\xE9ntico
+        cl\xE1sico\\\" de los estudios hist\xF3ricos, podr\xEDa\\ndecirse, pero \xBFlo
+        es en sentido contempor\xE1neo?\\n\\nEn esta compilaci\xF3n de diversos art\xEDculos,
+        ---\\\"elegidos entre otros\\ntantos\\\" como se\xF1ala el propio Febvre---,
+        se esperar\xEDa encontrar un\\nantecedente de las pr\xE1cticas actuales, una
+        prefiguraci\xF3n de nuestro\\npresente historiogr\xE1fico (por m\xE1s diverso
+        que este sea). Sin embargo,\\nentre sus p\xE1ginas se dibuja un mundo extra\xF1o,
+        el de un perfil\\ndisciplinario que podr\xEDa causarnos sonrojos y risas.
+        La historiograf\xEDa\\nbusca hoy en los *Anales* su g\xE9nesis, pero ante
+        sus ojos se presenta la\\nradiograf\xEDa de una fractura.\\n\\nAlgo normal
+        en nuestros d\xEDas gener\xF3 asombro a Febvre en 1933. A los\\nprofesores
+        universitarios auxiliares no se les exig\xEDa la capacidad de\\ncriticar estad\xEDsticas
+        (ni de elaborarlas, se entiende); o de conocer las\\ncontradicciones de las
+        teor\xEDas econ\xF3micas; ni de entender el\\nfuncionamiento y la evoluci\xF3n
+        del derecho. Saber c\xF3mo opera una moneda,\\nla bolsa de valores, un banco
+        de dep\xF3sito, una sentencia judicial,\\n\xBFpodr\xEDan incluirse estas habilidades
+        en la malla curricular sin provocar\\nuna rebeli\xF3n desde la c\xE1tedra?
+        \xBFse aceptar\xEDan estos cambios desde la\\ndin\xE1mica estudiantil tan
+        avocada a sus aptitudes \\\"textuarias\\\"?\\n\\nA prop\xF3sito de esto \xFAltimo,
+        en los *Combates* hay varias l\xEDneas de\\nfuego. \\\"La historia se hace
+        con textos\\\", era la consigna en la \xE9poca de\\nlos combates de Febvre,
+        y contra ella carg\xF3 constantemente. Esta\\nrelaci\xF3n, aparentemente natural,
+        del texto con la historia, supone que\\nleer es recibir pasivamente los datos
+        que ofrece el documento. Se saca\\nde los documentos lo que directamente ofrecen.
+        \\\"Pereza espiritual\\\", le\\ndenomin\xF3 Febvre. Y esta pereza tuvo un
+        alcance antropol\xF3gico que\\ncontin\xFAa en nuestro tiempo. Implica una
+        pr\xE1ctica de la lectura, usos que\\nla restringen, estilos de escritura
+        asociados, gustos adquiridos,\\nfen\xF3menos de automatismo como los de *copia
+        y pega*. Todav\xEDa hoy, hay\\nquien acude a los expedientes, digamos por
+        caso, judiciales, con la\\ninocencia de extraer cierta verdad del pasado,
+        sin reparar en las reglas\\ninternas de estos documentos, en su propio *proceso*,
+        en lo que no\\ndicen.\\n\\n::: {.wp-block-image}\\n<figure class=\\\"alignright
+        size-large\\\">\\n<img\\nsrc=\\\"https://blogatarraya.wordpress.com/wp-content/uploads/2025/01/dallc2b7e-2024-10-31-11.42.33-a-highly-abstract-illustration-representing-the-sedentary-work-of-a-historian.-the-image-is-composed-of-fragmented-shapes-and-muted-colors-suggesting.jpg?w=1024\\\"\\nclass=\\\"wp-image-5168\\\"
+        data-attachment-id=\\\"5168\\\"\\ndata-permalink=\\\"http://blogatarraya.com/2025/01/20/los-extranos-combates-por-la-historia/dall%c2%b7e-2024-10-31-11-42-33-a-highly-abstract-illustration-representing-the-sedentary-work-of-a-historian-the-image-is-composed-of-fragmented-shapes-and-muted-colors-suggesting/\\\"\\ndata-orig-file=\\\"https://blogatarraya.wordpress.com/wp-content/uploads/2025/01/dallc2b7e-2024-10-31-11.42.33-a-highly-abstract-illustration-representing-the-sedentary-work-of-a-historian.-the-image-is-composed-of-fragmented-shapes-and-muted-colors-suggesting.jpg\\\"\\ndata-orig-size=\\\"1024,1024\\\"
+        data-comments-opened=\\\"1\\\"\\ndata-image-meta=\\\"{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}\\\"\\ndata-image-title=\\\"DALL\xB7E
+        2024-10-31 11.42.33 \u2013 A highly abstract illustration representing the
+        sedentary work of a historian. The image is composed of fragmented shapes
+        and muted colors, suggesting\\\"\\ndata-image-description=\\\"\\\" data-image-caption=\\\"\\\"\\ndata-medium-file=\\\"https://blogatarraya.wordpress.com/wp-content/uploads/2025/01/dallc2b7e-2024-10-31-11.42.33-a-highly-abstract-illustration-representing-the-sedentary-work-of-a-historian.-the-image-is-composed-of-fragmented-shapes-and-muted-colors-suggesting.jpg?w=300\\\"\\ndata-large-file=\\\"https://blogatarraya.wordpress.com/wp-content/uploads/2025/01/dallc2b7e-2024-10-31-11.42.33-a-highly-abstract-illustration-representing-the-sedentary-work-of-a-historian.-the-image-is-composed-of-fragmented-shapes-and-muted-colors-suggesting.jpg?w=1024\\\"\\nloading=\\\"lazy\\\"
+        width=\\\"1024\\\" height=\\\"1024\\\" />\\n<figcaption>ChatGPT. <em>Abstract
+        Illustration of the Sedentary Work of\\na Historian</em>. 2024, OpenAI.</figcaption>\\n</figure>\\n:::\\n\\nEste
+        *textualismo* tambi\xE9n tiene sus implicaciones sociol\xF3gicas: poner\\nel
+        foco en el documento de archivo, enaltecer su *unicidad*, leerlo\\ndesde la
+        oscuridad del edificio donde se resguarda, en solitario; s\xF3lo\\nsocializar
+        estos datos cuando se impone un sello de autor\xEDa. \xA1Fue Febvre\\nquien
+        imagin\xF3 los \\\"laboratorios de historia\\\"! Si la historia es la\\ncomplejidad
+        de un entramado geogr\xE1fico, arqueol\xF3gico, econ\xF3mico,\\njur\xEDdico,
+        y mucho m\xE1s, la forma historiogr\xE1fica en algo tendr\xEDa que ser\\nsimilar,
+        con observaciones transversales entre conocimientos generados\\nsocialmente
+        en estos \\\"laboratorios\\\". Lejos de eso, seguimos\\nreivindicando nuestras
+        parcelas, incluso en los *libros colectivos*.\\n\\nComo propaganda que se
+        lanza desde el aire, hay en *Combates*, varios\\nmanifiestos, llamados a ponerse
+        en pie, a romper con la din\xE1mica de\\nestudio de textos, de explicaci\xF3n
+        de textos, de escritura de textos.\\nEsta forma disciplinaria es denunciada
+        por sus efectos en el cuerpo:\\nimplica un trabajo sedentario, oficinesco,
+        de papeleo; un trabajo que\\nFebvre denuncia que se hace con las ventanas
+        y las cortinas cerradas.\\nHace varias d\xE9cadas ya que se ha extendido la
+        historia cultural y su\\nidilio con la antropolog\xEDa (reino del trabajo
+        de campo), pero \xBFimpact\xF3\\nesto tambi\xE9n en nuestro sedentarismo,
+        en el automatismo de hacer\\nhistoria s\xF3lo con y desde los *textos*?\\n\\nAl
+        cerrar el libro queda una extra\xF1a sensaci\xF3n \xBFde qu\xE9 habla Febvre?\\n\xBFcu\xE1l
+        es esa \\\"nueva historia\\\" que no alcanz\xF3 a ser sustrato del suelo\\nsobre
+        el que caminamos?\\n\\n- [![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdib3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIj48cGF0aCBkPSJNMTIgMkM2LjUgMiAyIDYuNSAyIDEyYzAgNSAzLjcgOS4xIDguNCA5Ljl2LTdINy45VjEyaDIuNVY5LjhjMC0yLjUgMS41LTMuOSAzLjgtMy45IDEuMSAwIDIuMi4yIDIuMi4ydjIuNWgtMS4zYy0xLjIgMC0xLjYuOC0xLjYgMS42VjEyaDIuOGwtLjQgMi45aC0yLjN2N0MxOC4zIDIxLjEgMjIgMTcgMjIgMTJjMC01LjUtNC41LTEwLTEwLTEweiIgLz48L3N2Zz4=)[Facebook]{.wp-block-social-link-label\\n
+        \ .screen-reader-text}](https://www.facebook.com/AtarrayaHPySI){.wp-block-social-link-anchor}\\n-
+        [![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdib3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIj48cGF0aCBkPSJNMTIsNC42MjJjMi40MDMsMCwyLjY4OCwwLjAwOSwzLjYzNywwLjA1MmMwLjg3NywwLjA0LDEuMzU0LDAuMTg3LDEuNjcxLDAuMzFjMC40MiwwLjE2MywwLjcyLDAuMzU4LDEuMDM1LDAuNjczIGMwLjMxNSwwLjMxNSwwLjUxLDAuNjE1LDAuNjczLDEuMDM1YzAuMTIzLDAuMzE3LDAuMjcsMC43OTQsMC4zMSwxLjY3MWMwLjA0MywwLjk0OSwwLjA1MiwxLjIzNCwwLjA1MiwzLjYzNyBzLTAuMDA5LDIuNjg4LTAuMDUyLDMuNjM3Yy0wLjA0LDAuODc3LTAuMTg3LDEuMzU0LTAuMzEsMS42NzFjLTAuMTYzLDAuNDItMC4zNTgsMC43Mi0wLjY3MywxLjAzNSBjLTAuMzE1LDAuMzE1LTAuNjE1LDAuNTEtMS4wMzUsMC42NzNjLTAuMzE3LDAuMTIzLTAuNzk0LDAuMjctMS42NzEsMC4zMWMtMC45NDksMC4wNDMtMS4yMzMsMC4wNTItMy42MzcsMC4wNTIgcy0yLjY4OC0wLjAwOS0zLjYzNy0wLjA1MmMtMC44NzctMC4wNC0xLjM1NC0wLjE4Ny0xLjY3MS0wLjMxYy0wLjQyLTAuMTYzLTAuNzItMC4zNTgtMS4wMzUtMC42NzMgYy0wLjMxNS0wLjMxNS0wLjUxLTAuNjE1LTAuNjczLTEuMDM1Yy0wLjEyMy0wLjMxNy0wLjI3LTAuNzk0LTAuMzEtMS42NzFDNC42MzEsMTQuNjg4LDQuNjIyLDE0LjQwMyw0LjYyMiwxMiBzMC4wMDktMi42ODgsMC4wNTItMy42MzdjMC4wNC0wLjg3NywwLjE4Ny0xLjM1NCwwLjMxLTEuNjcxYzAuMTYzLTAuNDIsMC4zNTgtMC43MiwwLjY3My0xLjAzNSBjMC4zMTUtMC4zMTUsMC42MTUtMC41MSwxLjAzNS0wLjY3M2MwLjMxNy0wLjEyMywwLjc5NC0wLjI3LDEuNjcxLTAuMzFDOS4zMTIsNC42MzEsOS41OTcsNC42MjIsMTIsNC42MjIgTTEyLDMgQzkuNTU2LDMsOS4yNDksMy4wMSw4LjI4OSwzLjA1NEM3LjMzMSwzLjA5OCw2LjY3NywzLjI1LDYuMTA1LDMuNDcyQzUuNTEzLDMuNzAyLDUuMDExLDQuMDEsNC41MTEsNC41MTEgYy0wLjUsMC41LTAuODA4LDEuMDAyLTEuMDM4LDEuNTk0QzMuMjUsNi42NzcsMy4wOTgsNy4zMzEsMy4wNTQsOC4yODlDMy4wMSw5LjI0OSwzLDkuNTU2LDMsMTJjMCwyLjQ0NCwwLjAxLDIuNzUxLDAuMDU0LDMuNzExIGMwLjA0NCwwLjk1OCwwLjE5NiwxLjYxMiwwLjQxOCwyLjE4NWMwLjIzLDAuNTkyLDAuNTM4LDEuMDk0LDEuMDM4LDEuNTk0YzAuNSwwLjUsMS4wMDIsMC44MDgsMS41OTQsMS4wMzggYzAuNTcyLDAuMjIyLDEuMjI3LDAuMzc1LDIuMTg1LDAuNDE4QzkuMjQ5LDIwLjk5LDkuNTU2LDIxLDEyLDIxczIuNzUxLTAuMDEsMy43MTEtMC4wNTRjMC45NTgtMC4wNDQsMS42MTItMC4xOTYsMi4xODUtMC40MTggYzAuNTkyLTAuMjMsMS4wOTQtMC41MzgsMS41OTQtMS4wMzhjMC41LTAuNSwwLjgwOC0xLjAwMiwxLjAzOC0xLjU5NGMwLjIyMi0wLjU3MiwwLjM3NS0xLjIyNywwLjQxOC0yLjE4NSBDMjAuOTksMTQuNzUxLDIxLDE0LjQ0NCwyMSwxMnMtMC4wMS0yLjc1MS0wLjA1NC0zLjcxMWMtMC4wNDQtMC45NTgtMC4xOTYtMS42MTItMC40MTgtMi4xODVjLTAuMjMtMC41OTItMC41MzgtMS4wOTQtMS4wMzgtMS41OTQgYy0wLjUtMC41LTEuMDAyLTAuODA4LTEuNTk0LTEuMDM4Yy0wLjU3Mi0wLjIyMi0xLjIyNy0wLjM3NS0yLjE4NS0wLjQxOEMxNC43NTEsMy4wMSwxNC40NDQsMywxMiwzTDEyLDN6IE0xMiw3LjM3OCBjLTIuNTUyLDAtNC42MjIsMi4wNjktNC42MjIsNC42MjJTOS40NDgsMTYuNjIyLDEyLDE2LjYyMnM0LjYyMi0yLjA2OSw0LjYyMi00LjYyMlMxNC41NTIsNy4zNzgsMTIsNy4zNzh6IE0xMiwxNSBjLTEuNjU3LDAtMy0xLjM0My0zLTNzMS4zNDMtMywzLTNzMywxLjM0MywzLDNTMTMuNjU3LDE1LDEyLDE1eiBNMTYuODA0LDYuMTE2Yy0wLjU5NiwwLTEuMDgsMC40ODQtMS4wOCwxLjA4IHMwLjQ4NCwxLjA4LDEuMDgsMS4wOGMwLjU5NiwwLDEuMDgtMC40ODQsMS4wOC0xLjA4UzE3LjQwMSw2LjExNiwxNi44MDQsNi4xMTZ6IiAvPjwvc3ZnPg==)[Instagram]{.wp-block-social-link-label\\n
+        \ .screen-reader-text}](https://instagram.com/blogatarraya.nuestrashistorias/){.wp-block-social-link-anchor}\\n-
+        [![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdib3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIj48cGF0aCBkPSJNMTMuOTgyIDEwLjYyMiAyMC41NCAzaC0xLjU1NGwtNS42OTMgNi42MThMOC43NDUgM0gzLjVsNi44NzYgMTAuMDA3TDMuNSAyMWgxLjU1NGw2LjAxMi02Ljk4OUwxNS44NjggMjFoNS4yNDVsLTcuMTMxLTEwLjM3OFptLTIuMTI4IDIuNDc0LS42OTctLjk5Ny01LjU0My03LjkzSDhsNC40NzQgNi40LjY5Ny45OTYgNS44MTUgOC4zMThoLTIuMzg3bC00Ljc0NS02Ljc4N1oiIC8+PC9zdmc+)[X]{.wp-block-social-link-label\\n
+        \ .screen-reader-text}](https://x.com/atarrayahpysi?s=20){.wp-block-social-link-anchor}\\n\",\"doi\":\"https://doi.org/10.59350/dqk5f-cjg20\",\"guid\":\"https://blogatarraya.com/?p=5164\",\"id\":\"0cc00959-c528-4647-8e3c-93a02ae3c17a\",\"image\":\"https://blogatarraya.wordpress.com/wp-content/uploads/2025/01/dallc2b7e-2024-10-31-11.42.33-a-highly-abstract-illustration-representing-the-sedentary-work-of-a-historian.-the-image-is-composed-of-fragmented-shapes-and-muted-colors-suggesting.jpg?w=1024\",\"language\":\"es\",\"published_at\":1737393060,\"reference\":[],\"relationships\":[],\"rid\":\"x8re1-wax58\",\"status\":\"active\",\"summary\":\"por\\n<strong>\\n
+        Daniel Guzm\xE1n V\xE1zquez\\n</strong>\\nEn 2017 apareci\xF3 una nueva edici\xF3n
+        en espa\xF1ol de\\n<em>\\n Combates por la historia\\n</em>\\n(Akal). Tengo
+        la impresi\xF3n de que incluso antes, en su formato de bolsillo era ya un
+        libro com\xFAn en bibliotecas personales y librer\xEDas\\n<em>\\n de viejo\\n</em>\\n.
+        Un \u201Caut\xE9ntico cl\xE1sico\u201D de los estudios hist\xF3ricos, podr\xEDa
+        decirse, pero \xBFlo es en sentido contempor\xE1neo?\",\"tags\":[\"Sin Categor\xEDa\"],\"title\":\"Los
+        extra\xF1os Combates por la historia\",\"updated_at\":1737352885,\"url\":\"https://blogatarraya.com/2025/01/20/los-extranos-combates-por-la-historia\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Atarraya\"}],\"blog_name\":\"BLOG
+        ATARRAYA\",\"blog_slug\":\"atarraya\",\"category\":\"humanities\",\"content_text\":\"por
+        **Alicia Salmer\xF3n**\\n\\nExplorar la historia de la circulaci\xF3n de impresos
+        --de su traducci\xF3n, a\\nveces, as\xED como de su impresi\xF3n y distribuci\xF3n--,
+        y de la manera en que\\nfueron recibidos, le\xEDdos y discutidos constituye
+        una aut\xE9ntica aventura.\\nM\xE1s a\xFAn si en ese seguimiento se exploran
+        los movimientos de quienes los\\nredactaron y leyeron, y se rastrea su lugar
+        en la colosal tarea de\\nconstruir una nueva naci\xF3n, la gran empresa del
+        M\xE9xico del siglo XIX.\\n\\nEsta ha sido la aventura emprendida por Gabriela
+        D\xEDaz Pati\xF1o, en\\n*Circulaci\xF3n y lectura de impresos evang\xE9licos
+        y protestantes en el\\nM\xE9xico del siglo XIX* (edici\xF3n CEID/Nun, 2024),
+        al seguir la pista de un\\ntipo de publicaciones muy particular: biblias,
+        revistas y peri\xF3dicos\\nevang\xE9licos y protestantes en el primer siglo
+        de vida del M\xE9xico\\nindependiente. La autora indag\xF3 c\xF3mo esta literatura
+        religiosa comenz\xF3 a\\ningresar al pa\xEDs y luego a editarse en M\xE9xico,
+        en una naci\xF3n en proceso\\nde construcci\xF3n, con un Estado que tuvo al
+        catolicismo como religi\xF3n\\noficial hasta mediados del siglo y que obligaba
+        a que toda publicaci\xF3n\\nque tocara al dogma cat\xF3lico pasara por un
+        proceso de censura previo.\\nReconstruy\xF3 igualmente las redes de distribuci\xF3n
+        de este tipo de\\nliteratura, identific\xF3 grupos sociales --intelectuales
+        y pol\xEDticos\\ncat\xF3licos liberales, luego reformistas radicales-- que
+        la recibieron con\\nentusiasmo, as\xED como resistencias feroces y debates
+        suscitados en una\\ncombativa prensa militante.\\n\\nEl libro de D\xEDaz Pati\xF1o
+        se aproxima a este tipo de publicaciones desde\\nlos \xFAltimos a\xF1os novohispanos,
+        cuando asomos reformistas en materia\\nreligiosa permitieron una cierta apertura
+        a ideas evang\xE9licas, como las\\nde la importancia del contacto directo
+        de los fieles con los textos\\nb\xEDblicos. Muestra entonces c\xF3mo comenzaron
+        a circular en el virreinato\\nlas primeras traducciones castellanas de biblias
+        evang\xE9licas. Pero el\\nestudio se centra, de manera principal, en un par
+        de momentos del M\xE9xico\\ndel XIX, momentos de impulsos reformistas que
+        acabaron por levantar un\\nEstado laico en donde hubo primero uno confesional;
+        tambi\xE9n por\\n\\\"recomponer\\\" la vida social, cultural y religiosa de
+        la naci\xF3n, al abrir\\nespacios que permitieron la aparici\xF3n de movimientos
+        evang\xE9licos,\\niglesias protestantes y alguna iglesia mexicana distante
+        de la Santa\\nSede.\\n\\nEl primero de estos movimientos --cuya identificaci\xF3n
+        constituye uno de\\nlos hallazgos de este libro-- inici\xF3 en los primeros
+        a\xF1os del M\xE9xico\\nindependiente, en el marco de la apertura de la nueva
+        naci\xF3n a los\\nintercambios comerciales y culturales con el mundo occidental
+        y al\\ninflujo del Segundo Avivamiento o resurgimiento cristiano --corriente\\nreligiosa
+        que promovi\xF3 un renovado fervor espiritual, surgido en el\\nmundo anglosaj\xF3n
+        protestante desde fines del siglo XVIII\xAD. El segundo\\nmovimiento evangelista
+        y protestante en M\xE9xico surgi\xF3 tras la Reforma y\\nla consolidaci\xF3n
+        de un r\xE9gimen pol\xEDtico liberal, ya indiscutiblemente\\nsecular, hacia
+        finales de la d\xE9cada de 1860, el cual dio nuevo impulso\\nal movimiento
+        y facilit\xF3 una mayor relaci\xF3n entre protestantes\\nnacionales y extranjeros.\\n\\nEl
+        estudio de D\xEDaz Pati\xF1o permite mirar el siglo XIX mexicano, pensarlo,\\nen
+        t\xE9rminos m\xE1s plurales, complejos y conflictivos de los que ya\\nten\xEDamos
+        noticia. M\xE1s plural en t\xE9rminos culturales, por ejemplo, por el\\nsigno
+        y alcances de los intercambios y de la producci\xF3n de los impresos\\nde
+        los que da cuenta, as\xED como por las redes de distribuci\xF3n tejidas\\npara
+        hacerlos circular en el pa\xEDs. Tambi\xE9n m\xE1s complejo, desde la\\nconsideraci\xF3n
+        de las ideas en juego, pues convivieron y, con frecuencia,\\nconvergieron,
+        evangelismos y reformismos; protestantismos y\\nliberalismos. Y ciertamente
+        como un siglo m\xE1s conflictivo, en raz\xF3n de\\nlos aguerridos debates
+        suscitados por el arribo y edici\xF3n local de\\nliteratura evang\xE9lica
+        y protestante, as\xED como los cismas religiosos\\nanimados por diferencias
+        doctrinarias y pol\xEDticas.\\n\\nEl libro de Gabriela D\xEDaz Pati\xF1o nos
+        ofrece una rica historia de\\npublicaciones evangelistas y protestantes, as\xED
+        como de las vicisitudes\\nde la expansi\xF3n de sus credos e iglesias en el
+        pa\xEDs. Y de manera muy\\nimportante, del significado que la circulaci\xF3n
+        de este tipo de impresos\\ntuvo en los procesos culturales, sociales, ideol\xF3gicos
+        y pol\xEDticos del\\nhacer naci\xF3n en el XIX mexicano.\\n\\n- [![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdib3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIj48cGF0aCBkPSJNMTIgMkM2LjUgMiAyIDYuNSAyIDEyYzAgNSAzLjcgOS4xIDguNCA5Ljl2LTdINy45VjEyaDIuNVY5LjhjMC0yLjUgMS41LTMuOSAzLjgtMy45IDEuMSAwIDIuMi4yIDIuMi4ydjIuNWgtMS4zYy0xLjIgMC0xLjYuOC0xLjYgMS42VjEyaDIuOGwtLjQgMi45aC0yLjN2N0MxOC4zIDIxLjEgMjIgMTcgMjIgMTJjMC01LjUtNC41LTEwLTEwLTEweiIgLz48L3N2Zz4=)[Facebook]{.wp-block-social-link-label\\n
+        \ .screen-reader-text}](https://www.facebook.com/AtarrayaHPySI){.wp-block-social-link-anchor}\\n-
+        [![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdib3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIj48cGF0aCBkPSJNMTIsNC42MjJjMi40MDMsMCwyLjY4OCwwLjAwOSwzLjYzNywwLjA1MmMwLjg3NywwLjA0LDEuMzU0LDAuMTg3LDEuNjcxLDAuMzFjMC40MiwwLjE2MywwLjcyLDAuMzU4LDEuMDM1LDAuNjczIGMwLjMxNSwwLjMxNSwwLjUxLDAuNjE1LDAuNjczLDEuMDM1YzAuMTIzLDAuMzE3LDAuMjcsMC43OTQsMC4zMSwxLjY3MWMwLjA0MywwLjk0OSwwLjA1MiwxLjIzNCwwLjA1MiwzLjYzNyBzLTAuMDA5LDIuNjg4LTAuMDUyLDMuNjM3Yy0wLjA0LDAuODc3LTAuMTg3LDEuMzU0LTAuMzEsMS42NzFjLTAuMTYzLDAuNDItMC4zNTgsMC43Mi0wLjY3MywxLjAzNSBjLTAuMzE1LDAuMzE1LTAuNjE1LDAuNTEtMS4wMzUsMC42NzNjLTAuMzE3LDAuMTIzLTAuNzk0LDAuMjctMS42NzEsMC4zMWMtMC45NDksMC4wNDMtMS4yMzMsMC4wNTItMy42MzcsMC4wNTIgcy0yLjY4OC0wLjAwOS0zLjYzNy0wLjA1MmMtMC44NzctMC4wNC0xLjM1NC0wLjE4Ny0xLjY3MS0wLjMxYy0wLjQyLTAuMTYzLTAuNzItMC4zNTgtMS4wMzUtMC42NzMgYy0wLjMxNS0wLjMxNS0wLjUxLTAuNjE1LTAuNjczLTEuMDM1Yy0wLjEyMy0wLjMxNy0wLjI3LTAuNzk0LTAuMzEtMS42NzFDNC42MzEsMTQuNjg4LDQuNjIyLDE0LjQwMyw0LjYyMiwxMiBzMC4wMDktMi42ODgsMC4wNTItMy42MzdjMC4wNC0wLjg3NywwLjE4Ny0xLjM1NCwwLjMxLTEuNjcxYzAuMTYzLTAuNDIsMC4zNTgtMC43MiwwLjY3My0xLjAzNSBjMC4zMTUtMC4zMTUsMC42MTUtMC41MSwxLjAzNS0wLjY3M2MwLjMxNy0wLjEyMywwLjc5NC0wLjI3LDEuNjcxLTAuMzFDOS4zMTIsNC42MzEsOS41OTcsNC42MjIsMTIsNC42MjIgTTEyLDMgQzkuNTU2LDMsOS4yNDksMy4wMSw4LjI4OSwzLjA1NEM3LjMzMSwzLjA5OCw2LjY3NywzLjI1LDYuMTA1LDMuNDcyQzUuNTEzLDMuNzAyLDUuMDExLDQuMDEsNC41MTEsNC41MTEgYy0wLjUsMC41LTAuODA4LDEuMDAyLTEuMDM4LDEuNTk0QzMuMjUsNi42NzcsMy4wOTgsNy4zMzEsMy4wNTQsOC4yODlDMy4wMSw5LjI0OSwzLDkuNTU2LDMsMTJjMCwyLjQ0NCwwLjAxLDIuNzUxLDAuMDU0LDMuNzExIGMwLjA0NCwwLjk1OCwwLjE5NiwxLjYxMiwwLjQxOCwyLjE4NWMwLjIzLDAuNTkyLDAuNTM4LDEuMDk0LDEuMDM4LDEuNTk0YzAuNSwwLjUsMS4wMDIsMC44MDgsMS41OTQsMS4wMzggYzAuNTcyLDAuMjIyLDEuMjI3LDAuMzc1LDIuMTg1LDAuNDE4QzkuMjQ5LDIwLjk5LDkuNTU2LDIxLDEyLDIxczIuNzUxLTAuMDEsMy43MTEtMC4wNTRjMC45NTgtMC4wNDQsMS42MTItMC4xOTYsMi4xODUtMC40MTggYzAuNTkyLTAuMjMsMS4wOTQtMC41MzgsMS41OTQtMS4wMzhjMC41LTAuNSwwLjgwOC0xLjAwMiwxLjAzOC0xLjU5NGMwLjIyMi0wLjU3MiwwLjM3NS0xLjIyNywwLjQxOC0yLjE4NSBDMjAuOTksMTQuNzUxLDIxLDE0LjQ0NCwyMSwxMnMtMC4wMS0yLjc1MS0wLjA1NC0zLjcxMWMtMC4wNDQtMC45NTgtMC4xOTYtMS42MTItMC40MTgtMi4xODVjLTAuMjMtMC41OTItMC41MzgtMS4wOTQtMS4wMzgtMS41OTQgYy0wLjUtMC41LTEuMDAyLTAuODA4LTEuNTk0LTEuMDM4Yy0wLjU3Mi0wLjIyMi0xLjIyNy0wLjM3NS0yLjE4NS0wLjQxOEMxNC43NTEsMy4wMSwxNC40NDQsMywxMiwzTDEyLDN6IE0xMiw3LjM3OCBjLTIuNTUyLDAtNC42MjIsMi4wNjktNC42MjIsNC42MjJTOS40NDgsMTYuNjIyLDEyLDE2LjYyMnM0LjYyMi0yLjA2OSw0LjYyMi00LjYyMlMxNC41NTIsNy4zNzgsMTIsNy4zNzh6IE0xMiwxNSBjLTEuNjU3LDAtMy0xLjM0My0zLTNzMS4zNDMtMywzLTNzMywxLjM0MywzLDNTMTMuNjU3LDE1LDEyLDE1eiBNMTYuODA0LDYuMTE2Yy0wLjU5NiwwLTEuMDgsMC40ODQtMS4wOCwxLjA4IHMwLjQ4NCwxLjA4LDEuMDgsMS4wOGMwLjU5NiwwLDEuMDgtMC40ODQsMS4wOC0xLjA4UzE3LjQwMSw2LjExNiwxNi44MDQsNi4xMTZ6IiAvPjwvc3ZnPg==)[Instagram]{.wp-block-social-link-label\\n
+        \ .screen-reader-text}](https://instagram.com/blogatarraya.nuestrashistorias/){.wp-block-social-link-anchor}\\n-
+        [![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdib3g9IjAgMCAyNCAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIj48cGF0aCBkPSJNMTMuOTgyIDEwLjYyMiAyMC41NCAzaC0xLjU1NGwtNS42OTMgNi42MThMOC43NDUgM0gzLjVsNi44NzYgMTAuMDA3TDMuNSAyMWgxLjU1NGw2LjAxMi02Ljk4OUwxNS44NjggMjFoNS4yNDVsLTcuMTMxLTEwLjM3OFptLTIuMTI4IDIuNDc0LS42OTctLjk5Ny01LjU0My03LjkzSDhsNC40NzQgNi40LjY5Ny45OTYgNS44MTUgOC4zMThoLTIuMzg3bC00Ljc0NS02Ljc4N1oiIC8+PC9zdmc+)[X]{.wp-block-social-link-label\\n
+        \ .screen-reader-text}](https://x.com/atarrayahpysi?s=20){.wp-block-social-link-anchor}\\n\",\"doi\":\"https://doi.org/10.59350/qm04m-0r528\",\"guid\":\"https://blogatarraya.com/?p=5140\",\"id\":\"0a591807-2d64-4769-aa22-a348a2312fe4\",\"language\":\"es\",\"published_at\":1736788260,\"reference\":[],\"relationships\":[],\"rid\":\"gfcj5-y4317\",\"status\":\"active\",\"summary\":\"por\\n<strong>\\n
+        Alicia Salmer\xF3n\\n</strong>\\nExplorar la historia de la circulaci\xF3n
+        de impresos \u2013de su traducci\xF3n, a veces, as\xED como de su impresi\xF3n
+        y distribuci\xF3n\u2013, y de la manera en que fueron recibidos, le\xEDdos
+        y discutidos constituye una aut\xE9ntica aventura.\",\"tags\":[\"Rese\xF1a
+        Bibliogr\xE1fica\"],\"title\":\"Tras la pista de impresos evangelistas y protestantes
+        en el M\xE9xico del siglo XIX\",\"updated_at\":1737352407,\"url\":\"https://blogatarraya.com/2025/01/13/tras-la-pista-de-impresos-evangelista-y-protestantes-en-el-mexico-del-siglo-xix\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"affiliation\":[{\"id\":\"https://ror.org/01tmp8f25\",\"name\":\"Universidad
+        Nacional Aut\xF3noma de M\xE9xico\"}],\"name\":\"Layla Mich\xE1n\",\"url\":\"https://orcid.org/0000-0002-5798-662X\"}],\"blog_name\":\"BIOgarabatos\",\"blog_slug\":\"biogarabatos\",\"category\":\"naturalSciences\",\"content_text\":\"He
+        reunido una colecci\xF3n bibliogr\xE1fica denominada BIOhistoria, contiene\\nliteratura
+        acad\xE9mica como libros, cap\xEDtulos, art\xEDculos\_ e incluso\\npreprints
+        \xFAtiles para los cursos de Filosof\xEDa e Historia de la Biolog\xEDa\\ndel
+        plan de estudios de la carrera de Biolog\xEDa de la Facultad de\\nCiencias
+        de la UNAM 1997. Tambi\xE9n resulta \xFAtil para ense\xF1ar o investigar\\nsobre
+        los contenidos de las materias Introducci\xF3n a las teor\xEDas\\nevolutivas
+        e\_ Historia de la Biolog\xEDa del plan de estudios de Biolog\xEDa\\nde la
+        F.C. UNAM del 2024. Entre los temas que abarca est\xE1n la historia\\nde varios
+        periodos, disciplinas y personajes de las ciencias de la vida:\\n\\nLos casos
+        de estudio de la biolog\xEDa\\n\\nLa Historia Natural\\n\\nLa gen\xE9tica\\n\\nLa
+        evoluci\xF3n\\n\\nLos naturalistas\\n\\nCon el tiempo ir\xE9 completando los
+        temas, entre los que incluir\xE9\\nseguramente estar\xE1n la ecolog\xEDa,
+        la gen\xF3mica y la historia de la\\nbiolog\xEDa en M\xE9xico.\\n\\nMi gestor
+        de referencias bibliogr\xE1ficas preferida es Zotero porque es\\nposible generar
+        una biblioteca compartida y generar colecciones y\\nsubcolecciones dentro
+        de tu biblioteca principal para organizar las\\nreferencias por tema, a\xF1o
+        o cualquier otro criterio \xFAtil con base en los\\nmetadatos disponibles.
+        Adem\xE1s es posible utilizar etiquetas\\npersonalizadas para asignar categor\xEDas
+        las referencias para facilitar la\\nb\xFAsqueda y generar filtros. Tambi\xE9n
+        puedo usar notas para a\xF1adir ideas y\\ncomentarios a los documentos.\\n\\nEsta
+        biblioteca est\xE1 curada para reunir textos que puedan ser utilizados\\ncomo
+        lecturas para los temas contenidos en los planes de las materias,\\nas\xED
+        como para que los alumnos tengan referencias b\xE1sicas y relevantes\\npara
+        realizar sus ensayos, presentaciones e investigaciones. Entre sus\\naplicaciones
+        est\xE1n poder usarla para generar citas y referencias, para\\nhacer listas
+        bibliogr\xE1ficas, realizar an\xE1lisis bibliogr\xE1ficos y para\\nasociar
+        la informaci\xF3n con otras plataformas como Wikidata.\\n\\nLa colecci\xF3n
+        bibliogr\xE1fica es abierta se dise\xF1o en Zotero y es curada\\nconstantemente
+        est\xE1 disponible en el enlace\\n<https://www.zotero.org/groups/2769748/biohistoria/library>.\\n\\n\_Esta
+        colecci\xF3n tambi\xE9n puede complementarse con recursos digitales que\\nhe
+        curado sobre historia de la biolog\xEDa a trav\xE9s de la\\nliga\_<https://start.me/p/z4K9Ez/biohistoria>.\\n\\n
+        \ \\n\\n::: {.separator style=\\\"clear: both; text-align: center;\\\"}\\n[![](https://upload.wikimedia.org/wikipedia/commons/7/7e/Haeckel_-_Hylocharis_Stokesii.jpg){border=\\\"0\\\"\\noriginal-height=\\\"845\\\"
+        original-width=\\\"1575\\\" height=\\\"268\\\"\\nwidth=\\\"499\\\"}](https://upload.wikimedia.org/wikipedia/commons/7/7e/Haeckel_-_Hylocharis_Stokesii.jpg){imageanchor=\\\"1\\\"\\nstyle=\\\"margin-left:
+        1em; margin-right: 1em;\\\"}\\n:::\\n\\n<div>\\n\\n  \\n\\n</div>\\n\\nFuente
+        de la\\nimagen:\_<https://upload.wikimedia.org/wikipedia/commons/7/7e/Haeckel_-_Hylocharis_Stokesii.jpg>
+        \ \\n\\n  \\n\",\"doi\":\"https://doi.org/10.59350/qerre-pvd63\",\"guid\":\"tag:blogger.com,1999:blog-3916921080498993167.post-1659522469873328156\",\"id\":\"cfcbf034-91d7-4d5a-9b0b-63c632fe17a4\",\"image\":\"https://upload.wikimedia.org/wikipedia/commons/7/7e/Haeckel_-_Hylocharis_Stokesii.jpg\",\"language\":\"es\",\"published_at\":1736462400,\"reference\":[],\"relationships\":[],\"rid\":\"fpyxq-80j02\",\"status\":\"active\",\"summary\":\"He
+        reunido una colecci\xF3n bibliogr\xE1fica denominada BIOhistoria, contiene
+        literatura acad\xE9mica como libros, cap\xEDtulos, art\xEDculos\_ e incluso
+        preprints \xFAtiles para los cursos de Filosof\xEDa e Historia de la Biolog\xEDa
+        del plan de estudios de la carrera de Biolog\xEDa de la Facultad de Ciencias
+        de la UNAM 1997. Tambi\xE9n resulta \xFAtil para ense\xF1ar o investigar sobre
+        los contenidos de las materias Introducci\xF3n a las teor\xEDas evolutivas
+        e\",\"tags\":[\"BIOhistoria\",\"Investigaci\xF3nDigital\U0001F4BF\",\"TecnologiaEducativa\"],\"title\":\"Colecci\xF3n
+        bibliogr\xE1fica BIOhistoria en Zotero\",\"updated_at\":1736462411,\"url\":\"https://biogarabatos.blogspot.com/2025/01/coleccion-bibliografica-biohistoria-en.html\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}},{\"document\":{\"authors\":[{\"name\":\"Coss\xEDo
+        Olavide, Mario\",\"url\":\"https://orcid.org/0000-0002-1447-3891\"}],\"blog_name\":\"Lucidarios\",\"blog_slug\":\"lucidarios\",\"category\":\"languagesAndLiterature\",\"content_text\":\"Esta
+        entrada inaugura una nueva serie sobre la que llevo pensando alg\xFAn\\ntiempo,
+        dedicada monogr\xE1ficamente al l\xE9xico empleado en la edici\xF3n de\\ntextos.
+        Como reconoce Duval (*Les mots* 5-6), el vocabulario de la\\ncr\xEDtica textual
+        (o ecd\xF3tica, edici\xF3n de textos, filolog\xEDa editorial o\\nfilolog\xEDa
+        a secas) es un campo plagado de ambig\xFCedades, originadas en\\nlas distintas
+        acepciones que un mismo t\xE9rmino puede tener en una escuela\\no corriente
+        de cr\xEDtica textual dada. Esto, a su vez, genera numerosas\\nconfusiones
+        en el correcto uso de los t\xE9rminos.\\n\\nCon estas nuevas entradas intento
+        ofrecer un glosario de voces\\ncorrientes en las distintas escuelas de cr\xEDtica
+        textual (y a trav\xE9s de\\nlas distintas tradiciones filol\xF3gicas modernas).
+        Como cualquier\\ndiccionario, cada entrada est\xE1 presentada bajo un lema
+        en espa\xF1ol (ya\\nsea adjetivos o sustantivos en singular, o verbos en infinitivo),\\nseguido
+        de una explicaci\xF3n de la etimolog\xEDa de la voz. A continuaci\xF3n,\\nse
+        presenta la definici\xF3n (o definiciones, cuando hay m\xE1s de una), una\\nlista
+        de sin\xF3nimos y ant\xF3nimos frecuentes, una lista de sus equivalentes\\nen
+        otras lenguas modernas y, finalmente, una serie de referencias\\nbibliogr\xE1ficas.\\n\\nDada
+        la amplitud del vocabulario cr\xEDtico disponible, las entradas\\ncomenzar\xE1n
+        alfab\xE9ticamente (con esta primera cubriendo un solo t\xE9rmino\\nque comienza
+        con *a*, pero las siguientes entradas cubrir\xE1n al menos\\ncinco t\xE9rminos).
+        Ocasionalmente, las entradas podr\xE1n a\xF1adir t\xE9rminos con\\nletras
+        ya terminadas, pero incluidos en entradas anteriores.\\n\\nCada entrada publicada
+        bajo la etiqueta \\\"Glosario de cr\xEDtica textual\\\"\\nser\xE1 reflejada,
+        a su vez, en una p\xE1gina a la que se puede acceder\\ndirectamente desde
+        la barra de men\xFA de cabecera, en la etiqueta\\n[Glosario de cr\xEDtica\\ntextual](https://lucidarios.hypotheses.org/glosario){data-type=\\\"link\\\"\\ndata-id=\\\"https://lucidarios.hypotheses.org/glosario\\\"}.\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.58.13.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.58.13-500x162.png\\\"\\nclass=\\\"wp-image-7362\\\"
+        loading=\\\"lazy\\\" decoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.58.13-500x162.png
+        500w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.58.13-300x97.png
+        300w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.58.13-768x249.png
+        768w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.58.13-1536x498.png
+        1536w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.58.13-2048x663.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"162\\\" /></a>\\n<figcaption>Etiqueta Glosario de cr\xEDtica textual</figcaption>\\n</figure>\\n:::\\n\\nEsta
+        p\xE1gina fija, a diferencia de las entradas, est\xE1 sujeta a revisiones\\ny
+        ampliaciones peri\xF3dicas (con la fecha de la \xFAltima revisi\xF3n indicada\\nal
+        final de la p\xE1gina) e incluir\xE1 una bibliograf\xEDa general. Tanto en
+        las\\nentradas como en la p\xE1gina est\xE1tica del glosario, la flecha horizontal\\n(\u2192)
+        se emplea para remitir al lector a otra entrada existente o futura.\\nComenzamos
+        con la primera entrada (un poco m\xE1s larga de lo habitual):\\n\\n## **abreviaci\xF3n**
+        (f.) {#abreviaci\xF3n-f. .wp-block-heading}\\n\\n\\\\[lat. tard\xEDo *abbreviatio*
+        --*\u014Dnis*, disminuci\xF3n\\\\]. Signo o dispositivo\\ngr\xE1fico de naturaleza
+        convencional que permite escribir una palabra\\neconomizando espacio al omitir,
+        al menos, una letra. La abreviaci\xF3n\\npuede ocurrir al inicio, medio o
+        final de una palabra y el signo\\nempleado puede indicar la omisi\xF3n una
+        o m\xE1s letras en tramos de letras\\ncontinuas o discontinuas. Por ejemplo,
+        la barra (o \u2192 *lineta*), el signo\\nde abreviaci\xF3n m\xE1s empleado
+        en la escritura medieval de la pen\xEDnsula\\nib\xE9rica, puede indicar la
+        omisi\xF3n de una letra:\\n\\n::: {.wp-block-image}\\n<figure class=\\\"aligncenter
+        size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.32.57.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.32.57-500x76.png\\\"\\nclass=\\\"wp-image-7244\\\"
+        style=\\\"width:160px;height:auto\\\" loading=\\\"lazy\\\"\\ndecoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.32.57-500x76.png
+        500w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.32.57-300x46.png
+        300w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.32.57-768x117.png
+        768w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.32.57-1536x233.png
+        1536w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.32.57-2048x311.png
+        2048w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"76\\\" /></a>\\n</figure>\\n:::\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large is-resized\\\">\\n<a href=\\\"https://lucidarios.hypotheses.org/files/2025/01/1.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2025/01/1-500x205.png\\\"\\nclass=\\\"wp-image-7248\\\"
+        style=\\\"width:122px;height:auto\\\" loading=\\\"lazy\\\"\\ndecoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2025/01/1-500x205.png
+        500w, https://lucidarios.hypotheses.org/files/2025/01/1-300x123.png 300w,
+        https://lucidarios.hypotheses.org/files/2025/01/1.png 712w\\\"\\nsizes=\\\"(max-width:
+        500px) 100vw, 500px\\\" width=\\\"500\\\" height=\\\"205\\\" /></a>\\n<figcaption>Archivo
+        Capitular de Toledo, ms. 43-13, fol.\\n7va</figcaption>\\n</figure>\\n:::\\n\\nO
+        la omisi\xF3n de letras discontinuas:\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.37.18.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.37.18-500x123.png\\\"\\nclass=\\\"wp-image-7276\\\"
+        style=\\\"width:186px;height:auto\\\" loading=\\\"lazy\\\"\\ndecoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.37.18-500x123.png
+        500w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.37.18-300x74.png
+        300w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.37.18-768x190.png
+        768w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.37.18-1536x379.png
+        1536w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-17.37.18.png
+        1952w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"123\\\" /></a>\\n</figure>\\n:::\\n\\n::: {.wp-block-image}\\n<figure
+        class=\\\"aligncenter size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-16.44.09.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-16.44.09-500x339.png\\\"\\nclass=\\\"wp-image-7286\\\"
+        style=\\\"width:104px;height:auto\\\" loading=\\\"lazy\\\"\\ndecoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-16.44.09-500x339.png
+        500w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-16.44.09-300x203.png
+        300w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-16.44.09.png
+        522w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"339\\\" /></a>\\n<figcaption>ACT, ms. 43-13, fol. 135va</figcaption>\\n</figure>\\n:::\\n\\n:::
+        {.wp-block-image}\\n<figure class=\\\"aligncenter size-large is-resized\\\">\\n<a\\nhref=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-16.28.17.png\\\"><img\\nsrc=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-16.28.17-500x255.png\\\"\\nclass=\\\"wp-image-7280\\\"
+        style=\\\"width:112px;height:auto\\\" loading=\\\"lazy\\\"\\ndecoding=\\\"async\\\"\\nsrcset=\\\"https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-16.28.17-500x255.png
+        500w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-16.28.17-300x153.png
+        300w, https://lucidarios.hypotheses.org/files/2025/01/Capture-de\u0301cran-2025-01-02-a\u0300-16.28.17.png
+        534w\\\"\\nsizes=\\\"(max-width: 500px) 100vw, 500px\\\" width=\\\"500\\\"
+        height=\\\"255\\\" /></a>\\n<figcaption>ACT, ms. 43-13, fol. 29va</figcaption>\\n</figure>\\n:::\\n\\nC\xF3mo
+        recuerdan Froger (*La critique* 22), Blecua (*Manual* 25) y Chiesa\\n(*Elementi*
+        167), entender c\xF3mo una lengua o un copista emplea\\nabreviaciones puede
+        servir para que el investigador establezca una\\netiolog\xEDa paleogr\xE1fica
+        de las faltas en los manuscritos ap\xF3grafos (\u2192\\n*ap\xF3grafo*), dado
+        que la mayor\xEDa de los errores por sustituci\xF3n (\u2192\\n*error*) son
+        el resultado de la lectura o interpretaci\xF3n incorrecta de\\nuna abreviaci\xF3n.
+        Casi todas las ediciones contempor\xE1neas desarrollan las\\nabreviaciones,
+        ya sea indicando su desarrollo mediante un sistema\\nconvencional (como las
+        it\xE1licas, los corchetes angulares o las letras en\\nsuper\xEDndice) o las
+        desarrollan silenciosamente. Algunos tipos de\\ntranscripciones, como las
+        alogr\xE1ficas (\u2192 *transcripci\xF3n alogr\xE1fica*),\\nfacsimilares o
+        diplom\xE1ticas, que intentar reflejar fielmente los\\nmanuscritos, mantienen
+        los signos de abreviaci\xF3n empleando fuentes\\ntipogr\xE1ficas desarrolladas
+        para esta tarea, como la [Brill\\nTypeface](https://brill.com/page/419386?language=en){data-type=\\\"link\\\"\\ndata-id=\\\"https://brill.com/page/419386?language=en\\\"}
+        o la [Medieval\\nUnicode Font Initiative](https://www.mufi.info/){data-type=\\\"link\\\"\\ndata-id=\\\"https://www.mufi.info/\\\"}.\\n\\n*Sin*:
+        *abreviatura*, *signo braquigr\xE1fico* (fr. *abr\xE9viation*, ingl.\\n*scribal
+        abbreviation*, it. *abbreviazione*, *compendio*)\\n\\nBibliograf\xEDa: Cappelli
+        xi-lvi; Duval, *Les mots*, 47-48; Froger 288;\\nJohn, \\\"Latin Paleography\\\"
+        43-45; Leonardi, *Critica* 42-43; S\xE1nchez\\nPrieto 159-68; S\xE1nchez-Prieto
+        Borja, *Editar* 106-09; Strussi,\\n*Introduzione* 24-30.\\n\\n------------------------------------------------------------------------\\n\\n*Obras
+        citadas* \\\\[v\xE9ase en el\\n[Glosario](https://lucidarios.hypotheses.org/glosario#obrascitadas){data-type=\\\"link\\\"\\ndata-id=\\\"https://lucidarios.hypotheses.org/glosario#obrascitadas\\\"}\\\\]\\n\\n------------------------------------------------------------------------\\n\\nImagen
+        de miniatura: Biblioth\xE8que national de France,  \\nms. Fran\xE7ais 9198,
+        Jean Mi\xE9lot,  \\n*[Vie et Miracles de Notre\\nDame](https://gallica.bnf.fr/ark:/12148/btv1b8451109t/f49.item.zoom#){data-type=\\\"link\\\"\\ndata-id=\\\"https://gallica.bnf.fr/ark:/12148/btv1b8451109t/f49.item.zoom#\\\"}*,\\nfol.
+        19r\\n\\n\_\\n\",\"doi\":\"https://doi.org/10.58079/1304f\",\"guid\":\"https://lucidarios.hypotheses.org/?p=7180\",\"id\":\"98170c39-33d9-4737-8aad-465c1eea3f5b\",\"image\":\"https://lucidarios.hypotheses.org/files/2025/01/Vie_et_miracles_de_Notre_.Mie\u0301lot_Jean_btv1b8451109t_49-scaled.jpg\",\"language\":\"es\",\"published_at\":1735837370,\"reference\":[],\"relationships\":[],\"rid\":\"z4t7a-ft831\",\"status\":\"active\",\"summary\":\"Esta
+        entrada inaugura una nueva serie sobre la que llevo pensando alg\xFAn tiempo,
+        dedicada monogr\xE1ficamente al l\xE9xico empleado en la edici\xF3n de textos.\",\"tags\":[\"Entradas\",\"Abreviaci\xF3n\",\"Abreviatura\",\"Cr\xEDtica
+        Textual\",\"Glosario De Cr\xEDtica Textual\"],\"title\":\"Glosario de cr\xEDtica
+        textual (1): <i>abreviaci\xF3n</i>\",\"updated_at\":1738188474,\"url\":\"https://lucidarios.hypotheses.org/7180\"},\"highlight\":{},\"highlights\":[],\"text_match\":100,\"text_match_info\":{\"best_field_score\":\"0\",\"best_field_weight\":12,\"fields_matched\":4,\"score\":\"100\",\"tokens_matched\":0}}],\"out_of\":24815,\"page\":1,\"request_params\":{\"collection_name\":\"posts_sep_2023\",\"per_page\":10,\"q\":\"\"},\"search_cutoff\":false,\"search_time_ms\":19}"
+    headers:
+      Connection:
+      - keep-alive
+      accept-ranges:
+      - none
+      access-control-allow-origin:
+      - '*'
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      transfer-encoding:
+      - chunked
+      vary:
+      - accept-encoding
+    status:
+      code: 200
+      message: OK
 version: 1

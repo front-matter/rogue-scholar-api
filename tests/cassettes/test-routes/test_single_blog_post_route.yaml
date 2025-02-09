@@ -131,4 +131,66 @@ interactions:
       - '6'
     http_version: HTTP/2
     status_code: 200
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-profile:
+      - public
+      host:
+      - zggonsjmmfozmfxlrjmg.supabase.co
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.12.0
+    method: GET
+    uri: https://zggonsjmmfozmfxlrjmg.supabase.co/rest/v1/blogs?select=id%2Cslug%2Cfeed_url%2Ccurrent_feed_url%2Chome_page_url%2Carchive_prefix%2Cfeed_format%2Ccreated_at%2Cupdated_at%2Cregistered_at%2Clicense%2Cmastodon%2Cgenerator%2Cgenerator_raw%2Clanguage%2Cfavicon%2Ctitle%2Cdescription%2Ccategory%2Cstatus%2Cuser_id%2Cauthors%2Cuse_api%2Crelative_url%2Cfilter%2Csecure%2Ccommunity_id%2Cprefix%2Cissn%2Cfeed_format&slug=eq.andrewheiss
+  response:
+    content: '{"id":"1941b1fd-eea5-4d90-a251-f7ff58c98403","slug":"andrewheiss","feed_url":"https://www.andrewheiss.com/atom.xml","current_feed_url":null,"home_page_url":"https://www.andrewheiss.com","archive_prefix":"https://wayback.archive-it.org/22114/20231101175222/","feed_format":"application/rss+xml","created_at":1692662400,"updated_at":1737954000,"registered_at":1720446737,"license":"https://creativecommons.org/licenses/by/4.0/legalcode","mastodon":"https://fediscience.org/@andrew","generator":"Quarto","generator_raw":"Quarto
+      1.6.1","language":"en","favicon":null,"title":"Andrew Heiss''s blog","description":"Andrew
+      Heiss''s blog","category":"politicalScience","status":"active","user_id":"7e027f20-14b4-4d41-b547-a5dc12ae3ea4","authors":null,"use_api":null,"relative_url":null,"filter":null,"secure":true,"community_id":"5979ba5e-5943-4841-a201-c9e63c8fc68a","prefix":"10.59350","issn":null,"feed_format":"application/rss+xml"}'
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 90f60b5c8de4c805-DUS
+      content-location:
+      - /blogs?select=id%2Cslug%2Cfeed_url%2Ccurrent_feed_url%2Chome_page_url%2Carchive_prefix%2Cfeed_format%2Ccreated_at%2Cupdated_at%2Cregistered_at%2Clicense%2Cmastodon%2Cgenerator%2Cgenerator_raw%2Clanguage%2Cfavicon%2Ctitle%2Cdescription%2Ccategory%2Cstatus%2Cuser_id%2Cauthors%2Cuse_api%2Crelative_url%2Cfilter%2Csecure%2Ccommunity_id%2Cprefix%2Cissn%2Cfeed_format&slug=eq.andrewheiss
+      content-profile:
+      - public
+      content-range:
+      - 0-0/*
+      content-type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      date:
+      - Sun, 09 Feb 2025 18:50:19 GMT
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - zggonsjmmfozmfxlrjmg
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-kong-proxy-latency:
+      - '1'
+      x-kong-upstream-latency:
+      - '5'
+    http_version: HTTP/2
+    status_code: 200
 version: 1
