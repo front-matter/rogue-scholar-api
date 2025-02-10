@@ -176,4 +176,91 @@ interactions:
       - '4'
     http_version: HTTP/2
     status_code: 206
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-profile:
+      - public
+      host:
+      - zggonsjmmfozmfxlrjmg.supabase.co
+      prefer:
+      - count=exact
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.12.0
+    method: GET
+    uri: https://zggonsjmmfozmfxlrjmg.supabase.co/rest/v1/blogs?select=slug%2Ctitle%2Cdescription%2Clanguage%2Cfavicon%2Cfeed_url%2Cfeed_format%2Chome_page_url%2Cgenerator%2Ccategory&status=in.%28approved%2Cactive%2Carchived%2Cexpired%29&title=ilike.%25%25&limit=10&limit=11&order=created_at.desc&offset=0
+  response:
+    content: "[{\"slug\":\"jakubnowosad\",\"title\":\"Thinking in spatial patterns\",\"description\":\"Hi!
+      I'm Jakub Nowosad, an Associate Professor at the Adam Mickiewicz University
+      and a co-author of the Geocomputation with R book.\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://jakubnowosad.com/posts.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://jakubnowosad.com\",\"generator\":\"Quarto\",\"category\":\"earthAndRelatedEnvironmentalSciences\"},
+      \n {\"slug\":\"renebekkers\",\"title\":\"Rene Bekkers\",\"description\":\"Rene
+      Bekkers\",\"language\":\"en\",\"favicon\":\"https://renebekkers.wordpress.com/wp-content/uploads/2017/01/bekkers-rene-kleur.jpg?w=32\",\"feed_url\":\"https://renebekkers.wordpress.com/feed/atom\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://renebekkers.wordpress.com/\",\"generator\":\"WordPress.com\",\"category\":\"socialScience\"},
+      \n {\"slug\":\"lismob\",\"title\":\"LISMob\",\"description\":\"Mobile library
+      and information science\\n\\nISSN 2630-3094\",\"language\":\"sl\",\"favicon\":null,\"feed_url\":\"https://lismob.blogspot.com/feeds/posts/default\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://lismob.blogspot.com/\",\"generator\":\"Blogger\",\"category\":\"computerAndInformationSciences\"},
+      \n {\"slug\":\"dhlab\",\"title\":\"DH Lab\",\"description\":\"Leibniz-Institut
+      f\xFCr Europ\xE4ische Geschichte (IEG)\",\"language\":\"en\",\"favicon\":\"https://dhlab.hypotheses.org/files/2020/01/cropped-IEG_Logo_dh-32x32.png\",\"feed_url\":\"https://dhlab.hypotheses.org/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://dhlab.hypotheses.org/\",\"generator\":\"WordPress\",\"category\":\"historyAndArchaeology\"},
+      \n {\"slug\":\"gbilder\",\"title\":\"Louche Cannon\",\"description\":null,\"language\":\"en\",\"favicon\":\"https://gbilder.com/icon.png\",\"feed_url\":\"https://gbilder.com/feed.json\",\"feed_format\":\"application/feed+json\",\"home_page_url\":\"https://gbilder.com/\",\"generator\":\"Other\",\"category\":\"computerAndInformationSciences\"},
+      \n {\"slug\":\"infrawissblogs\",\"title\":\"Infra Wiss Blogs\",\"description\":\"Kooperative
+      Informationsinfrastruktur f\xFCr wissenschaftliche Blogs\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://infrawissblogs.org/blog.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://infrawissblogs.org\",\"generator\":\"Quarto\",\"category\":\"computerAndInformationSciences\"},
+      \n {\"slug\":\"bertiewooster\",\"title\":\"Jeremy Monat, PhD\",\"description\":\"Scientific
+      software developer\",\"language\":\"en\",\"favicon\":\"https://fly.storage.tigris.dev/assets.rogue-scholar.org/logos/bertiewooster.png\",\"feed_url\":\"https://bertiewooster.github.io/feed.xml\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://bertiewooster.github.io/\",\"generator\":\"Jekyll\",\"category\":\"chemicalSciences\"},
+      \n {\"slug\":\"justapathologist\",\"title\":\"Andr\xE9's slide box\",\"description\":\"The
+      thoughts and sights of Andr\xE9 Lametti \u2014 just a pathologist\",\"language\":\"en\",\"favicon\":\"https://justapa.thologi.st/favicon.png\",\"feed_url\":\"https://justapa.thologi.st/feed.xml\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://justapa.thologi.st/\",\"generator\":\"Hugo\",\"category\":\"medicalAndHealthSciences\"},
+      \n {\"slug\":\"biblioblog\",\"title\":\"BIBLIOBLOG\",\"description\":\"O stvareh,
+      ki zanimajo knji\u017Eni\u010Darje - info@biblioblog.si\",\"language\":\"sl\",\"favicon\":null,\"feed_url\":\"https://www.biblioblog.si/feeds/posts/default\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://www.biblioblog.si\",\"generator\":\"Other\",\"category\":\"humanities\"},
+      \n {\"slug\":\"gettinggeneticsdone\",\"title\":\"Getting Genetics Done\",\"description\":\"Getting
+      Things Done in Genetics & Bioinformatics Research\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://gettinggeneticsdone.blogspot.com/feeds/posts/default\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://gettinggeneticsdone.blogspot.com/\",\"generator\":\"Blogger\",\"category\":\"biologicalSciences\"},
+      \n {\"slug\":\"connectedideas\",\"title\":\"The Connected Ideas Project\",\"description\":\"Exploring
+      how tech, policy, people, and ideas are connected. A special love for AI and
+      biotechnology, but a lot of thinking about how emerging technologies like fusion,
+      AI, quantum, and more are impacting our lives. With some sci-fi thrown in.\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://www.connectedideasproject.com/feed\",\"feed_format\":null,\"home_page_url\":\"https://www.connectedideasproject.com/\",\"generator\":\"Substack\",\"category\":\"otherEngineeringAndTechnologies\"}]"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 90fb3883cd8ecb15-DUS
+      content-location:
+      - /blogs?limit=10,11&offset=0&order=created_at.desc&select=slug%2Ctitle%2Cdescription%2Clanguage%2Cfavicon%2Cfeed_url%2Cfeed_format%2Chome_page_url%2Cgenerator%2Ccategory&status=in.%28approved%2Cactive%2Carchived%2Cexpired%29&title=ilike.%25%25
+      content-profile:
+      - public
+      content-range:
+      - 0-10/132
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Mon, 10 Feb 2025 09:54:57 GMT
+      preference-applied:
+      - count=exact
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - zggonsjmmfozmfxlrjmg
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-kong-proxy-latency:
+      - '1'
+      x-kong-upstream-latency:
+      - '4'
+    http_version: HTTP/2
+    status_code: 206
 version: 1

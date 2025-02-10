@@ -34,7 +34,6 @@ from api.supabase_client import (
     postsWithContentSelect,
     postsWithCitationsSelect,
 )
-from api.typesense_client import typesense_client as typesense
 from api.utils import (
     get_formatted_metadata,
     convert_to_commonmeta,
@@ -43,9 +42,6 @@ from api.utils import (
     write_jats,
     format_markdown,
     validate_uuid,
-    unix_timestamp,
-    end_of_date,
-    compact,
     format_datetime,
     format_authors,
     format_authors_full,
@@ -73,7 +69,7 @@ config.from_toml("hypercorn.toml")
 load_dotenv()
 rate_limiter = RateLimiter()
 logger = logging.getLogger(__name__)
-version = "0.11.0"  # TODO: importlib.metadata.version('rogue-scholar-api')
+version = "0.13.0"  # TODO: importlib.metadata.version('rogue-scholar-api')
 
 sentry_sdk.init(
     dsn=environ["QUART_SENTRY_DSN"],
@@ -118,7 +114,7 @@ async def blogs():
     query = request.args.get("query") or ""
     page = int(request.args.get("page") or "1")
 
-    status = ["approved", "active", "archived"]
+    status = ["approved", "active", "archived", "expired"]
     start_page = page if page and page > 0 else 1
     start_page = (start_page - 1) * 10
     end_page = start_page + 10
@@ -323,58 +319,40 @@ async def posts():
     """Search posts by query, tags, language, category. Options to change page, per_page and include fields."""
     preview = request.args.get("preview")
     query = request.args.get("query") or ""
-    query_by = (
-        request.args.get("query_by")
-        or "tags,title,doi,authors.name,authors.url,summary,abstract,content_text,reference"
-    )
-    tags = request.args.get("tags")
-    language = request.args.get("language")
-    category = request.args.get("category")
     page = int(request.args.get("page") or "1")
-    per_page = int(request.args.get("per_page") or "10")
-    # default sort depends on whether a query is provided
-    _text_match = "_text_match" if request.args.get("query") else "published_at"
-    sort = (
-        f"{request.args.get('sort')}(missing_values: last)"
-        if request.args.get("sort")
-        else _text_match
-    )
-    order = request.args.get("order") or "desc"
-    include_fields = request.args.get("include_fields")
     blog_slug = request.args.get("blog_slug")
-    published_since = (
-        unix_timestamp(request.args.get("published_since"))
-        if request.args.get("published_since")
-        else 0
-    )
-    published_until = (
-        unix_timestamp(end_of_date(request.args.get("published_until")))
-        if request.args.get("published_until")
-        else int(time.time())
-    )
-    # filter posts by status, date published, blog, tags, and/or language
-    filter_by = "status:=[pending,active]" if preview else "status:!=[pending]"
-    filter_by = filter_by + (
-        f" && published_at:>= {published_since} && published_at:<= {published_until}"
-    )
-    filter_by = filter_by + f" && blog_slug:{blog_slug}" if blog_slug else filter_by
-    filter_by = filter_by + f" && tags:=[{tags}]" if tags else filter_by
-    filter_by = filter_by + f" && language:=[{language}]" if language else filter_by
-    filter_by = filter_by + f" && category:>= {category}" if category else filter_by
-    search_parameters = compact(
-        {
-            "q": query,
-            "query_by": query_by,
-            "filter_by": filter_by,
-            "sort_by": f"{sort}:{order}",
-            "per_page": min(per_page, 50),
-            "page": page if page and page > 0 else 1,
-            "include_fields": include_fields,
-        }
-    )
+    status = ["approved", "active", "archived", "expired"]
+    if preview:
+        status = ["pending", "approved", "active", "archived", "expired"]
+    start_page = page if page and page > 0 else 1
+    start_page = (start_page - 1) * 10
+    end_page = start_page + 10
+
     try:
-        response = typesense.collections["posts"].documents.search(search_parameters)
-        return jsonify(py_.omit(response, ["hits.highlight"]))
+        if blog_slug:
+            response = (
+            supabase_client.table("posts")
+            .select(postsWithContentSelect, count="exact")
+            .in_("status", status)
+            .eq("blog_slug", blog_slug)
+            .ilike("title", f"%{query}%")
+            .limit(10)
+            .order("published_at", desc=True)
+            .range(start_page, end_page)
+            .execute()
+        )
+        else:
+            response = (
+                supabase_client.table("posts")
+                .select(postsWithContentSelect, count="exact")
+                .in_("status", status)
+                .ilike("title", f"%{query}%")
+                .limit(10)
+                .order("published_at", desc=True)
+                .range(start_page, end_page)
+                .execute()
+            )
+        return jsonify({"total-results": response.count, "items": response.data})
     except Exception as e:
         logger.warning(e.args[0])
         return {"error": "An error occured."}, 400
@@ -462,7 +440,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
         "10.59350",
     ]
     permitted_slugs = ["unregistered", "updated", "cited"] + prefixes
-    status = ["active", "archived"]
+    status = ["active", "archived", "expired"]
     if slug not in permitted_slugs and not validate_uuid(slug):
         logger.warning(f"Invalid slug: {slug}")
         return {"error": "An error occured."}, 400

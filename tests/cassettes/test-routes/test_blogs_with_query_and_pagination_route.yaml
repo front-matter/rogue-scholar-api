@@ -133,4 +133,69 @@ interactions:
       - '4'
     http_version: HTTP/2
     status_code: 416
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-profile:
+      - public
+      host:
+      - zggonsjmmfozmfxlrjmg.supabase.co
+      prefer:
+      - count=exact
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.12.0
+    method: GET
+    uri: https://zggonsjmmfozmfxlrjmg.supabase.co/rest/v1/blogs?select=slug%2Ctitle%2Cdescription%2Clanguage%2Cfavicon%2Cfeed_url%2Cfeed_format%2Chome_page_url%2Cgenerator%2Ccategory&status=in.%28approved%2Cactive%2Carchived%2Cexpired%29&title=ilike.%25wordpress%25&limit=10&limit=11&order=created_at.desc&offset=10
+  response:
+    content: '{"code":"PGRST103","details":"An offset of 10 was requested, but there
+      are only 0 rows.","hint":null,"message":"Requested range not satisfiable"}'
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 90fb3881db91cb15-DUS
+      content-location:
+      - /blogs?limit=10,11&offset=10&order=created_at.desc&select=slug%2Ctitle%2Cdescription%2Clanguage%2Cfavicon%2Cfeed_url%2Cfeed_format%2Chome_page_url%2Cgenerator%2Ccategory&status=in.%28approved%2Cactive%2Carchived%2Cexpired%29&title=ilike.%25wordpress%25
+      content-profile:
+      - public
+      content-range:
+      - '*/0'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Mon, 10 Feb 2025 09:54:57 GMT
+      preference-applied:
+      - count=exact
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - zggonsjmmfozmfxlrjmg
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-kong-proxy-latency:
+      - '1'
+      x-kong-upstream-latency:
+      - '6'
+    http_version: HTTP/2
+    status_code: 416
 version: 1

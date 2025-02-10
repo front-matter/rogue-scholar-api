@@ -1945,7 +1945,6 @@ dependencies = [
     { name = "sentry-sdk" },
     { name = "supabase" },
     { name = "tox" },
-    { name = "typesense" },
     { name = "weasyprint" },
     { name = "xmltodict" },
 ]
@@ -1988,7 +1987,6 @@ requires-dist = [
     { name = "sentry-sdk", specifier = ">=1.32,<3.0" },
     { name = "supabase", specifier = "~=2.9" },
     { name = "tox", specifier = ">=4.11.3,<5" },
-    { name = "typesense", specifier = ">=0.17.0,<0.18" },
     { name = "weasyprint", specifier = "~=62.3" },
     { name = "xmltodict", specifier = ">=0.12.0,<0.13" },
 ]
@@ -2417,18 +2415,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/4f/bc/191d95f4e18ee8ffe626046574805fad7734827146e6ad39d56149fb1f62/types-xmltodict-0.13.0.3.tar.gz", hash = "sha256:8884534bab0364c4b22d5973f3c8153ff40d413a801d9e70eb893e676909f1fc", size = 2689 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/9a/31/8046c84acfc397e60afe39ac5cdaf1ba5cf95eef11a1e995c3e951f08ba5/types_xmltodict-0.13.0.3-py3-none-any.whl", hash = "sha256:cb251c59e838986d8402b10d804225ade9fd6c9f66d01dc45cd6cfdf43640128", size = 2503 },
-]
-
-[[package]]
-name = "typesense"
-version = "0.17.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "requests" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/4c/0c/5192e32e72cb2661b925342d4f5625073841af952d60bc918643c437f434/typesense-0.17.0.tar.gz", hash = "sha256:44f1756094f6ecafebc7700ba03337530898213b182ccb9d4454b5c5233b7411", size = 17061 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/15/d9/6c5b686fe3e5f654fcce751d8d2b85060a6b6225cb02777a0fea367dbec0/typesense-0.17.0-py2.py3-none-any.whl", hash = "sha256:60be8b15d3fb602988b0da39ad013770769bf090fa30dd71df72e64a304b7661", size = 27699 },
 ]
 
 [[package]]

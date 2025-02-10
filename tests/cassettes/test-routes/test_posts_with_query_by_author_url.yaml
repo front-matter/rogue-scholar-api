@@ -3315,4 +3315,70 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-profile:
+      - public
+      host:
+      - zggonsjmmfozmfxlrjmg.supabase.co
+      prefer:
+      - count=exact
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.12.0
+    method: GET
+    uri: https://zggonsjmmfozmfxlrjmg.supabase.co/rest/v1/posts?select=id%2Cguid%2Cdoi%2Curl%2Carchive_url%2Ctitle%2Csummary%2Cabstract%2Ccontent_text%2Cpublished_at%2Cupdated_at%2Cregistered_at%2Cindexed_at%2Cauthors%2Cimage%2Ctags%2Clanguage%2Creference%2Crelationships%2Cblog_name%2Cblog_slug%2Crid%2Cblog%3Ablogs%21inner%28%2A%29&status=in.%28approved%2Cactive%2Carchived%2Cexpired%29&title=ilike.%250000-0003-1419-2405%25&limit=10&limit=11&order=published_at.desc&offset=0
+  response:
+    content: '[]'
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 90fb38b81a431608-DUS
+      content-encoding:
+      - gzip
+      content-location:
+      - /posts?limit=10,11&offset=0&order=published_at.desc&select=id%2Cguid%2Cdoi%2Curl%2Carchive_url%2Ctitle%2Csummary%2Cabstract%2Ccontent_text%2Cpublished_at%2Cupdated_at%2Cregistered_at%2Cindexed_at%2Cauthors%2Cimage%2Ctags%2Clanguage%2Creference%2Crelationships%2Cblog_name%2Cblog_slug%2Crid%2Cblog%3Ablogs%21inner%28%2A%29&status=in.%28approved%2Cactive%2Carchived%2Cexpired%29&title=ilike.%250000-0003-1419-2405%25
+      content-profile:
+      - public
+      content-range:
+      - '*/0'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Mon, 10 Feb 2025 09:55:05 GMT
+      preference-applied:
+      - count=exact
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - zggonsjmmfozmfxlrjmg
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-kong-proxy-latency:
+      - '0'
+      x-kong-upstream-latency:
+      - '136'
+    http_version: HTTP/2
+    status_code: 200
 version: 1
