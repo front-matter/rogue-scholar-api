@@ -120,7 +120,7 @@ async def extract_single_blog(slug: str):
             updated_at = unix_timestamp(updated_at) or config["updated_at"]
 
         feed_format = parse_feed_format(feed) or config["feed_format"]
-        title = feed.get("title", None) or config["title"]
+        title = config.get("title", None) or feed.get("title", None)
         generator_raw = config["generator_raw"] or (
             parse_generator(feed.get("generator_detail", None) or feed.get("generator"))
             or "Other"
