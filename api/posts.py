@@ -127,14 +127,14 @@ async def update_all_cited_posts(page: int = 1):
 
     response = (
         supabase.table("posts")
-            .select(postsWithCitationsSelect, count="exact")
-            .not_.is_("blogs.prefix", "null")
-            .not_.is_("doi", "null")
-            .limit(50)
-            .order("updated_at", desc=True)
-            .range(start_page, end_page)
-            .execute()
-    )   
+        .select(postsWithCitationsSelect, count="exact")
+        .not_.is_("blogs.prefix", "null")
+        .not_.is_("doi", "null")
+        .limit(50)
+        .order("updated_at", desc=True)
+        .range(start_page, end_page)
+        .execute()
+    )
     tasks = []
     for post in response.data:
         blog = post.get("blog", None)
@@ -646,6 +646,13 @@ async def extract_wordpress_post(post, blog, validate_all: bool = False):
         ):
             title = title_parts[0]
             author = title_parts[1]
+        elif (
+            len(title_parts) > 1
+            and authors_
+            and py_.get(authors_, "0.name", None) in ["The BJPS"]
+        ):
+            title = title_parts[0].replace(" // Reviewed", "")
+            author = title_parts[1]
         if author:
             authors_ = [{"name": author}]
 
@@ -1019,7 +1026,9 @@ async def extract_json_feed_post(post, blog, validate_all: bool = False):
         summary = get_summary(content_html)
         abstract = post.get("summary", None)
         abstract = get_abstract(summary, abstract)
-        reference = await get_jsonfeed_references(post.get("_references", []), validate_all)
+        reference = await get_jsonfeed_references(
+            post.get("_references", []), validate_all
+        )
         if len(reference) == 0:
             reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
@@ -1550,9 +1559,9 @@ def create_record(record, guid: str, community_id: str, category_id: str):
         # add draft record to blog community
         # add draft record to subject community
         if community_id:
-                add_record_to_community(rid, community_id)
+            add_record_to_community(rid, community_id)
         if category_id:
-                add_record_to_community(rid, category_id)
+            add_record_to_community(rid, category_id)
 
         # update rogue scholar database with InvenioRDM record id (rid) if record was created
         post_to_update = (
@@ -1640,9 +1649,9 @@ def update_record(record, rid: str, community_id: str, category_id: str):
         communities = py_.get(response.json(), "parent.communities.entries", [])
         community_ids = [i["id"] for i in communities]
         if community_id and community_id not in community_ids:
-                add_record_to_community(rid, community_id)
+            add_record_to_community(rid, community_id)
         if category_id and category_id not in community_ids:
-                add_record_to_community(rid, category_id)
+            add_record_to_community(rid, category_id)
 
         # update rogue scholar database with InvenioRDM record id (rid)
         post_to_update = (
@@ -2262,4 +2271,8 @@ def format_citations(citations: list) -> list:
             }
         )
 
-    return [format_citation(citation) for citation in citations if citation.get("validated", False)]
+    return [
+        format_citation(citation)
+        for citation in citations
+        if citation.get("validated", False)
+    ]
