@@ -190,7 +190,7 @@ AUTHOR_NAMES = {
     "Open.Make team": "Open.Make Team",
     "Stephen": "Stephen Curry",
     "aninkov": "Anton Ninkov",
-    "Elizabeth Hannon": "BJPS Reviewers",
+    "Elizabeth Hannon": "BSPS Staff",
 }
 
 AUTHOR_AFFILIATIONS = {
