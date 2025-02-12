@@ -190,6 +190,7 @@ AUTHOR_NAMES = {
     "Open.Make team": "Open.Make Team",
     "Stephen": "Stephen Curry",
     "aninkov": "Anton Ninkov",
+    "Elizabeth Hannon": "BJPS Reviewers",
 }
 
 AUTHOR_AFFILIATIONS = {
@@ -1636,7 +1637,7 @@ async def format_json_reference(reference: dict, validate_all: bool = False):
             c = []
             for cito in reference["cito"]:
                 c.append("cito:" + cito)
-                unstructured += " <b>[" + ", ".join(c) + "]</b>"
+            unstructured += " <b>[" + ", ".join(c) + "]</b>"
 
         return compact(
             {

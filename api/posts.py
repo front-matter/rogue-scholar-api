@@ -1319,8 +1319,6 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
         summary = get_summary(content_html)
         abstract = post.get("abstract", None)
         abstract = get_abstract(summary, abstract)
-        # reference = await get_jsonfeed_references(post.get("_references", []), validate_all)
-        # if len(reference) == 0:
         reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
         citations = post.get("citations", [])
