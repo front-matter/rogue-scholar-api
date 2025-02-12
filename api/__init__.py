@@ -548,7 +548,6 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
             basename = slug
         else:
             doi = f"https://doi.org/{slug}/{suffix}"
-            print(doi)
             response = (
                 supabase_client.table("posts")
                 .select(postsWithContentSelect)
@@ -556,7 +555,6 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
                 .maybe_single()
                 .execute()
             )
-            print(response)
             basename = doi_from_url(doi).replace("/", "-")
         content = response.data.get("content_text", None)
         if format_ == "json":
