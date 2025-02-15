@@ -143,6 +143,7 @@ AUTHOR_IDS = {
     "Ulrike Stockhausen": "https://orcid.org/0000-0002-8016-6902",
     "Jeremy Monat": "https://orcid.org/0009-0004-1360-0918",
     "Ksenija Rivo": "https://orcid.org/0000-0002-4094-5645",
+    "Jakub Nowosad": "https://orcid.org/0000-0002-1057-3721",
 }
 
 AUTHOR_NAMES = {
@@ -818,6 +819,13 @@ AUTHOR_AFFILIATIONS = {
             "name": "Universidad Carlos III de Madrid",
             "id": "https://ror.org/03ths8210",
             "start_date": "2008-05-08",
+        }
+    ],
+    "https://orcid.org/0000-0002-1057-3721": [
+        {
+            "name": "Adam Mickiewicz University in Poznań",
+            "id": "https://ror.org/04g6bbq64",
+            "start_date": "2018-10-01",
         }
     ],
 }
@@ -1699,4 +1707,4 @@ async def validate_reference(id_: str, unstructured: str) -> Optional[str]:
         return [id_, unstructured]
     except Exception as e:
         print(e)
-        return None
+        return [id_, unstructured]
