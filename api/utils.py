@@ -31,7 +31,7 @@ from commonmeta.doi_utils import validate_prefix, get_doi_ra
 import frontmatter
 import pandoc
 
-# from pandoc.types import Str
+from pandoc.types import Link
 from sentry_sdk import capture_message
 
 
@@ -1380,11 +1380,19 @@ def get_markdown(content_html: str) -> str:
     """Get markdown from html"""
     try:
         doc = pandoc.read(content_html, format="html")
+        # display_external_links(doc)
         return pandoc.write(doc, format="commonmark_x")
     except Exception as e:
         print(e)
         return ""
 
+def display_external_links(doc):
+    links = [elt for elt in pandoc.iter(doc) if isinstance(elt, Link)]
+    for link in links:
+        target = link[2] # link: Link(Attr, [Inline], Target)
+        url = target[0] # target: (Text, Text)
+        if url.startswith("http:") or url.startswith("https:"):
+            print(url)
 
 def write_html(markdown: str):
     """Get html from markdown"""
@@ -1635,6 +1643,7 @@ async def format_json_reference(reference: dict, validate_all: bool = False):
         if id_ is not None:
             id_ = normalize_url(id_)
         unstructured = reference.get("reference", None)
+        c = None
 
         # if id_ is present and validate_all is True, lookup metadata
         if id_ is not None and validate_all:
@@ -1651,6 +1660,7 @@ async def format_json_reference(reference: dict, validate_all: bool = False):
             {
                 "id": id_,
                 "unstructured": unstructured,
+                "cito": c,
             }
         )
     except Exception as e:

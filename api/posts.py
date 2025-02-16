@@ -115,7 +115,6 @@ async def update_all_cited_posts(page: int = 1):
     response = (
         supabase.table("posts")
         .select("*, citation: citations!inner(*)", count="exact", head=True)
-        .not_.is_("doi", "null")
         .execute()
     )
     total = response.count
@@ -127,9 +126,7 @@ async def update_all_cited_posts(page: int = 1):
 
     response = (
         supabase.table("posts")
-        .select(postsWithCitationsSelect, count="exact")
-        .not_.is_("blogs.prefix", "null")
-        .not_.is_("doi", "null")
+        .select("*, citations(*)", count="exact")
         .limit(50)
         .order("updated_at", desc=True)
         .range(start_page, end_page)
@@ -137,6 +134,7 @@ async def update_all_cited_posts(page: int = 1):
     )
     tasks = []
     for post in response.data:
+        print("Updating cited post", post["doi"])
         blog = post.get("blog", None)
         task = update_rogue_scholar_post(post, blog, validate_all)
         tasks.append(task)
@@ -651,7 +649,7 @@ async def extract_wordpress_post(post, blog, validate_all: bool = False):
             and authors_
             and py_.get(authors_, "0.name", None) in ["The BJPS"]
         ):
-            title = title_parts[0].replace(" // Reviewed", "")
+            title = title_parts[0].replace("// Reviewed", "").strip()
             author = title_parts[1]
         if author:
             authors_ = [{"name": author}]
@@ -1328,7 +1326,9 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
         summary = get_summary(content_html)
         abstract = post.get("abstract", None)
         abstract = get_abstract(summary, abstract)
-        reference = await get_references(content_html, validate_all)
+        reference = post.get("reference", None)
+        if not reference:
+            reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
         citations = post.get("citations", [])
         title = get_title(post.get("title"))
@@ -1513,7 +1513,7 @@ def upsert_single_post(post):
         else:
             print(f"creating record for guid {guid}")
             return create_record(record.data, guid, community_id, category_id)
-
+        print(f"upserted record for doi {doi}")
         return post_to_update.data[0]
     except Exception as e:
         print(e)
@@ -1587,6 +1587,9 @@ def create_record(record, guid: str, community_id: str, category_id: str):
 
 def update_record(record, rid: str, community_id: str, category_id: str):
     """Update InvenioRDM record."""
+    def get_published_at(element):
+        return element['published_at']
+
     try:
         citations = record.get("citations", [])
         subject = Metadata(record, via="json_feed_item")
@@ -1610,6 +1613,7 @@ def update_record(record, rid: str, community_id: str, category_id: str):
 
         # add citations to InvenioRDM record
         if len(citations) > 0:
+            citations.sort(key=get_published_at)
             record["custom_fields"]["rs:citations"] = format_citations(citations)
 
         # create draft record from published record
@@ -1822,6 +1826,7 @@ async def get_references(content_html: str, validate_all: bool = False):
 
     # if references use an (ordered or unordered) list
     soup = get_soup(reference_html[1])
+    print(soup)
     list = soup.ol or soup.ul
     references = []
     if list:
