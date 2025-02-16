@@ -192,6 +192,9 @@ AUTHOR_NAMES = {
     "Stephen": "Stephen Curry",
     "aninkov": "Anton Ninkov",
     "Elizabeth Hannon": "BJPS Book Reviewers",
+    "Murphy and Pereira": "BJPS Book Reviewers",
+    "Calder and Lee": "BJPS Book Reviewers",
+    "Rosenberg and Glymour": "BJPS Book Reviewers",
 }
 
 AUTHOR_AFFILIATIONS = {
