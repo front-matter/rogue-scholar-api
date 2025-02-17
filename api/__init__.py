@@ -336,7 +336,6 @@ async def posts():
             .in_("status", status)
             .eq("blog_slug", blog_slug)
             .ilike("title", f"%{query}%")
-            .limit(10)
             .order("published_at", desc=True)
             .range(start_page, end_page)
             .execute()
@@ -358,15 +357,14 @@ async def posts():
         return {"error": "An error occured."}, 400
 
 
-@app.route("/posts/<slug>", methods=["POST"])
 @app.route("/posts", methods=["POST"])
-async def post_posts(slug: Optional[str] = None):
+async def post_posts():
     """Update posts."""
 
-    permitted_slugs = ["cited"]
-    if slug and slug not in permitted_slugs:
-        logger.warning(f"Invalid slug: {slug}")
-        return {"error": "An error occured."}, 400
+    # permitted_slugs = ["cited"]
+    # if slug and slug not in permitted_slugs:
+    #     logger.warning(f"Invalid slug: {slug}")
+    #     return {"error": "An error occured."}, 400
 
     page = int(request.args.get("page") or "1")
     update = request.args.get("update")
@@ -380,10 +378,10 @@ async def post_posts(slug: Optional[str] = None):
         return {"error": "Unauthorized."}, 401
     else:
         try:
-            if slug == "cited":
-                updated_posts = await update_all_cited_posts(page=page)
-                return jsonify(updated_posts)
-            elif update == "self":
+            # if slug == "cited":
+            #     updated_posts = await update_all_cited_posts(page=page)
+            #     return jsonify(updated_posts)
+            if update == "self":
                 updated_posts = await update_all_posts(page=page)
                 return jsonify(updated_posts)
             else:
@@ -454,23 +452,24 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
             supabase_client.table("posts")
             .select(postsWithContentSelect, count="exact")
             .not_.is_("blogs.prefix", "null")
+            .is_("doi", "null")
             .is_("rid", "null")
             .in_("status", status)
             .order("published_at", desc=True)
-            .limit(min(per_page, 100))
+            .limit(min(per_page, 50))
             .execute()
         )
         return jsonify({"total-results": response.count, "items": response.data})
     elif slug == "updated":
         response = (
             supabase_client.table("posts")
-            .select(postsWithContentSelect, count="exact")
+            .select("postsWithContentSelect", count="exact")
             .not_.is_("blogs.prefix", "null")
             .is_("updated", True)
             .not_.is_("doi", "null")
             .in_("status", status)
             .order("updated_at", desc=True)
-            .limit(min(per_page, 100))
+            .limit(min(per_page, 50))
             .execute()
         )
         return jsonify({"total-results": response.count, "items": response.data})
