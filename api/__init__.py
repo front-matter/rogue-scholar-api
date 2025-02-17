@@ -452,7 +452,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
         response = (
             supabase_client.table("posts")
             .select(postsWithContentSelect, count="exact")
-            .not_.is_("blogs.prefix", "null")
+            .not_.is_("blog.prefix", "null")
             .is_("doi", "null")
             .is_("rid", "null")
             .in_("status", status)
@@ -465,7 +465,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
         response = (
             supabase_client.table("posts")
             .select("postsWithContentSelect", count="exact")
-            .not_.is_("blogs.prefix", "null")
+            .not_.is_("blog.prefix", "null")
             .is_("updated", True)
             .not_.is_("doi", "null")
             .in_("status", status)
