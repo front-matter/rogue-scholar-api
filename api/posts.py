@@ -18,6 +18,7 @@ from urllib.parse import unquote
 from commonmeta import (
     Metadata,
     validate_doi,
+    normalize_doi,
     validate_prefix,
 )
 from math import ceil
@@ -1326,9 +1327,10 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
         summary = get_summary(content_html)
         abstract = post.get("abstract", None)
         abstract = get_abstract(summary, abstract)
-        reference = post.get("reference", None)
-        if not reference:
+        if validate_all:
             reference = await get_references(content_html, validate_all)
+        else:
+            reference = post.get("reference", None)
         relationships = get_relationships(content_html)
         citations = post.get("citations", [])
         title = get_title(post.get("title"))
@@ -1815,7 +1817,20 @@ async def get_references(content_html: str, validate_all: bool = False):
             tasks.append(task)
         formatted_references = py_.compact(await asyncio.gather(*tasks))
         return formatted_references
+    
+    # if references are formatted by kcite, using [cite] shortcodes
+    cite_re = re.findall(r"\[cite\](.+)\[/cite\]", content_html)
+    if cite_re:
+        tasks = []
+        for reference in cite_re:
+            ref = normalize_doi(reference)
+            if ref:
+                task = format_reference(ref, True)
+                tasks.append(task)
+        formatted_references = py_.compact(await asyncio.gather(*tasks))
+        return formatted_references
 
+    # if there is a references section
     reference_html = re.split(
         r"(?:References|Reference|Referenzen|Bibliography|Literature|Literatur|Footnotes|References:)<\/(?:h1|h2|h3|h4)>",
         content_html,
