@@ -1271,8 +1271,6 @@ def get_formatted_metadata(
         result = subject.write(to="datacite")
     else:
         ext = "txt"
-        # workaround for properly formatting blog posts
-        subject.type = "JournalArticle"
         result = subject.write(to="citation", style=style, locale=locale)
     options = {
         "Content-Type": content_type,
@@ -1586,8 +1584,6 @@ def get_formatted_work(
     }
     content_type = accept_headers.get(accept_header, "commonmeta")
     if content_type == "citation":
-        # workaround for properly formatting blog posts
-        subject.type = "JournalArticle"
         return subject.write(to="citation", style=style, locale=locale)
     else:
         return subject.write(to=content_type)
