@@ -54,7 +54,6 @@ from api.posts import (
     extract_all_posts,
     extract_all_posts_by_blog,
     update_all_posts,
-    update_all_cited_posts,
     update_all_posts_by_blog,
     update_single_post,
     delete_draft_record,
@@ -202,7 +201,9 @@ async def post_blog_posts(slug: str, suffix: Optional[str] = None):
     elif slug and suffix == "posts":
         try:
             if update == "self":
-                result = await update_all_posts_by_blog(slug, page=page)
+                result = await update_all_posts_by_blog(
+                    slug, page=page, validate_all=(validate == "all")
+                )
             else:
                 result = await extract_all_posts_by_blog(
                     slug,
@@ -294,7 +295,7 @@ async def post_citations(slug: str, suffix: Optional[str] = None):
         != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
     ):
         return {"error": "Unauthorized."}, 401
-    
+
     try:
         if suffix:
             slug = f"{slug}/{suffix}"
@@ -331,15 +332,15 @@ async def posts():
     try:
         if blog_slug:
             response = (
-            supabase_client.table("posts")
-            .select(postsWithContentSelect, count="exact")
-            .in_("status", status)
-            .eq("blog_slug", blog_slug)
-            .ilike("title", f"%{query}%")
-            .order("published_at", desc=True)
-            .range(start_page, end_page)
-            .execute()
-        )
+                supabase_client.table("posts")
+                .select(postsWithContentSelect, count="exact")
+                .in_("status", status)
+                .eq("blog_slug", blog_slug)
+                .ilike("title", f"%{query}%")
+                .order("published_at", desc=True)
+                .range(start_page, end_page)
+                .execute()
+            )
         else:
             response = (
                 supabase_client.table("posts")

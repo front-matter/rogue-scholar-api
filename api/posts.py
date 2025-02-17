@@ -83,7 +83,7 @@ async def extract_all_posts(
     return results
 
 
-async def update_all_posts(page: int = 1):
+async def update_all_posts(page: int = 1, validate_all: bool = False):
     """Update all posts."""
 
     blogs = (
@@ -96,7 +96,7 @@ async def update_all_posts(page: int = 1):
     )
     tasks = []
     for blog in blogs.data:
-        task = update_all_posts_by_blog(blog["slug"], page)
+        task = update_all_posts_by_blog(blog["slug"], page, validate_all)
         tasks.append(task)
 
     raw_results = await asyncio.gather(*tasks)
@@ -493,7 +493,9 @@ async def extract_all_posts_by_blog(
         return []
 
 
-async def update_all_posts_by_blog(slug: str, page: int = 1):
+async def update_all_posts_by_blog(
+    slug: str, page: int = 1, validate_all: bool = False
+):
     """Update all posts by blog."""
 
     try:
@@ -522,7 +524,9 @@ async def update_all_posts_by_blog(slug: str, page: int = 1):
             .range(start_page, end_page)
             .execute()
         )
-        update_posts = [update_rogue_scholar_post(x, blog) for x in response.data]
+        update_posts = [
+            update_rogue_scholar_post(x, blog, validate_all) for x in response.data
+        ]
         blog_with_posts["entries"] = await asyncio.gather(*update_posts)
         return [upsert_single_post(i) for i in blog_with_posts["entries"]]
     except TimeoutError:
@@ -1589,8 +1593,9 @@ def create_record(record, guid: str, community_id: str, category_id: str):
 
 def update_record(record, rid: str, community_id: str, category_id: str):
     """Update InvenioRDM record."""
+
     def get_published_at(element):
-        return element['published_at']
+        return element["published_at"]
 
     try:
         citations = record.get("citations", [])
@@ -1817,12 +1822,13 @@ async def get_references(content_html: str, validate_all: bool = False):
             tasks.append(task)
         formatted_references = py_.compact(await asyncio.gather(*tasks))
         return formatted_references
-    
+
     # if references are formatted by kcite, using [cite] shortcodes
-    cite_re = re.findall(r"\[cite\](.+)\[/cite\]", content_html)
+    cite_re = re.findall(r"\[cite\](.+?)\[/cite\]", content_html)
     if cite_re:
+        references = py_.uniq(cite_re)
         tasks = []
-        for reference in cite_re:
+        for reference in references:
             ref = normalize_doi(reference)
             if ref:
                 task = format_reference(ref, True)
