@@ -144,6 +144,7 @@ AUTHOR_IDS = {
     "Jeremy Monat": "https://orcid.org/0009-0004-1360-0918",
     "Ksenija Rivo": "https://orcid.org/0000-0002-4094-5645",
     "Jakub Nowosad": "https://orcid.org/0000-0002-1057-3721",
+    "Duncan Hull": "https://orcid.org/0000-0003-2387-503X",
 }
 
 AUTHOR_NAMES = {
