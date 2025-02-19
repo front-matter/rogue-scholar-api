@@ -55,6 +55,7 @@ from api.posts import (
     extract_all_posts_by_blog,
     update_all_posts,
     update_all_posts_by_blog,
+    extract_single_post,
     update_single_post,
     delete_draft_record,
     delete_all_draft_records,
@@ -403,6 +404,7 @@ async def post_posts():
 async def post_post(slug: str, suffix: Optional[str] = None):
     """Update post by either uuid or doi, using information from the blog's feed."""
 
+    update = request.args.get("update")
     validate = request.args.get("validate")
     if (
         request.headers.get("Authorization", None) is None
@@ -412,10 +414,16 @@ async def post_post(slug: str, suffix: Optional[str] = None):
         return {"error": "Unauthorized."}, 401
 
     try:
-        result = await update_single_post(
-            slug, suffix=suffix, validate_all=(validate == "all")
-        )
-        return jsonify(result)
+        if update == "self":
+            result = await update_single_post(
+                slug, suffix=suffix, validate_all=(validate == "all")
+            )
+            return jsonify(result)
+        else:
+            result = await extract_single_post(
+                slug, suffix=suffix, validate_all=(validate == "all")
+            )
+            return jsonify(result)
     except Exception as e:
         logger.warning(e.args[0])
         return {"error": "An error occured."}, 400

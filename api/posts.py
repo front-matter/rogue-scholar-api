@@ -566,6 +566,78 @@ async def get_single_post(slug: str, suffix: Optional[str] = None):
         return {}
 
 
+async def extract_single_post(
+    slug: str,
+    suffix: str,
+    validate_all: bool = False,
+):
+    """Extract single post from blog. Currently only supports blogs with JSON APIs."""
+
+    try:
+        response = (
+            supabase.table("blogs")
+            .select(
+                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, registered_at, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure, doi_as_guid"
+            )
+            .eq("slug", slug)
+            .maybe_single()
+            .execute()
+        )
+        if not response:
+            return []
+        blog = response.data
+        if not blog:
+            return {}
+        url = furl(blog.get("feed_url", None))
+        generator = (
+            blog.get("generator", "").split(" ")[0]
+            if blog.get("generator", None)
+            else None
+        )
+
+        # generate url depending on the platform and whether we use their API
+        match generator:
+            case "Ghost":
+                if blog.get("use_api", False):
+                    host = environ[f"QUART_{blog.get('slug').upper()}_GHOST_API_HOST"]
+                    key = environ[f"QUART_{blog.get('slug').upper()}_GHOST_API_KEY"]
+                    url = url.set(host=host, path=f"/ghost/api/content/posts/slug/{suffix}/")
+                    params = {
+                        "include": "tags,authors",
+                        "key": key,
+                    }
+                else:
+                    params = {}
+        feed_url = url.set(params).url
+        print(f"Extracting post from {blog['slug']} at {feed_url}.")
+
+        if generator == "Ghost" and blog["use_api"]:
+            headers = {"Accept-Version": "v5.0"}
+            async with httpx.AsyncClient() as client:
+                try:
+                    response = await client.get(feed_url, timeout=10.0, headers=headers)
+                    response.raise_for_status()
+                    json = response.json()
+                    posts = json.get("posts", [])
+                    print(posts)
+                except httpx.HTTPStatusError:
+                    print(response.status_code)
+                    print(f"HTTP status error for feed {feed_url}.")
+                    posts = []
+                except httpx.TransportError:
+                    print(f"Transport error for feed {feed_url}.")
+                    posts = []
+                except httpx.HTTPError as e:
+                    capture_exception(e)
+                    posts = []
+                extract_posts = [
+                    await extract_ghost_post(x, blog, validate_all) for x in posts
+                ]
+        return [upsert_single_post(i) for i in extract_posts]
+    except Exception:
+        print(traceback.format_exc())
+        return {}
+
 async def update_single_post(
     slug: str, suffix: Optional[str] = None, validate_all: bool = False
 ):
