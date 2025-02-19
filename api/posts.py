@@ -574,21 +574,61 @@ async def extract_single_post(
     """Extract single post from blog. Currently only supports blogs with JSON APIs."""
 
     try:
-        response = (
-            supabase.table("blogs")
-            .select(
-                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, registered_at, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure, doi_as_guid"
+        if validate_uuid(slug):
+            response = (
+                supabase.table("posts")
+                .select(postsWithCitationsSelect)
+                .eq("id", slug)
+                .maybe_single()
+                .execute()
             )
-            .eq("slug", slug)
-            .maybe_single()
-            .execute()
-        )
-        if not response:
-            return []
-        blog = response.data
-        if not blog:
-            return {}
-        url = furl(blog.get("feed_url", None))
+            if not response:
+                response = (
+                    supabase.table("posts")
+                    .select(postsWithContentSelect)
+                    .eq("id", slug)
+                    .maybe_single()
+                    .execute()
+                )
+            post = response.data
+            blog = py_.get(post, "blog")
+        elif validate_prefix(slug) and suffix:
+            doi = f"https://doi.org/{slug}/{suffix}"
+            response = (
+                supabase.table("posts")
+                .select(postsWithCitationsSelect)
+                .eq("doi", doi)
+                .maybe_single()
+                .execute()
+            )
+            if not response:
+                response = (
+                    supabase.table("posts")
+                    .select(postsWithContentSelect)
+                    .eq("doi", doi)
+                    .maybe_single()
+                    .execute()
+                )
+            post = response.data
+            blog = py_.get(post, "blog")
+        else:
+            response = (
+                supabase.table("blogs")
+                .select(
+                    "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, registered_at, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure, doi_as_guid"
+                )
+                .eq("slug", slug)
+                .maybe_single()
+                .execute()
+            )
+            if not response:
+                return {}
+            blog = response.data
+            if not blog:
+                return {}
+            url = furl(blog.get("feed_url", None))
+            path = suffix
+
         generator = (
             blog.get("generator", "").split(" ")[0]
             if blog.get("generator", None)
@@ -597,21 +637,107 @@ async def extract_single_post(
 
         # generate url depending on the platform and whether we use their API
         match generator:
+            case "WordPress":
+                if blog.get("use_api", False):
+                    site = furl(blog.get("home_page_url", None)).host
+                    id_ = furl(post.get("guid")).args["p"]
+                    f = furl()
+                    f.host = site
+                    f.scheme = "https" if blog.get("secure", True) else "http"
+                    f.path = f"/wp-json/wp/v2/posts/{id_}"
+                    f.args = {"_embed": 1}
+            case "WordPress.com":
+                if blog.get("use_api", False):
+                    site = furl(blog.get("home_page_url", None)).host
+                    id_ = furl(post.get("guid")).args["p"]
+                    f = furl()
+                    f.host = "public-api.wordpress.com"
+                    f.scheme = "https" if blog.get("secure", True) else "http"
+                    f.path = f"/rest/v1.1/sites/{site}/posts/{id_}"
             case "Ghost":
                 if blog.get("use_api", False):
                     host = environ[f"QUART_{blog.get('slug').upper()}_GHOST_API_HOST"]
                     key = environ[f"QUART_{blog.get('slug').upper()}_GHOST_API_KEY"]
-                    url = url.set(host=host, path=f"/ghost/api/content/posts/slug/{suffix}/")
-                    params = {
+                    post_url = py_.get(post, "url")
+                    path = furl(post_url).path.segments[-1]
+                    f = furl()
+                    f.host = host
+                    f.scheme = "https"
+                    f.path = f"/ghost/api/content/posts/slug/{path}/"
+                    f.args = {
                         "include": "tags,authors",
                         "key": key,
                     }
-                else:
-                    params = {}
-        feed_url = url.set(params).url
+            case "Substack":
+                site = furl(blog.get("home_page_url", None)).host
+                post_url = py_.get(post, "url")
+                path = furl(post_url).path.segments[-1]
+                f = furl()
+                f.host = site
+                f.scheme = "https"
+                f.path = f"/api/v1/posts/{path}"
+            # case "Squarespace":
+            # params = compact({"format": "json"})
+        feed_url = f.url
         print(f"Extracting post from {blog['slug']} at {feed_url}.")
 
-        if generator == "Ghost" and blog["use_api"]:
+        if generator == "Substack":
+            async with httpx.AsyncClient() as client:
+                try:
+                    response = await client.get(
+                        feed_url, timeout=10.0, follow_redirects=True
+                    )
+                    response.raise_for_status()
+                    post = response.json()
+                except httpx.HTTPStatusError:
+                    print(f"HTTP status error for feed {feed_url}.")
+                    post = {}
+                except httpx.TransportError:
+                    print(f"Transport error for feed {feed_url}.")
+                    post = {}
+                except httpx.HTTPError as e:
+                    capture_exception(e)
+                    post = {}
+                extract_posts = [await extract_substack_post(post, blog, validate_all)]
+        elif generator == "WordPress" and blog["use_api"]:
+            async with httpx.AsyncClient() as client:
+                try:
+                    response = await client.get(
+                        feed_url, timeout=30.0, follow_redirects=True
+                    )
+                    response.raise_for_status()
+                    post = response.json()
+                except httpx.HTTPStatusError:
+                    print(f"HTTP status error for feed {feed_url}.")
+                    post = {}
+                except httpx.TransportError:
+                    print(f"Transport error for feed {feed_url}.")
+                    post = {}
+                except httpx.HTTPError as e:
+                    capture_exception(e)
+                    post = {}
+                extract_posts = [await extract_wordpress_post(post, blog, validate_all)]
+        elif generator == "WordPress.com" and blog["use_api"]:
+            async with httpx.AsyncClient() as client:
+                try:
+                    response = await client.get(
+                        feed_url, timeout=10.0, follow_redirects=True
+                    )
+                    response.raise_for_status()
+                    post = response.json()
+                except httpx.HTTPStatusError:
+                    print(f"HTTP status error for feed {feed_url}.")
+                    post = {}
+                except httpx.TransportError:
+                    print(f"Transport error for feed {feed_url}.")
+                    post = {}
+                except httpx.HTTPError as e:
+                    capture_exception(e)
+                    post = {}
+                extract_posts = [
+                    await extract_wordpresscom_post(post, blog, validate_all)
+                ]
+        elif generator == "Ghost" and blog["use_api"]:
             headers = {"Accept-Version": "v5.0"}
             async with httpx.AsyncClient() as client:
                 try:
@@ -619,7 +745,6 @@ async def extract_single_post(
                     response.raise_for_status()
                     json = response.json()
                     posts = json.get("posts", [])
-                    print(posts)
                 except httpx.HTTPStatusError:
                     print(response.status_code)
                     print(f"HTTP status error for feed {feed_url}.")
@@ -633,10 +758,32 @@ async def extract_single_post(
                 extract_posts = [
                     await extract_ghost_post(x, blog, validate_all) for x in posts
                 ]
+        # elif generator == "Squarespace":
+        #     async with httpx.AsyncClient() as client:
+        #         try:
+        #             response = await client.get(
+        #                 feed_url, timeout=10.0, follow_redirects=True
+        #             )
+        #             response.raise_for_status()
+        #             json = response.json()
+        #             posts = json.get("items", [])
+        #         except httpx.HTTPStatusError:
+        #             print(f"HTTP status error for feed {feed_url}.")
+        #             posts = []
+        #         except httpx.TransportError:
+        #             print(f"Transport error for feed {feed_url}.")
+        #             posts = []
+        #         except httpx.HTTPError as e:
+        #             capture_exception(e)
+        #             posts = []
+        #         extract_posts = [
+        #             extract_squarespace_post(x, blog, validate_all) for x in posts
+        #         ]
         return [upsert_single_post(i) for i in extract_posts]
     except Exception:
         print(traceback.format_exc())
         return {}
+
 
 async def update_single_post(
     slug: str, suffix: Optional[str] = None, validate_all: bool = False
