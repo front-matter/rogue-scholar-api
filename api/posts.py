@@ -255,9 +255,7 @@ async def extract_all_posts_by_blog(
                 url = url.set(path="/api/v1/posts/")
                 params = {"sort": "new", "offset": start_page, "limit": per_page}
             case "Squarespace":
-                if not offset:
-                    offset = 0
-                params = compact({"format": "json", "offset": offset})
+                params = compact({"format": "json"})
             case _:
                 params = {}
 
