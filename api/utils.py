@@ -196,6 +196,7 @@ AUTHOR_NAMES = {
     "Murphy and Pereira": "BJPS Book Reviewers",
     "Calder and Lee": "BJPS Book Reviewers",
     "Rosenberg and Glymour": "BJPS Book Reviewers",
+    "telemedicus.info": "Redaktion iRights.info",
 }
 
 AUTHOR_AFFILIATIONS = {
