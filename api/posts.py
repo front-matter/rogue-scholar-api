@@ -1722,7 +1722,7 @@ def upsert_single_post(post):
         doi = record.data.get("doi", None)
         rid = search_by_doi(doi)
         community = post.get("blog_slug", "").lower()
-        community_id = search_by_community_slug(community)
+        community_id = search_by_community_slug(community, "blog")
         category = post.get("category", "").lower()
         category_id = search_by_community_slug(category)
 
@@ -1940,9 +1940,9 @@ def search_by_doi(doi: str) -> Optional[str]:
         return None
 
 
-def search_by_community_slug(slug: str) -> Optional[str]:
+def search_by_community_slug(slug: str, type_: str = "topic") -> Optional[str]:
     try:
-        url = f"{environ['QUART_INVENIORDM_API']}/api/communities?q=slug:{slug}"
+        url = f"{environ['QUART_INVENIORDM_API']}/api/communities?q=slug:{slug}&type=subject&type={type_}"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         response = httpx.get(url, headers=headers, timeout=10.0)
         if response.status_code >= 400:
@@ -2064,7 +2064,6 @@ async def get_references(content_html: str, validate_all: bool = False):
 
     # if references use an (ordered or unordered) list
     soup = get_soup(reference_html[1])
-    print(soup)
     list = soup.ol or soup.ul
     references = []
     if list:
