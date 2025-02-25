@@ -197,6 +197,7 @@ AUTHOR_NAMES = {
     "Calder and Lee": "BJPS Book Reviewers",
     "Rosenberg and Glymour": "BJPS Book Reviewers",
     "telemedicus.info": "Redaktion iRights.info",
+    "deze": "Projektteam",
 }
 
 AUTHOR_AFFILIATIONS = {
@@ -890,6 +891,12 @@ FOS_MAPPINGS = {
     "otherHumanities": "Other humanities",
 }
 
+COMMUNITY_TRANSLATIONS = {
+    "nachrichten":            "news",
+	"papers":                 "researchblogging",
+	"urheberrecht":           "copyright",
+	"veranstaltungshinweise": "events",
+}
 
 def wrap(item) -> list:
     """Turn None, dict, or list into list"""

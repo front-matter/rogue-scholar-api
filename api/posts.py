@@ -1721,11 +1721,17 @@ def upsert_single_post(post):
         guid = record.data.get("guid", None)
         doi = record.data.get("doi", None)
         rid = search_by_doi(doi)
+
+        # blog community
         community = post.get("blog_slug", "").lower()
         community_id = search_by_community_slug(community, "blog")
+
+        # subject area community
         category = post.get("category", "").lower()
         category_id = search_by_community_slug(category)
 
+        # TODO: topic communities
+        
         # if DOI doen't exist (yet), ignore InvenioRDM
         if doi is None:
             return post_to_update.data[0]
