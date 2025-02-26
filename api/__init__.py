@@ -321,14 +321,15 @@ async def posts():
     """Search posts by query, tags, language, category. Options to change page, per_page and include fields."""
     preview = request.args.get("preview")
     query = request.args.get("query") or ""
+    number = int(request.args.get("number") or "10")
     page = int(request.args.get("page") or "1")
     blog_slug = request.args.get("blog_slug")
     status = ["approved", "active", "archived", "expired"]
     if preview:
         status = ["pending", "approved", "active", "archived", "expired"]
     start_page = page if page and page > 0 else 1
-    start_page = (start_page - 1) * 10
-    end_page = start_page + 10
+    start_page = (start_page - 1) * number
+    end_page = start_page + number
 
     try:
         if blog_slug:
