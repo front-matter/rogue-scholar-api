@@ -318,13 +318,14 @@ async def posts_redirect():
 @validate_response(Post)
 @app.route("/posts")
 async def posts():
-    """Search posts by query, category. Options to change page, per_page."""
+    """Search posts by query, category, flag. Options to change page, per_page."""
     preview = request.args.get("preview")
     query = request.args.get("query") or ""
     per_page = int(request.args.get("per_page") or "10")
     per_page = min(per_page, 50)
     page = int(request.args.get("page") or "1")
     blog_slug = request.args.get("blog_slug")
+    flag = request.args.get("flag")
     status = ["approved", "active", "archived", "expired"]
     if preview:
         status = ["pending", "approved", "active", "archived", "expired"]
@@ -339,6 +340,17 @@ async def posts():
                 .select(postsWithContentSelect, count="exact")
                 .in_("status", status)
                 .eq("blog_slug", blog_slug)
+                .ilike("title", f"%{query}%")
+                .order("published_at", desc=True)
+                .range(start_page, end_page)
+                .execute()
+            )
+        elif flag:
+            response = (
+                supabase_client.table("posts")
+                .select(postsWithContentSelect, count="exact")
+                .in_("status", status)
+                .is_("archived", flag == "archived")
                 .ilike("title", f"%{query}%")
                 .order("published_at", desc=True)
                 .range(start_page, end_page)
