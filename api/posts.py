@@ -1755,9 +1755,6 @@ def create_record(record, guid: str, community_id: str, category_id: str):
         subject = Metadata(record, via="json_feed_item")
         record = JSON.loads(subject.write(to="inveniordm"))
 
-        # remove publisher field, currently not used with InvenioRDM
-        record = py_.omit(record, "metadata.publisher")
-
         # validate funding, lookup award metadata if needed
         if py_.get(record, "metadata.funding"):
             record["metadata"]["funding"] = validate_funding(
@@ -1831,9 +1828,6 @@ def update_record(record, rid: str, community_id: str, category_id: str):
         )
         if guid_dict:
             guid = guid_dict["identifier"]
-
-        # remove publisher field, currently not used with InvenioRDM
-        record = py_.omit(record, "metadata.publisher")
 
         # validate funding, lookup award metadata if needed
         if py_.get(record, "metadata.funding"):
