@@ -110,30 +110,31 @@ async def update_all_posts(page: int = 1, validate_all: bool = False):
     return results
 
 
-async def update_all_cited_posts(page: int = 1):
+async def update_all_cited_posts(page: int = 1, validate_all: bool = False):
     """Update all cited posts."""
 
     response = (
         supabase.table("posts")
-        .select("*, citation: citations!inner(*)", count="exact", head=True)
+        .select("*, citations: citations!inner(*)", count="exact", head=True)
         .execute()
     )
     total = response.count
     total_pages = ceil(total / 50)
     page = min(page, total_pages)
-    start_page = (page - 1) * 50 if page > 0 else 0
-    end_page = (page - 1) * 50 + 50 if page > 0 else 50
+    start_page = (page - 1) * total_pages if page > 0 else 0
+    end_page = (page - 1) * total_pages + total_pages if page > 0 else total_pages
     validate_all = True
 
     response = (
         supabase.table("posts")
-        .select("*, citations(*)", count="exact")
-        .limit(50)
+        .select("*, blog: blogs!inner(*), citations: citations!inner(*)", count="exact")
+        .limit(total_pages)
         .order("updated_at", desc=True)
         .range(start_page, end_page)
         .execute()
     )
     tasks = []
+    print(f"Updating cited posts from page {page} of {total_pages}.")
     for post in response.data:
         print("Updating cited post", post["doi"])
         blog = post.get("blog", None)
@@ -1554,6 +1555,8 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
             reference = post.get("reference", None)
         relationships = get_relationships(content_html)
         citations = post.get("citations", [])
+        if len(citations) > 0:
+            citations = format_citations(citations)
         title = get_title(post.get("title"))
         url = normalize_url(post.get("url"), secure=blog.get("secure", True))
         archive_url = (

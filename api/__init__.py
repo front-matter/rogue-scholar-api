@@ -4,7 +4,6 @@ from hypercorn.config import Config
 import logging
 from typing import Optional
 from datetime import timedelta
-import time
 from math import ceil
 from os import environ
 import pydash as py_
@@ -59,6 +58,7 @@ from api.posts import (
     update_single_post,
     delete_draft_record,
     delete_all_draft_records,
+    update_all_cited_posts,
 )
 from api.blogs import extract_single_blog, extract_all_blogs
 from api.citations import extract_all_citations
@@ -377,11 +377,6 @@ async def posts():
 async def post_posts():
     """Update posts."""
 
-    # permitted_slugs = ["cited"]
-    # if slug and slug not in permitted_slugs:
-    #     logger.warning(f"Invalid slug: {slug}")
-    #     return {"error": "An error occured."}, 400
-
     page = int(request.args.get("page") or "1")
     update = request.args.get("update")
     validate = request.args.get("validate")
@@ -394,10 +389,10 @@ async def post_posts():
         return {"error": "Unauthorized."}, 401
     else:
         try:
-            # if slug == "cited":
-            #     updated_posts = await update_all_cited_posts(page=page)
-            #     return jsonify(updated_posts)
-            if update == "self":
+            if update == "cited":
+                updated_posts = await update_all_cited_posts(page=page)
+                return jsonify(updated_posts)
+            elif update == "self":
                 updated_posts = await update_all_posts(page=page)
                 return jsonify(updated_posts)
             else:
