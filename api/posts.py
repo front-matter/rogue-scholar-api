@@ -128,7 +128,6 @@ async def update_all_cited_posts(page: int = 1, validate_all: bool = False):
     response = (
         supabase.table("posts")
         .select("*, blog: blogs!inner(*), citations: citations!inner(*)", count="exact")
-        .limit(total_pages)
         .order("updated_at", desc=True)
         .range(start_page, end_page)
         .execute()
