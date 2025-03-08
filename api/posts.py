@@ -2465,11 +2465,12 @@ def validate_funding(funding: list) -> Optional[list]:
 
     def format_funding(item):
         """Format funding."""
+        print(item)
         if not item.get("award", None):
             return None
         if not item.get("award", None).get("number", None):
             return None
-        award = get_award(item.get("award", None).get("number", None))
+        award = get_award(py_.get(item, "award.number"))
         if not award:
             return py_.omit(item, "award")
         item["award"] = award
