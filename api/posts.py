@@ -20,6 +20,8 @@ from commonmeta import (
     validate_doi,
     normalize_doi,
     validate_prefix,
+    normalize_ror,
+    validate_ror,
 )
 from math import ceil
 from Levenshtein import ratio
@@ -988,6 +990,7 @@ async def extract_wordpress_post(post, blog, validate_all: bool = False):
             "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
+            "funding_references": [],
             "tags": terms,
             "title": title,
             "url": url,
@@ -1051,6 +1054,7 @@ async def extract_wordpresscom_post(post, blog, validate_all: bool = False):
             "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
+            "funding_references": None,
             "tags": tags,
             "title": get_title(post.get("title", None)),
             "url": url,
@@ -1117,6 +1121,7 @@ async def extract_ghost_post(post, blog, validate_all: bool = False):
             "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
+            "funding_references": None,
             "tags": tags,
             "title": get_title(post.get("title", None)),
             "url": url,
@@ -1181,6 +1186,7 @@ async def extract_substack_post(post, blog, validate_all: bool = False):
             "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
+            "funding_references": None,
             "tags": tags,
             "title": get_title(post.get("title", None)),
             "url": url,
@@ -1247,6 +1253,7 @@ async def extract_squarespace_post(post, blog, validate_all: bool = False):
             "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
+            "funding_references": None,
             "tags": tags,
             "title": get_title(post.get("title", None)),
             "url": url,
@@ -1288,6 +1295,9 @@ async def extract_json_feed_post(post, blog, validate_all: bool = False):
         if len(reference) == 0:
             reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
+        funding_references = await get_funding(
+            content_html
+        ) or await get_funding_references(post.get("_funding", None))
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
         archive_url = (
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
@@ -1318,6 +1328,7 @@ async def extract_json_feed_post(post, blog, validate_all: bool = False):
             "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
+            "funding_references": funding_references,
             "tags": tags,
             "title": get_title(post.get("title", None)),
             "url": url,
@@ -1425,6 +1436,7 @@ async def extract_atom_post(post, blog, validate_all: bool = False):
             "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
+            "funding_references": None,
             "tags": tags,
             "title": title,
             "url": url,
@@ -1534,6 +1546,7 @@ async def extract_rss_post(post, blog, validate_all: bool = False):
             "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
+            "funding_references": None,
             "tags": tags,
             "title": get_title(post.get("title", None)),
             "url": url,
@@ -1633,6 +1646,7 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
             "reference": reference,
             "relationships": relationships,
             "citations": citations,
+            "funding_references": None,
             "tags": tags,
             "title": title,
             "url": url,
@@ -1717,6 +1731,7 @@ def upsert_single_post(post):
                     "category": post.get("category", None),
                     "reference": post.get("reference", None),
                     "relationships": post.get("relationships", None),
+                    "funding_references": post.get("funding_references", None),
                     "summary": post.get("summary", ""),
                     "abstract": post.get("abstract", None),
                     "tags": post.get("tags", None),
@@ -2148,6 +2163,41 @@ async def get_jsonfeed_references(references: list, validate_all: bool = False):
 
     formatted_references = py_.compact(await asyncio.gather(*tasks))
     return formatted_references
+
+
+async def get_funding(content_html: str, validate_all: bool = False):
+    """Extract funding from content_html, optionally lookup award metadata."""
+    return None
+
+
+async def get_funding_references(funding_references: Optional[dict]) -> list:
+    """get json feed funding references."""
+
+    if funding_references is None:
+        return None
+
+    def format_funding(funding) -> dict:
+        """format funding."""
+        identifier = normalize_ror(
+            py_.get(funding, "funder.id") or py_.get(funding, "funder.ror")
+        )
+        award_number = py_.get(funding, "award.number")
+        award_uri = py_.get(funding, "award.uri")
+        if award_uri and award_uri.split(":")[0] == "cordis.project":
+            award_number = award_uri.split(":")[1]
+            award_uri = f"https://cordis.europa.eu/project/id/{award_number}"
+        return compact(
+            {
+                "funderName": py_.get(funding, "funder.name"),
+                "funderIdentifier": identifier,
+                "funderIdentifierType": "ROR" if identifier else None,
+                "awardTitle": py_.get(funding, "award.title"),
+                "awardNumber": award_number,
+                "awardUri": award_uri,
+            }
+        )
+
+    return [format_funding(i) for i in wrap(funding_references)]
 
 
 def get_title(content_html: str):
