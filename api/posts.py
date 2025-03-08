@@ -756,7 +756,7 @@ async def extract_single_post(
                     response.raise_for_status()
                     json = response.json()
                     posts = json.get("items", [])
-                    post = find_post_by_guid(posts, guid)
+                    post = find_post_by_guid(posts, guid, "id")
                 except httpx.HTTPStatusError:
                     print(f"HTTP status error for feed {feed_url}.")
                     post = {}
@@ -780,7 +780,7 @@ async def extract_single_post(
                         xml, dict_constructor=dict, force_list={"entry"}
                     )
                     posts = py_.get(json, "feed.entry", [])
-                    post = find_post_by_guid(posts, guid)
+                    post = find_post_by_guid(posts, guid, "id")
                 except httpx.HTTPStatusError:
                     print(f"HTTP status error for feed {feed_url}.")
                     post = {}
@@ -804,7 +804,7 @@ async def extract_single_post(
                         xml, dict_constructor=dict, force_list={"category", "item"}
                     )
                     posts = py_.get(json, "rss.channel.item", [])
-                    post = find_post_by_guid(posts, guid)
+                    post = find_post_by_guid(posts, guid, "guid")
                 except httpx.HTTPStatusError:
                     print(f"HTTP status error for feed {feed_url}.")
                     post = {}
@@ -1700,10 +1700,10 @@ def filter_posts_by_guid(posts, blog, key):
     return [x for x in posts if match_guid(x)]
 
 
-def find_post_by_guid(posts, guid):
+def find_post_by_guid(posts, guid, key):
     """Find post by GUID."""
 
-    return next(post for post in posts if post.get("id", None) == guid) or {}
+    return next(post for post in posts if post.get(key, None) == guid) or {}
 
 
 def upsert_single_post(post):
