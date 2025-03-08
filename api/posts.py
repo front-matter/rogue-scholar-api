@@ -569,9 +569,11 @@ async def extract_single_post(
     suffix: str,
     validate_all: bool = False,
 ):
-    """Extract single post from blog. Currently only supports blogs with JSON APIs."""
+    """Extract single post from blog. Support is still experimental, as there are
+    many challenges, e.g. pagination."""
 
     try:
+        guid = None
         if validate_uuid(slug):
             response = (
                 supabase.table("posts")
@@ -588,8 +590,8 @@ async def extract_single_post(
                     .maybe_single()
                     .execute()
                 )
-            post = response.data
-            blog = py_.get(post, "blog")
+            guid = py_.get(response.data, "guid")
+            blog = py_.get(response.data, "blog")
         elif validate_prefix(slug) and suffix:
             doi = f"https://doi.org/{slug}/{suffix}"
             response = (
@@ -607,25 +609,10 @@ async def extract_single_post(
                     .maybe_single()
                     .execute()
                 )
-            post = response.data
-            blog = py_.get(post, "blog")
+            guid = py_.get(response.data, "guid")
+            blog = py_.get(response.data, "blog")
         else:
-            response = (
-                supabase.table("blogs")
-                .select(
-                    "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, registered_at, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure, doi_as_guid"
-                )
-                .eq("slug", slug)
-                .maybe_single()
-                .execute()
-            )
-            if not response:
-                return {}
-            blog = response.data
-            if not blog:
-                return {}
-            url = furl(blog.get("feed_url", None))
-            path = suffix
+            return {"error": "An error occured."}, 400
 
         generator = (
             blog.get("generator", "").split(" ")[0]
@@ -676,6 +663,8 @@ async def extract_single_post(
                 f.path = f"/api/v1/posts/{path}"
             # case "Squarespace":
             # params = compact({"format": "json"})
+            case _:
+                f = furl(blog.get("feed_url", None))
         feed_url = f.url
         print(f"Extracting post from {blog['slug']} at {feed_url}.")
 
@@ -756,27 +745,74 @@ async def extract_single_post(
                 extract_posts = [
                     await extract_ghost_post(x, blog, validate_all) for x in posts
                 ]
-        # elif generator == "Squarespace":
-        #     async with httpx.AsyncClient() as client:
-        #         try:
-        #             response = await client.get(
-        #                 feed_url, timeout=10.0, follow_redirects=True
-        #             )
-        #             response.raise_for_status()
-        #             json = response.json()
-        #             posts = json.get("items", [])
-        #         except httpx.HTTPStatusError:
-        #             print(f"HTTP status error for feed {feed_url}.")
-        #             posts = []
-        #         except httpx.TransportError:
-        #             print(f"Transport error for feed {feed_url}.")
-        #             posts = []
-        #         except httpx.HTTPError as e:
-        #             capture_exception(e)
-        #             posts = []
-        #         extract_posts = [
-        #             extract_squarespace_post(x, blog, validate_all) for x in posts
-        #         ]
+        elif blog.get("feed_format", None) == "application/feed+json":
+            async with httpx.AsyncClient() as client:
+                try:
+                    response = await client.get(
+                        feed_url, timeout=10.0, follow_redirects=True
+                    )
+                    response.raise_for_status()
+                    json = response.json()
+                    posts = json.get("items", [])
+                    post = find_post_by_guid(posts, guid)
+                except httpx.HTTPStatusError:
+                    print(f"HTTP status error for feed {feed_url}.")
+                    post = {}
+                except httpx.TransportError:
+                    print(f"Transport error for feed {feed_url}.")
+                    post = {}
+                except httpx.HTTPError as e:
+                    capture_exception(e)
+                    post = {}
+                extract_posts = [await extract_json_feed_post(post, blog, validate_all)]
+        elif blog.get("feed_format", None) == "application/atom+xml":
+            async with httpx.AsyncClient() as client:
+                try:
+                    response = await client.get(
+                        feed_url, timeout=30.0, follow_redirects=True
+                    )
+                    response.raise_for_status()
+                    # fix malformed xml
+                    xml = fix_xml(response.read())
+                    json = xmltodict.parse(
+                        xml, dict_constructor=dict, force_list={"entry"}
+                    )
+                    posts = py_.get(json, "feed.entry", [])
+                    post = find_post_by_guid(posts, guid)
+                except httpx.HTTPStatusError:
+                    print(f"HTTP status error for feed {feed_url}.")
+                    post = {}
+                except httpx.TransportError:
+                    print(f"Transport error for feed {feed_url}.")
+                    post = {}
+                except httpx.HTTPError as e:
+                    capture_exception(e)
+                    post = {}
+                extract_posts = [await extract_atom_post(post, blog, validate_all)]
+        elif blog["feed_format"] == "application/rss+xml":
+            async with httpx.AsyncClient() as client:
+                try:
+                    response = await client.get(
+                        feed_url, timeout=10.0, follow_redirects=True
+                    )
+                    response.raise_for_status()
+                    # fix malformed xml
+                    xml = fix_xml(response.read())
+                    json = xmltodict.parse(
+                        xml, dict_constructor=dict, force_list={"category", "item"}
+                    )
+                    posts = py_.get(json, "rss.channel.item", [])
+                    post = find_post_by_guid(posts, guid)
+                except httpx.HTTPStatusError:
+                    print(f"HTTP status error for feed {feed_url}.")
+                    post = {}
+                except httpx.TransportError:
+                    print(f"Transport error for feed {feed_url}.")
+                    post = {}
+                except httpx.HTTPError as e:
+                    capture_exception(e)
+                    post = {}
+                extract_posts = [await extract_rss_post(post, blog, validate_all)]
         return [upsert_single_post(i) for i in extract_posts]
     except Exception:
         print(traceback.format_exc())
@@ -1650,6 +1686,12 @@ def filter_posts_by_guid(posts, blog, key):
     return [x for x in posts if match_guid(x)]
 
 
+def find_post_by_guid(posts, guid):
+    """Find post by GUID."""
+
+    return next(post for post in posts if post.get("id", None) == guid) or {}
+
+
 def upsert_single_post(post):
     """Upsert single post."""
 
@@ -1733,7 +1775,7 @@ def upsert_single_post(post):
         category_id = search_by_community_slug(category)
 
         # TODO: topic communities
-        
+
         # if DOI doen't exist (yet), ignore InvenioRDM
         if doi is None:
             return post_to_update.data[0]
