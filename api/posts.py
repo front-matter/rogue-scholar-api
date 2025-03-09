@@ -593,6 +593,7 @@ async def extract_single_post(
                     .execute()
                 )
             guid = py_.get(response.data, "guid")
+            post_url = py_.get(response.data, "url")
             blog = py_.get(response.data, "blog")
         elif validate_prefix(slug) and suffix:
             doi = f"https://doi.org/{slug}/{suffix}"
@@ -612,6 +613,7 @@ async def extract_single_post(
                     .execute()
                 )
             guid = py_.get(response.data, "guid")
+            post_url = py_.get(response.data, "url")
             blog = py_.get(response.data, "blog")
         else:
             return {"error": "An error occured."}, 400
@@ -627,7 +629,7 @@ async def extract_single_post(
             case "WordPress":
                 if blog.get("use_api", False):
                     site = furl(blog.get("home_page_url", None)).host
-                    id_ = furl(post.get("guid")).args["p"]
+                    id_ = furl(guid).args["p"]
                     f = furl()
                     f.host = site
                     f.scheme = "https" if blog.get("secure", True) else "http"
@@ -636,7 +638,7 @@ async def extract_single_post(
             case "WordPress.com":
                 if blog.get("use_api", False):
                     site = furl(blog.get("home_page_url", None)).host
-                    id_ = furl(post.get("guid")).args["p"]
+                    id_ = furl(guid).args["p"]
                     f = furl()
                     f.host = "public-api.wordpress.com"
                     f.scheme = "https" if blog.get("secure", True) else "http"
@@ -645,7 +647,6 @@ async def extract_single_post(
                 if blog.get("use_api", False):
                     host = environ[f"QUART_{blog.get('slug').upper()}_GHOST_API_HOST"]
                     key = environ[f"QUART_{blog.get('slug').upper()}_GHOST_API_KEY"]
-                    post_url = py_.get(post, "url")
                     path = furl(post_url).path.segments[-1]
                     f = furl()
                     f.host = host
@@ -657,7 +658,6 @@ async def extract_single_post(
                     }
             case "Substack":
                 site = furl(blog.get("home_page_url", None)).host
-                post_url = py_.get(post, "url")
                 path = furl(post_url).path.segments[-1]
                 f = furl()
                 f.host = site
