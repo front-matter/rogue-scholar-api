@@ -163,6 +163,8 @@ AUTHOR_IDS = {
     "Laura Rothfritz": "https://orcid.org/0000-0001-7525-0635",
     "Katrin Frisch": "https://orcid.org/0000-0002-6669-5015",
     "Jens Klump": "https://orcid.org/0000-0001-5911-6022",
+    "Ed Pentz": "https://orcid.org/0000-0002-5993-8592",
+    "Laure Haak": "https://orcid.org/0000-0001-5109-3700",
 }
 
 AUTHOR_NAMES = {
