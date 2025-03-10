@@ -160,6 +160,9 @@ AUTHOR_IDS = {
     # "Beatriz Milz": "https://orcid.org/0000-0002-3064-4486",
     # "Mauro Lepore": "https://orcid.org/0000-0002-1986-7988",
     # "Francisco Cardozo": "https://orcid.org/0000-0002-1925-4954",
+    "Laura Rothfritz": "https://orcid.org/0000-0001-7525-0635",
+    "Katrin Frisch": "https://orcid.org/0000-0002-6669-5015",
+    "Jens Klump": "https://orcid.org/0000-0001-5911-6022",
 }
 
 AUTHOR_NAMES = {
