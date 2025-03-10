@@ -21,7 +21,7 @@ from commonmeta import (
     normalize_doi,
     validate_prefix,
     normalize_ror,
-    validate_ror,
+    presence,
 )
 from math import ceil
 from Levenshtein import ratio
@@ -925,6 +925,7 @@ async def extract_wordpress_post(post, blog, validate_all: bool = False):
         abstract = get_abstract(summary, abstract)
         reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
+        funding_references = wrap(blog.get("funding", None))
         url = normalize_url(post.get("link", None), secure=blog.get("secure", True))
         archive_url = (
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
@@ -990,7 +991,7 @@ async def extract_wordpress_post(post, blog, validate_all: bool = False):
             "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
-            "funding_references": [],
+            "funding_references": presence(funding_references),
             "tags": terms,
             "title": title,
             "url": url,
@@ -1027,6 +1028,7 @@ async def extract_wordpresscom_post(post, blog, validate_all: bool = False):
         abstract = get_abstract(summary, abstract)
         reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
+        funding_references = wrap(blog.get("funding", None))
         url = normalize_url(post.get("URL", None), secure=blog.get("secure", True))
         archive_url = (
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
@@ -1054,7 +1056,7 @@ async def extract_wordpresscom_post(post, blog, validate_all: bool = False):
             "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
-            "funding_references": None,
+            "funding_references": presence(funding_references),
             "tags": tags,
             "title": get_title(post.get("title", None)),
             "url": url,
@@ -1091,6 +1093,7 @@ async def extract_ghost_post(post, blog, validate_all: bool = False):
         abstract = get_abstract(summary, abstract)
         reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
+        funding_references = wrap(blog.get("funding", None))
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
         archive_url = (
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
@@ -1121,7 +1124,7 @@ async def extract_ghost_post(post, blog, validate_all: bool = False):
             "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
-            "funding_references": None,
+            "funding_references": presence(funding_references),
             "tags": tags,
             "title": get_title(post.get("title", None)),
             "url": url,
@@ -1157,6 +1160,7 @@ async def extract_substack_post(post, blog, validate_all: bool = False):
         abstract = get_abstract(summary, abstract)
         reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
+        funding_references = wrap(blog.get("funding", None))
         url = normalize_url(
             post.get("canonical_url", None), secure=blog.get("secure", True)
         )
@@ -1186,7 +1190,7 @@ async def extract_substack_post(post, blog, validate_all: bool = False):
             "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
-            "funding_references": None,
+            "funding_references": presence(funding_references),
             "tags": tags,
             "title": get_title(post.get("title", None)),
             "url": url,
@@ -1223,6 +1227,7 @@ async def extract_squarespace_post(post, blog, validate_all: bool = False):
 
         reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
+        funding_references = wrap(blog.get("funding", None))
         url = normalize_url(
             f"{blog.get('home_page_url', '')}/{post.get('urlId', '')}",
             secure=blog.get("secure", True),
@@ -1253,7 +1258,7 @@ async def extract_squarespace_post(post, blog, validate_all: bool = False):
             "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
-            "funding_references": None,
+            "funding_references": presence(funding_references),
             "tags": tags,
             "title": get_title(post.get("title", None)),
             "url": url,
@@ -1295,7 +1300,8 @@ async def extract_json_feed_post(post, blog, validate_all: bool = False):
         if len(reference) == 0:
             reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
-        funding_references = await get_funding(
+        funding_references = wrap(blog.get("funding", None))
+        funding_references += await get_funding(
             content_html
         ) or await get_funding_references(post.get("_funding", None))
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
@@ -1328,7 +1334,7 @@ async def extract_json_feed_post(post, blog, validate_all: bool = False):
             "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
-            "funding_references": funding_references,
+            "funding_references": presence(funding_references),
             "tags": tags,
             "title": get_title(post.get("title", None)),
             "url": url,
@@ -1382,6 +1388,7 @@ async def extract_atom_post(post, blog, validate_all: bool = False):
         abstract = get_abstract(summary, abstract)
         reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
+        funding_references = wrap(blog.get("funding", None))
 
         def get_url(links):
             """Get url."""
@@ -1436,7 +1443,7 @@ async def extract_atom_post(post, blog, validate_all: bool = False):
             "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
-            "funding_references": None,
+            "funding_references": presence(funding_references),
             "tags": tags,
             "title": title,
             "url": url,
@@ -1489,6 +1496,7 @@ async def extract_rss_post(post, blog, validate_all: bool = False):
         abstract = None
         reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
+        funding_references = wrap(blog.get("funding", None))
         raw_url = post.get("link", None)
         # handle Hugo running on localhost
         if raw_url and raw_url.startswith("http://localhost:1313"):
@@ -1546,7 +1554,7 @@ async def extract_rss_post(post, blog, validate_all: bool = False):
             "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
-            "funding_references": None,
+            "funding_references": presence(funding_references),
             "tags": tags,
             "title": get_title(post.get("title", None)),
             "url": url,
@@ -1605,6 +1613,7 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
         citations = post.get("citations", [])
         if len(citations) > 0:
             citations = format_citations(citations)
+        funding_references = wrap(blog.get("funding", None))
         title = get_title(post.get("title"))
         url = normalize_url(post.get("url"), secure=blog.get("secure", True))
         archive_url = (
@@ -1646,7 +1655,7 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
             "reference": reference,
             "relationships": relationships,
             "citations": citations,
-            "funding_references": None,
+            "funding_references": presence(funding_references),
             "tags": tags,
             "title": title,
             "url": url,
