@@ -165,6 +165,9 @@ AUTHOR_IDS = {
     "Jens Klump": "https://orcid.org/0000-0001-5911-6022",
     "Ed Pentz": "https://orcid.org/0000-0002-5993-8592",
     "Laure Haak": "https://orcid.org/0000-0001-5109-3700",
+    "Amber Budden": "https://orcid.org/0000-0003-2885-3980",
+    "Rachael Lammey": "https://orcid.org/0000-0001-5800-1434",
+    "Alice Meadows": "https://orcid.org/0000-0003-2161-3781",
 }
 
 AUTHOR_NAMES = {
