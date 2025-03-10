@@ -168,6 +168,7 @@ AUTHOR_IDS = {
     "Amber Budden": "https://orcid.org/0000-0003-2885-3980",
     "Rachael Lammey": "https://orcid.org/0000-0001-5800-1434",
     "Alice Meadows": "https://orcid.org/0000-0003-2161-3781",
+    "Jamaica Jones": "https://orcid.org/0000-0002-1969-2508",
 }
 
 AUTHOR_NAMES = {
