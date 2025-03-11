@@ -2478,6 +2478,15 @@ def get_urls(content_html: str):
 def validate_funding(funding: list) -> Optional[list]:
     """Validate funding."""
 
+    def format_identifier(identifier):
+        """Format identifier."""
+
+        id_ = identifier.get("identifier", None)
+        if identifier.get("scheme", None) == "doi":
+            id_ = normalize_doi(identifier.get("identifier", None))
+
+        return {"identifier": id_, "scheme": "url"}
+
     def format_funding(item):
         """Format funding."""
         if not item.get("award", None):
@@ -2486,7 +2495,13 @@ def validate_funding(funding: list) -> Optional[list]:
             award = get_award(py_.get(item, "award.number"))
             if award:
                 item["award"] = award
-        print(item)
+
+        # workaround to make doi identifier a clickable link
+        if len(py_.get(item, "award.identifiers")) > 0:
+            item["award"]["identifiers"] = [
+                format_identifier(i) for i in item["award"]["identifiers"]
+            ]
+
         return item
 
     return py_.uniq([format_funding(i) for i in funding])
