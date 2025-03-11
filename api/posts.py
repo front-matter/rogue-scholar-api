@@ -1824,10 +1824,10 @@ def create_record(record, guid: str, community_id: str, category_id: str):
         record = JSON.loads(subject.write(to="inveniordm"))
 
         # validate funding, lookup award metadata if needed
-        # if py_.get(record, "metadata.funding"):
-        #     record["metadata"]["funding"] = validate_funding(
-        #         py_.get(record, "metadata.funding")
-        #     )
+        if py_.get(record, "metadata.funding"):
+            record["metadata"]["funding"] = validate_funding(
+                py_.get(record, "metadata.funding")
+            )
 
         # create draft record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records"
@@ -1898,10 +1898,10 @@ def update_record(record, rid: str, community_id: str, category_id: str):
             guid = guid_dict["identifier"]
 
         # validate funding, lookup award metadata if needed
-        # if py_.get(record, "metadata.funding"):
-        #     record["metadata"]["funding"] = validate_funding(
-        #         py_.get(record, "metadata.funding")
-        #     )
+        if py_.get(record, "metadata.funding"):
+            record["metadata"]["funding"] = validate_funding(
+                py_.get(record, "metadata.funding")
+            )
 
         # add citations to InvenioRDM record
         if len(citations) > 0:
@@ -2195,6 +2195,12 @@ async def get_funding_references(funding_references: Optional[dict]) -> list:
         if award_uri and award_uri.split(":")[0] == "cordis.project":
             award_number = award_uri.split(":")[1]
             award_uri = f"https://cordis.europa.eu/project/id/{award_number}"
+        elif award_uri and award_uri.split(":")[0] == "drc.filenumber":
+            award_number = award_uri.split(":")[1]
+            award_uri = f"https://www.nwo.nl/en/projects/{award_number}"
+        elif award_uri and award_uri.split(":")[0] == "grants.gov":
+            award_number = award_uri.split(":")[1]
+            award_uri = f"https://www.grants.gov/web/grants/view-opportunity.html?oppId={award_number}"
         return compact(
             {
                 "funderName": py_.get(funding, "funder.name"),
@@ -2474,15 +2480,13 @@ def validate_funding(funding: list) -> Optional[list]:
 
     def format_funding(item):
         """Format funding."""
-        print(item)
         if not item.get("award", None):
-            return None
-        if not item.get("award", None).get("number", None):
-            return None
-        award = get_award(py_.get(item, "award.number"))
-        if not award:
-            return py_.omit(item, "award")
-        item["award"] = award
+            return item
+        if py_.get(item, "award.number"):
+            award = get_award(py_.get(item, "award.number"))
+            if award:
+                item["award"] = award
+
         return item
 
     return [format_funding(i) for i in funding]
