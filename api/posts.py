@@ -1824,10 +1824,10 @@ def create_record(record, guid: str, community_id: str, category_id: str):
         record = JSON.loads(subject.write(to="inveniordm"))
 
         # validate funding, lookup award metadata if needed
-        if py_.get(record, "metadata.funding"):
-            record["metadata"]["funding"] = validate_funding(
-                py_.get(record, "metadata.funding")
-            )
+        # if py_.get(record, "metadata.funding"):
+        #     record["metadata"]["funding"] = validate_funding(
+        #         py_.get(record, "metadata.funding")
+        #     )
 
         # create draft record
         url = f"{environ['QUART_INVENIORDM_API']}/api/records"
@@ -1898,10 +1898,10 @@ def update_record(record, rid: str, community_id: str, category_id: str):
             guid = guid_dict["identifier"]
 
         # validate funding, lookup award metadata if needed
-        if py_.get(record, "metadata.funding"):
-            record["metadata"]["funding"] = validate_funding(
-                py_.get(record, "metadata.funding")
-            )
+        # if py_.get(record, "metadata.funding"):
+        #     record["metadata"]["funding"] = validate_funding(
+        #         py_.get(record, "metadata.funding")
+        #     )
 
         # add citations to InvenioRDM record
         if len(citations) > 0:
