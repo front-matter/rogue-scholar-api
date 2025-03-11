@@ -2486,10 +2486,10 @@ def validate_funding(funding: list) -> Optional[list]:
             award = get_award(py_.get(item, "award.number"))
             if award:
                 item["award"] = award
-
+        print(item)
         return item
 
-    return [format_funding(i) for i in funding]
+    return py_.uniq([format_funding(i) for i in funding])
 
 
 def get_award(id: Optional[str]) -> Optional[dict]:
