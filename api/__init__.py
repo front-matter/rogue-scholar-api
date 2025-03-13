@@ -466,7 +466,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
     if slug == "unregistered":
         response = (
             supabase_client.table("posts")
-            .select("id, guid, doi, url, archive_url, title, summary, abstract, content_text, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, blog_name, blog_slug, rid, blog: blogs!inner(*)", count="exact")
+            .select("id, guid, doi, url, archive_url, title, summary, abstract, content_text, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, funding_references, blog_name, blog_slug, rid, blog: blogs!inner(*)", count="exact")
             .not_.is_("blogs.prefix", "null")
             .is_("doi", "null")
             .is_("rid", "null")
@@ -479,7 +479,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
     elif slug == "updated":
         response = (
             supabase_client.table("posts")
-            .select("id, guid, doi, url, archive_url, title, summary, abstract, content_text, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, blog_name, blog_slug, rid, blog: blogs!inner(*)", count="exact")
+            .select("id, guid, doi, url, archive_url, title, summary, abstract, content_text, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, funding_references, blog_name, blog_slug, rid, blog: blogs!inner(*)", count="exact")
             .not_.is_("blogs.prefix", "null")
             .is_("updated", True)
             .not_.is_("doi", "null")
