@@ -2296,7 +2296,8 @@ def get_abstract(summary: str, abstract: Optional[str]):
 def get_relationships(content_html: str):
     """Get relationships from content_html. Extract links from
     Acknowledgments section,defined as the text after the tag
-    "Acknowledgments</h2>", "Acknowledgments</h3>" or "Acknowledgments</h4>"""
+    "Acknowledgments</h2>", "Acknowledgments</h3>" or "Acknowledgments</h4>.
+    In addition, extract links to reviews from an optional Editorial Assessment section."""
 
     try:
         relationships_html = re.split(
@@ -2304,16 +2305,29 @@ def get_relationships(content_html: str):
             content_html,
             maxsplit=2,
         )
-        if len(relationships_html) == 1:
+
+        reviews_html = re.split(
+            r"Editorial Assessment<\/(?:h1|h2|h3|h4)>",
+            content_html,
+            maxsplit=2,
+        )
+
+        if len(relationships_html) == 1 and len(reviews_html) == 1:
             return []
 
         # strip optional text after notes, using <hr>, <hr />, <h2, <h3, <h4 as tag
         relationships_html[1] = re.split(
             r"(?:<hr \/>|<hr>|<h2|<h3|<h4)", relationships_html[1], maxsplit=2
         )[0]
+        if len(reviews_html) == 2:
+            reviews_html[1] = re.split(
+                r"(?:<hr \/>|<hr>|<h2|<h3|<h4)", reviews_html[1], maxsplit=2
+            )[0]
 
         # split notes into sentences and classify relationship type for each sentence
         sentences = re.split(r"(?<=\w{3}[.!?;])\s+", relationships_html[1])
+        if len(reviews_html) == 2:
+            sentences += re.split(r"(?<=\w{3}[.!?;])\s+", reviews_html[1])
 
         def extract_url(sentence):
             """Extract url from sentence."""
@@ -2329,6 +2343,8 @@ def get_relationships(content_html: str):
                 _type = "IsPreprintOf"
             elif re.search("work was funded", sentence):
                 _type = "HasAward"
+            elif re.search("have reviewed", sentence):
+                _type = "HasReview"
             if _type is None:
                 return None
             return {"type": _type, "urls": urls}
