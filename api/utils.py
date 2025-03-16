@@ -1674,7 +1674,7 @@ async def format_json_reference(reference: dict, validate_all: bool = False):
         id_ = reference.get("url", None) or reference.get("id", None)
         if id_ is not None:
             id_ = normalize_url(id_)
-        unstructured = reference.get("reference", None)
+        unstructured = reference.get("reference", "")
         c = None
 
         # if id_ is present and validate_all is True, lookup metadata
@@ -1691,7 +1691,7 @@ async def format_json_reference(reference: dict, validate_all: bool = False):
         return compact(
             {
                 "id": id_,
-                "unstructured": unstructured,
+                "unstructured": unstructured if unstructured else None,
                 "cito": c,
             }
         )

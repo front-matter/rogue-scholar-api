@@ -1301,7 +1301,7 @@ async def extract_json_feed_post(post, blog, validate_all: bool = False):
             reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
         funding_references = wrap(blog.get("funding", None))
-        funding_references += await get_funding(
+        funding_references + await get_funding(
             content_html
         ) or await get_funding_references(post.get("_funding", None))
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
@@ -2174,16 +2174,16 @@ async def get_jsonfeed_references(references: list, validate_all: bool = False):
     return formatted_references
 
 
-async def get_funding(content_html: str, validate_all: bool = False):
+async def get_funding(content_html: str, validate_all: bool = False) -> list:
     """Extract funding from content_html, optionally lookup award metadata."""
-    return None
+    return []
 
 
 async def get_funding_references(funding_references: Optional[dict]) -> list:
     """get json feed funding references."""
 
     if funding_references is None:
-        return None
+        return []
 
     def format_funding(funding) -> dict:
         """format funding."""
