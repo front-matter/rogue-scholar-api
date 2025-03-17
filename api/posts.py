@@ -159,7 +159,7 @@ async def extract_all_posts_by_blog(
         response = (
             supabase.table("blogs")
             .select(
-                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, registered_at, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure, doi_as_guid"
+                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, archive_host, archive_collection, archive_timestamps, feed_format, created_at, updated_at, registered_at, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure, doi_as_guid"
             )
             .eq("slug", slug)
             .maybe_single()
@@ -502,7 +502,7 @@ async def update_all_posts_by_blog(
         response = (
             supabase.table("blogs")
             .select(
-                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, feed_format, created_at, updated_at, registered_at, mastodon, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure"
+                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, archive_host, archive_collection, archive_timestamps, feed_format, created_at, updated_at, registered_at, mastodon, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure"
             )
             .eq("slug", slug)
             .maybe_single()
@@ -927,9 +927,7 @@ async def extract_wordpress_post(post, blog, validate_all: bool = False):
         relationships = get_relationships(content_html)
         funding_references = wrap(blog.get("funding", None))
         url = normalize_url(post.get("link", None), secure=blog.get("secure", True))
-        archive_url = (
-            blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
-        )
+        archive_url = get_archive_url(blog, url)
         images = get_images(content_html, url, blog["home_page_url"])
         image = (
             py_.get(post, "_embedded.wp:featuredmedia[0].source_url", None)
@@ -1030,9 +1028,7 @@ async def extract_wordpresscom_post(post, blog, validate_all: bool = False):
         relationships = get_relationships(content_html)
         funding_references = wrap(blog.get("funding", None))
         url = normalize_url(post.get("URL", None), secure=blog.get("secure", True))
-        archive_url = (
-            blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
-        )
+        archive_url = get_archive_url(blog, url)
         images = get_images(content_html, url, blog.get("home_page_url", None))
         image = get_image(images)
         tags = [
@@ -1095,9 +1091,7 @@ async def extract_ghost_post(post, blog, validate_all: bool = False):
         relationships = get_relationships(content_html)
         funding_references = wrap(blog.get("funding", None))
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
-        archive_url = (
-            blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
-        )
+        archive_url = get_archive_url(blog, url)
         guid = post.get("canonical_url", None)
         if not guid:
             guid = post.get("id", None)
@@ -1164,9 +1158,7 @@ async def extract_substack_post(post, blog, validate_all: bool = False):
         url = normalize_url(
             post.get("canonical_url", None), secure=blog.get("secure", True)
         )
-        archive_url = (
-            blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
-        )
+        archive_url = get_archive_url(blog, url)
         images = get_images(content_html, url, blog.get("home_page_url", None))
         image = post.get("cover_image", None) or get_image(images)
         tags = [
@@ -1232,9 +1224,7 @@ async def extract_squarespace_post(post, blog, validate_all: bool = False):
             f"{blog.get('home_page_url', '')}/{post.get('urlId', '')}",
             secure=blog.get("secure", True),
         )
-        archive_url = (
-            blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
-        )
+        archive_url = get_archive_url(blog, url)
         images = get_images(content_html, url, blog.get("home_page_url", None))
         image = post.get("assetUrl", None) or get_image(images)
         tags = [
@@ -1306,9 +1296,7 @@ async def extract_json_feed_post(post, blog, validate_all: bool = False):
             + await get_funding_references(post.get("_funding", None))
         )
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
-        archive_url = (
-            blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
-        )
+        archive_url = get_archive_url(blog, url)
         base_url = url
         if blog.get("relative_url", None) == "blog":
             base_url = blog.get("home_page_url", None)
@@ -1369,7 +1357,11 @@ async def extract_atom_post(post, blog, validate_all: bool = False):
 
         # use default authors for blog if no post authors found
         authors_ = wrap(post.get("author", None))
-        if len(authors_) == 0 or authors_[0].get("name", None) is None:
+        if (
+            len(authors_) == 0
+            or authors_[0].get("name", None) is None
+            or authors_[0].get("name", None) == "Unknown"
+        ):
             authors_ = wrap(blog.get("authors", None))
         # workaround if multiple authors are present in single author attribute
         elif len(authors_) == 1:
@@ -1408,9 +1400,9 @@ async def extract_atom_post(post, blog, validate_all: bool = False):
         url = normalize_url(py_.get(post, "link.@href", None))
         if not isinstance(url, str):
             url = get_url(post.get("link", None))
-        archive_url = (
-            blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
-        )
+        if blog.get("slug", None) == "oan":
+            url = normalize_blogger_url(url)
+        archive_url = get_archive_url(blog, url)
         base_url = url
         if blog.get("relative_url", None) == "blog":
             base_url = blog.get("home_page_url", None)
@@ -1509,9 +1501,7 @@ async def extract_rss_post(post, blog, validate_all: bool = False):
         # handle Hugo running on localhost
         if guid and guid.startswith("http://localhost:1313"):
             guid = guid.replace("http://localhost:1313", blog.get("home_page_url"))
-        archive_url = (
-            blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
-        )
+        archive_url = get_archive_url(blog, url)
         base_url = url
         if blog.get("relative_url", None) == "blog":
             base_url = blog.get("home_page_url", None)
@@ -1617,9 +1607,7 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
         funding_references = wrap(blog.get("funding", None))
         title = get_title(post.get("title"))
         url = normalize_url(post.get("url"), secure=blog.get("secure", True))
-        archive_url = (
-            blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
-        )
+        archive_url = get_archive_url(blog, url)
         images = get_images(content_html, url, blog["home_page_url"])
         image = post.get("image", None) or get_image(images)
 
@@ -2215,6 +2203,29 @@ async def get_funding_references(funding_references: Optional[dict]) -> list:
 
     return [format_funding(i) for i in wrap(funding_references)]
 
+
+def get_archive_url(blog: dict, url: str) -> Optional[str]:
+    """Get archive url."""
+
+    if (
+        not blog.get("archive_host", None)
+        or not blog.get("archive_collection", None)
+        or not blog.get("archive_timestamps", None)
+    ):
+        return None
+
+    f = furl(url)
+    f.host = blog["archive_host"]
+    return f"https://wayback.archive-it.org/{blog['archive_collection']}/{blog['archive_timestamps'][-1]}/{f.url}"
+
+def normalize_blogger_url(url: str) -> str:
+    """Normalize blogger url."""
+    f = furl(url)
+    if f.host == "www.earlham.edu":
+        f.host = "legacy.earlham.edu"
+    if "fosblog.html" in f.path.segments:
+        f.path.segments.remove("fosblog.html")
+    return f.url
 
 def get_title(content_html: str):
     """Sanitize title."""
