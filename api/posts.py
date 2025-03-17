@@ -481,7 +481,7 @@ async def extract_all_posts_by_blog(
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         else:
             blog_with_posts["entries"] = []
-        if blog.get("status", None) not in ["pending", "active", "expired"]:
+        if blog.get("status", None) not in ["pending", "active", "expired", "archived"]:
             return blog_with_posts["entries"]
         n = len(blog_with_posts["entries"])
         if n > 0:
