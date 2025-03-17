@@ -1300,10 +1300,11 @@ async def extract_json_feed_post(post, blog, validate_all: bool = False):
         if len(reference) == 0:
             reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
-        funding_references = wrap(blog.get("funding", None))
-        funding_references + await get_funding(
-            content_html
-        ) or await get_funding_references(post.get("_funding", None))
+        funding_references = (
+            wrap(blog.get("funding", None))
+            + await get_funding(content_html)
+            + await get_funding_references(post.get("_funding", None))
+        )
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
         archive_url = (
             blog["archive_prefix"] + url if blog.get("archive_prefix", None) else None
