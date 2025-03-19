@@ -169,6 +169,7 @@ AUTHOR_IDS = {
     "Rachael Lammey": "https://orcid.org/0000-0001-5800-1434",
     "Alice Meadows": "https://orcid.org/0000-0003-2161-3781",
     "Jamaica Jones": "https://orcid.org/0000-0002-1969-2508",
+    "Roger Beecham": "https://orcid.org/0000-0001-8563-7251",
 }
 
 AUTHOR_NAMES = {
@@ -856,6 +857,13 @@ AUTHOR_AFFILIATIONS = {
             "name": "Adam Mickiewicz University in Poznań",
             "id": "https://ror.org/04g6bbq64",
             "start_date": "2018-10-01",
+        }
+    ],
+    "https://orcid.org/0000-0001-8563-7251": [
+        {
+            "name": "University of Leeds",
+            "id": "https://ror.org/024mrxd33",
+            "start_date": "2017-09-01",
         }
     ],
 }
