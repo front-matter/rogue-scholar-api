@@ -284,6 +284,7 @@ async def post_citations(slug: str, suffix: Optional[str] = None):
         "10.59348",
         "10.59349",
         "10.59350",
+        "10.63485",
     ]
     if slug not in prefixes:
         logger.warning(f"Invalid prefix: {slug}")
@@ -452,6 +453,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
         "10.59348",
         "10.59349",
         "10.59350",
+        "10.63485",
     ]
     permitted_slugs = ["unregistered", "updated", "cited"] + prefixes
     status = ["active", "archived", "expired"]
