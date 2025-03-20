@@ -1642,11 +1642,12 @@ async def format_list_reference(reference, validate_all: bool = False):
 
     # if id_ is present and validate_all is True, lookup metadata
     if id_ is not None and validate_all:
-        id_, unstructured = await validate_reference(id_, unstructured)
+        id_, type_, unstructured = await validate_reference(id_, unstructured)
     
     return compact(
         {
             "id": id_,
+            "type": type_,
             "unstructured": unstructured,
         }
     )
@@ -1659,15 +1660,17 @@ async def format_reference(url, validate_all: bool = False):
     """Format reference."""
     try:
         id_ = normalize_url(url)
+        type_ = None
         unstructured = None
 
         # if id_ is present and validate_all is True, lookup metadata
         if id_ is not None and validate_all:
-            id_, unstructured = await validate_reference(id_, unstructured)
+            id_, type_, unstructured = await validate_reference(id_, unstructured)
         
         return compact(
             {
                 "id": id_,
+                "type": type_,
                 "unstructured": unstructured,
             }
         )
@@ -1687,7 +1690,7 @@ async def format_json_reference(reference: dict, validate_all: bool = False):
 
         # if id_ is present and validate_all is True, lookup metadata
         if id_ is not None and validate_all:
-            id_, unstructured = await validate_reference(id_, unstructured)
+            id_, type_, unstructured = await validate_reference(id_, unstructured)
         
         # optionally include CITO information
         if reference.get("cito", None):
@@ -1699,6 +1702,7 @@ async def format_json_reference(reference: dict, validate_all: bool = False):
         return compact(
             {
                 "id": id_,
+                "type": type_,
                 "unstructured": unstructured if unstructured else None,
                 "cito": c,
             }
@@ -1721,11 +1725,12 @@ async def format_citeproc_reference(reference, validate_all: bool = False):
 
     # if id_ is present and validate_all is True, lookup metadata
     if id_ is not None and validate_all:
-        id_, unstructured = await validate_reference(id_, unstructured)
+        id_, type_, unstructured = await validate_reference(id_, unstructured)
     
     return compact(
         {
             "id": id_,
+            "type": type_,
             "unstructured": unstructured,
         }
     )
@@ -1749,12 +1754,14 @@ async def validate_reference(id_: str, unstructured: str) -> Optional[str]:
     try:
         # lookup metadata via API call
         subject = Metadata(id_)
+        type_ = None
 
         # if meaningful metadata are found
         if subject.titles and subject.contributors:
             id_ = subject.id
+            type_ = subject.type
             unstructured = subject.write(to="citation", style="apa", locale="en-US")
-        return [id_, unstructured]
+        return [id_, type_, unstructured]
     except Exception as e:
         print(e)
         return [id_, unstructured]
