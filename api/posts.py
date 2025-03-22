@@ -2208,16 +2208,17 @@ async def get_funding_references(funding_references: Optional[dict]) -> list:
 def get_archive_url(blog: dict, url: str, published_at: int) -> Optional[str]:
     """Get archive url."""
 
-    if (
-        not blog.get("archive_host", None)
-        or not blog.get("archive_collection", None)
-        or not blog.get("archive_timestamps", None)
-    ):
+
+    if not blog.get("archive_collection", None):
         return None
 
     f = furl(url)
-    f.host = blog["archive_host"]
-    archive_timestamp = get_datetime_from_time(blog["archive_timestamps"][-1])
+    if blog.get("archive_host", None):
+        f.host = blog["archive_host"]
+    archive_timestamp = blog["archive_timestamps"][-1]
+    if not archive_timestamp:
+        return None
+    archive_timestamp = get_datetime_from_time(str(archive_timestamp))
     if unix_timestamp(archive_timestamp) < published_at:
         return None
     
