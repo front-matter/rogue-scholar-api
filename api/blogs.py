@@ -97,7 +97,7 @@ async def extract_single_blog(slug: str):
     response = (
         supabase.table("blogs")
         .select(
-            "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, archive_host, archive_collection, archive_timestamps, feed_format, created_at, updated_at, registered_at, license, mastodon, generator, generator_raw, language, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure, community_id, prefix, issn, feed_format"
+            "id, slug, feed_url, current_feed_url, home_page_url, archive_host, archive_collection, archive_timestamps, feed_format, created_at, updated_at, registered_at, license, mastodon, generator, generator_raw, language, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure, community_id, prefix, issn, feed_format"
         )
         .eq("slug", slug)
         .maybe_single()
@@ -158,7 +158,6 @@ async def extract_single_blog(slug: str):
         "registered_at": config["registered_at"],
         "current_feed_url": config["current_feed_url"],
         "home_page_url": home_page_url,
-        "archive_prefix": config["archive_prefix"],
         "archive_host": config["archive_host"],
         "archive_collection": config["archive_collection"],
         "archive_timestamps": config["archive_timestamps"],

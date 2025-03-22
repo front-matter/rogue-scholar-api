@@ -23,6 +23,7 @@ from commonmeta import (
     normalize_ror,
     presence,
 )
+from commonmeta.date_utils import get_datetime_from_time
 from math import ceil
 from Levenshtein import ratio
 from sentry_sdk import capture_exception
@@ -927,7 +928,7 @@ async def extract_wordpress_post(post, blog, validate_all: bool = False):
         relationships = get_relationships(content_html)
         funding_references = wrap(blog.get("funding", None))
         url = normalize_url(post.get("link", None), secure=blog.get("secure", True))
-        archive_url = get_archive_url(blog, url)
+        archive_url = get_archive_url(blog, url, published_at)
         images = get_images(content_html, url, blog["home_page_url"])
         image = (
             py_.get(post, "_embedded.wp:featuredmedia[0].source_url", None)
@@ -1028,7 +1029,7 @@ async def extract_wordpresscom_post(post, blog, validate_all: bool = False):
         relationships = get_relationships(content_html)
         funding_references = wrap(blog.get("funding", None))
         url = normalize_url(post.get("URL", None), secure=blog.get("secure", True))
-        archive_url = get_archive_url(blog, url)
+        archive_url = get_archive_url(blog, url, published_at)
         images = get_images(content_html, url, blog.get("home_page_url", None))
         image = get_image(images)
         tags = [
@@ -1091,7 +1092,7 @@ async def extract_ghost_post(post, blog, validate_all: bool = False):
         relationships = get_relationships(content_html)
         funding_references = wrap(blog.get("funding", None))
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
-        archive_url = get_archive_url(blog, url)
+        archive_url = get_archive_url(blog, url, published_at)
         guid = post.get("canonical_url", None)
         if not guid:
             guid = post.get("id", None)
@@ -1158,7 +1159,7 @@ async def extract_substack_post(post, blog, validate_all: bool = False):
         url = normalize_url(
             post.get("canonical_url", None), secure=blog.get("secure", True)
         )
-        archive_url = get_archive_url(blog, url)
+        archive_url = get_archive_url(blog, url, published_at)
         images = get_images(content_html, url, blog.get("home_page_url", None))
         image = post.get("cover_image", None) or get_image(images)
         tags = [
@@ -1224,7 +1225,7 @@ async def extract_squarespace_post(post, blog, validate_all: bool = False):
             f"{blog.get('home_page_url', '')}/{post.get('urlId', '')}",
             secure=blog.get("secure", True),
         )
-        archive_url = get_archive_url(blog, url)
+        archive_url = get_archive_url(blog, url, published_at)
         images = get_images(content_html, url, blog.get("home_page_url", None))
         image = post.get("assetUrl", None) or get_image(images)
         tags = [
@@ -1296,7 +1297,7 @@ async def extract_json_feed_post(post, blog, validate_all: bool = False):
             + await get_funding_references(post.get("_funding", None))
         )
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
-        archive_url = get_archive_url(blog, url)
+        archive_url = get_archive_url(blog, url, published_at)
         base_url = url
         if blog.get("relative_url", None) == "blog":
             base_url = blog.get("home_page_url", None)
@@ -1402,7 +1403,7 @@ async def extract_atom_post(post, blog, validate_all: bool = False):
             url = get_url(post.get("link", None))
         if blog.get("slug", None) == "oan":
             url = normalize_blogger_url(url)
-        archive_url = get_archive_url(blog, url)
+        archive_url = get_archive_url(blog, url, published_at)
         base_url = url
         if blog.get("relative_url", None) == "blog":
             base_url = blog.get("home_page_url", None)
@@ -1501,7 +1502,7 @@ async def extract_rss_post(post, blog, validate_all: bool = False):
         # handle Hugo running on localhost
         if guid and guid.startswith("http://localhost:1313"):
             guid = guid.replace("http://localhost:1313", blog.get("home_page_url"))
-        archive_url = get_archive_url(blog, url)
+        archive_url = get_archive_url(blog, url, published_at)
         base_url = url
         if blog.get("relative_url", None) == "blog":
             base_url = blog.get("home_page_url", None)
@@ -1607,7 +1608,7 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
         funding_references = wrap(blog.get("funding", None))
         title = get_title(post.get("title"))
         url = normalize_url(post.get("url"), secure=blog.get("secure", True))
-        archive_url = get_archive_url(blog, url)
+        archive_url = get_archive_url(blog, url, published_at)
         images = get_images(content_html, url, blog["home_page_url"])
         image = post.get("image", None) or get_image(images)
 
@@ -2204,7 +2205,7 @@ async def get_funding_references(funding_references: Optional[dict]) -> list:
     return [format_funding(i) for i in wrap(funding_references)]
 
 
-def get_archive_url(blog: dict, url: str) -> Optional[str]:
+def get_archive_url(blog: dict, url: str, published_at: int) -> Optional[str]:
     """Get archive url."""
 
     if (
@@ -2216,7 +2217,11 @@ def get_archive_url(blog: dict, url: str) -> Optional[str]:
 
     f = furl(url)
     f.host = blog["archive_host"]
-    return f"https://wayback.archive-it.org/{blog['archive_collection']}/{blog['archive_timestamps'][-1]}/{f.url}"
+    archive_timestamp = get_datetime_from_time(blog["archive_timestamps"][-1])
+    if unix_timestamp(archive_timestamp) < published_at:
+        return None
+    
+    return f"https://wayback.archive-it.org/{blog['archive_collection']}/{archive_timestamp}/{f.url}"
 
 def normalize_blogger_url(url: str) -> str:
     """Normalize blogger url."""

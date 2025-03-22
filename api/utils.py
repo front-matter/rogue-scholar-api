@@ -1633,6 +1633,7 @@ def get_formatted_work(
 async def format_list_reference(reference, validate_all: bool = False):
     """Format reference from html list element."""
     # try:
+    type_ = None
     id_ = reference.find("a")
     if id_ is not None:
         id_ = normalize_url(id_.get("href"))
@@ -1682,6 +1683,7 @@ async def format_reference(url, validate_all: bool = False):
 async def format_json_reference(reference: dict, validate_all: bool = False):
     """Format json reference."""
     try:
+        type_ = None
         id_ = reference.get("url", None) or reference.get("id", None)
         if id_ is not None:
             id_ = normalize_url(id_)
@@ -1716,6 +1718,7 @@ async def format_citeproc_reference(reference, validate_all: bool = False):
     """Format reference from citeproc html div element."""
     # try:
     id_ = reference.find("a")
+    type_ = None
     if id_ is not None:
         id_ = normalize_url(id_.get("href"))
         unstructured = reference.text
@@ -1764,4 +1767,4 @@ async def validate_reference(id_: str, unstructured: str) -> Optional[str]:
         return [id_, type_, unstructured]
     except Exception as e:
         print(e)
-        return [id_, unstructured]
+        return [id_, None, unstructured]
