@@ -186,9 +186,6 @@ async def post_blog_posts(slug: str, suffix: Optional[str] = None):
     """Update blog posts by slug."""
 
     page = int(request.args.get("page") or "1")
-    offset = request.args.get("offset")
-    if offset is not None:
-        offset = int(offset)
     update = request.args.get("update")
     validate = request.args.get("validate")
 
@@ -208,7 +205,6 @@ async def post_blog_posts(slug: str, suffix: Optional[str] = None):
                 result = await extract_all_posts_by_blog(
                     slug,
                     page=page,
-                    offset=offset,
                     update_all=(update == "all"),
                     validate_all=(validate == "all"),
                 )

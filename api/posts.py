@@ -150,7 +150,6 @@ async def update_all_cited_posts(page: int = 1, validate_all: bool = False):
 async def extract_all_posts_by_blog(
     slug: str,
     page: int = 1,
-    offset: Optional[int] = None,
     update_all: bool = False,
     validate_all: bool = False,
 ):
