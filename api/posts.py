@@ -2224,10 +2224,10 @@ def get_archive_url(blog: dict, url: str, published_at: int) -> Optional[str]:
     f = furl(url)
     if blog.get("archive_host", None):
         f.host = blog["archive_host"]
-    archive_timestamp = blog["archive_timestamps"][-1]
-    if not archive_timestamp:
+    archive_timestamp = blog.get("archive_timestamps", None)
+    if not archive_timestamp or len(archive_timestamp) == 0:
         return None
-    archive_timestamp = get_datetime_from_time(str(archive_timestamp))
+    archive_timestamp = get_datetime_from_time(str(archive_timestamp[-1]))
     if unix_timestamp(archive_timestamp) < published_at:
         return None
     
