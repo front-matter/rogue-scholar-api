@@ -1,12 +1,13 @@
 """Utility functions"""
 
 from uuid import UUID
-from os import environ
+from os import environ, path
 import re
 from typing import Optional, Union
 from babel.dates import format_date
 import iso8601
 import json as JSON
+import yaml
 import html
 from lxml import etree
 import pydash as py_
@@ -153,7 +154,7 @@ AUTHOR_IDS = {
     # "Hugo Gruson": "https://orcid.org/0000-0002-4094-1476",
     # "Matthias Grenié": "https://orcid.org/0000-0002-4659-7522",
     # "Ruby Krasnow": "https://orcid.org/0009-0007-0531-8420",
-    # "Yanina Bellini Saibene": "https://orcid.org/0000-0002-4522-7466",
+    "Yanina Bellini Saibene": "https://orcid.org/0000-0002-4522-7466",
     # "Mark Padgham": "https://orcid.org/0000-0003-2172-5265",
     # "Greg Wilson": "https://orcid.org/0000-0001-8659-8979",
     # "Collin Schwantes": "https://orcid.org/0000-0002-9882-941X",
@@ -223,6 +224,7 @@ AUTHOR_NAMES = {
     "Rosenberg and Glymour": "BJPS Book Reviewers",
     "telemedicus.info": "Redaktion iRights.info",
     "deze": "Projektteam",
+    "julien colomb": "Julien Colomb",
 }
 
 AUTHOR_AFFILIATIONS = {
@@ -924,11 +926,12 @@ FOS_MAPPINGS = {
 }
 
 COMMUNITY_TRANSLATIONS = {
-    "nachrichten":            "news",
-	"papers":                 "researchblogging",
-	"urheberrecht":           "copyright",
-	"veranstaltungshinweise": "events",
+    "nachrichten": "news",
+    "papers": "researchblogging",
+    "urheberrecht": "copyright",
+    "veranstaltungshinweise": "events",
 }
+
 
 def wrap(item) -> list:
     """Turn None, dict, or list into list"""
@@ -953,8 +956,9 @@ def compact(dict_or_list: Union[dict, list]) -> Optional[Union[dict, list]]:
 def normalize_author(
     name: str, published_at: int = 0, url: Optional[str] = None
 ) -> dict:
-    """Normalize author name and url. Strip text after comma
-    if suffix is an academic title. Lookup affiliation based on name and publication date."""
+    """Normalize author name and url. First lookup author in names.yaml.
+    Strip text after comma if suffix is an academic title.
+    Lookup affiliation based on name and publication date."""
     if isinstance(name, dict):
         url = name.get("url", None)
         name = name.get("name", None)
@@ -962,6 +966,11 @@ def normalize_author(
     if isinstance(name, str) and name.split(", ", maxsplit=1)[-1] in ["MD", "PhD"]:
         name = name.split(", ", maxsplit=1)[0]
 
+    # if url and validate_orcid(url):
+    #     author = get_author(url)
+    #     _name = author.get("name", None)
+    #     _url = author.get("url", None)
+    # else:
     _name = AUTHOR_NAMES.get(name, None) or name
     _url = url if url and validate_orcid(url) else AUTHOR_IDS.get(_name, None)
     affiliation = AUTHOR_AFFILIATIONS.get(_url, None)
@@ -975,6 +984,27 @@ def normalize_author(
             [py_.pick(affiliation[-1], ["id", "name"])] if affiliation else None
         )
     return compact({"name": _name, "url": _url, "affiliation": affiliation})
+
+
+def get_author(id: Optional[str]) -> Optional[dict]:
+    """Get author from author ID"""
+    if not id:
+        return {}
+    file_path = path.join(path.dirname(__file__), "../pandoc/names.yaml")
+    with open(file_path, encoding="utf-8") as file:
+        string = file.read()
+        names = yaml.safe_load(string)
+    author = py_.find(names, lambda x: x.get("id", None) == id)
+    return (
+        compact(
+            {
+                "name": author.get("name", None),
+                "url": normalize_orcid(author.get("id", None)),
+            }
+        )
+        if author
+        else {}
+    )
 
 
 def get_date(date: str):
@@ -1428,13 +1458,15 @@ def get_markdown(content_html: str) -> str:
         print(e)
         return ""
 
+
 def display_external_links(doc):
     links = [elt for elt in pandoc.iter(doc) if isinstance(elt, Link)]
     for link in links:
-        target = link[2] # link: Link(Attr, [Inline], Target)
-        url = target[0] # target: (Text, Text)
+        target = link[2]  # link: Link(Attr, [Inline], Target)
+        url = target[0]  # target: (Text, Text)
         if url.startswith("http:") or url.startswith("https:"):
             print(url)
+
 
 def write_html(markdown: str):
     """Get html from markdown"""
@@ -1644,7 +1676,7 @@ async def format_list_reference(reference, validate_all: bool = False):
     # if id_ is present and validate_all is True, lookup metadata
     if id_ is not None and validate_all:
         id_, type_, unstructured = await validate_reference(id_, unstructured)
-    
+
     return compact(
         {
             "id": id_,
@@ -1667,7 +1699,7 @@ async def format_reference(url, validate_all: bool = False):
         # if id_ is present and validate_all is True, lookup metadata
         if id_ is not None and validate_all:
             id_, type_, unstructured = await validate_reference(id_, unstructured)
-        
+
         return compact(
             {
                 "id": id_,
@@ -1693,7 +1725,7 @@ async def format_json_reference(reference: dict, validate_all: bool = False):
         # if id_ is present and validate_all is True, lookup metadata
         if id_ is not None and validate_all:
             id_, type_, unstructured = await validate_reference(id_, unstructured)
-        
+
         # optionally include CITO information
         if reference.get("cito", None):
             c = []
@@ -1729,7 +1761,7 @@ async def format_citeproc_reference(reference, validate_all: bool = False):
     # if id_ is present and validate_all is True, lookup metadata
     if id_ is not None and validate_all:
         id_, type_, unstructured = await validate_reference(id_, unstructured)
-    
+
     return compact(
         {
             "id": id_,

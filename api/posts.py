@@ -20,6 +20,7 @@ from commonmeta import (
     validate_doi,
     normalize_doi,
     validate_prefix,
+    validate_orcid,
     normalize_ror,
     presence,
 )
