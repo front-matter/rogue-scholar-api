@@ -932,7 +932,7 @@ async def extract_wordpress_post(post, blog, validate_all: bool = False):
             py_.get(post, "_embedded.wp:featuredmedia[0].source_url", None)
             or py_.get(post, "yoast_head_json.og_image[0].url", None)
             or post.get("jetpack_featured_media_url", None)
-        ) or get_image(images)
+        )
 
         # optionally remove terms (categories and tags) used to filter posts
         if blog.get("filter", None):
@@ -1028,7 +1028,7 @@ async def extract_wordpresscom_post(post, blog, validate_all: bool = False):
         url = normalize_url(post.get("URL", None), secure=blog.get("secure", True))
         archive_url = get_archive_url(blog, url, published_at)
         images = get_images(content_html, url, blog.get("home_page_url", None))
-        image = get_image(images)
+        image = post.get("featured_image", None)
         tags = [
             normalize_tag(i)
             for i in post.get("categories", None).keys()
@@ -1093,7 +1093,7 @@ async def extract_ghost_post(post, blog, validate_all: bool = False):
         if not guid:
             guid = post.get("id", None)
         images = get_images(content_html, url, blog.get("home_page_url", None))
-        image = post.get("feature_image", None) or get_image(images)
+        image = post.get("feature_image", None)
         tags = [
             normalize_tag(i.get("name", None))
             for i in post.get("tags", None)
@@ -1156,7 +1156,7 @@ async def extract_substack_post(post, blog, validate_all: bool = False):
         )
         archive_url = get_archive_url(blog, url, published_at)
         images = get_images(content_html, url, blog.get("home_page_url", None))
-        image = post.get("cover_image", None) or get_image(images)
+        image = post.get("cover_image", None)
         tags = [
             normalize_tag(i.get("name"))
             for i in wrap(post.get("postTags", None))
@@ -1221,7 +1221,7 @@ async def extract_squarespace_post(post, blog, validate_all: bool = False):
         )
         archive_url = get_archive_url(blog, url, published_at)
         images = get_images(content_html, url, blog.get("home_page_url", None))
-        image = post.get("assetUrl", None) or get_image(images)
+        image = post.get("assetUrl", None)
         tags = [
             normalize_tag(i)
             for i in wrap(post.get("categories", None))
@@ -1295,7 +1295,7 @@ async def extract_json_feed_post(post, blog, validate_all: bool = False):
         if blog.get("relative_url", None) == "blog":
             base_url = blog.get("home_page_url", None)
         images = get_images(content_html, base_url, blog.get("home_page_url", None))
-        image = py_.get(post, "media:thumbnail.@url", None) or get_image(images)
+        image = py_.get(post, "media:thumbnail.@url", None)
         tags = [
             normalize_tag(i)
             for i in wrap(post.get("tags", None))
@@ -1400,7 +1400,7 @@ async def extract_atom_post(post, blog, validate_all: bool = False):
         if blog.get("relative_url", None) == "blog":
             base_url = blog.get("home_page_url", None)
         images = get_images(content_html, base_url, blog.get("home_page_url", None))
-        image = py_.get(post, "media:thumbnail.@url", None) or get_image(images)
+        image = py_.get(post, "media:thumbnail.@url", None)
         # workaround for eve blog
         if image is not None:
             f = furl(image)
@@ -1600,7 +1600,7 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
         url = normalize_url(post.get("url"), secure=blog.get("secure", True))
         archive_url = get_archive_url(blog, url, published_at)
         images = get_images(content_html, url, blog["home_page_url"])
-        image = post.get("image", None) or get_image(images)
+        image = post.get("image", None)
 
         language = post.get("language", None) or detect_language(content_html)
         # optionally remove tag that is used to filter posts
