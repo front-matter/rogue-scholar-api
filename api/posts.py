@@ -20,7 +20,6 @@ from commonmeta import (
     validate_doi,
     normalize_doi,
     validate_prefix,
-    validate_orcid,
     normalize_ror,
     presence,
 )
@@ -920,7 +919,6 @@ async def extract_wordpress_post(post, blog, validate_all: bool = False):
             authors_ = wrap(blog.get("authors", None))
         authors = [format_author(i, published_at) for i in authors_]
         content_html = py_.get(post, "content.rendered", "")
-        content_text = get_markdown(content_html)
         summary = get_summary(content_html)
         abstract = get_summary(py_.get(post, "excerpt.rendered", ""))
         abstract = get_abstract(summary, abstract)
@@ -980,7 +978,6 @@ async def extract_wordpress_post(post, blog, validate_all: bool = False):
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_html": content_html,
-            "content_text": content_text,
             "summary": summary,
             "abstract": abstract,
             "published_at": published_at,
@@ -1022,7 +1019,6 @@ async def extract_wordpresscom_post(post, blog, validate_all: bool = False):
             format_author(i, published_at) for i in wrap(post.get("author", None))
         ]
         content_html = post.get("content", "")
-        content_text = get_markdown(content_html)
         summary = get_summary(post.get("content", ""))
         abstract = get_summary(post.get("excerpt", None))
         abstract = get_abstract(summary, abstract)
@@ -1044,7 +1040,6 @@ async def extract_wordpresscom_post(post, blog, validate_all: bool = False):
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_html": content_html,
-            "content_text": content_text,
             "summary": summary,
             "abstract": abstract,
             "published_at": published_at,
@@ -1084,7 +1079,6 @@ async def extract_ghost_post(post, blog, validate_all: bool = False):
             format_author(i, published_at) for i in wrap(post.get("authors", None))
         ]
         content_html = post.get("html", "")
-        content_text = get_markdown(content_html)
 
         # don't use excerpt as summary, because it's not html
         summary = get_summary(content_html)
@@ -1111,7 +1105,6 @@ async def extract_ghost_post(post, blog, validate_all: bool = False):
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_html": content_html,
-            "content_text": content_text,
             "summary": summary,
             "abstract": abstract,
             "published_at": published_at,
@@ -1152,7 +1145,6 @@ async def extract_substack_post(post, blog, validate_all: bool = False):
         if len(authors) == 0:
             authors = wrap(blog.get("authors", None))
         content_html = post.get("body_html", "")
-        content_text = get_markdown(content_html)
         summary = get_summary(post.get("description", None))
         abstract = get_summary(content_html)
         abstract = get_abstract(summary, abstract)
@@ -1176,7 +1168,6 @@ async def extract_substack_post(post, blog, validate_all: bool = False):
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_html": content_html,
-            "content_text": content_text,
             "summary": summary,
             "abstract": abstract,
             "published_at": published_at,
@@ -1216,7 +1207,6 @@ async def extract_squarespace_post(post, blog, validate_all: bool = False):
             format_author(i, published_at) for i in wrap(post.get("author", None))
         ]
         content_html = post.get("body", "")
-        content_text = get_markdown(content_html)
         summary = get_summary(content_html)
         abstract = get_summary(post.get("excerpt", ""))
         if abstract is not None:
@@ -1243,7 +1233,6 @@ async def extract_squarespace_post(post, blog, validate_all: bool = False):
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_html": content_html,
-            "content_text": content_text,
             "summary": summary,
             "abstract": abstract,
             "published_at": published_at,
@@ -1286,7 +1275,6 @@ async def extract_json_feed_post(post, blog, validate_all: bool = False):
             authors_ = wrap(blog.get("authors", None))
         authors = [format_author(i, published_at) for i in authors_]
         content_html = post.get("content_html", "")
-        content_text = get_markdown(content_html)
         summary = get_summary(content_html)
         abstract = post.get("summary", None)
         abstract = get_abstract(summary, abstract)
@@ -1319,7 +1307,6 @@ async def extract_json_feed_post(post, blog, validate_all: bool = False):
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_html": content_html,
-            "content_text": content_text,
             "summary": summary,
             "abstract": abstract,
             "published_at": published_at,
@@ -1379,7 +1366,6 @@ async def extract_atom_post(post, blog, validate_all: bool = False):
         content_html = html.unescape(py_.get(post, "content.#text", ""))
         if content_html == "":
             content_html = html.unescape(py_.get(post, "content.div.#text", ""))
-        content_text = get_markdown(content_html)
         title = get_title(py_.get(post, "title.#text", None)) or get_title(
             post.get("title", None)
         )
@@ -1433,7 +1419,6 @@ async def extract_atom_post(post, blog, validate_all: bool = False):
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_html": content_html,
-            "content_text": content_text,
             "summary": summary,
             "abstract": abstract,
             "published_at": published_at,
@@ -1474,8 +1459,6 @@ async def extract_rss_post(post, blog, validate_all: bool = False):
         content_html = py_.get(post, "content:encoded", None) or post.get(
             "description", ""
         )
-
-        content_text = get_markdown(content_html)
 
         # use default author for blog if no post author found and no author header in content
         author = (
@@ -1543,7 +1526,6 @@ async def extract_rss_post(post, blog, validate_all: bool = False):
             "blog_name": blog.get("title", None),
             "blog_slug": blog.get("slug", None),
             "content_html": content_html,
-            "content_text": content_text,
             "summary": summary,
             "abstract": abstract,
             "published_at": published_at,
@@ -1620,7 +1602,7 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
         images = get_images(content_html, url, blog["home_page_url"])
         image = post.get("image", None) or get_image(images)
 
-        language = post.get("language", None) or detect_language(content_text)
+        language = post.get("language", None) or detect_language(content_html)
         # optionally remove tag that is used to filter posts
         if blog.get("filter", None) and blog.get("filter", "").startswith("tag"):
             tag = blog.get("filter", "").split(":")[1]
@@ -1642,7 +1624,6 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
             "blog_name": blog.get("title"),
             "blog_slug": blog.get("slug"),
             "content_html": content_html,
-            "content_text": content_text,
             "summary": summary,
             "abstract": abstract,
             "published_at": published_at,
@@ -1730,7 +1711,6 @@ def upsert_single_post(post):
                     "blog_name": post.get("blog_name", None),
                     "blog_slug": post.get("blog_slug", None),
                     "content_html": post.get("content_html", ""),
-                    "content_text": post.get("content_text", ""),
                     "images": post.get("images", None),
                     "updated_at": post.get("updated_at", None),
                     "registered_at": post.get("registered_at", 0),

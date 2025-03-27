@@ -35,6 +35,7 @@ from api.supabase_client import (
 )
 from api.utils import (
     get_formatted_metadata,
+    get_markdown,
     convert_to_commonmeta,
     write_epub,
     write_pdf,
@@ -464,7 +465,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
     if slug == "unregistered":
         response = (
             supabase_client.table("posts")
-            .select("id, guid, doi, url, archive_url, title, summary, abstract, content_text, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, funding_references, blog_name, blog_slug, rid, blog: blogs!inner(*)", count="exact")
+            .select("id, guid, doi, url, archive_url, title, summary, abstract, content_html, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, funding_references, blog_name, blog_slug, rid, blog: blogs!inner(*)", count="exact")
             .not_.is_("blogs.prefix", "null")
             .is_("doi", "null")
             .is_("rid", "null")
@@ -477,7 +478,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
     elif slug == "updated":
         response = (
             supabase_client.table("posts")
-            .select("id, guid, doi, url, archive_url, title, summary, abstract, content_text, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, funding_references, blog_name, blog_slug, rid, blog: blogs!inner(*)", count="exact")
+            .select("id, guid, doi, url, archive_url, title, summary, abstract, content_html, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, funding_references, blog_name, blog_slug, rid, blog: blogs!inner(*)", count="exact")
             .not_.is_("blogs.prefix", "null")
             .is_("updated", True)
             .not_.is_("doi", "null")
@@ -569,10 +570,10 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
                 .execute()
             )
             basename = doi_from_url(doi).replace("/", "-")
-        content = response.data.get("content_text", None)
+        content = response.data.get("content_html", None)
         if format_ == "json":
             return jsonify(response.data)
-        metadata = py_.omit(response.data, ["content_text"])
+        metadata = py_.omit(response.data, ["content_html"])
         meta = convert_to_commonmeta(metadata)
     except Exception as e:
         logger.warning(e.args[0])
@@ -597,7 +598,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
             metadata,
             ["id", "blog_slug", "indexed_at"],
         )
-        markdown = format_markdown(content, metadata)
+        markdown = format_markdown(get_markdown(content), metadata)
         if format_ == "epub":
             markdown["date"] = format_datetime(markdown["date"], markdown["lang"])
             markdown["author"] = format_authors(markdown["author"])
