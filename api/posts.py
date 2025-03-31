@@ -1827,7 +1827,7 @@ def create_record(record, guid: str, community_id: str, category_id: str):
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         response = httpx.post(url, headers=headers, timeout=10.0)
         if response.status_code >= 400:
-            print(response.status_code, "publish_draft_record", guid)
+            print(response.status_code, "publish_draft_record", guid, response.json())
             return response.json()
 
         # add draft record to blog community
