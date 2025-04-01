@@ -225,6 +225,7 @@ AUTHOR_NAMES = {
     "telemedicus.info": "Redaktion iRights.info",
     "deze": "Projektteam",
     "julien colomb": "Julien Colomb",
+    "board@open-bio.org (Open Bioinformatics Foundation)": "Open Bioinformatics Foundation",
 }
 
 AUTHOR_AFFILIATIONS = {
