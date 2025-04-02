@@ -259,7 +259,7 @@ async def extract_all_posts_by_blog(
             case "Squarespace":
                 params = compact({"format": "json"})
             case _:
-                params = url.args if url.args["type"] else {} 
+                params = url.args if url.args and url.args["type"] else {} 
         feed_url = url.set(params).url
         print(f"Extracting posts from {blog['slug']} at {feed_url}.")
         blog_with_posts = {}
