@@ -23,6 +23,7 @@ from commonmeta import (
     normalize_ror,
     presence,
 )
+from urllib.parse import urljoin
 from commonmeta.date_utils import get_datetime_from_time
 from math import ceil
 from Levenshtein import ratio
@@ -2374,18 +2375,21 @@ def absolute_urls(content_html: str, url: str, home_page_url: str):
         soup = get_soup(content_html)
         if not soup:
             return content_html
-        for link in soup.find_all("a"):
+        for a in soup.find_all("a"):
+            href = a.get("href", None)
+            if href is not None:
+                href = get_src_url(href, url, home_page_url)
+                a["href"] = href
+        for link in soup.find_all("link"):
             href = link.get("href", None)
             if href is not None:
                 href = get_src_url(href, url, home_page_url)
                 link["href"] = href
-                print(f"link: {link['href']}")
-        for image in soup.find_all("img"):
-            src = image.get("src", None)
+        for img in soup.find_all("img"):
+            src = img.get("src", None)
             if src is not None:
                 src = get_src_url(src, url, home_page_url)
-                image["src"] = src
-                print(f"image: {image['src']}")
+                img["src"] = src
         return str(soup)
     except Exception as e:
         print(e)
