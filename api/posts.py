@@ -259,8 +259,7 @@ async def extract_all_posts_by_blog(
             case "Squarespace":
                 params = compact({"format": "json"})
             case _:
-                params = {}
-
+                params = url.args if url.args["type"] else {} 
         feed_url = url.set(params).url
         print(f"Extracting posts from {blog['slug']} at {feed_url}.")
         blog_with_posts = {}
@@ -1462,6 +1461,7 @@ async def extract_rss_post(post, blog, validate_all: bool = False):
         content_html = py_.get(post, "content:encoded", None) or post.get(
             "description", ""
         )
+        raw_url = post.get("link", None)
         url = normalize_url(raw_url, secure=blog.get("secure", True))
         content_html = absolute_urls(
             content_html, url, blog.get("home_page_url", None))
@@ -1486,7 +1486,7 @@ async def extract_rss_post(post, blog, validate_all: bool = False):
         reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
         funding_references = wrap(blog.get("funding", None))
-        raw_url = post.get("link", None)
+        
         # handle Hugo running on localhost
         if raw_url and raw_url.startswith("http://localhost:1313"):
             raw_url = raw_url.replace(
