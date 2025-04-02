@@ -634,6 +634,8 @@ async def extract_single_post(
                     f.scheme = "https" if blog.get("secure", True) else "http"
                     f.path = f"/wp-json/wp/v2/posts/{id_}"
                     f.args = {"_embed": 1}
+                else:
+                    f = furl(blog.get("feed_url", None))
             case "WordPress.com":
                 if blog.get("use_api", False):
                     site = furl(blog.get("home_page_url", None)).host
@@ -642,6 +644,8 @@ async def extract_single_post(
                     f.host = "public-api.wordpress.com"
                     f.scheme = "https" if blog.get("secure", True) else "http"
                     f.path = f"/rest/v1.1/sites/{site}/posts/{id_}"
+                else:
+                    f = furl(blog.get("feed_url", None))
             case "Ghost":
                 if blog.get("use_api", False):
                     host = environ[f"QUART_{blog.get('slug').upper()}_GHOST_API_HOST"]
@@ -655,6 +659,8 @@ async def extract_single_post(
                         "include": "tags,authors",
                         "key": key,
                     }
+                else:
+                    f = furl(blog.get("feed_url", None))
             case "Substack":
                 site = furl(blog.get("home_page_url", None)).host
                 path = furl(post_url).path.segments[-1]
