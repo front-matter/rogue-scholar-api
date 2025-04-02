@@ -41,7 +41,6 @@ from api.utils import (
     wrap,
     compact,
     fix_xml,
-    get_markdown,
     write_html,
     validate_uuid,
     format_reference,
@@ -1275,6 +1274,9 @@ async def extract_json_feed_post(post, blog, validate_all: bool = False):
             authors_ = wrap(blog.get("authors", None))
         authors = [format_author(i, published_at) for i in authors_]
         content_html = post.get("content_html", "")
+        url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
+        content_html = absolute_urls(
+            content_html, url, blog.get("home_page_url", None))
         summary = get_summary(content_html)
         abstract = post.get("summary", None)
         abstract = get_abstract(summary, abstract)
@@ -1289,7 +1291,6 @@ async def extract_json_feed_post(post, blog, validate_all: bool = False):
             + await get_funding(content_html)
             + await get_funding_references(post.get("_funding", None))
         )
-        url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
         archive_url = get_archive_url(blog, url, published_at)
         base_url = url
         if blog.get("relative_url", None) == "blog":
@@ -1366,16 +1367,6 @@ async def extract_atom_post(post, blog, validate_all: bool = False):
         content_html = html.unescape(py_.get(post, "content.#text", ""))
         if content_html == "":
             content_html = html.unescape(py_.get(post, "content.div.#text", ""))
-        title = get_title(py_.get(post, "title.#text", None)) or get_title(
-            post.get("title", None)
-        )
-        summary = get_summary(content_html)
-        abstract = py_.get(post, "summary.#text", None)
-        abstract = get_abstract(summary, abstract)
-        reference = await get_references(content_html, validate_all)
-        relationships = get_relationships(content_html)
-        funding_references = wrap(blog.get("funding", None))
-
         def get_url(links):
             """Get url."""
             return normalize_url(
@@ -1399,6 +1390,17 @@ async def extract_atom_post(post, blog, validate_all: bool = False):
         base_url = url
         if blog.get("relative_url", None) == "blog":
             base_url = blog.get("home_page_url", None)
+        content_html = absolute_urls(
+            content_html, url, blog.get("home_page_url", None))
+        title = get_title(py_.get(post, "title.#text", None)) or get_title(
+            post.get("title", None)
+        )
+        summary = get_summary(content_html)
+        abstract = py_.get(post, "summary.#text", None)
+        abstract = get_abstract(summary, abstract)
+        reference = await get_references(content_html, validate_all)
+        relationships = get_relationships(content_html)
+        funding_references = wrap(blog.get("funding", None))
         images = get_images(content_html, base_url, blog.get("home_page_url", None))
         image = py_.get(post, "media:thumbnail.@url", None)
         # workaround for eve blog
@@ -1459,7 +1461,9 @@ async def extract_rss_post(post, blog, validate_all: bool = False):
         content_html = py_.get(post, "content:encoded", None) or post.get(
             "description", ""
         )
-
+        url = normalize_url(raw_url, secure=blog.get("secure", True))
+        content_html = absolute_urls(
+            content_html, url, blog.get("home_page_url", None))
         # use default author for blog if no post author found and no author header in content
         author = (
             get_contributors(content_html)
@@ -1487,7 +1491,6 @@ async def extract_rss_post(post, blog, validate_all: bool = False):
             raw_url = raw_url.replace(
                 "http://localhost:1313", blog.get("home_page_url")
             )
-        url = normalize_url(raw_url, secure=blog.get("secure", True))
         guid = py_.get(post, "guid.#text", None) or post.get("guid", None) or raw_url
         # handle Hugo running on localhost
         if guid and guid.startswith("http://localhost:1313"):
@@ -2363,6 +2366,31 @@ def get_relationships(content_html: str):
         print(e)
         return []
 
+
+def absolute_urls(content_html: str, url: str, home_page_url: str):
+    """Make all links absolute in content_html."""
+
+    try:
+        soup = get_soup(content_html)
+        if not soup:
+            return content_html
+        for link in soup.find_all("a"):
+            href = link.get("href", None)
+            if href is not None:
+                href = get_src_url(href, url, home_page_url)
+                link["href"] = href
+                print(f"link: {link['href']}")
+        for image in soup.find_all("img"):
+            src = image.get("src", None)
+            if src is not None:
+                src = get_src_url(src, url, home_page_url)
+                image["src"] = src
+                print(f"image: {image['src']}")
+        return str(soup)
+    except Exception as e:
+        print(e)
+        print(traceback.format_exc())
+        return content_html
 
 def get_images(content_html: str, url: str, home_page_url: str):
     """Extract images from content_html."""
