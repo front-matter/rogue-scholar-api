@@ -232,6 +232,7 @@ async def citations():
     """Show citations.
     Options to change page."""
     page = int(request.args.get("page") or "1")
+    type_ = request.args.get("type")
     blog_slug = request.args.get("blog_slug")
 
     start_page = page if page and page > 0 else 1
@@ -239,20 +240,39 @@ async def citations():
     end_page = start_page + 10
 
     try:
-        if blog_slug:
-                    response = (
+        if blog_slug and type_:
+            response = (
             supabase_client.table("citations")
             .select(citationsWithDoiSelect, count="exact")
             .eq("blog_slug", blog_slug)
-            .order("updated_at", desc=True)
+            .eq("type", type_)
+            .order("published_at", desc=True)
             .range(start_page, end_page)
             .execute()
         )
+        elif blog_slug:
+            response = (
+            supabase_client.table("citations")
+            .select(citationsWithDoiSelect, count="exact")
+            .eq("blog_slug", blog_slug)
+            .order("published_at", desc=True)
+            .range(start_page, end_page)
+            .execute()
+        )
+        elif type_:
+            response = (
+                supabase_client.table("citations")
+                .select(citationsWithDoiSelect, count="exact")
+                .eq("type", type_)
+                .order("published_at", desc=True)
+                .range(start_page, end_page)
+                .execute()
+            )
         else:
             response = (
                 supabase_client.table("citations")
                 .select(citationsWithDoiSelect, count="exact")
-                .order("updated_at", desc=True)
+                .order("published_at", desc=True)
                 .range(start_page, end_page)
                 .execute()
             )
