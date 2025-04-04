@@ -232,19 +232,30 @@ async def citations():
     """Show citations.
     Options to change page."""
     page = int(request.args.get("page") or "1")
+    blog_slug = request.args.get("blog_slug")
 
     start_page = page if page and page > 0 else 1
     start_page = (start_page - 1) * 10
     end_page = start_page + 10
 
     try:
-        response = (
+        if blog_slug:
+                    response = (
             supabase_client.table("citations")
             .select(citationsWithDoiSelect, count="exact")
+            .eq("blog_slug", blog_slug)
             .order("updated_at", desc=True)
             .range(start_page, end_page)
             .execute()
         )
+        else:
+            response = (
+                supabase_client.table("citations")
+                .select(citationsWithDoiSelect, count="exact")
+                .order("updated_at", desc=True)
+                .range(start_page, end_page)
+                .execute()
+            )
         return jsonify({"total-results": response.count, "items": response.data})
     except APIError as e:
         return {"error": e.message or "An error occured."}, 400

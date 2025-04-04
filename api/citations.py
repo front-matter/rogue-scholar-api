@@ -79,12 +79,17 @@ async def format_crossref_citation(citation: dict, redirects: dict) -> dict:
 
     cid = f"{cited_doi.lower()}::{citing_doi.lower()}"
 
+    # lookup blog_slug for cited doi
+    response = (
+        supabase.table("posts")
+        .select("blog_slug")
+        .eq("doi", normalize_doi(cited_doi))
+        .execute()
+    )
+    blog_slug = py_.get(response, "data[0].blog_slug")
+
     # lookup metadata via API call, as we need the publication date to order the citations
     subject = Metadata(citing_doi)
-
-    # remove publisher field for articles, workaround for unstructured citation
-    # if subject.type == "Article":
-    #     subject.publisher = None
 
     unstructured = subject.write(to="citation", style="apa", locale="en-US")
     published_at = py_.get(subject, "date.published")
@@ -99,6 +104,7 @@ async def format_crossref_citation(citation: dict, redirects: dict) -> dict:
             "unstructured": unstructured,
             "published_at": published_at,
             "type": type_,
+            "blog_slug": blog_slug,
         }
     )
 
@@ -108,8 +114,10 @@ async def upsert_citations(citations: list) -> list:
 
     # load redirected dois
     redirects = load_redirects()
- 
-    data = [await format_crossref_citation(citation, redirects) for citation in citations]
+
+    data = [
+        await format_crossref_citation(citation, redirects) for citation in citations
+    ]
     return [await upsert_single_citation(citation) for citation in data]
 
 
@@ -132,6 +140,7 @@ async def upsert_single_citation(citation):
                     "unstructured": citation.get("unstructured", None),
                     "published_at": citation.get("published_at", None),
                     "type": citation.get("type", None),
+                    "blog_slug": citation.get("blog_slug", None),
                 },
                 returning="representation",
                 ignore_duplicates=False,
@@ -140,11 +149,14 @@ async def upsert_single_citation(citation):
             .execute()
         )
         data = response.data[0]
-        print(f"Upserted citation {citation.get('citation')} for doi {citation.get('doi')}")
+        print(
+            f"Upserted citation {citation.get('citation')} for doi {citation.get('doi')}"
+        )
         return data
     except Exception as e:
         print(e)
         return None
+
 
 def load_redirects():
     """Load redirected dois from yaml."""
