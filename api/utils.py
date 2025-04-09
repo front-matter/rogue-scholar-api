@@ -869,6 +869,79 @@ AUTHOR_AFFILIATIONS = {
             "start_date": "2017-09-01",
         }
     ],
+    "https://orcid.org/0000-0002-4325-1809": [
+        {
+            "name": "Crossref",
+            "id": "https://ror.org/02twcfp32",
+            "start_date": "2022-05-25",
+        }
+    ],
+    "https://orcid.org/0000-0001-5055-7876": [
+        {
+            "name": "Crossref",
+            "id": "https://ror.org/02twcfp32",
+            "start_date": "2018-08-01",
+        },
+    ],
+    "https://orcid.org/0000-0003-1507-1031": [
+        {
+            "name": "University of California Office of the President",
+            "id": "https://ror.org/00dmfq477",
+            "start_date": "2024-05-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-2916-3423": [
+        {
+            "name": "University of California Office of the President",
+            "id": "https://ror.org/00dmfq477",
+            "start_date": "2018-11-01",
+        },
+        {
+            "name": "DataCite",
+            "id": "https://ror.org/04wxnsj81",
+            "start_date": "2024-01-01",
+        }
+    ],
+    "https://orcid.org/0000-0001-6660-6214": [
+        {
+            "name": "DataCite",
+            "id": "https://ror.org/04wxnsj81",
+            "start_date": "2018-07-01",
+        },
+        {
+            "name": "Crossref",
+            "id": "https://ror.org/02twcfp32",
+            "start_date": "2025-02-01",
+        },
+    ],
+    "https://orcid.org/0000-0002-4011-3590": [
+        {
+            "name": "Crossref",
+            "id": "https://ror.org/02twcfp32",
+            "start_date": "2018-01-01",
+        },
+    ],
+    "https://orcid.org/0000-0001-6622-4910": [
+        {
+            "name": "DataCite",
+            "id": "https://ror.org/04wxnsj81",
+            "start_date": "2020-11-01",
+        },
+    ],
+    "https://orcid.org/0009-0008-8562-7748": [
+        {
+            "name": "Crossref",
+            "id": "https://ror.org/02twcfp32",
+            "start_date": "2023-07-03",
+        },
+    ],
+    "https://orcid.org/0000-0002-0353-2702": [
+        {
+            "name": "Crossref",
+            "id": "https://ror.org/02twcfp32",
+            "start_date": "2015-03-31",
+        },
+    ],
 }
 
 
@@ -1549,6 +1622,7 @@ def get_known_doi_ra(doi: str) -> Optional[str]:
         "10.34732",
         "10.57689",
         "10.58079",
+        "10.71938",
     ]
     if doi is None:
         return None

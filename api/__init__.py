@@ -484,6 +484,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
         "10.59350",
         "10.63485",
         "10.64000",
+        "10.71938",
     ]
     permitted_slugs = ["unregistered", "updated", "cited"] + prefixes
     status = ["active", "archived", "expired"]
