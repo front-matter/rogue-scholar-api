@@ -171,6 +171,7 @@ AUTHOR_IDS = {
     "Alice Meadows": "https://orcid.org/0000-0003-2161-3781",
     "Jamaica Jones": "https://orcid.org/0000-0002-1969-2508",
     "Roger Beecham": "https://orcid.org/0000-0001-8563-7251",
+    "Clarivate": "https://ror.org/04fce1c40",
 }
 
 AUTHOR_NAMES = {
