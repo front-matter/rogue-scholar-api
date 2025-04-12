@@ -170,7 +170,7 @@ async def extract_all_posts_by_blog(
         blog = response.data
         if not blog:
             return {}
-        if page == 1:
+        if page == 1 and blog.get("slug") not in ["chem_bla_ics"]:
             url = furl(blog.get("current_feed_url", None) or blog.get("feed_url", None))
         else:
             url = furl(blog.get("feed_url", None))
@@ -259,7 +259,7 @@ async def extract_all_posts_by_blog(
             case "Squarespace":
                 params = compact({"format": "json"})
             case _:
-                params = url.args if url.args and url.args["type"] else {} 
+                params = url.args if url.args and url.args["type"] else {}
         feed_url = url.set(params).url
         print(f"Extracting posts from {blog['slug']} at {feed_url}.")
         blog_with_posts = {}
@@ -1281,8 +1281,7 @@ async def extract_json_feed_post(post, blog, validate_all: bool = False):
         authors = [format_author(i, published_at) for i in authors_]
         content_html = post.get("content_html", "")
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
-        content_html = absolute_urls(
-            content_html, url, blog.get("home_page_url", None))
+        content_html = absolute_urls(content_html, url, blog.get("home_page_url", None))
         summary = get_summary(content_html)
         abstract = post.get("summary", None)
         abstract = get_abstract(summary, abstract)
@@ -1373,6 +1372,7 @@ async def extract_atom_post(post, blog, validate_all: bool = False):
         content_html = html.unescape(py_.get(post, "content.#text", ""))
         if content_html == "":
             content_html = html.unescape(py_.get(post, "content.div.#text", ""))
+
         def get_url(links):
             """Get url."""
             return normalize_url(
@@ -1396,8 +1396,7 @@ async def extract_atom_post(post, blog, validate_all: bool = False):
         base_url = url
         if blog.get("relative_url", None) == "blog":
             base_url = blog.get("home_page_url", None)
-        content_html = absolute_urls(
-            content_html, url, blog.get("home_page_url", None))
+        content_html = absolute_urls(content_html, url, blog.get("home_page_url", None))
         title = get_title(py_.get(post, "title.#text", None)) or get_title(
             post.get("title", None)
         )
@@ -1469,8 +1468,7 @@ async def extract_rss_post(post, blog, validate_all: bool = False):
         )
         raw_url = post.get("link", None)
         url = normalize_url(raw_url, secure=blog.get("secure", True))
-        content_html = absolute_urls(
-            content_html, url, blog.get("home_page_url", None))
+        content_html = absolute_urls(content_html, url, blog.get("home_page_url", None))
         # use default author for blog if no post author found and no author header in content
         author = (
             get_contributors(content_html)
@@ -1492,7 +1490,7 @@ async def extract_rss_post(post, blog, validate_all: bool = False):
         reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
         funding_references = wrap(blog.get("funding", None))
-        
+
         # handle Hugo running on localhost
         if raw_url and raw_url.startswith("http://localhost:1313"):
             raw_url = raw_url.replace(
@@ -2208,7 +2206,6 @@ async def get_funding_references(funding_references: Optional[dict]) -> list:
 def get_archive_url(blog: dict, url: str, published_at: int) -> Optional[str]:
     """Get archive url."""
 
-
     if not blog.get("archive_collection", None):
         return None
 
@@ -2221,8 +2218,9 @@ def get_archive_url(blog: dict, url: str, published_at: int) -> Optional[str]:
     archive_timestamp = get_datetime_from_time(str(archive_timestamp[-1]))
     if unix_timestamp(archive_timestamp) < published_at:
         return None
-    
+
     return f"https://wayback.archive-it.org/{blog['archive_collection']}/{archive_timestamp}/{f.url}"
+
 
 def normalize_blogger_url(url: str) -> str:
     """Normalize blogger url."""
@@ -2232,6 +2230,7 @@ def normalize_blogger_url(url: str) -> str:
     if "fosblog.html" in f.path.segments:
         f.path.segments.remove("fosblog.html")
     return f.url
+
 
 def get_title(content_html: str):
     """Sanitize title."""
@@ -2401,6 +2400,7 @@ def absolute_urls(content_html: str, url: str, home_page_url: str):
         print(e)
         print(traceback.format_exc())
         return content_html
+
 
 def get_images(content_html: str, url: str, home_page_url: str):
     """Extract images from content_html."""
