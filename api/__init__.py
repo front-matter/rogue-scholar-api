@@ -60,6 +60,7 @@ from api.posts import (
     delete_draft_record,
     delete_all_draft_records,
     update_all_cited_posts,
+    update_all_flagged_posts,
 )
 from api.blogs import extract_single_blog, extract_all_blogs
 from api.citations import extract_all_citations
@@ -407,6 +408,7 @@ async def post_posts():
     page = int(request.args.get("page") or "1")
     update = request.args.get("update")
     validate = request.args.get("validate")
+    no_fulltext = request.args.get("no_fulltext")
 
     if (
         request.headers.get("Authorization", None) is None
@@ -418,6 +420,9 @@ async def post_posts():
         try:
             if update == "cited":
                 updated_posts = await update_all_cited_posts(page=page)
+                return jsonify(updated_posts)
+            elif no_fulltext == "true":
+                updated_posts = await update_all_flagged_posts(page=page)
                 return jsonify(updated_posts)
             elif update == "self":
                 updated_posts = await update_all_posts(page=page)

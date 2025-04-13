@@ -147,6 +147,33 @@ async def update_all_cited_posts(page: int = 1, validate_all: bool = False):
     return [upsert_single_post(i) for i in cited_posts]
 
 
+async def update_all_flagged_posts(page: int = 1):
+    """Update all flagged posts."""
+
+    start_page = (page - 1) * 50 if page > 0 else 0
+    end_page = (page - 1) * 50 + 50
+    status = ["approved", "active", "archived", "expired"]
+    validate_all = True
+
+    response = (
+        supabase.table("posts")
+        .select(postsWithContentSelect, count="exact")
+        .in_("status", status)
+        .is_("content_html", "null")
+        .order("published_at", desc=True)
+        .range(start_page, end_page)
+        .execute()
+    )
+    tasks = []
+    for post in response.data:
+        blog = post.get("blog", None)
+        task = update_rogue_scholar_post(post, blog, validate_all)
+        tasks.append(task)
+
+    flagged_posts = await asyncio.gather(*tasks)
+    return [upsert_single_post(i) for i in flagged_posts]
+
+
 async def extract_all_posts_by_blog(
     slug: str,
     page: int = 1,
