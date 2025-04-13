@@ -242,23 +242,23 @@ async def citations():
     try:
         if blog_slug and type_:
             response = (
-            supabase_client.table("citations")
-            .select(citationsWithDoiSelect, count="exact")
-            .eq("blog_slug", blog_slug)
-            .eq("type", type_)
-            .order("published_at", desc=True)
-            .range(start_page, end_page)
-            .execute()
-        )
+                supabase_client.table("citations")
+                .select(citationsWithDoiSelect, count="exact")
+                .eq("blog_slug", blog_slug)
+                .eq("type", type_)
+                .order("published_at", desc=True)
+                .range(start_page, end_page)
+                .execute()
+            )
         elif blog_slug:
             response = (
-            supabase_client.table("citations")
-            .select(citationsWithDoiSelect, count="exact")
-            .eq("blog_slug", blog_slug)
-            .order("published_at", desc=True)
-            .range(start_page, end_page)
-            .execute()
-        )
+                supabase_client.table("citations")
+                .select(citationsWithDoiSelect, count="exact")
+                .eq("blog_slug", blog_slug)
+                .order("published_at", desc=True)
+                .range(start_page, end_page)
+                .execute()
+            )
         elif type_:
             response = (
                 supabase_client.table("citations")
@@ -354,32 +354,31 @@ async def posts():
     per_page = min(per_page, 50)
     page = int(request.args.get("page") or "1")
     blog_slug = request.args.get("blog_slug")
-    flag = request.args.get("flag")
+    no_fulltext = request.args.get("no_fulltext")
     status = ["approved", "active", "archived", "expired"]
     if preview:
         status = ["pending", "approved", "active", "archived", "expired"]
     start_page = page if page and page > 0 else 1
     start_page = (start_page - 1) * per_page
-    end_page = start_page + per_page -1
+    end_page = start_page + per_page - 1
 
     try:
-        if blog_slug:
+        if no_fulltext == "true":
+            response = (
+                supabase_client.table("posts")
+                .select(postsWithContentSelect, count="exact")
+                .in_("status", status)
+                .is_("content_html", "null")
+                .order("published_at", desc=True)
+                .range(start_page, end_page)
+                .execute()
+            )
+        elif blog_slug:
             response = (
                 supabase_client.table("posts")
                 .select(postsWithContentSelect, count="exact")
                 .in_("status", status)
                 .eq("blog_slug", blog_slug)
-                .ilike("title", f"%{query}%")
-                .order("published_at", desc=True)
-                .range(start_page, end_page)
-                .execute()
-            )
-        elif flag:
-            response = (
-                supabase_client.table("posts")
-                .select(postsWithContentSelect, count="exact")
-                .in_("status", status)
-                .is_("archived", flag == "archived")
                 .ilike("title", f"%{query}%")
                 .order("published_at", desc=True)
                 .range(start_page, end_page)
@@ -499,7 +498,10 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
     if slug == "unregistered":
         response = (
             supabase_client.table("posts")
-            .select("id, guid, doi, url, archive_url, title, summary, abstract, content_html, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, funding_references, blog_name, blog_slug, rid, blog: blogs!inner(*)", count="exact")
+            .select(
+                "id, guid, doi, url, archive_url, title, summary, abstract, content_html, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, funding_references, blog_name, blog_slug, rid, blog: blogs!inner(*)",
+                count="exact",
+            )
             .not_.is_("blogs.prefix", "null")
             .is_("doi", "null")
             .is_("rid", "null")
@@ -512,7 +514,10 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
     elif slug == "updated":
         response = (
             supabase_client.table("posts")
-            .select("id, guid, doi, url, archive_url, title, summary, abstract, content_html, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, funding_references, blog_name, blog_slug, rid, blog: blogs!inner(*)", count="exact")
+            .select(
+                "id, guid, doi, url, archive_url, title, summary, abstract, content_html, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, funding_references, blog_name, blog_slug, rid, blog: blogs!inner(*)",
+                count="exact",
+            )
             .not_.is_("blogs.prefix", "null")
             .is_("updated", True)
             .not_.is_("doi", "null")
