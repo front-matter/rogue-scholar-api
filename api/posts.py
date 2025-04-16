@@ -2545,14 +2545,16 @@ def get_urls(content_html: str):
             url = normalize_url(url)
             if not url:
                 return None
+            f = furl(url)
             if validate_doi(url):
-                f = furl(url)
                 if f.scheme == "http":
                     f.scheme = "https"
                 if f.host == "dx.doi.org":
                     f.host = "doi.org"
                 url = f.url
             else:
+                if not f.host:
+                    return None
                 url = url.lower()
             return url
 
