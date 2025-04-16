@@ -25,7 +25,7 @@ from commonmeta import (
 )
 from urllib.parse import urljoin
 from commonmeta.date_utils import get_datetime_from_time
-from math import ceil
+from math import ceil, floor
 from Levenshtein import ratio
 from sentry_sdk import capture_exception
 
@@ -206,6 +206,17 @@ async def extract_all_posts_by_blog(
             if blog.get("generator", None)
             else None
         )
+
+        # handle automatic pagination, based on number of posts already in the database
+        if blog.get("slug", None) == "oan" and page == 999:
+            response = (
+                supabase.table("posts")
+                .select("*", count="exact", head=True)
+                .eq("blog_slug", slug)
+                .execute()
+            )
+            total = response.count
+            page = floor(total / 50)
         start_page = (page - 1) * 50 if page > 0 else 0
         end_page = (page - 1) * 50 + 50 if page > 0 else 50
         per_page = 50
@@ -2138,7 +2149,7 @@ async def get_references(content_html: str, validate_all: bool = False):
 
     # if there is a references section
     reference_html = re.split(
-        r"(?:References|Reference|Referenzen|Bibliography|Literature|Literatur|Footnotes|References:)<\/(?:h1|h2|h3|h4)>",
+        r"(?:References|Reference|Referenzen|Bibliography|Literature|Literatur|Footnotes|References:|Works cited)<\/(?:h1|h2|h3|h4)>",
         content_html,
         maxsplit=2,
     )
