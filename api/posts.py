@@ -1393,6 +1393,10 @@ async def extract_atom_post(post, blog, validate_all: bool = False):
         if published_at > updated_at:
             updated_at = published_at
 
+        # if published date is missing, use updated date
+        if published_at is 0:
+            published_at = updated_at
+
         # use default authors for blog if no post authors found
         authors_ = wrap(post.get("author", None))
         if (
