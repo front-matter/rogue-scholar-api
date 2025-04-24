@@ -171,6 +171,7 @@ AUTHOR_IDS = {
     "Alice Meadows": "https://orcid.org/0000-0003-2161-3781",
     "Jamaica Jones": "https://orcid.org/0000-0002-1969-2508",
     "Roger Beecham": "https://orcid.org/0000-0001-8563-7251",
+    "Kathleen Fitzpatrick": "https://orcid.org/0000-0002-5251-0307",
     "Clarivate": "https://ror.org/04fce1c40",
 }
 
@@ -901,7 +902,7 @@ AUTHOR_AFFILIATIONS = {
             "name": "DataCite",
             "id": "https://ror.org/04wxnsj81",
             "start_date": "2024-01-01",
-        }
+        },
     ],
     "https://orcid.org/0000-0001-6660-6214": [
         {
@@ -941,6 +942,13 @@ AUTHOR_AFFILIATIONS = {
             "name": "Crossref",
             "id": "https://ror.org/02twcfp32",
             "start_date": "2015-03-31",
+        },
+    ],
+    "https://orcid.org/0000-0002-5251-0307": [
+        {
+            "name": "Michigan State University",
+            "id": "https://ror.org/05hs6h993",
+            "start_date": "2017-08-01",
         },
     ],
 }
