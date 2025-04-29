@@ -23,7 +23,8 @@ from commonmeta import (
     normalize_ror,
     presence,
 )
-from urllib.parse import urljoin
+
+# from urllib.parse import urljoin
 from commonmeta.date_utils import get_datetime_from_time
 from math import ceil, floor
 from Levenshtein import ratio
