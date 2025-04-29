@@ -1467,8 +1467,8 @@ def normalize_url(url: Optional[str], secure=False, lower=False) -> Optional[str
         if secure and f.scheme == "http":
             f.set(scheme="https")
         if lower:
-            return f.url.lower().strip("/")
-        return f.url.strip("/")
+            return f.url.lower()
+        return f.url
     except ValueError:
         capture_message(f"Error normalizing url {url}", "warning")
         return None
