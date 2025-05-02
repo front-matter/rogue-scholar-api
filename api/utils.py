@@ -146,21 +146,6 @@ AUTHOR_IDS = {
     "Ksenija Rivo": "https://orcid.org/0000-0002-4094-5645",
     "Jakub Nowosad": "https://orcid.org/0000-0002-1057-3721",
     "Duncan Hull": "https://orcid.org/0000-0003-2387-503X",
-    # "Maëlle Salmon": "https://orcid.org/0000-0002-2815-0399",
-    # "Steffi LaZerte": "https://orcid.org/0000-0002-7690-8360",
-    # "Jeroen Ooms": "https://orcid.org/0000-0002-4035-0289",
-    # "Noam Ross": "https://orcid.org/0000-0002-2136-0000",
-    # "Stefanie Butland": "https://orcid.org/0000-0002-5427-8951",
-    # "Hugo Gruson": "https://orcid.org/0000-0002-4094-1476",
-    # "Matthias Grenié": "https://orcid.org/0000-0002-4659-7522",
-    # "Ruby Krasnow": "https://orcid.org/0009-0007-0531-8420",
-    "Yanina Bellini Saibene": "https://orcid.org/0000-0002-4522-7466",
-    # "Mark Padgham": "https://orcid.org/0000-0003-2172-5265",
-    # "Greg Wilson": "https://orcid.org/0000-0001-8659-8979",
-    # "Collin Schwantes": "https://orcid.org/0000-0002-9882-941X",
-    # "Beatriz Milz": "https://orcid.org/0000-0002-3064-4486",
-    # "Mauro Lepore": "https://orcid.org/0000-0002-1986-7988",
-    # "Francisco Cardozo": "https://orcid.org/0000-0002-1925-4954",
     "Laura Rothfritz": "https://orcid.org/0000-0001-7525-0635",
     "Katrin Frisch": "https://orcid.org/0000-0002-6669-5015",
     "Jens Klump": "https://orcid.org/0000-0001-5911-6022",
@@ -229,6 +214,12 @@ AUTHOR_NAMES = {
     "julien colomb": "Julien Colomb",
     "board@open-bio.org (Open Bioinformatics Foundation)": "Open Bioinformatics Foundation",
 }
+
+IRREGULAR_AUTHOR_NAMES = {
+    "Saibene, Yanina Bellini": "Bellini Saibene, Yanina",
+    "Tzovaras, Bastian Greshake": "Greshake Tzovaras, Bastian",
+}
+
 
 AUTHOR_AFFILIATIONS = {
     "https://orcid.org/0000-0003-3585-6733": [
@@ -1049,11 +1040,6 @@ def normalize_author(
     if isinstance(name, str) and name.split(", ", maxsplit=1)[-1] in ["MD", "PhD"]:
         name = name.split(", ", maxsplit=1)[0]
 
-    # if url and validate_orcid(url):
-    #     author = get_author(url)
-    #     _name = author.get("name", None)
-    #     _url = author.get("url", None)
-    # else:
     _name = AUTHOR_NAMES.get(name, None) or name
     _url = url if url and validate_orcid(url) else AUTHOR_IDS.get(_name, None)
     affiliation = AUTHOR_AFFILIATIONS.get(_url, None)
@@ -1069,25 +1055,33 @@ def normalize_author(
     return compact({"name": _name, "url": _url, "affiliation": affiliation})
 
 
-def get_author(id: Optional[str]) -> Optional[dict]:
-    """Get author from author ID"""
-    if not id:
-        return {}
+def validate_creators(creators):
+    """Validate creators list using names.yaml"""
     file_path = path.join(path.dirname(__file__), "../pandoc/names.yaml")
     with open(file_path, encoding="utf-8") as file:
         string = file.read()
         names = yaml.safe_load(string)
-    author = py_.find(names, lambda x: x.get("id", None) == id)
-    return (
-        compact(
-            {
-                "name": author.get("name", None),
-                "url": normalize_orcid(author.get("id", None)),
+
+    def normalize_creator(creator):
+        name_ = py_.get(creator, "person_or_org.name")
+        name_ = IRREGULAR_AUTHOR_NAMES.get(name_, name_)
+        name = py_.collections.find(names, lambda x: x["name"] == name_)
+        if name is not None:
+            family_name, given_name = name.get("name", "").split(", ", 1)
+            return {
+                "person_or_org": {
+                    "family_name": family_name,
+                    "given_name": given_name,
+                    "name": name.get("name", None),
+                    "type": "personal",
+                    "identifiers": name.get("identifiers", []),
+                },
+                "affiliations": name.get("affiliations", []),
             }
-        )
-        if author
-        else {}
-    )
+        else:
+            return creator
+
+    return [normalize_creator(x) for x in creators]
 
 
 def get_date(date: str):

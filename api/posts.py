@@ -49,6 +49,7 @@ from api.utils import (
     format_json_reference,
     format_list_reference,
     format_citeproc_reference,
+    validate_creators,
     EXCLUDED_TAGS,
 )
 from api.supabase_client import (
@@ -1927,6 +1928,12 @@ def update_record(record, rid: str, community_id: str, category_id: str):
         )
         if guid_dict:
             guid = guid_dict["identifier"]
+
+        # validate creators, lookup metadata if needed
+        if py_.get(record, "metadata.creators"):
+            record["metadata"]["creators"] = validate_creators(
+                py_.get(record, "metadata.creators")
+            )
 
         # validate funding, lookup award metadata if needed
         if py_.get(record, "metadata.funding"):

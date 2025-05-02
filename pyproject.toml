@@ -6,14 +6,7 @@ authors = [{ name = "Martin Fenner", email = "martin@front-matter.io" }]
 requires-python = "~=3.12"
 readme = "README.md"
 license = "MIT"
-keywords = [
-    "science",
-    "blogging",
-    "quart",
-    "api",
-    "supabase",
-    "inveniordm",
-]
+keywords = ["science", "blogging", "quart", "api", "supabase", "inveniordm"]
 dependencies = [
     "Quart>=0.19.2,<0.20",
     "tox>=4.11.3,<5",
@@ -33,7 +26,7 @@ dependencies = [
     "dateutils>=0.6.12,<0.7",
     "lxml>=5.1.0,<6",
     "pandoc~=2.4",
-    "commonmeta-py>=0.100,<0.120",
+    "commonmeta-py>=0.101,<0.120",
     "python-frontmatter~=1.1",
     "babel>=2.14.0,<3",
     "iso8601>=2.1.0,<3",
@@ -76,10 +69,7 @@ build-backend = "hatchling.build"
 
 [tool.ruff]
 line-length = 88
-select = [
-    "F401",
-    "F403",
-]
+select = ["F401", "F403"]
 
 [tool.tox]
 legacy_tox_ini = """
