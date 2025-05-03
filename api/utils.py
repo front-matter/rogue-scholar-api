@@ -1067,6 +1067,9 @@ def normalize_author(
         else:
             given_name = None
             family_name = None
+    else:
+        given_name = None
+        family_name = None
 
     affiliation = AUTHOR_AFFILIATIONS.get(_url, None)
     if affiliation is not None and len(affiliation) > 0 and published_at > 0:
