@@ -1930,10 +1930,10 @@ def update_record(record, rid: str, community_id: str, category_id: str):
             guid = guid_dict["identifier"]
 
         # validate creators, lookup metadata if needed
-        if py_.get(record, "metadata.creators"):
-            record["metadata"]["creators"] = validate_creators(
-                py_.get(record, "metadata.creators")
-            )
+        # if py_.get(record, "metadata.creators"):
+        #     record["metadata"]["creators"] = validate_creators(
+        #         py_.get(record, "metadata.creators")
+        #     )
 
         # validate funding, lookup award metadata if needed
         if py_.get(record, "metadata.funding"):

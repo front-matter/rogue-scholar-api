@@ -29,6 +29,8 @@ from commonmeta import (
 from commonmeta.constants import Commonmeta
 from commonmeta.date_utils import get_date_from_unix_timestamp
 from commonmeta.doi_utils import validate_prefix, get_doi_ra
+from commonmeta.author_utils import is_personal_name
+from nameparser import HumanName
 import frontmatter
 import pandoc
 
@@ -216,8 +218,14 @@ AUTHOR_NAMES = {
 }
 
 IRREGULAR_AUTHOR_NAMES = {
-    "Saibene, Yanina Bellini": "Bellini Saibene, Yanina",
-    "Tzovaras, Bastian Greshake": "Greshake Tzovaras, Bastian",
+    "Yanina Bellini Saibene": {
+        "given_name": "Yanina",
+        "family_name": "Bellini Saibene",
+    },
+    "Bastian Greshake Tzovaras": {
+        "given_name": "Bastian",
+        "family_name": "Greshake Tzovaras",
+    },
 }
 
 
@@ -1041,7 +1049,25 @@ def normalize_author(
         name = name.split(", ", maxsplit=1)[0]
 
     _name = AUTHOR_NAMES.get(name, None) or name
+    names = IRREGULAR_AUTHOR_NAMES.get(_name, None)
     _url = url if url and validate_orcid(url) else AUTHOR_IDS.get(_name, None)
+    if names:
+        _name = None
+        given_name = names.get("given_name", None)
+        family_name = names.get("family_name", None)
+    elif _url or is_personal_name(_name):
+        # split name for personal names into given/family name
+        names = HumanName(_name)
+        if names:
+            given_name = (
+                " ".join([names.first, names.middle]).strip() if names.first else None
+            )
+            family_name = names.last if names.last else None
+            _name = None
+        else:
+            given_name = None
+            family_name = None
+
     affiliation = AUTHOR_AFFILIATIONS.get(_url, None)
     if affiliation is not None and len(affiliation) > 0 and published_at > 0:
         affiliation = [
@@ -1052,7 +1078,15 @@ def normalize_author(
         affiliation = (
             [py_.pick(affiliation[-1], ["id", "name"])] if affiliation else None
         )
-    return compact({"name": _name, "url": _url, "affiliation": affiliation})
+    return compact(
+        {
+            "name": _name,
+            "given": given_name,
+            "family": family_name,
+            "url": _url,
+            "affiliation": affiliation,
+        }
+    )
 
 
 def validate_creators(creators):
