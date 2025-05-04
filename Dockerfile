@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.5
 ARG BUILDPLATFORM=linux/amd64
-FROM --platform=$BUILDPLATFORM python:3.12-bookworm AS builder
+FROM --platform=$BUILDPLATFORM python:3.13-bookworm AS builder
 
 # Dockerfile that builds the Rogue Scholar API Docker image. Based on the following:
 # - https://medium.com/@albertazzir/blazing-fast-python-docker-builds-with-poetry-a78a66f5aed0
@@ -29,7 +29,7 @@ RUN touch README.md
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-install-project --no-dev
 
-FROM --platform=$BUILDPLATFORM python:3.12-slim-bookworm AS runtime
+FROM --platform=$BUILDPLATFORM python:3.13-slim-bookworm AS runtime
 
 # Install OS package dependency (for weasyprint): pango
 RUN --mount=type=cache,target=/var/cache/apt apt-get update -y && \
