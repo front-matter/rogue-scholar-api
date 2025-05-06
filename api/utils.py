@@ -160,6 +160,7 @@ AUTHOR_IDS = {
     "Roger Beecham": "https://orcid.org/0000-0001-8563-7251",
     "Kathleen Fitzpatrick": "https://orcid.org/0000-0002-5251-0307",
     "Clarivate": "https://ror.org/04fce1c40",
+    "Redivis": "https://ror.org/02jdaj147",
 }
 
 AUTHOR_NAMES = {
@@ -240,6 +241,9 @@ IRREGULAR_AUTHOR_NAMES = {
     },
     "Redaktion iRights.info": {
         "name": "Redaktion iRights.info",
+    },
+    "Research Graphs": {
+        "name": "Research Graphs",
     },
     "Team OA Brandenburg": {
         "name": "Team OA Brandenburg",
