@@ -212,19 +212,37 @@ AUTHOR_NAMES = {
     "Calder and Lee": "BJPS Book Reviewers",
     "Rosenberg and Glymour": "BJPS Book Reviewers",
     "telemedicus.info": "Redaktion iRights.info",
+    "Make Data Count Team": "Make Data Count",
     "deze": "Projektteam",
     "julien colomb": "Julien Colomb",
     "board@open-bio.org (Open Bioinformatics Foundation)": "Open Bioinformatics Foundation",
 }
 
 IRREGULAR_AUTHOR_NAMES = {
+    # Personal names
+    "Bastian Greshake Tzovaras": {
+        "given_name": "Bastian",
+        "family_name": "Greshake Tzovaras",
+    },
     "Yanina Bellini Saibene": {
         "given_name": "Yanina",
         "family_name": "Bellini Saibene",
     },
-    "Bastian Greshake Tzovaras": {
-        "given_name": "Bastian",
-        "family_name": "Greshake Tzovaras",
+    # Organization names
+    "Make Data Count": {
+        "name": "Make Data Count",
+    },
+    "Open.Make Team": {
+        "name": "Open.Make Team",
+    },
+    "Open Bioinformatics Foundation": {
+        "name": "Open Bioinformatics Foundation",
+    },
+    "Redaktion iRights.info": {
+        "name": "Redaktion iRights.info",
+    },
+    "Team OA Brandenburg": {
+        "name": "Team OA Brandenburg",
     },
 }
 
@@ -1052,7 +1070,7 @@ def normalize_author(
     names = IRREGULAR_AUTHOR_NAMES.get(_name, None)
     _url = url if url and validate_orcid(url) else AUTHOR_IDS.get(_name, None)
     if names:
-        _name = None
+        _name = names.get("name", None)
         given_name = names.get("given_name", None)
         family_name = names.get("family_name", None)
     elif _url or is_personal_name(_name):
