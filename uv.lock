@@ -302,7 +302,7 @@ wheels = [
 
 [[package]]
 name = "commonmeta-py"
-version = "0.101"
+version = "0.106"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "base32-lib" },
@@ -315,7 +315,6 @@ dependencies = [
     { name = "dateparser" },
     { name = "edtf" },
     { name = "furl" },
-    { name = "httpx" },
     { name = "jsonschema" },
     { name = "lxml" },
     { name = "nameparser" },
@@ -328,6 +327,7 @@ dependencies = [
     { name = "pyjwt" },
     { name = "python-dateutil" },
     { name = "pyyaml" },
+    { name = "requests" },
     { name = "simplejson" },
     { name = "types-beautifulsoup4" },
     { name = "types-dateparser" },
@@ -335,9 +335,9 @@ dependencies = [
     { name = "types-xmltodict" },
     { name = "xmltodict" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/7f/c9/a8d5343b54a655b8e669b9708c33cca10ea4b2f9aa29eaf07e58e79361e7/commonmeta_py-0.101.tar.gz", hash = "sha256:47cbe2d1dbe6a6847b724ad3b8ccfae350f3c852f615f8ecd76b6d7dc123b998", size = 300520 }
+sdist = { url = "https://files.pythonhosted.org/packages/39/db/e35c69f48b9048f9d4b247363f4b29a7c7f2c4525d88b6b841e4dc97310b/commonmeta_py-0.106.tar.gz", hash = "sha256:1f558905673464b19eae77bc2801778721ce81adc568dea85fab6d4a360a681c", size = 224459 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/70/eb/c97f8197ab5e3993f2d85d69a81340d5117689195122bc318359132e3d33/commonmeta_py-0.101-py3-none-any.whl", hash = "sha256:fe1ffe5e06410c43f2933c1a1b68c8cb31eb6a4b2c3ac35efab86c4650c451b2", size = 352643 },
+    { url = "https://files.pythonhosted.org/packages/43/2a/5b2a533079b8b4951e5ceb1a7fcdf6aace7398bc9a4d401b663ba2fdcf85/commonmeta_py-0.106-py3-none-any.whl", hash = "sha256:b3fd62de942f6d8a07761b4f60b0e3e794c7c4f6a582b3ad433ac24b35f2c20d", size = 276363 },
 ]
 
 [[package]]
@@ -1604,7 +1604,7 @@ dev = [
 requires-dist = [
     { name = "babel", specifier = ">=2.14.0,<3" },
     { name = "beautifulsoup4", specifier = ">=4.12.2,<5" },
-    { name = "commonmeta-py", specifier = ">=0.101,<0.120" },
+    { name = "commonmeta-py", specifier = ">=0.106,<1" },
     { name = "dateutils", specifier = ">=0.6.12,<0.7" },
     { name = "feedparser", specifier = ">=6.0.10,<7" },
     { name = "furl", specifier = ">=2.1.3,<3" },
