@@ -229,6 +229,10 @@ IRREGULAR_AUTHOR_NAMES = {
         "given_name": "Yanina",
         "family_name": "Bellini Saibene",
     },
+    "Lisa Hart Martin": {
+        "given_name": "Lisa",
+        "family_name": "Hart Martin",
+    },
     # Organization names
     "Make Data Count": {
         "name": "Make Data Count",
