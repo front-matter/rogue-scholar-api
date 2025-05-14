@@ -161,6 +161,7 @@ AUTHOR_IDS = {
     "Kathleen Fitzpatrick": "https://orcid.org/0000-0002-5251-0307",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
+    "Crossref Staff": "https://ror.org/02twcfp32",
 }
 
 AUTHOR_NAMES = {
@@ -217,6 +218,7 @@ AUTHOR_NAMES = {
     "deze": "Projektteam",
     "julien colomb": "Julien Colomb",
     "board@open-bio.org (Open Bioinformatics Foundation)": "Open Bioinformatics Foundation",
+    "rkidd": "Crossref Staff",
 }
 
 IRREGULAR_AUTHOR_NAMES = {
