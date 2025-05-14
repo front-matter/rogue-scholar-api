@@ -690,7 +690,7 @@ async def extract_single_post(
                 if blog.get("use_api", False):
                     host = environ[f"QUART_{blog.get('slug').upper()}_GHOST_API_HOST"]
                     key = environ[f"QUART_{blog.get('slug').upper()}_GHOST_API_KEY"]
-                    path = furl(post_url).path.segments[-1]
+                    path = furl(post_url).path.segments[-2]
                     f = furl()
                     f.host = host
                     f.scheme = "https"
