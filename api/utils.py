@@ -254,6 +254,9 @@ IRREGULAR_AUTHOR_NAMES = {
     "Team OA Brandenburg": {
         "name": "Team OA Brandenburg",
     },
+    "Crossref Staff": {
+        "name": "Crossref Staff",
+    },
 }
 
 
