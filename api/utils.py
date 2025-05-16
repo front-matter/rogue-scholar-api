@@ -219,6 +219,7 @@ AUTHOR_NAMES = {
     "julien colomb": "Julien Colomb",
     "board@open-bio.org (Open Bioinformatics Foundation)": "Open Bioinformatics Foundation",
     "rkidd": "Crossref Staff",
+    "Frederik J. Vervaet, David Rafferty and Christopher J. Dart": "Stasis",
 }
 
 IRREGULAR_AUTHOR_NAMES = {
@@ -1500,10 +1501,10 @@ def normalize_url(url: Optional[str], secure=False, lower=False) -> Optional[str
     if url is None or not isinstance(url, str):
         return None
     try:
-        # add scheme if missing, workaround for adding scheme via furl
-        if not (url.startswith("http") or url.startswith("https")):
-            url = "https://" + url
         f = furl(url)
+        if f.host is None:
+            return None
+
         f.path.normalize()
 
         # remove index.html
@@ -1526,6 +1527,8 @@ def normalize_url(url: Optional[str], secure=False, lower=False) -> Optional[str
                 "utm_source",
             ]
         )
+        if f.scheme is None:
+            f.set(scheme="https")
         if secure and f.scheme == "http":
             f.set(scheme="https")
         if lower:
@@ -1815,6 +1818,7 @@ async def format_list_reference(reference, validate_all: bool = False):
     id_ = reference.find("a")
     if id_ is not None:
         id_ = normalize_url(id_.get("href"))
+        print(id_)
     unstructured = replace_curie(reference.text) or reference.text
     if id_ is None:
         id_ = extract_reference_id(unstructured)

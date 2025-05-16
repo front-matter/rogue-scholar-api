@@ -49,7 +49,6 @@ from api.utils import (
     format_json_reference,
     format_list_reference,
     format_citeproc_reference,
-    validate_creators,
     EXCLUDED_TAGS,
 )
 from api.supabase_client import (
