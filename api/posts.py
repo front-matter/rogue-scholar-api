@@ -2352,7 +2352,7 @@ def get_summary(content_html: str = None, maxlen: int = 450):
 def get_abstract(summary: str, abstract: Optional[str]):
     """Get abstract if not beginning of post.
     Use Levenshtein distance to compare summary and abstract."""
-    if abstract is None:
+    if abstract is None or summary is None:
         return None
     le = min(len(abstract), 100)
     rat = ratio(summary[:le], abstract[:le])
