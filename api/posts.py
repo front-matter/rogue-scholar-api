@@ -1851,7 +1851,7 @@ def upsert_single_post(post):
 def create_record(record, guid: str, community_id: str, category_id: str):
     """Create InvenioRDM record."""
     try:
-        subject = Metadata(record, via="json_feed_item")
+        subject = Metadata(record, via="jsonfeed")
         record = JSON.loads(subject.write(to="inveniordm"))
 
         # validate funding, lookup award metadata if needed
@@ -1918,7 +1918,7 @@ def update_record(record, rid: str, community_id: str, category_id: str):
 
     try:
         citations = record.get("citations", [])
-        subject = Metadata(record, via="json_feed_item")
+        subject = Metadata(record, via="jsonfeed")
         record = JSON.loads(subject.write(to="inveniordm"))
         guid_dict = next(
             identifier
