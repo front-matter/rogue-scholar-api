@@ -437,7 +437,7 @@ def update_blog_community(blog):
             },
             "slug": blog.get("slug"),
             "metadata": metadata,
-            # "custom_fields": custom_fields,
+            "custom_fields": custom_fields,
         }
         response = httpx.put(url, headers=headers, json=data, timeout=10)
         if response.status_code >= 400:
