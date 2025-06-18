@@ -400,7 +400,10 @@ def update_blog_community(blog):
     """Update an InvenioRDM blog community."""
     try:
         url = f"{environ['QUART_INVENIORDM_API']}/api/communities/{blog.get('slug')}"
-        headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
+        headers = {
+            "Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}",
+            "Content-Type": "application/json",
+        }
         metadata = {
             "title": blog.get("title"),
             "type": {"id": "blog"},
@@ -434,11 +437,11 @@ def update_blog_community(blog):
             },
             "slug": blog.get("slug"),
             "metadata": metadata,
-            "custom_fields": custom_fields,
+            # "custom_fields": custom_fields,
         }
         response = httpx.put(url, headers=headers, json=data, timeout=10)
         if response.status_code >= 400:
-            print(response.json())
+            print(f"Error updating community {blog.get('slug')}: {response.text}")
         return response
     except Exception as error:
         print(error)
