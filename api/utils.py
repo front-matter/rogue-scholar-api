@@ -159,6 +159,7 @@ AUTHOR_IDS = {
     "Jamaica Jones": "https://orcid.org/0000-0002-1969-2508",
     "Roger Beecham": "https://orcid.org/0000-0001-8563-7251",
     "Kathleen Fitzpatrick": "https://orcid.org/0000-0002-5251-0307",
+    "Aaron Tay": "https://orcid.org/0000-0003-0159-013X",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
@@ -980,6 +981,18 @@ AUTHOR_AFFILIATIONS = {
             "name": "Michigan State University",
             "id": "https://ror.org/05hs6h993",
             "start_date": "2017-08-01",
+        },
+    ],
+    "https://orcid.org/0000-0003-0159-013X": [
+        {
+            "name": "National University of Singapore",
+            "id": "https://ror.org/01tgyzw49",
+            "start_date": "2007-08-29",
+        },
+        {
+            "name": "Singapore Management University",
+            "id": "https://ror.org/050qmg959",
+            "start_date": "2015-02-23",
         },
     ],
 }
