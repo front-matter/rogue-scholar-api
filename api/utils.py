@@ -1586,7 +1586,11 @@ def is_local():
 
 def detect_language(text: str) -> Optional[str]:
     """Detect language. Use langdetect library, return language code if
-    probability is greater than 0.95, otherwise return None."""
+    probability is greater than 0.95, otherwise return None. Ignore text
+    shorter than 2500 characters."""
+
+    if not text or len(text) < 2500:
+        return None
 
     try:
         langs = detect_langs(text)
