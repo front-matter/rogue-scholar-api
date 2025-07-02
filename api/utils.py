@@ -14,7 +14,7 @@ import pydash as py_
 from dateutil import parser, relativedelta
 from datetime import datetime, timezone
 from furl import furl
-from langdetect import detect
+from langdetect import detect_langs
 from bs4 import BeautifulSoup
 from commonmeta import (
     Metadata,
@@ -1584,14 +1584,18 @@ def is_local():
     return environ["QUART_INVENIORDM_API"] == "https://localhost"
 
 
-def detect_language(text: str) -> str:
-    """Detect language"""
+def detect_language(text: str) -> Optional[str]:
+    """Detect language. Use langdetect library, return language code if
+    probability is greater than 0.95, otherwise return None."""
 
     try:
-        return detect(text)
+        langs = detect_langs(text)
+        if langs and len(langs) > 0 and langs[0].prob > 0.95:
+            return str(langs[0].lang)
+        return None
     except Exception as e:
         print(e)
-        return "en"
+        return None
 
 
 def get_soup(content_html: str) -> Optional[BeautifulSoup]:
