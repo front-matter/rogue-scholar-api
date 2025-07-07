@@ -1509,6 +1509,10 @@ async def extract_rss_post(post, blog, validate_all: bool = False):
         content_html = py_.get(post, "content:encoded", None) or post.get(
             "description", ""
         )
+        if not content_html or len(content_html) == 0:
+            return {
+                "content_html": None,
+            }
         raw_url = post.get("link", None)
         url = normalize_url(raw_url, secure=blog.get("secure", True))
         content_html = absolute_urls(content_html, url, blog.get("home_page_url", None))
