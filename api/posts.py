@@ -1404,6 +1404,7 @@ async def extract_atom_post(post, blog, validate_all: bool = False):
             len(authors_) == 0
             or authors_[0].get("name", None) is None
             or authors_[0].get("name", None) == "Unknown"
+            or blog.get("slug") in ["bibliomagician"]
         ):
             authors_ = wrap(blog.get("authors", None))
         # workaround if multiple authors are present in single author attribute
