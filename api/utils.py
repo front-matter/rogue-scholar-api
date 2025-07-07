@@ -160,6 +160,7 @@ AUTHOR_IDS = {
     "Roger Beecham": "https://orcid.org/0000-0001-8563-7251",
     "Kathleen Fitzpatrick": "https://orcid.org/0000-0002-5251-0307",
     "Aaron Tay": "https://orcid.org/0000-0003-0159-013X",
+    "Florian U. Jehn": "https://orcid.org/0000-0002-7296-8008",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
