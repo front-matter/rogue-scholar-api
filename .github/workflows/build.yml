@@ -15,13 +15,13 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-python@v4
         with:
-          python-version: "3.12"
+          python-version: "3.13"
       - name: Install pandoc
         run: sudo apt-get install -y pandoc
       - name: Install tox and any other packages
         run: pip install tox
       - name: Run tox
-        run: tox -e py312
+        run: tox -e py313
         env:
           QUART_SUPABASE_URL: ${{ secrets.QUART_SUPABASE_URL }}
           QUART_SUPABASE_ANON_KEY: ${{ secrets.QUART_SUPABASE_ANON_KEY }}
