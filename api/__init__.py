@@ -82,10 +82,10 @@ app.config.from_prefixed_env()
 QuartSchema(app, info=Info(title="Rogue Scholar API", version=version))
 rate_limiter = RateLimiter(app, default_limits=[RateLimit(15, timedelta(seconds=60))])
 app = cors(app, allow_origin="*")
-db = QuartDB(
-    app,
-    url=f"postgresql://{environ['QUART_POSTGRES_USER']}:{environ['QUART_POSTGRES_PASSWORD']}@{environ['QUART_POSTGRES_HOST']}/{environ['QUART_POSTGRES_DB']}",
-)
+# db = QuartDB(
+#     app,
+#     url=f"postgresql://{environ['QUART_POSTGRES_USER']}:{environ['QUART_POSTGRES_PASSWORD']}@{environ['QUART_POSTGRES_HOST']}/{environ['QUART_POSTGRES_DB']}",
+# )
 
 
 def run() -> None:
@@ -113,10 +113,10 @@ async def blogs_redirect():
     return redirect("/blogs", code=301)
 
 
-@app.get("/test")
-async def get_all():
-    results = await g.connection.fetch_all("SELECT slug FROM blogs")
-    return jsonify([{"slug": row["slug"]} for row in results])
+# @app.get("/test")
+# async def get_all():
+#     results = await g.connection.fetch_all("SELECT slug FROM blogs")
+#     return jsonify([{"slug": row["slug"]} for row in results])
 
 
 @validate_response(Blog)
