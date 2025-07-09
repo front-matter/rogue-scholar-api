@@ -10,7 +10,7 @@ import pydash as py_
 from dotenv import load_dotenv
 import sentry_sdk
 import frontmatter
-from quart import Quart, request, jsonify, redirect
+from quart import g, Quart, request, jsonify, redirect
 from quart_schema import (
     QuartSchema,
     Info,
@@ -111,6 +111,12 @@ async def heartbeat():
 async def blogs_redirect():
     """Redirect /blogs/ to /blogs."""
     return redirect("/blogs", code=301)
+
+
+@app.get("/test")
+async def get_all():
+    results = await g.connection.fetch_all("SELECT slug FROM blogs")
+    return jsonify([{"slug": row["slug"]} for row in results])
 
 
 @validate_response(Blog)
