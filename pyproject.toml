@@ -1,6 +1,6 @@
 [project]
 name = "rogue-scholar-api"
-version = "0.15"
+version = "0.16"
 description = "API for the Rogue Scholar science blogging platform."
 authors = [{ name = "Martin Fenner", email = "martin@front-matter.io" }]
 requires-python = "~=3.13.0"
@@ -12,6 +12,7 @@ dependencies = [
     "tox>=4.11.3,<5",
     "hypercorn>=0.14.4,<0.15",
     "supabase~=2.9",
+    "quart-db[postgresql]~=0.10.0",
     "python-dotenv>=1.0.0,<2",
     "quart-schema>=0.17.1,<0.18",
     "pydash~=7.0",

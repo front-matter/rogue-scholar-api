@@ -1759,6 +1759,7 @@ def upsert_single_post(post):
         return {}
 
     try:
+        print(f"upserting post {post.get('guid', None)}")
         response = (
             supabase_admin.table("posts")
             .upsert(

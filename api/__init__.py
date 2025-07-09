@@ -23,6 +23,7 @@ from quart_rate_limiter import RateLimiter, RateLimit
 from quart_cors import cors
 from postgrest import APIError
 from commonmeta import doi_from_url
+from quart_db import QuartDB
 
 from api.supabase_client import (
     supabase_client,
@@ -71,7 +72,7 @@ config.from_toml("hypercorn.toml")
 load_dotenv()
 rate_limiter = RateLimiter()
 logger = logging.getLogger(__name__)
-version = "0.13.0"  # TODO: importlib.metadata.version('rogue-scholar-api')
+version = "0.16"  # TODO: importlib.metadata.version('rogue-scholar-api')
 
 sentry_sdk.init(
     dsn=environ["QUART_SENTRY_DSN"],
@@ -81,6 +82,10 @@ app.config.from_prefixed_env()
 QuartSchema(app, info=Info(title="Rogue Scholar API", version=version))
 rate_limiter = RateLimiter(app, default_limits=[RateLimit(15, timedelta(seconds=60))])
 app = cors(app, allow_origin="*")
+db = QuartDB(
+    app,
+    url=f"postgresql://{environ['QUART_POSTGRES_USER']}:{environ['QUART_POSTGRES_PASSWORD']}@{environ['QUART_POSTGRES_HOST']}/{environ['QUART_POSTGRES_DB']}",
+)
 
 
 def run() -> None:
