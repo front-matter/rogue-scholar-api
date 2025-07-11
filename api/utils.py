@@ -239,6 +239,10 @@ IRREGULAR_AUTHOR_NAMES = {
         "given_name": "Lisa",
         "family_name": "Hart Martin",
     },
+    "Alejandra Casas Niño de Rivera": {
+        "given_name": "Alejandra",
+        "family_name": "Casas Niño de Rivera",
+    },
     # Organization names
     "Make Data Count": {
         "name": "Make Data Count",
