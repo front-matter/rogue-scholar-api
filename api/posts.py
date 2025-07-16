@@ -1759,7 +1759,6 @@ def upsert_single_post(post):
         return {}
 
     try:
-        print(f"upserting post {post.get('guid', None)}")
         response = (
             supabase_admin.table("posts")
             .upsert(
@@ -1934,12 +1933,6 @@ def update_record(record, rid: str, community_id: str, category_id: str):
         if guid_dict:
             guid = guid_dict["identifier"]
 
-        # validate creators, lookup metadata if needed
-        # if py_.get(record, "metadata.creators"):
-        #     record["metadata"]["creators"] = validate_creators(
-        #         py_.get(record, "metadata.creators")
-        #     )
-
         # validate funding, lookup award metadata if needed
         if py_.get(record, "metadata.funding"):
             record["metadata"]["funding"] = validate_funding(
@@ -1978,8 +1971,6 @@ def update_record(record, rid: str, community_id: str, category_id: str):
         except httpx.TimeoutException:
             print(f"Timeout error for url {url}.")
         except httpx.HTTPError as e:
-            print(response.status_code, "u publish_draft_record")
-            print(response.json())
             # capture_exception(e)
             return response.json()
 
