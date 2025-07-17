@@ -1807,46 +1807,46 @@ def upsert_single_post(post):
         )
 
         # upsert InvenioRDM record
-        # record = (
-        #     supabase.table("posts")
-        #     .select(postsWithCitationsSelect)
-        #     .eq("guid", post.get("guid", None))
-        #     .maybe_single()
-        #     .execute()
-        # )
-        # if record is None:
-        #     record = (
-        #         supabase.table("posts")
-        #         .select(postsWithContentSelect)
-        #         .eq("guid", post.get("guid", None))
-        #         .maybe_single()
-        #         .execute()
-        #     )
-        # guid = record.data.get("guid", None)
-        # doi = record.data.get("doi", None)
-        # rid = search_by_doi(doi)
+        record = (
+            supabase.table("posts")
+            .select(postsWithCitationsSelect)
+            .eq("guid", post.get("guid", None))
+            .maybe_single()
+            .execute()
+        )
+        if record is None:
+            record = (
+                supabase.table("posts")
+                .select(postsWithContentSelect)
+                .eq("guid", post.get("guid", None))
+                .maybe_single()
+                .execute()
+            )
+        guid = record.data.get("guid", None)
+        doi = record.data.get("doi", None)
+        rid = search_by_doi(doi)
 
-        # # blog community
-        # community = post.get("blog_slug", "").lower()
-        # community_id = search_by_community_slug(community, "blog")
+        # blog community
+        community = post.get("blog_slug", "").lower()
+        community_id = search_by_community_slug(community, "blog")
 
-        # # subject area community
-        # category = post.get("category", "").lower()
-        # category_id = search_by_community_slug(category)
+        # subject area community
+        category = post.get("category", "").lower()
+        category_id = search_by_community_slug(category)
 
-        # # TODO: topic communities
+        # TODO: topic communities
 
-        # # if DOI doen't exist (yet), ignore InvenioRDM
-        # if doi is None:
-        #     return post_to_update.data[0]
+        # if DOI doen't exist (yet), ignore InvenioRDM
+        if doi is None:
+            return post_to_update.data[0]
 
-        # # if InvenioRDM record exists, update it, otherwise create it
-        # if rid:
-        #     update_record(record.data, rid, community_id, category_id)
-        # else:
-        #     print(f"creating record for guid {guid}")
-        #     return create_record(record.data, guid, community_id, category_id)
-        # print(f"upserted record for doi {doi}")
+        # if InvenioRDM record exists, update it, otherwise create it
+        if rid:
+            update_record(record.data, rid, community_id, category_id)
+        else:
+            print(f"creating record for guid {guid}")
+            return create_record(record.data, guid, community_id, category_id)
+        print(f"upserted record for doi {doi}")
         return post_to_update.data[0]
     except Exception as e:
         print(e)
