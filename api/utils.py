@@ -1575,7 +1575,7 @@ def convert_to_commonmeta(meta: dict) -> Commonmeta:
                 "mimeType": "application/xml",
             },
         ],
-        "schema_version": "https://commonmeta.org/commonmeta_v0.12",
+        "schema_version": "https://commonmeta.org/commonmeta_v0.16",
     }
 
 
