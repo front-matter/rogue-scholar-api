@@ -161,6 +161,23 @@ AUTHOR_IDS = {
     "Kathleen Fitzpatrick": "https://orcid.org/0000-0002-5251-0307",
     "Aaron Tay": "https://orcid.org/0000-0003-0159-013X",
     "Florian U. Jehn": "https://orcid.org/0000-0002-7296-8008",
+    "Sebastian Flaig": "https://orcid.org/0009-0001-1247-6976",
+    "Karin Langenkamp": "https://orcid.org/0000-0002-2179-8539",
+    "Kai Lohsträter": "https://orcid.org/0000-0001-5805-3031",
+    "Olaf Siegert": "https://orcid.org/0000-0003-2122-0857",
+    "Kathrin Ganz": "https://orcid.org/0000-0003-3968-3470",
+    "Kai Matuszkiewicz": "https://orcid.org/0000-0001-8634-8160",
+    "Katja Dammann": "https://orcid.org/0009-0000-2484-1355",
+    "Carolin Becklas": "https://orcid.org/0000-0001-7011-9259",
+    "Linda Martin": "https://orcid.org/0000-0002-4634-2386",
+    "Helene Strauss": "https://orcid.org/0000-0002-3278-0422",
+    "Danny Flemming": "https://orcid.org/0000-0002-9201-3188",
+    "Christoph Hornung": "https://orcid.org/0000-0001-8120-7633",
+    "Katja Wermbter": "https://orcid.org/0000-0002-7593-6968",
+    "Martina Benz": "https://orcid.org/0000-0001-6018-3724",
+    "Jesko Rücknagel": "https://orcid.org/0000-0001-8824-8390",
+    "Jasper Beyermann": "https://orcid.org/0009-0003-1708-6920",
+    "Dom Ford": "https://orcid.org/0000-0001-5545-602X",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
@@ -264,6 +281,9 @@ IRREGULAR_AUTHOR_NAMES = {
     },
     "Crossref Staff": {
         "name": "Crossref Staff",
+    },
+    "Open Access Network": {
+        "name": "Open Access Network",
     },
 }
 
@@ -1000,6 +1020,104 @@ AUTHOR_AFFILIATIONS = {
             "id": "https://ror.org/050qmg959",
             "start_date": "2015-02-23",
         },
+    ],
+    "https://orcid.org/0009-0001-1247-6976": [
+        {
+            "name": "University of Konstanz",
+            "id": "https://ror.org/0546hnb39",
+            "start_date": "2024-09-01",
+        },
+    ],
+    "https://orcid.org/0000-0002-2179-8539": [
+        {
+            "name": "Federal Institute for Vocational Education and Training",
+            "id": "https://ror.org/0420tmj11",
+            "start_date": "2016-11-01",
+        }
+    ],
+    "https://orcid.org/0000-0001-5805-3031": [
+        {
+            "name": "Kiel University",
+            "id": "https://ror.org/04v76ef78",
+            "start_date": "2019-08-01",
+        },
+    ],
+    "https://orcid.org/0000-0003-3968-3470": [
+        {
+            "name": "Freie Universität Berlin",
+            "id": "https://ror.org/046ak2485",
+            "start_date": "2023-07-15",
+        }
+    ],
+    "https://orcid.org/0000-0001-8634-8160": [
+        {
+            "name": "Philipps University of Marburg",
+            "id": "https://ror.org/01rdrb571",
+            "start_date": "2022-02-01",
+        }
+    ],
+    "https://orcid.org/0009-0000-2484-1355": [
+        {
+            "name": "Bielefeld University",
+            "id": "https://ror.org/02hpadn98",
+            "start_date": "2023-08-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-4634-2386": [
+        {
+            "name": "Freie Universität Berlin",
+            "id": "https://ror.org/046ak2485",
+            "start_date": "2021-10-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-3278-0422": [
+        {
+            "name": "Technische Informationsbibliothek (TIB)",
+            "id": "https://ror.org/04aj4c181",
+            "start_date": "2020-04-01",
+        }
+    ],
+    "https://orcid.org/0000-0001-8120-7633": [
+        {
+            "name": "TU Wien",
+            "id": "https://ror.org/04d836q62",
+            "start_date": "2024-12-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-7593-6968": [
+        {
+            "name": "Technische Universität Braunschweig",
+            "id": "https://ror.org/010nsgg66",
+            "start_date": "2023-09-01",
+        }
+    ],
+    "https://orcid.org/0000-0001-6018-3724": [
+        {
+            "name": "University of Konstanz",
+            "id": "https://ror.org/0546hnb39",
+            "start_date": "2021-04-15",
+        }
+    ],
+    "https://orcid.org/0000-0001-8824-8390": [
+        {
+            "name": "Technische Informationsbibliothek (TIB)",
+            "id": "https://ror.org/04aj4c181",
+            "start_date": "2020-04-01",
+        }
+    ],
+    "https://orcid.org/0009-0003-1708-6920": [
+        {
+            "name": "Hochschule Bielefeld",
+            "id": "https://ror.org/00edvg943",
+            "start_date": "2023-11-01",
+        }
+    ],
+    "https://orcid.org/0000-0001-5545-602X": [
+        {
+            "name": "University of Bremen",
+            "id": "https://ror.org/04ers2y35",
+            "start_date": "2023-04-01",
+        }
     ],
 }
 
