@@ -23,7 +23,7 @@ from commonmeta import (
     normalize_ror,
     presence,
 )
-from commonmeta.writers.inveniordm_writer import upsert_record
+from commonmeta.writers.inveniordm_writer import push_inveniordm
 
 # from urllib.parse import urljoin
 from commonmeta.date_utils import get_datetime_from_time
@@ -1830,10 +1830,7 @@ def upsert_single_post(post):
                 .execute()
             )
         metadata = Metadata(record.data, via="jsonfeed")
-        record = {"doi": metadata.id}
-        record = upsert_record(metadata, host, token, record)
-
-        print(f"upserted record for doi {record.get('doi', None)}")
+        record = push_inveniordm(metadata, host, token)
         return record
     except Exception as e:
         print(e)
