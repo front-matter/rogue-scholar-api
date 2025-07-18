@@ -499,9 +499,10 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
         "10.59350",
         "10.63485",
         "10.64000",
+        "10.64395",
         "10.71938",
     ]
-    permitted_slugs = ["unregistered", "updated", "cited"] + prefixes
+    permitted_slugs = ["unregistered", "updated", "stale", "cited"] + prefixes
     status = ["active", "archived", "expired"]
     if slug not in permitted_slugs and not validate_uuid(slug):
         logger.warning(f"Invalid slug: {slug}")
@@ -537,6 +538,20 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
             .not_.is_("blogs.prefix", "null")
             .is_("updated", True)
             .not_.is_("doi", "null")
+            .in_("status", status)
+            .order("updated_at", desc=True)
+            .limit(min(per_page, 50))
+            .execute()
+        )
+        return jsonify({"total-results": response.count, "items": response.data})
+    elif slug == "stale":
+        response = (
+            supabase_client.table("posts")
+            .select(
+                "id, guid, doi, url, archive_url, title, summary, abstract, content_html, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, funding_references, blog_name, blog_slug, rid, blog: blogs!inner(*)",
+                count="exact",
+            )
+            .is_("registered", False)
             .in_("status", status)
             .order("updated_at", desc=True)
             .limit(min(per_page, 50))
