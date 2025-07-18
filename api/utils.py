@@ -1963,7 +1963,6 @@ async def format_list_reference(reference, validate_all: bool = False):
     id_ = reference.find("a")
     if id_ is not None:
         id_ = normalize_url(id_.get("href"))
-        print(id_)
     unstructured = replace_curie(reference.text) or reference.text
     if id_ is None:
         id_ = extract_reference_id(unstructured)
