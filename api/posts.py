@@ -1830,6 +1830,9 @@ def upsert_single_post(post):
                 .execute()
             )
         metadata = Metadata(record.data, via="jsonfeed")
+        if metadata.id is None:
+            return post_to_update.data[0]
+
         record = push_inveniordm(metadata, host, token)
         return record
     except Exception as e:
