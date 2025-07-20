@@ -178,6 +178,7 @@ AUTHOR_IDS = {
     "Jesko Rücknagel": "https://orcid.org/0000-0001-8824-8390",
     "Jasper Beyermann": "https://orcid.org/0009-0003-1708-6920",
     "Dom Ford": "https://orcid.org/0000-0001-5545-602X",
+    "Christopher Hobson": "https://orcid.org/0000-0001-6895-9670",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
@@ -1118,6 +1119,13 @@ AUTHOR_AFFILIATIONS = {
             "id": "https://ror.org/04ers2y35",
             "start_date": "2023-04-01",
         }
+    ],
+    "https://orcid.org/0000-0001-6895-9670": [
+        {
+            "name": "Australian National University",
+            "id": "https://ror.org/019wvm592",
+            "start_date": "2018-10-01",
+        },
     ],
 }
 
