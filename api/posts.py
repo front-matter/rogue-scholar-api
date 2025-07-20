@@ -1811,7 +1811,8 @@ def upsert_single_post(post):
         # upsert InvenioRDM record
         host = furl(environ.get("QUART_INVENIORDM_API", None)).host
         token = environ.get("QUART_INVENIORDM_TOKEN", None)
-        if not host or not token:
+        legacy_key = environ.get("QUART_SUPABASE_SERVICE_ROLE_KEY", None)
+        if not host or not token or not legacy_key:
             return post_to_update.data[0]
 
         record = (
@@ -1833,7 +1834,8 @@ def upsert_single_post(post):
         if metadata.id is None:
             return post_to_update.data[0]
 
-        record = push_inveniordm(metadata, host, token)
+        kwargs = {"legacy_key": legacy_key}
+        record = push_inveniordm(metadata, host, token, **kwargs)
         return record
     except Exception as e:
         print(e)
