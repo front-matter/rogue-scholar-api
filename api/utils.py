@@ -286,6 +286,9 @@ IRREGULAR_AUTHOR_NAMES = {
     "Open Access Network": {
         "name": "Open Access Network",
     },
+    "Leiden Madtrics": {
+        "name": "Leiden Madtrics",
+    },
 }
 
 
