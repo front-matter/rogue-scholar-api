@@ -553,7 +553,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
             )
             .is_("registered", False)
             .in_("status", status)
-            .order("updated_at", desc=True)
+            .order("published_at", desc=True)
             .limit(min(per_page, 50))
             .execute()
         )
