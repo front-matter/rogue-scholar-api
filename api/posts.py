@@ -27,6 +27,7 @@ from commonmeta.writers.inveniordm_writer import push_inveniordm
 
 # from urllib.parse import urljoin
 from commonmeta.date_utils import get_datetime_from_time
+from commonmeta.doi_utils import is_rogue_scholar_doi
 from math import ceil, floor
 from Levenshtein import ratio
 from sentry_sdk import capture_exception
@@ -1830,8 +1831,12 @@ def upsert_single_post(post):
                 .maybe_single()
                 .execute()
             )
+        status = py_.get(record.data, "blog.status")
+        prefix = py_.get(record.data, "blog.prefix")
+        if status not in ["active"] or not prefix:
+            return post_to_update.data[0]
         metadata = Metadata(record.data, via="jsonfeed")
-        if metadata.id is None:
+        if not is_rogue_scholar_doi(metadata.id):
             return post_to_update.data[0]
 
         kwargs = {"legacy_key": legacy_key}
