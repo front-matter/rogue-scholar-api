@@ -211,6 +211,20 @@ async def extract_all_posts_by_blog(
             else None
         )
 
+        # get timestamp of last updated post
+        response = (
+            supabase.table("posts")
+            .select("updated_at")
+            .eq("blog_slug", slug)
+            .order("updated_at", desc=True)
+            .limit(1)
+            .execute()
+        )
+        if not response.data:
+            updated_at = 0
+        else:
+            updated_at = response.data[0].get("updated_at", 0)
+
         # handle automatic pagination, based on number of posts already in the database
         if blog.get("slug", None) == "oan" and page == 999:
             response = (
@@ -321,7 +335,7 @@ async def extract_all_posts_by_blog(
                     posts = response.json()
                     # only include posts that have been modified since last update
                     if not update_all:
-                        posts = filter_updated_posts(posts, blog, key="post_date")
+                        posts = filter_updated_posts(posts, updated_at, key="post_date")
                 except httpx.HTTPStatusError:
                     print(f"HTTP status error for feed {feed_url}.")
                     posts = []
@@ -347,7 +361,9 @@ async def extract_all_posts_by_blog(
                     response = response.text[json_start:]
                     posts = JSON.loads(response)
                     if not update_all:
-                        posts = filter_updated_posts(posts, blog, key="modified_gmt")
+                        posts = filter_updated_posts(
+                            posts, updated_at, key="modified_gmt"
+                        )
                 except httpx.HTTPStatusError:
                     print(f"HTTP status error for feed {feed_url}.")
                     posts = []
@@ -371,7 +387,7 @@ async def extract_all_posts_by_blog(
                     json = response.json()
                     posts = json.get("posts", [])
                     if not update_all:
-                        posts = filter_updated_posts(posts, blog, key="modified")
+                        posts = filter_updated_posts(posts, updated_at, key="modified")
                 except httpx.HTTPStatusError:
                     print(f"HTTP status error for feed {feed_url}.")
                     posts = []
@@ -394,7 +410,9 @@ async def extract_all_posts_by_blog(
                     json = response.json()
                     posts = json.get("posts", [])
                     if not update_all:
-                        posts = filter_updated_posts(posts, blog, key="updated_at")
+                        posts = filter_updated_posts(
+                            posts, updated_at, key="updated_at"
+                        )
                 except httpx.HTTPStatusError:
                     print(f"HTTP status error for feed {feed_url}.")
                     posts = []
@@ -419,7 +437,7 @@ async def extract_all_posts_by_blog(
                     posts = json.get("items", [])
                     # only include posts that have been modified since last update
                     if not update_all:
-                        posts = filter_updated_posts(posts, blog, key="pubDate")
+                        posts = filter_updated_posts(posts, updated_at, key="pubDate")
                 except httpx.HTTPStatusError:
                     print(f"HTTP status error for feed {feed_url}.")
                     posts = []
@@ -443,7 +461,9 @@ async def extract_all_posts_by_blog(
                     json = response.json()
                     posts = json.get("items", [])
                     if not update_all:
-                        posts = filter_updated_posts(posts, blog, key="date_modified")
+                        posts = filter_updated_posts(
+                            posts, updated_at, key="date_modified"
+                        )
                     if blog.get("filter", None):
                         posts = filter_posts(posts, blog, key="tags")
                     if blog.get("doi_as_guid", False):
@@ -479,7 +499,7 @@ async def extract_all_posts_by_blog(
                     )
                     posts = py_.get(json, "feed.entry", [])
                     if not update_all:
-                        posts = filter_updated_posts(posts, blog, key="published")
+                        posts = filter_updated_posts(posts, updated_at, key="published")
                     if blog.get("filter", None):
                         posts = filter_posts(posts, blog, key="category")
                     posts = posts[start_page:end_page]
@@ -508,7 +528,7 @@ async def extract_all_posts_by_blog(
                     )
                     posts = py_.get(json, "rss.channel.item", [])
                     if not update_all:
-                        posts = filter_updated_posts(posts, blog, key="pubDate")
+                        posts = filter_updated_posts(posts, updated_at, key="pubDate")
                     if blog.get("filter", None):
                         posts = filter_posts(posts, blog, key="category")
                     posts = posts[start_page:end_page]
@@ -1710,7 +1730,7 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
         return {}
 
 
-def filter_updated_posts(posts, blog, key):
+def filter_updated_posts(posts, updated_at, key):
     """Filter posts by date updated."""
 
     def parse_date(date):
@@ -1718,7 +1738,7 @@ def filter_updated_posts(posts, blog, key):
         date_updated = get_date(date)
         return unix_timestamp(date_updated)
 
-    return [x for x in posts if parse_date(x.get(key, None)) > blog["updated_at"]]
+    return [x for x in posts if parse_date(x.get(key, None)) > updated_at]
 
 
 def filter_posts(posts, blog, key):
