@@ -455,6 +455,9 @@ async def extract_all_posts_by_blog(
                 except httpx.TransportError:
                     print(f"Transport error for feed {feed_url}.")
                     posts = []
+                except JSON.decoder.JSONDecodeError:
+                    print(f"JSON decode error for feed {feed_url}.")
+                    posts = []
                 except httpx.HTTPError as e:
                     capture_exception(e)
                     posts = []
