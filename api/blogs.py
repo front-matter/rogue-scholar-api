@@ -456,6 +456,9 @@ def upload_blog_logo(blog):
         url = (
             f"{environ['QUART_INVENIORDM_API']}/api/communities/{blog.get('slug')}/logo"
         )
+        if url == blog.get("favicon"):
+            print("Skipping upload of favicon, it is the same as the logo URL.")
+            return None
         headers = {
             "Content-Type": "application/octet-stream",
             "Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}",
@@ -468,32 +471,6 @@ def upload_blog_logo(blog):
     except Exception as error:
         print(error)
         return None
-
-
-# def get_community(slug):
-#     """Get InvenioRDM community by slug."""
-#     try:
-#         url = f"{environ['QUART_INVENIORDM_API']}/api/communities?q=slug:{slug}"
-#         response = httpx.get(url, timeout=10)
-#         print(response.json())
-#         return response.json()
-#         # result = response.json()
-#         # if py_.get(result, "hits.total") != 1:
-#         #     return result
-#         # return py_.pick(
-#         #     result,
-#         #     [
-#         #         "hits.hits[0].id",
-#         #         "hits.hits[0].metadata.type.id",
-#         #         "hits.hits[0].metadata.title",
-#         #         "hits.hits[0].metadata.description",
-#         #         "hits.hits[0].metadata.website",
-#         #         "hits.hits[0].metadata.logo",
-#         #     ],
-#         # )
-#     except Exception as error:
-#         print(error)
-#         return None
 
 
 def feature_community(id):
