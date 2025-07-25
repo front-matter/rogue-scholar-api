@@ -194,7 +194,7 @@ async def extract_single_blog(slug: str):
                 ["slug", "metadata.title", "metadata.description", "metadata.website"],
             )
             if blog.get("favicon", None) is not None:
-                upload_blog_logo(blog)
+                # upload_blog_logo(blog) # don't update logo via api
                 result["logo"] = blog.get("favicon")
 
             # fetch community id and store it in the blog
