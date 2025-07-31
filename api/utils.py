@@ -305,6 +305,13 @@ AUTHOR_AFFILIATIONS = {
             "start_date": "2023-10-01",
         }
     ],
+    "https://orcid.org/0000-0001-7525-0635": [
+        {
+            "name": "Humboldt-Universität zu Berlin",
+            "id": "https://ror.org/01hcx6992",
+            "start_date": "2020-05-01",
+        }
+    ],
     "https://orcid.org/0009-0002-7979-0238": [
         {
             "name": "Technische Universität Berlin",
