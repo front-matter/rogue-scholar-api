@@ -183,6 +183,7 @@ AUTHOR_IDS = {
     "Friedrich Schmidgall": "https://orcid.org/0009-0007-4613-859X",
     "Max Liebel": "https://orcid.org/0009-0002-7979-0238",
     "Johanna Schielke": "https://orcid.org/0009-0002-8619-5779",
+    "Josef Fruehwald": "https://orcid.org/0000-0001-8480-9461",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
@@ -298,6 +299,13 @@ IRREGULAR_AUTHOR_NAMES = {
 
 
 AUTHOR_AFFILIATIONS = {
+    "https://orcid.org/0000-0001-8480-9461": [
+        {
+            "name": "University of Kentucky",
+            "id": "https://ror.org/02k3smh20",
+            "start_date": "2020-08-01",
+        }
+    ],
     "https://orcid.org/0009-0007-4613-859X": [
         {
             "name": "Humboldt-Universität zu Berlin",
