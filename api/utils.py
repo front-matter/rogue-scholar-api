@@ -179,6 +179,7 @@ AUTHOR_IDS = {
     "Jasper Beyermann": "https://orcid.org/0009-0003-1708-6920",
     "Dom Ford": "https://orcid.org/0000-0001-5545-602X",
     "Christopher Hobson": "https://orcid.org/0000-0001-6895-9670",
+    "Joaquín Barroso-Flores": "https://orcid.org/0000-0003-0554-7569",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
@@ -238,6 +239,7 @@ AUTHOR_NAMES = {
     "deze": "Projektteam",
     "julien colomb": "Julien Colomb",
     "laurabredahl": "Laura Bredahl",
+    "joaquinbarroso": "Joaquín Barroso-Flores",
     "board@open-bio.org (Open Bioinformatics Foundation)": "Open Bioinformatics Foundation",
     "rkidd": "Crossref Staff",
     "Frederik J. Vervaet, David Rafferty and Christopher J. Dart": "Stasis",
@@ -1128,6 +1130,13 @@ AUTHOR_AFFILIATIONS = {
             "name": "Australian National University",
             "id": "https://ror.org/019wvm592",
             "start_date": "2018-10-01",
+        },
+    ],
+    "https://orcid.org/0000-0003-0554-7569": [
+        {
+            "name": "Universidad Nacional Autónoma de México",
+            "id": "https://ror.org/01tmp8f25",
+            "start_date": "2010-05-01",
         },
     ],
 }
