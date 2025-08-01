@@ -318,6 +318,7 @@ async def citation(slug: str, suffix: str):
 async def post_citations(slug: str, suffix: Optional[str] = None):
     """Upsert citations."""
     prefixes = [
+        "10.13003",
         "10.53731",
         "10.54900",
         "10.59347",
@@ -488,6 +489,7 @@ async def post_post(slug: str, suffix: Optional[str] = None):
 async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] = None):
     """Get post by slug."""
     prefixes = [
+        "10.13003",
         "10.34732",  # not managed by Front Matter
         "10.53731",
         "10.54900",
