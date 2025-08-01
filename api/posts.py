@@ -1870,7 +1870,6 @@ def upsert_single_post(post):
             return post_to_update.data[0]
 
         kwargs = {"legacy_key": legacy_key}
-        print("Authors:", metadata.contributors, "GUID:", metadata.id)
         record = push_inveniordm(metadata, host, token, **kwargs)
         return record
     except Exception as e:
