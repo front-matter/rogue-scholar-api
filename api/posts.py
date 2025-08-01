@@ -1863,7 +1863,7 @@ def upsert_single_post(post):
             )
         status = py_.get(record.data, "blog.status")
         prefix = py_.get(record.data, "blog.prefix")
-        if status not in ["active"] or not prefix:
+        if status not in ["approved", "active", "archived", "expired"] or not prefix:
             return post_to_update.data[0]
         metadata = Metadata(record.data, via="jsonfeed")
         if not is_rogue_scholar_doi(metadata.id):
