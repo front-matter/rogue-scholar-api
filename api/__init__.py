@@ -645,21 +645,37 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
         if validate_uuid(slug):
             response = (
                 supabase_client.table("posts")
-                .select(postsWithContentSelect)
+                .select(postsWithCitationsSelect)
                 .eq("id", slug)
                 .maybe_single()
                 .execute()
             )
+            if not response:
+                response = (
+                    supabase_client.table("posts")
+                    .select(postsWithContentSelect)
+                    .eq("id", slug)
+                    .maybe_single()
+                    .execute()
+                )
             basename = slug
         else:
             doi = f"https://doi.org/{slug}/{suffix}"
             response = (
                 supabase_client.table("posts")
-                .select(postsWithContentSelect)
+                .select(postsWithCitationsSelect)
                 .eq("doi", doi)
                 .maybe_single()
                 .execute()
             )
+            if not response:
+                response = (
+                    supabase_client.table("posts")
+                    .select(postsWithContentSelect)
+                    .eq("doi", doi)
+                    .maybe_single()
+                    .execute()
+                )
             basename = doi_from_url(doi).replace("/", "-")
         content = response.data.get("content_html", None)
         if format_ == "json":
