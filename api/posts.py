@@ -51,7 +51,6 @@ from api.utils import (
     format_json_reference,
     format_list_reference,
     format_citeproc_reference,
-    convert_to_commonmeta,
     EXCLUDED_TAGS,
 )
 from api.supabase_client import (
@@ -131,10 +130,12 @@ async def update_all_cited_posts(page: int = 1, validate_all: bool = False):
     start_page = (page - 1) * total_pages if page > 0 else 0
     end_page = (page - 1) * total_pages + total_pages if page > 0 else total_pages
     validate_all = True
+    status = ["approved", "active", "archived", "expired"]
 
     response = (
         supabase.table("posts")
         .select("*, blog: blogs!inner(*), citations: citations!inner(*)", count="exact")
+        .in_("status", status)
         .order("updated_at", desc=False)
         .range(start_page, end_page)
         .execute()
@@ -1640,7 +1641,11 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
             and ORCID from name."""
 
             return normalize_author(
-                author.get("name", None), published_at, author.get("url", None)
+                name=author.get("name", None),
+                given_name=author.get("given", None),
+                family_name=author.get("family", None),
+                published_at=published_at,
+                url=author.get("url", None),
             )
 
         published_at = post.get("published_at")
@@ -1655,14 +1660,20 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
         if (
             len(authors_) == 0
             or authors_[0] is None
-            or authors_[0].get("name", None) is None
+            or (
+                authors_[0].get("name", None) is None
+                and authors_[0].get("family", None) is None
+            )
         ):
             authors_ = get_contributors(content_html)
         if (
             authors_ is None
             or len(authors_) == 0
             or authors_[0] is None
-            or authors_[0].get("name", None) is None
+            or (
+                authors_[0].get("name", None) is None
+                and authors_[0].get("family", None) is None
+            )
         ):
             authors_ = wrap(blog.get("authors", None))
         authors = [format_author(i, published_at) for i in authors_ if i]
@@ -1674,9 +1685,6 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
         else:
             reference = post.get("reference", None)
         relationships = get_relationships(content_html)
-        citations = post.get("citations", [])
-        if len(citations) > 0:
-            citations = format_citations(citations)
         funding_references = wrap(blog.get("funding", None))
         title = get_title(post.get("title"))
         url = normalize_url(post.get("url"), secure=blog.get("secure", True))
@@ -1716,7 +1724,6 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
             "category": blog.get("category", None),
             "reference": reference,
             "relationships": relationships,
-            "citations": citations,
             "funding_references": presence(funding_references),
             "tags": tags,
             "title": title,
@@ -1863,6 +1870,7 @@ def upsert_single_post(post):
             return post_to_update.data[0]
 
         kwargs = {"legacy_key": legacy_key}
+        print("Authors:", metadata.contributors, "GUID:", metadata.id)
         record = push_inveniordm(metadata, host, token, **kwargs)
         return record
     except Exception as e:

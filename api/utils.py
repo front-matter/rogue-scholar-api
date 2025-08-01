@@ -1257,7 +1257,11 @@ def compact(dict_or_list: Union[dict, list]) -> Optional[Union[dict, list]]:
 
 
 def normalize_author(
-    name: str, published_at: int = 0, url: Optional[str] = None
+    name: str = None,
+    given_name: str = None,
+    family_name: str = None,
+    published_at: int = 0,
+    url: Optional[str] = None,
 ) -> dict:
     """Normalize author name and url. First lookup author in names.yaml.
     Strip text after comma if suffix is an academic title.
@@ -1276,7 +1280,7 @@ def normalize_author(
         _name = names.get("name", None)
         given_name = names.get("given_name", None)
         family_name = names.get("family_name", None)
-    elif _url or is_personal_name(_name):
+    elif _name and is_personal_name(_name):
         # split name for personal names into given/family name
         names = HumanName(_name)
         if names:
@@ -1285,12 +1289,6 @@ def normalize_author(
             )
             family_name = names.last if names.last else None
             _name = None
-        else:
-            given_name = None
-            family_name = None
-    else:
-        given_name = None
-        family_name = None
 
     affiliation = AUTHOR_AFFILIATIONS.get(_url, None)
     if affiliation is not None and len(affiliation) > 0 and published_at > 0:
