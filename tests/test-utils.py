@@ -31,6 +31,7 @@ from api.utils import (
     format_list_reference,
     extract_reference_id,
     get_soup,
+    parse_blogger_guid,
 )
 
 
@@ -647,3 +648,11 @@ async def test_format_list_reference_curie():
         "id": "https://doi.org/10.1080/02724634.2016.1111898",
         "unstructured": "Melstrom, Keegan M., Michael D. D’Emic, Daniel Chure and Jeffrey A. Wilson. 2016. A juvenile sauropod dinosaur from the Late Jurassic of Utah, USA, presents further evidence of an avian style air-sac system. Journal of Vertebrate Paleontology 36(4):e1111898. https://doi.org/10.1080/02724634.2016.1111898",
     }
+
+
+@pytest.mark.asyncio
+async def test_parse_blogger_guid():
+    """Parse Blogger GUID to extract blog ID and post ID."""
+    guid = "tag:blogger.com,1999:blog-3536726.post-106726196118183051"
+    result = await parse_blogger_guid(guid)
+    assert result == ("3536726", "106726196118183051")

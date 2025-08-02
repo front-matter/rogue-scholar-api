@@ -1274,6 +1274,9 @@ def normalize_author(
         name = name.split(", ", maxsplit=1)[0]
 
     _name = AUTHOR_NAMES.get(name, None) or name
+    if _name is not None:
+        given_name = None
+        family_name = None
     names = IRREGULAR_AUTHOR_NAMES.get(_name, None)
     _url = url if url and validate_orcid(url) else AUTHOR_IDS.get(_name, None)
     if names:
@@ -2144,3 +2147,20 @@ async def validate_reference(id_: str, unstructured: str) -> Optional[str]:
     except Exception as e:
         print(e)
         return [id_, None, unstructured]
+
+
+async def parse_blogger_guid(guid: str) -> Optional[tuple[str, str]]:
+    """Parse Blogger GUID to extract the blog ID and post ID."""
+    if guid is None:
+        return None
+    match = re.search(r"blog-(\d+)\.post-(\d+)", guid)
+    if match:
+        return match.group(1), match.group(2)
+    return None
+
+
+async def generate_blogger_guid(blog_id: str, post_id: str) -> str:
+    """Generate Blogger GUID from blog ID and post ID."""
+    if blog_id is None or post_id is None:
+        return ""
+    return f"tag:blogger.com,1999:blog-{blog_id}.post-{post_id}"
