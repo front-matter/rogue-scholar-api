@@ -987,7 +987,9 @@ async def extract_wordpress_post(post, blog, validate_all: bool = False):
             user settings."""
 
             return normalize_author(
-                author.get("name", None), published_at, author.get("url", None)
+                name=author.get("name", None),
+                published_at=published_at,
+                url=author.get("url", None),
             )
 
         published_at = unix_timestamp(post.get("date_gmt", None))
@@ -1111,7 +1113,9 @@ async def extract_wordpresscom_post(post, blog, validate_all: bool = False):
             user settings."""
 
             return normalize_author(
-                author.get("name", None), published_at, author.get("URL", None)
+                name=author.get("name", None),
+                published_at=published_at,
+                url=author.get("URL", None),
             )
 
         published_at = unix_timestamp(post.get("date", None))
@@ -1174,7 +1178,9 @@ async def extract_blogger_post(post, blog, validate_all: bool = False):
             user settings."""
 
             return normalize_author(
-                author.get("displayName", None), published_at, author.get("url", None)
+                name=author.get("displayName", None),
+                published_at=published_at,
+                url=author.get("url", None),
             )
 
         published_at = unix_timestamp(post.get("published", None))
@@ -1232,7 +1238,9 @@ async def extract_ghost_post(post, blog, validate_all: bool = False):
         def format_author(author, published_at):
             """Format author."""
             return normalize_author(
-                author.get("name", None), published_at, author.get("website", None)
+                name=author.get("name", None),
+                published_at=published_at,
+                url=author.get("website", None),
             )
 
         published_at = unix_timestamp(post.get("published_at", None))
@@ -1296,7 +1304,11 @@ async def extract_substack_post(post, blog, validate_all: bool = False):
 
         def format_author(author, published_at):
             """Format author."""
-            return normalize_author(author.get("name", None), published_at)
+            return normalize_author(
+                name=author.get("name", None),
+                published_at=published_at,
+                url=author.get("url", None),
+            )
 
         published_at = unix_timestamp(post.get("post_date", None))
         authors = [
@@ -1360,7 +1372,9 @@ async def extract_squarespace_post(post, blog, validate_all: bool = False):
         def format_author(author, published_at):
             """Format author."""
 
-            return normalize_author(author.get("displayName", None), published_at)
+            return normalize_author(
+                name=author.get("displayName", None), published_at=published_at
+            )
 
         published_at = int(post.get("publishOn", 1) / 1000)
         updated_at = int(post.get("updatedOn", 1) / 1000)
@@ -1425,7 +1439,9 @@ async def extract_json_feed_post(post, blog, validate_all: bool = False):
         def format_author(author, published_at):
             """Format author."""
             return normalize_author(
-                author.get("name", None), published_at, author.get("url", None)
+                name=author.get("name", None),
+                published_at=published_at,
+                url=author.get("url", None),
             )
 
         published_at = unix_timestamp(post.get("date_published", None))
@@ -1500,7 +1516,9 @@ async def extract_atom_post(post, blog, validate_all: bool = False):
         def format_author(author, published_at):
             """Format author."""
             return normalize_author(
-                author.get("name", None), published_at, author.get("uri", None)
+                name=author.get("name", None),
+                published_at=published_at,
+                url=author.get("uri", None),
             )
 
         published_at = get_date(post.get("published", None))
@@ -1618,7 +1636,9 @@ async def extract_rss_post(post, blog, validate_all: bool = False):
         def format_author(author, published_at):
             """Format author."""
             return normalize_author(
-                author.get("name", None), published_at, author.get("url", None)
+                name=author.get("name", None),
+                published_at=published_at,
+                url=author.get("url", None),
             )
 
         published_at = get_date(post.get("pubDate", None))
