@@ -38,12 +38,12 @@ async def extract_all_citations_by_prefix(slug: str) -> list:
     return await upsert_citations(wrap(citations))
 
 
-async def extract_all_citations(slug: Optional[str]) -> list:
+async def extract_all_citations() -> list:
     """Extract all citations from Crossref cited-by service. Needs username and password for account
     managing the prefix."""
     username = environ.get("QUART_CROSSREF_USERNAME_WITH_ROLE", None)
     password = environ.get("QUART_CROSSREF_PASSWORD", None)
-    if not username or not password or not slug:
+    if not username or not password:
         return []
 
     prefixes = [
