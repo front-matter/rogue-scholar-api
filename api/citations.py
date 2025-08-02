@@ -6,14 +6,16 @@ import yaml
 import httpx
 import xmltodict
 import pydash as py_
+from datetime import datetime, timezone
 from commonmeta import validate_doi, normalize_doi, wrap, Metadata
 
 from api.supabase_client import (
     supabase_client as supabase,
     supabase_admin_client as supabase_admin,
 )
-from api.utils import (
-    compact,
+from api.utils import compact, parse_doi
+from api.posts import (
+    update_single_post,
 )
 
 
@@ -148,10 +150,19 @@ async def upsert_single_citation(citation):
             )
             .execute()
         )
-        data = response.data[0]
         print(
             f"Upserted citation {citation.get('citation')} for doi {citation.get('doi')}"
         )
+        data = response.data[0]
+        today = datetime.now(timezone.utc).date()
+        updated_at = data.get("updated_at", None)
+        if (
+            updated_at
+            and datetime.fromisoformat(updated_at.replace("Z", "+00:00")).date()
+            == today
+        ):
+            slug, suffix = await parse_doi(citation.get("doi", None))
+            return update_single_post(slug=slug, suffix=suffix, validate_all=True)
         return data
     except Exception as e:
         print(e)

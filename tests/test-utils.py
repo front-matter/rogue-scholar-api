@@ -32,6 +32,7 @@ from api.utils import (
     extract_reference_id,
     get_soup,
     parse_blogger_guid,
+    parse_doi,
 )
 
 
@@ -656,3 +657,11 @@ async def test_parse_blogger_guid():
     guid = "tag:blogger.com,1999:blog-3536726.post-106726196118183051"
     result = await parse_blogger_guid(guid)
     assert result == ("3536726", "106726196118183051")
+
+
+@pytest.mark.asyncio
+async def test_parse_doi():
+    """Parse DOI to extract prefix and suffix."""
+    doi = "10.5555/b2hf6-1xj38"
+    result = await parse_doi(doi)
+    assert result == ("10.5555", "b2hf6-1xj38")
