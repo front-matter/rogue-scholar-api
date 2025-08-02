@@ -64,7 +64,7 @@ from api.posts import (
     update_all_flagged_posts,
 )
 from api.blogs import extract_single_blog, extract_all_blogs
-from api.citations import extract_all_citations
+from api.citations import extract_all_citations, extract_all_citations_by_prefix
 from api.schema import Blog, Citation, Post, PostQuery
 
 config = Config()
@@ -345,8 +345,8 @@ async def post_citations(slug: str, suffix: Optional[str] = None):
 @validate_response(Citation)
 @app.route("/citations/<slug>", methods=["POST"])
 @app.route("/citations/<slug>/<suffix>", methods=["POST"])
-async def post_citations(slug: str, suffix: Optional[str] = None):
-    """Upsert citations."""
+async def post_citations_by_prefix(slug: str, suffix: Optional[str] = None):
+    """Upsert citations by prefix."""
     prefixes = [
         "10.13003",
         "10.53731",
