@@ -184,6 +184,7 @@ AUTHOR_IDS = {
     "Max Liebel": "https://orcid.org/0009-0002-7979-0238",
     "Johanna Schielke": "https://orcid.org/0009-0002-8619-5779",
     "Josef Fruehwald": "https://orcid.org/0000-0001-8480-9461",
+    "Arfon M. Smith": "https://orcid.org/0000-0002-3957-2474",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
