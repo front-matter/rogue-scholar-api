@@ -162,7 +162,11 @@ async def upsert_single_citation(citation):
             == today
         ):
             slug, suffix = await parse_doi(citation.get("doi", None))
-            return update_single_post(slug=slug, suffix=suffix, validate_all=True)
+            result = await update_single_post(
+                slug=slug, suffix=suffix, validate_all=True
+            )
+            print(f"Updated post for doi {citation.get('doi')}")
+            return result
         return data
     except Exception as e:
         print(e)
