@@ -155,12 +155,10 @@ async def upsert_single_citation(citation):
         )
         data = response.data[0]
         today = datetime.now(timezone.utc).date()
-        updated_at = data.get("updated_at", None)
-        if (
-            updated_at
-            and datetime.fromisoformat(updated_at.replace("Z", "+00:00")).date()
-            == today
-        ):
+        updated_at = datetime.fromisoformat(
+            data.get("updated_at", None).replace("Z", "+00:00")
+        ).date()
+        if updated_at == today:
             slug, suffix = await parse_doi(citation.get("doi", None))
             result = await update_single_post(
                 slug=slug, suffix=suffix, validate_all=True
