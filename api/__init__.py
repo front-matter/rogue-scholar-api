@@ -314,7 +314,7 @@ async def citation(slug: str, suffix: str):
 
 @validate_response(Citation)
 @app.route("/citations", methods=["POST"])
-async def post_citations(slug: str, suffix: Optional[str] = None):
+async def post_citations():
     """Upsert all citations."""
     prefixes = [
         "10.13003",
