@@ -5,6 +5,7 @@ from typing import Optional
 import yaml
 import httpx
 import xmltodict
+import asyncio
 import pydash as py_
 from datetime import datetime, timezone
 from commonmeta import validate_doi, normalize_doi, doi_from_url, wrap, Metadata
@@ -19,7 +20,7 @@ from api.posts import (
 )
 
 
-async def extract_all_citations(slug: Optional[str]) -> list:
+async def extract_all_citations_by_prefix(slug: str) -> list:
     """Extract all citations from Crossref cited-by service by slug (prefix or doi). Needs username and password for account
     managing the prefix."""
     username = environ.get("QUART_CROSSREF_USERNAME_WITH_ROLE", None)
@@ -34,6 +35,31 @@ async def extract_all_citations(slug: Optional[str]) -> list:
         crossref_result, "crossref_result.query_result.body.forward_link", []
     )
     print(f"Upserting {len(wrap(citations))} citations for {slug}")
+    return await upsert_citations(wrap(citations))
+
+
+async def extract_all_citations(slug: Optional[str]) -> list:
+    """Extract all citations from Crossref cited-by service. Needs username and password for account
+    managing the prefix."""
+    username = environ.get("QUART_CROSSREF_USERNAME_WITH_ROLE", None)
+    password = environ.get("QUART_CROSSREF_PASSWORD", None)
+    if not username or not password or not slug:
+        return []
+
+    prefixes = [
+        "10.53731",
+        "10.54900",
+        "10.59347",
+        "10.59348",
+        "10.59349",
+        "10.59350",
+        "10.63485",
+        "10.64000",
+    ]
+    citations = await asyncio.gather(
+        *[extract_all_citations_by_prefix(prefix) for prefix in prefixes]
+    )
+    print(f"Upserting {len(wrap(citations))} citations.")
     return await upsert_citations(wrap(citations))
 
 

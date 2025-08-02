@@ -313,6 +313,36 @@ async def citation(slug: str, suffix: str):
 
 
 @validate_response(Citation)
+@app.route("/citations", methods=["POST"])
+async def post_citations(slug: str, suffix: Optional[str] = None):
+    """Upsert all citations."""
+    prefixes = [
+        "10.13003",
+        "10.53731",
+        "10.54900",
+        "10.59347",
+        "10.59348",
+        "10.59349",
+        "10.59350",
+        "10.63485",
+        "10.64000",
+    ]
+    if (
+        request.headers.get("Authorization", None) is None
+        or request.headers.get("Authorization").split(" ")[1]
+        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
+    ):
+        return {"error": "Unauthorized."}, 401
+
+    try:
+        result = await extract_all_citations()
+        return jsonify(result)
+    except Exception as e:
+        logger.warning(e.args[0])
+        return {"error": "An error occured."}, 400
+
+
+@validate_response(Citation)
 @app.route("/citations/<slug>", methods=["POST"])
 @app.route("/citations/<slug>/<suffix>", methods=["POST"])
 async def post_citations(slug: str, suffix: Optional[str] = None):
@@ -342,7 +372,7 @@ async def post_citations(slug: str, suffix: Optional[str] = None):
     try:
         if suffix:
             slug = f"{slug}/{suffix}"
-        result = await extract_all_citations(slug)
+        result = await extract_all_citations_by_prefix(slug)
         return jsonify(result)
     except Exception as e:
         logger.warning(e.args[0])
