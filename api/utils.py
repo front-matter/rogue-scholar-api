@@ -2166,13 +2166,3 @@ async def generate_blogger_guid(blog_id: str, post_id: str) -> str:
     if blog_id is None or post_id is None:
         return ""
     return f"tag:blogger.com,1999:blog-{blog_id}.post-{post_id}"
-
-
-async def parse_doi(doi: str) -> Optional[tuple[str, str]]:
-    """Parse DOI to extract the prefix and suffix."""
-    if doi is None:
-        return None
-    match = re.match(r"^(10\.\d{4,9})/([-._;()/:A-Z0-9]+)$", doi, re.IGNORECASE)
-    if match:
-        return match.group(1), match.group(2)
-    return None
