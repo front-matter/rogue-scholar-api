@@ -51,6 +51,8 @@ from api.utils import (
     format_json_reference,
     format_list_reference,
     format_citeproc_reference,
+    parse_blogger_guid,
+    generate_blogger_guid,
     EXCLUDED_TAGS,
 )
 from api.supabase_client import (
@@ -712,6 +714,15 @@ async def extract_single_post(
                     f.path = f"/rest/v1.1/sites/{site}/posts/{id_}"
                 else:
                     f = furl(blog.get("feed_url", None))
+            case "Blogger":
+                blog_id, post_id = await parse_blogger_guid(guid)
+                f = furl()
+                f.host = "www.googleapis.com"
+                f.scheme = "https"
+                f.path = f"/blogger/v3/blogs/{blog_id}/posts/{post_id}"
+                f.args = {
+                    "key": environ.get("QUART_BLOGGER_API_KEY", None),
+                }
             case "Ghost":
                 if blog.get("use_api", False):
                     host = environ[f"QUART_{blog.get('slug').upper()}_GHOST_API_HOST"]
@@ -797,6 +808,24 @@ async def extract_single_post(
                 extract_posts = [
                     await extract_wordpresscom_post(post, blog, validate_all)
                 ]
+        elif generator == "Blogger":
+            async with httpx.AsyncClient() as client:
+                try:
+                    response = await client.get(
+                        feed_url, timeout=10.0, follow_redirects=True
+                    )
+                    response.raise_for_status()
+                    post = response.json()
+                except httpx.HTTPStatusError:
+                    print(f"HTTP status error for feed {feed_url}.")
+                    post = {}
+                except httpx.TransportError:
+                    print(f"Transport error for feed {feed_url}.")
+                    post = {}
+                except httpx.HTTPError as e:
+                    capture_exception(e)
+                    post = {}
+                extract_posts = [await extract_blogger_post(post, blog, validate_all)]
         elif generator == "Ghost" and blog["use_api"]:
             headers = {"Accept-Version": "v5.0"}
             async with httpx.AsyncClient() as client:
@@ -1127,6 +1156,67 @@ async def extract_wordpresscom_post(post, blog, validate_all: bool = False):
             "url": url,
             "archive_url": archive_url,
             "guid": post.get("guid", None),
+            "status": blog.get("status", "active"),
+        }
+    except Exception:
+        print(blog.get("slug", None), traceback.format_exc())
+        return {}
+
+
+async def extract_blogger_post(post, blog, validate_all: bool = False):
+    """Extract Blogger post from REST API."""
+    try:
+        print(post)
+
+        def format_author(author, published_at):
+            """Format author. Optionally lookup real name from username,
+            and ORCID from name. Ideally this is done in the Wordpress
+            user settings."""
+
+            return normalize_author(
+                author.get("displayName", None), published_at, author.get("url", None)
+            )
+
+        published_at = unix_timestamp(post.get("published", None))
+        authors = [
+            format_author(i, published_at) for i in wrap(post.get("author", None))
+        ]
+        content_html = post.get("content", "")
+        summary = get_summary(post.get("content", ""))
+        reference = await get_references(content_html, validate_all)
+        relationships = get_relationships(content_html)
+        funding_references = wrap(blog.get("funding", None))
+        url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
+        archive_url = get_archive_url(blog, url, published_at)
+        images = get_images(content_html, url, blog.get("home_page_url", None))
+        tags = [
+            normalize_tag(i) for i in post.get("labels", []) if i not in EXCLUDED_TAGS
+        ][:5]
+        guid = await generate_blogger_guid(
+            blog_id=py_.get(post, "blog.id"), post_id=py_.get(post, "id", None)
+        )
+
+        return {
+            "authors": authors,
+            "blog_name": blog.get("title", None),
+            "blog_slug": blog.get("slug", None),
+            "content_html": content_html,
+            "summary": summary,
+            "abstract": None,
+            "published_at": published_at,
+            "updated_at": unix_timestamp(post.get("updated", None)),
+            "image": None,
+            "images": images,
+            "language": detect_language(content_html) or blog.get("language", "en"),
+            "category": None,
+            "reference": reference,
+            "relationships": relationships,
+            "funding_references": presence(funding_references),
+            "tags": tags,
+            "title": get_title(post.get("title", None)),
+            "url": url,
+            "archive_url": archive_url,
+            "guid": guid,
             "status": blog.get("status", "active"),
         }
     except Exception:
