@@ -701,11 +701,13 @@ async def extract_single_post(
                     f = furl()
                     f.host = site
                     f.scheme = "https" if blog.get("secure", True) else "http"
-                    rest_route = f"/wp-json/wp/v2/posts/{id_}"
                     f.path = "/".join(path)
-                    f.args = {"rest-route": rest_route, "_embed": 1}
+                    # manually add rest_route parameter without escaping
+                    base_url = str(f)
+                    feed_url = f"{base_url}?rest_route=/wp/v2/posts/{id_}&_embed=1"
                 else:
                     f = furl(blog.get("feed_url", None))
+                    feed_url = f.url
             case "WordPress.com":
                 if blog.get("use_api", False) and extract_wordpress_post_id(guid):
                     site = furl(blog.get("home_page_url", None)).host
@@ -714,8 +716,10 @@ async def extract_single_post(
                     f.host = "public-api.wordpress.com"
                     f.scheme = "https" if blog.get("secure", True) else "http"
                     f.path = f"/rest/v1.1/sites/{site}/posts/{id_}"
+                    feed_url = f.url
                 else:
                     f = furl(blog.get("feed_url", None))
+                    feed_url = f.url
             case "Blogger":
                 blog_id, post_id = await parse_blogger_guid(guid)
                 f = furl()
@@ -725,6 +729,7 @@ async def extract_single_post(
                 f.args = {
                     "key": environ.get("QUART_BLOGGER_API_KEY", None),
                 }
+                feed_url = f.url
             case "Ghost":
                 if blog.get("use_api", False):
                     host = environ[f"QUART_{blog.get('slug').upper()}_GHOST_API_HOST"]
@@ -738,8 +743,10 @@ async def extract_single_post(
                         "include": "tags,authors",
                         "key": key,
                     }
+                    feed_url = f.url
                 else:
                     f = furl(blog.get("feed_url", None))
+                    feed_url = f.url
             case "Substack":
                 site = furl(blog.get("home_page_url", None)).host
                 path = furl(post_url).path.segments[-1]
@@ -747,11 +754,10 @@ async def extract_single_post(
                 f.host = site
                 f.scheme = "https"
                 f.path = f"/api/v1/posts/{path}"
-            # case "Squarespace":
-            # params = compact({"format": "json"})
+                feed_url = f.url
             case _:
                 f = furl(blog.get("feed_url", None))
-        feed_url = f.url
+                feed_url = f.url
         print(f"Extracting post from {blog['slug']} at {feed_url}.")
 
         if generator == "Substack":
