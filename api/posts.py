@@ -696,12 +696,14 @@ async def extract_single_post(
             case "WordPress":
                 if blog.get("use_api", False) and extract_wordpress_post_id(guid):
                     site = furl(blog.get("home_page_url", None)).host
+                    path = furl(blog.get("home_page_url", None)).path.segments
                     id_ = extract_wordpress_post_id(guid)
                     f = furl()
                     f.host = site
                     f.scheme = "https" if blog.get("secure", True) else "http"
-                    f.path = f"/wp-json/wp/v2/posts/{id_}"
-                    f.args = {"_embed": 1}
+                    rest_route = f"/wp-json/wp/v2/posts/{id_}"
+                    f.path = "/".join(path)
+                    f.args = {"rest-route": rest_route, "_embed": 1}
                 else:
                     f = furl(blog.get("feed_url", None))
             case "WordPress.com":
