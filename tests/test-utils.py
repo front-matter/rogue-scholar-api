@@ -32,7 +32,7 @@ from api.utils import (
     extract_reference_id,
     get_soup,
     parse_blogger_guid,
-    parse_doi,
+    extract_wordpress_post_id,
 )
 
 
@@ -657,3 +657,10 @@ async def test_parse_blogger_guid():
     guid = "tag:blogger.com,1999:blog-3536726.post-106726196118183051"
     result = await parse_blogger_guid(guid)
     assert result == ("3536726", "106726196118183051")
+
+
+def test_extract_wordpress_post_id():
+    """Extract WordPress post ID from a GUID."""
+    guid = "https://cstonline.ca.reclaim.press/?p=598"
+    result = extract_wordpress_post_id(guid)
+    assert result == "598"

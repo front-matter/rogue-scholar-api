@@ -2166,3 +2166,15 @@ async def generate_blogger_guid(blog_id: str, post_id: str) -> str:
     if blog_id is None or post_id is None:
         return ""
     return f"tag:blogger.com,1999:blog-{blog_id}.post-{post_id}"
+
+
+def extract_wordpress_post_id(guid: str) -> Optional[str]:
+    """Extract WordPress post ID from a guid."""
+    if guid is None:
+        return None
+    pattern = re.compile(r"p=(\d+)$")
+    match = pattern.search(guid)
+
+    if match:
+        return match.group(1)
+    return None
