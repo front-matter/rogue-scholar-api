@@ -62,7 +62,7 @@ class Post:
     archive_url: str
     title: str
     summary: str
-    content_text: str
+    content_html: str
     published_at: datetime
     updated_at: datetime
     indexed_at: datetime
