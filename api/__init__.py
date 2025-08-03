@@ -127,7 +127,7 @@ async def blogs():
     query = request.args.get("query") or ""
     page = int(request.args.get("page") or "1")
 
-    status = ["approved", "active", "archived", "expired"]
+    status = ["active", "archived", "expired"]
     start_page = page if page and page > 0 else 1
     start_page = (start_page - 1) * 10
     end_page = start_page + 10
@@ -398,9 +398,9 @@ async def posts():
     page = int(request.args.get("page") or "1")
     blog_slug = request.args.get("blog_slug")
     no_fulltext = request.args.get("no_fulltext")
-    status = ["approved", "active", "archived", "expired"]
+    status = ["active", "archived", "expired"]
     if preview:
-        status = ["pending", "approved", "active", "archived", "expired"]
+        status = ["pending", "active", "archived", "expired"]
     start_page = page if page and page > 0 else 1
     start_page = (start_page - 1) * per_page
     end_page = start_page + per_page - 1
