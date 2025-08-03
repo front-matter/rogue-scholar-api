@@ -45,7 +45,6 @@ from api.utils import (
     wrap,
     compact,
     fix_xml,
-    write_html,
     validate_uuid,
     format_reference,
     format_json_reference,
@@ -53,6 +52,7 @@ from api.utils import (
     format_citeproc_reference,
     parse_blogger_guid,
     generate_blogger_guid,
+    extract_wordpress_post_id,
     EXCLUDED_TAGS,
 )
 from api.supabase_client import (
@@ -694,9 +694,9 @@ async def extract_single_post(
         # generate url depending on the platform and whether we use their API
         match generator:
             case "WordPress":
-                if blog.get("use_api", False):
+                if blog.get("use_api", False) and extract_wordpress_post_id(guid):
                     site = furl(blog.get("home_page_url", None)).host
-                    id_ = furl(guid).args["p"]
+                    id_ = extract_wordpress_post_id(guid)
                     f = furl()
                     f.host = site
                     f.scheme = "https" if blog.get("secure", True) else "http"
@@ -705,9 +705,9 @@ async def extract_single_post(
                 else:
                     f = furl(blog.get("feed_url", None))
             case "WordPress.com":
-                if blog.get("use_api", False):
+                if blog.get("use_api", False) and extract_wordpress_post_id(guid):
                     site = furl(blog.get("home_page_url", None)).host
-                    id_ = furl(guid).args["p"]
+                    id_ = extract_wordpress_post_id(guid)
                     f = furl()
                     f.host = "public-api.wordpress.com"
                     f.scheme = "https" if blog.get("secure", True) else "http"
@@ -770,7 +770,11 @@ async def extract_single_post(
                     capture_exception(e)
                     post = {}
                 extract_posts = [await extract_substack_post(post, blog, validate_all)]
-        elif generator == "WordPress" and blog["use_api"]:
+        elif (
+            generator == "WordPress"
+            and blog["use_api"]
+            and extract_wordpress_post_id(guid)
+        ):
             async with httpx.AsyncClient() as client:
                 try:
                     response = await client.get(
@@ -788,7 +792,11 @@ async def extract_single_post(
                     capture_exception(e)
                     post = {}
                 extract_posts = [await extract_wordpress_post(post, blog, validate_all)]
-        elif generator == "WordPress.com" and blog["use_api"]:
+        elif (
+            generator == "WordPress.com"
+            and blog["use_api"]
+            and extract_wordpress_post_id(guid)
+        ):
             async with httpx.AsyncClient() as client:
                 try:
                     response = await client.get(
@@ -1762,8 +1770,7 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
         updated_at = post.get("updated_at")
         if published_at > updated_at:
             updated_at = published_at
-        content_text = post.get("content_text")
-        content_html = write_html(content_text)
+        content_html = post.get("content_html")
 
         # use default author for blog if no post author found and no author header in content
         authors_ = wrap(post.get("authors", None))
@@ -1891,7 +1898,7 @@ def filter_posts_by_guid(posts, blog, key):
 def find_post_by_guid(posts, guid, key):
     """Find post by GUID."""
 
-    return next(post for post in posts if post.get(key, None) == guid) or {}
+    return next((post for post in posts if post.get(key, None) == guid), {})
 
 
 def upsert_single_post(post):
