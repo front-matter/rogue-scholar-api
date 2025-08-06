@@ -193,4 +193,70 @@ interactions:
       - '5'
     http_version: HTTP/2
     status_code: 200
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-profile:
+      - public
+      cookie:
+      - __cf_bm=oSo220hO1pEdLL0JHHMUXC7T1juQdEvhcR6HRP6amag-1754422840-1.0.1.1-aXIb03vJ.GaKi0NR4L.pki54dDA1mat0hWn8SRMKMGLmkpoUxptfn5iiD9FQ_cZt3.6dfCu0yK2m17.A8dv10SVmmyOtkXpwL9TtCvOMYVk
+      host:
+      - bosczcmeodcrajtcaddf.supabase.co
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.17.0
+    method: GET
+    uri: https://bosczcmeodcrajtcaddf.supabase.co/rest/v1/blogs?select=id%2Cslug%2Cfeed_url%2Ccurrent_feed_url%2Chome_page_url%2Carchive_host%2Carchive_collection%2Carchive_timestamps%2Cfeed_format%2Ccreated_at%2Cupdated_at%2Cregistered_at%2Clicense%2Cmastodon%2Cgenerator%2Cgenerator_raw%2Clanguage%2Cfavicon%2Ctitle%2Cdescription%2Ccategory%2Cstatus%2Cuser_id%2Cauthors%2Cuse_api%2Crelative_url%2Cfilter%2Csecure%2Ccommunity_id%2Cprefix%2Cissn%2Cfeed_format&slug=eq.andrewheiss
+  response:
+    content: '{"id":"1941b1fd-eea5-4d90-a251-f7ff58c98403","slug":"andrewheiss","feed_url":"https://www.andrewheiss.com/atom.xml","current_feed_url":null,"home_page_url":"https://www.andrewheiss.com","archive_host":null,"archive_collection":22114,"archive_timestamps":[20231101175222],"feed_format":"application/rss+xml","created_at":1692662400,"updated_at":1753156800,"registered_at":1720446737,"license":"https://creativecommons.org/licenses/by/4.0/legalcode","mastodon":"https://fediscience.org/@andrew","generator":"Quarto","generator_raw":"Quarto
+      1.6.1","language":"en","favicon":null,"title":"Andrew Heiss''s blog","description":"Andrew
+      Heiss''s blog","category":"politicalScience","status":"active","user_id":"7e027f20-14b4-4d41-b547-a5dc12ae3ea4","authors":null,"use_api":null,"relative_url":null,"filter":null,"secure":true,"community_id":"5979ba5e-5943-4841-a201-c9e63c8fc68a","prefix":"10.59350","issn":null,"feed_format":"application/rss+xml"}'
+    headers:
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 96a8cb82defe1965-FRA
+      content-encoding:
+      - gzip
+      content-location:
+      - /blogs?select=id%2Cslug%2Cfeed_url%2Ccurrent_feed_url%2Chome_page_url%2Carchive_host%2Carchive_collection%2Carchive_timestamps%2Cfeed_format%2Ccreated_at%2Cupdated_at%2Cregistered_at%2Clicense%2Cmastodon%2Cgenerator%2Cgenerator_raw%2Clanguage%2Cfavicon%2Ctitle%2Cdescription%2Ccategory%2Cstatus%2Cuser_id%2Cauthors%2Cuse_api%2Crelative_url%2Cfilter%2Csecure%2Ccommunity_id%2Cprefix%2Cissn%2Cfeed_format&slug=eq.andrewheiss
+      content-profile:
+      - public
+      content-range:
+      - 0-0/*
+      content-type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      date:
+      - Tue, 05 Aug 2025 19:45:27 GMT
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - bosczcmeodcrajtcaddf
+      sb-request-id:
+      - 01987bc4-6dd4-7761-aae0-9ab07293b008
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-envoy-attempt-count:
+      - '1'
+      x-envoy-upstream-service-time:
+      - '8'
+    http_version: HTTP/2
+    status_code: 200
 version: 1

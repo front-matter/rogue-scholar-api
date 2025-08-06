@@ -4204,4 +4204,137 @@ interactions:
       - '5'
     http_version: HTTP/2
     status_code: 200
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-profile:
+      - public
+      cookie:
+      - __cf_bm=oSo220hO1pEdLL0JHHMUXC7T1juQdEvhcR6HRP6amag-1754422840-1.0.1.1-aXIb03vJ.GaKi0NR4L.pki54dDA1mat0hWn8SRMKMGLmkpoUxptfn5iiD9FQ_cZt3.6dfCu0yK2m17.A8dv10SVmmyOtkXpwL9TtCvOMYVk
+      host:
+      - bosczcmeodcrajtcaddf.supabase.co
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.17.0
+    method: GET
+    uri: https://bosczcmeodcrajtcaddf.supabase.co/rest/v1/blogs?select=id%2Cslug%2Cfeed_url%2Ccurrent_feed_url%2Chome_page_url%2Carchive_prefix%2Carchive_host%2Carchive_collection%2Carchive_timestamps%2Cfeed_format%2Ccreated_at%2Cupdated_at%2Cregistered_at%2Cgenerator%2Cgenerator_raw%2Clanguage%2Ccategory%2Cfavicon%2Ctitle%2Cdescription%2Ccategory%2Cstatus%2Cuser_id%2Cauthors%2Cuse_api%2Crelative_url%2Cfilter%2Csecure%2Cdoi_as_guid&slug=eq.front_matter
+  response:
+    content: '{"id":"74659bc5-e36e-4a27-901f-f0c8d5769cb8","slug":"front_matter","feed_url":"https://blog.front-matter.io/atom","current_feed_url":"https://blog.front-matter.io/atom/","home_page_url":"https://blog.front-matter.io","archive_prefix":"https://wayback.archive-it.org/22096/20231101172748/","archive_host":null,"archive_collection":22096,"archive_timestamps":[20231101172748,
+      20240501180447, 20241101172601],"feed_format":"application/atom+xml","created_at":1672561153,"updated_at":1754306026,"registered_at":1729685319,"generator":"Ghost","generator_raw":"Ghost
+      5.52","language":"en","category":"computerAndInformationSciences","favicon":"https://rogue-scholar.org/api/communities/15a362ea-8138-42b8-917f-1840a92addf8/logo","title":"Front
+      Matter","description":"The Front Matter Blog covers the intersection of science
+      and technology since 2007.","category":"computerAndInformationSciences","status":"active","user_id":"8498eaf6-8c58-4b58-bc15-27eda292b1aa","authors":[{"url":
+      "https://orcid.org/0000-0003-1419-2405", "name": "Martin Fenner"}],"use_api":true,"relative_url":null,"filter":null,"secure":true,"doi_as_guid":false}'
+    headers:
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 96a8c7e129d61965-FRA
+      content-encoding:
+      - gzip
+      content-location:
+      - /blogs?select=id%2Cslug%2Cfeed_url%2Ccurrent_feed_url%2Chome_page_url%2Carchive_prefix%2Carchive_host%2Carchive_collection%2Carchive_timestamps%2Cfeed_format%2Ccreated_at%2Cupdated_at%2Cregistered_at%2Cgenerator%2Cgenerator_raw%2Clanguage%2Ccategory%2Cfavicon%2Ctitle%2Cdescription%2Ccategory%2Cstatus%2Cuser_id%2Cauthors%2Cuse_api%2Crelative_url%2Cfilter%2Csecure%2Cdoi_as_guid&slug=eq.front_matter
+      content-profile:
+      - public
+      content-range:
+      - 0-0/*
+      content-type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      date:
+      - Tue, 05 Aug 2025 19:42:58 GMT
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - bosczcmeodcrajtcaddf
+      sb-request-id:
+      - 01987bc2-28c3-7cf3-a17a-f25cd8eca6b5
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-envoy-attempt-count:
+      - '1'
+      x-envoy-upstream-service-time:
+      - '7'
+    http_version: HTTP/2
+    status_code: 200
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-profile:
+      - public
+      cookie:
+      - __cf_bm=oSo220hO1pEdLL0JHHMUXC7T1juQdEvhcR6HRP6amag-1754422840-1.0.1.1-aXIb03vJ.GaKi0NR4L.pki54dDA1mat0hWn8SRMKMGLmkpoUxptfn5iiD9FQ_cZt3.6dfCu0yK2m17.A8dv10SVmmyOtkXpwL9TtCvOMYVk
+      host:
+      - bosczcmeodcrajtcaddf.supabase.co
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.17.0
+    method: GET
+    uri: https://bosczcmeodcrajtcaddf.supabase.co/rest/v1/posts?select=updated_at&blog_slug=eq.front_matter&order=updated_at.desc&limit=1
+  response:
+    content: '[{"updated_at":1754306026}]'
+    headers:
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 96a8c7e18a2a1965-FRA
+      content-encoding:
+      - gzip
+      content-location:
+      - /posts?blog_slug=eq.front_matter&limit=1&order=updated_at.desc&select=updated_at
+      content-profile:
+      - public
+      content-range:
+      - 0-0/*
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 05 Aug 2025 19:42:58 GMT
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - bosczcmeodcrajtcaddf
+      sb-request-id:
+      - 01987bc2-28fa-79b1-8541-9377da1039b5
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-envoy-attempt-count:
+      - '1'
+      x-envoy-upstream-service-time:
+      - '2'
+    http_version: HTTP/2
+    status_code: 200
 version: 1

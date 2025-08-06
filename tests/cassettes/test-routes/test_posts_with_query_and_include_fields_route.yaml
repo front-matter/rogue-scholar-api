@@ -210,4 +210,72 @@ interactions:
       - '142'
     http_version: HTTP/2
     status_code: 200
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-profile:
+      - public
+      cookie:
+      - __cf_bm=oSo220hO1pEdLL0JHHMUXC7T1juQdEvhcR6HRP6amag-1754422840-1.0.1.1-aXIb03vJ.GaKi0NR4L.pki54dDA1mat0hWn8SRMKMGLmkpoUxptfn5iiD9FQ_cZt3.6dfCu0yK2m17.A8dv10SVmmyOtkXpwL9TtCvOMYVk
+      host:
+      - bosczcmeodcrajtcaddf.supabase.co
+      prefer:
+      - count=exact
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.17.0
+    method: GET
+    uri: https://bosczcmeodcrajtcaddf.supabase.co/rest/v1/posts?select=id%2Cguid%2Cdoi%2Cparent_doi%2Curl%2Carchive_url%2Ctitle%2Csummary%2Cabstract%2Ccontent_html%2Cpublished_at%2Cupdated_at%2Cregistered_at%2Cindexed_at%2Cauthors%2Cimage%2Ctags%2Clanguage%2Creference%2Crelationships%2Cfunding_references%2Cblog_name%2Cblog_slug%2Crid%2Cversion%2Cblog%3Ablogs%21inner%28%2A%29&status=in.%28active%2Carchived%2Cexpired%29&title=ilike.%25retraction-watch%25&order=published_at.desc&offset=0&limit=10
+  response:
+    content: '[]'
+    headers:
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 96a8cb910f271965-FRA
+      content-encoding:
+      - gzip
+      content-location:
+      - /posts?limit=10&offset=0&order=published_at.desc&select=id%2Cguid%2Cdoi%2Cparent_doi%2Curl%2Carchive_url%2Ctitle%2Csummary%2Cabstract%2Ccontent_html%2Cpublished_at%2Cupdated_at%2Cregistered_at%2Cindexed_at%2Cauthors%2Cimage%2Ctags%2Clanguage%2Creference%2Crelationships%2Cfunding_references%2Cblog_name%2Cblog_slug%2Crid%2Cversion%2Cblog%3Ablogs%21inner%28%2A%29&status=in.%28active%2Carchived%2Cexpired%29&title=ilike.%25retraction-watch%25
+      content-profile:
+      - public
+      content-range:
+      - '*/0'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 05 Aug 2025 19:45:30 GMT
+      preference-applied:
+      - count=exact
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - bosczcmeodcrajtcaddf
+      sb-request-id:
+      - 01987bc4-76b4-780e-bb48-a0f2e6e59d42
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-envoy-attempt-count:
+      - '1'
+      x-envoy-upstream-service-time:
+      - '201'
+    http_version: HTTP/2
+    status_code: 200
 version: 1

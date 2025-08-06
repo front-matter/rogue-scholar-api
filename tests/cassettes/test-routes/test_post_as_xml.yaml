@@ -226,4 +226,249 @@ interactions:
       - '8'
     http_version: HTTP/2
     status_code: 406
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-profile:
+      - public
+      cookie:
+      - __cf_bm=oSo220hO1pEdLL0JHHMUXC7T1juQdEvhcR6HRP6amag-1754422840-1.0.1.1-aXIb03vJ.GaKi0NR4L.pki54dDA1mat0hWn8SRMKMGLmkpoUxptfn5iiD9FQ_cZt3.6dfCu0yK2m17.A8dv10SVmmyOtkXpwL9TtCvOMYVk
+      host:
+      - bosczcmeodcrajtcaddf.supabase.co
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.17.0
+    method: GET
+    uri: https://bosczcmeodcrajtcaddf.supabase.co/rest/v1/posts?select=id%2Cguid%2Cdoi%2Cparent_doi%2Curl%2Carchive_url%2Ctitle%2Csummary%2Cabstract%2Ccontent_html%2Cpublished_at%2Cupdated_at%2Cregistered_at%2Cindexed_at%2Cauthors%2Cimage%2Ctags%2Clanguage%2Creference%2Crelationships%2Cfunding_references%2Cblog_name%2Cblog_slug%2Crid%2Cversion%2Cblog%3Ablogs%21inner%28%2A%29%2Ccitations%3Acitations%21inner%28citation%2Cunstructured%2Cvalidated%2Cupdated_at%2Cpublished_at%29&doi=eq.https%3A%2F%2Fdoi.org%2F10.53731%2Fybhah-9jy85
+  response:
+    content: '{"code":"PGRST116","details":"The result contains 0 rows","hint":null,"message":"JSON
+      object requested, multiple (or no) rows returned"}'
+    headers:
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 96a8ccf7eb283554-FRA
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 05 Aug 2025 19:46:27 GMT
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - bosczcmeodcrajtcaddf
+      sb-request-id:
+      - 01987bc5-56fb-711c-b0b7-31ebf01d0033
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-envoy-attempt-count:
+      - '1'
+      x-envoy-upstream-service-time:
+      - '9'
+    http_version: HTTP/2
+    status_code: 406
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-profile:
+      - public
+      cookie:
+      - __cf_bm=oSo220hO1pEdLL0JHHMUXC7T1juQdEvhcR6HRP6amag-1754422840-1.0.1.1-aXIb03vJ.GaKi0NR4L.pki54dDA1mat0hWn8SRMKMGLmkpoUxptfn5iiD9FQ_cZt3.6dfCu0yK2m17.A8dv10SVmmyOtkXpwL9TtCvOMYVk
+      host:
+      - bosczcmeodcrajtcaddf.supabase.co
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.17.0
+    method: GET
+    uri: https://bosczcmeodcrajtcaddf.supabase.co/rest/v1/posts?select=id%2Cguid%2Cdoi%2Cparent_doi%2Curl%2Carchive_url%2Ctitle%2Csummary%2Cabstract%2Ccontent_html%2Cpublished_at%2Cupdated_at%2Cregistered_at%2Cindexed_at%2Cauthors%2Cimage%2Ctags%2Clanguage%2Creference%2Crelationships%2Cfunding_references%2Cblog_name%2Cblog_slug%2Crid%2Cversion%2Cblog%3Ablogs%21inner%28%2A%29&doi=eq.https%3A%2F%2Fdoi.org%2F10.53731%2Fybhah-9jy85
+  response:
+    content: "{\"id\":\"4ede6374-6ba8-436f-81e6-4504fd70441a\",\"guid\":\"https://doi.org/10.53731/ybhah-9jy85\",\"doi\":\"https://doi.org/10.53731/ybhah-9jy85\",\"parent_doi\":null,\"url\":\"https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter/\",\"archive_url\":\"https://wayback.archive-it.org/22096/2024-11-01T17:26:01Z/https://blog.front-matter.io/posts/the-rise-of-the-science-newsletter/\",\"title\":\"The
+      rise of the (science) newsletter\",\"summary\":\"Newsletters have been around
+      forever, but their popularity has significantly increased in the past few years,
+      also thanks to platforms such as Ghost, Medium, and Substack. Which of course
+      also includes science newsletters.Failure of advertising as a revenue model
+      \ The most important driver of this trend is probably the realization that advertising
+      is a poor revenue model for content published on the web, including blogs.\",\"abstract\":null,\"content_html\":\"<p>Newsletters
+      have been around forever, but their popularity has significantly increased in
+      the past few years, also thanks to platforms such as <a href=\\\"https://ghost.org/\\\"
+      rel=\\\"noreferrer\\\">Ghost</a>, <a href=\\\"https://medium.com/\\\" rel=\\\"noreferrer\\\">Medium</a>,
+      and <a href=\\\"https://substack.com/\\\" rel=\\\"noreferrer\\\">Substack</a>.
+      \ Which of course also includes science newsletters.</p><h2 id=\\\"failure-of-advertising-as-a-revenue-model\\\">Failure
+      of advertising as a revenue model</h2><p>The most important driver of this trend
+      is probably the realization that advertising is a poor revenue model for content
+      published on the web, including blogs. Even more so for science content, which
+      seldom draws a lot of traffic but rather typically caters to small, fragmented
+      communities. This trend is only aggravated by the development of targeted advertising
+      platforms and technologies, which don't respect the users' privacy and in turn
+      led to legislation such as GDPR (<a href=\\\"https://en.wikipedia.org/wiki/General_Data_Protection_Regulation\\\"
+      rel=\\\"noreferrer\\\">General Data Protection Regulation</a>), implemented
+      in the European Union in May 2018. </p><h2 id=\\\"failure-of-twitter-and-social-media\\\">Failure
+      of Twitter and social media</h2><p>A direct consequence of this <em>rat race
+      </em>around advertising revenue and user privacy, made worse by a pandemic that
+      dramatically changed how we interact online, is that social media are seeing
+      the biggest changes in more than 10 years. Twitter changed ownership 12 months
+      ago and is no longer <em>the</em> place to communicate science, including finding
+      out about new publications, science events, or science blog posts. One side
+      effect of this development is that <a href=\\\"https://altmetrics.org/manifesto/\\\"
+      rel=\\\"noreferrer\\\">altmetrics</a> have stopped being useful. Scientists
+      have dramatically <a href=\\\"https://doi.org/10.1038/d41586-023-02554-0\\\"
+      rel=\\\"noreferrer\\\">reduced their use of Twitter</a> or have moved to other
+      social media platforms. And the visibility of posts on the platform formerly
+      known as Twitter is now determined mainly by <a href=\\\"https://indieweb.org/algorithmic_feed\\\"
+      rel=\\\"noreferrer\\\">algorithmic feeds</a> rather than their users. Facebook/Meta
+      and Reddit have similar issues, and this is related to private organizations
+      owning and controlling most popular social media platforms.</p><h2 id=\\\"newsletters-as-an-alternative\\\">Newsletters
+      as an alternative</h2><p>Newsletters provide an <a href=\\\"https://ghost.org/resources/how-to-make-money-blogging/\\\"
+      rel=\\\"noreferrer\\\">interesting alternative</a> to advertising and \\\"traditional\\\"
+      social media. They are particularly promising for science blogs, as they can
+      be easily combined with blogging platforms. Either as a single platform as with
+      Ghost (used by this blog), Substack, or Medium, or integrated with the blogging
+      platform, as several science blogs participating in Rogue Scholar are doing.</p><p>Newsletters
+      can provide a revenue source that is more sustainable than advertising, and
+      they reach users directly rather than depending on social media which currently
+      are undergoing major changes.</p><h2 id=\\\"the-problems-with-newsletters\\\">The
+      problems with newsletters</h2><p>Newsletters are not without problems. The biggest
+      challenge I see is that they make it very easy to lock content behind a paywall.
+      Which does not align well with the overall trend toward Open Access and scholarly
+      content that is free to read and reuse.</p><p>Another challenge is that email
+      is not always the best medium for scholarly communication. Email is fine for
+      occasional newsletters, but doesn't really scale well. There are good reasons
+      we have RSS readers and social media, and depending on newsletters only feels
+      like a regression to how we communicated in the early 1990s.</p><h2 id=\\\"conclusions\\\">Conclusions</h2><p>Newsletters
+      are an evolving format that can nicely integrate with science blogs. For science
+      blogs, it is important that the content remains free to read and reuse (ideally
+      using a CC-BC license), and that the content remains also available via RSS
+      feed and web page. This approach aligns with the <a href=\\\"https://doi.org/10.24343/C34W2H\\\"
+      rel=\\\"noreferrer\\\">Principles of Open Scholarly Infrastructure</a>:</p><blockquote><strong>Revenue
+      based on services, not data</strong>&nbsp;\u2013 data related to the running
+      of the research enterprise should be a community property. Appropriate revenue
+      sources might include value-added services, consulting, API Service Level Agreements
+      or membership fees.</blockquote><p>Front Matter is offering two newsletters:</p><ul><li>The
+      <strong>Front Matter newsletter</strong> distributes the blog posts of this
+      blog, which currently focus on the Rogue Scholar science blog service and related
+      topics. Recommended for all bloggers participating in the Rogue Scholar service.
+      You can subscribe <a href=\\\"https://blog.front-matter.io/\\\" rel=\\\"noreferrer\\\">here</a>.</li><li>The
+      <strong>Syldavia Gazette newsletter</strong> publishes summaries of interesting
+      science blog posts found on the web, including an automated weekly digest of
+      new blog posts archived in the Rogue Scholar science blog archive over the past
+      seven days. You can subscribe <a href=\\\"https://syldavia-gazette.org/\\\"
+      rel=\\\"noreferrer\\\">here</a>.</li></ul><p>Over the last two days I have reorganized
+      the Front Matter newsletters into one technical newsletter (Front Matter) and
+      one journalistic newsletter (Syldavia Gazette). In the process, I had to move
+      the existing subscriptions around. Please unsubscribe if you now receive a Front
+      Matter newsletter you no longer wish to receive.</p><p>The new format of the
+      Syldavia Gazette newsletter (including the weekly Rogue Scholar digest) poses
+      an interesting problem best described in the movie <em>Ghostbusters</em>:</p><figure
+      class=\\\"kg-card kg-image-card\\\"><img src=\\\"https://media.tenor.com/2YAgdU9Ifo8AAAAC/dont-cross-the-streams-ghostbusters.gif\\\"
+      class=\\\"kg-image\\\" alt=\\\"\\\" loading=\\\"lazy\\\" width=\\\"498\\\" height=\\\"206\\\"></figure><p>Rogue
+      Scholar automatically archives all blog posts of participating science blogs.
+      If the Syldavia Gazette publishes digests of Rogue Scholar blog posts, this
+      could lead to an interesting loop. The solution was to implement a new feature
+      in Rogue Scholar to only archive some blog posts using a filter. This of course
+      is also useful for other use cases discussed several times where only some posts
+      should be included in Rogue Scholar, archived, and assigned a DOI.</p><h2 id=\\\"references\\\">References</h2><ol><li>Vidal
+      Valero, M. (2023). Thousands of scientists are cutting back on Twitter, seeding
+      angst and uncertainty. <em>Nature</em>, <em>620</em>(7974), 482\u2013484. <a
+      href=\\\"https://doi.org/10.1038/d41586-023-02554-0\\\">https://doi.org/10.1038/d41586-023-02554-0</a></li><li>Bilder,
+      G., Lin, J., &amp; Neylon, C. (2020). <em>The Principles of Open Scholarly Infrastructure</em>.
+      <a href=\\\"https://doi.org/10.24343/C34W2H\\\">https://doi.org/10.24343/C34W2H</a></li><li>Fenner,
+      M. (2023). <em>The Rogue Scholar weekly newsletter launches on Wednesday</em>.
+      <a href=\\\"https://doi.org/10.53731/9cdnt-2k006\\\">https://doi.org/10.53731/9cdnt-2k006</a></li></ol>\",\"published_at\":1696415792,\"updated_at\":1744748150,\"registered_at\":0,\"indexed_at\":1754052636,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0003-1419-2405\", \"given\": \"Martin\", \"family\":
+      \"Fenner\", \"affiliation\": [{\"name\": \"Front Matter\"}]}],\"image\":\"https://images.unsplash.com/photo-1518546488314-6ed28acc48e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDI1fHxyaXNlfGVufDB8fHx8MTY5NjQwNTMyNnww&ixlib=rb-4.0.3&q=80&w=2000\",\"tags\":[\"Feature\",\"Rogue
+      Scholar\"],\"language\":\"en\",\"reference\":[{\"id\": \"https://doi.org/10.1038/d41586-023-02554-0\",
+      \"type\": \"JournalArticle\", \"unstructured\": \"Vidal Valero, M. (2023). Thousands
+      of scientists are cutting back on Twitter, seeding angst and uncertainty. <i>Nature</i>,
+      <i>620</i>(7974), 482\u2013484. https://doi.org/10.1038/d41586-023-02554-0\"},
+      {\"id\": \"https://doi.org/10.24343/c34w2h\", \"type\": \"Document\", \"unstructured\":
+      \"Bilder, G., Lin, J., &amp; Neylon, C. (2020). <i>The Principles of Open Scholarly
+      Infrastructure</i>. The Principles of Open Scholarly Infrastructure. https://doi.org/10.24343/c34w2h\"},
+      {\"id\": \"https://doi.org/10.53731/9cdnt-2k006\", \"type\": \"BlogPost\", \"unstructured\":
+      \"Fenner, M. (2023, July 31). The Rogue Scholar weekly newsletter launches on
+      Wednesday. <i>Front Matter</i>. https://doi.org/10.53731/9cdnt-2k006\"}],\"relationships\":[],\"funding_references\":null,\"blog_name\":\"Front
+      Matter\",\"blog_slug\":\"front_matter\",\"rid\":\"90et4-fdg90\",\"version\":null,\"blog\":{\"id\":
+      \"74659bc5-e36e-4a27-901f-f0c8d5769cb8\", \"ror\": null, \"issn\": \"2749-9952\",
+      \"slug\": \"front_matter\", \"title\": \"Front Matter\", \"filter\": null, \"prefix\":
+      \"10.53731\", \"secure\": true, \"status\": \"active\", \"authors\": [{\"url\":
+      \"https://orcid.org/0000-0003-1419-2405\", \"name\": \"Martin Fenner\"}], \"doi_reg\":
+      true, \"favicon\": \"https://rogue-scholar.org/api/communities/15a362ea-8138-42b8-917f-1840a92addf8/logo\",
+      \"funding\": null, \"indexed\": null, \"license\": \"https://creativecommons.org/licenses/by/4.0/legalcode\",
+      \"use_api\": true, \"user_id\": \"8498eaf6-8c58-4b58-bc15-27eda292b1aa\", \"category\":
+      \"computerAndInformationSciences\", \"feed_url\": \"https://blog.front-matter.io/atom\",
+      \"language\": \"en\", \"mastodon\": \"https://hachyderm.io/@mfenner\", \"generator\":
+      \"Ghost\", \"created_at\": 1672561153, \"updated_at\": 1754306026, \"description\":
+      \"The Front Matter Blog covers the intersection of science and technology since
+      2007.\", \"doi_as_guid\": false, \"feed_format\": \"application/atom+xml\",
+      \"archive_host\": null, \"community_id\": \"91dd2c24-5248-4510-9c2b-30b772bf8b60\",
+      \"relative_url\": null, \"use_mastodon\": true, \"canonical_url\": null, \"generator_raw\":
+      \"Ghost 5.52\", \"home_page_url\": \"https://blog.front-matter.io\", \"registered_at\":
+      1729685319, \"archive_prefix\": \"https://wayback.archive-it.org/22096/20231101172748/\",
+      \"current_feed_url\": \"https://blog.front-matter.io/atom/\", \"archive_collection\":
+      22096, \"archive_timestamps\": [20231101172748, 20240501180447, 20241101172601]}}"
+    headers:
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 96a8ccf83bcf3554-FRA
+      content-encoding:
+      - gzip
+      content-location:
+      - /posts?doi=eq.https%3A%2F%2Fdoi.org%2F10.53731%2Fybhah-9jy85&select=id%2Cguid%2Cdoi%2Cparent_doi%2Curl%2Carchive_url%2Ctitle%2Csummary%2Cabstract%2Ccontent_html%2Cpublished_at%2Cupdated_at%2Cregistered_at%2Cindexed_at%2Cauthors%2Cimage%2Ctags%2Clanguage%2Creference%2Crelationships%2Cfunding_references%2Cblog_name%2Cblog_slug%2Crid%2Cversion%2Cblog%3Ablogs%21inner%28%2A%29
+      content-profile:
+      - public
+      content-range:
+      - 0-0/*
+      content-type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      date:
+      - Tue, 05 Aug 2025 19:46:27 GMT
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - bosczcmeodcrajtcaddf
+      sb-request-id:
+      - 01987bc5-5728-76f4-8677-14c8537a9700
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-envoy-attempt-count:
+      - '1'
+      x-envoy-upstream-service-time:
+      - '6'
+    http_version: HTTP/2
+    status_code: 200
 version: 1

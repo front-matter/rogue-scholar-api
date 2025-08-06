@@ -196,4 +196,71 @@ interactions:
       - '5'
     http_version: HTTP/2
     status_code: 200
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-profile:
+      - public
+      cookie:
+      - __cf_bm=oSo220hO1pEdLL0JHHMUXC7T1juQdEvhcR6HRP6amag-1754422840-1.0.1.1-aXIb03vJ.GaKi0NR4L.pki54dDA1mat0hWn8SRMKMGLmkpoUxptfn5iiD9FQ_cZt3.6dfCu0yK2m17.A8dv10SVmmyOtkXpwL9TtCvOMYVk
+      host:
+      - bosczcmeodcrajtcaddf.supabase.co
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.17.0
+    method: GET
+    uri: https://bosczcmeodcrajtcaddf.supabase.co/rest/v1/blogs?select=id%2Cslug%2Cfeed_url%2Ccurrent_feed_url%2Chome_page_url%2Carchive_host%2Carchive_collection%2Carchive_timestamps%2Cfeed_format%2Ccreated_at%2Cupdated_at%2Cregistered_at%2Clicense%2Cmastodon%2Cgenerator%2Cgenerator_raw%2Clanguage%2Cfavicon%2Ctitle%2Cdescription%2Ccategory%2Cstatus%2Cuser_id%2Cauthors%2Cuse_api%2Crelative_url%2Cfilter%2Csecure%2Ccommunity_id%2Cprefix%2Cissn%2Cfeed_format&slug=eq.epub_fis
+  response:
+    content: '{"id":"2e00349e-defb-4459-9653-f284f516ac20","slug":"epub_fis","feed_url":"https://blog.dini.de/EPub_FIS/feed/atom/","current_feed_url":null,"home_page_url":"https://blog.dini.de/EPub_FIS","archive_host":null,"archive_collection":22121,"archive_timestamps":null,"feed_format":"application/atom+xml","created_at":1689897600,"updated_at":1750074183,"registered_at":0,"license":"https://creativecommons.org/licenses/by/4.0/legalcode","mastodon":null,"generator":"WordPress","generator_raw":"WordPress
+      6.7.1","language":"de","favicon":"https://rogue-scholar.org/api/communities/b57b2853-9ea4-48b5-ad88-d0ddb6f11a9d/logo","title":"Gemeinsamer
+      Blog der DINI AGs","description":"Forschungsinformationen & Systeme | Elektronisches
+      Publizieren | Kompetenzzentrum Interoperable Metadaten","category":"socialScience","status":"active","user_id":"a9e3541e-1e00-4bf3-8a4d-fc9b1c505651","authors":null,"use_api":true,"relative_url":null,"filter":null,"secure":null,"community_id":"b57b2853-9ea4-48b5-ad88-d0ddb6f11a9d","prefix":null,"issn":"2940-1798","feed_format":"application/atom+xml"}'
+    headers:
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 96a8c4d84fcddc55-FRA
+      content-encoding:
+      - gzip
+      content-location:
+      - /blogs?select=id%2Cslug%2Cfeed_url%2Ccurrent_feed_url%2Chome_page_url%2Carchive_host%2Carchive_collection%2Carchive_timestamps%2Cfeed_format%2Ccreated_at%2Cupdated_at%2Cregistered_at%2Clicense%2Cmastodon%2Cgenerator%2Cgenerator_raw%2Clanguage%2Cfavicon%2Ctitle%2Cdescription%2Ccategory%2Cstatus%2Cuser_id%2Cauthors%2Cuse_api%2Crelative_url%2Cfilter%2Csecure%2Ccommunity_id%2Cprefix%2Cissn%2Cfeed_format&slug=eq.epub_fis
+      content-profile:
+      - public
+      content-range:
+      - 0-0/*
+      content-type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      date:
+      - Tue, 05 Aug 2025 19:40:54 GMT
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - bosczcmeodcrajtcaddf
+      sb-request-id:
+      - 01987bc0-4335-754f-8fd7-76c883bef154
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-envoy-attempt-count:
+      - '1'
+      x-envoy-upstream-service-time:
+      - '8'
+    http_version: HTTP/2
+    status_code: 200
 version: 1

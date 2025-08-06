@@ -3166,4 +3166,375 @@ interactions:
       - 1; mode=block
     http_version: HTTP/1.1
     status_code: 200
+- request:
+    body: "{\"authors\":[{\"name\":\"Ma\xEBlle Salmon\",\"url\":\"https://orcid.org/0000-0002-2815-0399\"},{\"name\":\"Yanina
+      Bellini Saibene\",\"url\":\"https://orcid.org/0000-0002-4522-7466\"}],\"blog_name\":\"rOpenSci
+      - open tools for open science\",\"blog_slug\":\"ropensci\",\"content_html\":\"\",\"images\":[{\"src\":\"placeholder.png\",\"alt\":\"Diagram
+      with on the left the leaf folder in the new-post branch with the post in Spanish
+      with the text 'Hola' and an image; on the right the leaf folder in the new-post
+      branch with the post in Spanish with the text 'hola', the post with the English
+      target filename with the text 'hola', and the image.\"},{\"src\":\"translate.png\",\"alt\":\"Diagram
+      with on the left the leaf folder in the auto-translate branch with the post
+      in Spanish with the text 'hola', the post with the English target filename with
+      the text 'hola', and the image; on the right the only thing that changed is
+      that the content of the post with the English target filename is now 'hello'.\"},{\"src\":\"pr.png\",\"alt\":\"Drawing
+      of the pull request from the auto-translate to the new-post branch where the
+      difference is that the content of the post with the English target filename
+      has now been translated to English.\"},{\"src\":\"pr-diff.png\",\"alt\":\"Screenshot
+      of the files tab of the pull request adding the automatic translation, where
+      we observe Spanish text in the YAML metadata and Markdown content has been translated
+      to English.\"},{\"src\":\"pr-comments.png\",\"alt\":\"Screenshot of the main
+      tab of the pull request adding the automatic translation, where we observe a
+      comment by Yanina replacing the word 'article' with 'blog post' and fixing the
+      name of 'R-universe'.\"}],\"updated_at\":1695713432,\"registered_at\":0,\"published_at\":1695686400,\"image\":\"placeholder.png\",\"language\":\"en\",\"category\":null,\"reference\":[],\"relationships\":[],\"funding_references\":null,\"summary\":\"<p>As
+      part of our <a href=\\\"/multilingual-publishing/\\\">multilingual publishing
+      project</a>, and with <a href=\\\"https://www.r-consortium.org/all-projects/awarded-projects/2022-group-2\\\">funding
+      from the R Consortium</a>, we&rsquo;ve worked on the R package <a href=\\\"https://docs.ropensci.org/babeldown/\\\">babeldown</a>
+      for translating Markdown-based content using the DeepL API.In this tech note,
+      we&rsquo;ll show how you can use babeldown to translate a Hugo blog post!\",\"abstract\":null,\"tags\":[\"Tech
+      Notes\",\"Multilingual\"],\"title\":\"How to Translate a Hugo Blog Post with
+      Babeldown\",\"url\":\"https://ropensci.org/blog/2023/09/26/how-to-translate-a-hugo-blog-post-with-babeldown\",\"guid\":\"https://ropensci.org/blog/2023/09/26/how-to-translate-a-hugo-blog-post-with-babeldown/\",\"status\":\"active\",\"archive_url\":null}"
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '2638'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      cookie:
+      - __cf_bm=WooOR0w4hY4sV1mRQY8tbycg0A3_uIqpiIYSr1ekQYI-1754422859-1.0.1.1-Z9PWADFy4f8JwrfuqWvZT1G.p5v3ezWBJugvPkMZIZFNWgd6MXhb_o1Xd9AvqIk9YsZneDEKBnvyrDjbO0rNmmB0MZ3Of..U2B4BZhlIAtc
+      host:
+      - bosczcmeodcrajtcaddf.supabase.co
+      prefer:
+      - return=representation,resolution=merge-duplicates
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.17.0
+    method: POST
+    uri: https://bosczcmeodcrajtcaddf.supabase.co/rest/v1/posts?on_conflict=guid
+  response:
+    content: "[{\"url\":\"https://ropensci.org/blog/2023/09/26/how-to-translate-a-hugo-blog-post-with-babeldown\",\"title\":\"How
+      to Translate a Hugo Blog Post with Babeldown\",\"summary\":\"<p>As part of our
+      <a href=\\\"/multilingual-publishing/\\\">multilingual publishing project</a>,
+      and with <a href=\\\"https://www.r-consortium.org/all-projects/awarded-projects/2022-group-2\\\">funding
+      from the R Consortium</a>, we&rsquo;ve worked on the R package <a href=\\\"https://docs.ropensci.org/babeldown/\\\">babeldown</a>
+      for translating Markdown-based content using the DeepL API.In this tech note,
+      we&rsquo;ll show how you can use babeldown to translate a Hugo blog post!\",\"image\":\"placeholder.png\",\"tags\":[\"Tech
+      Notes\",\"Multilingual\"],\"language\":\"en\",\"authors\":[{\"url\": \"https://orcid.org/0000-0002-2815-0399\",
+      \"name\": \"Ma\xEBlle Salmon\"}, {\"url\": \"https://orcid.org/0000-0002-4522-7466\",
+      \"name\": \"Yanina Bellini Saibene\"}],\"doi\":null,\"id\":\"5cc085ac-768b-47cc-8f4f-c5474a97ecf5\",\"reference\":[],\"updated_at\":1695713432,\"published_at\":1695686400,\"blog_name\":\"rOpenSci
+      - open tools for open science\",\"indexed_at\":0,\"indexed\":true,\"images\":[{\"alt\":
+      \"Diagram with on the left the leaf folder in the new-post branch with the post
+      in Spanish with the text 'Hola' and an image; on the right the leaf folder in
+      the new-post branch with the post in Spanish with the text 'hola', the post
+      with the English target filename with the text 'hola', and the image.\", \"src\":
+      \"placeholder.png\"}, {\"alt\": \"Diagram with on the left the leaf folder in
+      the auto-translate branch with the post in Spanish with the text 'hola', the
+      post with the English target filename with the text 'hola', and the image; on
+      the right the only thing that changed is that the content of the post with the
+      English target filename is now 'hello'.\", \"src\": \"translate.png\"}, {\"alt\":
+      \"Drawing of the pull request from the auto-translate to the new-post branch
+      where the difference is that the content of the post with the English target
+      filename has now been translated to English.\", \"src\": \"pr.png\"}, {\"alt\":
+      \"Screenshot of the files tab of the pull request adding the automatic translation,
+      where we observe Spanish text in the YAML metadata and Markdown content has
+      been translated to English.\", \"src\": \"pr-diff.png\"}, {\"alt\": \"Screenshot
+      of the main tab of the pull request adding the automatic translation, where
+      we observe a comment by Yanina replacing the word 'article' with 'blog post'
+      and fixing the name of 'R-universe'.\", \"src\": \"pr-comments.png\"}],\"blog_slug\":\"ropensci\",\"relationships\":[],\"archive_url\":null,\"guid\":\"https://ropensci.org/blog/2023/09/26/how-to-translate-a-hugo-blog-post-with-babeldown/\",\"updated\":true,\"category\":null,\"abstract\":null,\"status\":\"active\",\"rid\":null,\"has_content\":false,\"registered_at\":0,\"archived\":false,\"funding_references\":null,\"version\":null,\"parent_doi\":null,\"content_html\":\"\",\"registered\":true}]"
+    headers:
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 96a8cb1abb77098f-FRA
+      content-encoding:
+      - gzip
+      content-profile:
+      - public
+      content-range:
+      - '*/*'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 05 Aug 2025 19:45:10 GMT
+      preference-applied:
+      - resolution=merge-duplicates, return=representation
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - bosczcmeodcrajtcaddf
+      sb-request-id:
+      - 01987bc4-2cbb-7717-8cac-7670584f8619
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-envoy-attempt-count:
+      - '1'
+      x-envoy-upstream-service-time:
+      - '3'
+    http_version: HTTP/2
+    status_code: 201
+- request:
+    body: '{"indexed":false}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-length:
+      - '17'
+      content-profile:
+      - public
+      content-type:
+      - application/json
+      cookie:
+      - __cf_bm=WooOR0w4hY4sV1mRQY8tbycg0A3_uIqpiIYSr1ekQYI-1754422859-1.0.1.1-Z9PWADFy4f8JwrfuqWvZT1G.p5v3ezWBJugvPkMZIZFNWgd6MXhb_o1Xd9AvqIk9YsZneDEKBnvyrDjbO0rNmmB0MZ3Of..U2B4BZhlIAtc
+      host:
+      - bosczcmeodcrajtcaddf.supabase.co
+      prefer:
+      - return=representation
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.17.0
+    method: PATCH
+    uri: https://bosczcmeodcrajtcaddf.supabase.co/rest/v1/posts?id=eq.5cc085ac-768b-47cc-8f4f-c5474a97ecf5
+  response:
+    content: "[{\"url\":\"https://ropensci.org/blog/2023/09/26/how-to-translate-a-hugo-blog-post-with-babeldown\",\"title\":\"How
+      to Translate a Hugo Blog Post with Babeldown\",\"summary\":\"<p>As part of our
+      <a href=\\\"/multilingual-publishing/\\\">multilingual publishing project</a>,
+      and with <a href=\\\"https://www.r-consortium.org/all-projects/awarded-projects/2022-group-2\\\">funding
+      from the R Consortium</a>, we&rsquo;ve worked on the R package <a href=\\\"https://docs.ropensci.org/babeldown/\\\">babeldown</a>
+      for translating Markdown-based content using the DeepL API.In this tech note,
+      we&rsquo;ll show how you can use babeldown to translate a Hugo blog post!\",\"image\":\"placeholder.png\",\"tags\":[\"Tech
+      Notes\",\"Multilingual\"],\"language\":\"en\",\"authors\":[{\"url\": \"https://orcid.org/0000-0002-2815-0399\",
+      \"name\": \"Ma\xEBlle Salmon\"}, {\"url\": \"https://orcid.org/0000-0002-4522-7466\",
+      \"name\": \"Yanina Bellini Saibene\"}],\"doi\":null,\"id\":\"5cc085ac-768b-47cc-8f4f-c5474a97ecf5\",\"reference\":[],\"updated_at\":1695713432,\"published_at\":1695686400,\"blog_name\":\"rOpenSci
+      - open tools for open science\",\"indexed_at\":0,\"indexed\":false,\"images\":[{\"alt\":
+      \"Diagram with on the left the leaf folder in the new-post branch with the post
+      in Spanish with the text 'Hola' and an image; on the right the leaf folder in
+      the new-post branch with the post in Spanish with the text 'hola', the post
+      with the English target filename with the text 'hola', and the image.\", \"src\":
+      \"placeholder.png\"}, {\"alt\": \"Diagram with on the left the leaf folder in
+      the auto-translate branch with the post in Spanish with the text 'hola', the
+      post with the English target filename with the text 'hola', and the image; on
+      the right the only thing that changed is that the content of the post with the
+      English target filename is now 'hello'.\", \"src\": \"translate.png\"}, {\"alt\":
+      \"Drawing of the pull request from the auto-translate to the new-post branch
+      where the difference is that the content of the post with the English target
+      filename has now been translated to English.\", \"src\": \"pr.png\"}, {\"alt\":
+      \"Screenshot of the files tab of the pull request adding the automatic translation,
+      where we observe Spanish text in the YAML metadata and Markdown content has
+      been translated to English.\", \"src\": \"pr-diff.png\"}, {\"alt\": \"Screenshot
+      of the main tab of the pull request adding the automatic translation, where
+      we observe a comment by Yanina replacing the word 'article' with 'blog post'
+      and fixing the name of 'R-universe'.\", \"src\": \"pr-comments.png\"}],\"blog_slug\":\"ropensci\",\"relationships\":[],\"archive_url\":null,\"guid\":\"https://ropensci.org/blog/2023/09/26/how-to-translate-a-hugo-blog-post-with-babeldown/\",\"updated\":true,\"category\":null,\"abstract\":null,\"status\":\"active\",\"rid\":null,\"has_content\":false,\"registered_at\":0,\"archived\":false,\"funding_references\":null,\"version\":null,\"parent_doi\":null,\"content_html\":\"\",\"registered\":true}]"
+    headers:
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 96a8cb1b0c13098f-FRA
+      content-encoding:
+      - gzip
+      content-profile:
+      - public
+      content-range:
+      - 0-0/*
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 05 Aug 2025 19:45:10 GMT
+      preference-applied:
+      - return=representation
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - bosczcmeodcrajtcaddf
+      sb-request-id:
+      - 01987bc4-2ced-7e1f-af0c-fb2a6a3830da
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-envoy-attempt-count:
+      - '1'
+      x-envoy-upstream-service-time:
+      - '3'
+    http_version: HTTP/2
+    status_code: 200
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-profile:
+      - public
+      cookie:
+      - __cf_bm=oSo220hO1pEdLL0JHHMUXC7T1juQdEvhcR6HRP6amag-1754422840-1.0.1.1-aXIb03vJ.GaKi0NR4L.pki54dDA1mat0hWn8SRMKMGLmkpoUxptfn5iiD9FQ_cZt3.6dfCu0yK2m17.A8dv10SVmmyOtkXpwL9TtCvOMYVk
+      host:
+      - bosczcmeodcrajtcaddf.supabase.co
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.17.0
+    method: GET
+    uri: https://bosczcmeodcrajtcaddf.supabase.co/rest/v1/posts?select=id%2Cguid%2Cdoi%2Cparent_doi%2Curl%2Carchive_url%2Ctitle%2Csummary%2Cabstract%2Ccontent_html%2Cpublished_at%2Cupdated_at%2Cregistered_at%2Cindexed_at%2Cauthors%2Cimage%2Ctags%2Clanguage%2Creference%2Crelationships%2Cfunding_references%2Cblog_name%2Cblog_slug%2Crid%2Cversion%2Cblog%3Ablogs%21inner%28%2A%29%2Ccitations%3Acitations%21inner%28citation%2Cunstructured%2Cvalidated%2Cupdated_at%2Cpublished_at%29&guid=eq.https%3A%2F%2Fropensci.org%2Fblog%2F2023%2F09%2F26%2Fhow-to-translate-a-hugo-blog-post-with-babeldown%2F
+  response:
+    content: '{"code":"PGRST116","details":"The result contains 0 rows","hint":null,"message":"JSON
+      object requested, multiple (or no) rows returned"}'
+    headers:
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 96a8cb1b5a351965-FRA
+      content-encoding:
+      - gzip
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 05 Aug 2025 19:45:10 GMT
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - bosczcmeodcrajtcaddf
+      sb-request-id:
+      - 01987bc4-2d23-739e-8880-c4ee53e5ab14
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-envoy-attempt-count:
+      - '1'
+      x-envoy-upstream-service-time:
+      - '8'
+    http_version: HTTP/2
+    status_code: 406
+- request:
+    body: ''
+    headers:
+      accept:
+      - application/vnd.pgrst.object+json
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-profile:
+      - public
+      cookie:
+      - __cf_bm=oSo220hO1pEdLL0JHHMUXC7T1juQdEvhcR6HRP6amag-1754422840-1.0.1.1-aXIb03vJ.GaKi0NR4L.pki54dDA1mat0hWn8SRMKMGLmkpoUxptfn5iiD9FQ_cZt3.6dfCu0yK2m17.A8dv10SVmmyOtkXpwL9TtCvOMYVk
+      host:
+      - bosczcmeodcrajtcaddf.supabase.co
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.17.0
+    method: GET
+    uri: https://bosczcmeodcrajtcaddf.supabase.co/rest/v1/posts?select=id%2Cguid%2Cdoi%2Cparent_doi%2Curl%2Carchive_url%2Ctitle%2Csummary%2Cabstract%2Ccontent_html%2Cpublished_at%2Cupdated_at%2Cregistered_at%2Cindexed_at%2Cauthors%2Cimage%2Ctags%2Clanguage%2Creference%2Crelationships%2Cfunding_references%2Cblog_name%2Cblog_slug%2Crid%2Cversion%2Cblog%3Ablogs%21inner%28%2A%29&guid=eq.https%3A%2F%2Fropensci.org%2Fblog%2F2023%2F09%2F26%2Fhow-to-translate-a-hugo-blog-post-with-babeldown%2F
+  response:
+    content: "{\"id\":\"5cc085ac-768b-47cc-8f4f-c5474a97ecf5\",\"guid\":\"https://ropensci.org/blog/2023/09/26/how-to-translate-a-hugo-blog-post-with-babeldown/\",\"doi\":null,\"parent_doi\":null,\"url\":\"https://ropensci.org/blog/2023/09/26/how-to-translate-a-hugo-blog-post-with-babeldown\",\"archive_url\":null,\"title\":\"How
+      to Translate a Hugo Blog Post with Babeldown\",\"summary\":\"<p>As part of our
+      <a href=\\\"/multilingual-publishing/\\\">multilingual publishing project</a>,
+      and with <a href=\\\"https://www.r-consortium.org/all-projects/awarded-projects/2022-group-2\\\">funding
+      from the R Consortium</a>, we&rsquo;ve worked on the R package <a href=\\\"https://docs.ropensci.org/babeldown/\\\">babeldown</a>
+      for translating Markdown-based content using the DeepL API.In this tech note,
+      we&rsquo;ll show how you can use babeldown to translate a Hugo blog post!\",\"abstract\":null,\"content_html\":\"\",\"published_at\":1695686400,\"updated_at\":1695713432,\"registered_at\":0,\"indexed_at\":0,\"authors\":[{\"url\":
+      \"https://orcid.org/0000-0002-2815-0399\", \"name\": \"Ma\xEBlle Salmon\"},
+      {\"url\": \"https://orcid.org/0000-0002-4522-7466\", \"name\": \"Yanina Bellini
+      Saibene\"}],\"image\":\"placeholder.png\",\"tags\":[\"Tech Notes\",\"Multilingual\"],\"language\":\"en\",\"reference\":[],\"relationships\":[],\"funding_references\":null,\"blog_name\":\"rOpenSci
+      - open tools for open science\",\"blog_slug\":\"ropensci\",\"rid\":null,\"version\":null,\"blog\":{\"id\":
+      \"ba402233-14af-48e4-b8b1-6fd22ac75a0c\", \"ror\": null, \"issn\": null, \"slug\":
+      \"ropensci\", \"title\": \"rOpenSci - open tools for open science\", \"filter\":
+      null, \"prefix\": \"10.59350\", \"secure\": true, \"status\": \"active\", \"authors\":
+      [{\"name\": \"The rOpenSci Team\"}], \"doi_reg\": true, \"favicon\": \"https://rogue-scholar.org/api/communities/19c501a7-647b-4a11-9f5e-cf400817cce3/logo\",
+      \"funding\": null, \"indexed\": false, \"license\": \"https://creativecommons.org/licenses/by/4.0/legalcode\",
+      \"use_api\": null, \"user_id\": \"3ea9676b-41b6-4e57-aeda-44a7d7fe1dba\", \"category\":
+      \"computerAndInformationSciences\", \"feed_url\": \"https://ropensci.org/blog/index.json\",
+      \"language\": \"en\", \"mastodon\": null, \"generator\": \"Hugo\", \"created_at\":
+      1693440000, \"updated_at\": 1753256479, \"description\": \"Open Tools and R
+      Packages for Open Science\", \"doi_as_guid\": false, \"feed_format\": \"application/feed+json\",
+      \"archive_host\": null, \"community_id\": \"1e70f18f-d85d-4b86-af0c-0dc375b091bc\",
+      \"relative_url\": null, \"use_mastodon\": false, \"canonical_url\": null, \"generator_raw\":
+      \"Hugo -- gohugo.io\", \"home_page_url\": \"https://ropensci.org/blog\", \"registered_at\":
+      1729793201, \"archive_prefix\": \"https://wayback.archive-it.org/22126/20231105110646/\",
+      \"current_feed_url\": null, \"archive_collection\": 22126, \"archive_timestamps\":
+      [20231105110646, 20240505190836, 20241105110650, 20250505110723]}}"
+    headers:
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 96a8cb1bca8d1965-FRA
+      content-encoding:
+      - gzip
+      content-location:
+      - /posts?guid=eq.https%3A%2F%2Fropensci.org%2Fblog%2F2023%2F09%2F26%2Fhow-to-translate-a-hugo-blog-post-with-babeldown%2F&select=id%2Cguid%2Cdoi%2Cparent_doi%2Curl%2Carchive_url%2Ctitle%2Csummary%2Cabstract%2Ccontent_html%2Cpublished_at%2Cupdated_at%2Cregistered_at%2Cindexed_at%2Cauthors%2Cimage%2Ctags%2Clanguage%2Creference%2Crelationships%2Cfunding_references%2Cblog_name%2Cblog_slug%2Crid%2Cversion%2Cblog%3Ablogs%21inner%28%2A%29
+      content-profile:
+      - public
+      content-range:
+      - 0-0/*
+      content-type:
+      - application/vnd.pgrst.object+json; charset=utf-8
+      date:
+      - Tue, 05 Aug 2025 19:45:11 GMT
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - bosczcmeodcrajtcaddf
+      sb-request-id:
+      - 01987bc4-2d6a-74e9-92e3-d2e42ad5267e
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-envoy-attempt-count:
+      - '1'
+      x-envoy-upstream-service-time:
+      - '6'
+    http_version: HTTP/2
+    status_code: 200
 version: 1

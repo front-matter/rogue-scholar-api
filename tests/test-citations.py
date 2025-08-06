@@ -3,15 +3,15 @@
 import pytest  # noqa: F401
 import pydash as py_  # noqa: F401
 
-from api.citations import extract_all_citations
+from api.citations import extract_all_citations_by_prefix
 
 
 @pytest.mark.asyncio
 async def test_extract_all_citations_by_prefix():
     """Extract all citations by prefix."""
     slug = "10.54900"
-    result = await extract_all_citations(slug)
-    assert len(result) == 7
+    result = await extract_all_citations_by_prefix(slug)
+    assert len(result) == 14
     citation = result[0]
     assert citation["cid"] == "10.59350/4rj2q-98c96::10.3233/jnr-220002"
     assert citation["doi"] == "https://doi.org/10.59350/4rj2q-98c96"
@@ -27,14 +27,14 @@ async def test_extract_all_citations_by_prefix():
 async def test_extract_all_citations_by_doi():
     """Extract all citations by doi."""
     slug = "10.59350/ffgmk-zjj78"
-    result = await extract_all_citations(slug)
-    assert len(result) == 1
+    result = await extract_all_citations_by_prefix(slug)
+    assert len(result) == 2
     citation = result[0]
-    assert citation["cid"] == "10.59350/ffgmk-zjj78::10.53731/2vcn2-qq962"
+    assert citation["cid"] == "10.59350/ffgmk-zjj78::10.53731/4bvt3-hmd07"
     assert citation["doi"] == "https://doi.org/10.59350/ffgmk-zjj78"
-    assert citation["citation"] == "https://doi.org/10.53731/2vcn2-qq962"
+    assert citation["citation"] == "https://doi.org/10.53731/4bvt3-hmd07"
     assert (
         citation["unstructured"]
-        == "Fenner, M. (2025). Rogue Scholar Newsletter January 2025. In <i>Front Matter</i>. https://doi.org/10.53731/2vcn2-qq962"
+        == "Fenner, M. (2025, February 3). Rogue Scholar now shows citations of science blog posts. <i>Front Matter</i>. https://doi.org/10.53731/4bvt3-hmd07"
     )
-    assert citation["published_at"] == "2025-01-30"
+    assert citation["published_at"] == "2025-02-03"

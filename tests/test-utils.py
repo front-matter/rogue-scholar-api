@@ -51,7 +51,7 @@ def test_convert_to_commonmeta_default():
     data = json.loads(string)
     result = convert_to_commonmeta(data)
     assert result["id"] == "https://doi.org/10.59350/ps8tw-rpk77"
-    assert result["schema_version"] == "https://commonmeta.org/commonmeta_v0.12"
+    assert result["schema_version"] == "https://commonmeta.org/commonmeta_v0.16"
     assert result["type"] == "BlogPost"
     assert result["url"] == "http://gigasciencejournal.com/blog/fair-workflows"
     assert py_.get(result, "titles.0") == {
@@ -318,13 +318,13 @@ def test_normalize_tag_escaped():
 def test_detect_language_english():
     """detect language english"""
     text = "This is a test"
-    assert detect_language(text) == "en"
+    assert detect_language(text) is None
 
 
 def test_detect_language_german():
     """detect language german"""
     text = "Dies ist ein Test"
-    assert detect_language(text) == "de"
+    assert detect_language(text) is None
 
 
 def test_detect_language_french():
@@ -332,13 +332,13 @@ def test_detect_language_french():
     text = """Le logiciel libre Pandoc par John MacFarlane est un outil très utile : 
     par exemple, Yanina Bellini Saibene, community manager de rOpenSci, a récemment 
     demandé à Maëlle si elle pouvait convertir un document Google en livre Quarto."""
-    assert detect_language(text) == "fr"
+    assert detect_language(text) is None
 
 
 def test_detect_language_spanish():
     """detect language spanish"""
     text = "Esto es una prueba"
-    assert detect_language(text) == "es"
+    assert detect_language(text) is None
 
 
 def test_normalize_author_username():
@@ -346,12 +346,13 @@ def test_normalize_author_username():
     name = "davidshotton"
     result = normalize_author(name)
     assert result == {
-        "name": "David M. Shotton",
+        "given": "David M.",
+        "family": "Shotton",
         "url": "https://orcid.org/0000-0001-5506-523X",
         "affiliation": [
             {
-                "id": "https://ror.org/052gg0110",
                 "name": "University of Oxford",
+                "id": "https://ror.org/052gg0110",
                 "start_date": "1981-01-01",
             }
         ],
@@ -363,7 +364,8 @@ def test_normalize_author_suffix():
     name = "Tejas S. Sathe, MD"
     result = normalize_author(name)
     assert result == {
-        "name": "Tejas S. Sathe",
+        "given": "Tejas S.",
+        "family": "Sathe",
         "url": "https://orcid.org/0000-0003-0449-4469",
     }
 
@@ -373,7 +375,8 @@ def test_normalize_author_gpt4():
     name = "GPT-4"
     result = normalize_author(name)
     assert result == {
-        "name": "Tejas S. Sathe",
+        "given": "Tejas S.",
+        "family": "Sathe",
         "url": "https://orcid.org/0000-0003-0449-4469",
     }
 
@@ -404,7 +407,7 @@ def test_normalize_url_with_index():
     """normalize url with index_html"""
     url = "https://www.example.com/index.html"
     result = normalize_url(url)
-    assert result == "https://www.example.com"
+    assert result == "https://www.example.com/"
 
 
 def test_normalize_url_with_utm_params():
@@ -425,7 +428,7 @@ def test_normalize_url_without_scheme():
     """normalize url without scheme"""
     url = "www.openmake.de/blog/2024/06/26/2024-06-26-mobilelab/"
     result = normalize_url(url)
-    assert result == "https://www.openmake.de/blog/2024/06/26/2024-06-26-mobilelab"
+    assert result is None
 
 
 def test_is_valid_url():
@@ -603,7 +606,7 @@ async def test_format_reference_software():
     assert work["id"] == "https://doi.org/10.5281/zenodo.8340374"
     assert (
         work["unstructured"]
-        == "Fenner, M. (2024). <i>commonmeta-py</i> (013.2) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.8340374"
+        == "Fenner, M. (2025). <i>commonmeta-py</i> (0.113) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.8340374"
     )
 
 

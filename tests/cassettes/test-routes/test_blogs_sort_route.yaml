@@ -263,4 +263,97 @@ interactions:
       - '4'
     http_version: HTTP/2
     status_code: 206
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate, br
+      accept-profile:
+      - public
+      connection:
+      - keep-alive
+      content-profile:
+      - public
+      cookie:
+      - __cf_bm=oSo220hO1pEdLL0JHHMUXC7T1juQdEvhcR6HRP6amag-1754422840-1.0.1.1-aXIb03vJ.GaKi0NR4L.pki54dDA1mat0hWn8SRMKMGLmkpoUxptfn5iiD9FQ_cZt3.6dfCu0yK2m17.A8dv10SVmmyOtkXpwL9TtCvOMYVk
+      host:
+      - bosczcmeodcrajtcaddf.supabase.co
+      prefer:
+      - count=exact
+      user-agent:
+      - python-httpx/0.28.1
+      x-client-info:
+      - supabase-py/2.17.0
+    method: GET
+    uri: https://bosczcmeodcrajtcaddf.supabase.co/rest/v1/blogs?select=slug%2Ctitle%2Cdescription%2Clanguage%2Cfavicon%2Cfeed_url%2Cfeed_format%2Chome_page_url%2Cgenerator%2Ccategory&status=in.%28active%2Carchived%2Cexpired%29&title=ilike.%25%25&order=created_at.desc&offset=0&limit=11
+  response:
+    content: "[{\"slug\":\"scicomp\",\"title\":\"SciComp Blog\",\"description\":\"Recent
+      content on SciComp Blog\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://mpievolbio-scicomp.pages.gwdg.de/blog/index.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://mpievolbio-scicomp.pages.gwdg.de/blog/\",\"generator\":\"Hugo\",\"category\":\"naturalSciences\"},
+      \n {\"slug\":\"daniellakens\",\"title\":\"The 20% Statistician\",\"description\":\"A
+      blog on statistics, methods, philosophy of science, and open science. Understanding
+      20% of statistics will improve 80% of your inferences.\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://daniellakens.blogspot.com/feeds/posts/default\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://daniellakens.blogspot.com/\",\"generator\":\"Blogger\",\"category\":\"psychology\"},
+      \n {\"slug\":\"adaptresearchwriting\",\"title\":\"Adapt Research Ltd\",\"description\":\"As
+      we build our world we build our minds\",\"language\":\"en\",\"favicon\":\"https://adaptresearchwriting.com/wp-content/uploads/2017/08/cropped-adapt-research-square.png?w=32\",\"feed_url\":\"https://adaptresearchwriting.com/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://adaptresearchwriting.com/\",\"generator\":\"WordPress.com\",\"category\":\"otherSocialSciences\"},
+      \n {\"slug\":\"joaquinbarroso\",\"title\":\"Dr. Joaquin Barroso's Blog\",\"description\":\"Scientific
+      log of a computational chemist - \\\"Make like a molecule and React!\\\"\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://joaquinbarroso.com/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://joaquinbarroso.com/\",\"generator\":\"WordPress.com\",\"category\":\"chemicalSciences\"},
+      \n {\"slug\":\"jofrhwld\",\"title\":\"V\xE6l Space\",\"description\":null,\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://jofrhwld.github.io/blog/index.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://jofrhwld.github.io/blog/\",\"generator\":\"Quarto\",\"category\":\"socialScience\"},
+      \n {\"slug\":\"oxford_ihtm\",\"title\":\"Oxford iHealth\",\"description\":\"Fostering
+      innovation, research, and education in the field of computational sciences for
+      health\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://oxford-ihtm.io/blog.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://oxford-ihtm.io/blog\",\"generator\":\"Quarto\",\"category\":\"healthSciences\"},
+      \n {\"slug\":\"imperfectnotes\",\"title\":\"Imperfect notes on an imperfect
+      world\",\"description\":\"Japan-based scholar Christopher Hobson reflects on
+      how we can live and act in conditions that are constantly changing and challenging
+      us. Pursuing open thinking.\",\"language\":\"en\",\"favicon\":null,\"feed_url\":\"https://imperfectnotes.substack.com/feed\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://imperfectnotes.substack.com/\",\"generator\":\"Substack\",\"category\":\"philosophyEthicsAndReligion\"},
+      \n {\"slug\":\"winoda\",\"title\":\"WiNoDa Knowledge Lab Journal en \u2013 WiNoDa
+      Knowledge Lab\",\"description\":\"Wissenslabor f\xFCr naturwissenschaftliche
+      Sammlungen und objektzentrierte Daten\",\"language\":\"en\",\"favicon\":\"https://rogue-scholar.org/api/communities/d21c5e78-88bc-432c-a20b-4e8a8ead1693/logo\",\"feed_url\":\"https://winoda.de/feed/atom/\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://winoda.de/\",\"generator\":\"WordPress\",\"category\":\"otherNaturalSciences\"},
+      \n {\"slug\":\"pkp\",\"title\":\"Public Knowledge Project\",\"description\":null,\"language\":\"en\",\"favicon\":\"https://rogue-scholar.org/api/communities/77c8c2e4-ebda-4e7c-9458-6c06b604344b/logo\",\"feed_url\":\"https://pkp.sfu.ca/feed/atom\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://pkp.sfu.ca/news/\",\"generator\":\"WordPress\",\"category\":\"socialScience\"},
+      \n {\"slug\":\"geocompx\",\"title\":\"geocompx\",\"description\":\"geocompx
+      hosts free resources on reproducible geographic data analysis, modelling and
+      visualization with open source software\",\"language\":\"en\",\"favicon\":\"https://rogue-scholar.org/api/communities/970d5b3f-869a-4a34-a91a-6b3a77807e38/logo\",\"feed_url\":\"https://geocompx.org/post.xml\",\"feed_format\":\"application/rss+xml\",\"home_page_url\":\"https://geocompx.org/\",\"generator\":\"Quarto\",\"category\":\"earthAndRelatedEnvironmentalSciences\"},
+      \n {\"slug\":\"bibliomagician\",\"title\":\"The Bibliomagician\",\"description\":\"Comment
+      & practical guidance from the LIS-Bibliometrics community\",\"language\":\"en\",\"favicon\":\"https://rogue-scholar.org/api/communities/f5c1522e-c8de-4681-a317-e32ddb61b26a/logo\",\"feed_url\":\"https://thebibliomagician.wordpress.com/feed/atom\",\"feed_format\":\"application/atom+xml\",\"home_page_url\":\"https://thebibliomagician.wordpress.com/\",\"generator\":\"WordPress.com\",\"category\":\"computerAndInformationSciences\"}]"
+    headers:
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - 96a8cb1e4c921965-FRA
+      content-encoding:
+      - gzip
+      content-location:
+      - /blogs?limit=11&offset=0&order=created_at.desc&select=slug%2Ctitle%2Cdescription%2Clanguage%2Cfavicon%2Cfeed_url%2Cfeed_format%2Chome_page_url%2Cgenerator%2Ccategory&status=in.%28active%2Carchived%2Cexpired%29&title=ilike.%25%25
+      content-profile:
+      - public
+      content-range:
+      - 0-10/163
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 05 Aug 2025 19:45:11 GMT
+      preference-applied:
+      - count=exact
+      sb-gateway-version:
+      - '1'
+      sb-project-ref:
+      - bosczcmeodcrajtcaddf
+      sb-request-id:
+      - 01987bc4-2ef3-7f96-9e12-775e50c5df8c
+      server:
+      - cloudflare
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-envoy-attempt-count:
+      - '1'
+      x-envoy-upstream-service-time:
+      - '3'
+    http_version: HTTP/2
+    status_code: 206
 version: 1

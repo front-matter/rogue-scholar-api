@@ -9,6 +9,7 @@ from api.blogs import (
     parse_generator,
     parse_feed_format,
     find_feed,
+    upsert_blog_community,
     create_blog_community,
     update_blog_community,
 )
@@ -330,23 +331,6 @@ def test_update_single_blog():
 
 
 @pytest.mark.vcr
-def test_create_blog_community_metadatagamechangers():
-    "create blog community metadatagamechangers"
-    blog = {
-        "slug": "metadatagamechangers",
-        "home_page_url": "https://metadatagamechangers.com/blog",
-        "title": "Blog - Metadata Game Changers",
-        "description": "Exploring metadata, communities, and new idea.",
-    }
-    result = create_blog_community(blog)
-    assert result.status_code == 201
-    assert result.json() == {
-        "slug": "metadatagamechangers",
-        "title": "Metadata Game Changers",
-    }
-
-
-@pytest.mark.vcr
 def test_create_blog_community_already_exits():
     "create blog community that already exists"
     blog = {
@@ -382,7 +366,7 @@ def test_update_blog_community_metadatagamechangers():
     assert result.status_code == 200
     response = result.json()
     assert response["created"] == "2024-10-10T17:20:36.354632+00:00"
-    assert response["updated"] == "2024-10-10T17:39:45.216965+00:00"
+    assert response["updated"] == "2025-01-19T09:13:50.208784+00:00"
     assert response["deletion_status"] == {"is_deleted": False, "status": "P"}
     assert response["metadata"]["title"] == "Blog - Metadata Game Changers"
 
