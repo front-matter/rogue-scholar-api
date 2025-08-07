@@ -186,6 +186,7 @@ AUTHOR_IDS = {
     "Josef Fruehwald": "https://orcid.org/0000-0001-8480-9461",
     "Carsten Fortmann-Grote": "https://orcid.org/0000-0002-2579-5546",
     "Arfon M. Smith": "https://orcid.org/0000-0002-3957-2474",
+    "Adriano Rutz": "https://orcid.org/0000-0003-0443-9902",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
@@ -301,6 +302,13 @@ IRREGULAR_AUTHOR_NAMES = {
 
 
 AUTHOR_AFFILIATIONS = {
+    "https://orcid.org/0000-0003-0443-9902": [
+        {
+            "name": "ETH Zurich",
+            "id": "https://ror.org/05a28rw58",
+            "start_date": "2022-11-01",
+        }
+    ],
     "https://orcid.org/0000-0001-8480-9461": [
         {
             "name": "University of Kentucky",
