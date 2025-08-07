@@ -304,8 +304,8 @@ IRREGULAR_AUTHOR_NAMES = {
 AUTHOR_AFFILIATIONS = {
     "https://orcid.org/0000-0003-0443-9902": [
         {
-            "name": "ETH Zurich",
-            "id": "https://ror.org/05a28rw58",
+            "name": "Institute for Molecular Systems Biology",
+            "id": "https://ror.org/03j5gm982",
             "start_date": "2022-11-01",
         }
     ],
