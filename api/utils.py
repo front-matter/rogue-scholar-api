@@ -187,6 +187,7 @@ AUTHOR_IDS = {
     "Carsten Fortmann-Grote": "https://orcid.org/0000-0002-2579-5546",
     "Arfon M. Smith": "https://orcid.org/0000-0002-3957-2474",
     "Adriano Rutz": "https://orcid.org/0000-0003-0443-9902",
+    "Scott Edmunds": "https://orcid.org/0000-0001-6444-1436",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
