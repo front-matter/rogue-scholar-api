@@ -2102,7 +2102,7 @@ async def get_references(content_html: str, validate_all: bool = False):
 
     # if there is a references section
     reference_html = re.split(
-        r"(?:References|Reference|Referenzen|Bibliography|Literature|Literatur|Footnotes|References:|Works cited)(?:<\/strong>)?<\/(?:h1|h2|h3|h4)>",
+        r"(?:References|Reference|Referenzen|References:|Bibliography|Literature|Literatur|Works cited)(?:<\/strong>)?<\/(?:h1|h2|h3|h4)>",
         content_html,
         maxsplit=2,
     )
