@@ -249,6 +249,7 @@ AUTHOR_NAMES = {
     "laurabredahl": "Laura Bredahl",
     "joaquinbarroso": "Joaquín Barroso-Flores",
     "Marcio L. M.": "Marcio Luiz Miotto",
+    "Stephen Turner": "https://orcid.org/0000-0001-9140-9028",
     "board@open-bio.org (Open Bioinformatics Foundation)": "Open Bioinformatics Foundation",
     "rkidd": "Crossref Staff",
     "Frederik J. Vervaet, David Rafferty and Christopher J. Dart": "Stasis",
