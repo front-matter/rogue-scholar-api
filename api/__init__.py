@@ -604,6 +604,7 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
                 "id, guid, doi, url, archive_url, title, summary, abstract, content_html, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, funding_references, blog_name, blog_slug, rid, blog: blogs!inner(*)",
                 count="exact",
             )
+            .not_.is_("blogs.prefix", "null")
             .is_("registered", False)
             .in_("status", status)
             .order("published_at", desc=True)
