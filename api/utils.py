@@ -248,6 +248,7 @@ AUTHOR_NAMES = {
     "julien colomb": "Julien Colomb",
     "laurabredahl": "Laura Bredahl",
     "joaquinbarroso": "Joaquín Barroso-Flores",
+    "Marcio L. M.": "Marcio Luiz Miotto",
     "board@open-bio.org (Open Bioinformatics Foundation)": "Open Bioinformatics Foundation",
     "rkidd": "Crossref Staff",
     "Frederik J. Vervaet, David Rafferty and Christopher J. Dart": "Stasis",
