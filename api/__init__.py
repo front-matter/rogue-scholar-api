@@ -77,7 +77,7 @@ version = "0.16"  # TODO: importlib.metadata.version('rogue-scholar-api')
 sentry_sdk.init(
     dsn=environ["QUART_SENTRY_DSN"],
 )
-app = Quart(__name__)
+app = Quart(__name__, static_folder="static", static_url_path="")
 app.config.from_prefixed_env()
 QuartSchema(app, info=Info(title="Rogue Scholar API", version=version))
 rate_limiter = RateLimiter(app, default_limits=[RateLimit(15, timedelta(seconds=60))])
