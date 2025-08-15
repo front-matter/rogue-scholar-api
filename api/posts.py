@@ -468,7 +468,7 @@ async def extract_all_posts_by_blog(
                             posts, updated_at, key="date_modified"
                         )
                     if blog.get("filter", None):
-                        posts = filter_posts(posts, blog, key="tags")
+                        posts = filter_posts(posts, blog)
                     if blog.get("doi_as_guid", False):
                         posts = filter_posts_by_guid(posts, blog, key="id")
                     posts = posts[start_page:end_page]
@@ -504,7 +504,7 @@ async def extract_all_posts_by_blog(
                     if not update_all:
                         posts = filter_updated_posts(posts, updated_at, key="published")
                     if blog.get("filter", None):
-                        posts = filter_posts(posts, blog, key="category")
+                        posts = filter_posts(posts, blog)
                     posts = posts[start_page:end_page]
                 except httpx.HTTPStatusError:
                     print(f"HTTP status error for feed {feed_url}.")
@@ -533,7 +533,7 @@ async def extract_all_posts_by_blog(
                     if not update_all:
                         posts = filter_updated_posts(posts, updated_at, key="pubDate")
                     if blog.get("filter", None):
-                        posts = filter_posts(posts, blog, key="category")
+                        posts = filter_posts(posts, blog)
                     posts = posts[start_page:end_page]
                 except httpx.HTTPStatusError:
                     print(f"HTTP status error for feed {feed_url}.")
@@ -1873,19 +1873,34 @@ def filter_updated_posts(posts, updated_at, key):
     return [x for x in posts if parse_date(x.get(key, None)) > updated_at]
 
 
-def filter_posts(posts, blog, key):
+def filter_posts(posts, blog):
     """Filter posts if filter is set in blog settings. Used for RSS and Atom feeds."""
 
     def match_filter(post):
         """Match filter."""
         filters = blog.get("filter", "").split(":")
-        if len(filters) != 2 or filters[0] != key:
+        if len(filters) != 2:
             return True
+        key = filters[0]
         filters = filters[1].split(",")
         if isinstance(post.get(key, None), str):
             return post.get(key, None) in filters
-        m = set(post.get(key, None)).intersection(filters)
-        return len(m) > 0
+        if isinstance(post.get(key, None), dict):
+            return (
+                py_.get(post, key) in filters
+                or py_.get(post, f"{key}.@term") in filters
+            )
+        elif isinstance(post.get(key, None), list):
+            return (
+                next(
+                    (i for i in py_.get(post, key) if i.get("@term", None) in filters),
+                    None,
+                )
+                is not None
+            )
+        # m = set(py_.get(post, key)).intersection(filters)
+        # return len(m) > 0
+        return False
 
     return [x for x in posts if match_filter(x)]
 
