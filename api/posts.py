@@ -2278,17 +2278,40 @@ def get_summary(content_html: str = None, maxlen: int = 450):
     content_html = re.sub(r"(<br>|<br/>|<p>|</pr>)", " ", content_html)
     content_html = re.sub(r"(h1>|h2>|h3>|h4>)", "strong> ", content_html)
 
+    return format_abstract(content_html, maxlen)
+
+
+def get_abstract(summary: str, abstract: Optional[str], maxlen: int = 450):
+    """Get abstract if not beginning of post.
+    Use Levenshtein distance to compare summary and abstract."""
+    if abstract is None or summary is None:
+        return None
+    le = min(len(abstract), 100)
+    rat = ratio(summary[:le], abstract[:le])
+    if rat < 0.75:
+        return None
+
+    return format_abstract(abstract, maxlen)
+
+
+def format_abstract(abstract: str, maxlen: int = 450):
+    """truncate summary or abstract to maxlen."""
+
+    if not abstract:
+        return None
+
     sanitized = nh3.clean(
-        content_html,
+        abstract,
         tags={"b", "i", "em", "strong", "sub", "sup"},
         clean_content_tags={"figcaption", "figure", "blockquote"},
         attributes={},
     )
-    sanitized = re.sub(r"\n+", " ", sanitized).strip()
 
     # workaround to remove script tag
     script_tag = """document.addEventListener("DOMContentLoaded", () =&gt; {     // Add skip link to the page     let element = document.getElementById("quarto-header");     let skiplink =       '&lt;a id="skiplink" class="visually-hidden-focusable" href="#quarto-document-content"&gt;Skip to main content&lt;/a&gt;';     element.insertAdjacentHTML("beforebegin", skiplink);   });"""
     sanitized = sanitized.replace(script_tag, "")
+
+    sanitized = re.sub(r"\n+", " ", sanitized).strip()
 
     truncated = py_.truncate(sanitized, maxlen, omission="", separator=" ")
 
@@ -2304,16 +2327,6 @@ def get_summary(content_html: str = None, maxlen: int = 450):
     soup = get_soup(truncated)
     string = soup.prettify()
     return string.strip()
-
-
-def get_abstract(summary: str, abstract: Optional[str]):
-    """Get abstract if not beginning of post.
-    Use Levenshtein distance to compare summary and abstract."""
-    if abstract is None or summary is None:
-        return None
-    le = min(len(abstract), 100)
-    rat = ratio(summary[:le], abstract[:le])
-    return abstract if rat <= 0.75 else None
 
 
 def get_relationships(content_html: str):
