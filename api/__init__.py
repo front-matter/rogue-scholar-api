@@ -538,7 +538,6 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
         "unregistered",
         "updated",
         "waiting",
-        "stale",
         "cited",
     ] + prefixes
     status = ["active", "archived", "expired"]
@@ -591,21 +590,6 @@ async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] 
             )
             .not_.is_("blogs.prefix", "null")
             .lte("indexed_at", 1)
-            .in_("status", status)
-            .order("published_at", desc=True)
-            .limit(min(per_page, 50))
-            .execute()
-        )
-        return jsonify({"total-results": response.count, "items": response.data})
-    elif slug == "stale":
-        response = (
-            supabase_client.table("posts")
-            .select(
-                "id, guid, doi, url, archive_url, title, summary, abstract, content_html, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, funding_references, blog_name, blog_slug, rid, blog: blogs!inner(*)",
-                count="exact",
-            )
-            .not_.is_("blogs.prefix", "null")
-            .is_("registered", False)
             .in_("status", status)
             .order("published_at", desc=True)
             .limit(min(per_page, 50))
