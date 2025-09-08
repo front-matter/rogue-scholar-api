@@ -2067,7 +2067,7 @@ def get_contributors(content_html: str):
     # find author header and extract name and optional orcid
     headers = soup.find_all(["h1", "h2", "h3", "h4"])
     author_header = next(
-        (i for i in headers if "Author" in i.text),
+        (i for i in headers if "Author" == i.text.strip()),
         None,
     )
     if not author_header:
