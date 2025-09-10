@@ -253,6 +253,7 @@ AUTHOR_NAMES = {
     "board@open-bio.org (Open Bioinformatics Foundation)": "Open Bioinformatics Foundation",
     "rkidd": "Crossref Staff",
     "Frederik J. Vervaet, David Rafferty and Christopher J. Dart": "Stasis",
+    "admin": "Duncan Hull",
 }
 
 IRREGULAR_AUTHOR_NAMES = {
