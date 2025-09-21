@@ -1813,7 +1813,9 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
         funding_references = wrap(blog.get("funding", None))
         title = get_title(post.get("title"))
         url = normalize_url(post.get("url"), secure=blog.get("secure", True))
-        archive_url = get_archive_url(blog, url, published_at)
+        archive_url = get_archive_url(blog, url, published_at) or post.get(
+            "archive_url", None
+        )
         images = get_images(content_html, url, blog["home_page_url"])
         image = post.get("image", None)
 
@@ -2006,8 +2008,9 @@ def upsert_single_post(post):
         if status not in ["approved", "active", "archived", "expired"] or not prefix:
             return post_to_update.data[0]
         metadata = Metadata(record.data, via="jsonfeed")
-        if not is_rogue_scholar_doi(metadata.id):
-            return post_to_update.data[0]
+        if not is_rogue_scholar_doi(metadata.id, ra=""):
+            print("Not a Rogue Scholar DOI:", metadata.id)
+            return ""  # post_to_update.data[0]
 
         kwargs = {"legacy_key": legacy_key}
         record = push_inveniordm(metadata, host, token, **kwargs)
