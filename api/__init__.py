@@ -485,6 +485,7 @@ async def post_post(slug: str, suffix: Optional[str] = None):
 
     update = request.args.get("update")
     validate = request.args.get("validate")
+    previous = request.args.get("previous")
     if (
         request.headers.get("Authorization", None) is None
         or request.headers.get("Authorization").split(" ")[1]
@@ -495,12 +496,12 @@ async def post_post(slug: str, suffix: Optional[str] = None):
     try:
         if update == "self":
             result = await update_single_post(
-                slug, suffix=suffix, validate_all=(validate == "all")
+                slug, suffix=suffix, validate_all=(validate == "all"), previous=previous
             )
             return jsonify(result)
         else:
             result = await extract_single_post(
-                slug, suffix=suffix, validate_all=(validate == "all")
+                slug, suffix=suffix, validate_all=(validate == "all"), previous=previous
             )
             return jsonify(result)
     except Exception as e:

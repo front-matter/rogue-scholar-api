@@ -33,6 +33,7 @@ from api.utils import (
     get_soup,
     parse_blogger_guid,
     extract_wordpress_post_id,
+    next_version,
 )
 
 
@@ -667,3 +668,10 @@ def test_extract_wordpress_post_id():
     guid = "https://cstonline.ca.reclaim.press/?p=598"
     result = extract_wordpress_post_id(guid)
     assert result == "598"
+
+
+def test_next_version():
+    """Test next version"""
+    assert next_version(None) == "v1"
+    assert next_version("v1") == "v2"
+    assert next_version("final_version") == "v1"

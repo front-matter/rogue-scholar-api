@@ -53,6 +53,7 @@ from api.utils import (
     parse_blogger_guid,
     generate_blogger_guid,
     extract_wordpress_post_id,
+    next_version,
     EXCLUDED_TAGS,
 )
 from api.supabase_client import (
@@ -485,7 +486,7 @@ async def extract_all_posts_by_blog(
                     capture_exception(e)
                     posts = []
                 extract_posts = [
-                    extract_json_feed_post(x, blog, validate_all) for x in posts
+                    extract_jsonfeed_post(x, blog, validate_all) for x in posts
                 ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/atom+xml":
@@ -637,6 +638,7 @@ async def extract_single_post(
     slug: str,
     suffix: str,
     validate_all: bool = False,
+    previous: Optional[str] = None,
 ):
     """Extract single post from blog. Support is still experimental, as there are
     many challenges, e.g. pagination."""
@@ -777,7 +779,9 @@ async def extract_single_post(
                 except httpx.HTTPError as e:
                     capture_exception(e)
                     post = {}
-                extract_posts = [await extract_substack_post(post, blog, validate_all)]
+                extract_posts = [
+                    await extract_substack_post(post, blog, validate_all, previous)
+                ]
         elif (
             generator == "WordPress"
             and blog["use_api"]
@@ -799,7 +803,9 @@ async def extract_single_post(
                 except httpx.HTTPError as e:
                     capture_exception(e)
                     post = {}
-                extract_posts = [await extract_wordpress_post(post, blog, validate_all)]
+                extract_posts = [
+                    await extract_wordpress_post(post, blog, validate_all, previous)
+                ]
         elif (
             generator == "WordPress.com"
             and blog["use_api"]
@@ -822,7 +828,7 @@ async def extract_single_post(
                     capture_exception(e)
                     post = {}
                 extract_posts = [
-                    await extract_wordpresscom_post(post, blog, validate_all)
+                    await extract_wordpresscom_post(post, blog, validate_all, previous)
                 ]
         elif generator == "Blogger":
             async with httpx.AsyncClient() as client:
@@ -841,7 +847,9 @@ async def extract_single_post(
                 except httpx.HTTPError as e:
                     capture_exception(e)
                     post = {}
-                extract_posts = [await extract_blogger_post(post, blog, validate_all)]
+                extract_posts = [
+                    await extract_blogger_post(post, blog, validate_all, previous)
+                ]
         elif generator == "Ghost" and blog["use_api"]:
             headers = {"Accept-Version": "v5.0"}
             async with httpx.AsyncClient() as client:
@@ -861,7 +869,8 @@ async def extract_single_post(
                     capture_exception(e)
                     posts = []
                 extract_posts = [
-                    await extract_ghost_post(x, blog, validate_all) for x in posts
+                    await extract_ghost_post(x, blog, validate_all, previous)
+                    for x in posts
                 ]
         elif blog.get("feed_format", None) == "application/feed+json":
             async with httpx.AsyncClient() as client:
@@ -882,7 +891,9 @@ async def extract_single_post(
                 except httpx.HTTPError as e:
                     capture_exception(e)
                     post = {}
-                extract_posts = [await extract_json_feed_post(post, blog, validate_all)]
+                extract_posts = [
+                    await extract_jsonfeed_post(post, blog, validate_all, previous)
+                ]
         elif blog.get("feed_format", None) == "application/atom+xml":
             async with httpx.AsyncClient() as client:
                 try:
@@ -906,7 +917,9 @@ async def extract_single_post(
                 except httpx.HTTPError as e:
                     capture_exception(e)
                     post = {}
-                extract_posts = [await extract_atom_post(post, blog, validate_all)]
+                extract_posts = [
+                    await extract_atom_post(post, blog, validate_all, previous)
+                ]
         elif blog["feed_format"] == "application/rss+xml":
             async with httpx.AsyncClient() as client:
                 try:
@@ -930,7 +943,9 @@ async def extract_single_post(
                 except httpx.HTTPError as e:
                     capture_exception(e)
                     post = {}
-                extract_posts = [await extract_rss_post(post, blog, validate_all)]
+                extract_posts = [
+                    await extract_rss_post(post, blog, validate_all, previous)
+                ]
         return [upsert_single_post(i) for i in extract_posts]
     except Exception:
         print(traceback.format_exc())
@@ -938,7 +953,10 @@ async def extract_single_post(
 
 
 async def update_single_post(
-    slug: str, suffix: Optional[str] = None, validate_all: bool = False
+    slug: str,
+    suffix: Optional[str] = None,
+    validate_all: bool = False,
+    previous: Optional[str] = None,
 ):
     """Update single post"""
 
@@ -984,7 +1002,9 @@ async def update_single_post(
         if not blog:
             return {"error": "Blog not found."}, 404
         post = py_.omit(response.data, "blog")
-        updated_post = await update_rogue_scholar_post(post, blog, validate_all)
+        updated_post = await update_rogue_scholar_post(
+            post, blog, validate_all, previous
+        )
         response = upsert_single_post(updated_post)
         return response
     except Exception:
@@ -1111,6 +1131,7 @@ async def extract_wordpress_post(post, blog, validate_all: bool = False):
             "title": title,
             "url": url,
             "archive_url": archive_url,
+            "version": "v1",
             "guid": py_.get(post, "guid.rendered", None),
             "status": blog.get("status", "active"),
         }
@@ -1119,7 +1140,9 @@ async def extract_wordpress_post(post, blog, validate_all: bool = False):
         return {}
 
 
-async def extract_wordpresscom_post(post, blog, validate_all: bool = False):
+async def extract_wordpresscom_post(
+    post, blog, validate_all: bool = False, previous: Optional[str] = None
+):
     """Extract WordPress.com post from REST API."""
     try:
 
@@ -1154,6 +1177,9 @@ async def extract_wordpresscom_post(post, blog, validate_all: bool = False):
             for i in post.get("categories", None).keys()
             if i.split(":")[0] not in EXCLUDED_TAGS
         ][:5]
+        version = (
+            next_version(post.get("version", None)) if previous is not None else "v1"
+        )
 
         return {
             "authors": authors,
@@ -1175,6 +1201,7 @@ async def extract_wordpresscom_post(post, blog, validate_all: bool = False):
             "title": get_title(post.get("title", None)),
             "url": url,
             "archive_url": archive_url,
+            "version": version,
             "guid": post.get("guid", None),
             "status": blog.get("status", "active"),
         }
@@ -1183,7 +1210,9 @@ async def extract_wordpresscom_post(post, blog, validate_all: bool = False):
         return {}
 
 
-async def extract_blogger_post(post, blog, validate_all: bool = False):
+async def extract_blogger_post(
+    post, blog, validate_all: bool = False, previous: Optional[str] = None
+):
     """Extract Blogger post from REST API."""
     try:
         print(post)
@@ -1217,6 +1246,9 @@ async def extract_blogger_post(post, blog, validate_all: bool = False):
         guid = await generate_blogger_guid(
             blog_id=py_.get(post, "blog.id"), post_id=py_.get(post, "id", None)
         )
+        version = (
+            next_version(post.get("version", None)) if previous is not None else "v1"
+        )
 
         return {
             "authors": authors,
@@ -1238,6 +1270,7 @@ async def extract_blogger_post(post, blog, validate_all: bool = False):
             "title": get_title(post.get("title", None)),
             "url": url,
             "archive_url": archive_url,
+            "version": version,
             "guid": guid,
             "status": blog.get("status", "active"),
         }
@@ -1246,7 +1279,9 @@ async def extract_blogger_post(post, blog, validate_all: bool = False):
         return {}
 
 
-async def extract_ghost_post(post, blog, validate_all: bool = False):
+async def extract_ghost_post(
+    post, blog, validate_all: bool = False, previous: Optional[str] = None
+):
     """Extract Ghost post from REST API."""
 
     try:
@@ -1284,6 +1319,9 @@ async def extract_ghost_post(post, blog, validate_all: bool = False):
             for i in post.get("tags", None)
             if i.get("name", "").split(":")[0] not in EXCLUDED_TAGS
         ][:5]
+        version = (
+            next_version(post.get("version", None)) if previous is not None else "v1"
+        )
 
         return {
             "authors": authors,
@@ -1305,6 +1343,7 @@ async def extract_ghost_post(post, blog, validate_all: bool = False):
             "title": get_title(post.get("title", None)),
             "url": url,
             "archive_url": archive_url,
+            "version": version,
             "guid": guid,
             "status": blog.get("status", "active"),
         }
@@ -1313,7 +1352,9 @@ async def extract_ghost_post(post, blog, validate_all: bool = False):
         return {}
 
 
-async def extract_substack_post(post, blog, validate_all: bool = False):
+async def extract_substack_post(
+    post, blog, validate_all: bool = False, previous: Optional[str] = None
+):
     """Extract Substack post from REST API."""
 
     try:
@@ -1351,6 +1392,9 @@ async def extract_substack_post(post, blog, validate_all: bool = False):
             for i in wrap(post.get("postTags", None))
             if i.get("name", "").split(":")[0] not in EXCLUDED_TAGS
         ][:5]
+        version = (
+            next_version(post.get("version", None)) if previous is not None else "v1"
+        )
 
         return {
             "authors": authors,
@@ -1372,6 +1416,7 @@ async def extract_substack_post(post, blog, validate_all: bool = False):
             "title": get_title(post.get("title", None)),
             "url": url,
             "archive_url": archive_url,
+            "version": version,
             "guid": post.get("id", None),
             "status": blog.get("status", "active"),
         }
@@ -1380,7 +1425,9 @@ async def extract_substack_post(post, blog, validate_all: bool = False):
         return {}
 
 
-async def extract_squarespace_post(post, blog, validate_all: bool = False):
+async def extract_squarespace_post(
+    post, blog, validate_all: bool = False, previous: Optional[str] = None
+):
     """Extract Squarespace post from REST API."""
 
     try:
@@ -1418,6 +1465,9 @@ async def extract_squarespace_post(post, blog, validate_all: bool = False):
             for i in wrap(post.get("categories", None))
             if i.split(":")[0] not in EXCLUDED_TAGS
         ][:5]
+        version = (
+            next_version(post.get("version", None)) if previous is not None else "v1"
+        )
 
         return {
             "authors": authors,
@@ -1439,6 +1489,7 @@ async def extract_squarespace_post(post, blog, validate_all: bool = False):
             "title": get_title(post.get("title", None)),
             "url": url,
             "archive_url": archive_url,
+            "version": version,
             "guid": post.get("id", None),
             "status": blog.get("status", "active"),
         }
@@ -1447,7 +1498,9 @@ async def extract_squarespace_post(post, blog, validate_all: bool = False):
         return {}
 
 
-async def extract_json_feed_post(post, blog, validate_all: bool = False):
+async def extract_jsonfeed_post(
+    post, blog, validate_all: bool = False, previous: Optional[str] = None
+):
     """Extract JSON Feed post."""
 
     try:
@@ -1495,6 +1548,9 @@ async def extract_json_feed_post(post, blog, validate_all: bool = False):
             for i in wrap(post.get("tags", None))
             if i.split(":")[0] not in EXCLUDED_TAGS
         ][:5]
+        version = (
+            next_version(post.get("version", None)) if previous is not None else "v1"
+        )
 
         return {
             "authors": authors,
@@ -1516,6 +1572,7 @@ async def extract_json_feed_post(post, blog, validate_all: bool = False):
             "title": get_title(post.get("title", None)),
             "url": url,
             "archive_url": archive_url,
+            "version": version,
             "guid": post.get("id", None),
             "status": blog.get("status", "active"),
         }
@@ -1524,7 +1581,9 @@ async def extract_json_feed_post(post, blog, validate_all: bool = False):
         return {}
 
 
-async def extract_atom_post(post, blog, validate_all: bool = False):
+async def extract_atom_post(
+    post, blog, validate_all: bool = False, previous: Optional[str] = None
+):
     """Extract Atom post."""
 
     try:
@@ -1615,6 +1674,9 @@ async def extract_atom_post(post, blog, validate_all: bool = False):
             for i in wrap(post.get("category", None))
             if i.get("@term", "").split(":")[0] not in EXCLUDED_TAGS
         ][:5]
+        version = (
+            next_version(post.get("version", None)) if previous is not None else "v1"
+        )
 
         return {
             "authors": authors,
@@ -1636,6 +1698,7 @@ async def extract_atom_post(post, blog, validate_all: bool = False):
             "title": title,
             "url": url,
             "archive_url": archive_url,
+            "version": version,
             "guid": post.get("id", None),
             "status": blog.get("status", "active"),
         }
@@ -1644,7 +1707,9 @@ async def extract_atom_post(post, blog, validate_all: bool = False):
         return {}
 
 
-async def extract_rss_post(post, blog, validate_all: bool = False):
+async def extract_rss_post(
+    post, blog, validate_all: bool = False, previous: Optional[str] = None
+):
     """Extract RSS post."""
 
     try:
@@ -1729,6 +1794,9 @@ async def extract_rss_post(post, blog, validate_all: bool = False):
             for i in wrap(post.get("category", None))
             if i.split(":")[0] not in EXCLUDED_TAGS
         ][:5]
+        version = (
+            next_version(post.get("version", None)) if previous is not None else "v1"
+        )
 
         return {
             "authors": authors,
@@ -1750,6 +1818,7 @@ async def extract_rss_post(post, blog, validate_all: bool = False):
             "title": get_title(post.get("title", None)),
             "url": url,
             "archive_url": archive_url,
+            "version": version,
             "guid": guid,
             "status": blog.get("status", "active"),
         }
@@ -1758,7 +1827,9 @@ async def extract_rss_post(post, blog, validate_all: bool = False):
         return {}
 
 
-async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
+async def update_rogue_scholar_post(
+    post, blog, validate_all: bool = False, previous: Optional[str] = None
+):
     """Update Rogue Scholar post."""
     try:
 
@@ -1835,6 +1906,9 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
                 if i not in EXCLUDED_TAGS
             ]
         tags = py_.uniq(tags)[:5]
+        version = (
+            next_version(post.get("version", None)) if previous is not None else "v1"
+        )
 
         return {
             "authors": authors,
@@ -1856,6 +1930,7 @@ async def update_rogue_scholar_post(post, blog, validate_all: bool = False):
             "title": title,
             "url": url,
             "archive_url": archive_url,
+            "version": version,
             "guid": post.get("guid"),
             "status": blog.get("status"),
         }
@@ -1960,6 +2035,7 @@ def upsert_single_post(post):
                     "guid": post.get("guid", None),
                     "status": post.get("status", "active"),
                     "archive_url": post.get("archive_url", None),
+                    "version": post.get("version", "v1"),
                 },
                 returning="representation",
                 ignore_duplicates=False,

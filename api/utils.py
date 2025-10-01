@@ -2190,3 +2190,14 @@ def extract_wordpress_post_id(guid: str) -> Optional[str]:
     if match:
         return match.group(1)
     return None
+
+
+def next_version(version: Optional[str]) -> str:
+    """Get next version, using the format vX. If version is None, return v1."""
+    if version is None:
+        return "v1"
+    version_ = version[1:]  # remove leading 'v'
+
+    if version_.isdigit():
+        return "v" + str(int(version_) + 1)
+    return "v1"
