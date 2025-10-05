@@ -8,13 +8,20 @@ import xmltodict
 import asyncio
 import pydash as py_
 from datetime import datetime, timezone
-from commonmeta import validate_doi, normalize_doi, doi_from_url, wrap, Metadata
+from commonmeta import (
+    validate_doi,
+    normalize_doi,
+    doi_from_url,
+    wrap,
+    Metadata,
+    compact,
+)
 
 from api.supabase_client import (
     supabase_client as supabase,
     supabase_admin_client as supabase_admin,
 )
-from api.utils import compact
+
 from api.posts import (
     update_single_post,
 )

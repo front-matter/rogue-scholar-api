@@ -11,18 +11,16 @@ from bs4 import BeautifulSoup as bs4
 from furl import furl
 import datetime
 import pydash as py_
-from commonmeta import get_date_from_unix_timestamp, get_language
+from commonmeta import get_date_from_unix_timestamp, get_language, compact, wrap
 
 from api.supabase_client import (
     supabase_client as supabase,
     supabase_admin_client as supabase_admin,
 )
 from api.utils import (
-    compact,
     start_case,
     get_date,
     unix_timestamp,
-    wrap,
     normalize_url,
     is_valid_url,
     format_datetime,

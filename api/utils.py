@@ -30,6 +30,7 @@ from commonmeta.constants import Commonmeta
 from commonmeta.date_utils import get_date_from_unix_timestamp
 from commonmeta.doi_utils import validate_prefix, get_doi_ra
 from commonmeta.author_utils import is_personal_name
+from commonmeta.base_utils import compact
 from nameparser import HumanName
 import frontmatter
 import pandoc
@@ -1248,26 +1249,6 @@ COMMUNITY_TRANSLATIONS = {
     "urheberrecht": "copyright",
     "veranstaltungshinweise": "events",
 }
-
-
-def wrap(item) -> list:
-    """Turn None, dict, or list into list"""
-    if item is None:
-        return []
-    if isinstance(item, list):
-        return item
-    return [item]
-
-
-def compact(dict_or_list: Union[dict, list]) -> Optional[Union[dict, list]]:
-    """Remove None from dict or list"""
-    if isinstance(dict_or_list, dict):
-        return {k: v for k, v in dict_or_list.items() if v is not None}
-    if isinstance(dict_or_list, list):
-        lst = [compact(i) for i in dict_or_list]
-        return lst if len(lst) > 0 else None
-
-    return None
 
 
 def normalize_author(

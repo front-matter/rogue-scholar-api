@@ -26,6 +26,7 @@ from commonmeta import (
 from commonmeta.writers.inveniordm_writer import push_inveniordm
 
 # from urllib.parse import urljoin
+from commonmeta.base_utils import compact, wrap
 from commonmeta.date_utils import get_datetime_from_time
 from commonmeta.doi_utils import is_rogue_scholar_doi
 from math import ceil, floor
@@ -42,8 +43,6 @@ from api.utils import (
     detect_language,
     normalize_author,
     extract_atom_authors,
-    wrap,
-    compact,
     fix_xml,
     validate_uuid,
     format_reference,
@@ -946,7 +945,7 @@ async def extract_single_post(
                 extract_posts = [
                     await extract_rss_post(post, blog, validate_all, previous)
                 ]
-        return [upsert_single_post(i) for i in extract_posts]
+        return [upsert_single_post(i, previous=previous) for i in extract_posts]
     except Exception:
         print(traceback.format_exc())
         return {}
@@ -1005,14 +1004,16 @@ async def update_single_post(
         updated_post = await update_rogue_scholar_post(
             post, blog, validate_all, previous
         )
-        response = upsert_single_post(updated_post)
+        response = upsert_single_post(updated_post, previous=previous)
         return response
     except Exception:
         print(traceback.format_exc())
         return {}
 
 
-async def extract_wordpress_post(post, blog, validate_all: bool = False):
+async def extract_wordpress_post(
+    post, blog, validate_all: bool = False, previous: Optional[str] = None
+):
     """Extract WordPress post from REST API."""
 
     try:
@@ -2001,7 +2002,7 @@ def find_post_by_guid(posts, guid, key):
     return next((post for post in posts if post.get(key, None) == guid), {})
 
 
-def upsert_single_post(post):
+def upsert_single_post(post, previous: Optional[str] = None):
     """Upsert single post."""
 
     # missing title or publication date
@@ -2088,7 +2089,7 @@ def upsert_single_post(post):
             print("Not a Rogue Scholar DOI:", metadata.id)
             return ""  # post_to_update.data[0]
 
-        kwargs = {"legacy_key": legacy_key}
+        kwargs = compact({"legacy_key": legacy_key, "previous": previous})
         record = push_inveniordm(metadata, host, token, **kwargs)
         return record
     except Exception as e:
