@@ -1173,9 +1173,9 @@ async def extract_wordpresscom_post(
         archive_url = get_archive_url(blog, url, published_at)
         images = get_images(content_html, url, blog.get("home_page_url", None))
         image = post.get("featured_image", None)
-        tags = [
+        categories = tags = [
             normalize_tag(i)
-            for i in post.get("categories", None).keys()
+            for i in post.get("categories", {}).keys()
             if i.split(":")[0] not in EXCLUDED_TAGS
         ][:5]
         version = (
@@ -2093,7 +2093,7 @@ def upsert_single_post(post, previous: Optional[str] = None):
         record = push_inveniordm(metadata, host, token, **kwargs)
         return record
     except Exception as e:
-        print(e)
+        print("err:", e)
         return None
 
 

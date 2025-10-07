@@ -1977,9 +1977,10 @@ async def get_single_work(string: str) -> Optional[dict]:
 
     try:
         subject = Metadata(string)
+        print("Metadata ID:", subject.id)
         return JSON.loads(subject.write(to="commonmeta"))
     except Exception as exc:
-        print(exc)
+        print("Error:", exc)
         return None
 
 
