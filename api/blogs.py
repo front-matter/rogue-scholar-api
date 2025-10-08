@@ -3,7 +3,6 @@
 import socket
 import asyncio
 from os import environ
-from typing import Optional
 import httpx
 import feedparser
 import re
@@ -28,7 +27,7 @@ from api.utils import (
 )
 
 
-async def find_feed(url: str) -> Optional[str]:
+async def find_feed(url: str) -> str | None:
     """Find RSS feed in homepage. Based on https://gist.github.com/alexmill/9bc634240531d81c3abe
     Prefer JSON Feed over Atom over RSS"""
     url = normalize_url(url)

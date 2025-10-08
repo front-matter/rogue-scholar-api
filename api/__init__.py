@@ -2,7 +2,6 @@
 
 from hypercorn.config import Config
 import logging
-from typing import Optional
 from datetime import timedelta
 from math import ceil
 from os import environ
@@ -195,7 +194,7 @@ async def post_blog(slug):
 
 @validate_response(Blog)
 @app.route("/blogs/<slug>/<suffix>", methods=["POST"])
-async def post_blog_posts(slug: str, suffix: Optional[str] = None):
+async def post_blog_posts(slug: str, suffix: str | None = None):
     """Update blog posts by slug."""
 
     page = int(request.args.get("page") or "1")
@@ -345,7 +344,7 @@ async def post_citations():
 @validate_response(Citation)
 @app.route("/citations/<slug>", methods=["POST"])
 @app.route("/citations/<slug>/<suffix>", methods=["POST"])
-async def post_citations_by_prefix(slug: str, suffix: Optional[str] = None):
+async def post_citations_by_prefix(slug: str, suffix: str | None = None):
     """Upsert citations by prefix."""
     prefixes = [
         "10.13003",
@@ -480,7 +479,7 @@ async def post_posts():
 @validate_response(Post)
 @app.route("/posts/<slug>", methods=["POST"])
 @app.route("/posts/<slug>/<suffix>", methods=["POST"])
-async def post_post(slug: str, suffix: Optional[str] = None):
+async def post_post(slug: str, suffix: str | None = None):
     """Update post by either uuid or doi, using information from the blog's feed."""
 
     update = request.args.get("update")
@@ -513,7 +512,7 @@ async def post_post(slug: str, suffix: Optional[str] = None):
 @app.route("/posts/<slug>")
 @app.route("/posts/<slug>/<suffix>")
 @app.route("/posts/<slug>/<suffix>/<relation>")
-async def post(slug: str, suffix: Optional[str] = None, relation: Optional[str] = None):
+async def post(slug: str, suffix: str | None = None, relation: str | None = None):
     """Get post by slug."""
     prefixes = [
         "10.13003",

@@ -1,7 +1,6 @@
 """Posts module."""
 
 from os import environ, path
-from typing import Optional
 from furl import furl
 import httpx
 import json as JSON
@@ -605,7 +604,7 @@ async def update_all_posts_by_blog(
         return []
 
 
-async def get_single_post(slug: str, suffix: Optional[str] = None):
+async def get_single_post(slug: str, suffix: str | None = None):
     """Get single post."""
     try:
         if validate_uuid(slug):
@@ -637,7 +636,7 @@ async def extract_single_post(
     slug: str,
     suffix: str,
     validate_all: bool = False,
-    previous: Optional[str] = None,
+    previous: str | None = None,
 ):
     """Extract single post from blog. Support is still experimental, as there are
     many challenges, e.g. pagination."""
@@ -953,9 +952,9 @@ async def extract_single_post(
 
 async def update_single_post(
     slug: str,
-    suffix: Optional[str] = None,
+    suffix: str | None = None,
     validate_all: bool = False,
-    previous: Optional[str] = None,
+    previous: str | None = None,
 ):
     """Update single post"""
 
@@ -1012,7 +1011,7 @@ async def update_single_post(
 
 
 async def extract_wordpress_post(
-    post, blog, validate_all: bool = False, previous: Optional[str] = None
+    post, blog, validate_all: bool = False, previous: str | None = None
 ):
     """Extract WordPress post from REST API."""
 
@@ -1142,7 +1141,7 @@ async def extract_wordpress_post(
 
 
 async def extract_wordpresscom_post(
-    post, blog, validate_all: bool = False, previous: Optional[str] = None
+    post, blog, validate_all: bool = False, previous: str | None = None
 ):
     """Extract WordPress.com post from REST API."""
     try:
@@ -1212,7 +1211,7 @@ async def extract_wordpresscom_post(
 
 
 async def extract_blogger_post(
-    post, blog, validate_all: bool = False, previous: Optional[str] = None
+    post, blog, validate_all: bool = False, previous: str | None = None
 ):
     """Extract Blogger post from REST API."""
     try:
@@ -1281,7 +1280,7 @@ async def extract_blogger_post(
 
 
 async def extract_ghost_post(
-    post, blog, validate_all: bool = False, previous: Optional[str] = None
+    post, blog, validate_all: bool = False, previous: str | None = None
 ):
     """Extract Ghost post from REST API."""
 
@@ -1354,7 +1353,7 @@ async def extract_ghost_post(
 
 
 async def extract_substack_post(
-    post, blog, validate_all: bool = False, previous: Optional[str] = None
+    post, blog, validate_all: bool = False, previous: str | None = None
 ):
     """Extract Substack post from REST API."""
 
@@ -1427,7 +1426,7 @@ async def extract_substack_post(
 
 
 async def extract_squarespace_post(
-    post, blog, validate_all: bool = False, previous: Optional[str] = None
+    post, blog, validate_all: bool = False, previous: str | None = None
 ):
     """Extract Squarespace post from REST API."""
 
@@ -1500,7 +1499,7 @@ async def extract_squarespace_post(
 
 
 async def extract_jsonfeed_post(
-    post, blog, validate_all: bool = False, previous: Optional[str] = None
+    post, blog, validate_all: bool = False, previous: str | None = None
 ):
     """Extract JSON Feed post."""
 
@@ -1583,7 +1582,7 @@ async def extract_jsonfeed_post(
 
 
 async def extract_atom_post(
-    post, blog, validate_all: bool = False, previous: Optional[str] = None
+    post, blog, validate_all: bool = False, previous: str | None = None
 ):
     """Extract Atom post."""
 
@@ -1709,7 +1708,7 @@ async def extract_atom_post(
 
 
 async def extract_rss_post(
-    post, blog, validate_all: bool = False, previous: Optional[str] = None
+    post, blog, validate_all: bool = False, previous: str | None = None
 ):
     """Extract RSS post."""
 
@@ -1829,7 +1828,7 @@ async def extract_rss_post(
 
 
 async def update_rogue_scholar_post(
-    post, blog, validate_all: bool = False, previous: Optional[str] = None
+    post, blog, validate_all: bool = False, previous: str | None = None
 ):
     """Update Rogue Scholar post."""
     try:
@@ -2002,7 +2001,7 @@ def find_post_by_guid(posts, guid, key):
     return next((post for post in posts if post.get(key, None) == guid), {})
 
 
-def upsert_single_post(post, previous: Optional[str] = None):
+def upsert_single_post(post, previous: str | None = None):
     """Upsert single post."""
 
     # missing title or publication date
@@ -2256,7 +2255,7 @@ async def get_funding(content_html: str, validate_all: bool = False) -> list:
     return []
 
 
-async def get_funding_references(funding_references: Optional[dict]) -> list:
+async def get_funding_references(funding_references: dict | None) -> list:
     """get json feed funding references."""
 
     if funding_references is None:
@@ -2292,7 +2291,7 @@ async def get_funding_references(funding_references: Optional[dict]) -> list:
     return [format_funding(i) for i in wrap(funding_references)]
 
 
-def get_archive_url(blog: dict, url: str, published_at: int) -> Optional[str]:
+def get_archive_url(blog: dict, url: str, published_at: int) -> str | None:
     """Get archive url."""
 
     if not blog.get("archive_collection", None):
@@ -2364,7 +2363,7 @@ def get_summary(content_html: str = None, maxlen: int = 450):
     return format_abstract(content_html, maxlen)
 
 
-def get_abstract(summary: str, abstract: Optional[str], maxlen: int = 450):
+def get_abstract(summary: str, abstract: str | None, maxlen: int = 450):
     """Get abstract if not beginning of post.
     Use Levenshtein distance to compare summary and abstract."""
     if abstract is None or summary is None:
@@ -2641,7 +2640,7 @@ def get_urls(content_html: str):
         return []
 
 
-def validate_funding(funding: list) -> Optional[list]:
+def validate_funding(funding: list) -> list | None:
     """Validate funding."""
 
     def format_funding(item):
@@ -2657,7 +2656,7 @@ def validate_funding(funding: list) -> Optional[list]:
     return py_.uniq([format_funding(i) for i in funding])
 
 
-def get_award(id: Optional[str]) -> Optional[dict]:
+def get_award(id: str | None) -> dict | None:
     """Get award from award ID"""
     file_path = path.join(path.dirname(__file__), "../pandoc/awards.yaml")
     with open(file_path, encoding="utf-8") as file:
@@ -2737,7 +2736,7 @@ async def get_number_of_draft_records():
         return None
 
 
-async def get_citations(doi: Optional[str]) -> list:
+async def get_citations(doi: str | None) -> list:
     """Get citations for a DOI."""
     try:
         if doi is None:

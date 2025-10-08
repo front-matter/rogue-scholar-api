@@ -1,7 +1,6 @@
 """Citations module."""
 
 from os import environ, path
-from typing import Optional
 import yaml
 import httpx
 import xmltodict
@@ -71,7 +70,7 @@ async def extract_all_citations() -> list:
     return await upsert_citations(wrap(citations))
 
 
-def parse_crossref_xml(xml: Optional[str], **kwargs) -> list:
+def parse_crossref_xml(xml: str | None, **kwargs) -> list:
     """Parse Crossref XML."""
     if not xml:
         return []

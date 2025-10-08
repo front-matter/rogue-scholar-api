@@ -1,4 +1,3 @@
-from typing import Optional
 from dataclasses import dataclass
 from datetime import datetime
 
@@ -7,15 +6,15 @@ from datetime import datetime
 class PostQuery:
     """Query parameters for posts."""
 
-    query: Optional[str] = None
-    tags: Optional[str] = None
-    language: Optional[str] = None
-    page: Optional[int] = 1
-    per_page: Optional[int] = 10
-    sort: Optional[str] = None
-    order: Optional[str] = None
-    include_fields: Optional[str] = None
-    blog_slug: Optional[str] = None
+    query: str | None = None
+    tags: str | None = None
+    language: str | None = None
+    page: int | None = 1
+    per_page: int | None = 10
+    sort: str | None = None
+    order: str | None = None
+    include_fields: str | None = None
+    blog_slug: str | None = None
 
 
 @dataclass

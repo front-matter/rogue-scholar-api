@@ -3,7 +3,6 @@
 from uuid import UUID
 from os import environ, path
 import re
-from typing import Optional, Union
 from babel.dates import format_date
 import iso8601
 import json as JSON
@@ -1256,7 +1255,7 @@ def normalize_author(
     given_name: str = None,
     family_name: str = None,
     published_at: int = 0,
-    url: Optional[str] = None,
+    url: str | None = None,
 ) -> dict:
     """Normalize author name and url. First lookup author in names.yaml.
     Strip text after comma if suffix is an academic title.
@@ -1349,7 +1348,7 @@ def get_date(date: str):
         return None
 
 
-def unix_timestamp(date_str: Optional[str]) -> int:
+def unix_timestamp(date_str: str | None) -> int:
     """convert iso8601 date to unix timestamp"""
     if date_str is None:
         return 0
@@ -1681,7 +1680,7 @@ def get_formatted_metadata(
     return {"doi": doi, "data": result.strip(), "options": options}
 
 
-def normalize_url(url: Optional[str], secure=False, lower=False) -> Optional[str]:
+def normalize_url(url: str | None, secure=False, lower=False) -> str | None:
     """Normalize URL"""
     if url is None or not isinstance(url, str):
         return None
@@ -1756,7 +1755,7 @@ def is_local():
     return environ["QUART_INVENIORDM_API"] == "https://localhost"
 
 
-def detect_language(text: str) -> Optional[str]:
+def detect_language(text: str) -> str | None:
     """Detect language. Use langdetect library, return language code if
     probability is greater than 0.95, otherwise return None. Ignore text
     shorter than 2500 characters."""
@@ -1774,7 +1773,7 @@ def detect_language(text: str) -> Optional[str]:
         return None
 
 
-def get_soup(content_html: str) -> Optional[BeautifulSoup]:
+def get_soup(content_html: str) -> BeautifulSoup | None:
     """Get soup from html"""
     try:
         soup = BeautifulSoup(content_html, "html.parser")
@@ -1876,7 +1875,7 @@ def format_markdown(content: str, metadata) -> frontmatter.Post:
     return post
 
 
-def get_known_doi_ra(doi: str) -> Optional[str]:
+def get_known_doi_ra(doi: str) -> str | None:
     """Get DOI registration agency from prefixes used in Rogue Scholar"""
     crossref_prefixes = [
         "10.53731",
@@ -1947,7 +1946,7 @@ def translate_titles(markdown):
     return markdown
 
 
-def id_as_str(id: str) -> Optional[str]:
+def id_as_str(id: str) -> str | None:
     """Get id as string, strip scheme and doi.org host"""
     if id is None:
         return None
@@ -1972,7 +1971,7 @@ SUPPORTED_ACCEPT_HEADERS = [
 ]
 
 
-async def get_single_work(string: str) -> Optional[dict]:
+async def get_single_work(string: str) -> dict | None:
     """Get single work from in commonmeta format."""
 
     try:
@@ -2117,7 +2116,7 @@ async def format_citeproc_reference(reference, validate_all: bool = False):
     #     return None
 
 
-def extract_reference_id(reference: str) -> Optional[str]:
+def extract_reference_id(reference: str) -> str | None:
     """Extract reference id from string. Prefer a DOI if available."""
     try:
         url = extract_url(reference)
@@ -2127,7 +2126,7 @@ def extract_reference_id(reference: str) -> Optional[str]:
         return None
 
 
-async def validate_reference(id_: str, unstructured: str) -> Optional[str]:
+async def validate_reference(id_: str, unstructured: str) -> list | None:
     """Validate reference."""
     try:
         # lookup metadata via API call
@@ -2138,16 +2137,17 @@ async def validate_reference(id_: str, unstructured: str) -> Optional[str]:
         if subject.titles and subject.contributors:
             id_ = subject.id
             type_ = subject.type
-            unstructured = str(
-                subject.write(to="citation", style="apa", locale="en-US")
-            )
+            # subject.write() always returns bytes, so decode to string
+            unstructured = subject.write(
+                to="citation", style="apa", locale="en-US"
+            ).decode("utf-8")
         return [id_, type_, unstructured]
     except Exception as e:
         print(e)
         return [id_, None, unstructured]
 
 
-async def parse_blogger_guid(guid: str) -> Optional[tuple[str, str]]:
+async def parse_blogger_guid(guid: str) -> tuple[str, str] | None:
     """Parse Blogger GUID to extract the blog ID and post ID."""
     if guid is None:
         return None
@@ -2164,7 +2164,7 @@ async def generate_blogger_guid(blog_id: str, post_id: str) -> str:
     return f"tag:blogger.com,1999:blog-{blog_id}.post-{post_id}"
 
 
-def extract_wordpress_post_id(guid: str) -> Optional[str]:
+def extract_wordpress_post_id(guid: str) -> str | None:
     """Extract WordPress post ID from a guid."""
     if guid is None:
         return None
@@ -2176,7 +2176,7 @@ def extract_wordpress_post_id(guid: str) -> Optional[str]:
     return None
 
 
-def next_version(version: Optional[str]) -> str:
+def next_version(version: str | None) -> str:
     """Get next version, using the format vX. If version is None, return v1."""
     if version is None:
         return "v1"
