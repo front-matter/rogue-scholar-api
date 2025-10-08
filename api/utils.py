@@ -2138,7 +2138,9 @@ async def validate_reference(id_: str, unstructured: str) -> Optional[str]:
         if subject.titles and subject.contributors:
             id_ = subject.id
             type_ = subject.type
-            unstructured = subject.write(to="citation", style="apa", locale="en-US")
+            unstructured = str(
+                subject.write(to="citation", style="apa", locale="en-US")
+            )
         return [id_, type_, unstructured]
     except Exception as e:
         print(e)

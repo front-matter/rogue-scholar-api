@@ -71,7 +71,7 @@ async def extract_all_posts(
     blogs = (
         supabase.table("blogs")
         .select("slug")
-        .in_("status", ["active", "expired"])
+        .in_("status", ["active"])
         .order("slug", desc=False)
         .execute()
     )
@@ -1971,7 +1971,7 @@ def filter_posts(posts, blog):
         elif isinstance(post.get(key, None), list):
             return (
                 next(
-                    (i for i in py_.get(post, key) if i.get("@term", None) in filters),
+                    (i for i in post.get(key, None) if i.get("@term", None) in filters),
                     None,
                 )
                 is not None
@@ -2044,6 +2044,9 @@ def upsert_single_post(post, previous: Optional[str] = None):
             )
             .execute()
         )
+        if response is None or response.data is None or len(response.data) == 0:
+            print("Error upserting post:", response)
+            return None
         data = response.data[0]
 
         # workaround for comparing two timestamps in supabase
