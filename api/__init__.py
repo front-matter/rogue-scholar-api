@@ -852,18 +852,6 @@ async def delete_record(slug: str):
         return {"error": "An error occured."}, 400
 
 
-# @app.route("/communities/<slug>/featured", methods=["POST"])
-# async def feature_community(slug: str):
-#     """feature InvenioRDM community using slug."""
-#     try:
-#         community_id = await get_community_id(slug)
-#         result = await get_community(slug)
-#         return jsonify(result)
-#     except Exception as e:
-#         logger.warning(e.args[0])
-#         return {"error": "An error occured."}, 400
-
-
 @app.errorhandler(RequestSchemaValidationError)
 async def handle_request_validation_error():
     return {"error": "VALIDATION"}, 400
