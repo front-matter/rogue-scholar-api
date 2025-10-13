@@ -254,6 +254,7 @@ AUTHOR_NAMES = {
     "rkidd": "Crossref Staff",
     "Frederik J. Vervaet, David Rafferty and Christopher J. Dart": "Stasis",
     "admin": "Duncan Hull",
+    "Bio to Chem": "Christopher Southan",
 }
 
 IRREGULAR_AUTHOR_NAMES = {
