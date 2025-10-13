@@ -189,6 +189,7 @@ AUTHOR_IDS = {
     "Adriano Rutz": "https://orcid.org/0000-0003-0443-9902",
     "Scott Edmunds": "https://orcid.org/0000-0001-6444-1436",
     "Stephen Turner": "https://orcid.org/0000-0001-9140-9028",
+    "Peter Cock": "https://orcid.org/0000-0001-9513-9993",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
