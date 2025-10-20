@@ -190,6 +190,12 @@ AUTHOR_IDS = {
     "Scott Edmunds": "https://orcid.org/0000-0001-6444-1436",
     "Stephen Turner": "https://orcid.org/0000-0001-9140-9028",
     "Peter Cock": "https://orcid.org/0000-0001-9513-9993",
+    "Stefanie Haustein": "https://orcid.org/0000-0003-0157-1430",
+    "Eric Schares": "https://orcid.org/0000-0002-6292-8221",
+    "Juan Pablo Alperin": "https://orcid.org/0000-0002-9344-7439",
+    "Flavia Camargo": "",
+    "Lucia Cespedes": "https://orcid.org/0000-0001-5896-3377",
+    "Constance Poitras": "https://orcid.org/0000-0002-3545-696X",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
@@ -256,6 +262,16 @@ AUTHOR_NAMES = {
     "Frederik J. Vervaet, David Rafferty and Christopher J. Dart": "Stasis",
     "admin": "Duncan Hull",
     "Bio to Chem": "Christopher Southan",
+}
+
+COAUTHOR_NAMES = {
+    "stefanie": "Stefanie Haustein",
+    "eric-schares": "Eric Schares",
+    "admin": "Juan Pablo Alperin",
+    "flavia-camargo": "Flavia Camargo",
+    "lucia-cespedes": "Lucia Cespedes",
+    "constance-poitras": "Constance Poitras",
+    "dorothea-strecker": "Dorothea Strecker",
 }
 
 IRREGULAR_AUTHOR_NAMES = {
@@ -1551,6 +1567,11 @@ def normalize_tag(tag: str) -> str:
     tag = html.unescape(tag)
     tag = tag.replace("#", "")
     return fixed_tags.get(tag, start_case(tag))
+
+
+def normalize_coauthor(name: str) -> dict:
+    """Normalize coauthor name from coauthors tag"""
+    return {"name": COAUTHOR_NAMES.get(name, name)}
 
 
 def convert_to_commonmeta(meta: dict) -> Commonmeta:

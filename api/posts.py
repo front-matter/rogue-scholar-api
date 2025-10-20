@@ -50,6 +50,7 @@ from api.utils import (
     format_citeproc_reference,
     parse_blogger_guid,
     generate_blogger_guid,
+    normalize_coauthor,
     extract_wordpress_post_id,
     next_version,
     EXCLUDED_TAGS,
@@ -1055,6 +1056,12 @@ async def extract_wordpress_post(
         # use default author for blog if no post author found
         if len(authors_) == 0 or authors_[0].get("name", None) is None:
             authors_ = wrap(blog.get("authors", None))
+        # check for coauthors using the Co-Authors Plus plugin
+        if len(post.get("coauthors", None)) > 1:
+            authors_ = [
+                normalize_coauthor(i.get("name", None))
+                for i in wrap(py_.get(post, "_embedded.wp:term.2"))
+            ]
         authors = [format_author(i, published_at) for i in authors_]
         content_html = py_.get(post, "content.rendered", "")
         summary = get_summary(content_html)
@@ -1065,6 +1072,7 @@ async def extract_wordpress_post(
         funding_references = wrap(blog.get("funding", None))
         url = normalize_url(post.get("link", None), secure=blog.get("secure", True))
         archive_url = get_archive_url(blog, url, published_at)
+        guid = py_.get(post, "guid.rendered", None) or url
         images = get_images(content_html, url, blog["home_page_url"])
         image = (
             py_.get(post, "_embedded.wp:featuredmedia[0].source_url", None)
@@ -1132,7 +1140,7 @@ async def extract_wordpress_post(
             "url": url,
             "archive_url": archive_url,
             "version": "v1",
-            "guid": py_.get(post, "guid.rendered", None),
+            "guid": guid,
             "status": blog.get("status", "active"),
         }
     except Exception:
