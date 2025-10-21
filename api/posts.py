@@ -25,7 +25,7 @@ from commonmeta import (
 from commonmeta.writers.inveniordm_writer import push_inveniordm
 
 # from urllib.parse import urljoin
-from commonmeta.base_utils import compact, wrap
+from commonmeta.base_utils import compact, dig, wrap
 from commonmeta.date_utils import get_datetime_from_time
 from commonmeta.doi_utils import is_rogue_scholar_doi
 from math import ceil, floor
@@ -51,6 +51,7 @@ from api.utils import (
     parse_blogger_guid,
     generate_blogger_guid,
     normalize_coauthor,
+    extract_schemaorg_authors,
     extract_wordpress_post_id,
     next_version,
     EXCLUDED_TAGS,
@@ -500,7 +501,7 @@ async def extract_all_posts_by_blog(
                     json = xmltodict.parse(
                         xml, dict_constructor=dict, force_list={"entry"}
                     )
-                    posts = py_.get(json, "feed.entry", [])
+                    posts = dig(json, "feed.entry", [])
                     if not update_all:
                         posts = filter_updated_posts(posts, updated_at, key="published")
                     if blog.get("filter", None):
@@ -529,7 +530,7 @@ async def extract_all_posts_by_blog(
                     json = xmltodict.parse(
                         xml, dict_constructor=dict, force_list={"category", "item"}
                     )
-                    posts = py_.get(json, "rss.channel.item", [])
+                    posts = dig(json, "rss.channel.item", [])
                     if not update_all:
                         posts = filter_updated_posts(posts, updated_at, key="pubDate")
                     if blog.get("filter", None):
@@ -660,9 +661,9 @@ async def extract_single_post(
                     .maybe_single()
                     .execute()
                 )
-            guid = py_.get(response.data, "guid")
-            post_url = py_.get(response.data, "url")
-            blog = py_.get(response.data, "blog")
+            guid = dig(response.data, "guid")
+            post_url = dig(response.data, "url")
+            blog = dig(response.data, "blog")
         elif validate_prefix(slug) and suffix:
             doi = f"https://doi.org/{slug}/{suffix}"
             response = (
@@ -680,9 +681,9 @@ async def extract_single_post(
                     .maybe_single()
                     .execute()
                 )
-            guid = py_.get(response.data, "guid")
-            post_url = py_.get(response.data, "url")
-            blog = py_.get(response.data, "blog")
+            guid = dig(response.data, "guid")
+            post_url = dig(response.data, "url")
+            blog = dig(response.data, "blog")
         else:
             return {"error": "An error occured."}, 400
 
@@ -905,7 +906,7 @@ async def extract_single_post(
                     json = xmltodict.parse(
                         xml, dict_constructor=dict, force_list={"entry"}
                     )
-                    posts = py_.get(json, "feed.entry", [])
+                    posts = dig(json, "feed.entry", [])
                     post = find_post_by_guid(posts, guid, "id")
                 except httpx.HTTPStatusError:
                     print(f"HTTP status error for feed {feed_url}.")
@@ -931,7 +932,7 @@ async def extract_single_post(
                     json = xmltodict.parse(
                         xml, dict_constructor=dict, force_list={"category", "item"}
                     )
-                    posts = py_.get(json, "rss.channel.item", [])
+                    posts = dig(json, "rss.channel.item", [])
                     post = find_post_by_guid(posts, guid, "guid")
                 except httpx.HTTPStatusError:
                     print(f"HTTP status error for feed {feed_url}.")
@@ -997,7 +998,7 @@ async def update_single_post(
             return {"error": "An error occured."}, 400
         if not response or not response.data:
             return {"error": "An error occured."}, 400
-        blog = py_.get(response.data, "blog")
+        blog = dig(response.data, "blog")
         if not blog:
             return {"error": "Blog not found."}, 404
         post = py_.omit(response.data, "blog")
@@ -1030,8 +1031,8 @@ async def extract_wordpress_post(
             )
 
         published_at = unix_timestamp(post.get("date_gmt", None))
-        authors_ = wrap(py_.get(post, "_embedded.author", None))
-        title = py_.get(post, "title.rendered", "")
+        authors_ = wrap(dig(post, "_embedded.author"))
+        title = dig(post, "title.rendered", "")
 
         # check for author name in title
         author = None
@@ -1039,14 +1040,14 @@ async def extract_wordpress_post(
         if (
             len(title_parts) > 1
             and authors_
-            and py_.get(authors_, "0.name", None) in ["CSTonline"]
+            and dig(authors_, "0.name") in ["CSTonline"]
         ):
             title = title_parts[0]
             author = title_parts[1]
         elif (
             len(title_parts) > 1
             and authors_
-            and py_.get(authors_, "0.name", None) in ["The BJPS"]
+            and dig(authors_, "0.name") in ["The BJPS"]
         ):
             title = title_parts[0].replace("// Reviewed", "").strip()
             author = title_parts[1]
@@ -1056,27 +1057,31 @@ async def extract_wordpress_post(
         # use default author for blog if no post author found
         if len(authors_) == 0 or authors_[0].get("name", None) is None:
             authors_ = wrap(blog.get("authors", None))
-        # check for coauthors using the Co-Authors Plus plugin
-        if len(post.get("coauthors", None)) > 1:
+        # check for authors using the Co-Authors Plus plugin
+        if presence(post.get("coauthors", None)):
             authors_ = [
                 normalize_coauthor(i.get("name", None))
-                for i in wrap(py_.get(post, "_embedded.wp:term.2"))
+                for i in wrap(dig(post, "_embedded.wp:term.2"))
             ]
+        # check for authors using the Yoast SEO plugin
+        elif dig(post, "yoast_head_json.schema.@graph"):
+            graph = dig(post, "yoast_head_json.schema.@graph", [])
+            authors_ = extract_schemaorg_authors(graph)
         authors = [format_author(i, published_at) for i in authors_]
-        content_html = py_.get(post, "content.rendered", "")
+        content_html = dig(post, "content.rendered", "")
         summary = get_summary(content_html)
-        abstract = get_summary(py_.get(post, "excerpt.rendered", ""))
+        abstract = get_summary(dig(post, "excerpt.rendered", ""))
         abstract = get_abstract(summary, abstract)
         reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
         funding_references = wrap(blog.get("funding", None))
         url = normalize_url(post.get("link", None), secure=blog.get("secure", True))
         archive_url = get_archive_url(blog, url, published_at)
-        guid = py_.get(post, "guid.rendered", None) or url
+        guid = dig(post, "guid.rendered") or url
         images = get_images(content_html, url, blog["home_page_url"])
         image = (
-            py_.get(post, "_embedded.wp:featuredmedia[0].source_url", None)
-            or py_.get(post, "yoast_head_json.og_image[0].url", None)
+            dig(post, "_embedded.wp:featuredmedia[0].source_url")
+            or dig(post, "yoast_head_json.og_image[0].url")
             or post.get("jetpack_featured_media_url", None)
         )
 
@@ -1091,14 +1096,14 @@ async def extract_wordpress_post(
                     terms.append(f[1][1:])
             categories = [
                 normalize_tag(i.get("name", None))
-                for i in wrap(py_.get(post, "_embedded.wp:term.0", None))
+                for i in wrap(dig(post, "_embedded.wp:term.0"))
                 if i.get("id", None) not in terms
                 and i.get("name", "").split(":")[0] not in EXCLUDED_TAGS
             ]
         else:
             categories = [
                 normalize_tag(i.get("name", None))
-                for i in wrap(py_.get(post, "_embedded.wp:term.0", None))
+                for i in wrap(dig(post, "_embedded.wp:term.0"))
                 if i.get("name", "").split(":")[0] not in EXCLUDED_TAGS
             ]
 
@@ -1107,13 +1112,13 @@ async def extract_wordpress_post(
             tag = blog.get("filter", "").split(":")[1]
             tags = [
                 normalize_tag(i.get("name", None))
-                for i in wrap(py_.get(post, "_embedded.wp:term.1", None))
+                for i in wrap(dig(post, "_embedded.wp:term.1"))
                 if i.get("id", None) != int(tag)
                 and i.get("name", "").split(":")[0] not in EXCLUDED_TAGS
             ]
         tags = [
             normalize_tag(i.get("name", None))
-            for i in wrap(py_.get(post, "_embedded.wp:term.1", None))
+            for i in wrap(dig(post, "_embedded.wp:term.1"))
             if i.get("name", "").split(":")[0] not in EXCLUDED_TAGS
         ]
         terms = categories + tags
@@ -1252,7 +1257,7 @@ async def extract_blogger_post(
             normalize_tag(i) for i in post.get("labels", []) if i not in EXCLUDED_TAGS
         ][:5]
         guid = await generate_blogger_guid(
-            blog_id=py_.get(post, "blog.id"), post_id=py_.get(post, "id", None)
+            blog_id=dig(post, "blog.id"), post_id=dig(post, "id")
         )
         version = (
             next_version(post.get("version", None)) if previous is not None else "v1"
@@ -1550,7 +1555,7 @@ async def extract_jsonfeed_post(
         if blog.get("relative_url", None) == "blog":
             base_url = blog.get("home_page_url", None)
         images = get_images(content_html, base_url, blog.get("home_page_url", None))
-        image = py_.get(post, "media:thumbnail.@url", None)
+        image = dig(post, "media:thumbnail.@url")
         tags = [
             normalize_tag(i)
             for i in wrap(post.get("tags", None))
@@ -1631,9 +1636,9 @@ async def extract_atom_post(
         authors = [format_author(i, published_at) for i in authors_]
 
         # workaround, as content should be encodes as CDATA block
-        content_html = html.unescape(py_.get(post, "content.#text", ""))
+        content_html = html.unescape(dig(post, "content.#text", ""))
         if content_html == "":
-            content_html = html.unescape(py_.get(post, "content.div.#text", ""))
+            content_html = html.unescape(dig(post, "content.div.#text", ""))
 
         def get_url(links):
             """Get url."""
@@ -1649,7 +1654,7 @@ async def extract_atom_post(
                 secure=blog.get("secure", True),
             )
 
-        url = normalize_url(py_.get(post, "link.@href", None))
+        url = normalize_url(dig(post, "link.@href"))
         if not isinstance(url, str):
             url = get_url(post.get("link", None))
         if blog.get("slug", None) == "oan":
@@ -1659,17 +1664,17 @@ async def extract_atom_post(
         if blog.get("relative_url", None) == "blog":
             base_url = blog.get("home_page_url", None)
         content_html = absolute_urls(content_html, url, blog.get("home_page_url", None))
-        title = get_title(py_.get(post, "title.#text", None)) or get_title(
+        title = get_title(dig(post, "title.#text")) or get_title(
             post.get("title", None)
         )
         summary = get_summary(content_html)
-        abstract = py_.get(post, "summary.#text", None)
+        abstract = dig(post, "summary.#text")
         abstract = get_abstract(summary, abstract)
         reference = await get_references(content_html, validate_all)
         relationships = get_relationships(content_html)
         funding_references = wrap(blog.get("funding", None))
         images = get_images(content_html, base_url, blog.get("home_page_url", None))
-        image = py_.get(post, "media:thumbnail.@url", None)
+        image = dig(post, "media:thumbnail.@url")
         # workaround for eve blog
         if image is not None:
             f = furl(image)
@@ -1733,9 +1738,7 @@ async def extract_rss_post(
         published_at = get_date(post.get("pubDate", None))
         published_at = unix_timestamp(published_at)
 
-        content_html = py_.get(post, "content:encoded", None) or post.get(
-            "description", ""
-        )
+        content_html = dig(post, "content:encoded") or post.get("description", "")
         if not content_html or len(content_html) == 0:
             return {
                 "content_html": None,
@@ -1770,7 +1773,7 @@ async def extract_rss_post(
             raw_url = raw_url.replace(
                 "http://localhost:1313", blog.get("home_page_url")
             )
-        guid = py_.get(post, "guid.#text", None) or post.get("guid", None) or raw_url
+        guid = dig(post, "guid.#text") or post.get("guid", None) or raw_url
         # handle Hugo running on localhost
         if guid and guid.startswith("http://localhost:1313"):
             guid = guid.replace("http://localhost:1313", blog.get("home_page_url"))
@@ -1779,9 +1782,7 @@ async def extract_rss_post(
         if blog.get("relative_url", None) == "blog":
             base_url = blog.get("home_page_url", None)
         images = get_images(content_html, base_url, blog.get("home_page_url", None))
-        image = py_.get(post, "media:content.@url", None) or py_.get(
-            post, "media:thumbnail.@url", None
-        )
+        image = dig(post, "media:content.@url") or dig(post, "media:thumbnail.@url")
         try:
             if (
                 not image
@@ -1971,10 +1972,7 @@ def filter_posts(posts, blog):
         if isinstance(post.get(key, None), str):
             return post.get(key, None) in filters
         if isinstance(post.get(key, None), dict):
-            return (
-                py_.get(post, key) in filters
-                or py_.get(post, f"{key}.@term") in filters
-            )
+            return dig(post, key) in filters or dig(post, f"{key}.@term") in filters
         elif isinstance(post.get(key, None), list):
             return (
                 next(
@@ -2090,9 +2088,8 @@ def upsert_single_post(post, previous: str | None = None):
                 .maybe_single()
                 .execute()
             )
-        status = py_.get(record.data, "blog.status")
-        prefix = py_.get(record.data, "blog.prefix")
-        if status not in ["approved", "active", "archived", "expired"] or not prefix:
+        status = dig(record.data, "blog.status")
+        if status not in ["approved", "active", "archived", "expired"]:
             return post_to_update.data[0]
         metadata = Metadata(record.data, via="jsonfeed")
         if not is_rogue_scholar_doi(metadata.id, ra=""):
@@ -2272,10 +2269,10 @@ async def get_funding_references(funding_references: dict | None) -> list:
     def format_funding(funding) -> dict:
         """format funding."""
         identifier = normalize_ror(
-            py_.get(funding, "funder.id") or py_.get(funding, "funder.ror")
+            dig(funding, "funder.id") or dig(funding, "funder.ror")
         )
-        award_number = py_.get(funding, "award.number")
-        award_uri = py_.get(funding, "award.uri")
+        award_number = dig(funding, "award.number")
+        award_uri = dig(funding, "award.uri")
         if award_uri and award_uri.split(":")[0] == "cordis.project":
             award_number = award_uri.split(":")[1]
             award_uri = f"https://cordis.europa.eu/project/id/{award_number}"
@@ -2287,10 +2284,10 @@ async def get_funding_references(funding_references: dict | None) -> list:
             award_uri = f"https://www.grants.gov/web/grants/view-opportunity.html?oppId={award_number}"
         return compact(
             {
-                "funderName": py_.get(funding, "funder.name"),
+                "funderName": dig(funding, "funder.name"),
                 "funderIdentifier": identifier,
                 "funderIdentifierType": "ROR" if identifier else None,
-                "awardTitle": py_.get(funding, "award.title"),
+                "awardTitle": dig(funding, "award.title"),
                 "awardNumber": award_number,
                 "awardUri": award_uri,
             }
@@ -2655,8 +2652,8 @@ def validate_funding(funding: list) -> list | None:
         """Format funding."""
         if not item.get("award", None):
             return item
-        if py_.get(item, "award.number"):
-            award = get_award(py_.get(item, "award.number"))
+        if dig(item, "award.number"):
+            award = get_award(dig(item, "award.number"))
             if award:
                 item["award"] = award
         return item
@@ -2719,8 +2716,8 @@ async def delete_draft_records(page: int = 1):
             "Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}",
         }
         response = httpx.get(url, headers=headers, timeout=10)
-        records = py_.get(response.json(), "hits.hits", [])
-        n = py_.get(response.json(), "hits.total", 0)
+        records = dig(response.json(), "hits.hits", [])
+        n = dig(response.json(), "hits.total", 0)
         await asyncio.gather(*[delete_draft_record(record["id"]) for record in records])
         return {"message": f"{n} draft records deleted"}
     except Exception as error:
@@ -2737,7 +2734,7 @@ async def get_number_of_draft_records():
             "Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}",
         }
         response = httpx.get(url, headers=headers, timeout=10)
-        n = py_.get(response.json(), "hits.total", 0)
+        n = dig(response.json(), "hits.total", 0)
         return n
     except Exception as error:
         print(error)

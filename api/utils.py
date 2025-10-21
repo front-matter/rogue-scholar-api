@@ -272,6 +272,9 @@ COAUTHOR_NAMES = {
     "lucia-cespedes": "Lucia Cespedes",
     "constance-poitras": "Constance Poitras",
     "dorothea-strecker": "Dorothea Strecker",
+    "belen.febres": "Belen Febres-Cordero",
+    "cathy-fang": "Cathy Fang",
+    "hovagim-zakarian": "Hovagim Zakarian",
 }
 
 IRREGULAR_AUTHOR_NAMES = {
@@ -1571,7 +1574,12 @@ def normalize_tag(tag: str) -> str:
 
 def normalize_coauthor(name: str) -> dict:
     """Normalize coauthor name from coauthors tag"""
-    return {"name": COAUTHOR_NAMES.get(name, name)}
+    coauthor = COAUTHOR_NAMES.get(name, None)
+    if coauthor is None and len(name.split("-")) == 2:
+        given_name, family_name = name.split("-", maxsplit=1)
+        coauthor = f"{given_name.capitalize()} {family_name.capitalize()}"
+
+    return {"name": coauthor or name}
 
 
 def convert_to_commonmeta(meta: dict) -> Commonmeta:
@@ -2208,3 +2216,28 @@ def next_version(version: str | None) -> str:
     if version_.isdigit():
         return "v" + str(int(version_) + 1)
     return "v1"
+
+
+def extract_schemaorg_authors(data: list) -> list:
+    """Extract all authors from schema.org graph data."""
+    persons = []
+
+    # Rekursiv nach @type: Person suchen
+    def find_persons(obj):
+        if isinstance(obj, dict):
+            if "Person" in obj.get("@type", []):
+                name = (
+                    obj.get("name")
+                    or f"{obj.get('givenName', '')} {obj.get('familyName', '')}".strip()
+                )
+                if name:
+                    persons.append({"name": name})
+
+            for value in obj.values():
+                find_persons(value)
+        elif isinstance(obj, list):
+            for item in obj:
+                find_persons(item)
+
+    find_persons(data)
+    return persons
