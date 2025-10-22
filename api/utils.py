@@ -196,6 +196,8 @@ AUTHOR_IDS = {
     "Flavia Camargo": "",
     "Lucia Cespedes": "https://orcid.org/0000-0001-5896-3377",
     "Constance Poitras": "https://orcid.org/0000-0002-3545-696X",
+    "Olivia Aguiar": "https://orcid.org/0000-0001-9131-9049",
+    "Alice Fleerackers": "https://orcid.org/0000-0002-7182-4061",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
@@ -1703,7 +1705,9 @@ def get_formatted_metadata(
         result = subject.write(to="datacite")
     else:
         ext = "txt"
-        result = subject.write(to="citation", style=style, locale=locale)
+        result = subject.write(to="citation", style=style, locale=locale).encode(
+            "utf-8"
+        )
     options = {
         "Content-Type": content_type,
         "Content-Disposition": f"attachment; filename={basename}.{ext}",
@@ -2007,7 +2011,6 @@ async def get_single_work(string: str) -> dict | None:
 
     try:
         subject = Metadata(string)
-        print("Metadata ID:", subject.id)
         return JSON.loads(subject.write(to="commonmeta"))
     except Exception as exc:
         print("Error:", exc)
@@ -2043,6 +2046,10 @@ async def format_list_reference(reference, validate_all: bool = False):
     if id_ is not None:
         id_ = normalize_url(id_.get("href"))
     unstructured = replace_curie(reference.text) or reference.text
+
+    # remove optional spaces in url
+    unstructured = unstructured.replace("https:// ", "https://")
+
     if id_ is None:
         id_ = extract_reference_id(unstructured)
 

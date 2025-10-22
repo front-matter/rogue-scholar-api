@@ -126,7 +126,10 @@ async def format_crossref_citation(citation: dict, redirects: dict) -> dict:
     # lookup metadata via API call, as we need the publication date to order the citations
     subject = Metadata(citing_doi)
 
-    unstructured = subject.write(to="citation", style="apa", locale="en-US")
+    # subject.write returns bytes, so decode to utf-8 string
+    unstructured = subject.write(to="citation", style="apa", locale="en-US").decode(
+        "utf-8"
+    )
     published_at = py_.get(subject, "date.published")
     type_ = py_.get(subject, "type")
     print(f"Formatting citation {citing_doi} for {cited_doi}")
