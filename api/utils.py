@@ -193,11 +193,11 @@ AUTHOR_IDS = {
     "Stefanie Haustein": "https://orcid.org/0000-0003-0157-1430",
     "Eric Schares": "https://orcid.org/0000-0002-6292-8221",
     "Juan Pablo Alperin": "https://orcid.org/0000-0002-9344-7439",
-    "Flavia Camargo": "",
     "Lucia Cespedes": "https://orcid.org/0000-0001-5896-3377",
     "Constance Poitras": "https://orcid.org/0000-0002-3545-696X",
     "Olivia Aguiar": "https://orcid.org/0000-0001-9131-9049",
     "Alice Fleerackers": "https://orcid.org/0000-0002-7182-4061",
+    "Sung won Lim": "https://orcid.org/0000-0002-6977-5440",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
@@ -264,6 +264,7 @@ AUTHOR_NAMES = {
     "Frederik J. Vervaet, David Rafferty and Christopher J. Dart": "Stasis",
     "admin": "Duncan Hull",
     "Bio to Chem": "Christopher Southan",
+    "naturepoker": "Sung won Lim",
 }
 
 COAUTHOR_NAMES = {
@@ -329,6 +330,12 @@ IRREGULAR_AUTHOR_NAMES = {
 
 
 AUTHOR_AFFILIATIONS = {
+    "https://orcid.org/0000-0002-6977-5440": [
+        {
+            "name": "Binomica Labs",
+            "start_date": "2015-02-01",
+        }
+    ],
     "https://orcid.org/0000-0003-0443-9902": [
         {
             "name": "Institute for Molecular Systems Biology",

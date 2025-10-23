@@ -251,7 +251,7 @@ async def extract_all_posts_by_blog(
                     params = {
                         "rest_route": "/wp/v2/posts",
                         "page": page,
-                        "per_page": per_page,
+                        # "per_page": per_page,
                         "_embed": 1,
                     }
                     if blog.get("filter", None):
