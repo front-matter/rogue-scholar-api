@@ -198,6 +198,7 @@ AUTHOR_IDS = {
     "Olivia Aguiar": "https://orcid.org/0000-0001-9131-9049",
     "Alice Fleerackers": "https://orcid.org/0000-0002-7182-4061",
     "Sung won Lim": "https://orcid.org/0000-0002-6977-5440",
+    "Chiara Di Giambattista": "https://orcid.org/0000-0001-8665-095X",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
@@ -330,6 +331,13 @@ IRREGULAR_AUTHOR_NAMES = {
 
 
 AUTHOR_AFFILIATIONS = {
+    "https://orcid.org/0000-0001-8665-095X": [
+        {
+            "name": "University of Bologna",
+            "id": "https://ror.org/01111rn36",
+            "start_date": "2021-10-25",
+        }
+    ],
     "https://orcid.org/0000-0002-6977-5440": [
         {
             "name": "Binomica Labs",
