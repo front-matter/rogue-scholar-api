@@ -1058,13 +1058,13 @@ async def extract_wordpress_post(
         if len(authors_) == 0 or authors_[0].get("name", None) is None:
             authors_ = wrap(blog.get("authors", None))
         # check for authors using the Co-Authors Plus plugin
-        if presence(post.get("coauthors", None)):
+        if len(authors_) > 1 and presence(post.get("coauthors", None)):
             authors_ = [
                 normalize_coauthor(i.get("name", None))
                 for i in wrap(dig(post, "_embedded.wp:term.2"))
             ]
         # check for authors using the Yoast SEO plugin
-        elif dig(post, "yoast_head_json.schema.@graph"):
+        elif len(authors_) > 1 and dig(post, "yoast_head_json.schema.@graph"):
             graph = dig(post, "yoast_head_json.schema.@graph", [])
             authors_ = extract_schemaorg_authors(graph)
         authors = [format_author(i, published_at) for i in authors_]

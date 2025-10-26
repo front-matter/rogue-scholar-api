@@ -266,7 +266,6 @@ AUTHOR_NAMES = {
     "admin": "Duncan Hull",
     "Bio to Chem": "Christopher Southan",
     "naturepoker": "Sung won Lim",
-    "reda": "Reda Sadki",
 }
 
 COAUTHOR_NAMES = {
