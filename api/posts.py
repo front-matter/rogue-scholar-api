@@ -1524,6 +1524,7 @@ async def extract_jsonfeed_post(
                 name=author.get("name", None),
                 published_at=published_at,
                 url=author.get("url", None),
+                roles=author.get("_roles", None) or author.get("_role", None),
             )
 
         published_at = unix_timestamp(post.get("date_published", None))

@@ -331,6 +331,13 @@ IRREGULAR_AUTHOR_NAMES = {
 
 
 AUTHOR_AFFILIATIONS = {
+    "https://orcid.org/0000-0002-5355-2576": [
+        {
+            "name": "DataCite",
+            "id": "https://ror.org/04wxnsj81",
+            "start_date": "2019-09-01",
+        }
+    ],
     "https://orcid.org/0000-0001-8665-095X": [
         {
             "name": "University of Bologna",
@@ -1287,6 +1294,13 @@ COMMUNITY_TRANSLATIONS = {
     "veranstaltungshinweise": "events",
 }
 
+ROLE_MAPPINGS = {
+    "author": "Author",
+    "editor": "Editor",
+    "translator": "Translator",
+    "interviewee": "Interviewee",
+}
+
 
 def normalize_author(
     name: str = None,
@@ -1294,6 +1308,7 @@ def normalize_author(
     family_name: str = None,
     published_at: int = 0,
     url: str | None = None,
+    roles: list | None = [],
 ) -> dict:
     """Normalize author name and url. First lookup author in names.yaml.
     Strip text after comma if suffix is an academic title.
@@ -1335,6 +1350,8 @@ def normalize_author(
         affiliation = (
             [py_.pick(affiliation[-1], ["id", "name"])] if affiliation else None
         )
+
+    contributor_roles = [ROLE_MAPPINGS[role] for role in roles if role in ROLE_MAPPINGS]
     return compact(
         {
             "name": _name,
@@ -1342,6 +1359,7 @@ def normalize_author(
             "family": family_name,
             "url": _url,
             "affiliation": affiliation,
+            "contributor_roles": contributor_roles,
         }
     )
 
