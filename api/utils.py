@@ -199,6 +199,10 @@ AUTHOR_IDS = {
     "Alice Fleerackers": "https://orcid.org/0000-0002-7182-4061",
     "Sung won Lim": "https://orcid.org/0000-0002-6977-5440",
     "Chiara Di Giambattista": "https://orcid.org/0000-0001-8665-095X",
+    "Gernot Deinzer": "https://orcid.org/0000-0002-7462-3847",
+    "Bianca Schweighofer": "https://orcid.org/0000-0002-9416-9311",
+    "Lisa-Marie Stein": "https://orcid.org/0000-0001-7905-0462",
+    "Bernhard Mittermaier": "https://orcid.org/0000-0002-3412-6168",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
@@ -331,6 +335,27 @@ IRREGULAR_AUTHOR_NAMES = {
 
 
 AUTHOR_AFFILIATIONS = {
+    "https://orcid.org/0000-0002-3412-6168": [
+        {
+            "name": "Forschungszentrum Jülich",
+            "id": "https://ror.org/02nv7yv05",
+            "start_date": "2008-10-20",
+        }
+    ],
+    "https://orcid.org/0000-0002-7462-3847": [
+        {
+            "name": "University of Regensburg",
+            "id": "https://ror.org/01eezs655",
+            "start_date": "2006-20-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-9416-9311": [
+        {
+            "name": "University of Regensburg",
+            "id": "https://ror.org/01eezs655",
+            "start_date": "2022-02-016",
+        }
+    ],
     "https://orcid.org/0000-0002-5355-2576": [
         {
             "name": "DataCite",
