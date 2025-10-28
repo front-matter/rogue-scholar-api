@@ -203,6 +203,10 @@ AUTHOR_IDS = {
     "Bianca Schweighofer": "https://orcid.org/0000-0002-9416-9311",
     "Lisa-Marie Stein": "https://orcid.org/0000-0001-7905-0462",
     "Bernhard Mittermaier": "https://orcid.org/0000-0002-3412-6168",
+    "Antoine Vernet": "https://orcid.org/0000-0002-7546-9829",
+    "Cormac Monaghan": "https://orcid.org/0000-0001-9012-3060",
+    "Steve Martin": "https://orcid.org/0000-0003-2544-9480",
+    "Juan Armando Torres Munguía": "https://orcid.org/0000-0003-3432-6941",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
@@ -270,6 +274,7 @@ AUTHOR_NAMES = {
     "admin": "Duncan Hull",
     "Bio to Chem": "Christopher Southan",
     "naturepoker": "Sung won Lim",
+    "vgrass": "Volker Grassmuck",
 }
 
 COAUTHOR_NAMES = {
@@ -303,6 +308,10 @@ IRREGULAR_AUTHOR_NAMES = {
         "given_name": "Alejandra",
         "family_name": "Casas Niño de Rivera",
     },
+    "Juan Armando Torres Munguía": {
+        "given_name": "Juan Armando",
+        "family_name": "Torres Munguía",
+    },
     # Organization names
     "Make Data Count": {
         "name": "Make Data Count",
@@ -335,6 +344,20 @@ IRREGULAR_AUTHOR_NAMES = {
 
 
 AUTHOR_AFFILIATIONS = {
+    "https://orcid.org/0000-0003-2544-9480": [
+        {
+            "name": "Statistics Canada",
+            "id": "https://ror.org/05k71ja87",
+            "start_date": "2024-01-01",
+        }
+    ],
+    "https://orcid.org/0000-0002-7546-9829": [
+        {
+            "name": "University College London",
+            "id": "https://ror.org/02jx3x895",
+            "start_date": "2017-08-03",
+        }
+    ],
     "https://orcid.org/0000-0002-3412-6168": [
         {
             "name": "Forschungszentrum Jülich",
