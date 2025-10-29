@@ -529,6 +529,7 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
         "10.64000",
         "10.64395",
         "10.71938",
+        "10.83132",
     ]
     permitted_slugs = [
         "unregistered",
