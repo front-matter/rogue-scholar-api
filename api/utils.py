@@ -1787,14 +1787,13 @@ def get_formatted_metadata(
         result = subject.write(to="datacite")
     else:
         ext = "txt"
-        result = subject.write(to="citation", style=style, locale=locale).encode(
-            "utf-8"
-        )
+        result = subject.write(to="citation", style=style, locale=locale)
     options = {
         "Content-Type": content_type,
         "Content-Disposition": f"attachment; filename={basename}.{ext}",
     }
-    return {"doi": doi, "data": result.strip(), "options": options}
+    result_str = result.decode("utf-8")  # if isinstance(result, bytes) else result
+    return {"doi": doi, "data": result_str.strip(), "options": options}
 
 
 def normalize_url(url: str | None, secure=False, lower=False) -> str | None:
