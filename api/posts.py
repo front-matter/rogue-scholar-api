@@ -1084,6 +1084,16 @@ async def extract_wordpress_post(
             or dig(post, "yoast_head_json.og_image[0].url")
             or post.get("jetpack_featured_media_url", None)
         )
+        # workaround for blogs not using embedded.wp:featuredmedia[0]
+        if image is None and presence(images):
+            image = next(
+                (
+                    img.get("src")
+                    for img in images
+                    if int(img.get("width", 0) or 0) >= 400
+                ),
+                None,
+            )
 
         # optionally remove terms (categories and tags) used to filter posts
         if blog.get("filter", None):
@@ -1185,6 +1195,16 @@ async def extract_wordpresscom_post(
         archive_url = get_archive_url(blog, url, published_at)
         images = get_images(content_html, url, blog.get("home_page_url", None))
         image = post.get("featured_image", None)
+        # workaround for blogs not using featured_image
+        if not presence(image) and presence(images):
+            image = next(
+                (
+                    img.get("src")
+                    for img in images
+                    if int(img.get("width", 0) or 0) >= 400
+                ),
+                None,
+            )
         categories = tags = [
             normalize_tag(i)
             for i in post.get("categories", {}).keys()
