@@ -2007,7 +2007,11 @@ def filter_posts(posts, blog):
         elif isinstance(post.get(key, None), list):
             return (
                 next(
-                    (i for i in post.get(key, None) if i.get("@term", None) in filters),
+                    (
+                        i
+                        for i in post.get(key, None)
+                        if isinstance(i, dict) and i.get("@term", None) in filters
+                    ),
                     None,
                 )
                 is not None
