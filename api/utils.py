@@ -1282,7 +1282,7 @@ AUTHOR_AFFILIATIONS = {
 }
 
 
-EXCLUDED_TAGS = ["Uncategorized", "Uncategorised", "Blog", "doi", "justdoi"]
+EXCLUDED_TAGS = ["Uncategorized", "Uncategorised", "Blog", "doi", "justdoi", "Citable"]
 
 FOS_MAPPINGS = {
     "naturalSciences": "Natural sciences",
