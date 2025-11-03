@@ -1676,6 +1676,16 @@ async def extract_atom_post(
         funding_references = wrap(blog.get("funding", None))
         images = get_images(content_html, base_url, blog.get("home_page_url", None))
         image = dig(post, "media:thumbnail.@url")
+        # workaround for blogs not using media:thumbnail
+        if image is None and presence(images):
+            image = next(
+                (
+                    img.get("src")
+                    for img in images
+                    if int(img.get("width", 0) or 0) >= 400
+                ),
+                None,
+            )
         # workaround for eve blog
         if image is not None:
             f = furl(image)
