@@ -29,7 +29,7 @@ from commonmeta.constants import Commonmeta
 from commonmeta.date_utils import get_date_from_unix_timestamp
 from commonmeta.doi_utils import validate_prefix, get_doi_ra
 from commonmeta.author_utils import is_personal_name
-from commonmeta.base_utils import compact
+from commonmeta.base_utils import compact, wrap
 from nameparser import HumanName
 import frontmatter
 import pandoc
@@ -276,6 +276,7 @@ AUTHOR_NAMES = {
     "Bio to Chem": "Christopher Southan",
     "naturepoker": "Sung won Lim",
     "vgrass": "Volker Grassmuck",
+    "benweinstein95fa7c74fb": "Ben Weinstein",
 }
 
 COAUTHOR_NAMES = {
@@ -345,6 +346,13 @@ IRREGULAR_AUTHOR_NAMES = {
 
 
 AUTHOR_AFFILIATIONS = {
+    "https://orcid.org/0000-0001-8954-2428": [
+        {
+            "name": "University of Cambridge",
+            "id": "https://ror.org/013meh722",
+            "start_date": "2009-11-01",
+        }
+    ],
     "https://orcid.org/0000-0003-2544-9480": [
         {
             "name": "Statistics Canada",
@@ -1400,7 +1408,9 @@ def normalize_author(
             [py_.pick(affiliation[-1], ["id", "name"])] if affiliation else None
         )
 
-    contributor_roles = [ROLE_MAPPINGS[role] for role in roles if role in ROLE_MAPPINGS]
+    contributor_roles = [
+        ROLE_MAPPINGS[role] for role in wrap(roles) if role in ROLE_MAPPINGS
+    ]
     return compact(
         {
             "name": _name,
