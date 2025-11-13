@@ -208,6 +208,7 @@ AUTHOR_IDS = {
     "Steve Martin": "https://orcid.org/0000-0003-2544-9480",
     "Juan Armando Torres Munguía": "https://orcid.org/0000-0003-3432-6941",
     "Marc-Olivier Beausoleil": "https://orcid.org/0000-0003-3717-3223",
+    "Nick Haupka": "https://orcid.org/0009-0002-6478-6789",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
