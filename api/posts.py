@@ -54,6 +54,7 @@ from api.utils import (
     extract_schemaorg_authors,
     extract_wordpress_post_id,
     next_version,
+    get_image_width,
     EXCLUDED_TAGS,
 )
 from api.supabase_client import (
@@ -1090,7 +1091,7 @@ async def extract_wordpress_post(
                 (
                     img.get("src")
                     for img in images
-                    if int(img.get("width", 0) or 0) >= 400
+                    if get_image_width(img.get("width", 0)) >= 400
                 ),
                 None,
             )
@@ -1201,7 +1202,7 @@ async def extract_wordpresscom_post(
                 (
                     img.get("src")
                     for img in images
-                    if int(img.get("width", 0) or 0) >= 400
+                    if get_image_width(img.get("width", 0)) >= 400
                 ),
                 None,
             )
@@ -1702,7 +1703,7 @@ async def extract_atom_post(
                 (
                     img.get("src")
                     for img in images
-                    if int(img.get("width", 0) or 0) >= 400
+                    if get_image_width(img.get("width", 0)) >= 400
                 ),
                 None,
             )

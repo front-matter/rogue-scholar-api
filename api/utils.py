@@ -2340,3 +2340,21 @@ def extract_schemaorg_authors(data: list) -> list:
 
     find_persons(data)
     return persons
+
+
+def get_image_width(width: int | str | None) -> int | None:
+    """Get image width as int."""
+    if width is None:
+        return None
+    try:
+        if isinstance(width, int):
+            return width
+        if isinstance(width, str):
+            if width.endswith("%"):
+                return int(1080 * (int(width[:-1]) / 100))
+            if width.isdigit():
+                return int(width)
+        return None
+    except Exception as e:
+        print(e)
+        return None
