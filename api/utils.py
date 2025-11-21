@@ -209,6 +209,9 @@ AUTHOR_IDS = {
     "Juan Armando Torres Munguía": "https://orcid.org/0000-0003-3432-6941",
     "Marc-Olivier Beausoleil": "https://orcid.org/0000-0003-3717-3223",
     "Nick Haupka": "https://orcid.org/0009-0002-6478-6789",
+    "Marcel R. Ackermann": "https://orcid.org/0000-0001-7644-2495",
+    "Florian Reitz": "https://orcid.org/0000-0001-6114-3388",
+    "Benedikt Maria Beckermann": "https://orcid.org/0009-0008-3920-6109",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
@@ -315,6 +318,14 @@ IRREGULAR_AUTHOR_NAMES = {
         "given_name": "Juan Armando",
         "family_name": "Torres Munguía",
     },
+    "Benedikt Maria Beckermann": {
+        "given_name": "Benedikt Maria",
+        "family_name": "Beckermann",
+    },
+    "Marcio Luiz Miotto": {
+        "given_name": "Marcio Luiz",
+        "family_name": "Miotto",
+    },
     # Organization names
     "Make Data Count": {
         "name": "Make Data Count",
@@ -347,6 +358,20 @@ IRREGULAR_AUTHOR_NAMES = {
 
 
 AUTHOR_AFFILIATIONS = {
+    "https://orcid.org/0000-0001-7644-2495": [
+        {
+            "name": "Schloss Dagstuhl – Leibniz Center for Informatics",
+            "id": "https://ror.org/00k4h2615",
+            "start_date": "2011-07-01",
+        }
+    ],
+    "https://orcid.org/0000-0001-6114-3388": [
+        {
+            "name": "Schloss Dagstuhl – Leibniz Center for Informatics",
+            "id": "https://ror.org/00k4h2615",
+            "start_date": "2015-08-01",
+        }
+    ],
     "https://orcid.org/0000-0001-8954-2428": [
         {
             "name": "University of Cambridge",
