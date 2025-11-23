@@ -15,6 +15,7 @@ from datetime import datetime, timezone
 from furl import furl
 from langdetect import detect_langs
 from bs4 import BeautifulSoup
+import httpx
 from commonmeta import (
     Metadata,
     get_one_author,
@@ -2383,3 +2384,37 @@ def get_image_width(width: int | str | None) -> int | None:
     except Exception as e:
         print(e)
         return None
+
+
+async def classify_post(title: str, content_html: str) -> list[dict]:
+    """Classify post into OpenAlex topics using the title and content.
+
+    Sends a POST request to the classification service with the post title and content,
+    and returns a list of topic classifications with their confidence scores.
+
+    Args:
+        title: The title of the post to classify.
+        content_html: The HTML content of the post (truncated to 1500 characters).
+
+    Returns:
+        list[dict]: A list of dictionaries containing topic classifications, each with
+        'label' (topic name) and 'score' (confidence score). Returns [(None, 0)] on error.
+    """
+    try:
+        async with httpx.AsyncClient() as client:
+            bert_api_url = environ.get("QUART_BERT_API", "http://localhost:5100")
+            response = await client.post(
+                f"{bert_api_url}/classify",
+                json={"title": title, "abstract": content_html[:1500]},
+                headers={
+                    "Authorization": f"Bearer {environ.get("QUART_SERVICE_KEY", None)}"
+                },
+                timeout=10.0,
+            )
+            response.raise_for_status()
+            data = response.json()
+            print(f"Classification response: {data}")
+            return data
+    except Exception as e:
+        print(f"Error classifying post: {e}")
+        return []

@@ -55,6 +55,7 @@ from api.utils import (
     extract_wordpress_post_id,
     next_version,
     get_image_width,
+    classify_post,
     EXCLUDED_TAGS,
 )
 from api.supabase_client import (
@@ -66,7 +67,10 @@ from api.supabase_client import (
 
 
 async def extract_all_posts(
-    page: int = 1, update_all: bool = False, validate_all: bool = False
+    page: int = 1,
+    update_all: bool = False,
+    validate_all: bool = False,
+    classify_all: bool = False,
 ):
     """Extract all posts."""
 
@@ -79,7 +83,9 @@ async def extract_all_posts(
     )
     tasks = []
     for blog in blogs.data:
-        task = extract_all_posts_by_blog(blog["slug"], page, update_all, validate_all)
+        task = extract_all_posts_by_blog(
+            blog["slug"], page, update_all, validate_all, classify_all
+        )
         tasks.append(task)
 
     raw_results = await asyncio.gather(*tasks)
@@ -93,7 +99,9 @@ async def extract_all_posts(
     return results
 
 
-async def update_all_posts(page: int = 1, validate_all: bool = False):
+async def update_all_posts(
+    page: int = 1, validate_all: bool = False, classify_all: bool = False
+):
     """Update all posts."""
 
     blogs = (
@@ -106,7 +114,7 @@ async def update_all_posts(page: int = 1, validate_all: bool = False):
     )
     tasks = []
     for blog in blogs.data:
-        task = update_all_posts_by_blog(blog["slug"], page, validate_all)
+        task = update_all_posts_by_blog(blog["slug"], page, validate_all, classify_all)
         tasks.append(task)
 
     raw_results = await asyncio.gather(*tasks)
@@ -120,7 +128,9 @@ async def update_all_posts(page: int = 1, validate_all: bool = False):
     return results
 
 
-async def update_all_cited_posts(page: int = 1, validate_all: bool = False):
+async def update_all_cited_posts(
+    page: int = 1, validate_all: bool = False, classify_all: bool = False
+):
     """Update all cited posts."""
 
     response = (
@@ -149,7 +159,7 @@ async def update_all_cited_posts(page: int = 1, validate_all: bool = False):
     for post in response.data:
         print("Updating cited post", post["doi"])
         blog = post.get("blog", None)
-        task = update_rogue_scholar_post(post, blog, validate_all)
+        task = update_rogue_scholar_post(post, blog, validate_all, classify_all)
         tasks.append(task)
 
     cited_posts = await asyncio.gather(*tasks)
@@ -176,7 +186,7 @@ async def update_all_flagged_posts(page: int = 1):
     tasks = []
     for post in response.data:
         blog = post.get("blog", None)
-        task = update_rogue_scholar_post(post, blog, validate_all)
+        task = update_rogue_scholar_post(post, blog, validate_all, classify_all)
         tasks.append(task)
 
     flagged_posts = await asyncio.gather(*tasks)
@@ -188,6 +198,7 @@ async def extract_all_posts_by_blog(
     page: int = 1,
     update_all: bool = False,
     validate_all: bool = False,
+    classify_all: bool = False,
 ):
     """Extract all posts by blog."""
 
@@ -351,7 +362,8 @@ async def extract_all_posts_by_blog(
                     capture_exception(e)
                     posts = []
                 extract_posts = [
-                    extract_substack_post(x, blog, validate_all) for x in posts
+                    extract_substack_post(x, blog, validate_all, classify_all)
+                    for x in posts
                 ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "WordPress" and blog["use_api"]:
@@ -379,7 +391,8 @@ async def extract_all_posts_by_blog(
                     capture_exception(e)
                     posts = []
                 extract_posts = [
-                    extract_wordpress_post(x, blog, validate_all) for x in posts
+                    extract_wordpress_post(x, blog, validate_all, classify_all)
+                    for x in posts
                 ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "WordPress.com" and blog["use_api"]:
@@ -403,7 +416,8 @@ async def extract_all_posts_by_blog(
                     capture_exception(e)
                     posts = []
                 extract_posts = [
-                    extract_wordpresscom_post(x, blog, validate_all) for x in posts
+                    extract_wordpresscom_post(x, blog, validate_all, classify_all)
+                    for x in posts
                 ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "Ghost" and blog["use_api"]:
@@ -428,7 +442,8 @@ async def extract_all_posts_by_blog(
                     capture_exception(e)
                     posts = []
                 extract_posts = [
-                    extract_ghost_post(x, blog, validate_all) for x in posts
+                    extract_ghost_post(x, blog, validate_all, classify_all)
+                    for x in posts
                 ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "Squarespace":
@@ -453,7 +468,8 @@ async def extract_all_posts_by_blog(
                     capture_exception(e)
                     posts = []
                 extract_posts = [
-                    extract_squarespace_post(x, blog, validate_all) for x in posts
+                    extract_squarespace_post(x, blog, validate_all, classify_all)
+                    for x in posts
                 ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/feed+json":
@@ -487,7 +503,8 @@ async def extract_all_posts_by_blog(
                     capture_exception(e)
                     posts = []
                 extract_posts = [
-                    extract_jsonfeed_post(x, blog, validate_all) for x in posts
+                    extract_jsonfeed_post(x, blog, validate_all, classify_all)
+                    for x in posts
                 ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/atom+xml":
@@ -517,7 +534,9 @@ async def extract_all_posts_by_blog(
                 except httpx.HTTPError as e:
                     capture_exception(e)
                     posts = []
-            extract_posts = [extract_atom_post(x, blog, validate_all) for x in posts]
+            extract_posts = [
+                extract_atom_post(x, blog, validate_all, classify_all) for x in posts
+            ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/rss+xml":
             async with httpx.AsyncClient() as client:
@@ -546,7 +565,9 @@ async def extract_all_posts_by_blog(
                 except httpx.HTTPError as e:
                     capture_exception(e)
                     posts = []
-            extract_posts = [extract_rss_post(x, blog, validate_all) for x in posts]
+            extract_posts = [
+                extract_rss_post(x, blog, validate_all, classify_all) for x in posts
+            ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         else:
             blog_with_posts["entries"] = []
@@ -563,7 +584,7 @@ async def extract_all_posts_by_blog(
 
 
 async def update_all_posts_by_blog(
-    slug: str, page: int = 1, validate_all: bool = False
+    slug: str, page: int = 1, validate_all: bool = False, classify_all: bool = False
 ):
     """Update all posts by blog."""
 
@@ -594,7 +615,8 @@ async def update_all_posts_by_blog(
             .execute()
         )
         update_posts = [
-            update_rogue_scholar_post(x, blog, validate_all) for x in response.data
+            update_rogue_scholar_post(x, blog, validate_all, classify_all)
+            for x in response.data
         ]
         blog_with_posts["entries"] = await asyncio.gather(*update_posts)
         return [upsert_single_post(i) for i in blog_with_posts["entries"]]
@@ -639,6 +661,7 @@ async def extract_single_post(
     slug: str,
     suffix: str,
     validate_all: bool = False,
+    classify_all: bool = False,
     previous: str | None = None,
 ):
     """Extract single post from blog. Support is still experimental, as there are
@@ -781,7 +804,9 @@ async def extract_single_post(
                     capture_exception(e)
                     post = {}
                 extract_posts = [
-                    await extract_substack_post(post, blog, validate_all, previous)
+                    await extract_substack_post(
+                        post, blog, validate_all, classify_all, previous
+                    )
                 ]
         elif (
             generator == "WordPress"
@@ -805,7 +830,9 @@ async def extract_single_post(
                     capture_exception(e)
                     post = {}
                 extract_posts = [
-                    await extract_wordpress_post(post, blog, validate_all, previous)
+                    await extract_wordpress_post(
+                        post, blog, validate_all, classify_all, previous
+                    )
                 ]
         elif (
             generator == "WordPress.com"
@@ -829,7 +856,9 @@ async def extract_single_post(
                     capture_exception(e)
                     post = {}
                 extract_posts = [
-                    await extract_wordpresscom_post(post, blog, validate_all, previous)
+                    await extract_wordpresscom_post(
+                        post, blog, validate_all, classify_all, previous
+                    )
                 ]
         elif generator == "Blogger":
             async with httpx.AsyncClient() as client:
@@ -849,7 +878,9 @@ async def extract_single_post(
                     capture_exception(e)
                     post = {}
                 extract_posts = [
-                    await extract_blogger_post(post, blog, validate_all, previous)
+                    await extract_blogger_post(
+                        post, blog, validate_all, classify_all, previous
+                    )
                 ]
         elif generator == "Ghost" and blog["use_api"]:
             headers = {"Accept-Version": "v5.0"}
@@ -870,7 +901,9 @@ async def extract_single_post(
                     capture_exception(e)
                     posts = []
                 extract_posts = [
-                    await extract_ghost_post(x, blog, validate_all, previous)
+                    await extract_ghost_post(
+                        x, blog, validate_all, classify_all, previous
+                    )
                     for x in posts
                 ]
         elif blog.get("feed_format", None) == "application/feed+json":
@@ -893,7 +926,9 @@ async def extract_single_post(
                     capture_exception(e)
                     post = {}
                 extract_posts = [
-                    await extract_jsonfeed_post(post, blog, validate_all, previous)
+                    await extract_jsonfeed_post(
+                        post, blog, validate_all, classify_all, previous
+                    )
                 ]
         elif blog.get("feed_format", None) == "application/atom+xml":
             async with httpx.AsyncClient() as client:
@@ -919,7 +954,9 @@ async def extract_single_post(
                     capture_exception(e)
                     post = {}
                 extract_posts = [
-                    await extract_atom_post(post, blog, validate_all, previous)
+                    await extract_atom_post(
+                        post, blog, validate_all, classify_all, previous
+                    )
                 ]
         elif blog["feed_format"] == "application/rss+xml":
             async with httpx.AsyncClient() as client:
@@ -945,7 +982,9 @@ async def extract_single_post(
                     capture_exception(e)
                     post = {}
                 extract_posts = [
-                    await extract_rss_post(post, blog, validate_all, previous)
+                    await extract_rss_post(
+                        post, blog, validate_all, classify_all, previous
+                    )
                 ]
         return [upsert_single_post(i, previous=previous) for i in extract_posts]
     except Exception:
@@ -957,6 +996,7 @@ async def update_single_post(
     slug: str,
     suffix: str | None = None,
     validate_all: bool = False,
+    classify_all: bool = False,
     previous: str | None = None,
 ):
     """Update single post"""
@@ -1004,7 +1044,7 @@ async def update_single_post(
             return {"error": "Blog not found."}, 404
         post = py_.omit(response.data, "blog")
         updated_post = await update_rogue_scholar_post(
-            post, blog, validate_all, previous
+            post, blog, validate_all, classify_all, previous
         )
         response = upsert_single_post(updated_post, previous=previous)
         return response
@@ -1014,7 +1054,11 @@ async def update_single_post(
 
 
 async def extract_wordpress_post(
-    post, blog, validate_all: bool = False, previous: str | None = None
+    post,
+    blog,
+    validate_all: bool = False,
+    classify_all: bool = False,
+    previous: str | None = None,
 ):
     """Extract WordPress post from REST API."""
 
@@ -1135,6 +1179,14 @@ async def extract_wordpress_post(
         terms = categories + tags
         terms = py_.uniq(terms)[:5]
 
+        topic = None
+        score = 0
+        if classify_all:
+            topics = await classify_post(title, content_html)
+            if presence(topics):
+                topic = topics[0].get("label", None)
+                score = topics[0].get("score", None)
+
         return {
             "authors": authors,
             "blog_name": blog.get("title", None),
@@ -1148,6 +1200,8 @@ async def extract_wordpress_post(
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
             "category": blog.get("category", None),
+            "openalex_topic": topic,
+            "openalex_score": score,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1165,7 +1219,11 @@ async def extract_wordpress_post(
 
 
 async def extract_wordpresscom_post(
-    post, blog, validate_all: bool = False, previous: str | None = None
+    post,
+    blog,
+    validate_all: bool = False,
+    classify_all: bool = False,
+    previous: str | None = None,
 ):
     """Extract WordPress.com post from REST API."""
     try:
@@ -1215,6 +1273,16 @@ async def extract_wordpresscom_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
+        topic = None
+        score = 0
+        if classify_all:
+            topics = await classify_post(
+                get_title(post.get("title", None)), content_html
+            )
+            if presence(topics):
+                topic = topics[0].get("label", None)
+                score = topics[0].get("score", None)
+
         return {
             "authors": authors,
             "blog_name": blog.get("title", None),
@@ -1228,6 +1296,8 @@ async def extract_wordpresscom_post(
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
             "category": blog.get("category", None),
+            "openalex_topic": topic,
+            "openalex_score": score,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1245,7 +1315,11 @@ async def extract_wordpresscom_post(
 
 
 async def extract_blogger_post(
-    post, blog, validate_all: bool = False, previous: str | None = None
+    post,
+    blog,
+    validate_all: bool = False,
+    classify_all: bool = False,
+    previous: str | None = None,
 ):
     """Extract Blogger post from REST API."""
     try:
@@ -1284,6 +1358,16 @@ async def extract_blogger_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
+        topic = None
+        score = 0
+        if classify_all:
+            topics = await classify_post(
+                get_title(post.get("title", None)), content_html
+            )
+            if presence(topics):
+                topic = topics[0].get("label", None)
+                score = topics[0].get("score", None)
+
         return {
             "authors": authors,
             "blog_name": blog.get("title", None),
@@ -1297,6 +1381,8 @@ async def extract_blogger_post(
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
             "category": None,
+            "openalex_topic": topic,
+            "openalex_score": score,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1314,7 +1400,11 @@ async def extract_blogger_post(
 
 
 async def extract_ghost_post(
-    post, blog, validate_all: bool = False, previous: str | None = None
+    post,
+    blog,
+    validate_all: bool = False,
+    classify_all: bool = False,
+    previous: str | None = None,
 ):
     """Extract Ghost post from REST API."""
 
@@ -1357,6 +1447,16 @@ async def extract_ghost_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
+        topic = None
+        score = 0
+        if classify_all:
+            topics = await classify_post(
+                get_title(post.get("title", None)), content_html
+            )
+            if presence(topics):
+                topic = topics[0].get("label", None)
+                score = topics[0].get("score", None)
+
         return {
             "authors": authors,
             "blog_name": blog.get("title", None),
@@ -1370,6 +1470,8 @@ async def extract_ghost_post(
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
             "category": blog.get("category", None),
+            "openalex_topic": topic,
+            "openalex_score": score,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1387,7 +1489,11 @@ async def extract_ghost_post(
 
 
 async def extract_substack_post(
-    post, blog, validate_all: bool = False, previous: str | None = None
+    post,
+    blog,
+    validate_all: bool = False,
+    classify_all: bool = False,
+    previous: str | None = None,
 ):
     """Extract Substack post from REST API."""
 
@@ -1430,6 +1536,16 @@ async def extract_substack_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
+        topic = None
+        score = 0
+        if classify_all:
+            topics = await classify_post(
+                get_title(post.get("title", None)), content_html
+            )
+            if presence(topics):
+                topic = topics[0].get("label", None)
+                score = topics[0].get("score", None)
+
         return {
             "authors": authors,
             "blog_name": blog.get("title", None),
@@ -1443,6 +1559,8 @@ async def extract_substack_post(
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
             "category": blog.get("category", None),
+            "openalex_topic": topic,
+            "openalex_score": score,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1460,7 +1578,11 @@ async def extract_substack_post(
 
 
 async def extract_squarespace_post(
-    post, blog, validate_all: bool = False, previous: str | None = None
+    post,
+    blog,
+    validate_all: bool = False,
+    classify_all: bool = False,
+    previous: str | None = None,
 ):
     """Extract Squarespace post from REST API."""
 
@@ -1503,6 +1625,16 @@ async def extract_squarespace_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
+        topic = None
+        score = 0
+        if classify_all:
+            topics = await classify_post(
+                get_title(post.get("title", None)), content_html
+            )
+            if presence(topics):
+                topic = topics[0].get("label", None)
+                score = topics[0].get("score", None)
+
         return {
             "authors": authors,
             "blog_name": blog.get("title", None),
@@ -1516,6 +1648,8 @@ async def extract_squarespace_post(
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
             "category": blog.get("category", None),
+            "openalex_topic": topic,
+            "openalex_score": score,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1533,7 +1667,11 @@ async def extract_squarespace_post(
 
 
 async def extract_jsonfeed_post(
-    post, blog, validate_all: bool = False, previous: str | None = None
+    post,
+    blog,
+    validate_all: bool = False,
+    classify_all: bool = False,
+    previous: str | None = None,
 ):
     """Extract JSON Feed post."""
 
@@ -1587,6 +1725,16 @@ async def extract_jsonfeed_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
+        topic = None
+        score = 0
+        if classify_all:
+            topics = await classify_post(
+                get_title(post.get("title", None)), content_html
+            )
+            if presence(topics):
+                topic = topics[0].get("label", None)
+                score = topics[0].get("score", None)
+
         return {
             "authors": authors,
             "blog_name": blog.get("title", None),
@@ -1600,6 +1748,8 @@ async def extract_jsonfeed_post(
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
             "category": blog.get("category", None),
+            "openalex_topic": topic,
+            "openalex_score": score,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1617,7 +1767,11 @@ async def extract_jsonfeed_post(
 
 
 async def extract_atom_post(
-    post, blog, validate_all: bool = False, previous: str | None = None
+    post,
+    blog,
+    validate_all: bool = False,
+    classify_all: bool = False,
+    previous: str | None = None,
 ):
     """Extract Atom post."""
 
@@ -1723,6 +1877,14 @@ async def extract_atom_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
+        topic = None
+        score = 0
+        if classify_all:
+            topics = await classify_post(title, content_html)
+            if presence(topics):
+                topic = topics[0].get("label", None)
+                score = topics[0].get("score", None)
+
         return {
             "authors": authors,
             "blog_name": blog.get("title", None),
@@ -1736,6 +1898,8 @@ async def extract_atom_post(
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
             "category": blog.get("category", None),
+            "openalex_topic": topic,
+            "openalex_score": score,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1753,7 +1917,11 @@ async def extract_atom_post(
 
 
 async def extract_rss_post(
-    post, blog, validate_all: bool = False, previous: str | None = None
+    post,
+    blog,
+    validate_all: bool = False,
+    classify_all: bool = False,
+    previous: str | None = None,
 ):
     """Extract RSS post."""
 
@@ -1839,6 +2007,16 @@ async def extract_rss_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
+        topic = None
+        score = 0
+        if classify_all:
+            topics = await classify_post(
+                get_title(post.get("title", None)), content_html
+            )
+            if presence(topics):
+                topic = topics[0].get("label", None)
+                score = topics[0].get("score", None)
+
         return {
             "authors": authors,
             "blog_name": blog.get("title", None),
@@ -1852,6 +2030,8 @@ async def extract_rss_post(
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
             "category": blog.get("category", None),
+            "openalex_topic": topic,
+            "openalex_score": score,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1869,7 +2049,11 @@ async def extract_rss_post(
 
 
 async def update_rogue_scholar_post(
-    post, blog, validate_all: bool = False, previous: str | None = None
+    post,
+    blog,
+    validate_all: bool = False,
+    classify_all: bool = False,
+    previous: str | None = None,
 ):
     """Update Rogue Scholar post."""
     try:
@@ -1951,6 +2135,14 @@ async def update_rogue_scholar_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
+        topic = None
+        score = 0
+        if classify_all:
+            topics = await classify_post(title, content_html)
+            if presence(topics):
+                topic = topics[0].get("label", None)
+                score = topics[0].get("score", None)
+
         return {
             "authors": authors,
             "blog_name": blog.get("title"),
@@ -1964,6 +2156,8 @@ async def update_rogue_scholar_post(
             "images": images,
             "language": language,
             "category": blog.get("category", None),
+            "openalex_topic": topic,
+            "openalex_score": score,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -2078,6 +2272,8 @@ def upsert_single_post(post, previous: str | None = None):
                     "status": post.get("status", "active"),
                     "archive_url": post.get("archive_url", None),
                     "version": post.get("version", "v1"),
+                    "openalex_topic": post.get("openalex_topic", None),
+                    "openalex_score": post.get("openalex_score", 0),
                 },
                 returning="representation",
                 ignore_duplicates=False,

@@ -200,6 +200,7 @@ async def post_blog_posts(slug: str, suffix: str | None = None):
     page = int(request.args.get("page") or "1")
     update = request.args.get("update")
     validate = request.args.get("validate")
+    classify = request.args.get("classify")
 
     if (
         request.headers.get("Authorization", None) is None
@@ -211,7 +212,10 @@ async def post_blog_posts(slug: str, suffix: str | None = None):
         try:
             if update == "self":
                 result = await update_all_posts_by_blog(
-                    slug, page=page, validate_all=(validate == "all")
+                    slug,
+                    page=page,
+                    validate_all=(validate == "all"),
+                    classify_all=(classify == "all"),
                 )
             else:
                 result = await extract_all_posts_by_blog(
@@ -219,6 +223,7 @@ async def post_blog_posts(slug: str, suffix: str | None = None):
                     page=page,
                     update_all=(update == "all"),
                     validate_all=(validate == "all"),
+                    classify_all=(classify == "all"),
                 )
             if isinstance(result, dict) and result.get("error", None):
                 return result, 400
@@ -449,6 +454,7 @@ async def post_posts():
     page = int(request.args.get("page") or "1")
     update = request.args.get("update")
     validate = request.args.get("validate")
+    classify = request.args.get("classify")
 
     if (
         request.headers.get("Authorization", None) is None
@@ -469,6 +475,7 @@ async def post_posts():
                     page=page,
                     update_all=(update == "all"),
                     validate_all=(validate == "all"),
+                    classify_all=(classify == "all"),
                 )
                 return jsonify(extracted_posts)
         except Exception as e:
@@ -484,6 +491,7 @@ async def post_post(slug: str, suffix: str | None = None):
 
     update = request.args.get("update")
     validate = request.args.get("validate")
+    classify = request.args.get("classify")
     previous = request.args.get("previous")
     if (
         request.headers.get("Authorization", None) is None
@@ -495,12 +503,20 @@ async def post_post(slug: str, suffix: str | None = None):
     try:
         if update == "self":
             result = await update_single_post(
-                slug, suffix=suffix, validate_all=(validate == "all"), previous=previous
+                slug,
+                suffix=suffix,
+                validate_all=(validate == "all"),
+                classify_all=(classify == "all"),
+                previous=previous,
             )
             return jsonify(result)
         else:
             result = await extract_single_post(
-                slug, suffix=suffix, validate_all=(validate == "all"), previous=previous
+                slug,
+                suffix=suffix,
+                validate_all=(validate == "all"),
+                classify_all=(classify == "all"),
+                previous=previous,
             )
             return jsonify(result)
     except Exception as e:
