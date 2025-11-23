@@ -2414,6 +2414,8 @@ async def classify_post(title: str, content_html: str) -> list[dict]:
             response.raise_for_status()
             data = response.json()
             print(f"Classification response: {data}")
+            if not isinstance(data, list):
+                return []
             return data
     except Exception as e:
         print(f"Error classifying post: {e}")
