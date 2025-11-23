@@ -2368,10 +2368,10 @@ def extract_schemaorg_authors(data: list) -> list:
     return persons
 
 
-def get_image_width(width: int | str | None) -> int | None:
+def get_image_width(width: int | str | None) -> int:
     """Get image width as int."""
     if width is None:
-        return None
+        return 0
     try:
         if isinstance(width, int):
             return width
@@ -2380,10 +2380,10 @@ def get_image_width(width: int | str | None) -> int | None:
                 return int(1080 * (int(width[:-1]) / 100))
             if width.isdigit():
                 return int(width)
-        return None
+        return 0
     except Exception as e:
         print(e)
-        return None
+        return 0
 
 
 async def classify_post(title: str, content_html: str) -> list[dict]:
