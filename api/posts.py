@@ -1179,13 +1179,9 @@ async def extract_wordpress_post(
         terms = categories + tags
         terms = py_.uniq(terms)[:5]
 
-        topic = None
-        score = 0
+        classifier = None
         if classify_all:
-            topics = await classify_post(title, content_html)
-            if presence(topics):
-                topic = topics[0].get("label", None)
-                score = topics[0].get("score", None)
+            classifier = classify_post(title, content_html)
 
         return {
             "authors": authors,
@@ -1200,8 +1196,7 @@ async def extract_wordpress_post(
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
             "category": blog.get("category", None),
-            "openalex_topic": topic,
-            "openalex_score": score,
+            "openalex_classifier": classifier,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1273,15 +1268,9 @@ async def extract_wordpresscom_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
-        topic = None
-        score = 0
+        classifier = None
         if classify_all:
-            topics = await classify_post(
-                get_title(post.get("title", None)), content_html
-            )
-            if presence(topics):
-                topic = topics[0].get("label", None)
-                score = topics[0].get("score", None)
+            classifier = classify_post(get_title(post.get("title", None)), content_html)
 
         return {
             "authors": authors,
@@ -1296,8 +1285,7 @@ async def extract_wordpresscom_post(
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
             "category": blog.get("category", None),
-            "openalex_topic": topic,
-            "openalex_score": score,
+            "openalex_classifier": classifier,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1358,15 +1346,9 @@ async def extract_blogger_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
-        topic = None
-        score = 0
+        classifier = None
         if classify_all:
-            topics = await classify_post(
-                get_title(post.get("title", None)), content_html
-            )
-            if presence(topics):
-                topic = topics[0].get("label", None)
-                score = topics[0].get("score", None)
+            classifier = classify_post(get_title(post.get("title", None)), content_html)
 
         return {
             "authors": authors,
@@ -1381,8 +1363,7 @@ async def extract_blogger_post(
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
             "category": None,
-            "openalex_topic": topic,
-            "openalex_score": score,
+            "openalex_classifier": classifier,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1447,15 +1428,9 @@ async def extract_ghost_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
-        topic = None
-        score = 0
+        classifier = None
         if classify_all:
-            topics = await classify_post(
-                get_title(post.get("title", None)), content_html
-            )
-            if presence(topics):
-                topic = topics[0].get("label", None)
-                score = topics[0].get("score", None)
+            classifier = classify_post(get_title(post.get("title", None)), content_html)
 
         return {
             "authors": authors,
@@ -1470,8 +1445,7 @@ async def extract_ghost_post(
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
             "category": blog.get("category", None),
-            "openalex_topic": topic,
-            "openalex_score": score,
+            "openalex_classifier": classifier,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1536,15 +1510,9 @@ async def extract_substack_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
-        topic = None
-        score = 0
+        classifier = None
         if classify_all:
-            topics = await classify_post(
-                get_title(post.get("title", None)), content_html
-            )
-            if presence(topics):
-                topic = topics[0].get("label", None)
-                score = topics[0].get("score", None)
+            classifier = classify_post(get_title(post.get("title", None)), content_html)
 
         return {
             "authors": authors,
@@ -1559,8 +1527,7 @@ async def extract_substack_post(
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
             "category": blog.get("category", None),
-            "openalex_topic": topic,
-            "openalex_score": score,
+            "openalex_classifier": classifier,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1625,15 +1592,9 @@ async def extract_squarespace_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
-        topic = None
-        score = 0
+        classifier = None
         if classify_all:
-            topics = await classify_post(
-                get_title(post.get("title", None)), content_html
-            )
-            if presence(topics):
-                topic = topics[0].get("label", None)
-                score = topics[0].get("score", None)
+            classifier = classify_post(get_title(post.get("title", None)), content_html)
 
         return {
             "authors": authors,
@@ -1648,8 +1609,7 @@ async def extract_squarespace_post(
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
             "category": blog.get("category", None),
-            "openalex_topic": topic,
-            "openalex_score": score,
+            "openalex_classifier": classifier,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1725,15 +1685,9 @@ async def extract_jsonfeed_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
-        topic = None
-        score = 0
+        classifier = None
         if classify_all:
-            topics = await classify_post(
-                get_title(post.get("title", None)), content_html
-            )
-            if presence(topics):
-                topic = topics[0].get("label", None)
-                score = topics[0].get("score", None)
+            classifier = classify_post(get_title(post.get("title", None)), content_html)
 
         return {
             "authors": authors,
@@ -1748,8 +1702,7 @@ async def extract_jsonfeed_post(
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
             "category": blog.get("category", None),
-            "openalex_topic": topic,
-            "openalex_score": score,
+            "openalex_classifier": classifier,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1877,13 +1830,9 @@ async def extract_atom_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
-        topic = None
-        score = 0
+        classifier = None
         if classify_all:
-            topics = await classify_post(title, content_html)
-            if presence(topics):
-                topic = topics[0].get("label", None)
-                score = topics[0].get("score", None)
+            classifier = classify_post(title, content_html)
 
         return {
             "authors": authors,
@@ -1898,8 +1847,7 @@ async def extract_atom_post(
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
             "category": blog.get("category", None),
-            "openalex_topic": topic,
-            "openalex_score": score,
+            "openalex_classifier": classifier,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -2007,15 +1955,9 @@ async def extract_rss_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
-        topic = None
-        score = 0
+        classifier = None
         if classify_all:
-            topics = await classify_post(
-                get_title(post.get("title", None)), content_html
-            )
-            if presence(topics):
-                topic = topics[0].get("label", None)
-                score = topics[0].get("score", None)
+            classifier = classify_post(get_title(post.get("title", None)), content_html)
 
         return {
             "authors": authors,
@@ -2030,8 +1972,7 @@ async def extract_rss_post(
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
             "category": blog.get("category", None),
-            "openalex_topic": topic,
-            "openalex_score": score,
+            "openalex_classifier": classifier,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -2135,13 +2076,9 @@ async def update_rogue_scholar_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
-        topic = None
-        score = 0
+        classifier = None
         if classify_all:
-            topics = await classify_post(title, content_html)
-            if presence(topics):
-                topic = topics[0].get("label", None)
-                score = topics[0].get("score", None)
+            classifier = classify_post(title, content_html)
 
         return {
             "authors": authors,
@@ -2156,8 +2093,7 @@ async def update_rogue_scholar_post(
             "images": images,
             "language": language,
             "category": blog.get("category", None),
-            "openalex_topic": topic,
-            "openalex_score": score,
+            "openalex_classifier": classifier,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -2272,8 +2208,7 @@ def upsert_single_post(post, previous: str | None = None):
                     "status": post.get("status", "active"),
                     "archive_url": post.get("archive_url", None),
                     "version": post.get("version", "v1"),
-                    "openalex_topic": post.get("openalex_topic", None),
-                    "openalex_score": post.get("openalex_score", 0),
+                    "openalex_classifier": post.get("openalex_classifier", None),
                 },
                 returning="representation",
                 ignore_duplicates=False,

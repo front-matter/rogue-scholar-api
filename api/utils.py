@@ -2386,7 +2386,7 @@ def get_image_width(width: int | str | None) -> int:
         return 0
 
 
-async def classify_post(title: str, content_html: str) -> list[dict]:
+def classify_post(title: str, content_html: str) -> list[dict]:
     """Classify post into OpenAlex topics using the title and content.
 
     Sends a POST request to the classification service with the post title and content,
@@ -2401,21 +2401,21 @@ async def classify_post(title: str, content_html: str) -> list[dict]:
         'label' (topic name) and 'score' (confidence score). Returns [(None, 0)] on error.
     """
     try:
-        async with httpx.AsyncClient() as client:
-            bert_api_url = environ.get("QUART_BERT_API", "http://localhost:5100")
-            response = await client.post(
-                f"{bert_api_url}/classify",
-                json={"title": title, "abstract": content_html[:1500]},
-                headers={
-                    "Authorization": f"Bearer {environ.get("QUART_SERVICE_KEY", None)}"
-                },
-                timeout=10.0,
-            )
-            response.raise_for_status()
-            data = response.json()
-            if not isinstance(data, list):
-                return []
-            return data
+        bert_api_url = environ.get("QUART_BERT_API", "http://localhost:5100")
+        response = httpx.post(
+            f"{bert_api_url}/classify",
+            json={"title": title, "abstract": content_html[:1500]},
+            headers={
+                "Authorization": f"Bearer {environ.get("QUART_SERVICE_KEY", None)}"
+            },
+            timeout=10.0,
+        )
+        response.raise_for_status()
+        data = response.json()
+        print(f"Classified post '{title}' with topics: {data}")
+        if not isinstance(data, list):
+            return []
+        return data
     except Exception as e:
         print(f"Error classifying post: {e}")
         return []
