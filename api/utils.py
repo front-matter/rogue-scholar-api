@@ -2386,7 +2386,7 @@ def get_image_width(width: int | str | None) -> int:
         return 0
 
 
-def classify_post(title: str, content_html: str) -> list[dict]:
+def classify_post(title: str, content_html: str) -> list[dict] | None:
     """Classify post into OpenAlex topics using the title and content.
 
     Sends a POST request to the classification service with the post title and content,
@@ -2414,7 +2414,7 @@ def classify_post(title: str, content_html: str) -> list[dict]:
         data = response.json()
         print(f"Classified post '{title}' with topics: {data}")
         if not isinstance(data, list):
-            return []
+            return None
         return data
     except Exception as e:
         print(f"Error classifying post: {e}")
