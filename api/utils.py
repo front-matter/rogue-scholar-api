@@ -2386,15 +2386,15 @@ def get_image_width(width: int | str | None) -> int:
         return 0
 
 
-def classify_post(title: str, content_html: str) -> list[dict] | None:
-    """Classify post into OpenAlex topics using the title and content.
+def classify_post(title: str, abstract: str) -> list[dict] | None:
+    """Classify post into OpenAlex topics using the title and abstract.
 
-    Sends a POST request to the classification service with the post title and content,
+    Sends a POST request to the classification service with the post title and abstract,
     and returns a list of topic classifications with their confidence scores.
 
     Args:
         title: The title of the post to classify.
-        content_html: The HTML content of the post (truncated to 1500 characters).
+        abstract: The abstract of the post to classify.
 
     Returns:
         list[dict]: A list of dictionaries containing topic classifications, each with
@@ -2404,9 +2404,9 @@ def classify_post(title: str, content_html: str) -> list[dict] | None:
         bert_api_url = environ.get("QUART_BERT_API", "http://localhost:5100")
         response = httpx.post(
             f"{bert_api_url}/classify",
-            json={"title": title, "abstract": content_html[:1500]},
+            json={"title": title, "abstract": abstract},
             headers={
-                "Authorization": f"Bearer {environ.get("QUART_SERVICE_KEY", None)}"
+                "Authorization": f"Bearer {environ.get('QUART_SERVICE_KEY', None)}"
             },
             timeout=10.0,
         )

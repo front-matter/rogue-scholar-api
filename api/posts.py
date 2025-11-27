@@ -1512,7 +1512,7 @@ async def extract_substack_post(
 
         classifier = None
         if classify_all:
-            classifier = classify_post(get_title(post.get("title", None)), content_html)
+            classifier = classify_post(get_title(post.get("title", None)), abstract)
 
         return {
             "authors": authors,
@@ -1594,7 +1594,7 @@ async def extract_squarespace_post(
 
         classifier = None
         if classify_all:
-            classifier = classify_post(get_title(post.get("title", None)), content_html)
+            classifier = classify_post(get_title(post.get("title", None)), abstract)
 
         return {
             "authors": authors,
@@ -1687,7 +1687,7 @@ async def extract_jsonfeed_post(
 
         classifier = None
         if classify_all:
-            classifier = classify_post(get_title(post.get("title", None)), content_html)
+            classifier = classify_post(get_title(post.get("title", None)), abstract)
 
         return {
             "authors": authors,
@@ -1832,7 +1832,7 @@ async def extract_atom_post(
 
         classifier = None
         if classify_all:
-            classifier = classify_post(title, content_html)
+            classifier = classify_post(title, abstract)
 
         return {
             "authors": authors,
@@ -1957,7 +1957,7 @@ async def extract_rss_post(
 
         classifier = None
         if classify_all:
-            classifier = classify_post(get_title(post.get("title", None)), content_html)
+            classifier = classify_post(get_title(post.get("title", None)), abstract)
 
         return {
             "authors": authors,
@@ -2078,7 +2078,7 @@ async def update_rogue_scholar_post(
 
         classifier = None
         if classify_all:
-            classifier = classify_post(title, content_html)
+            classifier = classify_post(title, abstract)
 
         return {
             "authors": authors,
