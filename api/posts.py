@@ -250,10 +250,10 @@ async def extract_all_posts_by_blog(
                 .execute()
             )
             total = response.count
-            page = floor(total / 50)
-        start_page = (page - 1) * 50 if page > 0 else 0
-        end_page = (page - 1) * 50 + 50 if page > 0 else 50
-        per_page = 50
+            page = floor(total / 20)
+        start_page = (page - 1) * 20 if page > 0 else 0
+        end_page = (page - 1) * 20 + 20 if page > 0 else 20
+        per_page = 20
 
         # handle pagination depending on blogging platform and whether we use their API
         match generator:
@@ -263,7 +263,7 @@ async def extract_all_posts_by_blog(
                     params = {
                         "rest_route": "/wp/v2/posts",
                         "page": page,
-                        # "per_page": per_page,
+                        "per_page": per_page,
                         "_embed": 1,
                     }
                     if blog.get("filter", None):
