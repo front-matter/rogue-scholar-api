@@ -23,7 +23,7 @@ from api.utils import (
     normalize_url,
     is_valid_url,
     format_datetime,
-    FOS_MAPPINGS,
+    OPENALEX_SUBFIELD_MAPPINGS,
 )
 
 
@@ -94,7 +94,7 @@ async def extract_single_blog(slug: str):
     response = (
         supabase.table("blogs")
         .select(
-            "id, slug, feed_url, current_feed_url, home_page_url, archive_host, archive_collection, archive_timestamps, feed_format, created_at, updated_at, registered_at, license, mastodon, generator, generator_raw, language, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure, community_id, prefix, issn, feed_format"
+            "id, slug, feed_url, current_feed_url, home_page_url, archive_host, archive_collection, archive_timestamps, feed_format, created_at, updated_at, registered_at, license, mastodon, generator, generator_raw, language, favicon, title, description, category, subfield, status, user_id, authors, use_api, relative_url, filter, secure, community_id, prefix, issn, feed_format"
         )
         .eq("slug", slug)
         .maybe_single()
@@ -167,6 +167,7 @@ async def extract_single_blog(slug: str):
         "language": language,
         "license": config["license"],
         "category": config["category"],
+        "subfield": config["subfield"],
         "status": config["status"],
         "user_id": config["user_id"],
         "authors": config["authors"],
@@ -372,7 +373,9 @@ def create_blog_community(blog):
                     get_date_from_unix_timestamp(blog.get("created_at", 0)), "en"
                 ),
                 "rs:language": get_language(blog.get("language"), format="name"),
-                "rs:category": FOS_MAPPINGS.get(blog.get("category"), None),
+                "rs:category": OPENALEX_SUBFIELD_MAPPINGS.get(
+                    blog.get("subfield"), None
+                ),
             }
         )
         data = {
@@ -422,7 +425,9 @@ def update_blog_community(blog):
                     get_date_from_unix_timestamp(blog.get("created_at", 0)), "en"
                 ),
                 "rs:language": get_language(blog.get("language"), format="name"),
-                "rs:category": FOS_MAPPINGS.get(blog.get("category"), None),
+                "rs:category": OPENALEX_SUBFIELD_MAPPINGS.get(
+                    blog.get("subfield"), None
+                ),
             }
         )
         data = {

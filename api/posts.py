@@ -57,6 +57,8 @@ from api.utils import (
     get_image_width,
     classify_post,
     EXCLUDED_TAGS,
+    OPENALEX_SUBFIELD_MAPPINGS,
+    OPENALEX_TOPIC_MAPPINGS,
 )
 from api.supabase_client import (
     supabase_admin_client as supabase_admin,
@@ -1179,9 +1181,12 @@ async def extract_wordpress_post(
         terms = categories + tags
         terms = py_.uniq(terms)[:5]
 
-        classifier = None
+        topic = None
+        topic_score = None
         if classify_all:
-            classifier = classify_post(title, content_html)
+            classification = classify_post(title, abstract)
+            topic = classification.get("topic")
+            topic_score = classification.get("score")
 
         return {
             "authors": authors,
@@ -1195,8 +1200,9 @@ async def extract_wordpress_post(
             "image": image,
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
-            "category": blog.get("category", None),
-            "openalex_classifier": classifier,
+            "subfield": blog.get("subfield", None),
+            "topic": topic,
+            "topic_score": topic_score or 0.0,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1268,9 +1274,12 @@ async def extract_wordpresscom_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
-        classifier = None
+        topic = None
+        topic_score = None
         if classify_all:
-            classifier = classify_post(get_title(post.get("title", None)), content_html)
+            classification = classify_post(get_title(post.get("title", None)), abstract)
+            topic = classification.get("topic")
+            topic_score = classification.get("score")
 
         return {
             "authors": authors,
@@ -1284,8 +1293,9 @@ async def extract_wordpresscom_post(
             "image": image,
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
-            "category": blog.get("category", None),
-            "openalex_classifier": classifier,
+            "subfield": blog.get("subfield", None),
+            "topic": topic,
+            "topic_score": topic_score or 0.0,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1346,9 +1356,12 @@ async def extract_blogger_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
-        classifier = None
+        topic = None
+        topic_score = None
         if classify_all:
-            classifier = classify_post(get_title(post.get("title", None)), content_html)
+            classification = classify_post(get_title(post.get("title", None)), summary)
+            topic = classification.get("topic")
+            topic_score = classification.get("score")
 
         return {
             "authors": authors,
@@ -1362,8 +1375,9 @@ async def extract_blogger_post(
             "image": None,
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
-            "category": None,
-            "openalex_classifier": classifier,
+            "subfield": blog.get("subfield", None),
+            "topic": topic,
+            "topic_score": topic_score or 0.0,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1428,9 +1442,12 @@ async def extract_ghost_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
-        classifier = None
+        topic = None
+        topic_score = None
         if classify_all:
-            classifier = classify_post(get_title(post.get("title", None)), content_html)
+            classification = classify_post(get_title(post.get("title", None)), abstract)
+            topic = classification.get("topic")
+            topic_score = classification.get("score")
 
         return {
             "authors": authors,
@@ -1444,8 +1461,9 @@ async def extract_ghost_post(
             "image": image,
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
-            "category": blog.get("category", None),
-            "openalex_classifier": classifier,
+            "subfield": blog.get("subfield", None),
+            "topic": topic,
+            "topic_score": topic_score or 0.0,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1510,9 +1528,12 @@ async def extract_substack_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
-        classifier = None
+        topic = None
+        topic_score = None
         if classify_all:
-            classifier = classify_post(get_title(post.get("title", None)), abstract)
+            classification = classify_post(get_title(post.get("title", None)), abstract)
+            topic = classification.get("topic")
+            topic_score = classification.get("score")
 
         return {
             "authors": authors,
@@ -1526,8 +1547,9 @@ async def extract_substack_post(
             "image": image,
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
-            "category": blog.get("category", None),
-            "openalex_classifier": classifier,
+            "subfield": blog.get("subfield", None),
+            "topic": topic,
+            "topic_score": topic_score or 0.0,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1592,9 +1614,12 @@ async def extract_squarespace_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
-        classifier = None
+        topic = None
+        topic_score = None
         if classify_all:
-            classifier = classify_post(get_title(post.get("title", None)), abstract)
+            classification = classify_post(get_title(post.get("title", None)), abstract)
+            topic = classification.get("topic")
+            topic_score = classification.get("score")
 
         return {
             "authors": authors,
@@ -1608,8 +1633,9 @@ async def extract_squarespace_post(
             "image": image,
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
-            "category": blog.get("category", None),
-            "openalex_classifier": classifier,
+            "subfield": blog.get("subfield", None),
+            "topic": topic,
+            "topic_score": topic_score or 0.0,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1685,9 +1711,12 @@ async def extract_jsonfeed_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
-        classifier = None
+        topic = None
+        topic_score = None
         if classify_all:
-            classifier = classify_post(get_title(post.get("title", None)), abstract)
+            classification = classify_post(get_title(post.get("title", None)), abstract)
+            topic = classification.get("topic")
+            topic_score = classification.get("score")
 
         return {
             "authors": authors,
@@ -1701,8 +1730,9 @@ async def extract_jsonfeed_post(
             "image": image,
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
-            "category": blog.get("category", None),
-            "openalex_classifier": classifier,
+            "subfield": blog.get("subfield", None),
+            "topic": topic,
+            "topic_score": topic_score or 0.0,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1830,9 +1860,12 @@ async def extract_atom_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
-        classifier = None
+        topic = None
+        topic_score = None
         if classify_all:
-            classifier = classify_post(title, abstract)
+            classification = classify_post(title, abstract)
+            topic = classification.get("topic")
+            topic_score = classification.get("score")
 
         return {
             "authors": authors,
@@ -1846,8 +1879,9 @@ async def extract_atom_post(
             "image": image,
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
-            "category": blog.get("category", None),
-            "openalex_classifier": classifier,
+            "subfield": blog.get("subfield", None),
+            "topic": topic,
+            "topic_score": topic_score or 0.0,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -1955,9 +1989,12 @@ async def extract_rss_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
-        classifier = None
+        topic = None
+        topic_score = None
         if classify_all:
-            classifier = classify_post(get_title(post.get("title", None)), abstract)
+            classification = classify_post(get_title(post.get("title", None)), abstract)
+            topic = classification.get("topic")
+            topic_score = classification.get("score")
 
         return {
             "authors": authors,
@@ -1971,8 +2008,9 @@ async def extract_rss_post(
             "image": image,
             "images": images,
             "language": detect_language(content_html) or blog.get("language", "en"),
-            "category": blog.get("category", None),
-            "openalex_classifier": classifier,
+            "subfield": blog.get("subfield", None),
+            "topic": topic,
+            "topic_score": topic_score or 0.0,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -2076,9 +2114,12 @@ async def update_rogue_scholar_post(
             next_version(post.get("version", None)) if previous is not None else "v1"
         )
 
-        classifier = None
+        topic = None
+        topic_score = None
         if classify_all:
-            classifier = classify_post(title, abstract)
+            classification = classify_post(title, abstract)
+            topic = classification.get("topic")
+            topic_score = classification.get("score")
 
         return {
             "authors": authors,
@@ -2092,8 +2133,9 @@ async def update_rogue_scholar_post(
             "image": image,
             "images": images,
             "language": language,
-            "category": blog.get("category", None),
-            "openalex_classifier": classifier,
+            "subfield": blog.get("subfield", None),
+            "topic": topic,
+            "topic_score": topic_score or 0.0,
             "reference": reference,
             "relationships": relationships,
             "funding_references": presence(funding_references),
@@ -2180,6 +2222,13 @@ def upsert_single_post(post, previous: str | None = None):
     if not post.get("title", None) or post.get("published_at", None) > int(time.time()):
         return {}
 
+    topic = post.get("topic", None)
+    if topic is not None:
+        topic = OPENALEX_TOPIC_MAPPINGS.get(f"1{topic.split(':')[0]}", None)
+    subfield = OPENALEX_SUBFIELD_MAPPINGS.get(post.get("subfield", ""), None)
+    print(
+        f"subfield: {subfield}, raw_topic: {post.get('topic', None)}, topic: {topic} (score {post.get('topic_score', 0.0)})"
+    )
     try:
         response = (
             supabase_admin.table("posts")
@@ -2195,7 +2244,9 @@ def upsert_single_post(post, previous: str | None = None):
                     "published_at": post.get("published_at", None),
                     "image": post.get("image", None),
                     "language": post.get("language", None),
-                    "category": post.get("category", None),
+                    "subfield": subfield,
+                    "topic": topic,
+                    "topic_score": post.get("topic_score", 0.0),
                     "reference": post.get("reference", None),
                     "relationships": post.get("relationships", None),
                     "funding_references": post.get("funding_references", None),
@@ -2208,7 +2259,6 @@ def upsert_single_post(post, previous: str | None = None):
                     "status": post.get("status", "active"),
                     "archive_url": post.get("archive_url", None),
                     "version": post.get("version", "v1"),
-                    "openalex_classifier": post.get("openalex_classifier", None),
                 },
                 returning="representation",
                 ignore_duplicates=False,
