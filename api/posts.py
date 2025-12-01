@@ -1182,7 +1182,7 @@ async def extract_wordpress_post(
         terms = py_.uniq(terms)[:5]
 
         topic = None
-        topic_score = None
+        topic_score = 0.0
         if classify_all:
             classification = classify_post(title, abstract)
             topic = classification.get("topic")
@@ -1275,11 +1275,11 @@ async def extract_wordpresscom_post(
         )
 
         topic = None
-        topic_score = None
+        topic_score = 0.0
         if classify_all:
             classification = classify_post(get_title(post.get("title", None)), abstract)
             topic = classification.get("topic")
-            topic_score = classification.get("score")
+            topic_score = classification.get("score", 0.0)
 
         return {
             "authors": authors,
@@ -1357,7 +1357,7 @@ async def extract_blogger_post(
         )
 
         topic = None
-        topic_score = None
+        topic_score = 0.0
         if classify_all:
             classification = classify_post(get_title(post.get("title", None)), summary)
             topic = classification.get("topic")
@@ -1443,7 +1443,7 @@ async def extract_ghost_post(
         )
 
         topic = None
-        topic_score = None
+        topic_score = 0.0
         if classify_all:
             classification = classify_post(get_title(post.get("title", None)), abstract)
             topic = classification.get("topic")
@@ -1529,7 +1529,7 @@ async def extract_substack_post(
         )
 
         topic = None
-        topic_score = None
+        topic_score = 0.0
         if classify_all:
             classification = classify_post(get_title(post.get("title", None)), abstract)
             topic = classification.get("topic")
@@ -1615,7 +1615,7 @@ async def extract_squarespace_post(
         )
 
         topic = None
-        topic_score = None
+        topic_score = 0.0
         if classify_all:
             classification = classify_post(get_title(post.get("title", None)), abstract)
             topic = classification.get("topic")
@@ -1712,7 +1712,7 @@ async def extract_jsonfeed_post(
         )
 
         topic = None
-        topic_score = None
+        topic_score = 0.0
         if classify_all:
             classification = classify_post(get_title(post.get("title", None)), abstract)
             topic = classification.get("topic")
@@ -1861,11 +1861,11 @@ async def extract_atom_post(
         )
 
         topic = None
-        topic_score = None
+        topic_score = 0.0
         if classify_all:
             classification = classify_post(title, abstract)
             topic = classification.get("topic")
-            topic_score = classification.get("score")
+            topic_score = classification.get("score", 0.0)
 
         return {
             "authors": authors,
@@ -1990,7 +1990,7 @@ async def extract_rss_post(
         )
 
         topic = None
-        topic_score = None
+        topic_score = 0.0
         if classify_all:
             classification = classify_post(get_title(post.get("title", None)), abstract)
             topic = classification.get("topic")
@@ -2115,7 +2115,7 @@ async def update_rogue_scholar_post(
         )
 
         topic = None
-        topic_score = None
+        topic_score = 0.0
         if classify_all:
             classification = classify_post(title, abstract)
             topic = classification.get("topic")
@@ -2224,10 +2224,10 @@ def upsert_single_post(post, previous: str | None = None):
 
     topic = post.get("topic", None)
     if topic is not None:
-        topic = OPENALEX_TOPIC_MAPPINGS.get(f"1{topic.split(':')[0]}", None)
-    subfield = OPENALEX_SUBFIELD_MAPPINGS.get(post.get("subfield", ""), None)
+        topic = f"1{topic.split(':')[0]}"
+    topic_score = round(post.get("topic_score", 0.0), 2)
     print(
-        f"subfield: {subfield}, raw_topic: {post.get('topic', None)}, topic: {topic} (score {post.get('topic_score', 0.0)})"
+        f"subfield: {post.get('subfield', None)}, raw_topic: {post.get('topic', None)}, topic: {topic} (score {topic_score})"
     )
     try:
         response = (
@@ -2244,9 +2244,9 @@ def upsert_single_post(post, previous: str | None = None):
                     "published_at": post.get("published_at", None),
                     "image": post.get("image", None),
                     "language": post.get("language", None),
-                    "subfield": subfield,
+                    "subfield": post.get("subfield", None),
                     "topic": topic,
-                    "topic_score": post.get("topic_score", 0.0),
+                    "topic_score": topic_score,
                     "reference": post.get("reference", None),
                     "relationships": post.get("relationships", None),
                     "funding_references": post.get("funding_references", None),

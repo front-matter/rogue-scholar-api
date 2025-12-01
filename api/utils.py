@@ -7186,13 +7186,14 @@ def classify_post(title: str, abstract: str) -> dict:
         )
         response.raise_for_status()
         data = response.json()
-        if not isinstance(data, list):
-            return {"topic": None, "score": 0.0}
-        score = dig(data, "0.score") or 0.0
+        if not data or len(data) == 0:
+            return {"topic": None, "score": 0.00}
+        primary_topic = dig(data, "0.0")
+        print(primary_topic)
         return {
-            "topic": dig(data, "0.label"),
-            "score": round(float(score), 2),
+            "topic": primary_topic.get("label"),
+            "score": round(float(primary_topic.get("score", 0.0)), 2),
         }
     except Exception as e:
         print(f"Error classifying post: {e}")
-        return {"topic": None, "score": 0.0}
+        return {"topic": None, "score": 0.00}
