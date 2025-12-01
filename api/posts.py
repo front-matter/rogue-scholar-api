@@ -2224,9 +2224,9 @@ def upsert_single_post(post, previous: str | None = None):
     if topic is not None:
         topic = f"1{topic.split(':')[0]}"
     topic_score = round(post.get("topic_score", 0.0), 2)
-    print(
-        f"subfield: {post.get('subfield', None)}, raw_topic: {post.get('topic', None)}, topic: {topic} (score {topic_score})"
-    )
+    # print(
+    #     f"subfield: {post.get('subfield', None)}, raw_topic: {post.get('topic', None)}, topic: {topic} (score {topic_score})"
+    # )
     try:
         response = (
             supabase_admin.table("posts")

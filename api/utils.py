@@ -7189,7 +7189,6 @@ def classify_post(title: str, abstract: str) -> dict:
         if not data or len(data) == 0:
             return {"topic": None, "score": 0.00}
         primary_topic = dig(data, "0.0")
-        print(primary_topic)
         return {
             "topic": primary_topic.get("label"),
             "score": round(float(primary_topic.get("score", 0.0)), 2),
