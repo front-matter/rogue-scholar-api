@@ -57,8 +57,6 @@ from api.utils import (
     get_image_width,
     classify_post,
     EXCLUDED_TAGS,
-    OPENALEX_SUBFIELD_MAPPINGS,
-    OPENALEX_TOPIC_MAPPINGS,
 )
 from api.supabase_client import (
     supabase_admin_client as supabase_admin,
