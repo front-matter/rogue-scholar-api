@@ -2222,7 +2222,8 @@ def upsert_single_post(post, previous: str | None = None):
 
     topic = post.get("topic", None)
     if topic is not None:
-        topic = f"1{topic.split(':')[0]}"
+        raw_topic = topic.split(":")[0]
+        topic = f"1{raw_topic.zfill(4)}"
     topic_score = round(post.get("topic_score", 0.0), 2)
     # print(
     #     f"subfield: {post.get('subfield', None)}, raw_topic: {post.get('topic', None)}, topic: {topic} (score {topic_score})"
