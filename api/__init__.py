@@ -60,7 +60,6 @@ from api.posts import (
     delete_draft_record,
     delete_all_draft_records,
     update_all_cited_posts,
-    update_all_flagged_posts,
 )
 from api.blogs import extract_single_blog, extract_all_blogs
 from api.citations import extract_all_citations, extract_all_citations_by_prefix
@@ -69,7 +68,6 @@ from api.schema import Blog, Citation, Post, PostQuery
 config = Config()
 config.from_toml("hypercorn.toml")
 load_dotenv()
-rate_limiter = RateLimiter()
 logger = logging.getLogger(__name__)
 version = "0.16"  # TODO: importlib.metadata.version('rogue-scholar-api')
 
@@ -194,6 +192,7 @@ async def post_blog(slug):
 
 @validate_response(Blog)
 @app.route("/blogs/<slug>/<suffix>", methods=["POST"])
+@rate_limit("5 per minute")
 async def post_blog_posts(slug: str, suffix: str | None = None):
     """Update blog posts by slug."""
 
@@ -874,3 +873,17 @@ async def delete_record(slug: str):
 @app.errorhandler(RequestSchemaValidationError)
 async def handle_request_validation_error():
     return {"error": "VALIDATION"}, 400
+
+
+@app.errorhandler(429)
+async def ratelimit_handler(e):
+    return (
+        jsonify(
+            {
+                "error": "Too Many Requests",
+                "detail": "Rate limit exceeded. Please retry later.",
+            }
+        ),
+        429,
+        {"Retry-After": str(e.retry_after)},  # number of seconds to wait
+    )

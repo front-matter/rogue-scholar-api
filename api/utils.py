@@ -34,6 +34,7 @@ from commonmeta.base_utils import compact, wrap, dig
 from nameparser import HumanName
 import frontmatter
 import pandoc
+import backoff
 
 from pandoc.types import Link
 from sentry_sdk import capture_message
@@ -6161,6 +6162,14 @@ ROLE_MAPPINGS = {
 }
 
 
+@backoff.on_exception(
+    backoff.expo,  # exponential backoff
+    (httpx.HTTPError,),  # network related errors
+    max_tries=5,
+)
+@backoff.on_predicate(
+    backoff.expo, lambda r: r is not None and r.status_code == 429, max_tries=5
+)
 def normalize_author(
     name: str = None,
     given_name: str = None,
@@ -7161,6 +7170,16 @@ def get_image_width(width: int | str | None) -> int:
         return 0
 
 
+def classify(title: str, abstract: str) -> httpx.Response:
+    bert_api_url = environ.get("QUART_BERT_API", "http://localhost:5100")
+    return httpx.post(
+        f"{bert_api_url}/classify",
+        json={"title": title, "abstract": abstract},
+        headers={"Authorization": f"Bearer {environ.get('QUART_SERVICE_KEY', None)}"},
+        timeout=10.0,
+    )
+
+
 def classify_post(title: str, abstract: str) -> dict:
     """Classify post into OpenAlex topics using the title and abstract.
 
@@ -7176,19 +7195,12 @@ def classify_post(title: str, abstract: str) -> dict:
     """
     try:
         bert_api_url = environ.get("QUART_BERT_API", "http://localhost:5100")
-        response = httpx.post(
-            f"{bert_api_url}/classify",
-            json={"title": title, "abstract": abstract},
-            headers={
-                "Authorization": f"Bearer {environ.get('QUART_SERVICE_KEY', None)}"
-            },
-            timeout=10.0,
-        )
+        response = classify(title, abstract)
         response.raise_for_status()
         data = response.json()
-        if not data or len(data) == 0:
+        if not data or not isinstance(data, list) or len(data) == 0:
             return {"topic": None, "score": 0.00}
-        primary_topic = dig(data, "0.0")
+        primary_topic = data[0]
         return {
             "topic": primary_topic.get("label"),
             "score": round(float(primary_topic.get("score", 0.0)), 2),
