@@ -883,5 +883,5 @@ async def ratelimit_handler(e):
             }
         ),
         429,
-        {"Retry-After": str(e.retry_after)},  # number of seconds to wait
+        {"retry-after": str(e.retry_after)},  # number of seconds to wait
     )

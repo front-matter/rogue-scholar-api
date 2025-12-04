@@ -3,6 +3,7 @@
 from uuid import UUID
 from os import environ, path
 import re
+import time
 from babel.dates import format_date
 import iso8601
 import json as JSON
@@ -7174,7 +7175,7 @@ def classify_post(title: str, abstract: str) -> dict:
     Returns:
         dict: A dictionary containing the top topic classification with its confidence score between 0.0 and 1.0. Returns an empty dictionary on error.
     """
-    max_retries = 5
+    max_retries = 3
     bert_api_url = environ.get("QUART_BERT_API", "http://localhost:5100")
 
     for attempt in range(max_retries):
@@ -7190,22 +7191,9 @@ def classify_post(title: str, abstract: str) -> dict:
 
             # Handle 429 rate limit with Retry-After header
             if response.status_code == 429:
-                retry_after = response.headers.get("Retry-After")
-                if retry_after:
-                    wait_time = int(retry_after)
-                    print(
-                        f"Rate limited. Waiting {wait_time} seconds (Retry-After header)"
-                    )
-                    time.sleep(wait_time)
-                    continue
-                else:
-                    # Exponential backoff if no Retry-After header
-                    wait_time = 2**attempt
-                    print(
-                        f"Rate limited. Waiting {wait_time} seconds (exponential backoff)"
-                    )
-                    time.sleep(wait_time)
-                    continue
+                retry_after = response.headers.get("retry-after") or 60
+                time.sleep(int(retry_after))
+                continue
 
             response.raise_for_status()
             data = response.json()
