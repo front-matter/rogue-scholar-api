@@ -629,6 +629,53 @@ async def update_all_posts_by_blog(
         return []
 
 
+async def update_all_unclassified_posts_by_blog(
+    slug: str, page: int = 1, validate_all: bool = False, classify_all: bool = False
+):
+    """Update all unclassified posts by blog."""
+
+    try:
+        response = (
+            supabase.table("blogs")
+            .select(
+                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, archive_host, archive_collection, archive_timestamps, feed_format, created_at, updated_at, registered_at, mastodon, generator, generator_raw, language, category, field, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure"
+            )
+            .eq("slug", slug)
+            .maybe_single()
+            .execute()
+        )
+        blog = response.data
+        if not blog:
+            return {}
+
+        start_page = (page - 1) * 50 if page > 0 else 0
+        end_page = (page - 1) * 50 + 50 if page > 0 else 50
+        blog_with_posts = {}
+
+        response = (
+            supabase.table("posts")
+            .select(postsWithContentSelect)
+            .eq("blog_slug", blog["slug"])
+            .is_("topic", "null")
+            .order("published_at", desc=True)
+            .range(start_page, end_page)
+            .execute()
+        )
+        update_posts = [
+            update_rogue_scholar_post(x, blog, validate_all, classify_all)
+            for x in response.data
+        ]
+        blog_with_posts["entries"] = await asyncio.gather(*update_posts)
+        return [upsert_single_post(i) for i in blog_with_posts["entries"]]
+    except TimeoutError:
+        print(f"Timeout error in blog {blog['slug']}.")
+        return []
+    except Exception as e:
+        print(f"{e} error in blog {blog['slug']}.")
+        print(traceback.format_exc())
+        return []
+
+
 async def get_single_post(slug: str, suffix: str | None = None):
     """Get single post."""
     try:

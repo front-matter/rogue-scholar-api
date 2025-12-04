@@ -54,6 +54,7 @@ from api.posts import (
     extract_all_posts_by_blog,
     update_all_posts,
     update_all_posts_by_blog,
+    update_all_unclassified_posts_by_blog,
     extract_single_post,
     update_single_post,
     delete_draft_record,
@@ -107,12 +108,6 @@ async def heartbeat():
 async def blogs_redirect():
     """Redirect /blogs/ to /blogs."""
     return redirect("/blogs", code=301)
-
-
-# @app.get("/test")
-# async def get_all():
-#     results = await g.connection.fetch_all("SELECT slug FROM blogs")
-#     return jsonify([{"slug": row["slug"]} for row in results])
 
 
 @validate_response(Blog)
@@ -209,6 +204,13 @@ async def post_blog_posts(slug: str, suffix: str | None = None):
         try:
             if update == "self":
                 result = await update_all_posts_by_blog(
+                    slug,
+                    page=page,
+                    validate_all=(validate == "all"),
+                    classify_all=(classify == "all"),
+                )
+            elif update == "unclassified":
+                result = await update_all_unclassified_posts_by_blog(
                     slug,
                     page=page,
                     validate_all=(validate == "all"),
@@ -326,7 +328,10 @@ async def post_citations():
         "10.59349",
         "10.59350",
         "10.63485",
+        "10.63517",
         "10.64000",
+        "10.64395",
+        "10.65527",
     ]
     if (
         request.headers.get("Authorization", None) is None
@@ -357,7 +362,10 @@ async def post_citations_by_prefix(slug: str, suffix: str | None = None):
         "10.59349",
         "10.59350",
         "10.63485",
+        "10.63517",
         "10.64000",
+        "10.64395",
+        "10.65527",
     ]
     if slug not in prefixes:
         logger.warning(f"Invalid prefix: {slug}")
@@ -398,7 +406,6 @@ async def posts():
     per_page = min(per_page, 50)
     page = int(request.args.get("page") or "1")
     blog_slug = request.args.get("blog_slug")
-    no_fulltext = request.args.get("no_fulltext")
     status = ["active", "archived", "expired"]
     if preview:
         status = ["pending", "active", "archived", "expired"]
@@ -407,17 +414,7 @@ async def posts():
     end_page = start_page + per_page - 1
 
     try:
-        if no_fulltext == "true":
-            response = (
-                supabase_client.table("posts")
-                .select(postsWithContentSelect, count="exact")
-                .in_("status", status)
-                .is_("content_html", "null")
-                .order("published_at", desc=True)
-                .range(start_page, end_page)
-                .execute()
-            )
-        elif blog_slug:
+        if blog_slug:
             response = (
                 supabase_client.table("posts")
                 .select(postsWithContentSelect, count="exact")
