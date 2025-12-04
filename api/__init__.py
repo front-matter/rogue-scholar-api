@@ -2,7 +2,6 @@
 
 from hypercorn.config import Config
 import logging
-from datetime import timedelta
 from math import ceil
 from os import environ
 import pydash as py_
@@ -18,7 +17,7 @@ from quart_schema import (
     hide,
     RequestSchemaValidationError,
 )
-from quart_rate_limiter import RateLimiter, RateLimit
+from quart_rate_limiter import RateLimiter
 from quart_cors import cors
 from postgrest import APIError
 from commonmeta import doi_from_url
@@ -77,7 +76,7 @@ sentry_sdk.init(
 app = Quart(__name__, static_folder="static", static_url_path="")
 app.config.from_prefixed_env()
 QuartSchema(app, info=Info(title="Rogue Scholar API", version=version))
-rate_limiter = RateLimiter(app, default_limits=[RateLimit(15, timedelta(seconds=60))])
+limiter = RateLimiter(app)
 app = cors(app, allow_origin="*")
 # db = QuartDB(
 #     app,
@@ -192,7 +191,6 @@ async def post_blog(slug):
 
 @validate_response(Blog)
 @app.route("/blogs/<slug>/<suffix>", methods=["POST"])
-@rate_limit("5 per minute")
 async def post_blog_posts(slug: str, suffix: str | None = None):
     """Update blog posts by slug."""
 
