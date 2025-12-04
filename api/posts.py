@@ -621,10 +621,10 @@ async def update_all_posts_by_blog(
         blog_with_posts["entries"] = await asyncio.gather(*update_posts)
         return [upsert_single_post(i) for i in blog_with_posts["entries"]]
     except TimeoutError:
-        print(f"Timeout error in blog {blog['slug']}.")
+        print(f"Timeout error in blog {slug}.")
         return []
     except Exception as e:
-        print(f"{e} error in blog {blog['slug']}.")
+        print(f"{e} error in blog {slug}.")
         print(traceback.format_exc())
         return []
 
@@ -638,7 +638,7 @@ async def update_all_unclassified_posts_by_blog(
         response = (
             supabase.table("blogs")
             .select(
-                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, archive_host, archive_collection, archive_timestamps, feed_format, created_at, updated_at, registered_at, mastodon, generator, generator_raw, language, category, field, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure"
+                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, archive_host, archive_collection, archive_timestamps, feed_format, created_at, updated_at, registered_at, mastodon, generator, generator_raw, language, category, subfield, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure"
             )
             .eq("slug", slug)
             .maybe_single()
@@ -661,6 +661,11 @@ async def update_all_unclassified_posts_by_blog(
             .range(start_page, end_page)
             .execute()
         )
+
+        # Handle empty response (HTTP 204)
+        if not response.data:
+            return []
+
         update_posts = [
             update_rogue_scholar_post(x, blog, validate_all, classify_all)
             for x in response.data
@@ -668,10 +673,10 @@ async def update_all_unclassified_posts_by_blog(
         blog_with_posts["entries"] = await asyncio.gather(*update_posts)
         return [upsert_single_post(i) for i in blog_with_posts["entries"]]
     except TimeoutError:
-        print(f"Timeout error in blog {blog['slug']}.")
+        print(f"Timeout error in blog {slug}.")
         return []
     except Exception as e:
-        print(f"{e} error in blog {blog['slug']}.")
+        print(f"{e} error in blog {slug}.")
         print(traceback.format_exc())
         return []
 
@@ -2094,8 +2099,8 @@ async def update_rogue_scholar_post(
                 url=author.get("url", None),
             )
 
-        published_at = post.get("published_at")
-        updated_at = post.get("updated_at")
+        published_at = post.get("published_at") or 0
+        updated_at = post.get("updated_at") or 0
         if published_at > updated_at:
             updated_at = published_at
         content_html = post.get("content_html")
