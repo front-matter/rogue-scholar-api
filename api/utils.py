@@ -6705,6 +6705,8 @@ def detect_language(text: str) -> str | None:
 def get_soup(content_html: str) -> BeautifulSoup | None:
     """Get soup from html"""
     try:
+        if not content_html or len(content_html) == 0:
+            content_html = "<div></div>"
         soup = BeautifulSoup(content_html, "html.parser")
         return soup
     except Exception as e:
@@ -7200,7 +7202,7 @@ def classify_post(title: str, abstract: str) -> dict:
             if not data or not isinstance(data, list) or len(data) == 0:
                 return {"topic": None, "score": 0.00}
             primary_topic = dig(data, "0.0")
-            print(primary_topic)
+            # print(primary_topic)
             return {
                 "topic": primary_topic.get("label"),
                 "score": round(float(primary_topic.get("score", 0.0)), 2),
