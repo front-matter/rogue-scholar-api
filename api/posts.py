@@ -652,15 +652,29 @@ async def update_all_unclassified_posts_by_blog(
         end_page = (page - 1) * 50 + 50 if page > 0 else 50
         blog_with_posts = {}
 
-        response = (
-            supabase.table("posts")
-            .select(postsWithContentSelect)
-            .eq("blog_slug", blog["slug"])
-            .is_("topic", "null")
-            .order("published_at", desc=True)
-            .range(start_page, end_page)
-            .execute()
-        )
+        # handle automatic pagination, based on number of posts already in the database
+        if page == 999:
+            response = (
+                supabase.table("posts")
+                .select(postsWithContentSelect, count="exact")
+                .eq("blog_slug", blog["slug"])
+                .is_("topic", "null")
+                .order("published_at", desc=True)
+                .range(1, 50)
+                .execute()
+            )
+            total = response.count
+            page = floor(total / 50)
+        else:
+            response = (
+                supabase.table("posts")
+                .select(postsWithContentSelect)
+                .eq("blog_slug", blog["slug"])
+                .is_("topic", "null")
+                .order("published_at", desc=True)
+                .range(start_page, end_page)
+                .execute()
+            )
 
         # Handle empty response (HTTP 204)
         if not response.data:
