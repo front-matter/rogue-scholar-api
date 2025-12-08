@@ -61,7 +61,9 @@ async def extract_all_citations() -> list:
         "10.59349",
         "10.59350",
         "10.63485",
+        "10.63517",
         "10.64000",
+        "10.65527",
     ]
     citations = await asyncio.gather(
         *[extract_all_citations_by_prefix(prefix) for prefix in prefixes]
