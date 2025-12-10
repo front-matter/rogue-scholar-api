@@ -35,6 +35,7 @@ from commonmeta.base_utils import compact, wrap, dig
 from nameparser import HumanName
 import frontmatter
 import pandoc
+import pikepdf
 
 from pandoc.types import Link
 from sentry_sdk import capture_message
@@ -6404,6 +6405,12 @@ def format_authors_with_orcid(authors):
 
     def format_author(author):
         name = author.get("name", None)
+        given_names = author.get("given", None)
+        family_name = author.get("family", None)
+        if not name and given_names and family_name:
+            name = f"{given_names} {family_name}"
+        elif not name and family_name:
+            name = family_name
         orcid = normalize_orcid(author.get("url", None))
         return compact(
             {
@@ -6768,7 +6775,7 @@ def write_pdf(markdown: str):
             format="pdf",
             options=[
                 "--pdf-engine=weasyprint",
-                "--pdf-engine-opt=--pdf-variant=pdf/a-2a",
+                "--pdf-engine-opt=--pdf-variant=pdf/a-3a",
                 f"--data-dir={environ['QUART_PANDOC_DATA_DIR']}",
                 "--template=pandoc/default.html5",
                 "--css=pandoc/style.css",

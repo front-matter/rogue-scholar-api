@@ -4,10 +4,13 @@ from hypercorn.config import Config
 import logging
 from math import ceil
 from os import environ
+from io import BytesIO
 import pydash as py_
 from dotenv import load_dotenv
 import sentry_sdk
 import frontmatter
+import pikepdf
+from pikepdf import AttachedFileSpec
 from quart import g, Quart, request, jsonify, redirect
 from quart_schema import (
     QuartSchema,
@@ -767,11 +770,19 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
             markdown["relationships"] = format_relationships(markdown["relationships"])
             markdown = translate_titles(markdown)
             markdown = frontmatter.dumps(markdown)
-            pdf, error = write_pdf(markdown)
+            content, error = write_pdf(markdown)
             if error is not None:
                 logger.error(error)
+            with pikepdf.open(BytesIO(content)) as pdf:
+                memfilespec = AttachedFileSpec(
+                    pdf, markdown.encode("utf-8"), mime_type="text/markdown"
+                )
+                pdf.attachments[f"{basename}.md"] = memfilespec
+                output = BytesIO()
+                pdf.save(output)
+                pdf_bytes = output.getvalue()
             return (
-                pdf,
+                pdf_bytes,
                 200,
                 {
                     "Content-Type": "application/pdf",
