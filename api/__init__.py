@@ -37,6 +37,8 @@ from api.supabase_client import (
 )
 from api.utils import (
     get_formatted_metadata,
+    download_image,
+    get_extension_from_url,
     get_markdown,
     convert_to_commonmeta,
     write_epub,
@@ -769,6 +771,8 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
                 markdown["citation"] = markdown["identifier"]
             markdown["relationships"] = format_relationships(markdown["relationships"])
             markdown = translate_titles(markdown)
+            image = markdown.get("image", None)
+
             markdown = frontmatter.dumps(markdown)
             content, error = write_pdf(markdown)
             if error is not None:
@@ -778,6 +782,18 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
                     pdf, markdown.encode("utf-8"), mime_type="text/markdown"
                 )
                 pdf.attachments[f"{basename}.md"] = memfilespec
+                if image:
+                    image_bytes = download_image(image)
+                    if image_bytes:
+                        img_ext = get_extension_from_url(image)
+                        if img_ext not in ["jpg", "jpeg", "png", "gif", "svg", "webp"]:
+                            img_ext = "bin"
+                        img_memfilespec = AttachedFileSpec(
+                            pdf,
+                            image_bytes,
+                            mime_type=f"image/{img_ext}",
+                        )
+                        pdf.attachments[f"image.{img_ext}"] = img_memfilespec
                 output = BytesIO()
                 pdf.save(output)
                 pdf_bytes = output.getvalue()

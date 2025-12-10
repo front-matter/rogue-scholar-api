@@ -2,6 +2,8 @@
 
 from uuid import UUID
 from os import environ, path
+from urllib.parse import urlparse
+import os
 import re
 import time
 from babel.dates import format_date
@@ -35,7 +37,6 @@ from commonmeta.base_utils import compact, wrap, dig
 from nameparser import HumanName
 import frontmatter
 import pandoc
-import pikepdf
 
 from pandoc.types import Link
 from sentry_sdk import capture_message
@@ -219,6 +220,17 @@ AUTHOR_IDS = {
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
 }
+
+
+def get_extension_from_url(url: str) -> str:
+    """Extract a lowercase file extension from a URL path.
+    Returns empty string if none found."""
+    if not url:
+        return ""
+    parsed = urlparse(url)
+    _, ext = os.path.splitext(parsed.path)
+    return ext.lower().replace(".", "")
+
 
 AUTHOR_NAMES = {
     "GPT-4": "Tejas S. Sathe",
@@ -7169,6 +7181,17 @@ def get_image_width(width: int | str | None) -> int:
     except Exception as e:
         print(e)
         return 0
+
+
+def download_image(url: str, timeout: int = 10) -> bytes | None:
+    """Download image from url."""
+    try:
+        response = httpx.get(url, timeout=timeout)
+        response.raise_for_status()
+        return response.content
+    except Exception as e:
+        print(f"Error downloading image from {url}: {e}")
+        return None
 
 
 def classify_post(title: str, abstract: str) -> dict:
