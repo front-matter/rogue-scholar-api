@@ -6768,7 +6768,7 @@ def write_pdf(markdown: str):
             format="pdf",
             options=[
                 "--pdf-engine=weasyprint",
-                "--pdf-engine-opt=--pdf-variant=pdf/ua-1",
+                "--pdf-engine-opt=--pdf-variant=pdf/a-2a",
                 f"--data-dir={environ['QUART_PANDOC_DATA_DIR']}",
                 "--template=pandoc/default.html5",
                 "--css=pandoc/style.css",

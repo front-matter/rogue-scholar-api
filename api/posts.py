@@ -2374,9 +2374,9 @@ def upsert_single_post(post, previous: str | None = None):
         if status not in ["approved", "active", "archived", "expired"]:
             return post_to_update.data[0]
         metadata = Metadata(record.data, via="jsonfeed")
-        if not is_rogue_scholar_doi(metadata.id, ra=""):
-            print("Not a Rogue Scholar DOI:", metadata.id)
-            return ""  # post_to_update.data[0]
+        # if not is_rogue_scholar_doi(metadata.id, ra=""):
+        #     print("Not a Rogue Scholar DOI:", metadata.id)
+        #     return ""  # post_to_update.data[0]
 
         kwargs = compact({"legacy_key": legacy_key, "previous_doi": previous})
         record = push_inveniordm(metadata, host, token, **kwargs)
