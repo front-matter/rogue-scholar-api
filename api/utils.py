@@ -216,6 +216,7 @@ AUTHOR_IDS = {
     "Marcel R. Ackermann": "https://orcid.org/0000-0001-7644-2495",
     "Florian Reitz": "https://orcid.org/0000-0001-6114-3388",
     "Benedikt Maria Beckermann": "https://orcid.org/0009-0008-3920-6109",
+    "Ryan Peterson": "https://orcid.org/0000-0002-4650-5798",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
@@ -373,6 +374,18 @@ IRREGULAR_AUTHOR_NAMES = {
 
 
 AUTHOR_AFFILIATIONS = {
+    "https://orcid.org/0000-0002-4650-5798": [
+        {
+            "name": "Colorado School of Public Health",
+            "id": "https://ror.org/005x9g035",
+            "start_date": "2029-07-01",
+        },
+        {
+            "name": "University of Iowa",
+            "id": "https://ror.org/036jqmy94",
+            "start_date": "2025-07-31",
+        },
+    ],
     "https://orcid.org/0000-0001-7644-2495": [
         {
             "name": "Schloss Dagstuhl – Leibniz Center for Informatics",
