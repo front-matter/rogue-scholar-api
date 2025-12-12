@@ -217,6 +217,7 @@ AUTHOR_IDS = {
     "Florian Reitz": "https://orcid.org/0000-0001-6114-3388",
     "Benedikt Maria Beckermann": "https://orcid.org/0009-0008-3920-6109",
     "Ryan Peterson": "https://orcid.org/0000-0002-4650-5798",
+    "Gleb G. Ebert": "https://orcid.org/0000-0002-7734-3824",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
@@ -297,6 +298,7 @@ AUTHOR_NAMES = {
     "naturepoker": "Sung won Lim",
     "vgrass": "Volker Grassmuck",
     "benweinstein95fa7c74fb": "Ben Weinstein",
+    "nico": "Nicola Romanò",
 }
 
 COAUTHOR_NAMES = {
@@ -374,11 +376,18 @@ IRREGULAR_AUTHOR_NAMES = {
 
 
 AUTHOR_AFFILIATIONS = {
+    "https://orcid.org/0000-0002-7734-3824": [
+        {
+            "name": "ETH Zurich",
+            "id": "https://ror.org/05a28rw58",
+            "start_date": "2021-10-15",
+        }
+    ],
     "https://orcid.org/0000-0002-4650-5798": [
         {
             "name": "Colorado School of Public Health",
             "id": "https://ror.org/005x9g035",
-            "start_date": "2029-07-01",
+            "start_date": "2019-07-01",
         },
         {
             "name": "University of Iowa",
