@@ -92,7 +92,7 @@ app = cors(app, allow_origin="*")
 
 def run() -> None:
     """Run the app."""
-    app.run()
+    app.run(host="0.0.0.0", port=5200)
 
 
 @app.route("/")
@@ -777,28 +777,28 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
             content, error = write_pdf(markdown)
             if error is not None:
                 logger.error(error)
-            with pikepdf.open(BytesIO(content)) as pdf:
-                memfilespec = AttachedFileSpec(
-                    pdf, markdown.encode("utf-8"), mime_type="text/markdown"
-                )
-                pdf.attachments[f"{basename}.md"] = memfilespec
-                if image:
-                    image_bytes = download_image(image)
-                    if image_bytes:
-                        img_ext = get_extension_from_url(image)
-                        if img_ext not in ["jpg", "jpeg", "png", "gif", "svg", "webp"]:
-                            img_ext = "bin"
-                        img_memfilespec = AttachedFileSpec(
-                            pdf,
-                            image_bytes,
-                            mime_type=f"image/{img_ext}",
-                        )
-                        pdf.attachments[f"image.{img_ext}"] = img_memfilespec
-                output = BytesIO()
-                pdf.save(output)
-                pdf_bytes = output.getvalue()
+            # with pikepdf.open(BytesIO(content)) as pdf:
+            #     memfilespec = AttachedFileSpec(
+            #         pdf, markdown.encode("utf-8"), mime_type="text/markdown"
+            #     )
+            #     pdf.attachments[f"{basename}.md"] = memfilespec
+            #     if image:
+            #         image_bytes = download_image(image)
+            #         if image_bytes:
+            #             img_ext = get_extension_from_url(image)
+            #             if img_ext not in ["jpg", "jpeg", "png", "gif", "svg", "webp"]:
+            #                 img_ext = "bin"
+            #             img_memfilespec = AttachedFileSpec(
+            #                 pdf,
+            #                 image_bytes,
+            #                 mime_type=f"image/{img_ext}",
+            #             )
+            #             pdf.attachments[f"image.{img_ext}"] = img_memfilespec
+            #     output = BytesIO()
+            #     pdf.save(output)
+            #     pdf_bytes = output.getvalue()
             return (
-                pdf_bytes,
+                content,
                 200,
                 {
                     "Content-Type": "application/pdf",
