@@ -344,6 +344,10 @@ IRREGULAR_AUTHOR_NAMES = {
         "given_name": "Marcio Luiz",
         "family_name": "Miotto",
     },
+    "Jaime A. Teixeira da Silva": {
+        "given_name": "Jaime A.",
+        "family_name": "Teixeira da Silva",
+    },
     # Organization names
     "Make Data Count": {
         "name": "Make Data Count",
