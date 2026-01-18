@@ -50,4 +50,4 @@ COPY pandoc ./pandoc
 COPY hypercorn.toml ./
 EXPOSE 8080
 
-CMD ["hypercorn", "-b",  "0.0.0.0:8080", "api:app"]
+CMD ["hypercorn", "-b",  "0.0.0.0:5200", "api:app"]
