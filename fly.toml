@@ -10,10 +10,10 @@ primary_region = "fra"
 strategy = "rolling"
 
 [env]
-PORT = "8080"
+PORT = "5200"
 
 [http_service]
-internal_port = 8080
+internal_port = 5200
 force_https = true
 auto_stop_machines = "off"
 auto_start_machines = false
