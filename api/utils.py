@@ -218,6 +218,7 @@ AUTHOR_IDS = {
     "Benedikt Maria Beckermann": "https://orcid.org/0009-0008-3920-6109",
     "Ryan Peterson": "https://orcid.org/0000-0002-4650-5798",
     "Gleb G. Ebert": "https://orcid.org/0000-0002-7734-3824",
+    "Chris Marcum": "https://orcid.org/0000-0002-0899-6143",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
