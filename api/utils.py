@@ -219,6 +219,7 @@ AUTHOR_IDS = {
     "Ryan Peterson": "https://orcid.org/0000-0002-4650-5798",
     "Gleb G. Ebert": "https://orcid.org/0000-0002-7734-3824",
     "Christopher Stephen Marcum": "https://orcid.org/0000-0002-0899-6143",
+    "Tom Ansell": "https://orcid.org/0009-0006-6109-7709",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
@@ -381,6 +382,13 @@ IRREGULAR_AUTHOR_NAMES = {
 
 
 AUTHOR_AFFILIATIONS = {
+    "https://orcid.org/0009-0006-6109-7709": [
+        {
+            "name": "Erasmus University Rotterdam",
+            "id": "https://ror.org/057w15z03",
+            "start_date": "2023-08-01",
+        }
+    ],
     "https://orcid.org/0000-0002-7734-3824": [
         {
             "name": "ETH Zurich",
