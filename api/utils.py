@@ -484,13 +484,13 @@ AUTHOR_AFFILIATIONS = {
             "start_date": "2015-02-01",
         }
     ],
-    "https://orcid.org/0000-0003-0443-9902": [
-        {
-            "name": "Institute for Molecular Systems Biology",
-            "id": "https://ror.org/03j5gm982",
-            "start_date": "2022-11-01",
-        }
-    ],
+    # "https://orcid.org/0000-0003-0443-9902": [
+    #     {
+    #         "name": "Institute for Molecular Systems Biology",
+    #         "id": "https://ror.org/03j5gm982",
+    #         "start_date": "2022-11-01",
+    #     }
+    # ],
     "https://orcid.org/0000-0001-8480-9461": [
         {
             "name": "University of Kentucky",
@@ -7039,7 +7039,7 @@ async def format_reference(url, validate_all: bool = False):
         )
     except Exception as e:
         print(e)
-        return None
+        return {}
 
 
 async def format_json_reference(reference: dict, validate_all: bool = False):
@@ -7073,7 +7073,7 @@ async def format_json_reference(reference: dict, validate_all: bool = False):
         )
     except Exception as e:
         print(e)
-        return None
+        return {}
 
 
 async def format_citeproc_reference(reference, validate_all: bool = False):
@@ -7114,7 +7114,9 @@ def extract_reference_id(reference: str) -> str | None:
         return None
 
 
-async def validate_reference(id_: str, unstructured: str) -> list | None:
+async def validate_reference(
+    id_: str, unstructured: str | None
+) -> tuple[str, str | None, str | None]:
     """Validate reference."""
     try:
         # lookup metadata via API call
@@ -7125,14 +7127,14 @@ async def validate_reference(id_: str, unstructured: str) -> list | None:
         if subject.titles and subject.contributors:
             id_ = subject.id
             type_ = subject.type
-            # subject.write() always returns bytes, so decode to string
-            unstructured = subject.write(
-                to="citation", style="apa", locale="en-US"
-            ).decode("utf-8")
-        return [id_, type_, unstructured]
+            # subject.write() returns bytes or None, so decode to string
+            b = subject.write(to="citation", style="apa", locale="en-US")
+            if b is not None:
+                unstructured = b.decode("utf-8")
+        return (id_, type_, unstructured)
     except Exception as e:
         print(e)
-        return [id_, None, unstructured]
+        return (id_, None, unstructured)
 
 
 async def parse_blogger_guid(guid: str) -> tuple[str, str] | None:
