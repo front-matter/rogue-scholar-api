@@ -314,7 +314,7 @@ def update_single_blog(blog):
 def push_blog_community_id(slug):
     """Get InvenioRDM blog community id and store in blog."""
     try:
-        url = f"{environ['QUART_INVENIORDM_API']}/api/communities?q=slug:{slug}"
+        url = f"{environ.get('QUART_INVENIORDM_API', 'https://rogue-scholar.org')}/api/communities?q=slug:{slug}"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         response = httpx.get(url, headers=headers, timeout=10)
         result = response.json()
@@ -350,7 +350,7 @@ def upsert_blog_community(blog):
 def create_blog_community(blog):
     """Create an InvenioRDM blog community."""
     try:
-        url = f"{environ['QUART_INVENIORDM_API']}/api/communities"
+        url = f"{environ.get('QUART_INVENIORDM_API', 'https://rogue-scholar.org')}/api/communities"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         metadata = {
             "title": blog.get("title"),
@@ -399,7 +399,7 @@ def create_blog_community(blog):
 def update_blog_community(blog):
     """Update an InvenioRDM blog community."""
     try:
-        url = f"{environ['QUART_INVENIORDM_API']}/api/communities/{blog.get('slug')}"
+        url = f"{environ.get('QUART_INVENIORDM_API', 'https://rogue-scholar.org')}/api/communities/{blog.get('slug')}"
         headers = {
             "Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}",
             "Content-Type": "application/json",
@@ -455,9 +455,7 @@ def upload_blog_logo(blog):
     if blog.get("favicon", None) is None:
         return None
     try:
-        url = (
-            f"{environ['QUART_INVENIORDM_API']}/api/communities/{blog.get('slug')}/logo"
-        )
+        url = f"{environ.get('QUART_INVENIORDM_API', 'https://rogue-scholar.org')}/api/communities/{blog.get('slug')}/logo"
         if url == blog.get("favicon"):
             print("Skipping upload of favicon, it is the same as the logo URL.")
             return None
@@ -478,7 +476,7 @@ def upload_blog_logo(blog):
 def feature_community(id):
     """Feature an InvenioRDM community by id."""
     try:
-        url = f"{environ['QUART_INVENIORDM_API']}/api/communities/{id}/featured"
+        url = f"{environ.get('QUART_INVENIORDM_API', 'https://rogue-scholar.org')}/api/communities/{id}/featured"
         headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
         now = datetime.datetime.now().isoformat()
         data = {"start_date": now}

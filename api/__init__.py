@@ -7,7 +7,6 @@ from os import environ
 from io import BytesIO
 import pydash as py_
 from dotenv import load_dotenv
-import sentry_sdk
 import frontmatter
 import pikepdf
 from pikepdf import AttachedFileSpec
@@ -76,9 +75,6 @@ load_dotenv()
 logger = logging.getLogger(__name__)
 version = "0.16"  # TODO: importlib.metadata.version('rogue-scholar-api')
 
-sentry_sdk.init(
-    dsn=environ["QUART_SENTRY_DSN"],
-)
 app = Quart(__name__, static_folder="static", static_url_path="")
 app.config.from_prefixed_env()
 QuartSchema(app, info=Info(title="Rogue Scholar API", version=version))

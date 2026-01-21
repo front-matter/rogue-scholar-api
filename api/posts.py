@@ -13,6 +13,7 @@ import html
 import xmltodict
 import time
 import traceback
+import logging
 from urllib.parse import unquote
 from commonmeta import (
     Metadata,
@@ -30,7 +31,6 @@ from commonmeta.date_utils import get_datetime_from_time
 from commonmeta.doi_utils import is_rogue_scholar_doi
 from math import ceil, floor
 from Levenshtein import ratio
-from sentry_sdk import capture_exception
 
 from api.utils import (
     unix_timestamp,
@@ -64,6 +64,8 @@ from api.supabase_client import (
     postsWithContentSelect,
     postsWithCitationsSelect,
 )
+
+logger = logging.getLogger(__name__)
 
 
 async def extract_all_posts(
@@ -359,7 +361,7 @@ async def extract_all_posts_by_blog(
                     print(f"Transport error for feed {feed_url}.")
                     posts = []
                 except httpx.HTTPError as e:
-                    capture_exception(e)
+                    logger.exception(e)
                     posts = []
                 extract_posts = [
                     extract_substack_post(x, blog, validate_all, classify_all)
@@ -388,7 +390,7 @@ async def extract_all_posts_by_blog(
                     print(f"Transport error for feed {feed_url}.")
                     posts = []
                 except httpx.HTTPError as e:
-                    capture_exception(e)
+                    logger.exception(e)
                     posts = []
                 extract_posts = [
                     extract_wordpress_post(x, blog, validate_all, classify_all)
@@ -413,7 +415,7 @@ async def extract_all_posts_by_blog(
                     print(f"Transport error for feed {feed_url}.")
                     posts = []
                 except httpx.HTTPError as e:
-                    capture_exception(e)
+                    logger.exception(e)
                     posts = []
                 extract_posts = [
                     extract_wordpresscom_post(x, blog, validate_all, classify_all)
@@ -439,7 +441,7 @@ async def extract_all_posts_by_blog(
                     print(f"Transport error for feed {feed_url}.")
                     posts = []
                 except httpx.HTTPError as e:
-                    capture_exception(e)
+                    logger.exception(e)
                     posts = []
                 extract_posts = [
                     extract_ghost_post(x, blog, validate_all, classify_all)
@@ -465,7 +467,7 @@ async def extract_all_posts_by_blog(
                     print(f"Transport error for feed {feed_url}.")
                     posts = []
                 except httpx.HTTPError as e:
-                    capture_exception(e)
+                    logger.exception(e)
                     posts = []
                 extract_posts = [
                     extract_squarespace_post(x, blog, validate_all, classify_all)
@@ -500,7 +502,7 @@ async def extract_all_posts_by_blog(
                     print(f"JSON decode error for feed {feed_url}.")
                     posts = []
                 except httpx.HTTPError as e:
-                    capture_exception(e)
+                    logger.exception(e)
                     posts = []
                 extract_posts = [
                     extract_jsonfeed_post(x, blog, validate_all, classify_all)
@@ -532,7 +534,7 @@ async def extract_all_posts_by_blog(
                     print(f"Transport error for feed {feed_url}.")
                     posts = []
                 except httpx.HTTPError as e:
-                    capture_exception(e)
+                    logger.exception(e)
                     posts = []
             extract_posts = [
                 extract_atom_post(x, blog, validate_all, classify_all) for x in posts
@@ -563,7 +565,7 @@ async def extract_all_posts_by_blog(
                     print(f"Transport error for feed {feed_url}.")
                     posts = []
                 except httpx.HTTPError as e:
-                    capture_exception(e)
+                    logger.exception(e)
                     posts = []
             extract_posts = [
                 extract_rss_post(x, blog, validate_all, classify_all) for x in posts
@@ -867,7 +869,7 @@ async def extract_single_post(
                     print(f"Transport error for feed {feed_url}.")
                     post = {}
                 except httpx.HTTPError as e:
-                    capture_exception(e)
+                    logger.exception(e)
                     post = {}
                 extract_posts = [
                     await extract_substack_post(
@@ -893,7 +895,7 @@ async def extract_single_post(
                     print(f"Transport error for feed {feed_url}.")
                     post = {}
                 except httpx.HTTPError as e:
-                    capture_exception(e)
+                    logger.exception(e)
                     post = {}
                 extract_posts = [
                     await extract_wordpress_post(
@@ -919,7 +921,7 @@ async def extract_single_post(
                     print(f"Transport error for feed {feed_url}.")
                     post = {}
                 except httpx.HTTPError as e:
-                    capture_exception(e)
+                    logger.exception(e)
                     post = {}
                 extract_posts = [
                     await extract_wordpresscom_post(
@@ -941,7 +943,7 @@ async def extract_single_post(
                     print(f"Transport error for feed {feed_url}.")
                     post = {}
                 except httpx.HTTPError as e:
-                    capture_exception(e)
+                    logger.exception(e)
                     post = {}
                 extract_posts = [
                     await extract_blogger_post(
@@ -964,7 +966,7 @@ async def extract_single_post(
                     print(f"Transport error for feed {feed_url}.")
                     posts = []
                 except httpx.HTTPError as e:
-                    capture_exception(e)
+                    logger.exception(e)
                     posts = []
                 extract_posts = [
                     await extract_ghost_post(
@@ -989,7 +991,7 @@ async def extract_single_post(
                     print(f"Transport error for feed {feed_url}.")
                     post = {}
                 except httpx.HTTPError as e:
-                    capture_exception(e)
+                    logger.exception(e)
                     post = {}
                 extract_posts = [
                     await extract_jsonfeed_post(
@@ -1017,7 +1019,7 @@ async def extract_single_post(
                     print(f"Transport error for feed {feed_url}.")
                     post = {}
                 except httpx.HTTPError as e:
-                    capture_exception(e)
+                    logger.exception(e)
                     post = {}
                 extract_posts = [
                     await extract_atom_post(
@@ -1045,7 +1047,7 @@ async def extract_single_post(
                     print(f"Transport error for feed {feed_url}.")
                     post = {}
                 except httpx.HTTPError as e:
-                    capture_exception(e)
+                    logger.exception(e)
                     post = {}
                 extract_posts = [
                     await extract_rss_post(
@@ -2349,7 +2351,9 @@ def upsert_single_post(post, previous: str | None = None):
         )
 
         # upsert InvenioRDM record
-        host = furl(environ.get("QUART_INVENIORDM_API", None)).host
+        host = furl(
+            environ.get("QUART_INVENIORDM_API", "https://rogue-scholar.org")
+        ).host
         token = environ.get("QUART_INVENIORDM_TOKEN", None)
         legacy_key = environ.get("QUART_SUPABASE_SERVICE_ROLE_KEY", None)
         if not host or not token or not legacy_key:
@@ -2960,7 +2964,7 @@ async def delete_draft_record(rid: str):
     if rid is None:
         return None
     try:
-        url = f"{environ['QUART_INVENIORDM_API']}/api/records/{rid}/draft"
+        url = f"{environ.get('QUART_INVENIORDM_API', 'https://rogue-scholar.org')}/api/records/{rid}/draft"
         headers = {
             "Content-Type": "application/octet-stream",
             "Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}",
@@ -2992,7 +2996,7 @@ async def delete_all_draft_records():
 async def delete_draft_records(page: int = 1):
     """Delete InvenioRDM draft records."""
     try:
-        url = f"{environ['QUART_INVENIORDM_API']}/api/user/records?q=is_published:false&page={page}&size=50&sort=updated-desc"
+        url = f"{environ.get('QUART_INVENIORDM_API', 'https://rogue-scholar.org')}/api/user/records?q=is_published:false&page={page}&size=50&sort=updated-desc"
         headers = {
             "Content-Type": "application/octet-stream",
             "Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}",
@@ -3010,7 +3014,7 @@ async def delete_draft_records(page: int = 1):
 async def get_number_of_draft_records():
     """Get number of InvenioRDM draft records."""
     try:
-        url = f"{environ['QUART_INVENIORDM_API']}/api/user/records?q=is_published:false"
+        url = f"{environ.get('QUART_INVENIORDM_API', 'https://rogue-scholar.org')}/api/user/records?q=is_published:false"
         headers = {
             "Content-Type": "application/octet-stream",
             "Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}",

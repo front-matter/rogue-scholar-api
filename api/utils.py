@@ -6,6 +6,7 @@ from urllib.parse import urlparse
 import os
 import re
 import time
+import logging
 from babel.dates import format_date
 import iso8601
 import json as JSON
@@ -39,7 +40,8 @@ import frontmatter
 import pandoc
 
 from pandoc.types import Link
-from sentry_sdk import capture_message
+
+logger = logging.getLogger(__name__)
 
 
 AUTHOR_IDS = {
@@ -6702,7 +6704,7 @@ def normalize_url(url: str | None, secure=False, lower=False) -> str | None:
             return f.url.lower()
         return f.url
     except ValueError:
-        capture_message(f"Error normalizing url {url}", "warning")
+        logger.warning(f"Error normalizing url {url}")
         return None
 
 
@@ -6735,7 +6737,10 @@ def is_valid_url(url: str) -> bool:
 
 def is_local():
     """Rogue Scholar API runs at localhost"""
-    return environ["QUART_INVENIORDM_API"] == "https://localhost"
+    return (
+        environ.get("QUART_INVENIORDM_API", "https://rogue-scholar.org")
+        == "https://localhost"
+    )
 
 
 def detect_language(text: str) -> str | None:
@@ -6823,7 +6828,7 @@ def write_pdf(markdown: str):
             options=[
                 "--pdf-engine=weasyprint",
                 "--pdf-engine-opt=--pdf-variant=pdf/a-3a",
-                f"--data-dir={environ['QUART_PANDOC_DATA_DIR']}",
+                f"--data-dir={environ.get('QUART_PANDOC_DATA_DIR', './')}",
                 "--template=pandoc/default.html5",
                 "--css=pandoc/style.css",
             ],
@@ -7245,7 +7250,7 @@ def classify_post(title: str, abstract: str) -> dict:
         dict: A dictionary containing the top topic classification with its confidence score between 0.0 and 1.0. Returns an empty dictionary on error.
     """
     max_retries = 3
-    bert_api_url = environ.get("QUART_BERT_API", "http://localhost:5100")
+    bert_api_url = environ.get("QUART_BERT_API", "https://bert.rogue-scholar.org")
 
     for attempt in range(max_retries):
         try:
