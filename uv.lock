@@ -1771,7 +1771,7 @@ wheels = [
 
 [[package]]
 name = "rogue-scholar-api"
-version = "0.16"
+version = "0.17"
 source = { editable = "." }
 dependencies = [
     { name = "babel" },
@@ -1798,7 +1798,6 @@ dependencies = [
     { name = "quart-db" },
     { name = "quart-rate-limiter" },
     { name = "quart-schema" },
-    { name = "sentry-sdk" },
     { name = "setuptools" },
     { name = "supabase" },
     { name = "tox" },
@@ -1843,7 +1842,6 @@ requires-dist = [
     { name = "quart-db", extras = ["postgresql"], specifier = "~=0.10.0" },
     { name = "quart-rate-limiter", specifier = ">=0.10.0,<0.11" },
     { name = "quart-schema", specifier = ">=0.17.1,<0.18" },
-    { name = "sentry-sdk", specifier = ">=1.32,<3.0" },
     { name = "setuptools", specifier = ">=0.70" },
     { name = "supabase", specifier = "~=2.9" },
     { name = "tox", specifier = ">=4.11.3,<5" },
@@ -1922,19 +1920,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/8d/1b/dd77503b3875c51e3dbc053fd8367b845ab8b01c9ca6d0c237082732856c/ruff-0.7.4-py3-none-win32.whl", hash = "sha256:75c53f54904be42dd52a548728a5b572344b50d9b2873d13a3f8c5e3b91f5cac", size = 8702767, upload-time = "2024-11-15T11:33:05.15Z" },
     { url = "https://files.pythonhosted.org/packages/63/76/253ddc3e89e70165bba952ecca424b980b8d3c2598ceb4fc47904f424953/ruff-0.7.4-py3-none-win_amd64.whl", hash = "sha256:745775c7b39f914238ed1f1b0bebed0b9155a17cd8bc0b08d3c87e4703b990d6", size = 9497534, upload-time = "2024-11-15T11:33:07.359Z" },
     { url = "https://files.pythonhosted.org/packages/aa/70/f8724f31abc0b329ca98b33d73c14020168babcf71b0cba3cded5d9d0e66/ruff-0.7.4-py3-none-win_arm64.whl", hash = "sha256:11bff065102c3ae9d3ea4dc9ecdfe5a5171349cdd0787c1fc64761212fc9cf1f", size = 8851590, upload-time = "2024-11-15T11:33:09.664Z" },
-]
-
-[[package]]
-name = "sentry-sdk"
-version = "2.47.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "certifi" },
-    { name = "urllib3" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/4a/2a/d225cbf87b6c8ecce5664db7bcecb82c317e448e3b24a2dcdaacb18ca9a7/sentry_sdk-2.47.0.tar.gz", hash = "sha256:8218891d5e41b4ea8d61d2aed62ed10c80e39d9f2959d6f939efbf056857e050", size = 381895, upload-time = "2025-12-03T14:06:36.846Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/bd/ac/d6286ea0d49e7b58847faf67b00e56bb4ba3d525281e2ac306e1f1f353da/sentry_sdk-2.47.0-py2.py3-none-any.whl", hash = "sha256:d72f8c61025b7d1d9e52510d03a6247b280094a327dd900d987717a4fce93412", size = 411088, upload-time = "2025-12-03T14:06:35.374Z" },
 ]
 
 [[package]]
