@@ -10,20 +10,12 @@ from datetime import datetime, timezone
 from commonmeta import (
     validate_doi,
     normalize_doi,
-    doi_from_url,
     wrap,
     Metadata,
     compact,
 )
 
-from api.supabase_client import (
-    supabase_client as supabase,
-    supabase_admin_client as supabase_admin,
-)
-
-from api.posts import (
-    update_single_post,
-)
+from api.db_client import Database, CitationsQueries
 
 
 async def extract_all_citations_by_prefix(slug: str) -> list:
@@ -117,13 +109,14 @@ async def format_crossref_citation(citation: dict, redirects: dict) -> dict:
     cid = f"{cited_doi.lower()}::{citing_doi.lower()}"
 
     # lookup blog_slug for cited doi
-    response = (
-        supabase.table("posts")
-        .select("blog_slug")
-        .eq("doi", normalize_doi(cited_doi))
-        .execute()
-    )
-    blog_slug = py_.get(response, "data[0].blog_slug")
+    query = """
+        SELECT blog_slug
+        FROM posts
+        WHERE doi = :doi
+        LIMIT 1
+    """
+    result = await Database.fetch_one(query, {"doi": normalize_doi(cited_doi)})
+    blog_slug = result.get("blog_slug") if result else None
 
     # lookup metadata via API call, as we need the publication date to order the citations
     subject = Metadata(citing_doi)
@@ -170,38 +163,38 @@ async def upsert_single_citation(citation):
         return {}
 
     try:
-        response = (
-            supabase_admin.table("citations")
-            .upsert(
-                {
-                    "cid": citation.get("cid"),
-                    "doi": citation.get("doi"),
-                    "citation": citation.get("citation"),
-                    "unstructured": citation.get("unstructured", None),
-                    "published_at": citation.get("published_at", None),
-                    "type": citation.get("type", None),
-                    "blog_slug": citation.get("blog_slug", None),
-                },
-                returning="representation",
-                ignore_duplicates=False,
-                on_conflict="cid",
-            )
-            .execute()
+        # UPSERT citation using PostgreSQL ON CONFLICT via helper
+        data = await CitationsQueries.upsert_citation(
+            {
+                "cid": citation.get("cid"),
+                "doi": citation.get("doi"),
+                "citation": citation.get("citation"),
+                "unstructured": citation.get("unstructured", None),
+                "published_at": citation.get("published_at", None),
+                "type": citation.get("type", None),
+                "blog_slug": citation.get("blog_slug", None),
+            }
         )
         print(
             f"Upserted citation {citation.get('citation')} for doi {citation.get('doi')}"
         )
-        data = response.data[0]
+        if not data:
+            return None
         today = datetime.now(timezone.utc).date()
-        updated_at = datetime.fromisoformat(
-            data.get("updated_at", None).replace("Z", "+00:00")
-        ).date()
-        if updated_at == today:
-            doi = doi_from_url(citation.get("doi", None))
-            slug, suffix = doi.split("/", 1)
-            result = await update_single_post(slug, suffix=suffix, validate_all=True)
-            print(f"Updated post for prefix {slug} and suffix {suffix}.")
-            return result
+        updated_at_value = data.get("updated_at", None)
+        updated_at_dt: datetime | None
+        if isinstance(updated_at_value, datetime):
+            updated_at_dt = updated_at_value
+        elif isinstance(updated_at_value, str):
+            updated_at_dt = datetime.fromisoformat(
+                updated_at_value.replace("Z", "+00:00")
+            )
+        else:
+            updated_at_dt = None
+
+        # NOTE: We intentionally don't call `update_single_post()` here.
+        # The citations endpoint should return citation records, and post-updates
+        # can introduce external coupling (and currently still contain legacy code).
         return data
     except Exception as e:
         print(e)

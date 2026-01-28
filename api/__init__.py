@@ -4,11 +4,10 @@ from hypercorn.config import Config
 import logging
 from math import ceil
 from os import environ
-from io import BytesIO
 import pydash as py_
 from dotenv import load_dotenv
 import frontmatter
-from quart import g, Quart, request, jsonify, redirect
+from quart import Quart, request, jsonify, redirect
 from quart_schema import (
     QuartSchema,
     Info,
@@ -19,23 +18,12 @@ from quart_schema import (
 )
 from quart_rate_limiter import RateLimiter
 from quart_cors import cors
-from postgrest import APIError
 from commonmeta import doi_from_url
 from quart_db import QuartDB
 
-from api.supabase_client import (
-    supabase_client,
-    blogsSelect,
-    blogWithPostsSelect,
-    citationsSelect,
-    citationsWithDoiSelect,
-    postsWithContentSelect,
-    postsWithCitationsSelect,
-)
+from api.db_client import Database
 from api.utils import (
     get_formatted_metadata,
-    download_image,
-    get_extension_from_url,
     get_markdown,
     convert_to_commonmeta,
     write_epub,
@@ -67,6 +55,59 @@ from api.blogs import extract_single_blog, extract_all_blogs
 from api.citations import extract_all_citations, extract_all_citations_by_prefix
 from api.schema import Blog, Citation, Post, PostQuery
 
+SERVICE_ROLE_KEY_ENV = "ROGUE_SCHOLAR_SERVICE_ROLE_KEY"
+LEGACY_SERVICE_ROLE_KEY_ENV = "QUART_SUPABASE_SERVICE_ROLE_KEY"
+
+
+def _get_service_role_key() -> str | None:
+    return environ.get(SERVICE_ROLE_KEY_ENV) or environ.get(LEGACY_SERVICE_ROLE_KEY_ENV)
+
+
+def _is_authorized() -> bool:
+    expected_key = _get_service_role_key()
+    if not expected_key:
+        return False
+
+    authorization = request.headers.get("Authorization")
+    if not authorization:
+        return False
+
+    parts = authorization.split(" ", 1)
+    if len(parts) != 2:
+        return False
+
+    scheme, token = parts[0], parts[1]
+    if scheme.lower() != "bearer":
+        return False
+
+    return token == expected_key
+
+
+def _typesense_like_search_response(
+    *,
+    items: list[dict],
+    found: int,
+    page: int,
+    per_page: int,
+    include_fields: list[str] | None = None,
+) -> dict:
+    if include_fields:
+        include_fields_set = set(include_fields)
+        items = [
+            {k: v for k, v in item.items() if k in include_fields_set} for item in items
+        ]
+
+    return {
+        "found": found,
+        "out_of": found,
+        "page": page,
+        "per_page": per_page,
+        "hits": [{"document": item} for item in items],
+        "total-results": found,
+        "items": items,
+    }
+
+
 config = Config()
 config.from_toml("hypercorn.toml")
 load_dotenv()
@@ -78,10 +119,19 @@ app.config.from_prefixed_env()
 QuartSchema(app, info=Info(title="Rogue Scholar API", version=version))
 limiter = RateLimiter(app)
 app = cors(app, allow_origin="*")
-# db = QuartDB(
-#     app,
-#     url=f"postgresql://{environ['QUART_POSTGRES_USER']}:{environ['QUART_POSTGRES_PASSWORD']}@{environ['QUART_POSTGRES_HOST']}/{environ['QUART_POSTGRES_DB']}",
-# )
+
+# QuartDB PostgreSQL connection
+#
+# We intentionally disable QuartDB's auto-migration feature for this app.
+# The project does not ship QuartDB migrations, and some existing databases
+# can have legacy `schema_migration` state tables that trigger QuartDB's
+# migration compatibility path during ASGI lifespan startup.
+db = QuartDB(
+    app,
+    url=f"postgresql+psycopg://{environ['QUART_POSTGRES_USER']}:{environ['QUART_POSTGRES_PASSWORD']}@{environ['QUART_POSTGRES_HOST']}:{environ.get('QUART_POSTGRES_PORT', '5432')}/{environ['QUART_POSTGRES_DB']}",
+    migrations_folder=None,
+    data_path=None,
+)
 
 
 def run() -> None:
@@ -119,22 +169,45 @@ async def blogs():
 
     status = ["active", "archived", "expired"]
     start_page = page if page and page > 0 else 1
-    start_page = (start_page - 1) * 10
-    end_page = start_page + 10
+    offset = (start_page - 1) * 10
+    limit = 10
 
     try:
-        response = (
-            supabase_client.table("blogs")
-            .select(blogsSelect, count="exact")
-            .in_("status", status)
-            .ilike("title", f"%{query}%")
-            .order("created_at", desc=True)
-            .range(start_page, end_page)
-            .execute()
+        # Get count
+        count_query = """
+            SELECT COUNT(*) as count
+            FROM blogs
+            WHERE status = ANY(:statuses)
+            AND title ILIKE :title_pattern
+        """
+        count_result = await Database.fetch_one(
+            count_query, {"statuses": status, "title_pattern": f"%{query}%"}
         )
-        return jsonify({"total-results": response.count, "items": response.data})
-    except APIError as e:
-        return {"error": e.message or "An error occured."}, 400
+        total_count = count_result["count"] if count_result else 0
+
+        # Get data
+        data_query = """
+            SELECT slug, title, description, language, favicon, feed_url,
+                   feed_format, home_page_url, generator, category, subfield
+            FROM blogs
+            WHERE status = ANY(:statuses)
+            AND title ILIKE :title_pattern
+            ORDER BY created_at DESC
+            LIMIT :limit OFFSET :offset
+        """
+        items = await Database.fetch_all(
+            data_query,
+            {
+                "statuses": status,
+                "title_pattern": f"%{query}%",
+                "limit": limit,
+                "offset": offset,
+            },
+        )
+        return jsonify({"total-results": total_count, "items": items})
+    except Exception as e:
+        logger.warning(e.args[0] if hasattr(e, "args") else str(e))
+        return {"error": "An error occured."}, 400
 
 
 @validate_response(Blog)
@@ -142,11 +215,7 @@ async def blogs():
 async def post_blogs():
     """Update all blogs, using information from the blogs' feed."""
 
-    if (
-        request.headers.get("Authorization", None) is None
-        or request.headers.get("Authorization").split(" ")[1]
-        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
-    ):
+    if not _is_authorized():
         return {"error": "Unauthorized."}, 401
     else:
         result = await extract_all_blogs()
@@ -157,14 +226,41 @@ async def post_blogs():
 @app.route("/blogs/<slug>")
 async def blog(slug):
     """Get blog by slug."""
-    response = (
-        supabase_client.table("blogs")
-        .select(blogWithPostsSelect)
-        .eq("slug", slug)
-        .maybe_single()
-        .execute()
-    )
-    return jsonify(response.data)
+    query = """
+        SELECT b.id, b.slug, b.feed_url, b.current_feed_url, b.home_page_url,
+               b.archive_host, b.archive_collection, b.archive_timestamps,
+               b.feed_format, b.created_at, b.updated_at, b.registered_at,
+               b.license, b.mastodon, b.generator, b.generator_raw, b.language,
+               b.favicon, b.title, b.description, b.category, b.subfield,
+               b.status, b.user_id, b.authors, b.use_api, b.relative_url,
+               b.filter, b.secure, b.community_id, b.prefix, b.issn,
+               json_agg(
+                   json_build_object(
+                       'id', p.id,
+                       'guid', p.guid,
+                       'doi', p.doi,
+                       'url', p.url,
+                       'title', p.title,
+                       'summary', p.summary,
+                       'published_at', p.published_at,
+                       'updated_at', p.updated_at
+                   )
+               ) FILTER (WHERE p.id IS NOT NULL) as posts
+        FROM blogs b
+        LEFT JOIN posts p ON b.slug = p.blog_slug
+        WHERE b.slug = :slug
+        GROUP BY b.id, b.slug, b.feed_url, b.current_feed_url, b.home_page_url,
+                 b.archive_host, b.archive_collection, b.archive_timestamps,
+                 b.feed_format, b.created_at, b.updated_at, b.registered_at,
+                 b.license, b.mastodon, b.generator, b.generator_raw, b.language,
+                 b.favicon, b.title, b.description, b.category, b.subfield,
+                 b.status, b.user_id, b.authors, b.use_api, b.relative_url,
+                 b.filter, b.secure, b.community_id, b.prefix, b.issn
+    """
+    result = await Database.fetch_one(query, {"slug": slug})
+    if not result:
+        return {"error": "Blog not found"}, 404
+    return jsonify(result)
 
 
 @validate_response(Blog)
@@ -172,11 +268,7 @@ async def blog(slug):
 async def post_blog(slug):
     """Update blog by slug, using information from the blog's feed.
     Create InvenioRDM entry for the blog."""
-    if (
-        request.headers.get("Authorization", None) is None
-        or request.headers.get("Authorization").split(" ")[1]
-        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
-    ):
+    if not _is_authorized():
         return {"error": "Unauthorized."}, 401
 
     result = await extract_single_blog(slug)
@@ -193,11 +285,7 @@ async def post_blog_posts(slug: str, suffix: str | None = None):
     validate = request.args.get("validate")
     classify = request.args.get("classify")
 
-    if (
-        request.headers.get("Authorization", None) is None
-        or request.headers.get("Authorization").split(" ")[1]
-        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
-    ):
+    if not _is_authorized():
         return {"error": "Unauthorized."}, 401
     elif slug and suffix == "posts":
         try:
@@ -250,49 +338,48 @@ async def citations():
     blog_slug = request.args.get("blog_slug")
 
     start_page = page if page and page > 0 else 1
-    start_page = (start_page - 1) * 10
-    end_page = start_page + 10
+    offset = (start_page - 1) * 10
+    limit = 10
 
     try:
-        if blog_slug and type_:
-            response = (
-                supabase_client.table("citations")
-                .select(citationsWithDoiSelect, count="exact")
-                .eq("blog_slug", blog_slug)
-                .eq("type", type_)
-                .order("published_at", desc=True)
-                .range(start_page, end_page)
-                .execute()
-            )
-        elif blog_slug:
-            response = (
-                supabase_client.table("citations")
-                .select(citationsWithDoiSelect, count="exact")
-                .eq("blog_slug", blog_slug)
-                .order("published_at", desc=True)
-                .range(start_page, end_page)
-                .execute()
-            )
-        elif type_:
-            response = (
-                supabase_client.table("citations")
-                .select(citationsWithDoiSelect, count="exact")
-                .eq("type", type_)
-                .order("published_at", desc=True)
-                .range(start_page, end_page)
-                .execute()
-            )
-        else:
-            response = (
-                supabase_client.table("citations")
-                .select(citationsWithDoiSelect, count="exact")
-                .order("published_at", desc=True)
-                .range(start_page, end_page)
-                .execute()
-            )
-        return jsonify({"total-results": response.count, "items": response.data})
-    except APIError as e:
-        return {"error": e.message or "An error occured."}, 400
+        # Build WHERE conditions dynamically
+        where_conditions = []
+        params = {"limit": limit, "offset": offset}
+
+        if blog_slug:
+            where_conditions.append("c.blog_slug = :blog_slug")
+            params["blog_slug"] = blog_slug
+        if type_:
+            where_conditions.append("c.type = :type")
+            params["type"] = type_
+
+        where_clause = (
+            "WHERE " + " AND ".join(where_conditions) if where_conditions else ""
+        )
+
+        # Get count
+        count_query = f"""
+            SELECT COUNT(*) as count
+            FROM citations c
+            {where_clause}
+        """
+        count_result = await Database.fetch_one(count_query, params)
+        total_count = count_result["count"] if count_result else 0
+
+        # Get data with DOI info
+        data_query = f"""
+            SELECT c.citation, c.unstructured, c.validated, c.updated_at, c.published_at,
+                   c.doi, c.cid, c.blog_slug, c.type
+            FROM citations c
+            {where_clause}
+            ORDER BY c.published_at DESC
+            LIMIT :limit OFFSET :offset
+        """
+        items = await Database.fetch_all(data_query, params)
+        return jsonify({"total-results": total_count, "items": items})
+    except Exception as e:
+        logger.warning(e.args[0] if hasattr(e, "args") else str(e))
+        return {"error": "An error occured."}, 400
 
 
 @validate_response(Citation)
@@ -301,15 +388,14 @@ async def citation(slug: str, suffix: str):
     """Get citation by doi."""
     if slug and suffix:
         doi = f"https://doi.org/{slug}/{suffix}"
-        response = (
-            supabase_client.table("citations")
-            .select(citationsSelect)
-            .eq("doi", doi)
-            .order("published_at", desc=False)
-            .order("updated_at", desc=True)
-            .execute()
-        )
-        return jsonify(response.data)
+        query = """
+            SELECT citation, unstructured, validated, updated_at, published_at
+            FROM citations
+            WHERE doi = :doi
+            ORDER BY published_at ASC, updated_at DESC
+        """
+        items = await Database.fetch_all(query, {"doi": doi})
+        return jsonify(items)
     else:
         return {"error": "An error occured."}, 400
 
@@ -332,11 +418,7 @@ async def post_citations():
         "10.64395",
         "10.65527",
     ]
-    if (
-        request.headers.get("Authorization", None) is None
-        or request.headers.get("Authorization").split(" ")[1]
-        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
-    ):
+    if not _is_authorized():
         return {"error": "Unauthorized."}, 401
 
     try:
@@ -370,11 +452,7 @@ async def post_citations_by_prefix(slug: str, suffix: str | None = None):
         logger.warning(f"Invalid prefix: {slug}")
         return {"error": "An error occured."}, 400
 
-    if (
-        request.headers.get("Authorization", None) is None
-        or request.headers.get("Authorization").split(" ")[1]
-        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
-    ):
+    if not _is_authorized():
         return {"error": "Unauthorized."}, 401
 
     try:
@@ -401,6 +479,13 @@ async def posts():
     """Search posts by query, category, flag. Options to change page, per_page."""
     preview = request.args.get("preview")
     query = request.args.get("query") or ""
+    language = request.args.get("language")
+    include_fields = request.args.get("include_fields")
+    include_fields_list = (
+        [f.strip() for f in include_fields.split(",") if f.strip()]
+        if include_fields
+        else None
+    )
     per_page = int(request.args.get("per_page") or "10")
     per_page = min(per_page, 50)
     page = int(request.args.get("page") or "1")
@@ -409,34 +494,64 @@ async def posts():
     if preview:
         status = ["pending", "active", "archived", "expired"]
     start_page = page if page and page > 0 else 1
-    start_page = (start_page - 1) * per_page
-    end_page = start_page + per_page - 1
+    offset = (start_page - 1) * per_page
 
     try:
+        # Build WHERE conditions
+        where_conditions = ["p.status = ANY(:statuses)", "p.title ILIKE :title_pattern"]
+        params = {
+            "statuses": status,
+            "title_pattern": f"%{query}%",
+            "limit": per_page,
+            "offset": offset,
+        }
+
         if blog_slug:
-            response = (
-                supabase_client.table("posts")
-                .select(postsWithContentSelect, count="exact")
-                .in_("status", status)
-                .eq("blog_slug", blog_slug)
-                .ilike("title", f"%{query}%")
-                .order("published_at", desc=True)
-                .range(start_page, end_page)
-                .execute()
+            where_conditions.append("p.blog_slug = :blog_slug")
+            params["blog_slug"] = blog_slug
+
+        if language:
+            where_conditions.append("p.language = :language")
+            params["language"] = language
+
+        where_clause = "WHERE " + " AND ".join(where_conditions)
+
+        # Get count
+        count_query = f"""
+            SELECT COUNT(*) as count
+            FROM posts p
+            {where_clause}
+        """
+        count_result = await Database.fetch_one(count_query, params)
+        total_count = count_result["count"] if count_result else 0
+
+        # Get data with blog info
+        data_query = f"""
+            SELECT p.id, p.guid, p.doi, p.parent_doi, p.url, p.archive_url,
+                   p.title, p.summary, p.abstract, p.published_at, p.updated_at,
+                   p.registered_at, p.indexed_at, p.indexed, p.authors, p.image,
+                   p.tags, p.language, p.reference, p.relationships,
+                   p.funding_references, p.blog_name, p.blog_slug, p.content_html,
+                   p.rid, p.version, p.status,
+                   row_to_json(b.*) as blog
+            FROM posts p
+            INNER JOIN blogs b ON p.blog_slug = b.slug
+            {where_clause}
+            ORDER BY p.published_at DESC
+            LIMIT :limit OFFSET :offset
+        """
+        items = await Database.fetch_all(data_query, params)
+        return jsonify(
+            _typesense_like_search_response(
+                items=items,
+                found=total_count,
+                page=start_page,
+                per_page=per_page,
+                include_fields=include_fields_list,
             )
-        else:
-            response = (
-                supabase_client.table("posts")
-                .select(postsWithContentSelect, count="exact")
-                .in_("status", status)
-                .ilike("title", f"%{query}%")
-                .order("published_at", desc=True)
-                .range(start_page, end_page)
-                .execute()
-            )
-        return jsonify({"total-results": response.count, "items": response.data})
+        )
     except Exception as e:
-        logger.warning(e.args[0])
+        logger.warning(e.args[0] if hasattr(e, "args") else str(e))
         return {"error": "An error occured."}, 400
 
 
@@ -449,11 +564,7 @@ async def post_posts():
     validate = request.args.get("validate")
     classify = request.args.get("classify")
 
-    if (
-        request.headers.get("Authorization", None) is None
-        or request.headers.get("Authorization").split(" ")[1]
-        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
-    ):
+    if not _is_authorized():
         return {"error": "Unauthorized."}, 401
     else:
         try:
@@ -486,11 +597,7 @@ async def post_post(slug: str, suffix: str | None = None):
     validate = request.args.get("validate")
     classify = request.args.get("classify")
     previous = request.args.get("previous")
-    if (
-        request.headers.get("Authorization", None) is None
-        or request.headers.get("Authorization").split(" ")[1]
-        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
-    ):
+    if not _is_authorized():
         return {"error": "Unauthorized."}, 401
 
     try:
@@ -558,95 +665,184 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
     page = int(request.args.get("page") or "1")
     per_page = int(request.args.get("per_page") or "50")
     if slug == "unregistered":
-        response = (
-            supabase_client.table("posts")
-            .select(
-                "id, guid, doi, url, archive_url, title, summary, abstract, content_html, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, funding_references, blog_name, blog_slug, rid, blog: blogs!inner(*)",
-                count="exact",
-            )
-            .not_.is_("blogs.prefix", "null")
-            .is_("doi", "null")
-            .is_("rid", "null")
-            .in_("status", status)
-            .order("published_at", desc=True)
-            .limit(min(per_page, 50))
-            .execute()
+        query = """
+            SELECT COUNT(*) as count
+            FROM posts p
+            INNER JOIN blogs b ON p.blog_slug = b.slug
+            WHERE b.prefix IS NOT NULL
+            AND p.doi IS NULL
+            AND p.rid IS NULL
+            AND p.status = ANY(:statuses)
+        """
+        count_result = await Database.fetch_one(query, {"statuses": status})
+        total_count = count_result["count"] if count_result else 0
+
+        data_query = """
+            SELECT p.id, p.guid, p.doi, p.url, p.archive_url, p.title, p.summary,
+                   p.abstract, p.content_html, p.published_at, p.updated_at,
+                   p.registered_at, p.indexed_at, p.authors, p.image, p.tags,
+                   p.language, p.reference, p.relationships, p.funding_references,
+                   p.blog_name, p.blog_slug, p.rid,
+                   row_to_json(b.*) as blog
+            FROM posts p
+            INNER JOIN blogs b ON p.blog_slug = b.slug
+            WHERE b.prefix IS NOT NULL
+            AND p.doi IS NULL
+            AND p.rid IS NULL
+            AND p.status = ANY(:statuses)
+            ORDER BY p.published_at DESC
+            LIMIT :limit
+        """
+        items = await Database.fetch_all(
+            data_query, {"statuses": status, "limit": min(per_page, 50)}
         )
-        return jsonify({"total-results": response.count, "items": response.data})
+        return jsonify(items)
     elif slug == "updated":
-        response = (
-            supabase_client.table("posts")
-            .select(
-                "id, guid, doi, url, archive_url, title, summary, abstract, content_html, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, funding_references, blog_name, blog_slug, rid, blog: blogs!inner(*)",
-                count="exact",
-            )
-            .not_.is_("blogs.prefix", "null")
-            .is_("updated", True)
-            .not_.is_("doi", "null")
-            .in_("status", status)
-            .order("updated_at", desc=True)
-            .limit(min(per_page, 50))
-            .execute()
+        query = """
+            SELECT COUNT(*) as count
+            FROM posts p
+            INNER JOIN blogs b ON p.blog_slug = b.slug
+            WHERE b.prefix IS NOT NULL
+            AND p.updated = true
+            AND p.doi IS NOT NULL
+            AND p.status = ANY(:statuses)
+        """
+        count_result = await Database.fetch_one(query, {"statuses": status})
+        total_count = count_result["count"] if count_result else 0
+
+        data_query = """
+            SELECT p.id, p.guid, p.doi, p.url, p.archive_url, p.title, p.summary,
+                   p.abstract, p.content_html, p.published_at, p.updated_at,
+                   p.registered_at, p.indexed_at, p.authors, p.image, p.tags,
+                   p.language, p.reference, p.relationships, p.funding_references,
+                   p.blog_name, p.blog_slug, p.rid,
+                   row_to_json(b.*) as blog
+            FROM posts p
+            INNER JOIN blogs b ON p.blog_slug = b.slug
+            WHERE b.prefix IS NOT NULL
+            AND p.updated = true
+            AND p.doi IS NOT NULL
+            AND p.status = ANY(:statuses)
+            ORDER BY p.updated_at DESC
+            LIMIT :limit
+        """
+        items = await Database.fetch_all(
+            data_query, {"statuses": status, "limit": min(per_page, 50)}
         )
-        return jsonify({"total-results": response.count, "items": response.data})
+        return jsonify(items)
     elif slug == "waiting":
-        response = (
-            supabase_client.table("posts")
-            .select(
-                "id, guid, doi, url, archive_url, title, summary, abstract, content_html, published_at, updated_at, registered_at, indexed_at, authors, image, tags, language, reference, relationships, funding_references, blog_name, blog_slug, rid, blog: blogs!inner(*)",
-                count="exact",
-            )
-            .not_.is_("blogs.prefix", "null")
-            .lte("indexed_at", 1)
-            .in_("status", status)
-            .order("published_at", desc=True)
-            .limit(min(per_page, 50))
-            .execute()
+        query = """
+            SELECT COUNT(*) as count
+            FROM posts p
+            INNER JOIN blogs b ON p.blog_slug = b.slug
+            WHERE b.prefix IS NOT NULL
+            AND p.indexed_at <= 1
+            AND p.status = ANY(:statuses)
+        """
+        count_result = await Database.fetch_one(query, {"statuses": status})
+        total_count = count_result["count"] if count_result else 0
+
+        data_query = """
+            SELECT p.id, p.guid, p.doi, p.url, p.archive_url, p.title, p.summary,
+                   p.abstract, p.content_html, p.published_at, p.updated_at,
+                   p.registered_at, p.indexed_at, p.authors, p.image, p.tags,
+                   p.language, p.reference, p.relationships, p.funding_references,
+                   p.blog_name, p.blog_slug, p.rid,
+                   row_to_json(b.*) as blog
+            FROM posts p
+            INNER JOIN blogs b ON p.blog_slug = b.slug
+            WHERE b.prefix IS NOT NULL
+            AND p.indexed_at <= 1
+            AND p.status = ANY(:statuses)
+            ORDER BY p.published_at DESC
+            LIMIT :limit
+        """
+        items = await Database.fetch_all(
+            data_query, {"statuses": status, "limit": min(per_page, 50)}
         )
-        return jsonify({"total-results": response.count, "items": response.data})
+        return jsonify({"total-results": total_count, "items": items})
     elif slug == "cited":
-        response = (
-            supabase_client.table("posts")
-            .select("*, citation: citations!inner(citation)", count="exact", head=True)
-            .not_.is_("doi", "null")
-            .execute()
-        )
-        total = response.count
+        # Get total count first
+        count_query = """
+            SELECT COUNT(DISTINCT p.id) as count
+            FROM posts p
+            INNER JOIN citations c ON p.doi = c.doi
+            WHERE p.doi IS NOT NULL
+        """
+        count_result = await Database.fetch_one(count_query)
+        total = count_result["count"] if count_result else 0
         total_pages = ceil(total / 50)
         page = min(page, total_pages)
         start_page = (page - 1) * 50 if page > 0 else 0
-        end_page = (page - 1) * 50 + 50 if page > 0 else 50
 
-        response = (
-            supabase_client.table("posts")
-            .select(postsWithCitationsSelect, count="exact")
-            .not_.is_("blogs.prefix", "null")
-            .not_.is_("doi", "null")
-            .order("updated_at", desc=True)
-            .limit(min(per_page, 100))
-            .range(start_page, end_page)
-            .execute()
+        data_query = """
+            SELECT p.id, p.guid, p.doi, p.parent_doi, p.url, p.archive_url,
+                   p.title, p.summary, p.abstract, p.published_at, p.updated_at,
+                   p.registered_at, p.indexed_at, p.indexed, p.authors, p.image,
+                   p.tags, p.language, p.reference, p.relationships,
+                   p.funding_references, p.blog_name, p.blog_slug, p.content_html,
+                   p.rid, p.version,
+                   row_to_json(b.*) as blog,
+                   (
+                       SELECT json_agg(row_to_json(c.*))
+                       FROM citations c
+                       WHERE c.doi = p.doi AND c.cid IS NOT NULL
+                   ) as citations
+            FROM posts p
+            INNER JOIN blogs b ON p.blog_slug = b.slug
+            WHERE b.prefix IS NOT NULL
+            AND p.doi IS NOT NULL
+            ORDER BY p.updated_at DESC
+            LIMIT :limit OFFSET :offset
+        """
+        items = await Database.fetch_all(
+            data_query, {"limit": min(per_page, 100), "offset": start_page}
         )
-        return jsonify({"total-results": response.count, "items": response.data})
+        return jsonify({"total-results": total, "items": items})
     elif slug in prefixes and suffix and relation:
         if validate_uuid(slug):
-            response = (
-                supabase_client.table("posts")
-                .select("reference")
-                .eq("id", slug)
-                .maybe_single()
-                .execute()
-            )
+            query = """
+                SELECT reference
+                FROM posts
+                WHERE id = :id
+            """
+            result = await Database.fetch_one(query, {"id": slug})
         else:
             doi = f"https://doi.org/{slug}/{suffix.lower()}"
-            response = (
-                supabase_client.table("posts")
-                .select("reference")
-                .eq("doi", doi)
-                .maybe_single()
-                .execute()
-            )
-        references = response.data.get("reference", [])
+            query = """
+                SELECT reference
+                FROM posts
+                WHERE doi = :doi
+            """
+            result = await Database.fetch_one(query, {"doi": doi})
+        references = result.get("reference", []) if result else []
+        if isinstance(references, list):
+            normalized_references = []
+            for idx, ref in enumerate(references, start=1):
+                if isinstance(ref, dict) and "key" not in ref:
+                    ref = {"key": f"ref{idx}", **ref}
+                if (
+                    isinstance(ref, dict)
+                    and "title" not in ref
+                    and isinstance(ref.get("unstructured"), str)
+                ):
+                    parts = [
+                        p.strip() for p in ref["unstructured"].split(".") if p.strip()
+                    ]
+                    if len(parts) >= 2:
+                        ref = {**ref, "title": parts[1]}
+                if (
+                    isinstance(ref, dict)
+                    and "publicationYear" not in ref
+                    and isinstance(ref.get("unstructured"), str)
+                ):
+                    import re
+
+                    match = re.search(r"\b(19|20)\d{2}\b", ref["unstructured"])
+                    if match:
+                        ref = {**ref, "publicationYear": match.group(0)}
+                normalized_references.append(ref)
+            references = normalized_references
         count = len(references)
         return jsonify({"total-results": count, "items": references})
     elif slug in prefixes and suffix:
@@ -668,45 +864,88 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
             format_ = "schema_org"
     try:
         if validate_uuid(slug):
-            response = (
-                supabase_client.table("posts")
-                .select(postsWithCitationsSelect)
-                .eq("id", slug)
-                .maybe_single()
-                .execute()
-            )
-            if not response:
-                response = (
-                    supabase_client.table("posts")
-                    .select(postsWithContentSelect)
-                    .eq("id", slug)
-                    .maybe_single()
-                    .execute()
-                )
+            # Try with citations first
+            query = """
+                SELECT p.id, p.guid, p.doi, p.parent_doi, p.url, p.archive_url,
+                       p.title, p.summary, p.abstract, p.published_at, p.updated_at,
+                       p.registered_at, p.indexed_at, p.indexed, p.authors, p.image,
+                       p.tags, p.language, p.reference, p.relationships,
+                       p.funding_references, p.blog_name, p.blog_slug, p.content_html,
+                       p.rid, p.version,
+                       row_to_json(b.*) as blog,
+                       (
+                           SELECT json_agg(row_to_json(c.*))
+                           FROM citations c
+                           WHERE c.doi = p.doi AND c.cid IS NOT NULL
+                       ) as citations
+                FROM posts p
+                INNER JOIN blogs b ON p.blog_slug = b.slug
+                WHERE p.id = :id
+            """
+            result = await Database.fetch_one(query, {"id": slug})
+            if not result:
+                # Fallback without citations
+                query = """
+                    SELECT p.id, p.guid, p.doi, p.parent_doi, p.url, p.archive_url,
+                           p.title, p.summary, p.abstract, p.published_at, p.updated_at,
+                           p.registered_at, p.indexed_at, p.indexed, p.authors, p.image,
+                           p.tags, p.language, p.reference, p.relationships,
+                           p.funding_references, p.blog_name, p.blog_slug, p.content_html,
+                           p.rid, p.version,
+                           row_to_json(b.*) as blog
+                    FROM posts p
+                    INNER JOIN blogs b ON p.blog_slug = b.slug
+                    WHERE p.id = :id
+                """
+                result = await Database.fetch_one(query, {"id": slug})
             basename = slug
         else:
             doi = f"https://doi.org/{slug}/{suffix}"
-            response = (
-                supabase_client.table("posts")
-                .select(postsWithCitationsSelect)
-                .eq("doi", doi)
-                .maybe_single()
-                .execute()
-            )
-            if not response:
-                response = (
-                    supabase_client.table("posts")
-                    .select(postsWithContentSelect)
-                    .eq("doi", doi)
-                    .maybe_single()
-                    .execute()
-                )
+            # Try with citations first
+            query = """
+                SELECT p.id, p.guid, p.doi, p.parent_doi, p.url, p.archive_url,
+                       p.title, p.summary, p.abstract, p.published_at, p.updated_at,
+                       p.registered_at, p.indexed_at, p.indexed, p.authors, p.image,
+                       p.tags, p.language, p.reference, p.relationships,
+                       p.funding_references, p.blog_name, p.blog_slug, p.content_html,
+                       p.rid, p.version,
+                       row_to_json(b.*) as blog,
+                       (
+                           SELECT json_agg(row_to_json(c.*))
+                           FROM citations c
+                           WHERE c.doi = p.doi AND c.cid IS NOT NULL
+                       ) as citations
+                FROM posts p
+                INNER JOIN blogs b ON p.blog_slug = b.slug
+                WHERE p.doi = :doi
+            """
+            result = await Database.fetch_one(query, {"doi": doi})
+            if not result:
+                # Fallback without citations
+                query = """
+                    SELECT p.id, p.guid, p.doi, p.parent_doi, p.url, p.archive_url,
+                           p.title, p.summary, p.abstract, p.published_at, p.updated_at,
+                           p.registered_at, p.indexed_at, p.indexed, p.authors, p.image,
+                           p.tags, p.language, p.reference, p.relationships,
+                           p.funding_references, p.blog_name, p.blog_slug, p.content_html,
+                           p.rid, p.version,
+                           row_to_json(b.*) as blog
+                    FROM posts p
+                    INNER JOIN blogs b ON p.blog_slug = b.slug
+                    WHERE p.doi = :doi
+                """
+                result = await Database.fetch_one(query, {"doi": doi})
             basename = doi_from_url(doi).replace("/", "-")
-        content = response.data.get("content_html", None)
+
+        if not result:
+            return {"error": "Post not found"}, 404
+        content = result.get("content_html", None) if result else None
         if format_ == "json":
-            return jsonify(response.data)
-        metadata = py_.omit(response.data, ["content_html"])
+            return jsonify(result)
+        metadata = py_.omit(result, ["content_html"]) if result else None
         meta = convert_to_commonmeta(metadata)
+        if isinstance(meta, dict):
+            meta["type"] = "article"
     except Exception as e:
         logger.warning(e.args[0])
         return {"error": "Post not found"}, 404
@@ -855,28 +1094,21 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
 @app.route("/records", methods=["DELETE"])
 async def delete_all_records():
     """Delete all_InvenioRDM draft records."""
-    if (
-        request.headers.get("Authorization", None) is None
-        or request.headers.get("Authorization").split(" ")[1]
-        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
-    ):
+    if not _is_authorized():
         return {"error": "Unauthorized."}, 401
 
     try:
         result = await delete_all_draft_records()
         return jsonify(result)
-    except APIError as e:
-        return {"error": e.message or "An error occured."}, 400
+    except Exception as e:
+        logger.warning(e.args[0] if hasattr(e, "args") else str(e))
+        return {"error": "An error occured."}, 400
 
 
 @app.route("/records/<slug>", methods=["DELETE"])
 async def delete_record(slug: str):
     """Delete InvenioRDM draft record using the rid."""
-    if (
-        request.headers.get("Authorization", None) is None
-        or request.headers.get("Authorization").split(" ")[1]
-        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
-    ):
+    if not _is_authorized():
         return {"error": "Unauthorized."}, 401
     try:
         result = await delete_draft_record(slug)
