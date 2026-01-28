@@ -67,6 +67,7 @@ def _compile(query: str, params: Optional[Dict] = None) -> tuple[str, list[Any]]
 _JSONB_PARAM_KEYS = {
     # posts
     "authors",
+    "images",
     "reference",
     "relationships",
     "funding_references",
