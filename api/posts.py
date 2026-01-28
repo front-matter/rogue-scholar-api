@@ -58,12 +58,14 @@ from api.utils import (
     classify_post,
     EXCLUDED_TAGS,
 )
-from api.supabase_client import (
-    supabase_admin_client as supabase_admin,
-    supabase_client as supabase,
-    postsWithContentSelect,
-    postsWithCitationsSelect,
-)
+from api.db_client import Database, BlogsQueries, PostsQueries, CitationsQueries
+
+# from api.supabase_client import (
+#     supabase_admin_client as supabase_admin,
+#     supabase_client as supabase,
+#     postsWithContentSelect,
+#     postsWithCitationsSelect,
+# )
 
 logger = logging.getLogger(__name__)
 
@@ -76,15 +78,9 @@ async def extract_all_posts(
 ):
     """Extract all posts."""
 
-    blogs = (
-        supabase.table("blogs")
-        .select("slug")
-        .in_("status", ["active"])
-        .order("slug", desc=False)
-        .execute()
-    )
+    blogs = await BlogsQueries.select_all(statuses=["active"], order_by="slug")
     tasks = []
-    for blog in blogs.data:
+    for blog in blogs:
         task = extract_all_posts_by_blog(
             blog["slug"], page, update_all, validate_all, classify_all
         )
@@ -106,16 +102,18 @@ async def update_all_posts(
 ):
     """Update all posts."""
 
-    blogs = (
-        supabase.table("blogs")
-        .select("slug")
-        .in_("status", ["active", "expired", "archived", "pending"])
-        .not_.is_("prefix", "null")
-        .order("title", desc=False)
-        .execute()
+    query = """
+        SELECT slug
+        FROM blogs
+        WHERE status = ANY(:statuses)
+        AND prefix IS NOT NULL
+        ORDER BY title
+    """
+    blogs = await Database.fetch_all(
+        query, {"statuses": ["active", "expired", "archived", "pending"]}
     )
     tasks = []
-    for blog in blogs.data:
+    for blog in blogs:
         task = update_all_posts_by_blog(blog["slug"], page, validate_all, classify_all)
         tasks.append(task)
 
@@ -135,12 +133,14 @@ async def update_all_cited_posts(
 ):
     """Update all cited posts."""
 
-    response = (
-        supabase.table("posts")
-        .select("*, citations: citations!inner(*)", count="exact", head=True)
-        .execute()
-    )
-    total = response.count
+    # Get count of posts with citations
+    count_query = """
+        SELECT COUNT(DISTINCT p.id)
+        FROM posts p
+        INNER JOIN citations c ON p.doi = c.doi
+    """
+    result = await Database.fetch_one(count_query)
+    total = result.get("count", 0) if result else 0
     total_pages = ceil(total / 50)
     page = min(page, total_pages)
     start_page = (page - 1) * total_pages if page > 0 else 0
@@ -148,17 +148,24 @@ async def update_all_cited_posts(
     validate_all = True
     status = ["approved", "active", "archived", "expired"]
 
-    response = (
-        supabase.table("posts")
-        .select("*, blog: blogs!inner(*), citations: citations!inner(*)", count="exact")
-        .in_("status", status)
-        .order("updated_at", desc=False)
-        .range(start_page, end_page)
-        .execute()
+    # Get posts with blog and citations
+    query = f"""
+        SELECT p.*, row_to_json(b.*) as blog,
+               json_agg(row_to_json(c.*)) as citations
+        FROM posts p
+        INNER JOIN blogs b ON p.blog_slug = b.slug
+        INNER JOIN citations c ON p.doi = c.doi
+        WHERE p.status = ANY(:status)
+        GROUP BY p.id, b.id
+        ORDER BY p.updated_at
+        LIMIT :limit OFFSET :offset
+    """
+    posts = await Database.fetch_all(
+        query, {"status": status, "limit": end_page - start_page, "offset": start_page}
     )
     tasks = []
     print(f"Updating cited posts from page {page} of {total_pages}.")
-    for post in response.data:
+    for post in posts:
         print("Updating cited post", post["doi"])
         blog = post.get("blog", None)
         task = update_rogue_scholar_post(post, blog, validate_all, classify_all)
@@ -172,21 +179,24 @@ async def update_all_flagged_posts(page: int = 1):
     """Update all flagged posts."""
 
     start_page = (page - 1) * 50 if page > 0 else 0
-    end_page = (page - 1) * 50 + 50
+    limit = 50
     status = ["approved", "active", "archived", "expired"]
     validate_all = True
 
-    response = (
-        supabase.table("posts")
-        .select(postsWithContentSelect, count="exact")
-        .in_("status", status)
-        .is_("content_html", "null")
-        .order("published_at", desc=True)
-        .range(start_page, end_page)
-        .execute()
+    query = f"""
+        SELECT p.*, row_to_json(b.*) as blog
+        FROM posts p
+        INNER JOIN blogs b ON p.blog_slug = b.slug
+        WHERE p.status = ANY(:status)
+        AND p.content_html IS NULL
+        ORDER BY p.published_at DESC
+        LIMIT :limit OFFSET :offset
+    """
+    posts = await Database.fetch_all(
+        query, {"status": status, "limit": limit, "offset": start_page}
     )
     tasks = []
-    for post in response.data:
+    for post in posts:
         blog = post.get("blog", None)
         task = update_rogue_scholar_post(post, blog, validate_all, classify_all)
         tasks.append(task)
@@ -205,18 +215,7 @@ async def extract_all_posts_by_blog(
     """Extract all posts by blog."""
 
     try:
-        response = (
-            supabase.table("blogs")
-            .select(
-                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, archive_host, archive_collection, archive_timestamps, feed_format, created_at, updated_at, registered_at, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure, doi_as_guid"
-            )
-            .eq("slug", slug)
-            .maybe_single()
-            .execute()
-        )
-        if not response:
-            return []
-        blog = response.data
+        blog = await BlogsQueries.select_by_slug(slug)
         if not blog:
             return {}
         if page == 1 and blog.get("slug") not in ["chem_bla_ics"]:
@@ -230,28 +229,25 @@ async def extract_all_posts_by_blog(
         )
 
         # get timestamp of last updated post
-        response = (
-            supabase.table("posts")
-            .select("updated_at")
-            .eq("blog_slug", slug)
-            .order("updated_at", desc=True)
-            .limit(1)
-            .execute()
-        )
-        if not response.data:
-            updated_at = 0
-        else:
-            updated_at = response.data[0].get("updated_at", 0)
+        query = """
+            SELECT updated_at
+            FROM posts
+            WHERE blog_slug = :slug
+            ORDER BY updated_at DESC
+            LIMIT 1
+        """
+        result = await Database.fetch_one(query, {"slug": slug})
+        updated_at = result.get("updated_at", 0) if result else 0
 
         # handle automatic pagination, based on number of posts already in the database
         if blog.get("slug", None) == "oan" and page == 999:
-            response = (
-                supabase.table("posts")
-                .select("*", count="exact", head=True)
-                .eq("blog_slug", slug)
-                .execute()
-            )
-            total = response.count
+            count_query = """
+                SELECT COUNT(*) as count
+                FROM posts
+                WHERE blog_slug = :slug
+            """
+            count_result = await Database.fetch_one(count_query, {"slug": slug})
+            total = count_result.get("count", 0) if count_result else 0
             page = floor(total / 50)
         start_page = (page - 1) * 50 if page > 0 else 0
         end_page = (page - 1) * 50 + 50 if page > 0 else 50
@@ -701,25 +697,13 @@ async def get_single_post(slug: str, suffix: str | None = None):
     """Get single post."""
     try:
         if validate_uuid(slug):
-            response = (
-                supabase.table("posts")
-                .select(postsWithContentSelect)
-                .eq("id", slug)
-                .maybe_single()
-                .execute()
-            )
+            post = await PostsQueries.select_by_id(slug)
         elif validate_prefix(slug) and suffix:
             doi = f"https://doi.org/{slug}/{suffix}"
-            response = (
-                supabase.table("posts")
-                .select(postsWithContentSelect)
-                .eq("doi", doi)
-                .maybe_single()
-                .execute()
-            )
+            post = await PostsQueries.select_by_doi(doi)
         else:
             return {"error": "An error occured."}, 400
-        return response.data
+        return post
     except Exception:
         print(traceback.format_exc())
         return {}
@@ -738,44 +722,42 @@ async def extract_single_post(
     try:
         guid = None
         if validate_uuid(slug):
-            response = (
-                supabase.table("posts")
-                .select(postsWithCitationsSelect)
-                .eq("id", slug)
-                .maybe_single()
-                .execute()
-            )
-            if not response:
-                response = (
-                    supabase.table("posts")
-                    .select(postsWithContentSelect)
-                    .eq("id", slug)
-                    .maybe_single()
-                    .execute()
-                )
-            guid = dig(response.data, "guid")
-            post_url = dig(response.data, "url")
-            blog = dig(response.data, "blog")
+            # Try with citations first
+            query = f"""
+                SELECT p.*, row_to_json(b.*) as blog,
+                       json_agg(row_to_json(c.*)) FILTER (WHERE c.cid IS NOT NULL) as citations
+                FROM posts p
+                INNER JOIN blogs b ON p.blog_slug = b.slug
+                LEFT JOIN citations c ON p.doi = c.doi
+                WHERE p.id = :id
+                GROUP BY p.id, b.id
+            """
+            post = await Database.fetch_one(query, {"id": slug})
+            if not post:
+                # Fallback without citations
+                post = await PostsQueries.select_by_id(slug)
+            guid = post.get("guid") if post else None
+            post_url = post.get("url") if post else None
+            blog = post.get("blog") if post else None
         elif validate_prefix(slug) and suffix:
             doi = f"https://doi.org/{slug}/{suffix}"
-            response = (
-                supabase.table("posts")
-                .select(postsWithCitationsSelect)
-                .eq("doi", doi)
-                .maybe_single()
-                .execute()
-            )
-            if not response:
-                response = (
-                    supabase.table("posts")
-                    .select(postsWithContentSelect)
-                    .eq("doi", doi)
-                    .maybe_single()
-                    .execute()
-                )
-            guid = dig(response.data, "guid")
-            post_url = dig(response.data, "url")
-            blog = dig(response.data, "blog")
+            # Try with citations first
+            query = f"""
+                SELECT p.*, row_to_json(b.*) as blog,
+                       json_agg(row_to_json(c.*)) FILTER (WHERE c.cid IS NOT NULL) as citations
+                FROM posts p
+                INNER JOIN blogs b ON p.blog_slug = b.slug
+                LEFT JOIN citations c ON p.doi = c.doi
+                WHERE p.doi = :doi
+                GROUP BY p.id, b.id
+            """
+            post = await Database.fetch_one(query, {"doi": doi})
+            if not post:
+                # Fallback without citations
+                post = await PostsQueries.select_by_doi(doi)
+            guid = post.get("guid") if post else None
+            post_url = post.get("url") if post else None
+            blog = post.get("blog") if post else None
         else:
             return {"error": "An error occured."}, 400
 
@@ -2297,58 +2279,88 @@ def upsert_single_post(post, previous: str | None = None):
     #     f"subfield: {post.get('subfield', None)}, raw_topic: {post.get('topic', None)}, topic: {topic} (score {topic_score})"
     # )
     try:
-        response = (
-            supabase_admin.table("posts")
-            .upsert(
-                {
-                    "authors": post.get("authors", None),
-                    "blog_name": post.get("blog_name", None),
-                    "blog_slug": post.get("blog_slug", None),
-                    "content_html": post.get("content_html", ""),
-                    "images": post.get("images", None),
-                    "updated_at": post.get("updated_at", None),
-                    "registered_at": post.get("registered_at", 0),
-                    "published_at": post.get("published_at", None),
-                    "image": post.get("image", None),
-                    "language": post.get("language", None),
-                    "subfield": post.get("subfield", None),
-                    "topic": topic,
-                    "topic_score": topic_score,
-                    "reference": post.get("reference", None),
-                    "relationships": post.get("relationships", None),
-                    "funding_references": post.get("funding_references", None),
-                    "summary": post.get("summary", ""),
-                    "abstract": post.get("abstract", None),
-                    "tags": post.get("tags", None),
-                    "title": post.get("title", None),
-                    "url": post.get("url", None),
-                    "guid": post.get("guid", None),
-                    "status": post.get("status", "active"),
-                    "archive_url": post.get("archive_url", None),
-                    "version": post.get("version", "v1"),
-                },
-                returning="representation",
-                ignore_duplicates=False,
-                on_conflict="guid",
+        # UPSERT post using PostgreSQL ON CONFLICT
+        query = """
+            INSERT INTO posts (
+                authors, blog_name, blog_slug, content_html, images, updated_at,
+                registered_at, published_at, image, language, subfield, topic, topic_score,
+                reference, relationships, funding_references, summary, abstract, tags,
+                title, url, guid, status, archive_url, version
+            ) VALUES (
+                :authors, :blog_name, :blog_slug, :content_html, :images, :updated_at,
+                :registered_at, :published_at, :image, :language, :subfield, :topic, :topic_score,
+                :reference, :relationships, :funding_references, :summary, :abstract, :tags,
+                :title, :url, :guid, :status, :archive_url, :version
             )
-            .execute()
+            ON CONFLICT (guid) DO UPDATE SET
+                authors = EXCLUDED.authors,
+                blog_name = EXCLUDED.blog_name,
+                blog_slug = EXCLUDED.blog_slug,
+                content_html = EXCLUDED.content_html,
+                images = EXCLUDED.images,
+                updated_at = EXCLUDED.updated_at,
+                registered_at = EXCLUDED.registered_at,
+                published_at = EXCLUDED.published_at,
+                image = EXCLUDED.image,
+                language = EXCLUDED.language,
+                subfield = EXCLUDED.subfield,
+                topic = EXCLUDED.topic,
+                topic_score = EXCLUDED.topic_score,
+                reference = EXCLUDED.reference,
+                relationships = EXCLUDED.relationships,
+                funding_references = EXCLUDED.funding_references,
+                summary = EXCLUDED.summary,
+                abstract = EXCLUDED.abstract,
+                tags = EXCLUDED.tags,
+                title = EXCLUDED.title,
+                url = EXCLUDED.url,
+                status = EXCLUDED.status,
+                archive_url = EXCLUDED.archive_url,
+                version = EXCLUDED.version
+            RETURNING *
+        """
+        data = await Database.fetch_one(
+            query,
+            {
+                "authors": post.get("authors", None),
+                "blog_name": post.get("blog_name", None),
+                "blog_slug": post.get("blog_slug", None),
+                "content_html": post.get("content_html", ""),
+                "images": post.get("images", None),
+                "updated_at": post.get("updated_at", None),
+                "registered_at": post.get("registered_at", 0),
+                "published_at": post.get("published_at", None),
+                "image": post.get("image", None),
+                "language": post.get("language", None),
+                "subfield": post.get("subfield", None),
+                "topic": topic,
+                "topic_score": topic_score,
+                "reference": post.get("reference", None),
+                "relationships": post.get("relationships", None),
+                "funding_references": post.get("funding_references", None),
+                "summary": post.get("summary", ""),
+                "abstract": post.get("abstract", None),
+                "tags": post.get("tags", None),
+                "title": post.get("title", None),
+                "url": post.get("url", None),
+                "guid": post.get("guid", None),
+                "status": post.get("status", "active"),
+                "archive_url": post.get("archive_url", None),
+                "version": post.get("version", "v1"),
+            },
         )
-        if response is None or response.data is None or len(response.data) == 0:
-            print("Error upserting post:", response)
+        if data is None:
+            print("Error upserting post")
             return None
-        data = response.data[0]
 
-        # workaround for comparing two timestamps in supabase
-        post_to_update = (
-            supabase_admin.table("posts")
-            .update(
-                {
-                    "indexed": data.get("indexed_at", 0) > data.get("updated_at", 1),
-                }
-            )
-            .eq("id", data["id"])
-            .execute()
-        )
+        # Update indexed flag
+        update_query = """
+            UPDATE posts
+            SET indexed = (indexed_at > updated_at)
+            WHERE id = :id
+            RETURNING *
+        """
+        post_to_update = await Database.fetch_one(update_query, {"id": data["id"]})
 
         # upsert InvenioRDM record
         host = furl(
@@ -2357,27 +2369,25 @@ def upsert_single_post(post, previous: str | None = None):
         token = environ.get("QUART_INVENIORDM_TOKEN", None)
         legacy_key = environ.get("QUART_SUPABASE_SERVICE_ROLE_KEY", None)
         if not host or not token or not legacy_key:
-            return post_to_update.data[0]
+            return post_to_update
 
-        record = (
-            supabase.table("posts")
-            .select(postsWithCitationsSelect)
-            .eq("guid", post.get("guid", None))
-            .maybe_single()
-            .execute()
-        )
-        if record is None:
-            record = (
-                supabase.table("posts")
-                .select(postsWithContentSelect)
-                .eq("guid", post.get("guid", None))
-                .maybe_single()
-                .execute()
-            )
-        status = dig(record.data, "blog.status")
+        # Fetch post with citations for InvenioRDM
+        query = """
+            SELECT p.*, row_to_json(b.*) as blog,
+                   json_agg(row_to_json(c.*)) FILTER (WHERE c.cid IS NOT NULL) as citations
+            FROM posts p
+            INNER JOIN blogs b ON p.blog_slug = b.slug
+            LEFT JOIN citations c ON p.doi = c.doi
+            WHERE p.guid = :guid
+            GROUP BY p.id, b.id
+        """
+        record = await Database.fetch_one(query, {"guid": post.get("guid", None)})
+        if not record:
+            return post_to_update
+        status = record.get("blog", {}).get("status") if record.get("blog") else None
         if status not in ["approved", "active", "archived", "expired"]:
-            return post_to_update.data[0]
-        metadata = Metadata(record.data, via="jsonfeed")
+            return post_to_update
+        metadata = Metadata(record, via="jsonfeed")
         # if not is_rogue_scholar_doi(metadata.id, ra=""):
         #     print("Not a Rogue Scholar DOI:", metadata.id)
         #     return ""  # post_to_update.data[0]
@@ -3032,19 +3042,11 @@ async def get_citations(doi: str | None) -> list:
     try:
         if doi is None:
             return []
-        response = (
-            supabase.table("citations")
-            .select("citation")
-            .eq("doi", doi)
-            .eq("validated", True)
-            .order("published_at", desc=False)
-            .order("updated_at", desc=False)
-            .execute()
-        )
-        if not response:
+        citations = await CitationsQueries.select_by_doi(doi, validated_only=True)
+        if not citations:
             return []
         tasks = []
-        for citation in response.data:
+        for citation in citations:
             task = format_reference(citation.get("citation", None), True)
             tasks.append(task)
         return py_.compact(await asyncio.gather(*tasks))
