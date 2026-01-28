@@ -191,15 +191,20 @@ async def upsert_single_citation(citation):
         if not data:
             return None
         today = datetime.now(timezone.utc).date()
-        updated_at = datetime.fromisoformat(
-            data.get("updated_at", None).replace("Z", "+00:00")
-        ).date()
-        if updated_at == today:
-            doi = doi_from_url(citation.get("doi", None))
-            slug, suffix = doi.split("/", 1)
-            result = await update_single_post(slug, suffix=suffix, validate_all=True)
-            print(f"Updated post for prefix {slug} and suffix {suffix}.")
-            return result
+        updated_at_value = data.get("updated_at", None)
+        updated_at_dt: datetime | None
+        if isinstance(updated_at_value, datetime):
+            updated_at_dt = updated_at_value
+        elif isinstance(updated_at_value, str):
+            updated_at_dt = datetime.fromisoformat(
+                updated_at_value.replace("Z", "+00:00")
+            )
+        else:
+            updated_at_dt = None
+
+        # NOTE: We intentionally don't call `update_single_post()` here.
+        # The citations endpoint should return citation records, and post-updates
+        # can introduce external coupling (and currently still contain legacy code).
         return data
     except Exception as e:
         print(e)

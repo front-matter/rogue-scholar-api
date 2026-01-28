@@ -172,7 +172,10 @@ async def update_all_cited_posts(
         tasks.append(task)
 
     cited_posts = await asyncio.gather(*tasks)
-    return [upsert_single_post(i) for i in cited_posts]
+
+    # Upsert all posts with await
+    upsert_tasks = [upsert_single_post(i) for i in cited_posts]
+    return await asyncio.gather(*upsert_tasks)
 
 
 async def update_all_flagged_posts(page: int = 1):
@@ -202,7 +205,10 @@ async def update_all_flagged_posts(page: int = 1):
         tasks.append(task)
 
     flagged_posts = await asyncio.gather(*tasks)
-    return [upsert_single_post(i) for i in flagged_posts]
+
+    # Upsert all posts with await
+    upsert_tasks = [upsert_single_post(i) for i in flagged_posts]
+    return await asyncio.gather(*upsert_tasks)
 
 
 async def extract_all_posts_by_blog(
@@ -574,7 +580,9 @@ async def extract_all_posts_by_blog(
         n = len(blog_with_posts["entries"])
         if n > 0:
             print(f"Extracting {n} posts from {blog['slug']} at {feed_url}.")
-        return [upsert_single_post(i) for i in blog_with_posts["entries"]]
+
+        upsert_tasks = [upsert_single_post(i) for i in blog_with_posts["entries"]]
+        return await asyncio.gather(*upsert_tasks)
     except Exception as e:
         print(f"{e} error.")
         print(traceback.format_exc())
@@ -617,7 +625,9 @@ async def update_all_posts_by_blog(
             for x in response.data
         ]
         blog_with_posts["entries"] = await asyncio.gather(*update_posts)
-        return [upsert_single_post(i) for i in blog_with_posts["entries"]]
+
+        upsert_tasks = [upsert_single_post(i) for i in blog_with_posts["entries"]]
+        return await asyncio.gather(*upsert_tasks)
     except TimeoutError:
         print(f"Timeout error in blog {slug}.")
         return []
@@ -683,7 +693,9 @@ async def update_all_unclassified_posts_by_blog(
             for x in response.data
         ]
         blog_with_posts["entries"] = await asyncio.gather(*update_posts)
-        return [upsert_single_post(i) for i in blog_with_posts["entries"]]
+
+        upsert_tasks = [upsert_single_post(i) for i in blog_with_posts["entries"]]
+        return await asyncio.gather(*upsert_tasks)
     except TimeoutError:
         print(f"Timeout error in blog {slug}.")
         return []
@@ -1036,7 +1048,13 @@ async def extract_single_post(
                         post, blog, validate_all, classify_all, previous
                     )
                 ]
-        return [upsert_single_post(i, previous=previous) for i in extract_posts]
+
+        if len(extract_posts) == 0:
+            return {}
+
+        upsert_tasks = [upsert_single_post(i, previous=previous) for i in extract_posts]
+        result = await asyncio.gather(*upsert_tasks)
+        return result[0] if result else {}
     except Exception:
         print(traceback.format_exc())
         return {}
@@ -1096,7 +1114,7 @@ async def update_single_post(
         updated_post = await update_rogue_scholar_post(
             post, blog, validate_all, classify_all, previous
         )
-        response = upsert_single_post(updated_post, previous=previous)
+        response = await upsert_single_post(updated_post, previous=previous)
         return response
     except Exception:
         print(traceback.format_exc())
@@ -2263,7 +2281,7 @@ def find_post_by_guid(posts, guid, key):
     return next((post for post in posts if post.get(key, None) == guid), {})
 
 
-def upsert_single_post(post, previous: str | None = None):
+async def upsert_single_post(post, previous: str | None = None):
     """Upsert single post."""
 
     # missing title or publication date

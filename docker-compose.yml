@@ -2,7 +2,7 @@ services:
   # Optional: Local PostgreSQL for development/testing
   # Comment out if using remote Supabase PostgreSQL
   postgres:
-    image: postgres:16-alpine
+    image: postgres:17-alpine
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-rogue_scholar}
       POSTGRES_USER: ${POSTGRES_USER:-postgres}

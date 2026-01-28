@@ -1,7 +1,7 @@
 """PostgreSQL database client using QuartDB."""
 
 from typing import Optional, List, Dict, Any
-from quart import current_app
+from quart import g
 
 
 class Database:
@@ -18,9 +18,8 @@ class Database:
         Returns:
             Dictionary of column:value or None if no rows found
         """
-        async with current_app.db_connection() as conn:
-            row = await conn.fetch_one(query, params or {})
-            return dict(row) if row else None
+        row = await g.connection.fetch_first(query, params or {})
+        return dict(row) if row else None
 
     @staticmethod
     async def fetch_all(query: str, params: Optional[Dict] = None) -> List[Dict]:
@@ -33,9 +32,8 @@ class Database:
         Returns:
             List of dictionaries, empty list if no rows found
         """
-        async with current_app.db_connection() as conn:
-            rows = await conn.fetch_all(query, params or {})
-            return [dict(row) for row in rows]
+        rows = await g.connection.fetch_all(query, params or {})
+        return [dict(row) for row in rows]
 
     @staticmethod
     async def execute(query: str, params: Optional[Dict] = None) -> Any:
@@ -48,8 +46,7 @@ class Database:
         Returns:
             Execution result (row count, etc.)
         """
-        async with current_app.db_connection() as conn:
-            return await conn.execute(query, params or {})
+        return await g.connection.execute(query, params or {})
 
     @staticmethod
     async def execute_many(query: str, params_list: List[Dict]) -> Any:
@@ -62,8 +59,7 @@ class Database:
         Returns:
             Execution result
         """
-        async with current_app.db_connection() as conn:
-            return await conn.execute_many(query, params_list)
+        return await g.connection.execute_many(query, params_list)
 
 
 # Common select field sets (matching supabase_client.py)
