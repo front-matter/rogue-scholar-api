@@ -18,6 +18,7 @@ from quart import g
 from buildpg import BuildError, render
 import psycopg
 from psycopg.rows import dict_row
+from psycopg.types.json import Jsonb
 from psycopg_pool import AsyncConnectionPool
 
 
@@ -61,6 +62,37 @@ def _compile(query: str, params: Optional[Dict] = None) -> tuple[str, list[Any]]
         return render(query, **(params or {}))
     except BuildError as error:
         raise ValueError(str(error))
+
+
+_JSONB_PARAM_KEYS = {
+    # posts
+    "authors",
+    "reference",
+    "relationships",
+    "funding_references",
+    # blogs
+    "archive_timestamps",
+    "authors",
+}
+
+
+def _adapt_params_for_psycopg(params: Optional[Dict]) -> Dict:
+    if not params:
+        return {}
+
+    adapted: Dict[str, Any] = {}
+    for key, value in params.items():
+        if value is None:
+            adapted[key] = None
+            continue
+
+        if key in _JSONB_PARAM_KEYS and not isinstance(value, Jsonb):
+            adapted[key] = Jsonb(value)
+            continue
+
+        adapted[key] = value
+
+    return adapted
 
 
 def _normalize_db_value(value: Any) -> Any:
@@ -121,11 +153,13 @@ class Database:
         """
         connection = Database._g_connection()
         if connection is not None:
-            row = await connection.fetch_first(query, params or {})
+            row = await connection.fetch_first(
+                query, _adapt_params_for_psycopg(params or {})
+            )
             return _normalize_db_value(dict(row)) if row else None
 
         pool = await _get_pool()
-        compiled_query, args = _compile(query, params)
+        compiled_query, args = _compile(query, _adapt_params_for_psycopg(params))
         conn = await pool.getconn()
         try:
             async with conn.cursor() as cursor:
@@ -148,11 +182,13 @@ class Database:
         """
         connection = Database._g_connection()
         if connection is not None:
-            rows = await connection.fetch_all(query, params or {})
+            rows = await connection.fetch_all(
+                query, _adapt_params_for_psycopg(params or {})
+            )
             return [_normalize_db_value(dict(row)) for row in rows]
 
         pool = await _get_pool()
-        compiled_query, args = _compile(query, params)
+        compiled_query, args = _compile(query, _adapt_params_for_psycopg(params))
         conn = await pool.getconn()
         try:
             async with conn.cursor() as cursor:
@@ -175,10 +211,10 @@ class Database:
         """
         connection = Database._g_connection()
         if connection is not None:
-            return await connection.execute(query, params or {})
+            return await connection.execute(query, _adapt_params_for_psycopg(params))
 
         pool = await _get_pool()
-        compiled_query, args = _compile(query, params)
+        compiled_query, args = _compile(query, _adapt_params_for_psycopg(params))
         conn = await pool.getconn()
         try:
             async with conn.cursor() as cursor:
@@ -200,14 +236,20 @@ class Database:
         """
         connection = Database._g_connection()
         if connection is not None:
-            return await connection.execute_many(query, params_list)
+            return await connection.execute_many(
+                query, [_adapt_params_for_psycopg(p) for p in params_list]
+            )
 
         if not params_list:
             return None
 
         pool = await _get_pool()
-        compiled_query, first_args = _compile(query, params_list[0])
-        args_list = [first_args] + [_compile(query, p)[1] for p in params_list[1:]]
+        compiled_query, first_args = _compile(
+            query, _adapt_params_for_psycopg(params_list[0])
+        )
+        args_list = [first_args] + [
+            _compile(query, _adapt_params_for_psycopg(p))[1] for p in params_list[1:]
+        ]
         conn = await pool.getconn()
         try:
             async with conn.cursor() as cursor:

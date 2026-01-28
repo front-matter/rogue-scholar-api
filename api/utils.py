@@ -19,6 +19,7 @@ from furl import furl
 from langdetect import detect_langs
 from bs4 import BeautifulSoup
 import httpx
+from lxml import etree
 from commonmeta import (
     Metadata,
     get_one_author,

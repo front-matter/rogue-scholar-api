@@ -2421,7 +2421,7 @@ async def upsert_single_post(post, previous: str | None = None):
         #     print("Not a Rogue Scholar DOI:", metadata.id)
         #     return ""  # post_to_update.data[0]
 
-        kwargs = compact({"legacy_key": legacy_key, "previous_doi": previous})
+        kwargs = compact({"legacy_key": service_role_key, "previous_doi": previous})
         record = push_inveniordm(metadata, host, token, **kwargs)
         return record
     except Exception as e:
