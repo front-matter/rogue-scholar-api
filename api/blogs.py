@@ -27,7 +27,7 @@ from api.utils import (
 async def find_feed(url: str) -> str | None:
     """Find RSS feed in homepage. Based on https://gist.github.com/alexmill/9bc634240531d81c3abe
     Prefer JSON Feed over Atom over RSS"""
-    url = normalize_url(url)
+    url = normalize_url(url) or url
     raw = httpx.get(url, follow_redirects=True).text
     html = bs4(raw, features="lxml")
     feeds = html.findAll("link", rel="alternate")
@@ -59,7 +59,7 @@ async def find_feed(url: str) -> str | None:
             ),
             None,
         )
-    if is_valid_url(feed_url):
+    if feed_url is not None and is_valid_url(feed_url):
         return feed_url
     # else feed_url is relative url
     f = furl(url)
