@@ -1,7 +1,53 @@
 """PostgreSQL database client using QuartDB."""
 
+from __future__ import annotations
+
 from typing import Optional, List, Dict, Any
+from uuid import UUID
+from datetime import date, datetime
+from decimal import Decimal
 from quart import g
+
+
+def _normalize_db_value(value: Any) -> Any:
+    """Normalize asyncpg/DB types into JSON-friendly Python primitives.
+
+    Quart's `jsonify` cannot serialize some asyncpg native types (e.g. asyncpg UUID).
+    This keeps API responses stable by converting to strings/numbers.
+    """
+
+    if value is None:
+        return None
+
+    # asyncpg can return its own optimized UUID type.
+    if isinstance(value, UUID) or (
+        type(value).__name__ == "UUID" and type(value).__module__.startswith("asyncpg")
+    ):
+        return str(value)
+
+    if isinstance(value, (datetime, date)):
+        return value.isoformat()
+
+    # Postgres NUMERIC -> Decimal
+    if isinstance(value, Decimal):
+        try:
+            integral = value.to_integral_value()
+            if value == integral:
+                return int(integral)
+        except Exception:
+            pass
+        return float(value)
+
+    if isinstance(value, dict):
+        return {k: _normalize_db_value(v) for k, v in value.items()}
+
+    if isinstance(value, list):
+        return [_normalize_db_value(v) for v in value]
+
+    if isinstance(value, tuple):
+        return tuple(_normalize_db_value(v) for v in value)
+
+    return value
 
 
 class Database:
@@ -19,7 +65,7 @@ class Database:
             Dictionary of column:value or None if no rows found
         """
         row = await g.connection.fetch_first(query, params or {})
-        return dict(row) if row else None
+        return _normalize_db_value(dict(row)) if row else None
 
     @staticmethod
     async def fetch_all(query: str, params: Optional[Dict] = None) -> List[Dict]:
@@ -33,7 +79,7 @@ class Database:
             List of dictionaries, empty list if no rows found
         """
         rows = await g.connection.fetch_all(query, params or {})
-        return [dict(row) for row in rows]
+        return [_normalize_db_value(dict(row)) for row in rows]
 
     @staticmethod
     async def execute(query: str, params: Optional[Dict] = None) -> Any:

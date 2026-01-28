@@ -15,6 +15,7 @@ import time
 import traceback
 import logging
 from urllib.parse import unquote
+from decimal import Decimal
 from commonmeta import (
     Metadata,
     validate_doi,
@@ -68,6 +69,31 @@ from api.db_client import Database, BlogsQueries, PostsQueries, CitationsQueries
 # )
 
 logger = logging.getLogger(__name__)
+
+
+def _normalize_numeric_types(value):
+    """Recursively normalize DB-returned numeric types (e.g. Decimal) for JSON/SDK consumers."""
+
+    if isinstance(value, Decimal):
+        # Prefer int when it's an exact integer, otherwise fall back to float.
+        try:
+            integral = value.to_integral_value()
+            if value == integral:
+                return int(integral)
+        except Exception:
+            pass
+        return float(value)
+
+    if isinstance(value, dict):
+        return {k: _normalize_numeric_types(v) for k, v in value.items()}
+
+    if isinstance(value, list):
+        return [_normalize_numeric_types(v) for v in value]
+
+    if isinstance(value, tuple):
+        return tuple(_normalize_numeric_types(v) for v in value)
+
+    return value
 
 
 async def extract_all_posts(
@@ -149,14 +175,17 @@ async def update_all_cited_posts(
     status = ["approved", "active", "archived", "expired"]
 
     # Get posts with blog and citations
+    # Use correlated subquery for citations so we don't need GROUP BY with `p.*`.
     query = f"""
         SELECT p.*, row_to_json(b.*) as blog,
-               json_agg(row_to_json(c.*)) as citations
+               (
+                   SELECT json_agg(row_to_json(c.*))
+                   FROM citations c
+                   WHERE c.doi = p.doi
+               ) as citations
         FROM posts p
         INNER JOIN blogs b ON p.blog_slug = b.slug
-        INNER JOIN citations c ON p.doi = c.doi
         WHERE p.status = ANY(:status)
-        GROUP BY p.id, b.id
         ORDER BY p.updated_at
         LIMIT :limit OFFSET :offset
     """
@@ -737,12 +766,14 @@ async def extract_single_post(
             # Try with citations first
             query = f"""
                 SELECT p.*, row_to_json(b.*) as blog,
-                       json_agg(row_to_json(c.*)) FILTER (WHERE c.cid IS NOT NULL) as citations
+                       (
+                           SELECT json_agg(row_to_json(c.*))
+                           FROM citations c
+                           WHERE c.doi = p.doi AND c.cid IS NOT NULL
+                       ) as citations
                 FROM posts p
                 INNER JOIN blogs b ON p.blog_slug = b.slug
-                LEFT JOIN citations c ON p.doi = c.doi
                 WHERE p.id = :id
-                GROUP BY p.id, b.id
             """
             post = await Database.fetch_one(query, {"id": slug})
             if not post:
@@ -756,12 +787,14 @@ async def extract_single_post(
             # Try with citations first
             query = f"""
                 SELECT p.*, row_to_json(b.*) as blog,
-                       json_agg(row_to_json(c.*)) FILTER (WHERE c.cid IS NOT NULL) as citations
+                       (
+                           SELECT json_agg(row_to_json(c.*))
+                           FROM citations c
+                           WHERE c.doi = p.doi AND c.cid IS NOT NULL
+                       ) as citations
                 FROM posts p
                 INNER JOIN blogs b ON p.blog_slug = b.slug
-                LEFT JOIN citations c ON p.doi = c.doi
                 WHERE p.doi = :doi
-                GROUP BY p.id, b.id
             """
             post = await Database.fetch_one(query, {"doi": doi})
             if not post:
@@ -2392,16 +2425,19 @@ async def upsert_single_post(post, previous: str | None = None):
         # Fetch post with citations for InvenioRDM
         query = """
             SELECT p.*, row_to_json(b.*) as blog,
-                   json_agg(row_to_json(c.*)) FILTER (WHERE c.cid IS NOT NULL) as citations
+                   (
+                       SELECT json_agg(row_to_json(c.*))
+                       FROM citations c
+                       WHERE c.doi = p.doi AND c.cid IS NOT NULL
+                   ) as citations
             FROM posts p
             INNER JOIN blogs b ON p.blog_slug = b.slug
-            LEFT JOIN citations c ON p.doi = c.doi
             WHERE p.guid = :guid
-            GROUP BY p.id, b.id
         """
         record = await Database.fetch_one(query, {"guid": post.get("guid", None)})
         if not record:
             return post_to_update
+        record = _normalize_numeric_types(record)
         status = record.get("blog", {}).get("status") if record.get("blog") else None
         if status not in ["approved", "active", "archived", "expired"]:
             return post_to_update

@@ -732,13 +732,15 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
                    p.funding_references, p.blog_name, p.blog_slug, p.content_html,
                    p.rid, p.version,
                    row_to_json(b.*) as blog,
-                   json_agg(row_to_json(c.*)) FILTER (WHERE c.cid IS NOT NULL) as citations
+                   (
+                       SELECT json_agg(row_to_json(c.*))
+                       FROM citations c
+                       WHERE c.doi = p.doi AND c.cid IS NOT NULL
+                   ) as citations
             FROM posts p
             INNER JOIN blogs b ON p.blog_slug = b.slug
-            LEFT JOIN citations c ON p.doi = c.doi
             WHERE b.prefix IS NOT NULL
             AND p.doi IS NOT NULL
-            GROUP BY p.id, b.id
             ORDER BY p.updated_at DESC
             LIMIT :limit OFFSET :offset
         """
@@ -793,12 +795,14 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
                        p.funding_references, p.blog_name, p.blog_slug, p.content_html,
                        p.rid, p.version,
                        row_to_json(b.*) as blog,
-                       json_agg(row_to_json(c.*)) FILTER (WHERE c.cid IS NOT NULL) as citations
+                       (
+                           SELECT json_agg(row_to_json(c.*))
+                           FROM citations c
+                           WHERE c.doi = p.doi AND c.cid IS NOT NULL
+                       ) as citations
                 FROM posts p
                 INNER JOIN blogs b ON p.blog_slug = b.slug
-                LEFT JOIN citations c ON p.doi = c.doi
                 WHERE p.id = :id
-                GROUP BY p.id, b.id
             """
             result = await Database.fetch_one(query, {"id": slug})
             if not result:
@@ -828,12 +832,14 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
                        p.funding_references, p.blog_name, p.blog_slug, p.content_html,
                        p.rid, p.version,
                        row_to_json(b.*) as blog,
-                       json_agg(row_to_json(c.*)) FILTER (WHERE c.cid IS NOT NULL) as citations
+                       (
+                           SELECT json_agg(row_to_json(c.*))
+                           FROM citations c
+                           WHERE c.doi = p.doi AND c.cid IS NOT NULL
+                       ) as citations
                 FROM posts p
                 INNER JOIN blogs b ON p.blog_slug = b.slug
-                LEFT JOIN citations c ON p.doi = c.doi
                 WHERE p.doi = :doi
-                GROUP BY p.id, b.id
             """
             result = await Database.fetch_one(query, {"doi": doi})
             if not result:
