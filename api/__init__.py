@@ -78,10 +78,12 @@ app.config.from_prefixed_env()
 QuartSchema(app, info=Info(title="Rogue Scholar API", version=version))
 limiter = RateLimiter(app)
 app = cors(app, allow_origin="*")
-# db = QuartDB(
-#     app,
-#     url=f"postgresql://{environ['QUART_POSTGRES_USER']}:{environ['QUART_POSTGRES_PASSWORD']}@{environ['QUART_POSTGRES_HOST']}/{environ['QUART_POSTGRES_DB']}",
-# )
+
+# QuartDB PostgreSQL connection
+db = QuartDB(
+    app,
+    url=f"postgresql://{environ['QUART_POSTGRES_USER']}:{environ['QUART_POSTGRES_PASSWORD']}@{environ['QUART_POSTGRES_HOST']}:{environ.get('QUART_POSTGRES_PORT', '5432')}/{environ['QUART_POSTGRES_DB']}",
+)
 
 
 def run() -> None:

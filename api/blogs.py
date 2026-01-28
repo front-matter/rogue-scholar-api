@@ -12,10 +12,12 @@ import datetime
 import pydash as py_
 from commonmeta import get_date_from_unix_timestamp, get_language, compact, wrap
 
-from api.supabase_client import (
-    supabase_client as supabase,
-    supabase_admin_client as supabase_admin,
-)
+from api.db_client import Database, BlogsQueries
+
+# from api.supabase_client import (
+#     supabase_client as supabase,
+#     supabase_admin_client as supabase_admin,
+# )
 from api.utils import (
     start_case,
     get_date,
@@ -73,15 +75,11 @@ async def find_feed(url: str) -> str | None:
 async def extract_all_blogs():
     """Extract all blogs."""
 
-    blogs = (
-        supabase.table("blogs")
-        .select("slug")
-        .in_("status", ["active", "expired", "archived"])
-        .order("slug", desc=False)
-        .execute()
+    blogs_data = await BlogsQueries.select_all(
+        statuses=["active", "expired", "archived"], order_by="slug"
     )
     tasks = []
-    for blog in blogs.data:
+    for blog in blogs_data:
         task = extract_single_blog(blog["slug"])
         tasks.append(task)
 
@@ -91,18 +89,9 @@ async def extract_all_blogs():
 
 async def extract_single_blog(slug: str):
     """Extract a single blog."""
-    response = (
-        supabase.table("blogs")
-        .select(
-            "id, slug, feed_url, current_feed_url, home_page_url, archive_host, archive_collection, archive_timestamps, feed_format, created_at, updated_at, registered_at, license, mastodon, generator, generator_raw, language, favicon, title, description, category, subfield, status, user_id, authors, use_api, relative_url, filter, secure, community_id, prefix, issn, feed_format"
-        )
-        .eq("slug", slug)
-        .maybe_single()
-        .execute()
-    )
-    if not response:
+    config = await BlogsQueries.select_by_slug(slug)
+    if not config:
         return []
-    config = response.data
     feed_url = config.get("feed_url", None)
     print(f"Extracting {slug} from {feed_url}")
     if feed_url is None:
@@ -181,7 +170,7 @@ async def extract_single_blog(slug: str):
         "issn": config["issn"],
         "feed_format": config["feed_format"],
     }
-    update_single_blog(blog)
+    await update_single_blog(blog)
 
     # update InvenioRDM blog community if blog is active, expired or archived
     if config["status"] in ["active", "expired", "archived"]:
@@ -198,7 +187,7 @@ async def extract_single_blog(slug: str):
             # fetch community id and store it in the blog
             community_id = blog.get("community_id", None)
             if blog.get("community_id", None) is None:
-                community_id = push_blog_community_id(slug)
+                community_id = await push_blog_community_id(slug)
 
             result["community_id"] = community_id
         else:
@@ -261,51 +250,44 @@ def update_single_blog(blog):
     """Update single blog."""
 
     # find timestamp from last updated post
-    response = (
-        supabase.table("posts")
-        .select("updated_at")
-        .eq("blog_slug", blog.get("slug"))
-        .order("updated_at", desc=True)
-        .limit(1)
-        .execute()
-    )
+    async def get_last_updated():
+        query = """
+            SELECT updated_at
+            FROM posts
+            WHERE blog_slug = :blog_slug
+            ORDER BY updated_at DESC
+            LIMIT 1
+        """
+        result = await Database.fetch_one(query, {"blog_slug": blog.get("slug")})
+        return result.get("updated_at", 0) if result else 0
 
-    blog["updated_at"] = (
-        response.data
-        and response.data[0]
-        and response.data[0].get("updated_at", 0)
-        or 0
-    )
+    import asyncio
+
+    blog["updated_at"] = asyncio.run(get_last_updated())
 
     try:
-        response = (
-            supabase_admin.table("blogs")
-            .update(
-                {
-                    "title": blog.get("title", None),
-                    "description": blog.get("description", None),
-                    "feed_url": blog.get("feed_url", None),
-                    "current_feed_url": blog.get("current_feed_url", None),
-                    "home_page_url": blog.get("home_page_url", None),
-                    "feed_format": blog.get("feed_format", None),
-                    "updated_at": blog.get("updated_at", None),
-                    "registered_at": blog.get("registered_at", None),
-                    "language": blog.get("language", None),
-                    "category": blog.get("category", None),
-                    "favicon": blog.get("favicon", None),
-                    "license": blog.get("license", None),
-                    "generator": blog.get("generator", None),
-                    "generator_raw": blog.get("generator_raw", None),
-                    "status": blog.get("status", None),
-                    "user_id": blog.get("user_id", None),
-                    "mastodon": blog.get("mastodon", None),
-                    "secure": blog.get("secure", None),
-                }
-            )
-            .eq("slug", blog.get("slug"))
-            .execute()
-        )
-        return response.data[0]
+        updates = {
+            "title": blog.get("title", None),
+            "description": blog.get("description", None),
+            "feed_url": blog.get("feed_url", None),
+            "current_feed_url": blog.get("current_feed_url", None),
+            "home_page_url": blog.get("home_page_url", None),
+            "feed_format": blog.get("feed_format", None),
+            "updated_at": blog.get("updated_at", None),
+            "registered_at": blog.get("registered_at", None),
+            "language": blog.get("language", None),
+            "category": blog.get("category", None),
+            "favicon": blog.get("favicon", None),
+            "license": blog.get("license", None),
+            "generator": blog.get("generator", None),
+            "generator_raw": blog.get("generator_raw", None),
+            "status": blog.get("status", None),
+            "user_id": blog.get("user_id", None),
+            "mastodon": blog.get("mastodon", None),
+            "secure": blog.get("secure", None),
+        }
+        asyncio.run(BlogsQueries.update_blog(blog.get("slug"), updates))
+        return blog
     except Exception as error:
         print(error)
         return None
@@ -321,18 +303,12 @@ def push_blog_community_id(slug):
         if py_.get(result, "hits.total") != 1:
             return result
         community_id = py_.get(result, "hits.hits[0].id")
-        blog_to_update = (
-            supabase_admin.table("blogs")
-            .update(
-                {
-                    "community_id": community_id,
-                }
-            )
-            .eq("slug", slug)
-            .execute()
-        )
-        if len(blog_to_update.data) > 0:
-            return community_id
+
+        # Update blog with community_id
+        import asyncio
+
+        asyncio.run(BlogsQueries.update_blog(slug, {"community_id": community_id}))
+        return community_id
     except Exception as error:
         print(error)
         return None
