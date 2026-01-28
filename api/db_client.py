@@ -204,3 +204,21 @@ class CitationsQueries:
         query += " ORDER BY published_at, updated_at"
 
         return await Database.fetch_all(query, {"doi": doi})
+
+    @staticmethod
+    async def upsert_citation(citation: Dict) -> Optional[Dict]:
+        """Upsert a single citation using ON CONFLICT."""
+        query = """
+            INSERT INTO citations (cid, doi, citation, unstructured, published_at, type, blog_slug)
+            VALUES (:cid, :doi, :citation, :unstructured, :published_at, :type, :blog_slug)
+            ON CONFLICT (cid) DO UPDATE SET
+                doi = EXCLUDED.doi,
+                citation = EXCLUDED.citation,
+                unstructured = EXCLUDED.unstructured,
+                published_at = EXCLUDED.published_at,
+                type = EXCLUDED.type,
+                blog_slug = EXCLUDED.blog_slug,
+                updated_at = CURRENT_TIMESTAMP
+            RETURNING *
+        """
+        return await Database.fetch_one(query, citation)
