@@ -1,28 +1,79 @@
-"""PostgreSQL database client using QuartDB."""
+"""PostgreSQL database client.
+
+Primarily uses QuartDB's request-scoped connection via ``quart.g.connection``.
+If no request/app context connection is present (e.g. in scripts), it falls
+back to a module-level psycopg connection pool.
+"""
 
 from __future__ import annotations
 
+import asyncio
+import os
 from typing import Optional, List, Dict, Any
 from uuid import UUID
 from datetime import date, datetime
 from decimal import Decimal
 from quart import g
 
+from buildpg import BuildError, render
+import psycopg
+from psycopg.rows import dict_row
+from psycopg_pool import AsyncConnectionPool
+
+
+_pool: AsyncConnectionPool | None = None
+_pool_lock = asyncio.Lock()
+
+
+def _database_url_from_env() -> str:
+    user = os.environ.get("QUART_POSTGRES_USER", "")
+    password = os.environ.get("QUART_POSTGRES_PASSWORD", "")
+    host = os.environ.get("QUART_POSTGRES_HOST", "localhost")
+    port = os.environ.get("QUART_POSTGRES_PORT", "5432")
+    db = os.environ.get("QUART_POSTGRES_DB", "postgres")
+    return f"postgresql://{user}:{password}@{host}:{port}/{db}"
+
+
+async def _get_pool() -> AsyncConnectionPool:
+    global _pool
+    if _pool is not None:
+        return _pool
+
+    async with _pool_lock:
+        if _pool is not None:
+            return _pool
+
+        _pool = AsyncConnectionPool(
+            _database_url_from_env(),
+            kwargs={
+                "autocommit": True,
+                "cursor_factory": psycopg.AsyncRawCursor,
+                "row_factory": dict_row,
+            },
+            open=False,
+        )
+        await _pool.open()
+        return _pool
+
+
+def _compile(query: str, params: Optional[Dict] = None) -> tuple[str, list[Any]]:
+    try:
+        return render(query, **(params or {}))
+    except BuildError as error:
+        raise ValueError(str(error))
+
 
 def _normalize_db_value(value: Any) -> Any:
-    """Normalize asyncpg/DB types into JSON-friendly Python primitives.
+    """Normalize DB-returned types into JSON-friendly Python primitives.
 
-    Quart's `jsonify` cannot serialize some asyncpg native types (e.g. asyncpg UUID).
+    Quart's `jsonify` cannot serialize some DB-native types (e.g. UUID, Decimal).
     This keeps API responses stable by converting to strings/numbers.
     """
 
     if value is None:
         return None
 
-    # asyncpg can return its own optimized UUID type.
-    if isinstance(value, UUID) or (
-        type(value).__name__ == "UUID" and type(value).__module__.startswith("asyncpg")
-    ):
+    if isinstance(value, UUID):
         return str(value)
 
     if isinstance(value, (datetime, date)):
@@ -54,6 +105,10 @@ class Database:
     """Database access wrapper for QuartDB with common query patterns."""
 
     @staticmethod
+    def _g_connection():
+        return getattr(g, "connection", None)
+
+    @staticmethod
     async def fetch_one(query: str, params: Optional[Dict] = None) -> Optional[Dict]:
         """Fetch single row as dictionary.
 
@@ -64,7 +119,20 @@ class Database:
         Returns:
             Dictionary of column:value or None if no rows found
         """
-        row = await g.connection.fetch_first(query, params or {})
+        connection = Database._g_connection()
+        if connection is not None:
+            row = await connection.fetch_first(query, params or {})
+            return _normalize_db_value(dict(row)) if row else None
+
+        pool = await _get_pool()
+        compiled_query, args = _compile(query, params)
+        conn = await pool.getconn()
+        try:
+            async with conn.cursor() as cursor:
+                await cursor.execute(compiled_query, args)
+                row = await cursor.fetchone()
+        finally:
+            await pool.putconn(conn)
         return _normalize_db_value(dict(row)) if row else None
 
     @staticmethod
@@ -78,7 +146,20 @@ class Database:
         Returns:
             List of dictionaries, empty list if no rows found
         """
-        rows = await g.connection.fetch_all(query, params or {})
+        connection = Database._g_connection()
+        if connection is not None:
+            rows = await connection.fetch_all(query, params or {})
+            return [_normalize_db_value(dict(row)) for row in rows]
+
+        pool = await _get_pool()
+        compiled_query, args = _compile(query, params)
+        conn = await pool.getconn()
+        try:
+            async with conn.cursor() as cursor:
+                await cursor.execute(compiled_query, args)
+                rows = await cursor.fetchall()
+        finally:
+            await pool.putconn(conn)
         return [_normalize_db_value(dict(row)) for row in rows]
 
     @staticmethod
@@ -92,7 +173,19 @@ class Database:
         Returns:
             Execution result (row count, etc.)
         """
-        return await g.connection.execute(query, params or {})
+        connection = Database._g_connection()
+        if connection is not None:
+            return await connection.execute(query, params or {})
+
+        pool = await _get_pool()
+        compiled_query, args = _compile(query, params)
+        conn = await pool.getconn()
+        try:
+            async with conn.cursor() as cursor:
+                await cursor.execute(compiled_query, args)
+        finally:
+            await pool.putconn(conn)
+        return None
 
     @staticmethod
     async def execute_many(query: str, params_list: List[Dict]) -> Any:
@@ -105,10 +198,26 @@ class Database:
         Returns:
             Execution result
         """
-        return await g.connection.execute_many(query, params_list)
+        connection = Database._g_connection()
+        if connection is not None:
+            return await connection.execute_many(query, params_list)
+
+        if not params_list:
+            return None
+
+        pool = await _get_pool()
+        compiled_query, first_args = _compile(query, params_list[0])
+        args_list = [first_args] + [_compile(query, p)[1] for p in params_list[1:]]
+        conn = await pool.getconn()
+        try:
+            async with conn.cursor() as cursor:
+                await cursor.executemany(compiled_query, args_list)
+        finally:
+            await pool.putconn(conn)
+        return None
 
 
-# Common select field sets (matching supabase_client.py)
+# Common select field sets
 BLOGS_SELECT = """
     slug, title, description, language, favicon, feed_url, 
     feed_format, home_page_url, generator, category, subfield
@@ -141,7 +250,7 @@ class BlogsQueries:
 
     @staticmethod
     async def select_all(
-        statuses: List[str] = None, order_by: str = "slug"
+        statuses: Optional[List[str]] = None, order_by: str = "slug"
     ) -> List[Dict]:
         """Select all blogs with optional status filter."""
         statuses = statuses or ["active", "expired", "archived"]

@@ -238,7 +238,7 @@ async def test_posts_post_route():
     async with app.test_app():
         test_client = app.test_client()
 
-        key = environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
+        key = environ["ROGUE_SCHOLAR_SERVICE_ROLE_KEY"]
         headers = {"Authorization": f"Bearer {key}"}
         response = await test_client.post("/posts", headers=headers)
         assert response.status_code == 200

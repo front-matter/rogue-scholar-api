@@ -12,14 +12,17 @@ The backend server for the [Rogue Scholar](https://rogue-scholar.org) science bl
 
 ## Installation
 
-Requires Python 3.12. Uses [uv](https://github.com/astral-sh/uv) for dependency management. Depends on credentials for the Rogue Scholar Postgres database (hosted by Supabase):
+Requires Python 3.12. Uses [uv](https://github.com/astral-sh/uv) for dependency management. Depends on credentials for the Rogue Scholar Postgres database:
 
 ```
 # required environment variables
-QUART_SUPABASE_SERVICE_ROLE_KEY
+ROGUE_SCHOLAR_SERVICE_ROLE_KEY
 QUART_POSTGRES_USER
 QUART_POSTGRES_PASSWORD
 QUART_POSTGRES_HOST
+
+# legacy (still supported)
+QUART_SUPABASE_SERVICE_ROLE_KEY
 ```
 
 The API uses uv for dependency management. To install uv, see the [uv documentation](https://docs.astral.sh/uv/). Then install the dependencies and run the server:

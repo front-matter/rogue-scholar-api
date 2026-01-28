@@ -1,7 +1,7 @@
 import os
 
 
-# Ensure tests never try to use the remote Supabase pooler by default.
+# Ensure tests never try to use a remote database pooler by default.
 # `api/__init__.py` calls `load_dotenv()` on import; by setting env vars here
 # (before test modules import `api`), dotenv will not override them.
 
@@ -19,4 +19,4 @@ _setdefault_env("QUART_POSTGRES_USER", "postgres")
 _setdefault_env("QUART_POSTGRES_PASSWORD", "postgres")
 
 # Auth-protected routes compare against this env var.
-_setdefault_env("QUART_SUPABASE_SERVICE_ROLE_KEY", "test-service-role-key")
+_setdefault_env("ROGUE_SCHOLAR_SERVICE_ROLE_KEY", "test-service-role-key")

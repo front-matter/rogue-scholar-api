@@ -2391,8 +2391,10 @@ async def upsert_single_post(post, previous: str | None = None):
             environ.get("QUART_INVENIORDM_API", "https://rogue-scholar.org")
         ).host
         token = environ.get("QUART_INVENIORDM_TOKEN", None)
-        legacy_key = environ.get("QUART_SUPABASE_SERVICE_ROLE_KEY", None)
-        if not host or not token or not legacy_key:
+        service_role_key = environ.get("ROGUE_SCHOLAR_SERVICE_ROLE_KEY") or environ.get(
+            "QUART_SUPABASE_SERVICE_ROLE_KEY"
+        )
+        if not host or not token or not service_role_key:
             return post_to_update
 
         # Fetch post with citations for InvenioRDM

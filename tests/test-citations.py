@@ -14,7 +14,7 @@ async def test_extract_all_citations_by_prefix():
     prefix = "10.54900"
     async with app.test_app():
         test_client = app.test_client()
-        key = environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
+        key = environ["ROGUE_SCHOLAR_SERVICE_ROLE_KEY"]
         headers = {"Authorization": f"Bearer {key}"}
         response = await test_client.post(f"/citations/{prefix}", headers=headers)
         assert response.status_code == 200
@@ -35,7 +35,7 @@ async def test_extract_all_citations_by_doi():
     suffix = "ffgmk-zjj78"
     async with app.test_app():
         test_client = app.test_client()
-        key = environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
+        key = environ["ROGUE_SCHOLAR_SERVICE_ROLE_KEY"]
         headers = {"Authorization": f"Bearer {key}"}
         response = await test_client.post(
             f"/citations/{prefix}/{suffix}", headers=headers

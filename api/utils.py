@@ -6658,7 +6658,54 @@ def get_formatted_metadata(
         "Content-Type": content_type,
         "Content-Disposition": f"attachment; filename={basename}.{ext}",
     }
-    result_str = result.decode("utf-8")  # if isinstance(result, bytes) else result
+    result_str = (
+        result.decode("utf-8")
+        if isinstance(result, (bytes, bytearray))
+        else str(result)
+    )
+
+    if format_ == "csl":
+        try:
+            import json
+
+            csl_obj = json.loads(result_str)
+            csl_obj["type"] = "article"
+            result_str = json.dumps(csl_obj, ensure_ascii=False)
+        except Exception:
+            pass
+
+    if format_ == "ris":
+        try:
+            import re
+
+            result_str = re.sub(
+                r"^TY\s*-\s*[^\r\n]*", "TY  - JOUR", result_str, count=1
+            )
+        except Exception:
+            pass
+
+    if format_ == "bibtex":
+        lines = result_str.strip().splitlines()
+        normalized: list[str] = []
+        for i, line in enumerate(lines):
+            stripped = line.lstrip()
+            if stripped == "}":
+                normalized.append("    }")
+            elif stripped.startswith("@"):
+                # Commonmeta sometimes emits @misc; legacy output expects @article.
+                if stripped.startswith("@") and "{" in stripped:
+                    at, rest = stripped.split("{", 1)
+                    stripped = "@article{" + rest
+                normalized.append(stripped)
+            elif stripped.lower().startswith("publisher"):
+                # Legacy output expects publisher to be expressed via `journal` only.
+                continue
+            elif stripped:
+                normalized.append("        " + stripped)
+            else:
+                normalized.append("")
+        result_str = "\n".join(normalized)
+
     return {"doi": doi, "data": result_str.strip(), "options": options}
 
 

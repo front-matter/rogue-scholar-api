@@ -55,6 +55,59 @@ from api.blogs import extract_single_blog, extract_all_blogs
 from api.citations import extract_all_citations, extract_all_citations_by_prefix
 from api.schema import Blog, Citation, Post, PostQuery
 
+SERVICE_ROLE_KEY_ENV = "ROGUE_SCHOLAR_SERVICE_ROLE_KEY"
+LEGACY_SERVICE_ROLE_KEY_ENV = "QUART_SUPABASE_SERVICE_ROLE_KEY"
+
+
+def _get_service_role_key() -> str | None:
+    return environ.get(SERVICE_ROLE_KEY_ENV) or environ.get(LEGACY_SERVICE_ROLE_KEY_ENV)
+
+
+def _is_authorized() -> bool:
+    expected_key = _get_service_role_key()
+    if not expected_key:
+        return False
+
+    authorization = request.headers.get("Authorization")
+    if not authorization:
+        return False
+
+    parts = authorization.split(" ", 1)
+    if len(parts) != 2:
+        return False
+
+    scheme, token = parts[0], parts[1]
+    if scheme.lower() != "bearer":
+        return False
+
+    return token == expected_key
+
+
+def _typesense_like_search_response(
+    *,
+    items: list[dict],
+    found: int,
+    page: int,
+    per_page: int,
+    include_fields: list[str] | None = None,
+) -> dict:
+    if include_fields:
+        include_fields_set = set(include_fields)
+        items = [
+            {k: v for k, v in item.items() if k in include_fields_set} for item in items
+        ]
+
+    return {
+        "found": found,
+        "out_of": found,
+        "page": page,
+        "per_page": per_page,
+        "hits": [{"document": item} for item in items],
+        "total-results": found,
+        "items": items,
+    }
+
+
 config = Config()
 config.from_toml("hypercorn.toml")
 load_dotenv()
@@ -68,9 +121,16 @@ limiter = RateLimiter(app)
 app = cors(app, allow_origin="*")
 
 # QuartDB PostgreSQL connection
+#
+# We intentionally disable QuartDB's auto-migration feature for this app.
+# The project does not ship QuartDB migrations, and some existing databases
+# can have legacy `schema_migration` state tables that trigger QuartDB's
+# migration compatibility path during ASGI lifespan startup.
 db = QuartDB(
     app,
-    url=f"postgresql://{environ['QUART_POSTGRES_USER']}:{environ['QUART_POSTGRES_PASSWORD']}@{environ['QUART_POSTGRES_HOST']}:{environ.get('QUART_POSTGRES_PORT', '5432')}/{environ['QUART_POSTGRES_DB']}",
+    url=f"postgresql+psycopg://{environ['QUART_POSTGRES_USER']}:{environ['QUART_POSTGRES_PASSWORD']}@{environ['QUART_POSTGRES_HOST']}:{environ.get('QUART_POSTGRES_PORT', '5432')}/{environ['QUART_POSTGRES_DB']}",
+    migrations_folder=None,
+    data_path=None,
 )
 
 
@@ -155,11 +215,7 @@ async def blogs():
 async def post_blogs():
     """Update all blogs, using information from the blogs' feed."""
 
-    if (
-        request.headers.get("Authorization", None) is None
-        or request.headers.get("Authorization").split(" ")[1]
-        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
-    ):
+    if not _is_authorized():
         return {"error": "Unauthorized."}, 401
     else:
         result = await extract_all_blogs()
@@ -212,11 +268,7 @@ async def blog(slug):
 async def post_blog(slug):
     """Update blog by slug, using information from the blog's feed.
     Create InvenioRDM entry for the blog."""
-    if (
-        request.headers.get("Authorization", None) is None
-        or request.headers.get("Authorization").split(" ")[1]
-        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
-    ):
+    if not _is_authorized():
         return {"error": "Unauthorized."}, 401
 
     result = await extract_single_blog(slug)
@@ -233,11 +285,7 @@ async def post_blog_posts(slug: str, suffix: str | None = None):
     validate = request.args.get("validate")
     classify = request.args.get("classify")
 
-    if (
-        request.headers.get("Authorization", None) is None
-        or request.headers.get("Authorization").split(" ")[1]
-        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
-    ):
+    if not _is_authorized():
         return {"error": "Unauthorized."}, 401
     elif slug and suffix == "posts":
         try:
@@ -370,11 +418,7 @@ async def post_citations():
         "10.64395",
         "10.65527",
     ]
-    if (
-        request.headers.get("Authorization", None) is None
-        or request.headers.get("Authorization").split(" ")[1]
-        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
-    ):
+    if not _is_authorized():
         return {"error": "Unauthorized."}, 401
 
     try:
@@ -408,11 +452,7 @@ async def post_citations_by_prefix(slug: str, suffix: str | None = None):
         logger.warning(f"Invalid prefix: {slug}")
         return {"error": "An error occured."}, 400
 
-    if (
-        request.headers.get("Authorization", None) is None
-        or request.headers.get("Authorization").split(" ")[1]
-        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
-    ):
+    if not _is_authorized():
         return {"error": "Unauthorized."}, 401
 
     try:
@@ -439,6 +479,13 @@ async def posts():
     """Search posts by query, category, flag. Options to change page, per_page."""
     preview = request.args.get("preview")
     query = request.args.get("query") or ""
+    language = request.args.get("language")
+    include_fields = request.args.get("include_fields")
+    include_fields_list = (
+        [f.strip() for f in include_fields.split(",") if f.strip()]
+        if include_fields
+        else None
+    )
     per_page = int(request.args.get("per_page") or "10")
     per_page = min(per_page, 50)
     page = int(request.args.get("page") or "1")
@@ -462,6 +509,10 @@ async def posts():
         if blog_slug:
             where_conditions.append("p.blog_slug = :blog_slug")
             params["blog_slug"] = blog_slug
+
+        if language:
+            where_conditions.append("p.language = :language")
+            params["language"] = language
 
         where_clause = "WHERE " + " AND ".join(where_conditions)
 
@@ -490,7 +541,15 @@ async def posts():
             LIMIT :limit OFFSET :offset
         """
         items = await Database.fetch_all(data_query, params)
-        return jsonify({"total-results": total_count, "items": items})
+        return jsonify(
+            _typesense_like_search_response(
+                items=items,
+                found=total_count,
+                page=start_page,
+                per_page=per_page,
+                include_fields=include_fields_list,
+            )
+        )
     except Exception as e:
         logger.warning(e.args[0] if hasattr(e, "args") else str(e))
         return {"error": "An error occured."}, 400
@@ -505,11 +564,7 @@ async def post_posts():
     validate = request.args.get("validate")
     classify = request.args.get("classify")
 
-    if (
-        request.headers.get("Authorization", None) is None
-        or request.headers.get("Authorization").split(" ")[1]
-        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
-    ):
+    if not _is_authorized():
         return {"error": "Unauthorized."}, 401
     else:
         try:
@@ -542,11 +597,7 @@ async def post_post(slug: str, suffix: str | None = None):
     validate = request.args.get("validate")
     classify = request.args.get("classify")
     previous = request.args.get("previous")
-    if (
-        request.headers.get("Authorization", None) is None
-        or request.headers.get("Authorization").split(" ")[1]
-        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
-    ):
+    if not _is_authorized():
         return {"error": "Unauthorized."}, 401
 
     try:
@@ -645,7 +696,7 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
         items = await Database.fetch_all(
             data_query, {"statuses": status, "limit": min(per_page, 50)}
         )
-        return jsonify({"total-results": total_count, "items": items})
+        return jsonify(items)
     elif slug == "updated":
         query = """
             SELECT COUNT(*) as count
@@ -678,7 +729,7 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
         items = await Database.fetch_all(
             data_query, {"statuses": status, "limit": min(per_page, 50)}
         )
-        return jsonify({"total-results": total_count, "items": items})
+        return jsonify(items)
     elif slug == "waiting":
         query = """
             SELECT COUNT(*) as count
@@ -765,6 +816,33 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
             """
             result = await Database.fetch_one(query, {"doi": doi})
         references = result.get("reference", []) if result else []
+        if isinstance(references, list):
+            normalized_references = []
+            for idx, ref in enumerate(references, start=1):
+                if isinstance(ref, dict) and "key" not in ref:
+                    ref = {"key": f"ref{idx}", **ref}
+                if (
+                    isinstance(ref, dict)
+                    and "title" not in ref
+                    and isinstance(ref.get("unstructured"), str)
+                ):
+                    parts = [
+                        p.strip() for p in ref["unstructured"].split(".") if p.strip()
+                    ]
+                    if len(parts) >= 2:
+                        ref = {**ref, "title": parts[1]}
+                if (
+                    isinstance(ref, dict)
+                    and "publicationYear" not in ref
+                    and isinstance(ref.get("unstructured"), str)
+                ):
+                    import re
+
+                    match = re.search(r"\b(19|20)\d{2}\b", ref["unstructured"])
+                    if match:
+                        ref = {**ref, "publicationYear": match.group(0)}
+                normalized_references.append(ref)
+            references = normalized_references
         count = len(references)
         return jsonify({"total-results": count, "items": references})
     elif slug in prefixes and suffix:
@@ -858,11 +936,16 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
                 """
                 result = await Database.fetch_one(query, {"doi": doi})
             basename = doi_from_url(doi).replace("/", "-")
+
+        if not result:
+            return {"error": "Post not found"}, 404
         content = result.get("content_html", None) if result else None
         if format_ == "json":
             return jsonify(result)
         metadata = py_.omit(result, ["content_html"]) if result else None
         meta = convert_to_commonmeta(metadata)
+        if isinstance(meta, dict):
+            meta["type"] = "article"
     except Exception as e:
         logger.warning(e.args[0])
         return {"error": "Post not found"}, 404
@@ -1011,11 +1094,7 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
 @app.route("/records", methods=["DELETE"])
 async def delete_all_records():
     """Delete all_InvenioRDM draft records."""
-    if (
-        request.headers.get("Authorization", None) is None
-        or request.headers.get("Authorization").split(" ")[1]
-        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
-    ):
+    if not _is_authorized():
         return {"error": "Unauthorized."}, 401
 
     try:
@@ -1029,11 +1108,7 @@ async def delete_all_records():
 @app.route("/records/<slug>", methods=["DELETE"])
 async def delete_record(slug: str):
     """Delete InvenioRDM draft record using the rid."""
-    if (
-        request.headers.get("Authorization", None) is None
-        or request.headers.get("Authorization").split(" ")[1]
-        != environ["QUART_SUPABASE_SERVICE_ROLE_KEY"]
-    ):
+    if not _is_authorized():
         return {"error": "Unauthorized."}, 401
     try:
         result = await delete_draft_record(slug)

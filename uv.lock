@@ -1206,6 +1206,30 @@ wheels = [
 ]
 
 [[package]]
+name = "psycopg"
+version = "3.3.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "tzdata", marker = "sys_platform == 'win32'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/e0/1a/7d9ef4fdc13ef7f15b934c393edc97a35c281bb7d3c3329fbfcbe915a7c2/psycopg-3.3.2.tar.gz", hash = "sha256:707a67975ee214d200511177a6a80e56e654754c9afca06a7194ea6bbfde9ca7", size = 165630, upload-time = "2025-12-06T17:34:53.899Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/8c/51/2779ccdf9305981a06b21a6b27e8547c948d85c41c76ff434192784a4c93/psycopg-3.3.2-py3-none-any.whl", hash = "sha256:3e94bc5f4690247d734599af56e51bae8e0db8e4311ea413f801fef82b14a99b", size = 212774, upload-time = "2025-12-06T17:31:41.414Z" },
+]
+
+[[package]]
+name = "psycopg-pool"
+version = "3.3.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/56/9a/9470d013d0d50af0da9c4251614aeb3c1823635cab3edc211e3839db0bcf/psycopg_pool-3.3.0.tar.gz", hash = "sha256:fa115eb2860bd88fce1717d75611f41490dec6135efb619611142b24da3f6db5", size = 31606, upload-time = "2025-12-01T11:34:33.11Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e7/c3/26b8a0908a9db249de3b4169692e1c7c19048a9bc41a4d3209cee7dbb758/psycopg_pool-3.3.0-py3-none-any.whl", hash = "sha256:2e44329155c410b5e8666372db44276a8b1ebd8c90f1c3026ebba40d4bc81063", size = 39995, upload-time = "2025-12-01T11:34:29.761Z" },
+]
+
+[[package]]
 name = "pycountry"
 version = "24.6.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1467,7 +1491,7 @@ wheels = [
 
 [[package]]
 name = "quart"
-version = "0.19.9"
+version = "0.20.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiofiles" },
@@ -1480,9 +1504,9 @@ dependencies = [
     { name = "markupsafe" },
     { name = "werkzeug" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/07/05/0d7a280a89b05a6b6c2224b4a1b991b7a4c52eed5e14b92c3c63ce29c235/quart-0.19.9.tar.gz", hash = "sha256:30a61a0d7bae1ee13e6e99dc14c929b3c945e372b9445d92d21db053e91e95a5", size = 65653, upload-time = "2024-11-14T16:53:02.473Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/1d/9d/12e1143a5bd2ccc05c293a6f5ae1df8fd94a8fc1440ecc6c344b2b30ce13/quart-0.20.0.tar.gz", hash = "sha256:08793c206ff832483586f5ae47018c7e40bdd75d886fee3fabbdaa70c2cf505d", size = 63874, upload-time = "2024-12-23T13:53:05.664Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/a8/01/e5d6127f6304c7e596e5c8eec5accdec0f698ec65fe342d8474ad5223717/quart-0.19.9-py3-none-any.whl", hash = "sha256:8acb8b299c72b66ee9e506ae141498bbbfcc250b5298fbdb712e97f3d7e4082f", size = 78294, upload-time = "2024-11-14T16:52:59.604Z" },
+    { url = "https://files.pythonhosted.org/packages/7e/e9/cc28f21f52913adf333f653b9e0a3bf9cb223f5083a26422968ba73edd8d/quart-0.20.0-py3-none-any.whl", hash = "sha256:003c08f551746710acb757de49d9b768986fd431517d0eb127380b656b98b8f1", size = 77960, upload-time = "2024-12-23T13:53:02.842Z" },
 ]
 
 [[package]]
@@ -1499,16 +1523,21 @@ wheels = [
 
 [[package]]
 name = "quart-db"
-version = "0.10.1"
+version = "0.11.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "asyncpg" },
     { name = "buildpg" },
     { name = "quart" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/36/e8/f2fd6bef7407ecc3a5f51a4a4df196ea36b5505792818900f9a0df0343b4/quart_db-0.10.1.tar.gz", hash = "sha256:7a8d5c70a624fc5644429ba77cc9dc34c155192eefe34394b760c989c15ea630", size = 14683, upload-time = "2025-08-20T17:32:42.868Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/da/da/75edb9e48f4ca00b30d0eff46b1e133441e0c23d1331e3450675eb640493/quart_db-0.11.1.tar.gz", hash = "sha256:287f2263b5d72aca93400275cfc07e43e929da73ce4f8c50f3dc1f48214edad7", size = 14404, upload-time = "2026-01-12T11:54:53.364Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ea/56/c56558ebd6d5655bf82dfe64d8d6ac465152776d92705f71d11d503aa3c0/quart_db-0.10.1-py3-none-any.whl", hash = "sha256:2124de922a7fd656f42f6672d354a7117317a3fb0498e1949dcc7afa407142b2", size = 16354, upload-time = "2025-08-20T17:32:41.366Z" },
+    { url = "https://files.pythonhosted.org/packages/31/4b/c9ff542347f9a8af72edad60451a9b2d3920b937163ccdc94ea8f9abc9ba/quart_db-0.11.1-py3-none-any.whl", hash = "sha256:3509f731fa5a4fac63670e039d5e568355a573c38201f93306719f6d86928854", size = 15886, upload-time = "2026-01-12T11:54:51.554Z" },
+]
+
+[package.optional-dependencies]
+psycopg = [
+    { name = "psycopg" },
 ]
 
 [[package]]
@@ -1668,12 +1697,13 @@ dependencies = [
     { name = "nh3" },
     { name = "orjson" },
     { name = "pandoc" },
+    { name = "psycopg-pool" },
     { name = "pydash" },
     { name = "python-dotenv" },
     { name = "python-frontmatter" },
     { name = "quart" },
     { name = "quart-cors" },
-    { name = "quart-db" },
+    { name = "quart-db", extra = ["psycopg"] },
     { name = "quart-rate-limiter" },
     { name = "quart-schema" },
     { name = "setuptools" },
@@ -1711,12 +1741,13 @@ requires-dist = [
     { name = "nh3", specifier = ">=0.2.14,<0.3" },
     { name = "orjson", specifier = ">=3.9.14,<4" },
     { name = "pandoc", specifier = "~=2.4" },
+    { name = "psycopg-pool", specifier = ">=3.2,<4" },
     { name = "pydash", specifier = "~=7.0" },
     { name = "python-dotenv", specifier = ">=1.0.0,<2" },
     { name = "python-frontmatter", specifier = "~=1.1" },
-    { name = "quart", specifier = ">=0.19.2,<0.20" },
+    { name = "quart", specifier = ">=0.20,<0.21" },
     { name = "quart-cors", specifier = ">=0.7.0,<0.8" },
-    { name = "quart-db", extras = ["postgresql"], specifier = "~=0.10.0" },
+    { name = "quart-db", extras = ["psycopg"], specifier = "~=0.11.0" },
     { name = "quart-rate-limiter", specifier = ">=0.10.0,<0.11" },
     { name = "quart-schema", specifier = ">=0.17.1,<0.18" },
     { name = "setuptools", specifier = ">=0.70" },

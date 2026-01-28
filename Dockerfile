@@ -48,6 +48,6 @@ COPY --from=builder /usr/bin/pandoc /usr/bin/pandoc
 COPY api ./api
 COPY pandoc ./pandoc
 COPY hypercorn.toml ./
-EXPOSE 8080
+EXPOSE 5200
 
 CMD ["hypercorn", "-b",  "0.0.0.0:5200", "api:app"]
