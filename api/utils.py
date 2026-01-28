@@ -12,7 +12,6 @@ import iso8601
 import json as JSON
 import yaml
 import html
-from lxml import etree
 import pydash as py_
 from dateutil import parser, relativedelta
 from datetime import datetime, timezone
@@ -38,8 +37,6 @@ from commonmeta.base_utils import compact, wrap, dig
 from nameparser import HumanName
 import frontmatter
 import pandoc
-
-from pandoc.types import Link
 
 logger = logging.getLogger(__name__)
 

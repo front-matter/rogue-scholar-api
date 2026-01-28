@@ -10,22 +10,12 @@ from datetime import datetime, timezone
 from commonmeta import (
     validate_doi,
     normalize_doi,
-    doi_from_url,
     wrap,
     Metadata,
     compact,
 )
 
-from api.db_client import Database, PostsQueries, CitationsQueries
-
-# from api.supabase_client import (
-#     supabase_client as supabase,
-#     supabase_admin_client as supabase_admin,
-# )
-
-from api.posts import (
-    update_single_post,
-)
+from api.db_client import Database, CitationsQueries
 
 
 async def extract_all_citations_by_prefix(slug: str) -> list:

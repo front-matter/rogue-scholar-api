@@ -13,11 +13,6 @@ import pydash as py_
 from commonmeta import get_date_from_unix_timestamp, get_language, compact, wrap
 
 from api.db_client import Database, BlogsQueries
-
-# from api.supabase_client import (
-#     supabase_client as supabase,
-#     supabase_admin_client as supabase_admin,
-# )
 from api.utils import (
     start_case,
     get_date,

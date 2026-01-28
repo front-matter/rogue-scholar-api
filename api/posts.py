@@ -29,7 +29,6 @@ from commonmeta.writers.inveniordm_writer import push_inveniordm
 # from urllib.parse import urljoin
 from commonmeta.base_utils import compact, dig, wrap
 from commonmeta.date_utils import get_datetime_from_time
-from commonmeta.doi_utils import is_rogue_scholar_doi
 from math import ceil, floor
 from Levenshtein import ratio
 
@@ -60,13 +59,6 @@ from api.utils import (
     EXCLUDED_TAGS,
 )
 from api.db_client import Database, BlogsQueries, PostsQueries, CitationsQueries
-
-# from api.supabase_client import (
-#     supabase_admin_client as supabase_admin,
-#     supabase_client as supabase,
-#     postsWithContentSelect,
-#     postsWithCitationsSelect,
-# )
 
 logger = logging.getLogger(__name__)
 
@@ -207,7 +199,7 @@ async def update_all_cited_posts(
     return await asyncio.gather(*upsert_tasks)
 
 
-async def update_all_flagged_posts(page: int = 1):
+async def update_all_flagged_posts(page: int = 1, classify_all: bool = False):
     """Update all flagged posts."""
 
     start_page = (page - 1) * 50 if page > 0 else 0
@@ -529,7 +521,7 @@ async def extract_all_posts_by_blog(
                 except httpx.TransportError:
                     print(f"Transport error for feed {feed_url}.")
                     posts = []
-                except JSON.decoder.JSONDecodeError:
+                except JSON.JSONDecodeError:
                     print(f"JSON decode error for feed {feed_url}.")
                     posts = []
                 except httpx.HTTPError as e:
@@ -624,38 +616,33 @@ async def update_all_posts_by_blog(
     """Update all posts by blog."""
 
     try:
-        response = (
-            supabase.table("blogs")
-            .select(
-                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, archive_host, archive_collection, archive_timestamps, feed_format, created_at, updated_at, registered_at, mastodon, generator, generator_raw, language, category, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure"
-            )
-            .eq("slug", slug)
-            .maybe_single()
-            .execute()
-        )
-        blog = response.data
+        blog = await BlogsQueries.select_by_slug(slug)
         if not blog:
-            return {}
+            return []
 
-        start_page = (page - 1) * 50 if page > 0 else 0
-        end_page = (page - 1) * 50 + 50 if page > 0 else 50
-        blog_with_posts = {}
+        offset = (page - 1) * 50 if page > 0 else 0
+        limit = 50
 
-        response = (
-            supabase.table("posts")
-            .select(postsWithContentSelect)
-            .eq("blog_slug", blog["slug"])
-            .order("published_at", desc=True)
-            .range(start_page, end_page)
-            .execute()
+        query = """
+            SELECT p.*
+            FROM posts p
+            WHERE p.blog_slug = :slug
+            ORDER BY p.published_at DESC
+            LIMIT :limit OFFSET :offset
+        """
+        posts = await Database.fetch_all(
+            query, {"slug": blog["slug"], "limit": limit, "offset": offset}
         )
-        update_posts = [
-            update_rogue_scholar_post(x, blog, validate_all, classify_all)
-            for x in response.data
-        ]
-        blog_with_posts["entries"] = await asyncio.gather(*update_posts)
+        if not posts:
+            return []
 
-        upsert_tasks = [upsert_single_post(i) for i in blog_with_posts["entries"]]
+        update_posts = [
+            update_rogue_scholar_post(p, blog, validate_all, classify_all)
+            for p in posts
+        ]
+        updated_posts = await asyncio.gather(*update_posts)
+
+        upsert_tasks = [upsert_single_post(i) for i in updated_posts]
         return await asyncio.gather(*upsert_tasks)
     except TimeoutError:
         print(f"Timeout error in blog {slug}.")
@@ -672,58 +659,47 @@ async def update_all_unclassified_posts_by_blog(
     """Update all unclassified posts by blog."""
 
     try:
-        response = (
-            supabase.table("blogs")
-            .select(
-                "id, slug, feed_url, current_feed_url, home_page_url, archive_prefix, archive_host, archive_collection, archive_timestamps, feed_format, created_at, updated_at, registered_at, mastodon, generator, generator_raw, language, category, subfield, favicon, title, description, category, status, user_id, authors, use_api, relative_url, filter, secure"
-            )
-            .eq("slug", slug)
-            .maybe_single()
-            .execute()
-        )
-        blog = response.data
+        blog = await BlogsQueries.select_by_slug(slug)
         if not blog:
-            return {}
+            return []
 
-        start_page = (page - 1) * 50 if page > 0 else 0
-        end_page = (page - 1) * 50 + 50 if page > 0 else 50
-        blog_with_posts = {}
+        limit = 50
 
         # handle automatic pagination, based on number of posts already in the database
         if page == 999:
-            response = (
-                supabase.table("posts")
-                .select(postsWithContentSelect, count="exact")
-                .eq("blog_slug", blog["slug"])
-                .is_("topic", "null")
-                .order("published_at", desc=True)
-                .range(1, 50)
-                .execute()
-            )
-            total = response.count
-            page = floor(total / 50)
-        else:
-            response = (
-                supabase.table("posts")
-                .select(postsWithContentSelect)
-                .eq("blog_slug", blog["slug"])
-                .is_("topic", "null")
-                .order("published_at", desc=True)
-                .range(start_page, end_page)
-                .execute()
-            )
+            count_query = """
+                SELECT COUNT(*) as count
+                FROM posts
+                WHERE blog_slug = :slug
+                AND topic IS NULL
+            """
+            count_result = await Database.fetch_one(count_query, {"slug": blog["slug"]})
+            total = count_result.get("count", 0) if count_result else 0
+            page = floor(total / 50) if total else 1
 
-        # Handle empty response (HTTP 204)
-        if not response.data:
+        offset = (page - 1) * limit if page > 0 else 0
+
+        query = """
+            SELECT p.*
+            FROM posts p
+            WHERE p.blog_slug = :slug
+            AND p.topic IS NULL
+            ORDER BY p.published_at DESC
+            LIMIT :limit OFFSET :offset
+        """
+        posts = await Database.fetch_all(
+            query, {"slug": blog["slug"], "limit": limit, "offset": offset}
+        )
+        if not posts:
             return []
 
         update_posts = [
-            update_rogue_scholar_post(x, blog, validate_all, classify_all)
-            for x in response.data
+            update_rogue_scholar_post(p, blog, validate_all, classify_all)
+            for p in posts
         ]
-        blog_with_posts["entries"] = await asyncio.gather(*update_posts)
+        updated_posts = await asyncio.gather(*update_posts)
 
-        upsert_tasks = [upsert_single_post(i) for i in blog_with_posts["entries"]]
+        upsert_tasks = [upsert_single_post(i) for i in updated_posts]
         return await asyncio.gather(*upsert_tasks)
     except TimeoutError:
         print(f"Timeout error in blog {slug}.")
@@ -1104,48 +1080,45 @@ async def update_single_post(
 
     try:
         if validate_uuid(slug):
-            response = (
-                supabase.table("posts")
-                .select(postsWithCitationsSelect)
-                .eq("id", slug)
-                .maybe_single()
-                .execute()
-            )
-            if not response:
-                response = (
-                    supabase.table("posts")
-                    .select(postsWithContentSelect)
-                    .eq("id", slug)
-                    .maybe_single()
-                    .execute()
-                )
+            query = """
+                SELECT p.*, row_to_json(b.*) as blog,
+                       (
+                           SELECT json_agg(row_to_json(c.*))
+                           FROM citations c
+                           WHERE c.doi = p.doi AND c.cid IS NOT NULL
+                       ) as citations
+                FROM posts p
+                INNER JOIN blogs b ON p.blog_slug = b.slug
+                WHERE p.id = :id
+            """
+            post = await Database.fetch_one(query, {"id": slug})
         elif validate_prefix(slug) and suffix:
             doi = f"https://doi.org/{slug}/{suffix}"
-            response = (
-                supabase.table("posts")
-                .select(postsWithCitationsSelect)
-                .eq("doi", doi)
-                .maybe_single()
-                .execute()
-            )
-            if not response:
-                response = (
-                    supabase.table("posts")
-                    .select(postsWithContentSelect)
-                    .eq("doi", doi)
-                    .maybe_single()
-                    .execute()
-                )
+            query = """
+                SELECT p.*, row_to_json(b.*) as blog,
+                       (
+                           SELECT json_agg(row_to_json(c.*))
+                           FROM citations c
+                           WHERE c.doi = p.doi AND c.cid IS NOT NULL
+                       ) as citations
+                FROM posts p
+                INNER JOIN blogs b ON p.blog_slug = b.slug
+                WHERE p.doi = :doi
+            """
+            post = await Database.fetch_one(query, {"doi": doi})
         else:
             return {"error": "An error occured."}, 400
-        if not response or not response.data:
+
+        if not post:
             return {"error": "An error occured."}, 400
-        blog = dig(response.data, "blog")
+
+        blog = post.get("blog")
         if not blog:
             return {"error": "Blog not found."}, 404
-        post = py_.omit(response.data, "blog")
+
+        post_payload = py_.omit(post, "blog")
         updated_post = await update_rogue_scholar_post(
-            post, blog, validate_all, classify_all, previous
+            post_payload, blog, validate_all, classify_all, previous
         )
         response = await upsert_single_post(updated_post, previous=previous)
         return response
