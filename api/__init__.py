@@ -8,8 +8,6 @@ from io import BytesIO
 import pydash as py_
 from dotenv import load_dotenv
 import frontmatter
-import pikepdf
-from pikepdf import AttachedFileSpec
 from quart import g, Quart, request, jsonify, redirect
 from quart_schema import (
     QuartSchema,
