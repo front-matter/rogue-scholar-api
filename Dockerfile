@@ -33,7 +33,10 @@ FROM --platform=$BUILDPLATFORM python:3.13-slim-bookworm AS runtime
 
 # Install OS package dependency (for weasyprint): pango
 RUN --mount=type=cache,target=/var/cache/apt apt-get update -y && \
-    apt-get install pango1.0-tools=1.50.12+ds-1 -y --no-install-recommends && \
+    apt-get install \
+    pango1.0-tools=1.50.12+ds-1 \
+    libpq5 \
+    -y --no-install-recommends && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
