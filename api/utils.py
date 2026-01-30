@@ -6308,10 +6308,59 @@ def get_date(date: str):
     if not date:
         return None
     try:
-        return parser.parse(date).isoformat("T", "seconds")
+        cleaned = _clean_date_string(date)
+        return parser.parse(cleaned).isoformat("T", "seconds")
     except Exception as e:
-        print(e)
-        return None
+        try:
+            cleaned = _clean_date_string(date)
+            return parser.parse(cleaned, fuzzy=True).isoformat("T", "seconds")
+        except Exception:
+            print(e)
+            return None
+
+
+def _clean_date_string(date_str: str) -> str:
+    """Best-effort cleanup for malformed feed date strings.
+
+    Some feeds contain corrupted timezone offsets, e.g. '+0``000', which breaks
+    `dateutil.parser.parse`.
+    """
+
+    if date_str is None:
+        return ""
+
+    s = str(date_str).strip()
+    if not s:
+        return s
+
+    # Common garbage characters seen in feeds.
+    s = s.replace("\u00a0", " ").replace("\u200b", "").replace("`", "").replace("´", "")
+
+    # Normalize last token if it looks like a timezone offset.
+    parts = s.split()
+    if parts and (parts[-1].startswith("+") or parts[-1].startswith("-")):
+        tz = parts[-1]
+        sign = tz[0]
+        digits = re.sub(r"\D", "", tz[1:])
+
+        if digits:
+            # Normalize to RFC2822-style +/-HHMM when possible.
+            if len(digits) == 1:
+                digits = digits.zfill(2) + "00"
+            elif len(digits) == 2:
+                digits = digits + "00"
+            elif len(digits) == 3:
+                digits = digits.zfill(4)
+            elif len(digits) >= 4:
+                digits = digits[:4]
+
+            parts[-1] = sign + digits
+            s = " ".join(parts)
+        else:
+            # Drop an unusable timezone token.
+            s = " ".join(parts[:-1])
+
+    return s
 
 
 def unix_timestamp(date_str: str | None) -> int:

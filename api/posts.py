@@ -2409,7 +2409,10 @@ async def upsert_single_post(post, previous: str | None = None):
             INNER JOIN blogs b ON p.blog_slug = b.slug
             WHERE p.guid = :guid
         """
-        record = await Database.fetch_one(query, {"guid": post.get("guid", None)})
+        guid_value = post.get("guid", None)
+        if guid_value is not None:
+            guid_value = str(guid_value)
+        record = await Database.fetch_one(query, {"guid": guid_value})
         if not record:
             return post_to_update
         record = _normalize_numeric_types(record)

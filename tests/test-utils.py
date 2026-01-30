@@ -44,6 +44,13 @@ def test_get_date_rss():
     assert result == "2023-09-18T04:00:00+00:00"
 
 
+def test_get_date_malformed_timezone_offset():
+    "parse datetime when timezone offset is corrupted"
+    date = "Thursday, 13 January 2022 15:55:58 +0``000"
+    result = get_date(date)
+    assert result == "2022-01-13T15:55:58+00:00"
+
+
 def test_convert_to_commonmeta_default():
     """Concert metadata into commonmeta format"""
     string = path.join(path.dirname(__file__), "fixtures", "rogue-scholar.json")
