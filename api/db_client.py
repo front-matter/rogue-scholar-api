@@ -46,8 +46,8 @@ async def _get_pool() -> AsyncConnectionPool:
 
         _pool = AsyncConnectionPool(
             _database_url_from_env(),
-            min_size=1,
-            max_size=5,
+            min_size=2,
+            max_size=20,
             timeout=30.0,
             max_idle=300.0,
             kwargs={
