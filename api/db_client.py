@@ -47,9 +47,9 @@ async def _get_pool() -> AsyncConnectionPool:
         _pool = AsyncConnectionPool(
             _database_url_from_env(),
             min_size=2,
-            max_size=20,
-            timeout=30.0,
-            max_idle=300.0,
+            max_size=15,
+            timeout=60.0,
+            max_idle=60.0,
             kwargs={
                 "autocommit": True,
                 "cursor_factory": psycopg.AsyncRawCursor,
