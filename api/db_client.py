@@ -54,6 +54,10 @@ async def _get_pool() -> AsyncConnectionPool:
                 "autocommit": True,
                 "cursor_factory": psycopg.AsyncRawCursor,
                 "row_factory": dict_row,
+                "keepalives": 1,
+                "keepalives_idle": 30,
+                "keepalives_interval": 10,
+                "keepalives_count": 5,
             },
             open=False,
         )
