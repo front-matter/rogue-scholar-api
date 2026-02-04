@@ -128,7 +128,7 @@ app = cors(app, allow_origin="*")
 # migration compatibility path during ASGI lifespan startup.
 db = QuartDB(
     app,
-    url=f"postgresql+psycopg://{environ['QUART_POSTGRES_USER']}:{environ['QUART_POSTGRES_PASSWORD']}@{environ['QUART_POSTGRES_HOST']}:{environ.get('QUART_POSTGRES_PORT', '5432')}/{environ['QUART_POSTGRES_DB']}",
+    url=f"postgresql+psycopg://{environ['QUART_POSTGRES_USER']}:{environ['QUART_POSTGRES_PASSWORD']}@{environ['QUART_POSTGRES_HOST']}:{environ.get('QUART_POSTGRES_PORT', '5432')}/{environ['QUART_POSTGRES_DB']}?keepalives=1&keepalives_idle=30&keepalives_interval=10&keepalives_count=5&connect_timeout=10",
     migrations_folder=None,
     data_path=None,
 )

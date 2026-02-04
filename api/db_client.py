@@ -35,6 +35,15 @@ def _database_url_from_env() -> str:
     return f"postgresql://{user}:{password}@{host}:{port}/{db}"
 
 
+async def _check_connection(connection):
+    """Validate that a pooled connection is still alive."""
+    try:
+        await connection.execute("SELECT 1")
+    except Exception:
+        # Connection is dead, will be discarded by pool
+        raise psycopg.OperationalError("Connection check failed")
+
+
 async def _get_pool() -> AsyncConnectionPool:
     global _pool
     if _pool is not None:
@@ -46,10 +55,12 @@ async def _get_pool() -> AsyncConnectionPool:
 
         _pool = AsyncConnectionPool(
             _database_url_from_env(),
-            min_size=2,
-            max_size=10,
+            min_size=0,
+            max_size=3,
             timeout=60.0,
-            max_idle=60.0,
+            max_idle=300.0,
+            reconnect_timeout=30.0,
+            check=AsyncConnectionPool.check_connection,
             kwargs={
                 "autocommit": True,
                 "cursor_factory": psycopg.AsyncRawCursor,
@@ -58,6 +69,7 @@ async def _get_pool() -> AsyncConnectionPool:
                 "keepalives_idle": 30,
                 "keepalives_interval": 10,
                 "keepalives_count": 5,
+                "connect_timeout": 10,
             },
             open=False,
         )
