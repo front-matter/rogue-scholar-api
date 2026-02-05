@@ -126,9 +126,14 @@ app = cors(app, allow_origin="*")
 # The project does not ship QuartDB migrations, and some existing databases
 # can have legacy `schema_migration` state tables that trigger QuartDB's
 # migration compatibility path during ASGI lifespan startup.
+#
+# Connection URL includes Supabase-optimized parameters:
+# - TCP keepalive to prevent idle disconnects
+# - Statement/transaction timeouts (60s) to avoid long-running operations
+# - Application name for monitoring
 db = QuartDB(
     app,
-    url=f"postgresql+psycopg://{environ['QUART_POSTGRES_USER']}:{environ['QUART_POSTGRES_PASSWORD']}@{environ['QUART_POSTGRES_HOST']}:{environ.get('QUART_POSTGRES_PORT', '5432')}/{environ['QUART_POSTGRES_DB']}?keepalives=1&keepalives_idle=30&keepalives_interval=10&keepalives_count=5&connect_timeout=10",
+    url=f"postgresql+psycopg://{environ['QUART_POSTGRES_USER']}:{environ['QUART_POSTGRES_PASSWORD']}@{environ['QUART_POSTGRES_HOST']}:{environ.get('QUART_POSTGRES_PORT', '5432')}/{environ['QUART_POSTGRES_DB']}?keepalives=1&keepalives_idle=30&keepalives_interval=10&keepalives_count=5&connect_timeout=10&options=-c%20statement_timeout%3D60000%20-c%20idle_in_transaction_session_timeout%3D60000&application_name=rogue-scholar-api",
     migrations_folder=None,
     data_path=None,
 )

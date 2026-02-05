@@ -35,16 +35,12 @@ def _database_url_from_env() -> str:
     return f"postgresql://{user}:{password}@{host}:{port}/{db}"
 
 
-async def _check_connection(connection):
-    """Validate that a pooled connection is still alive."""
-    try:
-        await connection.execute("SELECT 1")
-    except Exception:
-        # Connection is dead, will be discarded by pool
-        raise psycopg.OperationalError("Connection check failed")
-
-
 async def _get_pool() -> AsyncConnectionPool:
+    """Get or create the global connection pool for non-request contexts.
+
+    This pool is a fallback for scripts and background tasks.
+    Normal API requests use QuartDB's request-scoped connections.
+    """
     global _pool
     if _pool is not None:
         return _pool
@@ -53,28 +49,31 @@ async def _get_pool() -> AsyncConnectionPool:
         if _pool is not None:
             return _pool
 
-        _pool = AsyncConnectionPool(
-            _database_url_from_env(),
-            min_size=0,
-            max_size=3,
-            timeout=60.0,
-            max_idle=300.0,
-            reconnect_timeout=30.0,
-            check=AsyncConnectionPool.check_connection,
-            kwargs={
-                "autocommit": True,
-                "cursor_factory": psycopg.AsyncRawCursor,
-                "row_factory": dict_row,
-                "keepalives": 1,
-                "keepalives_idle": 30,
-                "keepalives_interval": 10,
-                "keepalives_count": 5,
-                "connect_timeout": 10,
-            },
-            open=False,
-        )
-        await _pool.open()
-        return _pool
+        try:
+            _pool = AsyncConnectionPool(
+                _database_url_from_env(),
+                min_size=0,  # No idle connections
+                max_size=3,  # Minimal for scripts only
+                timeout=60.0,  # Wait up to 60s for connection
+                max_idle=300.0,  # Keep idle connections for 5 min
+                reconnect_timeout=30.0,  # Retry failed connections for 30s
+                kwargs={
+                    "autocommit": True,
+                    "cursor_factory": psycopg.AsyncRawCursor,
+                    "row_factory": dict_row,
+                    "keepalives": 1,
+                    "keepalives_idle": 30,
+                    "keepalives_interval": 10,
+                    "keepalives_count": 5,
+                    "connect_timeout": 10,
+                },
+                open=False,
+            )
+            await _pool.open()
+            return _pool
+        except Exception as e:
+            _pool = None
+            raise ConnectionError(f"Failed to initialize connection pool: {e}")
 
 
 def _compile(query: str, params: Optional[Dict] = None) -> tuple[str, list[Any]]:
