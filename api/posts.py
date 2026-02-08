@@ -90,6 +90,7 @@ def _normalize_numeric_types(value):
 
 async def extract_all_posts(
     page: int = 1,
+    per_page: int = 50,
     update_all: bool = False,
     validate_all: bool = False,
     classify_all: bool = False,
@@ -100,7 +101,7 @@ async def extract_all_posts(
     tasks = []
     for blog in blogs:
         task = extract_all_posts_by_blog(
-            blog["slug"], page, update_all, validate_all, classify_all
+            blog["slug"], page, per_page, update_all, validate_all, classify_all
         )
         tasks.append(task)
 
@@ -116,7 +117,10 @@ async def extract_all_posts(
 
 
 async def update_all_posts(
-    page: int = 1, validate_all: bool = False, classify_all: bool = False
+    page: int = 1,
+    per_page: int = 50,
+    validate_all: bool = False,
+    classify_all: bool = False,
 ):
     """Update all posts."""
 
@@ -132,7 +136,13 @@ async def update_all_posts(
     )
     tasks = []
     for blog in blogs:
-        task = update_all_posts_by_blog(blog["slug"], page, validate_all, classify_all)
+        task = update_all_posts_by_blog(
+            blog["slug"],
+            page,
+            per_page=per_page,
+            validate_all=validate_all,
+            classify_all=classify_all,
+        )
         tasks.append(task)
 
     raw_results = await asyncio.gather(*tasks)
@@ -235,6 +245,7 @@ async def update_all_flagged_posts(page: int = 1, classify_all: bool = False):
 async def extract_all_posts_by_blog(
     slug: str,
     page: int = 1,
+    per_page: int = 50,
     update_all: bool = False,
     validate_all: bool = False,
     classify_all: bool = False,
@@ -275,10 +286,9 @@ async def extract_all_posts_by_blog(
             """
             count_result = await Database.fetch_one(count_query, {"slug": slug})
             total = count_result.get("count", 0) if count_result else 0
-            page = floor(total / 50)
-        start_page = (page - 1) * 50 if page > 0 else 0
-        end_page = (page - 1) * 50 + 50 if page > 0 else 50
-        per_page = 50
+            page = floor(total / per_page)
+        start_page = (page - 1) * per_page if page > 0 else 0
+        end_page = (page - 1) * per_page + per_page if page > 0 else per_page
 
         # handle pagination depending on blogging platform and whether we use their API
         match generator:
@@ -611,7 +621,11 @@ async def extract_all_posts_by_blog(
 
 
 async def update_all_posts_by_blog(
-    slug: str, page: int = 1, validate_all: bool = False, classify_all: bool = False
+    slug: str,
+    page: int = 1,
+    per_page: int = 50,
+    validate_all: bool = False,
+    classify_all: bool = False,
 ):
     """Update all posts by blog."""
 
@@ -620,8 +634,8 @@ async def update_all_posts_by_blog(
         if not blog:
             return []
 
-        offset = (page - 1) * 50 if page > 0 else 0
-        limit = 50
+        offset = (page - 1) * per_page if page > 0 else 0
+        limit = per_page
 
         query = """
             SELECT p.*
