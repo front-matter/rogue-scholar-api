@@ -286,6 +286,7 @@ async def post_blog_posts(slug: str, suffix: str | None = None):
     """Update blog posts by slug."""
 
     page = int(request.args.get("page") or "1")
+    per_page = int(request.args.get("per_page") or "50")
     update = request.args.get("update")
     validate = request.args.get("validate")
     classify = request.args.get("classify")
@@ -298,6 +299,7 @@ async def post_blog_posts(slug: str, suffix: str | None = None):
                 result = await update_all_posts_by_blog(
                     slug,
                     page=page,
+                    per_page=per_page,
                     validate_all=(validate == "all"),
                     classify_all=(classify == "all"),
                 )
@@ -312,6 +314,7 @@ async def post_blog_posts(slug: str, suffix: str | None = None):
                 result = await extract_all_posts_by_blog(
                     slug,
                     page=page,
+                    per_page=per_page,
                     update_all=(update == "all"),
                     validate_all=(validate == "all"),
                     classify_all=(classify == "all"),
