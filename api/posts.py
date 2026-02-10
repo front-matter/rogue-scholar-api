@@ -1165,6 +1165,15 @@ async def extract_wordpress_post(
 
         published_at = unix_timestamp(post.get("date_gmt", None))
         authors_ = wrap(dig(post, "_embedded.author"))
+
+        # check for permissions error in REST API embedded author data
+        if authors_ and isinstance(authors_, list) and len(authors_) > 0:
+            if (
+                isinstance(authors_[0], dict)
+                and authors_[0].get("code") == "rest_user_cannot_view"
+            ):
+                authors_ = []
+
         title = dig(post, "title.rendered", "")
 
         # check for author name in title
@@ -1187,19 +1196,22 @@ async def extract_wordpress_post(
         if author:
             authors_ = [{"name": author}]
 
-        # use default author for blog if no post author found
-        if len(authors_) == 0 or authors_[0].get("name", None) is None:
-            authors_ = wrap(blog.get("authors", None))
         # check for authors using the Co-Authors Plus plugin
-        if len(authors_) > 1 and presence(post.get("coauthors", None)):
+        if len(authors_) == 0 and presence(post.get("coauthors", None)):
             authors_ = [
                 normalize_coauthor(i.get("name", None))
                 for i in wrap(dig(post, "_embedded.wp:term.2"))
             ]
+
         # check for authors using the Yoast SEO plugin
-        elif len(authors_) > 1 and dig(post, "yoast_head_json.schema.@graph"):
+        elif len(authors_) == 0 and dig(post, "yoast_head_json.schema.@graph"):
             graph = dig(post, "yoast_head_json.schema.@graph", [])
             authors_ = extract_schemaorg_authors(graph)
+
+        # use default author for blog if no post author found
+        if len(authors_) == 0 or authors_[0].get("name", None) is None:
+            authors_ = wrap(blog.get("authors", None))
+
         authors = [format_author(i, published_at) for i in authors_]
         content_html = dig(post, "content.rendered", "")
         summary = get_summary(content_html)
