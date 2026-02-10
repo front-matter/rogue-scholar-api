@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import asyncio
 import os
+import logging
 from typing import Optional, List, Dict, Any
 from uuid import UUID
 from datetime import date, datetime
@@ -22,15 +23,59 @@ from psycopg.types.json import Jsonb
 from psycopg_pool import AsyncConnectionPool
 
 
+logger = logging.getLogger(__name__)
 _pool: AsyncConnectionPool | None = None
 _pool_lock = asyncio.Lock()
+
+
+async def _retry_on_connection_error(func, max_retries: int = 3, delay: float = 1.0):
+    """Retry a database operation on connection errors.
+
+    Args:
+        func: Async function to execute
+        max_retries: Maximum number of retry attempts
+        delay: Initial delay between retries (exponential backoff)
+
+    Returns:
+        Result of the function call
+
+    Raises:
+        Last exception if all retries fail
+    """
+    last_exception = None
+    for attempt in range(max_retries):
+        try:
+            return await func()
+        except (psycopg.OperationalError, psycopg.InterfaceError) as e:
+            last_exception = e
+            if attempt < max_retries - 1:
+                wait_time = delay * (2**attempt)
+                logger.warning(
+                    f"Database connection error (attempt {attempt + 1}/{max_retries}): {e}. "
+                    f"Retrying in {wait_time}s..."
+                )
+                await asyncio.sleep(wait_time)
+            else:
+                logger.error(
+                    f"Database operation failed after {max_retries} attempts: {e}"
+                )
+                raise
+        except Exception:
+            # Don't retry on non-connection errors
+            raise
+
+    # Should not reach here, but just in case
+    if last_exception:
+        raise last_exception
 
 
 def _database_url_from_env() -> str:
     user = os.environ.get("QUART_POSTGRES_USER", "")
     password = os.environ.get("QUART_POSTGRES_PASSWORD", "")
     host = os.environ.get("QUART_POSTGRES_HOST", "localhost")
-    port = os.environ.get("QUART_POSTGRES_PORT", "5432")
+    port = os.environ.get(
+        "QUART_POSTGRES_PORT", "6543"
+    )  # Default to Supabase Transaction Mode
     db = os.environ.get("QUART_POSTGRES_DB", "postgres")
     return f"postgresql://{user}:{password}@{host}:{port}/{db}"
 
@@ -40,6 +85,11 @@ async def _get_pool() -> AsyncConnectionPool:
 
     This pool is a fallback for scripts and background tasks.
     Normal API requests use QuartDB's request-scoped connections.
+
+    Configured for Supabase Transaction Mode (port 6543):
+    - No prepared statements (transaction mode limitation)
+    - Conservative pool size to respect Supabase connection limits
+    - Automatic reconnection on connection failures
     """
     global _pool
     if _pool is not None:
@@ -53,19 +103,21 @@ async def _get_pool() -> AsyncConnectionPool:
             _pool = AsyncConnectionPool(
                 _database_url_from_env(),
                 min_size=0,  # No idle connections
-                max_size=3,  # Minimal for scripts only
-                timeout=60.0,  # Wait up to 60s for connection
+                max_size=3,  # Conservative for Supabase limits (scripts only)
+                timeout=30.0,  # Wait up to 30s for connection
                 max_idle=300.0,  # Keep idle connections for 5 min
                 reconnect_timeout=30.0,  # Retry failed connections for 30s
                 kwargs={
                     "autocommit": True,
                     "cursor_factory": psycopg.AsyncRawCursor,
                     "row_factory": dict_row,
+                    "prepare_threshold": None,  # Disable prepared statements for Supabase PgBouncer
                     "keepalives": 1,
                     "keepalives_idle": 30,
                     "keepalives_interval": 10,
                     "keepalives_count": 5,
                     "connect_timeout": 10,
+                    "options": "-c statement_timeout=120000 -c idle_in_transaction_session_timeout=120000",
                 },
                 open=False,
             )
@@ -178,16 +230,20 @@ class Database:
             )
             return _normalize_db_value(dict(row)) if row else None
 
-        pool = await _get_pool()
-        compiled_query, args = _compile(query, _adapt_params_for_psycopg(params))
-        conn = await pool.getconn()
-        try:
-            async with conn.cursor() as cursor:
-                await cursor.execute(compiled_query, args)
-                row = await cursor.fetchone()
-        finally:
-            await pool.putconn(conn)
-        return _normalize_db_value(dict(row)) if row else None
+        # Pool-based execution with retry logic
+        async def _execute():
+            pool = await _get_pool()
+            compiled_query, args = _compile(query, _adapt_params_for_psycopg(params))
+            conn = await pool.getconn()
+            try:
+                async with conn.cursor() as cursor:
+                    await cursor.execute(compiled_query, args)
+                    row = await cursor.fetchone()
+                return _normalize_db_value(dict(row)) if row else None
+            finally:
+                await pool.putconn(conn)
+
+        return await _retry_on_connection_error(_execute)
 
     @staticmethod
     async def fetch_all(query: str, params: Optional[Dict] = None) -> List[Dict]:
@@ -207,16 +263,20 @@ class Database:
             )
             return [_normalize_db_value(dict(row)) for row in rows]
 
-        pool = await _get_pool()
-        compiled_query, args = _compile(query, _adapt_params_for_psycopg(params))
-        conn = await pool.getconn()
-        try:
-            async with conn.cursor() as cursor:
-                await cursor.execute(compiled_query, args)
-                rows = await cursor.fetchall()
-        finally:
-            await pool.putconn(conn)
-        return [_normalize_db_value(dict(row)) for row in rows]
+        # Pool-based execution with retry logic
+        async def _execute():
+            pool = await _get_pool()
+            compiled_query, args = _compile(query, _adapt_params_for_psycopg(params))
+            conn = await pool.getconn()
+            try:
+                async with conn.cursor() as cursor:
+                    await cursor.execute(compiled_query, args)
+                    rows = await cursor.fetchall()
+                return [_normalize_db_value(dict(row)) for row in rows]
+            finally:
+                await pool.putconn(conn)
+
+        return await _retry_on_connection_error(_execute)
 
     @staticmethod
     async def execute(query: str, params: Optional[Dict] = None) -> Any:
@@ -233,15 +293,19 @@ class Database:
         if connection is not None:
             return await connection.execute(query, _adapt_params_for_psycopg(params))
 
-        pool = await _get_pool()
-        compiled_query, args = _compile(query, _adapt_params_for_psycopg(params))
-        conn = await pool.getconn()
-        try:
-            async with conn.cursor() as cursor:
-                await cursor.execute(compiled_query, args)
-        finally:
-            await pool.putconn(conn)
-        return None
+        # Pool-based execution with retry logic
+        async def _execute():
+            pool = await _get_pool()
+            compiled_query, args = _compile(query, _adapt_params_for_psycopg(params))
+            conn = await pool.getconn()
+            try:
+                async with conn.cursor() as cursor:
+                    await cursor.execute(compiled_query, args)
+            finally:
+                await pool.putconn(conn)
+            return None
+
+        return await _retry_on_connection_error(_execute)
 
     @staticmethod
     async def execute_many(query: str, params_list: List[Dict]) -> Any:
@@ -263,20 +327,25 @@ class Database:
         if not params_list:
             return None
 
-        pool = await _get_pool()
-        compiled_query, first_args = _compile(
-            query, _adapt_params_for_psycopg(params_list[0])
-        )
-        args_list = [first_args] + [
-            _compile(query, _adapt_params_for_psycopg(p))[1] for p in params_list[1:]
-        ]
-        conn = await pool.getconn()
-        try:
-            async with conn.cursor() as cursor:
-                await cursor.executemany(compiled_query, args_list)
-        finally:
-            await pool.putconn(conn)
-        return None
+        # Pool-based execution with retry logic
+        async def _execute():
+            pool = await _get_pool()
+            compiled_query, first_args = _compile(
+                query, _adapt_params_for_psycopg(params_list[0])
+            )
+            args_list = [first_args] + [
+                _compile(query, _adapt_params_for_psycopg(p))[1]
+                for p in params_list[1:]
+            ]
+            conn = await pool.getconn()
+            try:
+                async with conn.cursor() as cursor:
+                    await cursor.executemany(compiled_query, args_list)
+            finally:
+                await pool.putconn(conn)
+            return None
+
+        return await _retry_on_connection_error(_execute)
 
 
 # Common select field sets
