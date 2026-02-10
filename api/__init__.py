@@ -19,9 +19,8 @@ from quart_schema import (
 from quart_rate_limiter import RateLimiter
 from quart_cors import cors
 from commonmeta import doi_from_url
-from quart_db import QuartDB
 
-from api.db_client import Database
+from api.db_client import Database, get_pool, close_pool
 from api.utils import (
     get_formatted_metadata,
     get_markdown,
@@ -120,26 +119,27 @@ QuartSchema(app, info=Info(title="Rogue Scholar API", version=version))
 limiter = RateLimiter(app)
 app = cors(app, allow_origin="*")
 
-# QuartDB PostgreSQL connection
-#
-# We intentionally disable QuartDB's auto-migration feature for this app.
-# The project does not ship QuartDB migrations, and some existing databases
-# can have legacy `schema_migration` state tables that trigger QuartDB's
-# migration compatibility path during ASGI lifespan startup.
-#
-# Connection URL uses Supabase Transaction Mode (port 6543) for optimal connection pooling:
-# - More stable connections with PgBouncer in transaction mode
-# - TCP keepalive to prevent idle disconnects
-# - Statement/transaction timeouts (2 minutes) for normal operations
-# - Prepared statements automatically disabled in transaction mode
-# - Application name for monitoring in Supabase dashboard
-# - Conservative pool settings to respect Supabase connection limits
-db = QuartDB(
-    app,
-    url=f"postgresql+psycopg://{environ['QUART_POSTGRES_USER']}:{environ['QUART_POSTGRES_PASSWORD']}@{environ['QUART_POSTGRES_HOST']}:{environ.get('QUART_POSTGRES_PORT', '6543')}/{environ['QUART_POSTGRES_DB']}?keepalives=1&keepalives_idle=30&keepalives_interval=10&keepalives_count=5&connect_timeout=10&options=-c%20statement_timeout%3D120000%20-c%20idle_in_transaction_session_timeout%3D120000&application_name=rogue-scholar-api",
-    migrations_folder=None,
-    data_path=None,
-)
+
+# Database connection pool lifecycle management
+@app.before_serving
+async def startup():
+    """Initialize database connection pool on application startup."""
+    try:
+        await get_pool()
+        logger.info("Database connection pool initialized successfully")
+    except Exception as e:
+        logger.error(f"Failed to initialize database pool: {e}", exc_info=True)
+        raise
+
+
+@app.after_serving
+async def shutdown():
+    """Close database connection pool gracefully on application shutdown."""
+    try:
+        await close_pool()
+        logger.info("Database connection pool closed successfully")
+    except Exception as e:
+        logger.error(f"Error closing database pool: {e}", exc_info=True)
 
 
 def run() -> None:
@@ -158,6 +158,32 @@ def default():
 async def heartbeat():
     """Heartbeat."""
     return "OK", 200
+
+
+@app.route("/health")
+@hide
+async def health():
+    """Health check with database pool statistics."""
+    try:
+        pool = await get_pool()
+        stats = pool.get_pool_stats()
+
+        return jsonify(
+            {
+                "status": "healthy" if stats.get("status") == "active" else "degraded",
+                "database": stats,
+                "version": version,
+            }
+        )
+    except Exception as e:
+        logger.error(f"Health check failed: {e}", exc_info=True)
+        return jsonify(
+            {
+                "status": "unhealthy",
+                "error": str(e),
+                "version": version,
+            }
+        ), 503
 
 
 @app.route("/blogs/")

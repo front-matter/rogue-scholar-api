@@ -73,7 +73,7 @@ class DatabasePool:
                     max_lifetime=1800.0,  # Recycle connections after 30 min
                     reconnect_timeout=10.0,  # Quick reconnect attempts
                     kwargs={
-                        "autocommit": True,  # Autocommit for most operations (use transaction() for multi-statement)
+                        "autocommit": False,  # Enable transactions
                         "row_factory": dict_row,
                         "prepare_threshold": None,  # Required for Supabase Transaction Mode
                         "keepalives": 1,
@@ -144,15 +144,11 @@ class DatabasePool:
             return {"status": "not_initialized"}
 
         try:
-            # psycopg_pool has limited stats API
-            # Basic info about pool configuration
             return {
                 "status": "active",
-                "min_size": self.config.min_connections,
-                "max_size": self.config.max_connections,
-                "host": self.config.host,
-                "port": self.config.port,
-                "database": self.config.database,
+                "size": self._pool.get_size(),
+                "available": self._pool.get_available(),
+                "waiting": self._pool.get_waiting(),
             }
         except Exception as e:
             logger.error(f"Error getting pool stats: {e}")
@@ -206,17 +202,6 @@ def _adapt_params(params: Optional[Dict]) -> Dict:
         else:
             adapted[key] = value
     return adapted
-
-
-def _convert_query_syntax(query: str) -> str:
-    """Convert buildpg :param syntax to psycopg %(param)s syntax.
-
-    This provides backward compatibility with existing queries using buildpg syntax.
-    """
-    import re
-
-    # Replace :param with %(param)s, but avoid replacing :: (PostgreSQL cast operator)
-    return re.sub(r"(?<!:):(\w+)(?!:)", r"%(\1)s", query)
 
 
 def _normalize_value(value: Any) -> Any:
@@ -287,10 +272,9 @@ class Database:
 
         async def _execute():
             pool = await get_pool()
-            query_converted = _convert_query_syntax(query)
             async with pool.acquire() as conn:
                 async with conn.cursor() as cursor:
-                    await cursor.execute(query_converted, _adapt_params(params))
+                    await cursor.execute(query, _adapt_params(params))
                     row = await cursor.fetchone()
                     return _normalize_value(dict(row)) if row else None
 
@@ -302,10 +286,9 @@ class Database:
 
         async def _execute():
             pool = await get_pool()
-            query_converted = _convert_query_syntax(query)
             async with pool.acquire() as conn:
                 async with conn.cursor() as cursor:
-                    await cursor.execute(query_converted, _adapt_params(params))
+                    await cursor.execute(query, _adapt_params(params))
                     rows = await cursor.fetchall()
                     return [_normalize_value(dict(row)) for row in rows]
 
@@ -317,11 +300,10 @@ class Database:
 
         async def _execute():
             pool = await get_pool()
-            query_converted = _convert_query_syntax(query)
             async with pool.acquire() as conn:
                 async with conn.cursor() as cursor:
-                    await cursor.execute(query_converted, _adapt_params(params))
-                    # No commit needed - autocommit is enabled
+                    await cursor.execute(query, _adapt_params(params))
+                    await conn.commit()
 
         await execute_with_retry(_execute)
 
@@ -333,195 +315,27 @@ class Database:
 
         async def _execute():
             pool = await get_pool()
-            query_converted = _convert_query_syntax(query)
             async with pool.acquire() as conn:
                 async with conn.cursor() as cursor:
                     await cursor.executemany(
-                        query_converted, [_adapt_params(p) for p in params_list]
+                        query, [_adapt_params(p) for p in params_list]
                     )
-                    # No commit needed - autocommit is enabled
+                    await conn.commit()
 
         await execute_with_retry(_execute)
 
     @staticmethod
     @asynccontextmanager
     async def transaction():
-        """Context manager for explicit transactions.
-
-        Use this when you need multiple operations to be atomic.
-        Temporarily disables autocommit for the transaction duration.
-        """
+        """Context manager for explicit transactions."""
         pool = await get_pool()
         async with pool.acquire() as conn:
-            # Temporarily disable autocommit for this transaction
-            await conn.set_autocommit(False)
             try:
                 yield conn
                 await conn.commit()
             except Exception:
                 await conn.rollback()
                 raise
-            finally:
-                # Re-enable autocommit
-                await conn.set_autocommit(True)
-
-
-# Common select field sets
-BLOGS_SELECT = """
-    slug, title, description, language, favicon, feed_url, 
-    feed_format, home_page_url, generator, category, subfield
-"""
-
-POSTS_SELECT = """
-    guid, doi, parent_doi, url, title, summary, abstract, 
-    published_at, updated_at, registered_at, authors, image, 
-    tags, language, reference, relationships, funding_references, 
-    blog_name, content_html, rid, version
-"""
-
-POSTS_WITH_BLOG_SELECT = """
-    p.id, p.guid, p.doi, p.parent_doi, p.url, p.archive_url, 
-    p.title, p.summary, p.abstract, p.published_at, p.updated_at, 
-    p.registered_at, p.indexed_at, p.indexed, p.authors, p.image, 
-    p.tags, p.language, p.reference, p.relationships, 
-    p.funding_references, p.blog_name, p.blog_slug, p.rid, p.version,
-    row_to_json(b.*) as blog
-"""
-
-CITATIONS_SELECT = """
-    citation, unstructured, validated, updated_at, published_at
-"""
-
-
-# Query builder helpers for common patterns
-class BlogsQueries:
-    """Pre-built queries for blogs table."""
-
-    @staticmethod
-    async def select_all(
-        statuses: Optional[List[str]] = None, order_by: str = "slug"
-    ) -> List[Dict]:
-        """Select all blogs with optional status filter."""
-        statuses = statuses or ["active", "expired", "archived"]
-        query = f"""
-            SELECT {BLOGS_SELECT}
-            FROM blogs
-            WHERE status = ANY(%(statuses)s)
-            ORDER BY {order_by}
-        """
-        return await Database.fetch_all(query, {"statuses": statuses})
-
-    @staticmethod
-    async def select_by_slug(slug: str) -> Optional[Dict]:
-        """Select single blog by slug."""
-        query = """
-            SELECT id, slug, feed_url, current_feed_url, home_page_url, 
-                   archive_host, archive_collection, archive_timestamps, 
-                   feed_format, created_at, updated_at, registered_at, 
-                   license, mastodon, generator, generator_raw, language, 
-                   favicon, title, description, category, subfield, status, 
-                   user_id, authors, use_api, relative_url, filter, secure, 
-                   community_id, prefix, issn
-            FROM blogs
-            WHERE slug = %(slug)s
-        """
-        return await Database.fetch_one(query, {"slug": slug})
-
-    @staticmethod
-    async def update_blog(slug: str, updates: Dict) -> bool:
-        """Update blog fields by slug."""
-        # Build SET clause dynamically
-        set_clauses = [f"{key} = %({key})s" for key in updates.keys()]
-        query = f"""
-            UPDATE blogs
-            SET {', '.join(set_clauses)}, updated_at = EXTRACT(EPOCH FROM NOW())
-            WHERE slug = %(slug)s
-        """
-        params = {**updates, "slug": slug}
-        await Database.execute(query, params)
-        return True
-
-
-class PostsQueries:
-    """Pre-built queries for posts table."""
-
-    @staticmethod
-    async def select_by_blog(
-        blog_slug: str,
-        limit: int = 10,
-        offset: int = 0,
-        order_by: str = "published_at DESC",
-    ) -> List[Dict]:
-        """Select posts by blog slug with blog data joined."""
-        query = f"""
-            SELECT {POSTS_WITH_BLOG_SELECT}
-            FROM posts p
-            INNER JOIN blogs b ON p.blog_slug = b.slug
-            WHERE p.blog_slug = %(blog_slug)s
-            ORDER BY {order_by}
-            LIMIT %(limit)s OFFSET %(offset)s
-        """
-        return await Database.fetch_all(
-            query, {"blog_slug": blog_slug, "limit": limit, "offset": offset}
-        )
-
-    @staticmethod
-    async def select_by_id(post_id: str) -> Optional[Dict]:
-        """Select single post by ID with blog data."""
-        query = f"""
-            SELECT {POSTS_WITH_BLOG_SELECT}
-            FROM posts p
-            INNER JOIN blogs b ON p.blog_slug = b.slug
-            WHERE p.id = %(post_id)s
-        """
-        return await Database.fetch_one(query, {"post_id": post_id})
-
-    @staticmethod
-    async def select_by_doi(doi: str) -> Optional[Dict]:
-        """Select single post by DOI with blog data."""
-        query = f"""
-            SELECT {POSTS_WITH_BLOG_SELECT}
-            FROM posts p
-            INNER JOIN blogs b ON p.blog_slug = b.slug
-            WHERE p.doi = %(doi)s
-        """
-        return await Database.fetch_one(query, {"doi": doi})
-
-
-class CitationsQueries:
-    """Pre-built queries for citations table."""
-
-    @staticmethod
-    async def select_by_doi(doi: str, validated_only: bool = True) -> List[Dict]:
-        """Select citations for a DOI."""
-        query = f"""
-            SELECT {CITATIONS_SELECT}
-            FROM citations
-            WHERE doi = %(doi)s
-        """
-        if validated_only:
-            query += " AND validated = true"
-        query += " ORDER BY published_at, updated_at"
-
-        return await Database.fetch_all(query, {"doi": doi})
-
-    @staticmethod
-    async def upsert_citation(citation: Dict) -> Optional[Dict]:
-        """Upsert a single citation using ON CONFLICT."""
-        query = """
-            INSERT INTO citations (cid, doi, citation, unstructured, published_at, type, blog_slug)
-            VALUES (%(cid)s, %(doi)s, %(citation)s, %(unstructured)s, %(published_at)s, %(type)s, %(blog_slug)s)
-            ON CONFLICT (cid) DO UPDATE SET
-                doi = EXCLUDED.doi,
-                citation = EXCLUDED.citation,
-                unstructured = EXCLUDED.unstructured,
-                published_at = EXCLUDED.published_at,
-                type = EXCLUDED.type,
-                blog_slug = EXCLUDED.blog_slug,
-                updated_at = CURRENT_TIMESTAMP
-            RETURNING *
-        """
-        return await Database.fetch_one(query, citation)
 
 
 # Export commonly used functions
@@ -529,7 +343,4 @@ __all__ = [
     "Database",
     "get_pool",
     "close_pool",
-    "BlogsQueries",
-    "PostsQueries",
-    "CitationsQueries",
 ]

@@ -242,6 +242,7 @@ AUTHOR_NAMES = {
     "Marco": "Marco Tullney",
     "NFernan": "Norbisley Fernández",
     "skarcher@syr.edu": "Sebastian Karcher",
+    "skarcher": "Sebastian Karcher",
     "celman@maxwell.syr.edu": "Colin Elman",
     "colinelman@twcny.rr.com": "Colin Elman",
     "veronica.herrera@uconn.edu": "Veronica Herrera",
