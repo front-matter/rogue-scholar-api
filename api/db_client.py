@@ -72,6 +72,7 @@ class DatabasePool:
                     max_idle=600.0,  # Keep idle connections for 10 min
                     max_lifetime=1800.0,  # Recycle connections after 30 min
                     reconnect_timeout=10.0,  # Quick reconnect attempts
+                    check=AsyncConnectionPool.check_connection,  # Validate connections on checkout
                     kwargs={
                         "autocommit": True,  # Autocommit for most operations (use transaction() for multi-statement)
                         "row_factory": dict_row,
@@ -120,6 +121,12 @@ class DatabasePool:
         try:
             conn = await self._pool.getconn()
             yield conn
+        except Exception:
+            # If an error occurred, check if connection is broken
+            if conn is not None and conn.closed:
+                logger.warning(f"Discarding broken connection: {conn!r}")
+                conn = None  # Don't return broken connection to pool
+            raise
         finally:
             if conn is not None:
                 await self._pool.putconn(conn)
@@ -263,6 +270,18 @@ async def execute_with_retry(
                     f"Database connection error (attempt {attempt + 1}/{max_retries}): {e}. "
                     f"Retrying in {wait_time:.1f}s..."
                 )
+                # Force pool to check and discard stale connections before retry
+                try:
+                    pool = await get_pool()
+                    if pool._pool is not None:
+                        await pool._pool.check()
+                        logger.info(
+                            "Pool health check completed, stale connections purged"
+                        )
+                except Exception as check_err:
+                    logger.warning(
+                        f"Pool health check during retry failed: {check_err}"
+                    )
                 await asyncio.sleep(wait_time)
             else:
                 logger.error(
