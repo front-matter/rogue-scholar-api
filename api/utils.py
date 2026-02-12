@@ -247,6 +247,7 @@ AUTHOR_NAMES = {
     "colinelman@twcny.rr.com": "Colin Elman",
     "veronica.herrera@uconn.edu": "Veronica Herrera",
     "dessi.kirilova@syr.edu": "Dessislava Kirilova",
+    "dpkirilo": "Dessislava Kirilova",
     "benosteen": "Ben O'Steen",
     "marilena_daquino": "Marilena Daquino",
     "markmacgillivray": "Mark MacGillivray",
