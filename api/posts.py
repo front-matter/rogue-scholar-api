@@ -62,6 +62,12 @@ from api.db_client import Database, BlogsQueries, PostsQueries, CitationsQueries
 
 logger = logging.getLogger(__name__)
 
+# Default headers for all outgoing HTTP requests.
+# Many servers block the default httpx User-Agent (python-httpx/<version>).
+HTTP_HEADERS = {
+    "User-Agent": "RogueScholarBot/1.0 (https://rogue-scholar.org; mailto:info@rogue-scholar.org)",
+}
+
 
 def _normalize_numeric_types(value):
     """Recursively normalize DB-returned numeric types (e.g. Decimal) for JSON/SDK consumers."""
@@ -377,7 +383,7 @@ async def extract_all_posts_by_blog(
             end_page = per_page
 
         if generator == "Substack":
-            async with httpx.AsyncClient() as client:
+            async with httpx.AsyncClient(headers=HTTP_HEADERS) as client:
                 try:
                     response = await client.get(
                         feed_url, timeout=10.0, follow_redirects=True
@@ -402,7 +408,7 @@ async def extract_all_posts_by_blog(
                 ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "WordPress" and blog["use_api"]:
-            async with httpx.AsyncClient() as client:
+            async with httpx.AsyncClient(headers=HTTP_HEADERS) as client:
                 try:
                     response = await client.get(
                         feed_url, timeout=30.0, follow_redirects=True
@@ -431,7 +437,7 @@ async def extract_all_posts_by_blog(
                 ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "WordPress.com" and blog["use_api"]:
-            async with httpx.AsyncClient() as client:
+            async with httpx.AsyncClient(headers=HTTP_HEADERS) as client:
                 try:
                     response = await client.get(
                         feed_url, timeout=10.0, follow_redirects=True
@@ -457,7 +463,7 @@ async def extract_all_posts_by_blog(
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "Ghost" and blog["use_api"]:
             headers = {"Accept-Version": "v5.0"}
-            async with httpx.AsyncClient() as client:
+            async with httpx.AsyncClient(headers=HTTP_HEADERS) as client:
                 try:
                     response = await client.get(feed_url, timeout=10.0, headers=headers)
                     response.raise_for_status()
@@ -482,7 +488,7 @@ async def extract_all_posts_by_blog(
                 ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif generator == "Squarespace":
-            async with httpx.AsyncClient() as client:
+            async with httpx.AsyncClient(headers=HTTP_HEADERS) as client:
                 try:
                     response = await client.get(
                         feed_url, timeout=10.0, follow_redirects=True
@@ -508,7 +514,7 @@ async def extract_all_posts_by_blog(
                 ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/feed+json":
-            async with httpx.AsyncClient() as client:
+            async with httpx.AsyncClient(headers=HTTP_HEADERS) as client:
                 try:
                     response = await client.get(
                         feed_url, timeout=10.0, follow_redirects=True
@@ -543,7 +549,7 @@ async def extract_all_posts_by_blog(
                 ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/atom+xml":
-            async with httpx.AsyncClient() as client:
+            async with httpx.AsyncClient(headers=HTTP_HEADERS) as client:
                 try:
                     response = await client.get(
                         feed_url, timeout=30.0, follow_redirects=True
@@ -574,7 +580,7 @@ async def extract_all_posts_by_blog(
             ]
             blog_with_posts["entries"] = await asyncio.gather(*extract_posts)
         elif blog["feed_format"] == "application/rss+xml":
-            async with httpx.AsyncClient() as client:
+            async with httpx.AsyncClient(headers=HTTP_HEADERS) as client:
                 try:
                     response = await client.get(
                         feed_url, timeout=10.0, follow_redirects=True
@@ -872,7 +878,7 @@ async def extract_single_post(
         print(f"Extracting post from {blog['slug']} at {feed_url}.")
 
         if generator == "Substack":
-            async with httpx.AsyncClient() as client:
+            async with httpx.AsyncClient(headers=HTTP_HEADERS) as client:
                 try:
                     response = await client.get(
                         feed_url, timeout=10.0, follow_redirects=True
@@ -898,7 +904,7 @@ async def extract_single_post(
             and blog["use_api"]
             and extract_wordpress_post_id(guid)
         ):
-            async with httpx.AsyncClient() as client:
+            async with httpx.AsyncClient(headers=HTTP_HEADERS) as client:
                 try:
                     response = await client.get(
                         feed_url, timeout=30.0, follow_redirects=True
@@ -924,7 +930,7 @@ async def extract_single_post(
             and blog["use_api"]
             and extract_wordpress_post_id(guid)
         ):
-            async with httpx.AsyncClient() as client:
+            async with httpx.AsyncClient(headers=HTTP_HEADERS) as client:
                 try:
                     response = await client.get(
                         feed_url, timeout=10.0, follow_redirects=True
@@ -946,7 +952,7 @@ async def extract_single_post(
                     )
                 ]
         elif generator == "Blogger":
-            async with httpx.AsyncClient() as client:
+            async with httpx.AsyncClient(headers=HTTP_HEADERS) as client:
                 try:
                     response = await client.get(
                         feed_url, timeout=10.0, follow_redirects=True
@@ -969,7 +975,7 @@ async def extract_single_post(
                 ]
         elif generator == "Ghost" and blog["use_api"]:
             headers = {"Accept-Version": "v5.0"}
-            async with httpx.AsyncClient() as client:
+            async with httpx.AsyncClient(headers=HTTP_HEADERS) as client:
                 try:
                     response = await client.get(feed_url, timeout=10.0, headers=headers)
                     response.raise_for_status()
@@ -992,7 +998,7 @@ async def extract_single_post(
                     for x in posts
                 ]
         elif blog.get("feed_format", None) == "application/feed+json":
-            async with httpx.AsyncClient() as client:
+            async with httpx.AsyncClient(headers=HTTP_HEADERS) as client:
                 try:
                     response = await client.get(
                         feed_url, timeout=10.0, follow_redirects=True
@@ -1016,7 +1022,7 @@ async def extract_single_post(
                     )
                 ]
         elif blog.get("feed_format", None) == "application/atom+xml":
-            async with httpx.AsyncClient() as client:
+            async with httpx.AsyncClient(headers=HTTP_HEADERS) as client:
                 try:
                     response = await client.get(
                         feed_url, timeout=30.0, follow_redirects=True
@@ -1044,7 +1050,7 @@ async def extract_single_post(
                     )
                 ]
         elif blog["feed_format"] == "application/rss+xml":
-            async with httpx.AsyncClient() as client:
+            async with httpx.AsyncClient(headers=HTTP_HEADERS) as client:
                 try:
                     response = await client.get(
                         feed_url, timeout=10.0, follow_redirects=True
@@ -3037,7 +3043,7 @@ async def delete_draft_record(rid: str):
             "Content-Type": "application/octet-stream",
             "Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}",
         }
-        async with httpx.AsyncClient() as client:
+        async with httpx.AsyncClient(headers=HTTP_HEADERS) as client:
             response = await client.delete(url, headers=headers, timeout=10.0)
             if response.status_code != 204:
                 print(response.json())
