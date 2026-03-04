@@ -759,43 +759,13 @@ async def extract_single_post(
     try:
         guid = None
         if validate_uuid(slug):
-            # Try with citations first
-            query = f"""
-                SELECT p.*, row_to_json(b.*) as blog,
-                       (
-                           SELECT json_agg(row_to_json(c.*))
-                           FROM citations c
-                           WHERE c.doi = p.doi AND c.cid IS NOT NULL
-                       ) as citations
-                FROM posts p
-                INNER JOIN blogs b ON p.blog_slug = b.slug
-                WHERE p.id = :id
-            """
-            post = await Database.fetch_one(query, {"id": slug})
-            if not post:
-                # Fallback without citations
-                post = await PostsQueries.select_by_id(slug)
+            post = await PostsQueries.select_by_id(slug, with_citations=True)
             guid = post.get("guid") if post else None
             post_url = post.get("url") if post else None
             blog = post.get("blog") if post else None
         elif validate_prefix(slug) and suffix:
             doi = f"https://doi.org/{slug}/{suffix}"
-            # Try with citations first
-            query = f"""
-                SELECT p.*, row_to_json(b.*) as blog,
-                       (
-                           SELECT json_agg(row_to_json(c.*))
-                           FROM citations c
-                           WHERE c.doi = p.doi AND c.cid IS NOT NULL
-                       ) as citations
-                FROM posts p
-                INNER JOIN blogs b ON p.blog_slug = b.slug
-                WHERE p.doi = :doi
-            """
-            post = await Database.fetch_one(query, {"doi": doi})
-            if not post:
-                # Fallback without citations
-                post = await PostsQueries.select_by_doi(doi)
+            post = await PostsQueries.select_by_doi(doi, with_citations=True)
             guid = post.get("guid") if post else None
             post_url = post.get("url") if post else None
             blog = post.get("blog") if post else None
@@ -1103,32 +1073,10 @@ async def update_single_post(
 
     try:
         if validate_uuid(slug):
-            query = """
-                SELECT p.*, row_to_json(b.*) as blog,
-                       (
-                           SELECT json_agg(row_to_json(c.*))
-                           FROM citations c
-                           WHERE c.doi = p.doi AND c.cid IS NOT NULL
-                       ) as citations
-                FROM posts p
-                INNER JOIN blogs b ON p.blog_slug = b.slug
-                WHERE p.id = :id
-            """
-            post = await Database.fetch_one(query, {"id": slug})
+            post = await PostsQueries.select_by_id(slug, with_citations=True)
         elif validate_prefix(slug) and suffix:
             doi = f"https://doi.org/{slug}/{suffix}"
-            query = """
-                SELECT p.*, row_to_json(b.*) as blog,
-                       (
-                           SELECT json_agg(row_to_json(c.*))
-                           FROM citations c
-                           WHERE c.doi = p.doi AND c.cid IS NOT NULL
-                       ) as citations
-                FROM posts p
-                INNER JOIN blogs b ON p.blog_slug = b.slug
-                WHERE p.doi = :doi
-            """
-            post = await Database.fetch_one(query, {"doi": doi})
+            post = await PostsQueries.select_by_doi(doi, with_citations=True)
         else:
             return {"error": "An error occured."}, 400
 

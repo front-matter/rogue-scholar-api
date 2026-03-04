@@ -397,12 +397,13 @@ POSTS_SELECT = """
 """
 
 POSTS_WITH_BLOG_SELECT = """
-    p.id, p.guid, p.doi, p.parent_doi, p.url, p.archive_url, 
-    p.title, p.summary, p.abstract, p.published_at, p.updated_at, 
-    p.registered_at, p.indexed_at, p.indexed, p.authors, p.image, 
-    p.tags, p.language, p.reference, p.relationships, 
+    p.id, p.guid, p.doi, p.parent_doi, p.url, p.archive_url,
+    p.title, p.summary, p.abstract, p.published_at, p.updated_at,
+    p.registered_at, p.indexed_at, p.indexed, p.authors, p.image, p.images,
+    p.tags, p.language, p.reference, p.relationships,
     p.funding_references, p.blog_name, p.blog_slug, p.rid, p.version,
-    row_to_json(b.*) as blog
+    p.status, p.content_html, p.topic, p.topic_score, p.subfield,
+    row_to_json(b.*)::jsonb as blog
 """
 
 CITATIONS_SELECT = """
@@ -485,25 +486,53 @@ class PostsQueries:
         )
 
     @staticmethod
-    async def select_by_id(post_id: str) -> Optional[Dict]:
-        """Select single post by ID with blog data."""
-        query = f"""
-            SELECT {POSTS_WITH_BLOG_SELECT}
-            FROM posts p
-            INNER JOIN blogs b ON p.blog_slug = b.slug
-            WHERE p.id = %(post_id)s
-        """
+    async def select_by_id(
+        post_id: str, with_citations: bool = False
+    ) -> Optional[Dict]:
+        """Select single post by ID with blog data, optionally including citations."""
+        if with_citations:
+            query = f"""
+                SELECT {POSTS_WITH_BLOG_SELECT},
+                       (
+                           SELECT json_agg(row_to_json(c.*))
+                           FROM citations c
+                           WHERE c.doi = p.doi AND c.cid IS NOT NULL
+                       ) as citations
+                FROM posts p
+                LEFT JOIN blogs b ON p.blog_slug = b.slug
+                WHERE p.id = %(post_id)s
+            """
+        else:
+            query = f"""
+                SELECT {POSTS_WITH_BLOG_SELECT}
+                FROM posts p
+                LEFT JOIN blogs b ON p.blog_slug = b.slug
+                WHERE p.id = %(post_id)s
+            """
         return await Database.fetch_one(query, {"post_id": post_id})
 
     @staticmethod
-    async def select_by_doi(doi: str) -> Optional[Dict]:
-        """Select single post by DOI with blog data."""
-        query = f"""
-            SELECT {POSTS_WITH_BLOG_SELECT}
-            FROM posts p
-            INNER JOIN blogs b ON p.blog_slug = b.slug
-            WHERE p.doi = %(doi)s
-        """
+    async def select_by_doi(doi: str, with_citations: bool = False) -> Optional[Dict]:
+        """Select single post by DOI with blog data, optionally including citations."""
+        if with_citations:
+            query = f"""
+                SELECT {POSTS_WITH_BLOG_SELECT},
+                       (
+                           SELECT json_agg(row_to_json(c.*))
+                           FROM citations c
+                           WHERE c.doi = p.doi AND c.cid IS NOT NULL
+                       ) as citations
+                FROM posts p
+                LEFT JOIN blogs b ON p.blog_slug = b.slug
+                WHERE p.doi = %(doi)s
+            """
+        else:
+            query = f"""
+                SELECT {POSTS_WITH_BLOG_SELECT}
+                FROM posts p
+                LEFT JOIN blogs b ON p.blog_slug = b.slug
+                WHERE p.doi = %(doi)s
+            """
         return await Database.fetch_one(query, {"doi": doi})
 
 
