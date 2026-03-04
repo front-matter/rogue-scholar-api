@@ -802,6 +802,9 @@ async def extract_single_post(
         else:
             return {"error": "An error occured."}, 400
 
+        if not blog:
+            return {"error": "Blog not found."}, 404
+
         generator = (
             blog.get("generator", "").split(" ")[0]
             if blog.get("generator", None)
