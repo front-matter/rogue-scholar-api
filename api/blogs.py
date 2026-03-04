@@ -73,11 +73,13 @@ async def extract_all_blogs():
     blogs_data = await BlogsQueries.select_all(
         statuses=["active", "expired", "archived"], order_by="slug"
     )
-    tasks = []
-    for blog in blogs_data:
-        task = extract_single_blog(blog["slug"])
-        tasks.append(task)
+    semaphore = asyncio.Semaphore(5)  # Max 5 concurrent blog extractions
 
+    async def extract_with_semaphore(slug: str):
+        async with semaphore:
+            return await extract_single_blog(slug)
+
+    tasks = [extract_with_semaphore(blog["slug"]) for blog in blogs_data]
     results = await asyncio.gather(*tasks)
     return results
 

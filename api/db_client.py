@@ -18,6 +18,7 @@ import psycopg
 from psycopg.rows import dict_row
 from psycopg.types.json import Jsonb
 from psycopg_pool import AsyncConnectionPool
+from psycopg_pool.errors import PoolTimeout
 
 logger = logging.getLogger(__name__)
 
@@ -259,7 +260,7 @@ async def execute_with_retry(
     for attempt in range(max_retries):
         try:
             return await func()
-        except (psycopg.OperationalError, psycopg.InterfaceError) as e:
+        except (psycopg.OperationalError, psycopg.InterfaceError, PoolTimeout) as e:
             last_error = e
             if attempt < max_retries - 1:
                 wait_time = retry_delay * (2**attempt)  # Exponential backoff
