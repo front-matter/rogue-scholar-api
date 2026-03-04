@@ -241,24 +241,19 @@ def parse_feed_format(feed):
     )
 
 
-def update_single_blog(blog):
+async def update_single_blog(blog):
     """Update single blog."""
 
     # find timestamp from last updated post
-    async def get_last_updated():
-        query = """
-            SELECT updated_at
-            FROM posts
-            WHERE blog_slug = :blog_slug
-            ORDER BY updated_at DESC
-            LIMIT 1
-        """
-        result = await Database.fetch_one(query, {"blog_slug": blog.get("slug")})
-        return result.get("updated_at", 0) if result else 0
-
-    import asyncio
-
-    blog["updated_at"] = asyncio.run(get_last_updated())
+    query = """
+        SELECT updated_at
+        FROM posts
+        WHERE blog_slug = :blog_slug
+        ORDER BY updated_at DESC
+        LIMIT 1
+    """
+    result = await Database.fetch_one(query, {"blog_slug": blog.get("slug")})
+    blog["updated_at"] = result.get("updated_at", 0) if result else 0
 
     try:
         updates = {
@@ -281,14 +276,14 @@ def update_single_blog(blog):
             "mastodon": blog.get("mastodon", None),
             "secure": blog.get("secure", None),
         }
-        asyncio.run(BlogsQueries.update_blog(blog.get("slug"), updates))
+        await BlogsQueries.update_blog(blog.get("slug"), updates)
         return blog
     except Exception as error:
         print(error)
         return None
 
 
-def push_blog_community_id(slug):
+async def push_blog_community_id(slug):
     """Get InvenioRDM blog community id and store in blog."""
     try:
         url = f"{environ.get('QUART_INVENIORDM_API', 'https://rogue-scholar.org')}/api/communities?q=slug:{slug}"
@@ -300,9 +295,7 @@ def push_blog_community_id(slug):
         community_id = py_.get(result, "hits.hits[0].id")
 
         # Update blog with community_id
-        import asyncio
-
-        asyncio.run(BlogsQueries.update_blog(slug, {"community_id": community_id}))
+        await BlogsQueries.update_blog(slug, {"community_id": community_id})
         return community_id
     except Exception as error:
         print(error)

@@ -447,7 +447,9 @@ class BlogsQueries:
     async def update_blog(slug: str, updates: Dict) -> bool:
         """Update blog fields by slug."""
         # Build SET clause dynamically
-        set_clauses = [f"{key} = %({key})s" for key in updates.keys()]
+        set_clauses = [
+            f"{key} = %({key})s" for key in updates.keys() if key != "updated_at"
+        ]
         query = f"""
             UPDATE blogs
             SET {', '.join(set_clauses)}, updated_at = EXTRACT(EPOCH FROM NOW())
