@@ -1,7 +1,6 @@
-"""Simplified PostgreSQL database client for Supabase Pro.
+"""Simplified PostgreSQL database client.
 
 Single connection pool with proper error handling, health checks, and monitoring.
-Designed for Supabase Transaction Mode (port 6543) on Pro tier.
 """
 
 from __future__ import annotations
@@ -30,10 +29,9 @@ class DatabaseConfig:
         self.user = os.environ.get("QUART_POSTGRES_USER", "")
         self.password = os.environ.get("QUART_POSTGRES_PASSWORD", "")
         self.host = os.environ.get("QUART_POSTGRES_HOST", "localhost")
-        self.port = int(os.environ.get("QUART_POSTGRES_PORT", "6543"))
+        self.port = int(os.environ.get("QUART_POSTGRES_PORT", "5432"))
         self.database = os.environ.get("QUART_POSTGRES_DB", "postgres")
 
-        # Supabase Pro limits - adjust based on your plan
         self.max_connections = int(os.environ.get("DB_MAX_CONNECTIONS", "20"))
         self.min_connections = int(os.environ.get("DB_MIN_CONNECTIONS", "5"))
 
@@ -52,7 +50,7 @@ class DatabasePool:
         self._health_check_task: asyncio.Task | None = None
 
     async def initialize(self) -> None:
-        """Initialize connection pool with Supabase-optimized settings."""
+        """Initialize connection pool."""
         async with self._pool_lock:
             if self._pool is not None:
                 logger.warning("Pool already initialized")
@@ -76,7 +74,6 @@ class DatabasePool:
                     kwargs={
                         "autocommit": True,  # Autocommit for most operations (use transaction() for multi-statement)
                         "row_factory": dict_row,
-                        "prepare_threshold": None,  # Required for Supabase Transaction Mode
                         "keepalives": 1,
                         "keepalives_idle": 30,
                         "keepalives_interval": 10,
