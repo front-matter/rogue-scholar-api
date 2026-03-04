@@ -24,6 +24,7 @@ from commonmeta import (
     Metadata,
     get_one_author,
     validate_orcid,
+    validate_url,
     normalize_orcid,
     normalize_doi,
     doi_from_url,
@@ -7100,6 +7101,18 @@ async def format_list_reference(reference, validate_all: bool = False):
 
     # remove optional spaces in url
     unstructured = unstructured.replace("https:// ", "https://")
+
+    # remove newlines from unstructured
+    unstructured = unstructured.replace("\n", " ").strip()
+
+    # ignore some ids
+    ignored_ids = ["https://doi.org/"]
+    if id_ in ignored_ids and id_ == unstructured:
+        return None
+
+    # validate id_, must be valid DOI or URL
+    if not validate_url(id_) in ["DOI", "URL"]:
+        id_ = None
 
     if id_ is None:
         id_ = extract_reference_id(unstructured)
