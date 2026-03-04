@@ -2426,10 +2426,15 @@ async def upsert_single_post(post, previous: str | None = None):
             environ.get("QUART_INVENIORDM_API", "https://rogue-scholar.org")
         ).host
         token = environ.get("QUART_INVENIORDM_TOKEN", None)
-        service_role_key = environ.get("ROGUE_SCHOLAR_SERVICE_ROLE_KEY") or environ.get(
-            "QUART_SUPABASE_SERVICE_ROLE_KEY"
+        pg_host = environ.get("QUART_POSTGRES_HOST", "localhost")
+        pg_port = environ.get("QUART_POSTGRES_PORT", "5432")
+        pg_db = environ.get("QUART_POSTGRES_DB", "scholar")
+        pg_user = environ.get("QUART_POSTGRES_USER", "postgres")
+        pg_password = environ.get("QUART_POSTGRES_PASSWORD", "")
+        legacy_conn = (
+            f"postgresql://{pg_user}:{pg_password}@{pg_host}:{pg_port}/{pg_db}"
         )
-        if not host or not token or not service_role_key:
+        if not host or not token:
             return post_to_update
 
         # Fetch post with citations for InvenioRDM
@@ -2455,11 +2460,7 @@ async def upsert_single_post(post, previous: str | None = None):
         if status not in ["approved", "active", "archived", "expired"]:
             return post_to_update
         metadata = Metadata(record, via="jsonfeed")
-        # if not is_rogue_scholar_doi(metadata.id, ra=""):
-        #     print("Not a Rogue Scholar DOI:", metadata.id)
-        #     return ""  # post_to_update.data[0]
-
-        kwargs = compact({"legacy_key": service_role_key, "previous_doi": previous})
+        kwargs = compact({"legacy_conn": legacy_conn, "previous_doi": previous})
         record = push_inveniordm(metadata, host, token, **kwargs)
         return record
     except Exception as e:
