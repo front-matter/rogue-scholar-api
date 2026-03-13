@@ -221,6 +221,11 @@ AUTHOR_IDS = {
     "Gleb G. Ebert": "https://orcid.org/0000-0002-7734-3824",
     "Christopher Stephen Marcum": "https://orcid.org/0000-0002-0899-6143",
     "Tom Ansell": "https://orcid.org/0009-0006-6109-7709",
+    "Bianca Kramer": "https://orcid.org/0000-0002-5965-6560",
+    "Najko Jahn": "https://orcid.org/0000-0001-5105-1463",
+    "Rodrigo Costas": "https://orcid.org/0000-0002-7465-6462",
+    "Nees Jan van Eck": "https://orcid.org/0000-0001-8448-4521",
+    "Alysson Fernandes Mazoni": "https://orcid.org/0000-0001-5265-6894",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
@@ -353,6 +358,10 @@ IRREGULAR_AUTHOR_NAMES = {
         "given_name": "Jaime A.",
         "family_name": "Teixeira da Silva",
     },
+    "Alysson Fernandes Mazoni": {
+        "given_name": "Alysson",
+        "family_name": "Fernandes Mazoni",
+    },
     # Organization names
     "Make Data Count": {
         "name": "Make Data Count",
@@ -385,6 +394,13 @@ IRREGULAR_AUTHOR_NAMES = {
 
 
 AUTHOR_AFFILIATIONS = {
+    "https://orcid.org/0000-0001-8448-4521": [
+        {
+            "name": "Leiden University",
+            "id": "https://ror.org/027bh9e22",
+            "start_date": "2009-06-01",
+        }
+    ],
     "https://orcid.org/0009-0006-6109-7709": [
         {
             "name": "Erasmus University Rotterdam",
