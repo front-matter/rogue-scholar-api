@@ -268,7 +268,7 @@ async def update_single_blog(blog):
             "updated_at": blog.get("updated_at", None),
             "registered_at": blog.get("registered_at", None),
             "language": blog.get("language", None),
-            "category": blog.get("category", None),
+            "subfield": blog.get("subfield", None),
             "favicon": blog.get("favicon", None),
             "license": blog.get("license", None),
             "generator": blog.get("generator", None),
@@ -339,7 +339,7 @@ def create_blog_community(blog):
                     get_date_from_unix_timestamp(blog.get("created_at", 0)), "en"
                 ),
                 "rs:language": get_language(blog.get("language"), format="name"),
-                "rs:category": OPENALEX_SUBFIELD_MAPPINGS.get(
+                "rs:subfield": OPENALEX_SUBFIELD_MAPPINGS.get(
                     blog.get("subfield"), None
                 ),
             }
@@ -391,9 +391,7 @@ def update_blog_community(blog):
                     get_date_from_unix_timestamp(blog.get("created_at", 0)), "en"
                 ),
                 "rs:language": get_language(blog.get("language"), format="name"),
-                "rs:category": OPENALEX_SUBFIELD_MAPPINGS.get(
-                    blog.get("subfield"), None
-                ),
+                "rs:subfield": blog.get("subfield"),
             }
         )
         data = {

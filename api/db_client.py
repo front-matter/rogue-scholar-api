@@ -20,6 +20,8 @@ from psycopg.types.json import Jsonb
 from psycopg_pool import AsyncConnectionPool
 from psycopg_pool.errors import PoolTimeout
 
+from api.ssh_tunnel import tunnel as _ssh_tunnel_singleton
+
 logger = logging.getLogger(__name__)
 
 
@@ -63,9 +65,27 @@ class DatabasePool:
             )
 
             try:
+                # Start SSH tunnel if configured (uses QUART_POSTGRES_SSH_HOST env var)
+                tunnel_active = await asyncio.get_event_loop().run_in_executor(
+                    None, _ssh_tunnel_singleton.start
+                )
+                if tunnel_active:
+                    # SSL is provided by the SSH tunnel itself; disable it for
+                    # the psycopg connection to avoid cert hostname mismatch.
+                    pool_url = (
+                        f"postgresql://{self.config.user}:{self.config.password}"
+                        f"@{_ssh_tunnel_singleton.local_bind_host}"
+                        f":{_ssh_tunnel_singleton.local_bind_port}/{self.config.database}"
+                        f"?sslmode=disable"
+                    )
+                    open_min_size = 1
+                else:
+                    pool_url = self.config.url
+                    open_min_size = self.config.min_connections
+
                 self._pool = AsyncConnectionPool(
-                    self.config.url,
-                    min_size=self.config.min_connections,
+                    pool_url,
+                    min_size=open_min_size,
                     max_size=self.config.max_connections,
                     timeout=30.0,  # Wait up to 30s for connection
                     max_idle=600.0,  # Keep idle connections for 10 min
@@ -84,7 +104,7 @@ class DatabasePool:
                     },
                     open=False,
                 )
-                await self._pool.open()
+                await self._pool.open(wait=True, timeout=30.0)
 
                 # Start background health checks
                 self._health_check_task = asyncio.create_task(self._health_check_loop())
@@ -92,6 +112,7 @@ class DatabasePool:
                 logger.info("Database pool initialized successfully")
             except Exception as e:
                 self._pool = None
+                await asyncio.get_event_loop().run_in_executor(None, _ssh_tunnel_singleton.stop)
                 logger.error(f"Failed to initialize database pool: {e}", exc_info=True)
                 raise ConnectionError(f"Database initialization failed: {e}")
 
@@ -108,6 +129,8 @@ class DatabasePool:
             logger.info("Closing database pool")
             await self._pool.close()
             self._pool = None
+
+        await asyncio.get_event_loop().run_in_executor(None, _ssh_tunnel_singleton.stop)
 
     @asynccontextmanager
     async def acquire(self) -> AsyncIterator[psycopg.AsyncConnection]:

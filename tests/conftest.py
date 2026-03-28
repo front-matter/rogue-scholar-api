@@ -20,3 +20,6 @@ _setdefault_env("QUART_POSTGRES_PASSWORD", "postgres")
 
 # Auth-protected routes compare against this env var.
 _setdefault_env("ROGUE_SCHOLAR_SERVICE_ROLE_KEY", "test-service-role-key")
+
+# Disable SSH tunnel in tests unless explicitly overridden.
+_setdefault_env("QUART_POSTGRES_SSH_HOST", "")
