@@ -338,7 +338,7 @@ def create_blog_community(blog):
                 "rs:joined": format_datetime(
                     get_date_from_unix_timestamp(blog.get("created_at", 0)), "en"
                 ),
-                "rs:language": get_language(blog.get("language"), format="name"),
+                "rs:language": get_language(blog.get("language"), format="alpha_3"),
                 "rs:subfield": OPENALEX_SUBFIELD_MAPPINGS.get(
                     blog.get("subfield"), None
                 ),
