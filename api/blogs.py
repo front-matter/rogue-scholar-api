@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup as bs4
 from furl import furl
 import datetime
 import pydash as py_
-from commonmeta import get_date_from_unix_timestamp, get_language, compact, wrap
+from commonmeta import get_date_from_unix_timestamp, get_language, compact, dig, wrap
 
 from api.db_client import Database, BlogsQueries
 from api.utils import (
@@ -20,7 +20,6 @@ from api.utils import (
     normalize_url,
     is_valid_url,
     format_datetime,
-    OPENALEX_SUBFIELD_MAPPINGS,
 )
 
 
@@ -327,30 +326,29 @@ def create_blog_community(blog):
             metadata["description"] = py_.truncate(
                 blog.get("description", None), 250, omission="", separator=" "
             )
+        language_id = get_language(blog.get("language"), format="alpha_3")
         custom_fields = compact(
             {
                 "rs:feed_url": blog.get("feed_url"),
                 "rs:feed_format": {
                     "id": get_feed_format(blog.get("feed_format", None))
                 },
-                "rs:generator": {"id": get_generator(blog.get("generator", "Other"))},
-                "rs:license": {"id": get_license(blog.get("license"))},
-                "rs:issn": {"id": blog.get("issn")},
-                "rs:prefix": {"id": blog.get("prefix")},
+                "rs:generator": get_generator(blog.get("generator", "Other")),
+                "rs:license": get_license(blog.get("license")),
+                "rs:issn": blog.get("issn", None),
+                "rs:prefix": blog.get("prefix", None),
                 "rs:joined": format_datetime(
                     get_date_from_unix_timestamp(blog.get("created_at", 0)), "en"
                 ),
-                "rs:language": {
-                    "id": get_language(blog.get("language"), format="alpha_3")
-                },
-                "rs:subfield": {"id": get_subfield(blog.get("subfield", None))},
+                "rs:language": {"id": language_id} if language_id else None,
+                "rs:subfield": get_subfield(blog.get("subfield", None)),
             }
         )
         data = {
             "access": {
                 "visibility": "public",
                 "member_policy": "open",
-                "record_policy": "open",
+                "record_submission_policy": "open",
                 "review_policy": "open",
             },
             "slug": blog.get("slug"),
@@ -366,8 +364,9 @@ def create_blog_community(blog):
 
 def update_blog_community(blog):
     """Update an InvenioRDM blog community."""
+    slug = blog.get("slug")
     try:
-        url = f"{environ.get('QUART_INVENIORDM_API', 'https://rogue-scholar.org')}/api/communities/{blog.get('slug')}"
+        url = f"{environ.get('QUART_INVENIORDM_API', 'https://rogue-scholar.org')}/api/communities/{slug}"
         headers = {
             "Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}",
             "Content-Type": "application/json",
@@ -381,30 +380,29 @@ def update_blog_community(blog):
             metadata["description"] = py_.truncate(
                 blog.get("description", None), 250, omission="", separator=" "
             )
+        language_id = get_language(blog.get("language"), format="alpha_3")
         custom_fields = compact(
             {
                 "rs:feed_url": blog.get("feed_url"),
                 "rs:feed_format": {
                     "id": get_feed_format(blog.get("feed_format", None))
                 },
-                "rs:generator": {"id": get_generator(blog.get("generator", "Other"))},
-                "rs:license": {"id": get_license(blog.get("license"))},
-                "rs:issn": {"id": blog.get("issn")},
-                "rs:prefix": {"id": blog.get("prefix")},
+                "rs:generator": get_generator(blog.get("generator", "Other")),
+                "rs:license": get_license(blog.get("license")),
+                "rs:issn": blog.get("issn", None),
+                "rs:prefix": blog.get("prefix", None),
                 "rs:joined": format_datetime(
                     get_date_from_unix_timestamp(blog.get("created_at", 0)), "en"
                 ),
-                "rs:language": {
-                    "id": get_language(blog.get("language"), format="name")
-                },
-                "rs:subfield": {"id": get_subfield(blog.get("subfield", None))},
+                "rs:language": {"id": language_id} if language_id else None,
+                "rs:subfield": get_subfield(blog.get("subfield", None)),
             }
         )
         data = {
             "access": {
                 "visibility": "public",
                 "member_policy": "open",
-                "record_policy": "open",
+                "record_submission_policy": "open",
                 "review_policy": "open",
             },
             "slug": blog.get("slug"),
@@ -414,6 +412,7 @@ def update_blog_community(blog):
         response = httpx.put(url, headers=headers, json=data, timeout=10)
         if response.status_code >= 400:
             print(f"Error updating community {blog.get('slug')}: {response.text}")
+            print(f"Request data: {data}")
         return response
     except Exception as error:
         print(error)
@@ -472,7 +471,7 @@ def get_feed_format(format: str) -> str:
             return "rss"
 
 
-def get_generator(generator: str) -> str:
+def get_generator(generator: str) -> dict:
     """Get feed generator."""
     supported_generators = [
         "Blogger",
@@ -487,16 +486,16 @@ def get_generator(generator: str) -> str:
         "WordPress.com",
     ]
     if generator in supported_generators:
-        return generator
+        return {"id": generator}
     else:
-        return "Other"
+        return {"id": "Other"}
 
 
-def get_license(license: str) -> str:
+def get_license(license: str) -> dict:
     """Get license."""
     if license == "https://creativecommons.org/publicdomain/zero/1.0/legalcode":
-        return "cc0-1.0"
-    return "cc-by-4.0"
+        return {"id": "cc0-1.0"}
+    return {"id": "cc-by-4.0"}
 
 
 def get_subfield(subfield: str) -> dict | None:
@@ -504,9 +503,28 @@ def get_subfield(subfield: str) -> dict | None:
     return (
         {
             "id": f"https://openalex.org/subfields/{subfield}",
-            "scheme": "Subfields",
-            "subject": OPENALEX_SUBFIELD_MAPPINGS.get(subfield, "Other"),
         }
         if subfield
         else None
     )
+
+
+def search_by_slug(slug: str) -> str | None:
+    """Search for a blog community by slug in InvenioRDM"""
+
+    params = [("q", f"slug:{slug}"), ("size", 1)]
+    headers = {"Authorization": f"Bearer {environ['QUART_INVENIORDM_TOKEN']}"}
+    url = f"{environ.get('QUART_INVENIORDM_API', 'https://rogue-scholar.org')}/api/communities"
+    try:
+        response = httpx.get(url, headers=headers, params=params, timeout=10)
+        if response.status_code == 429:
+            print("Rate limit exceeded while searching for community by slug")
+            return None
+        response.raise_for_status()
+        data = response.json()
+        if dig(data, "hits.total", 0) > 0:
+            return dig(data, "hits.hits.0.id")
+        return None
+    except Exception as e:
+        print(f"Error searching for community: {str(e)}")
+        return None
