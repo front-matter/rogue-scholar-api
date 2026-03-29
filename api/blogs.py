@@ -330,18 +330,20 @@ def create_blog_community(blog):
         custom_fields = compact(
             {
                 "rs:feed_url": blog.get("feed_url"),
-                "rs:feed_format": blog.get("feed_format"),
-                "rs:generator": blog.get("generator"),
-                "rs:license": blog.get("license"),
-                "rs:issn": blog.get("issn"),
-                "rs:prefix": blog.get("prefix"),
+                "rs:feed_format": {
+                    "id": get_feed_format(blog.get("feed_format", None))
+                },
+                "rs:generator": {"id": get_generator(blog.get("generator", "Other"))},
+                "rs:license": {"id": get_license(blog.get("license"))},
+                "rs:issn": {"id": blog.get("issn")},
+                "rs:prefix": {"id": blog.get("prefix")},
                 "rs:joined": format_datetime(
                     get_date_from_unix_timestamp(blog.get("created_at", 0)), "en"
                 ),
-                "rs:language": get_language(blog.get("language"), format="alpha_3"),
-                "rs:subfield": OPENALEX_SUBFIELD_MAPPINGS.get(
-                    blog.get("subfield"), None
-                ),
+                "rs:language": {
+                    "id": get_language(blog.get("language"), format="alpha_3")
+                },
+                "rs:subfield": {"id": get_subfield(blog.get("subfield", None))},
             }
         )
         data = {
@@ -382,16 +384,20 @@ def update_blog_community(blog):
         custom_fields = compact(
             {
                 "rs:feed_url": blog.get("feed_url"),
-                "rs:feed_format": blog.get("feed_format"),
-                "rs:generator": blog.get("generator"),
-                "rs:license": blog.get("license"),
-                "rs:issn": blog.get("issn"),
-                "rs:prefix": blog.get("prefix"),
+                "rs:feed_format": {
+                    "id": get_feed_format(blog.get("feed_format", None))
+                },
+                "rs:generator": {"id": get_generator(blog.get("generator", "Other"))},
+                "rs:license": {"id": get_license(blog.get("license"))},
+                "rs:issn": {"id": blog.get("issn")},
+                "rs:prefix": {"id": blog.get("prefix")},
                 "rs:joined": format_datetime(
                     get_date_from_unix_timestamp(blog.get("created_at", 0)), "en"
                 ),
-                "rs:language": get_language(blog.get("language"), format="name"),
-                "rs:subfield": blog.get("subfield"),
+                "rs:language": {
+                    "id": get_language(blog.get("language"), format="name")
+                },
+                "rs:subfield": {"id": get_subfield(blog.get("subfield", None))},
             }
         )
         data = {
@@ -449,3 +455,58 @@ def feature_community(id):
     except Exception as error:
         print(error)
         return None
+
+
+def get_feed_format(format: str) -> str:
+    """Get feed format."""
+    match format:
+        case "application/rss+xml":
+            return "rss"
+        case "application/atom+xml":
+            return "atom"
+        case "application/feed+json":
+            return "jsonfeed"
+        case "application/json":
+            return "json"
+        case _:
+            return "rss"
+
+
+def get_generator(generator: str) -> str:
+    """Get feed generator."""
+    supported_generators = [
+        "Blogger",
+        "Ghost",
+        "Hugo",
+        "Jekyll",
+        "Medium",
+        "Quarto",
+        "Squarespace",
+        "Substack",
+        "WordPress",
+        "WordPress.com",
+    ]
+    if generator in supported_generators:
+        return generator
+    else:
+        return "Other"
+
+
+def get_license(license: str) -> str:
+    """Get license."""
+    if license == "https://creativecommons.org/publicdomain/zero/1.0/legalcode":
+        return "cc0-1.0"
+    return "cc-by-4.0"
+
+
+def get_subfield(subfield: str) -> dict | None:
+    """Get subfield."""
+    return (
+        {
+            "id": f"https://openalex.org/subfields/{subfield}",
+            "scheme": "Subfields",
+            "subject": OPENALEX_SUBFIELD_MAPPINGS.get(subfield, "Other"),
+        }
+        if subfield
+        else None
+    )
