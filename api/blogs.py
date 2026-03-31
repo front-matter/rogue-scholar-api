@@ -498,14 +498,16 @@ def get_license(license: str) -> dict:
     return {"id": "cc-by-4.0"}
 
 
-def get_subfield(subfield: str) -> dict | None:
+def get_subfield(subfield: str) -> list:
     """Get subfield."""
     return (
-        {
-            "id": f"https://openalex.org/subfields/{subfield}",
-        }
+        [
+            {
+                "id": f"https://openalex.org/subfields/{subfield}",
+            }
+        ]
         if subfield
-        else None
+        else []
     )
 
 
