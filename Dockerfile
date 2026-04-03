@@ -32,11 +32,12 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 
 FROM python:3.14-slim-trixie AS runtime
 
-# Install OS package dependency (for weasyprint): pango
+# Install OS package dependency (for weasyprint): pango, (for lxml): libxslt
 RUN --mount=type=cache,target=/var/cache/apt apt-get update -y && \
     apt-get install \
     pango1.0-tools \
     libpq5 \
+    libxslt1.1 \
     -y --no-install-recommends && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
