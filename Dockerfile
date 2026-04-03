@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.5
-FROM --platform=linux/amd64 python:3.14-trixie AS builder
+FROM python:3.14-trixie AS builder
 
 LABEL maintainer="Front Matter <info@front-matter.de>"
 LABEL org.opencontainers.image.source="https://github.com/front-matter/rogue-scholar-api"
@@ -30,7 +30,7 @@ RUN touch README.md
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-install-project --no-dev
 
-FROM --platform=linux/amd64 python:3.14-slim-trixie AS runtime
+FROM python:3.14-slim-trixie AS runtime
 
 # Install OS package dependency (for weasyprint): pango
 RUN --mount=type=cache,target=/var/cache/apt apt-get update -y && \
