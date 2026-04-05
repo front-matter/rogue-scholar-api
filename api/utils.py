@@ -6921,11 +6921,29 @@ def write_html(markdown: str):
         return ""
 
 
-def write_epub(markdown: str):
+def write_epub(markdown: str, feature_image: str | None = None):
     """Get epub from markdown"""
     try:
         doc = pandoc.read(markdown, format="commonmark_x")
-        return pandoc.write(doc, format="epub")
+        pandoc_dir = environ.get("QUART_PANDOC_DATA_DIR", "./pandoc")
+        options = [
+            "--standalone",
+            "--toc",
+            "--toc-depth=2",
+            "--split-level=1",
+            "--epub-title-page=true",
+            "--mathml",
+            f"--epub-embed-font={pandoc_dir}/FiraSans-Light.otf",
+            f"--epub-embed-font={pandoc_dir}/FiraSans-LightItalic.otf",
+            f"--epub-embed-font={pandoc_dir}/FiraSans-SemiBold.otf",
+            f"--epub-embed-font={pandoc_dir}/FiraSans-SemiBoldItalic.otf",
+            f"--epub-embed-font={pandoc_dir}/FiraSans-Bold.otf",
+            f"--epub-embed-font={pandoc_dir}/FiraSans-BoldItalic.otf",
+            f"--epub-embed-font={pandoc_dir}/FiraMono-Regular.otf",
+        ]
+        if feature_image:
+            options.append(f"--epub-cover-image={feature_image}")
+        return pandoc.write(doc, format="epub", options=options)
     except Exception as e:
         print(e)
         return ""
