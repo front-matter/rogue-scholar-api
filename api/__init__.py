@@ -1011,8 +1011,7 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
             markdown["date"] = format_datetime(markdown["date"], markdown["lang"])
             markdown["author"] = format_authors(markdown["author"])
             markdown["rights"] = None
-            image_value = markdown.get("image", None)
-            feature_image = image_value if isinstance(image_value, str) else None
+            feature_image = str(markdown.get("image", None))
             markdown = frontmatter.dumps(markdown)
             epub = write_epub(markdown, feature_image=feature_image)
             return (
