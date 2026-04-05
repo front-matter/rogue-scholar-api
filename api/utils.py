@@ -6,6 +6,7 @@ from os import environ, path
 from urllib.parse import urlparse
 import os
 import re
+import shutil
 import tempfile
 import time
 import logging
@@ -15,6 +16,7 @@ import json as JSON
 import yaml
 import html
 import pydash as py_
+from functools import lru_cache
 from dateutil import parser, relativedelta
 from datetime import datetime, timezone
 from furl import furl
@@ -40,7 +42,7 @@ from commonmeta.author_utils import is_personal_name
 from commonmeta.base_utils import compact, wrap, dig
 from nameparser import HumanName
 import frontmatter
-import pandoc
+import pypandoc
 
 logger = logging.getLogger(__name__)
 
@@ -6893,22 +6895,27 @@ def fix_xml(x):
     return etree.tostring(p)
 
 
+@lru_cache(maxsize=1)
+def _ensure_pandoc_available() -> None:
+    """Ensure pypandoc can find a pandoc executable."""
+    pypandoc.ensure_pandoc_installed(delete_installer=True)
+
+
 def get_markdown(content_html: str) -> str:
     """Get markdown from html"""
     try:
-        doc = pandoc.read(content_html, format="html")
-        # display_external_links(doc)
-        return pandoc.write(doc, format="commonmark_x")
+        _ensure_pandoc_available()
+        # display_external_links(content_html)
+        return pypandoc.convert_text(content_html, "commonmark_x", format="html")
     except Exception as e:
         print(e)
         return ""
 
 
-def display_external_links(doc):
-    links = [elt for elt in pandoc.iter(doc) if isinstance(elt, Link)]
-    for link in links:
-        target = link[2]  # link: Link(Attr, [Inline], Target)
-        url = target[0]  # target: (Text, Text)
+def display_external_links(content_html: str):
+    soup = BeautifulSoup(content_html, "html.parser")
+    for link in soup.find_all("a", href=True):
+        url = link["href"]
         if url.startswith("http:") or url.startswith("https:"):
             print(url)
 
@@ -6916,8 +6923,8 @@ def display_external_links(doc):
 def write_html(markdown: str):
     """Get html from markdown"""
     try:
-        doc = pandoc.read(markdown, format="commonmark_x")
-        return pandoc.write(doc, format="html")
+        _ensure_pandoc_available()
+        return pypandoc.convert_text(markdown, "html", format="commonmark_x")
     except Exception as e:
         print(e)
         return ""
@@ -6925,9 +6932,61 @@ def write_html(markdown: str):
 
 def write_epub(markdown: str, feature_image: str | None = None):
     """Get epub from markdown with template-based cover page"""
-    tmp_cover = None
+    temp_dir = None
     try:
-        doc = pandoc.read(markdown, format="commonmark_x")
+        _ensure_pandoc_available()
+        temp_dir = tempfile.mkdtemp(prefix="epub-assets-")
+
+        downloaded_images: dict[str, str] = {}
+
+        def download_image_to_temp(image_url: str, prefix: str = "image") -> str:
+            """Download a remote image once and return the local temp file path."""
+            if image_url in downloaded_images:
+                return downloaded_images[image_url]
+
+            response = httpx.get(image_url, follow_redirects=True, timeout=10)
+            response.raise_for_status()
+
+            parsed = urlparse(image_url)
+            suffix = path.splitext(parsed.path)[1] or ".jpg"
+            local_name = f"{prefix}-{len(downloaded_images) + 1}{suffix}"
+            local_path = path.join(temp_dir, local_name)
+
+            with open(local_path, "wb") as f:
+                f.write(response.content)
+
+            downloaded_images[image_url] = local_path
+            return local_path
+
+        def localize_image_url(image_url: str, prefix: str = "image") -> str:
+            """Best effort localization for remote images used in markdown."""
+            try:
+                return download_image_to_temp(image_url, prefix=prefix)
+            except Exception as err:
+                logger.warning(
+                    "Could not localize image URL for EPUB; using original URL",
+                    extra={"url": image_url, "error": str(err)},
+                )
+                return image_url
+
+        # Convert remote markdown image URLs to local temp files so pandoc can package them.
+        markdown = re.sub(
+            r"(!\[[^\]]*\]\()(https?://[^)\s]+)([^)]*\))",
+            lambda m: (
+                f"{m.group(1)}{localize_image_url(m.group(2), prefix='image')}{m.group(3)}"
+            ),
+            markdown,
+        )
+
+        # Convert remote HTML img src URLs in markdown to local temp files.
+        markdown = re.sub(
+            r'(<img[^>]*\s+src=["\'])(https?://[^"\']+)(["\'][^>]*>)',
+            lambda m: (
+                f"{m.group(1)}{localize_image_url(m.group(2), prefix='image')}{m.group(3)}"
+            ),
+            markdown,
+        )
+
         pandoc_dir = environ.get("QUART_PANDOC_DATA_DIR", "./pandoc")
         options = [
             "--standalone",
@@ -6950,24 +7009,50 @@ def write_epub(markdown: str, feature_image: str | None = None):
             cover_image_path = feature_image
             parsed = urlparse(feature_image)
 
-            # Remote images must be downloaded locally so pandoc can package them into the EPUB.
+            # Store feature image in the same temp folder used for other downloaded images.
             if parsed.scheme in ("http", "https"):
-                response = httpx.get(feature_image, follow_redirects=True, timeout=10)
-                response.raise_for_status()
-
-                suffix = path.splitext(parsed.path)[1] or ".jpg"
-                tmp_cover = tempfile.NamedTemporaryFile(delete=False, suffix=suffix)
-                tmp_cover.write(response.content)
-                tmp_cover.flush()
-                tmp_cover.close()
-                cover_image_path = tmp_cover.name
+                cover_image_path = localize_image_url(
+                    feature_image, prefix="feature-image"
+                )
+            else:
+                try:
+                    suffix = path.splitext(feature_image)[1] or ".jpg"
+                    local_cover_name = f"feature-image-local{suffix}"
+                    local_cover_path = path.join(temp_dir, local_cover_name)
+                    shutil.copy2(feature_image, local_cover_path)
+                    cover_image_path = local_cover_path
+                except Exception as err:
+                    logger.warning(
+                        "Could not copy local feature image for EPUB; using original path",
+                        extra={"path": feature_image, "error": str(err)},
+                    )
 
             options.append(f"--epub-cover-image={cover_image_path}")
             options.extend(["-V", f"cover-image={path.basename(cover_image_path)}"])
 
-        epub = pandoc.write(doc, format="epub", options=options)
-        print(f"Generated EPUB of size {len(epub)} bytes")
-        return epub
+        epub_path = None
+        try:
+            with tempfile.NamedTemporaryFile(
+                suffix=".epub", delete=False
+            ) as output_file:
+                epub_path = output_file.name
+
+            pypandoc.convert_text(
+                markdown,
+                "epub",
+                format="commonmark_x",
+                extra_args=options,
+                outputfile=epub_path,
+            )
+
+            with open(epub_path, "rb") as f:
+                epub = f.read()
+
+            print(f"Generated EPUB of size {len(epub)} bytes")
+            return epub
+        finally:
+            if epub_path and path.exists(epub_path):
+                os.remove(epub_path)
     except Exception as e:
         print(f"Error generating EPUB: {e}")
         import traceback
@@ -6975,9 +7060,9 @@ def write_epub(markdown: str, feature_image: str | None = None):
         traceback.print_exc()
         return ""
     finally:
-        if tmp_cover is not None:
+        if temp_dir is not None:
             try:
-                os.unlink(tmp_cover.name)
+                shutil.rmtree(temp_dir)
             except OSError:
                 pass
 
@@ -6985,18 +7070,33 @@ def write_epub(markdown: str, feature_image: str | None = None):
 def write_pdf(markdown: str):
     """Get pdf from markdown"""
     try:
-        doc = pandoc.read(markdown, format="commonmark_x")
-        return pandoc.write(
-            doc,
-            format="pdf",
-            options=[
-                "--pdf-engine=weasyprint",
-                "--pdf-engine-opt=--pdf-variant=pdf/a-3a",
-                f"--data-dir={environ.get('QUART_PANDOC_DATA_DIR', './')}",
-                "--template=pandoc/default.html5",
-                "--css=pandoc/style.css",
-            ],
-        ), None
+        _ensure_pandoc_available()
+        pdf_path = None
+        try:
+            with tempfile.NamedTemporaryFile(
+                suffix=".pdf", delete=False
+            ) as output_file:
+                pdf_path = output_file.name
+
+            pypandoc.convert_text(
+                markdown,
+                "pdf",
+                format="commonmark_x",
+                extra_args=[
+                    "--pdf-engine=weasyprint",
+                    "--pdf-engine-opt=--pdf-variant=pdf/a-3a",
+                    f"--data-dir={environ.get('QUART_PANDOC_DATA_DIR', './')}",
+                    "--template=pandoc/default.html5",
+                    "--css=pandoc/style.css",
+                ],
+                outputfile=pdf_path,
+            )
+
+            with open(pdf_path, "rb") as f:
+                return f.read(), None
+        finally:
+            if pdf_path and path.exists(pdf_path):
+                os.remove(pdf_path)
     except Exception as e:
         print(e)
         return "", e
@@ -7005,8 +7105,13 @@ def write_pdf(markdown: str):
 def write_jats(markdown: str):
     """Get jats from markdown"""
     try:
-        doc = pandoc.read(markdown, format="commonmark_x")
-        return pandoc.write(doc, format="jats", options=["--standalone"])
+        _ensure_pandoc_available()
+        return pypandoc.convert_text(
+            markdown,
+            "jats",
+            format="commonmark_x",
+            extra_args=["--standalone"],
+        )
     except Exception as e:
         print(e)
         return ""
