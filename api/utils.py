@@ -1,10 +1,12 @@
 """Utility functions"""
 
+from io import BytesIO
 from uuid import UUID
 from os import environ, path
 from urllib.parse import urlparse
 import os
 import re
+import tempfile
 import time
 import logging
 from babel.dates import format_date
@@ -6922,15 +6924,19 @@ def write_html(markdown: str):
 
 
 def write_epub(markdown: str, feature_image: str | None = None):
-    """Get epub from markdown"""
+    """Get epub from markdown with template-based cover page"""
+    tmp_cover = None
     try:
         doc = pandoc.read(markdown, format="commonmark_x")
         pandoc_dir = environ.get("QUART_PANDOC_DATA_DIR", "./pandoc")
         options = [
             "--standalone",
             "--split-level=1",
-            "--epub-title-page=true",
             "--mathml",
+            f"--data-dir={environ.get('QUART_PANDOC_DATA_DIR', './')}",
+            f"--template={pandoc_dir}/default.epub3",
+            "--css=pandoc/epub.css",
+            "--metadata=ibooks:specified-fonts=true",
             f"--epub-embed-font={pandoc_dir}/FiraSans-Light.otf",
             f"--epub-embed-font={pandoc_dir}/FiraSans-LightItalic.otf",
             f"--epub-embed-font={pandoc_dir}/FiraSans-SemiBold.otf",
@@ -6939,12 +6945,41 @@ def write_epub(markdown: str, feature_image: str | None = None):
             f"--epub-embed-font={pandoc_dir}/FiraSans-BoldItalic.otf",
             f"--epub-embed-font={pandoc_dir}/FiraMono-Regular.otf",
         ]
+
         if feature_image:
-            options.append(f"--epub-cover-image={feature_image}")
-        return pandoc.write(doc, format="epub", options=options)
+            cover_image_path = feature_image
+            parsed = urlparse(feature_image)
+
+            # Remote images must be downloaded locally so pandoc can package them into the EPUB.
+            if parsed.scheme in ("http", "https"):
+                response = httpx.get(feature_image, follow_redirects=True, timeout=10)
+                response.raise_for_status()
+
+                suffix = path.splitext(parsed.path)[1] or ".jpg"
+                tmp_cover = tempfile.NamedTemporaryFile(delete=False, suffix=suffix)
+                tmp_cover.write(response.content)
+                tmp_cover.flush()
+                tmp_cover.close()
+                cover_image_path = tmp_cover.name
+
+            options.append(f"--epub-cover-image={cover_image_path}")
+            options.extend(["-V", f"cover-image={path.basename(cover_image_path)}"])
+
+        epub = pandoc.write(doc, format="epub", options=options)
+        print(f"Generated EPUB of size {len(epub)} bytes")
+        return epub
     except Exception as e:
-        print(e)
+        print(f"Error generating EPUB: {e}")
+        import traceback
+
+        traceback.print_exc()
         return ""
+    finally:
+        if tmp_cover is not None:
+            try:
+                os.unlink(tmp_cover.name)
+            except OSError:
+                pass
 
 
 def write_pdf(markdown: str):

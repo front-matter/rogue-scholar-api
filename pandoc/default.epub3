@@ -14,11 +14,25 @@ $if(highlighting-css)$
     $highlighting-css$
 $endif$
     $if(cover-image)$
+    html,
+    body {
+      height: 100%;
+    }
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
     section.titlepage {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100%;
+      min-width: 100%;
+      height: 100vh;
+      min-height: 100vh;
       background-image: url('../media/$cover-image$');
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
+      background-repeat: no-repeat;
     }
     $endif$
   </style>
@@ -31,7 +45,7 @@ $endfor$
 </head>
 <body$if(coverpage)$ id="cover"$endif$$if(body-type)$ epub:type="$body-type$"$endif$>
 $if(titlepage)$
-<section epub:type="titlepage" class="titlepage"$if(cover-image)$ style="display: flex; align-items: flex-end; justify-content: center; min-height: 100vh;"$endif$>
+<section epub:type="titlepage" class="titlepage"$if(cover-image)$ style="display: flex; align-items: flex-end; justify-content: center; min-height: 100vh; width: 100%; min-width: 100%; height: 100vh; margin: 0; padding: 0;"$endif$>
   $if(cover-image)$
   <div class="cover-overlay" style="background: rgba(0, 0, 0, 0.92); padding: 4em 2em; text-align: center; width: 100%; box-sizing: border-box;">
   $endif$
@@ -73,7 +87,7 @@ $endif$
 $else$
 $if(coverpage)$
 <div id="cover-image">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100%" height="100%" viewBox="0 0 $cover-image-width$ $cover-image-height$" preserveAspectRatio="xMidYMid">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100%" height="100%" viewBox="0 0 $cover-image-width$ $cover-image-height$" preserveAspectRatio="xMidYMid slice">
 <image width="$cover-image-width$" height="$cover-image-height$" xlink:href="../media/$cover-image$" />
 </svg>
 </div>
