@@ -6928,8 +6928,6 @@ def write_epub(markdown: str, feature_image: str | None = None):
         pandoc_dir = environ.get("QUART_PANDOC_DATA_DIR", "./pandoc")
         options = [
             "--standalone",
-            "--toc",
-            "--toc-depth=2",
             "--split-level=1",
             "--epub-title-page=true",
             "--mathml",
