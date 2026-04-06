@@ -76,10 +76,10 @@ $endif$
   $if(author/allbutlast)$
     $for(author/allbutlast)$
       $if(it.orcid)$
-        <span>${it.name}<a href="${it.orcid}"><img alt="ORCID logo" src="pandoc/orcid.svg" style="margin-left: 2px; vertical-align: -1px" /></a></span>$else$<span>${it.name}</span>$endif$$sep$, $endfor$
+        <span>${it.name}<a href="${it.orcid}" aria-label="ORCID profile" style="margin-left: 2px; vertical-align: -1px; display: inline-block;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="14" height="14" role="img" aria-hidden="true"><circle cx="128" cy="128" r="128" fill="#A6CE39"/><path fill="#FFF" d="M86.9 73.3c0 8.7-7.1 15.8-15.8 15.8s-15.8-7.1-15.8-15.8 7.1-15.8 15.8-15.8 15.8 7.1 15.8 15.8zM56.8 104.7h28.7v92.5H56.8V104.7zM103.8 104.7h77.5c22.1 0 40.1 16.4 40.1 39.1 0 20.8-14.8 35.2-30.4 38.2l35.2 65.2h-31.7l-33.1-63.3h-29.9v63.3h-27.7V104.7zm27.7 24.2V160h44.7c10.8 0 17.5-7.4 17.5-15.5 0-8.8-6.7-15.6-17.5-15.6h-44.7z"/></svg></a></span>$else$<span>${it.name}</span>$endif$$sep$, $endfor$
     $for(author/last)$
       $if(it.orcid)$
-        and <span>${it.name}<a href="${it.orcid}"><img alt="ORCID logo" src="pandoc/orcid.svg" style="margin-left: 2px; vertical-align: -1px" /></a></span>
+        and <span>${it.name}<a href="${it.orcid}" aria-label="ORCID profile" style="margin-left: 2px; vertical-align: -1px; display: inline-block;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="14" height="14" role="img" aria-hidden="true"><circle cx="128" cy="128" r="128" fill="#A6CE39"/><path fill="#FFF" d="M86.9 73.3c0 8.7-7.1 15.8-15.8 15.8s-15.8-7.1-15.8-15.8 7.1-15.8 15.8-15.8 15.8 7.1 15.8 15.8zM56.8 104.7h28.7v92.5H56.8V104.7zM103.8 104.7h77.5c22.1 0 40.1 16.4 40.1 39.1 0 20.8-14.8 35.2-30.4 38.2l35.2 65.2h-31.7l-33.1-63.3h-29.9v63.3h-27.7V104.7zm27.7 24.2V160h44.7c10.8 0 17.5-7.4 17.5-15.5 0-8.8-6.7-15.6-17.5-15.6h-44.7z"/></svg></a></span>
       $else$
         and <span>${it.name}</span>
       $endif$
@@ -87,7 +87,7 @@ $endif$
   $else$
     $for(author)$
       $if(it.orcid)$
-        <span>${it.name}<a href="${it.orcid}"><img alt="ORCID logo" src="pandoc/orcid.svg" style="margin-left: 2px; vertical-align: -1px" /></a></span>
+        <span>${it.name}<a href="${it.orcid}" aria-label="ORCID profile" style="margin-left: 2px; vertical-align: -1px; display: inline-block;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="14" height="14" role="img" aria-hidden="true"><circle cx="128" cy="128" r="128" fill="#A6CE39"/><path fill="#FFF" d="M86.9 73.3c0 8.7-7.1 15.8-15.8 15.8s-15.8-7.1-15.8-15.8 7.1-15.8 15.8-15.8 15.8 7.1 15.8 15.8zM56.8 104.7h28.7v92.5H56.8V104.7zM103.8 104.7h77.5c22.1 0 40.1 16.4 40.1 39.1 0 20.8-14.8 35.2-30.4 38.2l35.2 65.2h-31.7l-33.1-63.3h-29.9v63.3h-27.7V104.7zm27.7 24.2V160h44.7c10.8 0 17.5-7.4 17.5-15.5 0-8.8-6.7-15.6-17.5-15.6h-44.7z"/></svg></a></span>
       $else$
         <span>${it.name}</span>
       $endif$
@@ -159,7 +159,9 @@ $if(coverpage)$
 <image width="$cover-image-width$" height="$cover-image-height$" xlink:href="../media/$cover-image$" />
 </svg>
 </div>
-$else$
+$endif$
+$endif$
+
 $for(include-before)$
 $include-before$
 $endfor$
@@ -175,8 +177,6 @@ $body$
 $for(include-after)$
 $include-after$
 $endfor$
-$endif$
-$endif$
 </body>
 </html>
 

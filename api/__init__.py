@@ -1008,14 +1008,32 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
         )
         markdown = format_markdown(get_markdown(content), metadata)
         if format_ == "epub":
+            markdown["author"] = format_authors_with_orcid(markdown["author"])
+            markdown["license"] = {
+                "text": format_license(
+                    markdown["author"], markdown["date"], markdown["rights"]
+                ),
+                "id": "cc-by"
+                if markdown["rights"]
+                == "https://creativecommons.org/licenses/by/4.0/legalcode"
+                else None,
+                "link": markdown["rights"],
+            }
             markdown["date"] = format_datetime(markdown["date"], markdown["lang"])
-            markdown["author"] = format_authors(markdown["author"])
-            markdown["rights"] = None
-            feature_image = str(markdown.get("image", None))
+            citation = get_formatted_metadata(meta, "citation", style, locale)
+            if citation:
+                markdown["citation"] = citation["data"]
+            else:
+                markdown["citation"] = markdown["identifier"]
+            markdown["relationships"] = format_relationships(markdown["relationships"])
+            markdown = translate_titles(markdown)
+            feature_image = markdown.get("image", None)
             markdown = frontmatter.dumps(markdown)
-            epub = write_epub(markdown, feature_image=feature_image)
+            content, error = write_epub(markdown, feature_image=feature_image)
+            if error is not None:
+                logger.error(error)
             return (
-                epub,
+                content,
                 200,
                 {
                     "Content-Type": "application/epub+zip",

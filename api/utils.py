@@ -7009,7 +7009,7 @@ def write_epub(markdown: str, feature_image: str | None = None):
                 epub = f.read()
 
             print(f"Generated EPUB of size {len(epub)} bytes")
-            return epub
+            return epub, None
         finally:
             if epub_path and path.exists(epub_path):
                 os.remove(epub_path)
@@ -7018,7 +7018,7 @@ def write_epub(markdown: str, feature_image: str | None = None):
         import traceback
 
         traceback.print_exc()
-        return ""
+        return "", e
     finally:
         if temp_dir is not None:
             try:
