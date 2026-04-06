@@ -567,9 +567,9 @@ async def posts():
             SELECT p.id, p.guid, p.doi, p.parent_doi, p.url, p.archive_url,
                    p.title, p.summary, p.abstract, p.published_at, p.updated_at,
                    p.registered_at, p.indexed_at, p.indexed, p.authors, p.image,
-                   p.tags, p.language, p.reference, p.relationships,
+                   p.images,p.tags, p.language, p.reference, p.relationships,
                    p.funding_references, p.blog_name, p.blog_slug, p.content_html,
-                   p.rid, p.version, p.files, p.status,
+                   p.rid, p.version, p.status,
                    row_to_json(b.*) as blog
             FROM posts p
             INNER JOIN blogs b ON p.blog_slug = b.slug
@@ -717,9 +717,9 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
         data_query = """
             SELECT p.id, p.guid, p.doi, p.url, p.archive_url, p.title, p.summary,
                    p.abstract, p.content_html, p.published_at, p.updated_at,
-                   p.registered_at, p.indexed_at, p.authors, p.image, p.tags,
+                   p.registered_at, p.indexed_at, p.authors, p.image, p.images, p.tags,
                    p.language, p.reference, p.relationships, p.funding_references,
-                   p.blog_name, p.blog_slug, p.rid, p.files,
+                   p.blog_name, p.blog_slug, p.rid,
                    row_to_json(b.*) as blog
             FROM posts p
             INNER JOIN blogs b ON p.blog_slug = b.slug
@@ -750,9 +750,9 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
         data_query = """
             SELECT p.id, p.guid, p.doi, p.url, p.archive_url, p.title, p.summary,
                    p.abstract, p.content_html, p.published_at, p.updated_at,
-                   p.registered_at, p.indexed_at, p.authors, p.image, p.tags,
+                   p.registered_at, p.indexed_at, p.authors, p.image, p.images, p.tags,
                    p.language, p.reference, p.relationships, p.funding_references,
-                   p.blog_name, p.blog_slug, p.rid, p.files,
+                   p.blog_name, p.blog_slug, p.rid,
                    row_to_json(b.*) as blog
             FROM posts p
             INNER JOIN blogs b ON p.blog_slug = b.slug
@@ -782,9 +782,9 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
         data_query = """
             SELECT p.id, p.guid, p.doi, p.url, p.archive_url, p.title, p.summary,
                    p.abstract, p.content_html, p.published_at, p.updated_at,
-                   p.registered_at, p.indexed_at, p.authors, p.image, p.tags,
+                   p.registered_at, p.indexed_at, p.authors, p.image, p.images, p.tags,
                    p.language, p.reference, p.relationships, p.funding_references,
-                   p.blog_name, p.blog_slug, p.rid, p.files,
+                   p.blog_name, p.blog_slug, p.rid,
                    row_to_json(b.*) as blog
             FROM posts p
             INNER JOIN blogs b ON p.blog_slug = b.slug
@@ -815,10 +815,10 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
         data_query = """
             SELECT p.id, p.guid, p.doi, p.parent_doi, p.url, p.archive_url,
                    p.title, p.summary, p.abstract, p.published_at, p.updated_at,
-                   p.registered_at, p.indexed_at, p.indexed, p.authors, p.image,
+                   p.registered_at, p.indexed_at, p.indexed, p.authors, p.image, p.images,
                    p.tags, p.language, p.reference, p.relationships,
                    p.funding_references, p.blog_name, p.blog_slug, p.content_html,
-                   p.rid, p.version, p.files,
+                   p.rid, p.version,
                    row_to_json(b.*) as blog,
                    (
                        SELECT json_agg(row_to_json(c.*))
@@ -906,9 +906,9 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
                 SELECT p.id, p.guid, p.doi, p.parent_doi, p.url, p.archive_url,
                        p.title, p.summary, p.abstract, p.published_at, p.updated_at,
                        p.registered_at, p.indexed_at, p.indexed, p.authors, p.image,
-                       p.tags, p.language, p.reference, p.relationships,
+                       p.images, p.tags, p.language, p.reference, p.relationships,
                        p.funding_references, p.blog_name, p.blog_slug, p.content_html,
-                       p.rid, p.version, p.files,
+                       p.rid, p.version,
                        row_to_json(b.*) as blog,
                        (
                            SELECT json_agg(row_to_json(c.*))
@@ -926,9 +926,9 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
                     SELECT p.id, p.guid, p.doi, p.parent_doi, p.url, p.archive_url,
                            p.title, p.summary, p.abstract, p.published_at, p.updated_at,
                            p.registered_at, p.indexed_at, p.indexed, p.authors, p.image,
-                           p.tags, p.language, p.reference, p.relationships,
+                           p.images, p.tags, p.language, p.reference, p.relationships,
                            p.funding_references, p.blog_name, p.blog_slug, p.content_html,
-                           p.rid, p.version, p.files,
+                           p.rid, p.version,
                            row_to_json(b.*) as blog
                     FROM posts p
                     INNER JOIN blogs b ON p.blog_slug = b.slug
@@ -943,9 +943,9 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
                 SELECT p.id, p.guid, p.doi, p.parent_doi, p.url, p.archive_url,
                        p.title, p.summary, p.abstract, p.published_at, p.updated_at,
                        p.registered_at, p.indexed_at, p.indexed, p.authors, p.image,
-                       p.tags, p.language, p.reference, p.relationships,
+                       p.images, p.tags, p.language, p.reference, p.relationships,
                        p.funding_references, p.blog_name, p.blog_slug, p.content_html,
-                       p.rid, p.version, p.files,
+                       p.rid, p.version,
                        row_to_json(b.*) as blog,
                        (
                            SELECT json_agg(row_to_json(c.*))
@@ -963,9 +963,9 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
                     SELECT p.id, p.guid, p.doi, p.parent_doi, p.url, p.archive_url,
                            p.title, p.summary, p.abstract, p.published_at, p.updated_at,
                            p.registered_at, p.indexed_at, p.indexed, p.authors, p.image,
-                           p.tags, p.language, p.reference, p.relationships,
+                           p.images, p.tags, p.language, p.reference, p.relationships,
                            p.funding_references, p.blog_name, p.blog_slug, p.content_html,
-                           p.rid, p.version, p.files,
+                           p.rid, p.version,
                            row_to_json(b.*) as blog
                     FROM posts p
                     INNER JOIN blogs b ON p.blog_slug = b.slug
@@ -1066,26 +1066,6 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
             content, error = write_pdf(markdown)
             if error is not None:
                 logger.error(error)
-            # with pikepdf.open(BytesIO(content)) as pdf:
-            #     memfilespec = AttachedFileSpec(
-            #         pdf, markdown.encode("utf-8"), mime_type="text/markdown"
-            #     )
-            #     pdf.attachments[f"{basename}.md"] = memfilespec
-            #     if image:
-            #         image_bytes = download_image(image)
-            #         if image_bytes:
-            #             img_ext = get_extension_from_url(image)
-            #             if img_ext not in ["jpg", "jpeg", "png", "gif", "svg", "webp"]:
-            #                 img_ext = "bin"
-            #             img_memfilespec = AttachedFileSpec(
-            #                 pdf,
-            #                 image_bytes,
-            #                 mime_type=f"image/{img_ext}",
-            #             )
-            #             pdf.attachments[f"image.{img_ext}"] = img_memfilespec
-            #     output = BytesIO()
-            #     pdf.save(output)
-            #     pdf_bytes = output.getvalue()
             return (
                 content,
                 200,

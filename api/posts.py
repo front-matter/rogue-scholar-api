@@ -27,7 +27,7 @@ from commonmeta import (
 from commonmeta.writers.inveniordm_writer import push_inveniordm
 
 # from urllib.parse import urljoin
-from commonmeta.base_utils import compact, dig, wrap
+from commonmeta.base_utils import compact, dig, unique, wrap
 from commonmeta.date_utils import get_datetime_from_time
 from math import ceil, floor
 from Levenshtein import ratio
@@ -1186,7 +1186,6 @@ async def extract_wordpress_post(
             or dig(post, "yoast_head_json.og_image[0].url")
             or post.get("jetpack_featured_media_url", None)
         )
-        files = get_files(images, image)
         # workaround for blogs not using embedded.wp:featuredmedia[0]
         if image is None and presence(images):
             image = next(
@@ -1197,6 +1196,7 @@ async def extract_wordpress_post(
                 ),
                 None,
             )
+        files = get_files(images, image)
 
         # optionally remove terms (categories and tags) used to filter posts
         if blog.get("filter", None):
@@ -2371,7 +2371,6 @@ async def upsert_single_post(post, previous: str | None = None):
                 "guid": post.get("guid", None),
                 "status": post.get("status", "active"),
                 "archive_url": post.get("archive_url", None),
-                "files": post.get("files", []),
                 "version": post.get("version", "v1"),
             },
         )
@@ -2949,7 +2948,7 @@ def get_files(images: list, image: str | None = None):
                     "url": image["src"],
                 }
             )
-    return files
+    return unique(files)
 
 
 def get_urls(content_html: str):
