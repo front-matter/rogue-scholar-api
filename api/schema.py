@@ -111,6 +111,7 @@ class Post:
     relationships: list = field(default_factory=list)
     funding_references: list | None = None
     images: list = field(default_factory=list)
+    files: list = field(default_factory=list)
     blog_name: str | None = None
     category: str | None = None
     subfield: str | None = None

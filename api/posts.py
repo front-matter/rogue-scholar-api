@@ -1186,6 +1186,7 @@ async def extract_wordpress_post(
             or dig(post, "yoast_head_json.og_image[0].url")
             or post.get("jetpack_featured_media_url", None)
         )
+        files = get_files(images, image)
         # workaround for blogs not using embedded.wp:featuredmedia[0]
         if image is None and presence(images):
             image = next(
@@ -1267,6 +1268,7 @@ async def extract_wordpress_post(
             "archive_url": archive_url,
             "version": "v1",
             "guid": guid,
+            "files": files,
             "status": blog.get("status", "active"),
         }
     except Exception:
@@ -1320,6 +1322,7 @@ async def extract_wordpresscom_post(
                 ),
                 None,
             )
+        files = get_files(images, image)
         categories = tags = [
             normalize_tag(i)
             for i in post.get("categories", {}).keys()
@@ -1360,6 +1363,7 @@ async def extract_wordpresscom_post(
             "archive_url": archive_url,
             "version": version,
             "guid": post.get("guid", None),
+            "files": files,
             "status": blog.get("status", "active"),
         }
     except Exception:
@@ -1401,6 +1405,7 @@ async def extract_blogger_post(
         url = normalize_url(post.get("url", None), secure=blog.get("secure", True))
         archive_url = get_archive_url(blog, url, published_at)
         images = get_images(content_html, url, blog.get("home_page_url", None))
+        files = get_files(images)
         tags = [
             normalize_tag(i) for i in post.get("labels", []) if i not in EXCLUDED_TAGS
         ][:5]
@@ -1442,6 +1447,7 @@ async def extract_blogger_post(
             "archive_url": archive_url,
             "version": version,
             "guid": guid,
+            "files": files,
             "status": blog.get("status", "active"),
         }
     except Exception:
@@ -1488,6 +1494,7 @@ async def extract_ghost_post(
             guid = post.get("id", None)
         images = get_images(content_html, url, blog.get("home_page_url", None))
         image = post.get("feature_image", None)
+        files = get_files(images, image)
         tags = [
             normalize_tag(i.get("name", None))
             for i in post.get("tags", None)
@@ -1528,6 +1535,7 @@ async def extract_ghost_post(
             "archive_url": archive_url,
             "version": version,
             "guid": guid,
+            "files": files,
             "status": blog.get("status", "active"),
         }
     except Exception:
@@ -1574,6 +1582,7 @@ async def extract_substack_post(
         archive_url = get_archive_url(blog, url, published_at)
         images = get_images(content_html, url, blog.get("home_page_url", None))
         image = post.get("cover_image", None)
+        files = get_files(images, image)
         tags = [
             normalize_tag(i.get("name"))
             for i in wrap(post.get("postTags", None))
@@ -1614,6 +1623,7 @@ async def extract_substack_post(
             "archive_url": archive_url,
             "version": version,
             "guid": post.get("id", None),
+            "files": files,
             "status": blog.get("status", "active"),
         }
     except Exception:
@@ -1660,6 +1670,7 @@ async def extract_squarespace_post(
         archive_url = get_archive_url(blog, url, published_at)
         images = get_images(content_html, url, blog.get("home_page_url", None))
         image = post.get("assetUrl", None)
+        files = get_files(images, image)
         tags = [
             normalize_tag(i)
             for i in wrap(post.get("categories", None))
@@ -1700,6 +1711,7 @@ async def extract_squarespace_post(
             "archive_url": archive_url,
             "version": version,
             "guid": post.get("id", None),
+            "files": files,
             "status": blog.get("status", "active"),
         }
     except Exception:
@@ -1757,6 +1769,7 @@ async def extract_jsonfeed_post(
             base_url = blog.get("home_page_url", None)
         images = get_images(content_html, base_url, blog.get("home_page_url", None))
         image = dig(post, "media:thumbnail.@url")
+        files = get_files(images, image)
         tags = [
             normalize_tag(i)
             for i in wrap(post.get("tags", None))
@@ -1797,6 +1810,7 @@ async def extract_jsonfeed_post(
             "archive_url": archive_url,
             "version": version,
             "guid": post.get("id", None),
+            "files": files,
             "status": blog.get("status", "active"),
         }
     except Exception:
@@ -1906,6 +1920,7 @@ async def extract_atom_post(
                 image = unquote(image)
                 if f.path.segments[0] != "images":
                     image = f.set(path="/images/" + f.path.segments[0]).url
+        files = get_files(images, image)
         tags = [
             normalize_tag(i.get("@term", None))
             for i in wrap(post.get("category", None))
@@ -1946,6 +1961,7 @@ async def extract_atom_post(
             "archive_url": archive_url,
             "version": version,
             "guid": post.get("id", None),
+            "files": files,
             "status": blog.get("status", "active"),
         }
     except Exception:
@@ -2034,7 +2050,7 @@ async def extract_rss_post(
         # handle Hugo running on localhost
         if image and image.startswith("http://localhost:1313"):
             image = image.replace("http://localhost:1313", blog.get("home_page_url"))
-
+        files = get_files(images, image)
         tags = [
             normalize_tag(i)
             for i in wrap(post.get("category", None))
@@ -2075,6 +2091,7 @@ async def extract_rss_post(
             "archive_url": archive_url,
             "version": version,
             "guid": guid,
+            "files": files,
             "status": blog.get("status", "active"),
         }
     except Exception:
@@ -2148,7 +2165,7 @@ async def update_rogue_scholar_post(
         )
         images = get_images(content_html, url, blog["home_page_url"])
         image = post.get("image", None)
-
+        files = get_files(images, image)
         language = post.get("language", None) or detect_language(content_html)
         # optionally remove tag that is used to filter posts
         if blog.get("filter", None) and blog.get("filter", "").startswith("tag"):
@@ -2200,6 +2217,7 @@ async def update_rogue_scholar_post(
             "archive_url": archive_url,
             "version": version,
             "guid": post.get("guid"),
+            "files": files,
             "status": blog.get("status"),
         }
     except Exception:
@@ -2353,6 +2371,7 @@ async def upsert_single_post(post, previous: str | None = None):
                 "guid": post.get("guid", None),
                 "status": post.get("status", "active"),
                 "archive_url": post.get("archive_url", None),
+                "files": post.get("files", []),
                 "version": post.get("version", "v1"),
             },
         )
@@ -2914,6 +2933,23 @@ def get_images(content_html: str, url: str, home_page_url: str):
         print(e)
         print(traceback.format_exc())
         return []
+
+
+def get_files(images: list, image: str | None = None):
+    """Get files from images."""
+    if image is not None:
+        images = [{"src": image}] + images
+    if not images or len(images) == 0:
+        return []
+    files = []
+    for image in images:
+        if image.get("src", None):
+            files.append(
+                {
+                    "url": image["src"],
+                }
+            )
+    return files
 
 
 def get_urls(content_html: str):

@@ -6937,56 +6937,6 @@ def write_epub(markdown: str, feature_image: str | None = None):
         _ensure_pandoc_available()
         temp_dir = tempfile.mkdtemp(prefix="epub-assets-")
 
-        downloaded_images: dict[str, str] = {}
-
-        def download_image_to_temp(image_url: str, prefix: str = "image") -> str:
-            """Download a remote image once and return the local temp file path."""
-            if image_url in downloaded_images:
-                return downloaded_images[image_url]
-
-            response = httpx.get(image_url, follow_redirects=True, timeout=10)
-            response.raise_for_status()
-
-            parsed = urlparse(image_url)
-            suffix = path.splitext(parsed.path)[1] or ".jpg"
-            local_name = f"{prefix}-{len(downloaded_images) + 1}{suffix}"
-            local_path = path.join(temp_dir, local_name)
-
-            with open(local_path, "wb") as f:
-                f.write(response.content)
-
-            downloaded_images[image_url] = local_path
-            return local_path
-
-        def localize_image_url(image_url: str, prefix: str = "image") -> str:
-            """Best effort localization for remote images used in markdown."""
-            try:
-                return download_image_to_temp(image_url, prefix=prefix)
-            except Exception as err:
-                logger.warning(
-                    "Could not localize image URL for EPUB; using original URL",
-                    extra={"url": image_url, "error": str(err)},
-                )
-                return image_url
-
-        # Convert remote markdown image URLs to local temp files so pandoc can package them.
-        markdown = re.sub(
-            r"(!\[[^\]]*\]\()(https?://[^)\s]+)([^)]*\))",
-            lambda m: (
-                f"{m.group(1)}{localize_image_url(m.group(2), prefix='image')}{m.group(3)}"
-            ),
-            markdown,
-        )
-
-        # Convert remote HTML img src URLs in markdown to local temp files.
-        markdown = re.sub(
-            r'(<img[^>]*\s+src=["\'])(https?://[^"\']+)(["\'][^>]*>)',
-            lambda m: (
-                f"{m.group(1)}{localize_image_url(m.group(2), prefix='image')}{m.group(3)}"
-            ),
-            markdown,
-        )
-
         pandoc_dir = environ.get("QUART_PANDOC_DATA_DIR", "./pandoc")
         options = [
             "--standalone",
@@ -7011,9 +6961,22 @@ def write_epub(markdown: str, feature_image: str | None = None):
 
             # Store feature image in the same temp folder used for other downloaded images.
             if parsed.scheme in ("http", "https"):
-                cover_image_path = localize_image_url(
-                    feature_image, prefix="feature-image"
-                )
+                try:
+                    response = httpx.get(
+                        feature_image, follow_redirects=True, timeout=10
+                    )
+                    response.raise_for_status()
+                    suffix = path.splitext(parsed.path)[1] or ".jpg"
+                    local_cover_name = f"feature-image{suffix}"
+                    local_cover_path = path.join(temp_dir, local_cover_name)
+                    with open(local_cover_path, "wb") as f:
+                        f.write(response.content)
+                    cover_image_path = local_cover_path
+                except Exception as err:
+                    logger.warning(
+                        "Could not download feature image for EPUB; using original URL",
+                        extra={"url": feature_image, "error": str(err)},
+                    )
             else:
                 try:
                     suffix = path.splitext(feature_image)[1] or ".jpg"
@@ -7029,17 +6992,14 @@ def write_epub(markdown: str, feature_image: str | None = None):
 
             options.append(f"--epub-cover-image={cover_image_path}")
             options.extend(["-V", f"cover-image={path.basename(cover_image_path)}"])
-
-        epub_path = None
         try:
             with tempfile.NamedTemporaryFile(
                 suffix=".epub", delete=False
             ) as output_file:
                 epub_path = output_file.name
-
             pypandoc.convert_text(
                 markdown,
-                "epub",
+                "epub3",
                 format="commonmark_x",
                 extra_args=options,
                 outputfile=epub_path,
