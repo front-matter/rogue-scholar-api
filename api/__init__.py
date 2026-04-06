@@ -567,7 +567,7 @@ async def posts():
             SELECT p.id, p.guid, p.doi, p.parent_doi, p.url, p.archive_url,
                    p.title, p.summary, p.abstract, p.published_at, p.updated_at,
                    p.registered_at, p.indexed_at, p.indexed, p.authors, p.image,
-                   p.tags, p.language, p.reference, p.relationships,
+                   p.images, p.tags, p.language, p.reference, p.relationships,
                    p.funding_references, p.blog_name, p.blog_slug, p.content_html,
                    p.rid, p.version, p.status,
                    row_to_json(b.*) as blog
@@ -717,7 +717,7 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
         data_query = """
             SELECT p.id, p.guid, p.doi, p.url, p.archive_url, p.title, p.summary,
                    p.abstract, p.content_html, p.published_at, p.updated_at,
-                   p.registered_at, p.indexed_at, p.authors, p.image, p.tags,
+                   p.registered_at, p.indexed_at, p.authors, p.image, p.images, p.tags,
                    p.language, p.reference, p.relationships, p.funding_references,
                    p.blog_name, p.blog_slug, p.rid,
                    row_to_json(b.*) as blog
@@ -750,7 +750,7 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
         data_query = """
             SELECT p.id, p.guid, p.doi, p.url, p.archive_url, p.title, p.summary,
                    p.abstract, p.content_html, p.published_at, p.updated_at,
-                   p.registered_at, p.indexed_at, p.authors, p.image, p.tags,
+                   p.registered_at, p.indexed_at, p.authors, p.image, p.images, p.tags,
                    p.language, p.reference, p.relationships, p.funding_references,
                    p.blog_name, p.blog_slug, p.rid,
                    row_to_json(b.*) as blog
@@ -782,7 +782,7 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
         data_query = """
             SELECT p.id, p.guid, p.doi, p.url, p.archive_url, p.title, p.summary,
                    p.abstract, p.content_html, p.published_at, p.updated_at,
-                   p.registered_at, p.indexed_at, p.authors, p.image, p.tags,
+                   p.registered_at, p.indexed_at, p.authors, p.image, p.images, p.tags,
                    p.language, p.reference, p.relationships, p.funding_references,
                    p.blog_name, p.blog_slug, p.rid,
                    row_to_json(b.*) as blog
@@ -815,7 +815,7 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
         data_query = """
             SELECT p.id, p.guid, p.doi, p.parent_doi, p.url, p.archive_url,
                    p.title, p.summary, p.abstract, p.published_at, p.updated_at,
-                   p.registered_at, p.indexed_at, p.indexed, p.authors, p.image,
+                   p.registered_at, p.indexed_at, p.indexed, p.authors, p.image, p.images,
                    p.tags, p.language, p.reference, p.relationships,
                    p.funding_references, p.blog_name, p.blog_slug, p.content_html,
                    p.rid, p.version,
@@ -905,7 +905,7 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
             query = """
                 SELECT p.id, p.guid, p.doi, p.parent_doi, p.url, p.archive_url,
                        p.title, p.summary, p.abstract, p.published_at, p.updated_at,
-                       p.registered_at, p.indexed_at, p.indexed, p.authors, p.image,
+                       p.registered_at, p.indexed_at, p.indexed, p.authors, p.image, p.images,
                        p.tags, p.language, p.reference, p.relationships,
                        p.funding_references, p.blog_name, p.blog_slug, p.content_html,
                        p.rid, p.version,
@@ -925,7 +925,7 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
                 query = """
                     SELECT p.id, p.guid, p.doi, p.parent_doi, p.url, p.archive_url,
                            p.title, p.summary, p.abstract, p.published_at, p.updated_at,
-                           p.registered_at, p.indexed_at, p.indexed, p.authors, p.image,
+                           p.registered_at, p.indexed_at, p.indexed, p.authors, p.image, p.images,
                            p.tags, p.language, p.reference, p.relationships,
                            p.funding_references, p.blog_name, p.blog_slug, p.content_html,
                            p.rid, p.version,
@@ -943,7 +943,7 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
                 SELECT p.id, p.guid, p.doi, p.parent_doi, p.url, p.archive_url,
                        p.title, p.summary, p.abstract, p.published_at, p.updated_at,
                        p.registered_at, p.indexed_at, p.indexed, p.authors, p.image,
-                       p.tags, p.language, p.reference, p.relationships,
+                       p.images, p.tags, p.language, p.reference, p.relationships,
                        p.funding_references, p.blog_name, p.blog_slug, p.content_html,
                        p.rid, p.version,
                        row_to_json(b.*) as blog,
@@ -963,7 +963,7 @@ async def post(slug: str, suffix: str | None = None, relation: str | None = None
                     SELECT p.id, p.guid, p.doi, p.parent_doi, p.url, p.archive_url,
                            p.title, p.summary, p.abstract, p.published_at, p.updated_at,
                            p.registered_at, p.indexed_at, p.indexed, p.authors, p.image,
-                           p.tags, p.language, p.reference, p.relationships,
+                           p.images, p.tags, p.language, p.reference, p.relationships,
                            p.funding_references, p.blog_name, p.blog_slug, p.content_html,
                            p.rid, p.version,
                            row_to_json(b.*) as blog
