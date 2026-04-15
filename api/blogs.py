@@ -10,7 +10,15 @@ from bs4 import BeautifulSoup as bs4
 from furl import furl
 import datetime
 import pydash as py_
-from commonmeta import get_date_from_unix_timestamp, get_language, compact, dig, wrap
+from commonmeta import (
+    Metadata,
+    get_date_from_unix_timestamp,
+    get_language,
+    compact,
+    dig,
+    wrap,
+)
+from commonmeta.writers.crossref_xml_writer import push_crossref_xml
 
 from api.db_client import Database, BlogsQueries
 from api.utils import (
@@ -310,6 +318,27 @@ async def push_blog_community_id(slug):
 
 def upsert_blog_community(blog):
     """Upsert an InvenioRDM blog community."""
+
+    # upsert blog DOI with Crossref
+    login_id = environ.get("QUART_CROSSREF_USERNAME_WITH_ROLE", None)
+    login_passwd = environ.get("QUART_CROSSREF_PASSWORD", None)
+    if login_id is not None and login_passwd is not None:
+        string = f"https://api.rogue-scholar.org/blogs/{blog.get('slug')}"
+        metadata = Metadata(string, via="jsonfeed")
+        metadata.depositor = environ.get("QUART_CROSSREF_DEPOSITOR", None)
+        metadata.email = environ.get("QUART_CROSSREF_EMAIL", None)
+        metadata.registrant = environ.get("QUART_CROSSREF_REGISTRANT", None)
+        record = push_crossref_xml(
+            metadata,
+            login_id=login_id,
+            login_passwd=login_passwd,
+            test_mode=False,
+            host=None,
+            token=None,
+            legacy_conn=None,
+        )
+        print(record)
+
     if blog.get("community_id", None) is None:
         response = create_blog_community(blog)
     else:
