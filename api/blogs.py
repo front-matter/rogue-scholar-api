@@ -119,6 +119,10 @@ async def extract_single_blog(slug: str):
         language = config["language"] or feed.get("language", None)
         if language:
             language = language.split("-")[0]
+        prefix = config["prefix"]
+        doi = config["doi"]
+        if prefix:
+            doi = f"https://doi.org/{prefix}/{slug}"
     except Exception as error:
         print(error)
 
@@ -164,6 +168,7 @@ async def extract_single_blog(slug: str):
         "community_id": config["community_id"],
         "prefix": config["prefix"],
         "issn": config["issn"],
+        "doi": doi,
         "feed_format": config["feed_format"],
     }
     await update_single_blog(blog)
@@ -336,6 +341,7 @@ def create_blog_community(blog):
                 "rs:generator": get_generator(blog.get("generator", "Other")),
                 "rs:license": get_license(blog.get("license")),
                 "rs:issn": blog.get("issn", None),
+                "rs:doi": blog.get("doi", None),
                 "rs:prefix": blog.get("prefix", None),
                 "rs:joined": format_datetime(
                     get_date_from_unix_timestamp(blog.get("created_at", 0)), "en"
@@ -390,6 +396,7 @@ def update_blog_community(blog):
                 "rs:generator": get_generator(blog.get("generator", "Other")),
                 "rs:license": get_license(blog.get("license")),
                 "rs:issn": blog.get("issn", None),
+                "rs:doi": blog.get("doi", None),
                 "rs:prefix": blog.get("prefix", None),
                 "rs:joined": format_datetime(
                     get_date_from_unix_timestamp(blog.get("created_at", 0)), "en"

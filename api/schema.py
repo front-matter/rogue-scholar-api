@@ -39,6 +39,7 @@ class Blog:
     status: str | None = None
     license: str | None = None
     issn: str | None = None
+    doi: str | None = None
     authors: list = field(default_factory=list)
     funding: dict | None = None
     user_id: str | None = None

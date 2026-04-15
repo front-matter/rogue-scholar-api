@@ -112,7 +112,9 @@ class DatabasePool:
                 logger.info("Database pool initialized successfully")
             except Exception as e:
                 self._pool = None
-                await asyncio.get_event_loop().run_in_executor(None, _ssh_tunnel_singleton.stop)
+                await asyncio.get_event_loop().run_in_executor(
+                    None, _ssh_tunnel_singleton.stop
+                )
                 logger.error(f"Failed to initialize database pool: {e}", exc_info=True)
                 raise ConnectionError(f"Database initialization failed: {e}")
 
@@ -409,7 +411,7 @@ class Database:
 # Common select field sets
 BLOGS_SELECT = """
     slug, title, description, language, favicon, feed_url, 
-    feed_format, home_page_url, generator, category, subfield
+    feed_format, home_page_url, generator, category, subfield, issn, doi
 """
 
 POSTS_SELECT = """
@@ -462,7 +464,7 @@ class BlogsQueries:
                    license, mastodon, generator, generator_raw, language, 
                    favicon, title, description, category, subfield, status, 
                    user_id, authors, use_api, relative_url, filter, secure, 
-                   community_id, prefix, issn
+                   community_id, prefix, issn, doi
             FROM blogs
             WHERE slug = %(slug)s
         """
@@ -477,7 +479,7 @@ class BlogsQueries:
         ]
         query = f"""
             UPDATE blogs
-            SET {', '.join(set_clauses)}, updated_at = EXTRACT(EPOCH FROM NOW())
+            SET {", ".join(set_clauses)}, updated_at = EXTRACT(EPOCH FROM NOW())
             WHERE slug = %(slug)s
         """
         params = {**updates, "slug": slug}

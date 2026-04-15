@@ -366,6 +366,10 @@ IRREGULAR_AUTHOR_NAMES = {
         "given_name": "Alysson",
         "family_name": "Fernandes Mazoni",
     },
+    "Christopher Stephen Marcum": {
+        "given_name": "Christopher Stephen",
+        "family_name": "Marcum",
+    },
     # Organization names
     "Make Data Count": {
         "name": "Make Data Count",
