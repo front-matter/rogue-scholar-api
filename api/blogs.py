@@ -323,6 +323,18 @@ def upsert_blog_community(blog):
     login_id = environ.get("QUART_CROSSREF_USERNAME_WITH_ROLE", None)
     login_passwd = environ.get("QUART_CROSSREF_PASSWORD", None)
     if login_id is not None and login_passwd is not None:
+        upsert_blog_doi(blog, login_id=login_id, login_passwd=login_passwd)
+
+    if blog.get("community_id", None) is None:
+        response = create_blog_community(blog)
+    else:
+        response = update_blog_community(blog)
+    return response
+
+
+def upsert_blog_doi(blog, login_id, login_passwd):
+    """Upsert a blog DOI with Crossref without aborting the community update."""
+    try:
         string = f"https://api.rogue-scholar.org/blogs/{blog.get('slug')}"
         metadata = Metadata(string, via="jsonfeed")
         metadata.depositor = environ.get("QUART_CROSSREF_DEPOSITOR", None)
@@ -338,12 +350,10 @@ def upsert_blog_community(blog):
             legacy_conn=None,
         )
         print(record)
-
-    if blog.get("community_id", None) is None:
-        response = create_blog_community(blog)
-    else:
-        response = update_blog_community(blog)
-    return response
+        return record
+    except Exception as error:
+        print(error)
+        return None
 
 
 def create_blog_community(blog):

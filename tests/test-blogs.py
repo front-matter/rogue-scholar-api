@@ -1,5 +1,7 @@
 """Test blogs"""
 
+import importlib
+import requests
 import pytest  # noqa: F401
 
 from api import app
@@ -14,6 +16,8 @@ from api.blogs import (
     create_blog_community,
     update_blog_community,
 )
+
+blogs_module = importlib.import_module("api.blogs")
 
 
 @pytest.mark.asyncio
@@ -312,6 +316,35 @@ def test_update_blog_community_metadatagamechangers():
     result = update_blog_community(blog)
     # May succeed or fail depending on community state
     assert result.status_code in [200, 404]
+
+
+def test_upsert_blog_community_continues_after_metadata_timeout(monkeypatch):
+    "community upsert continues when DOI metadata fetch times out"
+
+    class DummyResponse:
+        status_code = 200
+
+    blog = {
+        "slug": "timeout-blog",
+        "community_id": None,
+    }
+
+    monkeypatch.setenv("QUART_CROSSREF_USERNAME_WITH_ROLE", "user")
+    monkeypatch.setenv("QUART_CROSSREF_PASSWORD", "secret")
+    monkeypatch.setattr(
+        blogs_module,
+        "Metadata",
+        lambda *args, **kwargs: (_ for _ in ()).throw(
+            requests.exceptions.ReadTimeout()
+        ),
+    )
+    monkeypatch.setattr(
+        blogs_module, "create_blog_community", lambda blog: DummyResponse()
+    )
+
+    result = upsert_blog_community(blog)
+
+    assert result.status_code == 200
 
 
 # @pytest.mark.vcr
