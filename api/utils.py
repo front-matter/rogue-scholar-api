@@ -230,6 +230,7 @@ AUTHOR_IDS = {
     "Rodrigo Costas": "https://orcid.org/0000-0002-7465-6462",
     "Nees Jan van Eck": "https://orcid.org/0000-0001-8448-4521",
     "Alysson Fernandes Mazoni": "https://orcid.org/0000-0001-5265-6894",
+    "Hendrik Friederichs": "https://orcid.org/0000-0001-9671-5235",
     "Clarivate": "https://ror.org/04fce1c40",
     "Redivis": "https://ror.org/02jdaj147",
     "Crossref Staff": "https://ror.org/02twcfp32",
@@ -313,6 +314,7 @@ AUTHOR_NAMES = {
     "vgrass": "Volker Grassmuck",
     "benweinstein95fa7c74fb": "Ben Weinstein",
     "nico": "Nicola Romanò",
+    "francishunger": "Francis Hunger",
 }
 
 COAUTHOR_NAMES = {
