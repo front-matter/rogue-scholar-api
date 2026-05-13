@@ -15,6 +15,7 @@ from api.blogs import (
     upsert_blog_community,
     create_blog_community,
     update_blog_community,
+    generate_opml,
 )
 
 blogs_module = importlib.import_module("api.blogs")
@@ -355,3 +356,152 @@ def test_upsert_blog_community_continues_after_metadata_timeout(monkeypatch):
 #     assert result.status_code == 201
 #     response = result.json()
 #     assert response["id"] == _id
+
+
+@pytest.mark.asyncio
+async def test_generate_opml_route():
+    """GET /blogs/opml returns valid OPML XML."""
+    try:
+        async with app.test_app():
+            test_client = app.test_client()
+            response = await test_client.get("/blogs/opml")
+            assert response.status_code == 200
+            assert "opml" in response.content_type
+            body = await response.get_data(as_text=True)
+            assert "<?xml version=" in body
+            assert "<opml " in body
+            assert "<body>" in body
+    except TimeoutError, OSError:
+        pytest.skip("Requires a live database connection")
+
+
+@pytest.mark.asyncio
+async def test_generate_opml_structure(monkeypatch):
+    """generate_opml groups blogs by subfield name and emits correct outline elements."""
+    from unittest.mock import AsyncMock
+
+    fake_blogs = [
+        {
+            "slug": "blog-a",
+            "title": "Blog A",
+            "feed_url": "https://example.com/a/feed",
+            "home_page_url": "https://example.com/a",
+            "subfield": "1702",  # Artificial Intelligence
+        },
+        {
+            "slug": "blog-b",
+            "title": "Blog B",
+            "feed_url": "https://example.com/b/feed",
+            "home_page_url": "https://example.com/b",
+            "subfield": "1702",  # Artificial Intelligence
+        },
+        {
+            "slug": "blog-c",
+            "title": "Blog C",
+            "feed_url": "https://example.com/c/feed",
+            "home_page_url": "https://example.com/c",
+            "subfield": None,  # Uncategorized
+        },
+    ]
+
+    monkeypatch.setattr(
+        blogs_module.BlogsQueries,
+        "select_all",
+        AsyncMock(return_value=fake_blogs),
+    )
+
+    # Clear any cached result from previous tests
+    blogs_module._opml_cache = None
+
+    xml = await generate_opml()
+
+    assert "<?xml version=" in xml
+    assert 'version="2.0"' in xml
+    assert "Rogue Scholar" in xml
+    assert "Artificial Intelligence" in xml
+    assert "Uncategorized" in xml
+    assert 'xmlUrl="https://example.com/a/feed"' in xml
+    assert 'xmlUrl="https://example.com/b/feed"' in xml
+    assert 'xmlUrl="https://example.com/c/feed"' in xml
+    # Both AI blogs should appear under the same category
+    assert xml.index("Artificial Intelligence") < xml.index("Uncategorized")
+
+
+@pytest.mark.asyncio
+async def test_generate_opml_cache(monkeypatch):
+    """generate_opml returns cached result and skips DB on second call."""
+    from unittest.mock import AsyncMock
+
+    fake_blogs = [
+        {
+            "slug": "blog-a",
+            "title": "Blog A",
+            "feed_url": "https://example.com/a/feed",
+            "home_page_url": "https://example.com/a",
+            "subfield": None,
+        },
+    ]
+    mock_select = AsyncMock(return_value=fake_blogs)
+    monkeypatch.setattr(blogs_module.BlogsQueries, "select_all", mock_select)
+    blogs_module._opml_cache = None
+
+    first = await generate_opml()
+    second = await generate_opml()
+
+    assert first == second
+    # DB should only have been called once; second call used the cache
+    mock_select.assert_called_once()
+
+
+@pytest.mark.asyncio
+async def test_generate_opml_cache_expiry(monkeypatch):
+    """generate_opml re-fetches from DB when cache has expired."""
+    import time
+    from unittest.mock import AsyncMock
+
+    fake_blogs = [
+        {
+            "slug": "blog-a",
+            "title": "Blog A",
+            "feed_url": "https://example.com/a/feed",
+            "home_page_url": "https://example.com/a",
+            "subfield": None,
+        },
+    ]
+    mock_select = AsyncMock(return_value=fake_blogs)
+    monkeypatch.setattr(blogs_module.BlogsQueries, "select_all", mock_select)
+
+    # Plant an already-expired cache entry
+    blogs_module._opml_cache = (time.monotonic() - blogs_module._OPML_TTL - 1, "stale")
+
+    xml = await generate_opml()
+
+    assert xml != "stale"
+    mock_select.assert_called_once()
+
+
+@pytest.mark.asyncio
+async def test_generate_opml_force_overwrites_cache(monkeypatch):
+    """generate_opml with force=True bypasses a still-valid cache entry."""
+    import time
+    from unittest.mock import AsyncMock
+
+    fake_blogs = [
+        {
+            "slug": "blog-a",
+            "title": "Blog A",
+            "feed_url": "https://example.com/a/feed",
+            "home_page_url": "https://example.com/a",
+            "subfield": None,
+        },
+    ]
+    mock_select = AsyncMock(return_value=fake_blogs)
+    monkeypatch.setattr(blogs_module.BlogsQueries, "select_all", mock_select)
+
+    # Plant a fresh, valid cache entry
+    blogs_module._opml_cache = (time.monotonic(), "cached")
+
+    xml = await generate_opml(force=True)
+
+    assert xml != "cached"
+    mock_select.assert_called_once()

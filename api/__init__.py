@@ -50,7 +50,7 @@ from api.posts import (
     delete_all_draft_records,
     update_all_cited_posts,
 )
-from api.blogs import extract_single_blog, extract_all_blogs
+from api.blogs import extract_single_blog, extract_all_blogs, generate_opml
 from api.citations import extract_all_citations, extract_all_citations_by_prefix
 from api.schema import Blog, Citation, Post, PostQuery
 
@@ -191,6 +191,16 @@ async def health():
 async def blogs_redirect():
     """Redirect /blogs/ to /blogs."""
     return redirect("/blogs", code=301)
+
+
+@app.route("/blogs/opml")
+async def blogs_opml():
+    """Export all active blogs as OPML, grouped by subfield."""
+    from quart import Response
+
+    force = _is_authorized()
+    xml = await generate_opml(force=force)
+    return Response(xml, content_type="text/x-opml; charset=utf-8")
 
 
 @validate_response(Blog)

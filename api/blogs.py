@@ -2,6 +2,7 @@
 
 import socket
 import asyncio
+import time
 from os import environ
 import httpx
 import feedparser
@@ -28,6 +29,7 @@ from api.utils import (
     normalize_url,
     is_valid_url,
     format_datetime,
+    OPENALEX_SUBFIELD_MAPPINGS,
 )
 
 
@@ -555,6 +557,63 @@ def get_subfield(subfield: str) -> list:
         if subfield
         else []
     )
+
+
+_opml_cache: tuple[float, str] | None = None
+_OPML_TTL = 3600  # 60 minutes
+
+
+async def generate_opml(*, force: bool = False) -> str:
+    """Generate OPML export for all active blogs, grouped by subfield name.
+
+    Result is cached for 60 minutes. Pass ``force=True`` to bypass the cache
+    and refresh immediately.
+    """
+    global _opml_cache
+    if (
+        not force
+        and _opml_cache is not None
+        and time.monotonic() - _opml_cache[0] < _OPML_TTL
+    ):
+        return _opml_cache[1]
+
+    from xml.etree.ElementTree import Element, SubElement, tostring
+    from xml.dom.minidom import parseString
+
+    blogs_data = await BlogsQueries.select_all(statuses=["active"], order_by="title")
+
+    # Group blogs by subfield name
+    groups: dict[str, list[dict]] = {}
+    for blog in blogs_data:
+        subfield_id = blog.get("subfield") or ""
+        subfield_name = OPENALEX_SUBFIELD_MAPPINGS.get(subfield_id, "Uncategorized")
+        groups.setdefault(subfield_name, []).append(blog)
+
+    opml = Element("opml", version="2.0")
+    head = SubElement(opml, "head")
+    title_el = SubElement(head, "title")
+    title_el.text = "Rogue Scholar"
+    body = SubElement(opml, "body")
+
+    for subfield_name in sorted(groups):
+        category_el = SubElement(
+            body, "outline", text=subfield_name, title=subfield_name
+        )
+        for blog in sorted(groups[subfield_name], key=lambda b: b.get("title") or ""):
+            attrs = {
+                "type": "rss",
+                "text": blog.get("title") or blog.get("slug", ""),
+                "title": blog.get("title") or blog.get("slug", ""),
+                "xmlUrl": blog.get("feed_url") or "",
+                "htmlUrl": blog.get("home_page_url") or "",
+            }
+            SubElement(category_el, "outline", **attrs)
+
+    xml_bytes = tostring(opml, encoding="unicode")
+    pretty = parseString(xml_bytes).toprettyxml(indent="  ", encoding="UTF-8")
+    result = pretty.decode("UTF-8")
+    _opml_cache = (time.monotonic(), result)
+    return result
 
 
 def search_by_slug(slug: str) -> str | None:
