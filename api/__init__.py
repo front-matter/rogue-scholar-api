@@ -200,7 +200,11 @@ async def blogs_opml():
 
     force = _is_authorized()
     xml = await generate_opml(force=force)
-    return Response(xml, content_type="text/x-opml; charset=utf-8")
+    return Response(
+        xml,
+        content_type="text/x-opml; charset=utf-8",
+        headers={"Content-Disposition": "attachment; filename=rogue_scholar.opml"},
+    )
 
 
 @validate_response(Blog)
